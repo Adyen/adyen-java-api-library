@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +40,9 @@ import java.util.logging.Logger;
 public class AccountHolderCapability {
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowed = false;
 
   /**
    * The capability level that is allowed for the account holder. Possible values:
@@ -90,17 +95,32 @@ public class AccountHolderCapability {
   public static final String JSON_PROPERTY_ALLOWED_LEVEL = "allowedLevel";
   private AllowedLevelEnum allowedLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedLevel = false;
+
   public static final String JSON_PROPERTY_ALLOWED_SETTINGS = "allowedSettings";
   private CapabilitySettings allowedSettings;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedSettings = false;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnabled = false;
+
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
   private List<CapabilityProblem> problems;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProblems = false;
+
   public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequested = false;
 
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card
@@ -155,11 +175,20 @@ public class AccountHolderCapability {
   public static final String JSON_PROPERTY_REQUESTED_LEVEL = "requestedLevel";
   private RequestedLevelEnum requestedLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedLevel = false;
+
   public static final String JSON_PROPERTY_REQUESTED_SETTINGS = "requestedSettings";
   private CapabilitySettings requestedSettings;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedSettings = false;
+
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENTS = "transferInstruments";
   private List<AccountSupportingEntityCapability> transferInstruments;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstruments = false;
 
   /**
    * The status of the verification checks for the capability. Possible values: * **pending**: Adyen
@@ -215,6 +244,15 @@ public class AccountHolderCapability {
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private VerificationStatusEnum verificationStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AccountHolderCapability() {}
 
   @JsonCreator
@@ -267,6 +305,7 @@ public class AccountHolderCapability {
    */
   public AccountHolderCapability allowedSettings(CapabilitySettings allowedSettings) {
     this.allowedSettings = allowedSettings;
+    isSetAllowedSettings = true; // mark as set
     return this;
   }
 
@@ -290,6 +329,7 @@ public class AccountHolderCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedSettings(CapabilitySettings allowedSettings) {
     this.allowedSettings = allowedSettings;
+    isSetAllowedSettings = true; // mark as set
   }
 
   /**
@@ -302,6 +342,7 @@ public class AccountHolderCapability {
    */
   public AccountHolderCapability enabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
     return this;
   }
 
@@ -329,6 +370,7 @@ public class AccountHolderCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
   }
 
   /**
@@ -353,6 +395,7 @@ public class AccountHolderCapability {
    */
   public AccountHolderCapability requested(Boolean requested) {
     this.requested = requested;
+    isSetRequested = true; // mark as set
     return this;
   }
 
@@ -380,6 +423,7 @@ public class AccountHolderCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
     this.requested = requested;
+    isSetRequested = true; // mark as set
   }
 
   /**
@@ -397,6 +441,7 @@ public class AccountHolderCapability {
    */
   public AccountHolderCapability requestedLevel(RequestedLevelEnum requestedLevel) {
     this.requestedLevel = requestedLevel;
+    isSetRequestedLevel = true; // mark as set
     return this;
   }
 
@@ -434,6 +479,7 @@ public class AccountHolderCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(RequestedLevelEnum requestedLevel) {
     this.requestedLevel = requestedLevel;
+    isSetRequestedLevel = true; // mark as set
   }
 
   /**
@@ -444,6 +490,7 @@ public class AccountHolderCapability {
    */
   public AccountHolderCapability requestedSettings(CapabilitySettings requestedSettings) {
     this.requestedSettings = requestedSettings;
+    isSetRequestedSettings = true; // mark as set
     return this;
   }
 
@@ -467,6 +514,7 @@ public class AccountHolderCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedSettings(CapabilitySettings requestedSettings) {
     this.requestedSettings = requestedSettings;
+    isSetRequestedSettings = true; // mark as set
   }
 
   /**
@@ -498,6 +546,26 @@ public class AccountHolderCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public VerificationStatusEnum getVerificationStatus() {
     return verificationStatus;
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AccountHolderCapability includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AccountHolderCapability object is equal to o. */
@@ -565,6 +633,57 @@ public class AccountHolderCapability {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowed) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED, this.allowed);
+    }
+    if (isSetAllowedLevel) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_LEVEL, this.allowedLevel);
+    }
+    if (isSetAllowedSettings) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_SETTINGS, this.allowedSettings);
+    }
+    if (isSetEnabled) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLED, this.enabled);
+    }
+    if (isSetProblems) {
+      addIfNull(nulls, JSON_PROPERTY_PROBLEMS, this.problems);
+    }
+    if (isSetRequested) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED, this.requested);
+    }
+    if (isSetRequestedLevel) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED_LEVEL, this.requestedLevel);
+    }
+    if (isSetRequestedSettings) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED_SETTINGS, this.requestedSettings);
+    }
+    if (isSetTransferInstruments) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENTS, this.transferInstruments);
+    }
+    if (isSetVerificationStatus) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_STATUS, this.verificationStatus);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

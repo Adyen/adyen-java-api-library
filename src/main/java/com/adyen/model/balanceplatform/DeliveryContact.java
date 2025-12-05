@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,23 +33,50 @@ public class DeliveryContact {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private DeliveryAddress address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_COMPANY = "company";
   private String company;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompany = false;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
+
   public static final String JSON_PROPERTY_FULL_PHONE_NUMBER = "fullPhoneNumber";
   private String fullPhoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFullPhoneNumber = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private Name name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private PhoneNumber phoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
+
   public static final String JSON_PROPERTY_WEB_ADDRESS = "webAddress";
   private String webAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWebAddress = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DeliveryContact() {}
 
@@ -59,6 +88,7 @@ public class DeliveryContact {
    */
   public DeliveryContact address(DeliveryAddress address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
@@ -82,6 +112,7 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(DeliveryAddress address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -92,6 +123,7 @@ public class DeliveryContact {
    */
   public DeliveryContact company(String company) {
     this.company = company;
+    isSetCompany = true; // mark as set
     return this;
   }
 
@@ -115,6 +147,7 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(String company) {
     this.company = company;
+    isSetCompany = true; // mark as set
   }
 
   /**
@@ -125,6 +158,7 @@ public class DeliveryContact {
    */
   public DeliveryContact email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -148,6 +182,7 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -162,6 +197,7 @@ public class DeliveryContact {
    */
   public DeliveryContact fullPhoneNumber(String fullPhoneNumber) {
     this.fullPhoneNumber = fullPhoneNumber;
+    isSetFullPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -193,6 +229,7 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullPhoneNumber(String fullPhoneNumber) {
     this.fullPhoneNumber = fullPhoneNumber;
+    isSetFullPhoneNumber = true; // mark as set
   }
 
   /**
@@ -203,6 +240,7 @@ public class DeliveryContact {
    */
   public DeliveryContact name(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -226,6 +264,7 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -236,6 +275,7 @@ public class DeliveryContact {
    */
   public DeliveryContact phoneNumber(PhoneNumber phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -259,6 +299,7 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(PhoneNumber phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -269,6 +310,7 @@ public class DeliveryContact {
    */
   public DeliveryContact webAddress(String webAddress) {
     this.webAddress = webAddress;
+    isSetWebAddress = true; // mark as set
     return this;
   }
 
@@ -292,6 +334,27 @@ public class DeliveryContact {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
     this.webAddress = webAddress;
+    isSetWebAddress = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DeliveryContact includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DeliveryContact object is equal to o. */
@@ -341,6 +404,48 @@ public class DeliveryContact {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetCompany) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY, this.company);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetFullPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_FULL_PHONE_NUMBER, this.fullPhoneNumber);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetWebAddress) {
+      addIfNull(nulls, JSON_PROPERTY_WEB_ADDRESS, this.webAddress);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,14 +32,32 @@ public class CapitalGrantAccount {
   public static final String JSON_PROPERTY_BALANCES = "balances";
   private List<CapitalBalance> balances;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalances = false;
+
   public static final String JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID = "fundingBalanceAccountId";
   private String fundingBalanceAccountId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingBalanceAccountId = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_LIMITS = "limits";
   private List<GrantLimit> limits;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLimits = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CapitalGrantAccount() {}
 
@@ -49,6 +69,7 @@ public class CapitalGrantAccount {
    */
   public CapitalGrantAccount balances(List<CapitalBalance> balances) {
     this.balances = balances;
+    isSetBalances = true; // mark as set
     return this;
   }
 
@@ -80,6 +101,7 @@ public class CapitalGrantAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<CapitalBalance> balances) {
     this.balances = balances;
+    isSetBalances = true; // mark as set
   }
 
   /**
@@ -91,6 +113,7 @@ public class CapitalGrantAccount {
    */
   public CapitalGrantAccount fundingBalanceAccountId(String fundingBalanceAccountId) {
     this.fundingBalanceAccountId = fundingBalanceAccountId;
+    isSetFundingBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -116,6 +139,7 @@ public class CapitalGrantAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingBalanceAccountId(String fundingBalanceAccountId) {
     this.fundingBalanceAccountId = fundingBalanceAccountId;
+    isSetFundingBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -126,6 +150,7 @@ public class CapitalGrantAccount {
    */
   public CapitalGrantAccount id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -149,6 +174,7 @@ public class CapitalGrantAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -159,6 +185,7 @@ public class CapitalGrantAccount {
    */
   public CapitalGrantAccount limits(List<GrantLimit> limits) {
     this.limits = limits;
+    isSetLimits = true; // mark as set
     return this;
   }
 
@@ -190,6 +217,27 @@ public class CapitalGrantAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimits(List<GrantLimit> limits) {
     this.limits = limits;
+    isSetLimits = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CapitalGrantAccount includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CapitalGrantAccount object is equal to o. */
@@ -235,6 +283,39 @@ public class CapitalGrantAccount {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalances) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCES, this.balances);
+    }
+    if (isSetFundingBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID, this.fundingBalanceAccountId);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLimits) {
+      addIfNull(nulls, JSON_PROPERTY_LIMITS, this.limits);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

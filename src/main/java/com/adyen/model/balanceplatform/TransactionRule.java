@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,20 +44,38 @@ public class TransactionRule {
   public static final String JSON_PROPERTY_AGGREGATION_LEVEL = "aggregationLevel";
   private String aggregationLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAggregationLevel = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_END_DATE = "endDate";
   private String endDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndDate = false;
+
   public static final String JSON_PROPERTY_ENTITY_KEY = "entityKey";
   private TransactionRuleEntityKey entityKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityKey = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private TransactionRuleInterval interval;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInterval = false;
 
   /**
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied
@@ -115,8 +135,14 @@ public class TransactionRule {
   public static final String JSON_PROPERTY_OUTCOME_TYPE = "outcomeType";
   private OutcomeTypeEnum outcomeType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOutcomeType = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * Indicates the type of request to which the rule applies. If not provided, by default, this is
@@ -170,14 +196,26 @@ public class TransactionRule {
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
   private RequestTypeEnum requestType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestType = false;
+
   public static final String JSON_PROPERTY_RULE_RESTRICTIONS = "ruleRestrictions";
   private TransactionRuleRestrictions ruleRestrictions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRuleRestrictions = false;
 
   public static final String JSON_PROPERTY_SCORE = "score";
   private Integer score;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScore = false;
+
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   private String startDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartDate = false;
 
   /**
    * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the
@@ -226,6 +264,9 @@ public class TransactionRule {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
 
   /**
    * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines
@@ -283,6 +324,15 @@ public class TransactionRule {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TransactionRule() {}
 
   /**
@@ -303,6 +353,7 @@ public class TransactionRule {
    */
   public TransactionRule aggregationLevel(String aggregationLevel) {
     this.aggregationLevel = aggregationLevel;
+    isSetAggregationLevel = true; // mark as set
     return this;
   }
 
@@ -346,6 +397,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAggregationLevel(String aggregationLevel) {
     this.aggregationLevel = aggregationLevel;
+    isSetAggregationLevel = true; // mark as set
   }
 
   /**
@@ -356,6 +408,7 @@ public class TransactionRule {
    */
   public TransactionRule description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -379,6 +432,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -393,6 +447,7 @@ public class TransactionRule {
    */
   public TransactionRule endDate(String endDate) {
     this.endDate = endDate;
+    isSetEndDate = true; // mark as set
     return this;
   }
 
@@ -424,6 +479,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndDate(String endDate) {
     this.endDate = endDate;
+    isSetEndDate = true; // mark as set
   }
 
   /**
@@ -434,6 +490,7 @@ public class TransactionRule {
    */
   public TransactionRule entityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
+    isSetEntityKey = true; // mark as set
     return this;
   }
 
@@ -457,6 +514,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
+    isSetEntityKey = true; // mark as set
   }
 
   /**
@@ -467,6 +525,7 @@ public class TransactionRule {
    */
   public TransactionRule id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -490,6 +549,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -500,6 +560,7 @@ public class TransactionRule {
    */
   public TransactionRule interval(TransactionRuleInterval interval) {
     this.interval = interval;
+    isSetInterval = true; // mark as set
     return this;
   }
 
@@ -523,6 +584,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(TransactionRuleInterval interval) {
     this.interval = interval;
+    isSetInterval = true; // mark as set
   }
 
   /**
@@ -550,6 +612,7 @@ public class TransactionRule {
    */
   public TransactionRule outcomeType(OutcomeTypeEnum outcomeType) {
     this.outcomeType = outcomeType;
+    isSetOutcomeType = true; // mark as set
     return this;
   }
 
@@ -607,6 +670,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(OutcomeTypeEnum outcomeType) {
     this.outcomeType = outcomeType;
+    isSetOutcomeType = true; // mark as set
   }
 
   /**
@@ -617,6 +681,7 @@ public class TransactionRule {
    */
   public TransactionRule reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -640,6 +705,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -654,6 +720,7 @@ public class TransactionRule {
    */
   public TransactionRule requestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
+    isSetRequestType = true; // mark as set
     return this;
   }
 
@@ -685,6 +752,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
+    isSetRequestType = true; // mark as set
   }
 
   /**
@@ -695,6 +763,7 @@ public class TransactionRule {
    */
   public TransactionRule ruleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
+    isSetRuleRestrictions = true; // mark as set
     return this;
   }
 
@@ -718,6 +787,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRuleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
+    isSetRuleRestrictions = true; // mark as set
   }
 
   /**
@@ -732,6 +802,7 @@ public class TransactionRule {
    */
   public TransactionRule score(Integer score) {
     this.score = score;
+    isSetScore = true; // mark as set
     return this;
   }
 
@@ -763,6 +834,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
+    isSetScore = true; // mark as set
   }
 
   /**
@@ -778,6 +850,7 @@ public class TransactionRule {
    */
   public TransactionRule startDate(String startDate) {
     this.startDate = startDate;
+    isSetStartDate = true; // mark as set
     return this;
   }
 
@@ -811,6 +884,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartDate(String startDate) {
     this.startDate = startDate;
+    isSetStartDate = true; // mark as set
   }
 
   /**
@@ -825,6 +899,7 @@ public class TransactionRule {
    */
   public TransactionRule status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -856,6 +931,7 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -878,6 +954,7 @@ public class TransactionRule {
    */
   public TransactionRule type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -925,6 +1002,27 @@ public class TransactionRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransactionRule includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransactionRule object is equal to o. */
@@ -1002,6 +1100,69 @@ public class TransactionRule {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAggregationLevel) {
+      addIfNull(nulls, JSON_PROPERTY_AGGREGATION_LEVEL, this.aggregationLevel);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetEndDate) {
+      addIfNull(nulls, JSON_PROPERTY_END_DATE, this.endDate);
+    }
+    if (isSetEntityKey) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_KEY, this.entityKey);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetInterval) {
+      addIfNull(nulls, JSON_PROPERTY_INTERVAL, this.interval);
+    }
+    if (isSetOutcomeType) {
+      addIfNull(nulls, JSON_PROPERTY_OUTCOME_TYPE, this.outcomeType);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetRequestType) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_TYPE, this.requestType);
+    }
+    if (isSetRuleRestrictions) {
+      addIfNull(nulls, JSON_PROPERTY_RULE_RESTRICTIONS, this.ruleRestrictions);
+    }
+    if (isSetScore) {
+      addIfNull(nulls, JSON_PROPERTY_SCORE, this.score);
+    }
+    if (isSetStartDate) {
+      addIfNull(nulls, JSON_PROPERTY_START_DATE, this.startDate);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

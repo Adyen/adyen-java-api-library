@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,8 +30,20 @@ public class CapabilityProblem {
   public static final String JSON_PROPERTY_ENTITY = "entity";
   private CapabilityProblemEntity entity;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntity = false;
+
   public static final String JSON_PROPERTY_VERIFICATION_ERRORS = "verificationErrors";
   private List<VerificationError> verificationErrors;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationErrors = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CapabilityProblem() {}
 
@@ -41,6 +55,7 @@ public class CapabilityProblem {
    */
   public CapabilityProblem entity(CapabilityProblemEntity entity) {
     this.entity = entity;
+    isSetEntity = true; // mark as set
     return this;
   }
 
@@ -64,6 +79,7 @@ public class CapabilityProblem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(CapabilityProblemEntity entity) {
     this.entity = entity;
+    isSetEntity = true; // mark as set
   }
 
   /**
@@ -74,6 +90,7 @@ public class CapabilityProblem {
    */
   public CapabilityProblem verificationErrors(List<VerificationError> verificationErrors) {
     this.verificationErrors = verificationErrors;
+    isSetVerificationErrors = true; // mark as set
     return this;
   }
 
@@ -105,6 +122,27 @@ public class CapabilityProblem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationErrors(List<VerificationError> verificationErrors) {
     this.verificationErrors = verificationErrors;
+    isSetVerificationErrors = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CapabilityProblem includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CapabilityProblem object is equal to o. */
@@ -144,6 +182,33 @@ public class CapabilityProblem {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetEntity) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY, this.entity);
+    }
+    if (isSetVerificationErrors) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_ERRORS, this.verificationErrors);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,80 +51,161 @@ public class TransactionRuleRestrictions {
   public static final String JSON_PROPERTY_ACTIVE_NETWORK_TOKENS = "activeNetworkTokens";
   private ActiveNetworkTokensRestriction activeNetworkTokens;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActiveNetworkTokens = false;
+
   public static final String JSON_PROPERTY_BRAND_VARIANTS = "brandVariants";
   private BrandVariantsRestriction brandVariants;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrandVariants = false;
 
   public static final String JSON_PROPERTY_COUNTERPARTY_BANK = "counterpartyBank";
   private CounterpartyBankRestriction counterpartyBank;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCounterpartyBank = false;
+
   public static final String JSON_PROPERTY_COUNTERPARTY_TYPES = "counterpartyTypes";
   private CounterpartyTypesRestriction counterpartyTypes;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCounterpartyTypes = false;
 
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private CountriesRestriction countries;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountries = false;
+
   public static final String JSON_PROPERTY_DAY_OF_WEEK = "dayOfWeek";
   private DayOfWeekRestriction dayOfWeek;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDayOfWeek = false;
 
   public static final String JSON_PROPERTY_DIFFERENT_CURRENCIES = "differentCurrencies";
   private DifferentCurrenciesRestriction differentCurrencies;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDifferentCurrencies = false;
+
   public static final String JSON_PROPERTY_ENTRY_MODES = "entryModes";
   private EntryModesRestriction entryModes;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntryModes = false;
 
   public static final String JSON_PROPERTY_INTERNATIONAL_TRANSACTION = "internationalTransaction";
   private InternationalTransactionRestriction internationalTransaction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInternationalTransaction = false;
+
   public static final String JSON_PROPERTY_MATCHING_TRANSACTIONS = "matchingTransactions";
   private MatchingTransactionsRestriction matchingTransactions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMatchingTransactions = false;
 
   public static final String JSON_PROPERTY_MATCHING_VALUES = "matchingValues";
   private MatchingValuesRestriction matchingValues;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMatchingValues = false;
+
   public static final String JSON_PROPERTY_MCCS = "mccs";
   private MccsRestriction mccs;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMccs = false;
 
   public static final String JSON_PROPERTY_MERCHANT_NAMES = "merchantNames";
   private MerchantNamesRestriction merchantNames;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantNames = false;
+
   public static final String JSON_PROPERTY_MERCHANTS = "merchants";
   private MerchantsRestriction merchants;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchants = false;
 
   public static final String JSON_PROPERTY_PROCESSING_TYPES = "processingTypes";
   private ProcessingTypesRestriction processingTypes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProcessingTypes = false;
+
   public static final String JSON_PROPERTY_RISK_SCORES = "riskScores";
   private RiskScoresRestriction riskScores;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskScores = false;
+
   public static final String JSON_PROPERTY_SAME_AMOUNT_RESTRICTION = "sameAmountRestriction";
   private SameAmountRestriction sameAmountRestriction;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSameAmountRestriction = false;
 
   public static final String JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION =
       "sameCounterpartyRestriction";
   private SameCounterpartyRestriction sameCounterpartyRestriction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSameCounterpartyRestriction = false;
+
   public static final String JSON_PROPERTY_SOURCE_ACCOUNT_TYPES = "sourceAccountTypes";
   private SourceAccountTypesRestriction sourceAccountTypes;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSourceAccountTypes = false;
 
   public static final String JSON_PROPERTY_TIME_OF_DAY = "timeOfDay";
   private TimeOfDayRestriction timeOfDay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeOfDay = false;
+
   public static final String JSON_PROPERTY_TOKEN_REQUESTORS = "tokenRequestors";
   private TokenRequestorsRestriction tokenRequestors;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenRequestors = false;
+
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "totalAmount";
   private TotalAmountRestriction totalAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTotalAmount = false;
 
   public static final String JSON_PROPERTY_WALLET_PROVIDER_ACCOUNT_SCORE =
       "walletProviderAccountScore";
   private WalletProviderAccountScoreRestriction walletProviderAccountScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWalletProviderAccountScore = false;
+
   public static final String JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE =
       "walletProviderDeviceScore";
   private WalletProviderDeviceScore walletProviderDeviceScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWalletProviderDeviceScore = false;
+
   public static final String JSON_PROPERTY_WALLET_PROVIDER_DEVICE_TYPE = "walletProviderDeviceType";
   private WalletProviderDeviceType walletProviderDeviceType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWalletProviderDeviceType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TransactionRuleRestrictions() {}
 
@@ -135,6 +218,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions activeNetworkTokens(
       ActiveNetworkTokensRestriction activeNetworkTokens) {
     this.activeNetworkTokens = activeNetworkTokens;
+    isSetActiveNetworkTokens = true; // mark as set
     return this;
   }
 
@@ -158,6 +242,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActiveNetworkTokens(ActiveNetworkTokensRestriction activeNetworkTokens) {
     this.activeNetworkTokens = activeNetworkTokens;
+    isSetActiveNetworkTokens = true; // mark as set
   }
 
   /**
@@ -168,6 +253,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions brandVariants(BrandVariantsRestriction brandVariants) {
     this.brandVariants = brandVariants;
+    isSetBrandVariants = true; // mark as set
     return this;
   }
 
@@ -191,6 +277,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariants(BrandVariantsRestriction brandVariants) {
     this.brandVariants = brandVariants;
+    isSetBrandVariants = true; // mark as set
   }
 
   /**
@@ -202,6 +289,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions counterpartyBank(
       CounterpartyBankRestriction counterpartyBank) {
     this.counterpartyBank = counterpartyBank;
+    isSetCounterpartyBank = true; // mark as set
     return this;
   }
 
@@ -225,6 +313,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterpartyBank(CounterpartyBankRestriction counterpartyBank) {
     this.counterpartyBank = counterpartyBank;
+    isSetCounterpartyBank = true; // mark as set
   }
 
   /**
@@ -236,6 +325,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions counterpartyTypes(
       CounterpartyTypesRestriction counterpartyTypes) {
     this.counterpartyTypes = counterpartyTypes;
+    isSetCounterpartyTypes = true; // mark as set
     return this;
   }
 
@@ -259,6 +349,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterpartyTypes(CounterpartyTypesRestriction counterpartyTypes) {
     this.counterpartyTypes = counterpartyTypes;
+    isSetCounterpartyTypes = true; // mark as set
   }
 
   /**
@@ -269,6 +360,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions countries(CountriesRestriction countries) {
     this.countries = countries;
+    isSetCountries = true; // mark as set
     return this;
   }
 
@@ -292,6 +384,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(CountriesRestriction countries) {
     this.countries = countries;
+    isSetCountries = true; // mark as set
   }
 
   /**
@@ -302,6 +395,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions dayOfWeek(DayOfWeekRestriction dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
+    isSetDayOfWeek = true; // mark as set
     return this;
   }
 
@@ -325,6 +419,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfWeek(DayOfWeekRestriction dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
+    isSetDayOfWeek = true; // mark as set
   }
 
   /**
@@ -336,6 +431,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions differentCurrencies(
       DifferentCurrenciesRestriction differentCurrencies) {
     this.differentCurrencies = differentCurrencies;
+    isSetDifferentCurrencies = true; // mark as set
     return this;
   }
 
@@ -359,6 +455,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDifferentCurrencies(DifferentCurrenciesRestriction differentCurrencies) {
     this.differentCurrencies = differentCurrencies;
+    isSetDifferentCurrencies = true; // mark as set
   }
 
   /**
@@ -369,6 +466,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions entryModes(EntryModesRestriction entryModes) {
     this.entryModes = entryModes;
+    isSetEntryModes = true; // mark as set
     return this;
   }
 
@@ -392,6 +490,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntryModes(EntryModesRestriction entryModes) {
     this.entryModes = entryModes;
+    isSetEntryModes = true; // mark as set
   }
 
   /**
@@ -403,6 +502,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions internationalTransaction(
       InternationalTransactionRestriction internationalTransaction) {
     this.internationalTransaction = internationalTransaction;
+    isSetInternationalTransaction = true; // mark as set
     return this;
   }
 
@@ -427,6 +527,7 @@ public class TransactionRuleRestrictions {
   public void setInternationalTransaction(
       InternationalTransactionRestriction internationalTransaction) {
     this.internationalTransaction = internationalTransaction;
+    isSetInternationalTransaction = true; // mark as set
   }
 
   /**
@@ -438,6 +539,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions matchingTransactions(
       MatchingTransactionsRestriction matchingTransactions) {
     this.matchingTransactions = matchingTransactions;
+    isSetMatchingTransactions = true; // mark as set
     return this;
   }
 
@@ -461,6 +563,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchingTransactions(MatchingTransactionsRestriction matchingTransactions) {
     this.matchingTransactions = matchingTransactions;
+    isSetMatchingTransactions = true; // mark as set
   }
 
   /**
@@ -471,6 +574,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions matchingValues(MatchingValuesRestriction matchingValues) {
     this.matchingValues = matchingValues;
+    isSetMatchingValues = true; // mark as set
     return this;
   }
 
@@ -494,6 +598,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchingValues(MatchingValuesRestriction matchingValues) {
     this.matchingValues = matchingValues;
+    isSetMatchingValues = true; // mark as set
   }
 
   /**
@@ -504,6 +609,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions mccs(MccsRestriction mccs) {
     this.mccs = mccs;
+    isSetMccs = true; // mark as set
     return this;
   }
 
@@ -527,6 +633,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMccs(MccsRestriction mccs) {
     this.mccs = mccs;
+    isSetMccs = true; // mark as set
   }
 
   /**
@@ -537,6 +644,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions merchantNames(MerchantNamesRestriction merchantNames) {
     this.merchantNames = merchantNames;
+    isSetMerchantNames = true; // mark as set
     return this;
   }
 
@@ -560,6 +668,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantNames(MerchantNamesRestriction merchantNames) {
     this.merchantNames = merchantNames;
+    isSetMerchantNames = true; // mark as set
   }
 
   /**
@@ -570,6 +679,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions merchants(MerchantsRestriction merchants) {
     this.merchants = merchants;
+    isSetMerchants = true; // mark as set
     return this;
   }
 
@@ -593,6 +703,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchants(MerchantsRestriction merchants) {
     this.merchants = merchants;
+    isSetMerchants = true; // mark as set
   }
 
   /**
@@ -603,6 +714,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions processingTypes(ProcessingTypesRestriction processingTypes) {
     this.processingTypes = processingTypes;
+    isSetProcessingTypes = true; // mark as set
     return this;
   }
 
@@ -626,6 +738,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingTypes(ProcessingTypesRestriction processingTypes) {
     this.processingTypes = processingTypes;
+    isSetProcessingTypes = true; // mark as set
   }
 
   /**
@@ -636,6 +749,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions riskScores(RiskScoresRestriction riskScores) {
     this.riskScores = riskScores;
+    isSetRiskScores = true; // mark as set
     return this;
   }
 
@@ -659,6 +773,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScores(RiskScoresRestriction riskScores) {
     this.riskScores = riskScores;
+    isSetRiskScores = true; // mark as set
   }
 
   /**
@@ -670,6 +785,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions sameAmountRestriction(
       SameAmountRestriction sameAmountRestriction) {
     this.sameAmountRestriction = sameAmountRestriction;
+    isSetSameAmountRestriction = true; // mark as set
     return this;
   }
 
@@ -693,6 +809,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
     this.sameAmountRestriction = sameAmountRestriction;
+    isSetSameAmountRestriction = true; // mark as set
   }
 
   /**
@@ -704,6 +821,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions sameCounterpartyRestriction(
       SameCounterpartyRestriction sameCounterpartyRestriction) {
     this.sameCounterpartyRestriction = sameCounterpartyRestriction;
+    isSetSameCounterpartyRestriction = true; // mark as set
     return this;
   }
 
@@ -728,6 +846,7 @@ public class TransactionRuleRestrictions {
   public void setSameCounterpartyRestriction(
       SameCounterpartyRestriction sameCounterpartyRestriction) {
     this.sameCounterpartyRestriction = sameCounterpartyRestriction;
+    isSetSameCounterpartyRestriction = true; // mark as set
   }
 
   /**
@@ -739,6 +858,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions sourceAccountTypes(
       SourceAccountTypesRestriction sourceAccountTypes) {
     this.sourceAccountTypes = sourceAccountTypes;
+    isSetSourceAccountTypes = true; // mark as set
     return this;
   }
 
@@ -762,6 +882,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourceAccountTypes(SourceAccountTypesRestriction sourceAccountTypes) {
     this.sourceAccountTypes = sourceAccountTypes;
+    isSetSourceAccountTypes = true; // mark as set
   }
 
   /**
@@ -772,6 +893,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions timeOfDay(TimeOfDayRestriction timeOfDay) {
     this.timeOfDay = timeOfDay;
+    isSetTimeOfDay = true; // mark as set
     return this;
   }
 
@@ -795,6 +917,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeOfDay(TimeOfDayRestriction timeOfDay) {
     this.timeOfDay = timeOfDay;
+    isSetTimeOfDay = true; // mark as set
   }
 
   /**
@@ -805,6 +928,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions tokenRequestors(TokenRequestorsRestriction tokenRequestors) {
     this.tokenRequestors = tokenRequestors;
+    isSetTokenRequestors = true; // mark as set
     return this;
   }
 
@@ -828,6 +952,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenRequestors(TokenRequestorsRestriction tokenRequestors) {
     this.tokenRequestors = tokenRequestors;
+    isSetTokenRequestors = true; // mark as set
   }
 
   /**
@@ -838,6 +963,7 @@ public class TransactionRuleRestrictions {
    */
   public TransactionRuleRestrictions totalAmount(TotalAmountRestriction totalAmount) {
     this.totalAmount = totalAmount;
+    isSetTotalAmount = true; // mark as set
     return this;
   }
 
@@ -861,6 +987,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(TotalAmountRestriction totalAmount) {
     this.totalAmount = totalAmount;
+    isSetTotalAmount = true; // mark as set
   }
 
   /**
@@ -872,6 +999,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions walletProviderAccountScore(
       WalletProviderAccountScoreRestriction walletProviderAccountScore) {
     this.walletProviderAccountScore = walletProviderAccountScore;
+    isSetWalletProviderAccountScore = true; // mark as set
     return this;
   }
 
@@ -896,6 +1024,7 @@ public class TransactionRuleRestrictions {
   public void setWalletProviderAccountScore(
       WalletProviderAccountScoreRestriction walletProviderAccountScore) {
     this.walletProviderAccountScore = walletProviderAccountScore;
+    isSetWalletProviderAccountScore = true; // mark as set
   }
 
   /**
@@ -907,6 +1036,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions walletProviderDeviceScore(
       WalletProviderDeviceScore walletProviderDeviceScore) {
     this.walletProviderDeviceScore = walletProviderDeviceScore;
+    isSetWalletProviderDeviceScore = true; // mark as set
     return this;
   }
 
@@ -930,6 +1060,7 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletProviderDeviceScore(WalletProviderDeviceScore walletProviderDeviceScore) {
     this.walletProviderDeviceScore = walletProviderDeviceScore;
+    isSetWalletProviderDeviceScore = true; // mark as set
   }
 
   /**
@@ -941,6 +1072,7 @@ public class TransactionRuleRestrictions {
   public TransactionRuleRestrictions walletProviderDeviceType(
       WalletProviderDeviceType walletProviderDeviceType) {
     this.walletProviderDeviceType = walletProviderDeviceType;
+    isSetWalletProviderDeviceType = true; // mark as set
     return this;
   }
 
@@ -964,6 +1096,27 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletProviderDeviceType(WalletProviderDeviceType walletProviderDeviceType) {
     this.walletProviderDeviceType = walletProviderDeviceType;
+    isSetWalletProviderDeviceType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransactionRuleRestrictions includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransactionRuleRestrictions object is equal to o. */
@@ -1100,6 +1253,104 @@ public class TransactionRuleRestrictions {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetActiveNetworkTokens) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE_NETWORK_TOKENS, this.activeNetworkTokens);
+    }
+    if (isSetBrandVariants) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND_VARIANTS, this.brandVariants);
+    }
+    if (isSetCounterpartyBank) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY_BANK, this.counterpartyBank);
+    }
+    if (isSetCounterpartyTypes) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY_TYPES, this.counterpartyTypes);
+    }
+    if (isSetCountries) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRIES, this.countries);
+    }
+    if (isSetDayOfWeek) {
+      addIfNull(nulls, JSON_PROPERTY_DAY_OF_WEEK, this.dayOfWeek);
+    }
+    if (isSetDifferentCurrencies) {
+      addIfNull(nulls, JSON_PROPERTY_DIFFERENT_CURRENCIES, this.differentCurrencies);
+    }
+    if (isSetEntryModes) {
+      addIfNull(nulls, JSON_PROPERTY_ENTRY_MODES, this.entryModes);
+    }
+    if (isSetInternationalTransaction) {
+      addIfNull(nulls, JSON_PROPERTY_INTERNATIONAL_TRANSACTION, this.internationalTransaction);
+    }
+    if (isSetMatchingTransactions) {
+      addIfNull(nulls, JSON_PROPERTY_MATCHING_TRANSACTIONS, this.matchingTransactions);
+    }
+    if (isSetMatchingValues) {
+      addIfNull(nulls, JSON_PROPERTY_MATCHING_VALUES, this.matchingValues);
+    }
+    if (isSetMccs) {
+      addIfNull(nulls, JSON_PROPERTY_MCCS, this.mccs);
+    }
+    if (isSetMerchantNames) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_NAMES, this.merchantNames);
+    }
+    if (isSetMerchants) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANTS, this.merchants);
+    }
+    if (isSetProcessingTypes) {
+      addIfNull(nulls, JSON_PROPERTY_PROCESSING_TYPES, this.processingTypes);
+    }
+    if (isSetRiskScores) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SCORES, this.riskScores);
+    }
+    if (isSetSameAmountRestriction) {
+      addIfNull(nulls, JSON_PROPERTY_SAME_AMOUNT_RESTRICTION, this.sameAmountRestriction);
+    }
+    if (isSetSameCounterpartyRestriction) {
+      addIfNull(
+          nulls, JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION, this.sameCounterpartyRestriction);
+    }
+    if (isSetSourceAccountTypes) {
+      addIfNull(nulls, JSON_PROPERTY_SOURCE_ACCOUNT_TYPES, this.sourceAccountTypes);
+    }
+    if (isSetTimeOfDay) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_OF_DAY, this.timeOfDay);
+    }
+    if (isSetTokenRequestors) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_REQUESTORS, this.tokenRequestors);
+    }
+    if (isSetTotalAmount) {
+      addIfNull(nulls, JSON_PROPERTY_TOTAL_AMOUNT, this.totalAmount);
+    }
+    if (isSetWalletProviderAccountScore) {
+      addIfNull(
+          nulls, JSON_PROPERTY_WALLET_PROVIDER_ACCOUNT_SCORE, this.walletProviderAccountScore);
+    }
+    if (isSetWalletProviderDeviceScore) {
+      addIfNull(nulls, JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE, this.walletProviderDeviceScore);
+    }
+    if (isSetWalletProviderDeviceType) {
+      addIfNull(nulls, JSON_PROPERTY_WALLET_PROVIDER_DEVICE_TYPE, this.walletProviderDeviceType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

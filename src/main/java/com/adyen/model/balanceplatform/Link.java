@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,17 +31,38 @@ public class Link {
   public static final String JSON_PROPERTY_FIRST = "first";
   private Href first;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirst = false;
+
   public static final String JSON_PROPERTY_LAST = "last";
   private Href last;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLast = false;
 
   public static final String JSON_PROPERTY_NEXT = "next";
   private Href next;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNext = false;
+
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private Href previous;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPrevious = false;
+
   public static final String JSON_PROPERTY_SELF = "self";
   private Href self;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelf = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Link() {}
 
@@ -51,6 +74,7 @@ public class Link {
    */
   public Link first(Href first) {
     this.first = first;
+    isSetFirst = true; // mark as set
     return this;
   }
 
@@ -74,6 +98,7 @@ public class Link {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirst(Href first) {
     this.first = first;
+    isSetFirst = true; // mark as set
   }
 
   /**
@@ -84,6 +109,7 @@ public class Link {
    */
   public Link last(Href last) {
     this.last = last;
+    isSetLast = true; // mark as set
     return this;
   }
 
@@ -107,6 +133,7 @@ public class Link {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLast(Href last) {
     this.last = last;
+    isSetLast = true; // mark as set
   }
 
   /**
@@ -117,6 +144,7 @@ public class Link {
    */
   public Link next(Href next) {
     this.next = next;
+    isSetNext = true; // mark as set
     return this;
   }
 
@@ -140,6 +168,7 @@ public class Link {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(Href next) {
     this.next = next;
+    isSetNext = true; // mark as set
   }
 
   /**
@@ -150,6 +179,7 @@ public class Link {
    */
   public Link previous(Href previous) {
     this.previous = previous;
+    isSetPrevious = true; // mark as set
     return this;
   }
 
@@ -173,6 +203,7 @@ public class Link {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(Href previous) {
     this.previous = previous;
+    isSetPrevious = true; // mark as set
   }
 
   /**
@@ -183,6 +214,7 @@ public class Link {
    */
   public Link self(Href self) {
     this.self = self;
+    isSetSelf = true; // mark as set
     return this;
   }
 
@@ -206,6 +238,27 @@ public class Link {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(Href self) {
     this.self = self;
+    isSetSelf = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Link includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Link object is equal to o. */
@@ -251,6 +304,42 @@ public class Link {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetFirst) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST, this.first);
+    }
+    if (isSetLast) {
+      addIfNull(nulls, JSON_PROPERTY_LAST, this.last);
+    }
+    if (isSetNext) {
+      addIfNull(nulls, JSON_PROPERTY_NEXT, this.next);
+    }
+    if (isSetPrevious) {
+      addIfNull(nulls, JSON_PROPERTY_PREVIOUS, this.previous);
+    }
+    if (isSetSelf) {
+      addIfNull(nulls, JSON_PROPERTY_SELF, this.self);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
