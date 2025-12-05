@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,14 +45,26 @@ public class PaymentMethod {
   public static final String JSON_PROPERTY_APPS = "apps";
   private List<PaymentMethodUPIApps> apps;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApps = false;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
 
   public static final String JSON_PROPERTY_BRANDS = "brands";
   private List<String> brands;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrands = false;
+
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
   private Map<String, String> configuration;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfiguration = false;
 
   /** The funding source of the payment method. */
   public enum FundingSourceEnum {
@@ -96,24 +110,51 @@ public class PaymentMethod {
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
+
   public static final String JSON_PROPERTY_GROUP = "group";
   private PaymentMethodGroup group;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGroup = false;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
   @Deprecated // deprecated
   private List<InputDetail> inputDetails;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInputDetails = false;
+
   public static final String JSON_PROPERTY_ISSUERS = "issuers";
   private List<PaymentMethodIssuer> issuers;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuers = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_PROMOTED = "promoted";
   private Boolean promoted;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPromoted = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethod() {}
 
@@ -125,6 +166,7 @@ public class PaymentMethod {
    */
   public PaymentMethod apps(List<PaymentMethodUPIApps> apps) {
     this.apps = apps;
+    isSetApps = true; // mark as set
     return this;
   }
 
@@ -156,6 +198,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<PaymentMethodUPIApps> apps) {
     this.apps = apps;
+    isSetApps = true; // mark as set
   }
 
   /**
@@ -166,6 +209,7 @@ public class PaymentMethod {
    */
   public PaymentMethod brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -189,6 +233,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -199,6 +244,7 @@ public class PaymentMethod {
    */
   public PaymentMethod brands(List<String> brands) {
     this.brands = brands;
+    isSetBrands = true; // mark as set
     return this;
   }
 
@@ -230,6 +276,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
     this.brands = brands;
+    isSetBrands = true; // mark as set
   }
 
   /**
@@ -240,6 +287,7 @@ public class PaymentMethod {
    */
   public PaymentMethod configuration(Map<String, String> configuration) {
     this.configuration = configuration;
+    isSetConfiguration = true; // mark as set
     return this;
   }
 
@@ -271,6 +319,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
     this.configuration = configuration;
+    isSetConfiguration = true; // mark as set
   }
 
   /**
@@ -281,6 +330,7 @@ public class PaymentMethod {
    */
   public PaymentMethod fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -304,6 +354,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -314,6 +365,7 @@ public class PaymentMethod {
    */
   public PaymentMethod group(PaymentMethodGroup group) {
     this.group = group;
+    isSetGroup = true; // mark as set
     return this;
   }
 
@@ -337,6 +389,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(PaymentMethodGroup group) {
     this.group = group;
+    isSetGroup = true; // mark as set
   }
 
   /**
@@ -350,6 +403,7 @@ public class PaymentMethod {
   @Deprecated // deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
+    isSetInputDetails = true; // mark as set
     return this;
   }
 
@@ -387,6 +441,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
+    isSetInputDetails = true; // mark as set
   }
 
   /**
@@ -397,6 +452,7 @@ public class PaymentMethod {
    */
   public PaymentMethod issuers(List<PaymentMethodIssuer> issuers) {
     this.issuers = issuers;
+    isSetIssuers = true; // mark as set
     return this;
   }
 
@@ -428,6 +484,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuers(List<PaymentMethodIssuer> issuers) {
     this.issuers = issuers;
+    isSetIssuers = true; // mark as set
   }
 
   /**
@@ -438,6 +495,7 @@ public class PaymentMethod {
    */
   public PaymentMethod name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -461,6 +519,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -471,6 +530,7 @@ public class PaymentMethod {
    */
   public PaymentMethod promoted(Boolean promoted) {
     this.promoted = promoted;
+    isSetPromoted = true; // mark as set
     return this;
   }
 
@@ -494,6 +554,7 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPromoted(Boolean promoted) {
     this.promoted = promoted;
+    isSetPromoted = true; // mark as set
   }
 
   /**
@@ -504,6 +565,7 @@ public class PaymentMethod {
    */
   public PaymentMethod type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -527,6 +589,27 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethod includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethod object is equal to o. */
@@ -595,6 +678,60 @@ public class PaymentMethod {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetApps) {
+      addIfNull(nulls, JSON_PROPERTY_APPS, this.apps);
+    }
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetBrands) {
+      addIfNull(nulls, JSON_PROPERTY_BRANDS, this.brands);
+    }
+    if (isSetConfiguration) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIGURATION, this.configuration);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetGroup) {
+      addIfNull(nulls, JSON_PROPERTY_GROUP, this.group);
+    }
+    if (isSetInputDetails) {
+      addIfNull(nulls, JSON_PROPERTY_INPUT_DETAILS, this.inputDetails);
+    }
+    if (isSetIssuers) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUERS, this.issuers);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPromoted) {
+      addIfNull(nulls, JSON_PROPERTY_PROMOTED, this.promoted);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

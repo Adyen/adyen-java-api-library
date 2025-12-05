@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,56 +44,116 @@ public class LineItem {
   public static final String JSON_PROPERTY_AMOUNT_EXCLUDING_TAX = "amountExcludingTax";
   private Long amountExcludingTax;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmountExcludingTax = false;
+
   public static final String JSON_PROPERTY_AMOUNT_INCLUDING_TAX = "amountIncludingTax";
   private Long amountIncludingTax;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmountIncludingTax = false;
 
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_COLOR = "color";
   private String color;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetColor = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_IMAGE_URL = "imageUrl";
   private String imageUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetImageUrl = false;
+
   public static final String JSON_PROPERTY_ITEM_CATEGORY = "itemCategory";
   private String itemCategory;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItemCategory = false;
 
   public static final String JSON_PROPERTY_MANUFACTURER = "manufacturer";
   private String manufacturer;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetManufacturer = false;
+
   public static final String JSON_PROPERTY_MARKETPLACE_SELLER_ID = "marketplaceSellerId";
   private String marketplaceSellerId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMarketplaceSellerId = false;
 
   public static final String JSON_PROPERTY_PRODUCT_URL = "productUrl";
   private String productUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProductUrl = false;
+
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
   private Long quantity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetQuantity = false;
 
   public static final String JSON_PROPERTY_RECEIVER_EMAIL = "receiverEmail";
   private String receiverEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReceiverEmail = false;
+
   public static final String JSON_PROPERTY_SIZE = "size";
   private String size;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSize = false;
 
   public static final String JSON_PROPERTY_SKU = "sku";
   private String sku;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSku = false;
+
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
   private Long taxAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxAmount = false;
 
   public static final String JSON_PROPERTY_TAX_PERCENTAGE = "taxPercentage";
   private Long taxPercentage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxPercentage = false;
+
   public static final String JSON_PROPERTY_UPC = "upc";
   private String upc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUpc = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public LineItem() {}
 
@@ -103,6 +165,7 @@ public class LineItem {
    */
   public LineItem amountExcludingTax(Long amountExcludingTax) {
     this.amountExcludingTax = amountExcludingTax;
+    isSetAmountExcludingTax = true; // mark as set
     return this;
   }
 
@@ -126,6 +189,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountExcludingTax(Long amountExcludingTax) {
     this.amountExcludingTax = amountExcludingTax;
+    isSetAmountExcludingTax = true; // mark as set
   }
 
   /**
@@ -136,6 +200,7 @@ public class LineItem {
    */
   public LineItem amountIncludingTax(Long amountIncludingTax) {
     this.amountIncludingTax = amountIncludingTax;
+    isSetAmountIncludingTax = true; // mark as set
     return this;
   }
 
@@ -159,6 +224,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountIncludingTax(Long amountIncludingTax) {
     this.amountIncludingTax = amountIncludingTax;
+    isSetAmountIncludingTax = true; // mark as set
   }
 
   /**
@@ -169,6 +235,7 @@ public class LineItem {
    */
   public LineItem brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -192,6 +259,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -202,6 +270,7 @@ public class LineItem {
    */
   public LineItem color(String color) {
     this.color = color;
+    isSetColor = true; // mark as set
     return this;
   }
 
@@ -225,6 +294,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setColor(String color) {
     this.color = color;
+    isSetColor = true; // mark as set
   }
 
   /**
@@ -235,6 +305,7 @@ public class LineItem {
    */
   public LineItem description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -258,6 +329,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -268,6 +340,7 @@ public class LineItem {
    */
   public LineItem id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -291,6 +364,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -301,6 +375,7 @@ public class LineItem {
    */
   public LineItem imageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+    isSetImageUrl = true; // mark as set
     return this;
   }
 
@@ -324,6 +399,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+    isSetImageUrl = true; // mark as set
   }
 
   /**
@@ -334,6 +410,7 @@ public class LineItem {
    */
   public LineItem itemCategory(String itemCategory) {
     this.itemCategory = itemCategory;
+    isSetItemCategory = true; // mark as set
     return this;
   }
 
@@ -357,6 +434,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemCategory(String itemCategory) {
     this.itemCategory = itemCategory;
+    isSetItemCategory = true; // mark as set
   }
 
   /**
@@ -367,6 +445,7 @@ public class LineItem {
    */
   public LineItem manufacturer(String manufacturer) {
     this.manufacturer = manufacturer;
+    isSetManufacturer = true; // mark as set
     return this;
   }
 
@@ -390,6 +469,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManufacturer(String manufacturer) {
     this.manufacturer = manufacturer;
+    isSetManufacturer = true; // mark as set
   }
 
   /**
@@ -400,6 +480,7 @@ public class LineItem {
    */
   public LineItem marketplaceSellerId(String marketplaceSellerId) {
     this.marketplaceSellerId = marketplaceSellerId;
+    isSetMarketplaceSellerId = true; // mark as set
     return this;
   }
 
@@ -423,6 +504,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMarketplaceSellerId(String marketplaceSellerId) {
     this.marketplaceSellerId = marketplaceSellerId;
+    isSetMarketplaceSellerId = true; // mark as set
   }
 
   /**
@@ -433,6 +515,7 @@ public class LineItem {
    */
   public LineItem productUrl(String productUrl) {
     this.productUrl = productUrl;
+    isSetProductUrl = true; // mark as set
     return this;
   }
 
@@ -456,6 +539,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProductUrl(String productUrl) {
     this.productUrl = productUrl;
+    isSetProductUrl = true; // mark as set
   }
 
   /**
@@ -466,6 +550,7 @@ public class LineItem {
    */
   public LineItem quantity(Long quantity) {
     this.quantity = quantity;
+    isSetQuantity = true; // mark as set
     return this;
   }
 
@@ -489,6 +574,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(Long quantity) {
     this.quantity = quantity;
+    isSetQuantity = true; // mark as set
   }
 
   /**
@@ -500,6 +586,7 @@ public class LineItem {
    */
   public LineItem receiverEmail(String receiverEmail) {
     this.receiverEmail = receiverEmail;
+    isSetReceiverEmail = true; // mark as set
     return this;
   }
 
@@ -525,6 +612,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiverEmail(String receiverEmail) {
     this.receiverEmail = receiverEmail;
+    isSetReceiverEmail = true; // mark as set
   }
 
   /**
@@ -535,6 +623,7 @@ public class LineItem {
    */
   public LineItem size(String size) {
     this.size = size;
+    isSetSize = true; // mark as set
     return this;
   }
 
@@ -558,6 +647,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSize(String size) {
     this.size = size;
+    isSetSize = true; // mark as set
   }
 
   /**
@@ -568,6 +658,7 @@ public class LineItem {
    */
   public LineItem sku(String sku) {
     this.sku = sku;
+    isSetSku = true; // mark as set
     return this;
   }
 
@@ -591,6 +682,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSku(String sku) {
     this.sku = sku;
+    isSetSku = true; // mark as set
   }
 
   /**
@@ -601,6 +693,7 @@ public class LineItem {
    */
   public LineItem taxAmount(Long taxAmount) {
     this.taxAmount = taxAmount;
+    isSetTaxAmount = true; // mark as set
     return this;
   }
 
@@ -624,6 +717,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxAmount(Long taxAmount) {
     this.taxAmount = taxAmount;
+    isSetTaxAmount = true; // mark as set
   }
 
   /**
@@ -634,6 +728,7 @@ public class LineItem {
    */
   public LineItem taxPercentage(Long taxPercentage) {
     this.taxPercentage = taxPercentage;
+    isSetTaxPercentage = true; // mark as set
     return this;
   }
 
@@ -657,6 +752,7 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxPercentage(Long taxPercentage) {
     this.taxPercentage = taxPercentage;
+    isSetTaxPercentage = true; // mark as set
   }
 
   /**
@@ -667,6 +763,7 @@ public class LineItem {
    */
   public LineItem upc(String upc) {
     this.upc = upc;
+    isSetUpc = true; // mark as set
     return this;
   }
 
@@ -690,6 +787,27 @@ public class LineItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpc(String upc) {
     this.upc = upc;
+    isSetUpc = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public LineItem includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this LineItem object is equal to o. */
@@ -781,6 +899,81 @@ public class LineItem {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmountExcludingTax) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT_EXCLUDING_TAX, this.amountExcludingTax);
+    }
+    if (isSetAmountIncludingTax) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT_INCLUDING_TAX, this.amountIncludingTax);
+    }
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetColor) {
+      addIfNull(nulls, JSON_PROPERTY_COLOR, this.color);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetImageUrl) {
+      addIfNull(nulls, JSON_PROPERTY_IMAGE_URL, this.imageUrl);
+    }
+    if (isSetItemCategory) {
+      addIfNull(nulls, JSON_PROPERTY_ITEM_CATEGORY, this.itemCategory);
+    }
+    if (isSetManufacturer) {
+      addIfNull(nulls, JSON_PROPERTY_MANUFACTURER, this.manufacturer);
+    }
+    if (isSetMarketplaceSellerId) {
+      addIfNull(nulls, JSON_PROPERTY_MARKETPLACE_SELLER_ID, this.marketplaceSellerId);
+    }
+    if (isSetProductUrl) {
+      addIfNull(nulls, JSON_PROPERTY_PRODUCT_URL, this.productUrl);
+    }
+    if (isSetQuantity) {
+      addIfNull(nulls, JSON_PROPERTY_QUANTITY, this.quantity);
+    }
+    if (isSetReceiverEmail) {
+      addIfNull(nulls, JSON_PROPERTY_RECEIVER_EMAIL, this.receiverEmail);
+    }
+    if (isSetSize) {
+      addIfNull(nulls, JSON_PROPERTY_SIZE, this.size);
+    }
+    if (isSetSku) {
+      addIfNull(nulls, JSON_PROPERTY_SKU, this.sku);
+    }
+    if (isSetTaxAmount) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_AMOUNT, this.taxAmount);
+    }
+    if (isSetTaxPercentage) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_PERCENTAGE, this.taxPercentage);
+    }
+    if (isSetUpc) {
+      addIfNull(nulls, JSON_PROPERTY_UPC, this.upc);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

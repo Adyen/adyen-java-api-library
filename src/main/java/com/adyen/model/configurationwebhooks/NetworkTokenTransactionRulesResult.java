@@ -11,6 +11,8 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,15 +32,33 @@ public class NetworkTokenTransactionRulesResult {
   public static final String JSON_PROPERTY_ADVICE = "advice";
   private String advice;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdvice = false;
+
   public static final String JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED = "allHardBlockRulesPassed";
   private Boolean allHardBlockRulesPassed;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllHardBlockRulesPassed = false;
 
   public static final String JSON_PROPERTY_SCORE = "score";
   private Integer score;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScore = false;
+
   public static final String JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES =
       "triggeredTransactionRules";
   private List<NetworkTokenTriggeredRiskRule> triggeredTransactionRules;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTriggeredTransactionRules = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public NetworkTokenTransactionRulesResult() {}
 
@@ -51,6 +71,7 @@ public class NetworkTokenTransactionRulesResult {
    */
   public NetworkTokenTransactionRulesResult advice(String advice) {
     this.advice = advice;
+    isSetAdvice = true; // mark as set
     return this;
   }
 
@@ -74,6 +95,7 @@ public class NetworkTokenTransactionRulesResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdvice(String advice) {
     this.advice = advice;
+    isSetAdvice = true; // mark as set
   }
 
   /**
@@ -87,6 +109,7 @@ public class NetworkTokenTransactionRulesResult {
   public NetworkTokenTransactionRulesResult allHardBlockRulesPassed(
       Boolean allHardBlockRulesPassed) {
     this.allHardBlockRulesPassed = allHardBlockRulesPassed;
+    isSetAllHardBlockRulesPassed = true; // mark as set
     return this;
   }
 
@@ -112,6 +135,7 @@ public class NetworkTokenTransactionRulesResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllHardBlockRulesPassed(Boolean allHardBlockRulesPassed) {
     this.allHardBlockRulesPassed = allHardBlockRulesPassed;
+    isSetAllHardBlockRulesPassed = true; // mark as set
   }
 
   /**
@@ -123,6 +147,7 @@ public class NetworkTokenTransactionRulesResult {
    */
   public NetworkTokenTransactionRulesResult score(Integer score) {
     this.score = score;
+    isSetScore = true; // mark as set
     return this;
   }
 
@@ -146,6 +171,7 @@ public class NetworkTokenTransactionRulesResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
+    isSetScore = true; // mark as set
   }
 
   /**
@@ -159,6 +185,7 @@ public class NetworkTokenTransactionRulesResult {
   public NetworkTokenTransactionRulesResult triggeredTransactionRules(
       List<NetworkTokenTriggeredRiskRule> triggeredTransactionRules) {
     this.triggeredTransactionRules = triggeredTransactionRules;
+    isSetTriggeredTransactionRules = true; // mark as set
     return this;
   }
 
@@ -194,6 +221,27 @@ public class NetworkTokenTransactionRulesResult {
   public void setTriggeredTransactionRules(
       List<NetworkTokenTriggeredRiskRule> triggeredTransactionRules) {
     this.triggeredTransactionRules = triggeredTransactionRules;
+    isSetTriggeredTransactionRules = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NetworkTokenTransactionRulesResult includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NetworkTokenTransactionRulesResult object is equal to o. */
@@ -246,6 +294,39 @@ public class NetworkTokenTransactionRulesResult {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdvice) {
+      addIfNull(nulls, JSON_PROPERTY_ADVICE, this.advice);
+    }
+    if (isSetAllHardBlockRulesPassed) {
+      addIfNull(nulls, JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED, this.allHardBlockRulesPassed);
+    }
+    if (isSetScore) {
+      addIfNull(nulls, JSON_PROPERTY_SCORE, this.score);
+    }
+    if (isSetTriggeredTransactionRules) {
+      addIfNull(nulls, JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES, this.triggeredTransactionRules);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

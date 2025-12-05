@@ -11,7 +11,9 @@
 
 package com.adyen.model.disputewebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,29 +41,56 @@ public class DisputeEventNotification {
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetArn = false;
+
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_DISPUTED_AMOUNT = "disputedAmount";
   private Amount disputedAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisputedAmount = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_STATUS_DETAIL = "statusDetail";
   private String statusDetail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatusDetail = false;
+
   public static final String JSON_PROPERTY_TRANSACTION_ID = "transactionId";
   private String transactionId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionId = false;
 
   /** The type of dispute raised for the transaction. */
   public enum TypeEnum {
@@ -111,6 +140,15 @@ public class DisputeEventNotification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public DisputeEventNotification() {}
 
   /**
@@ -123,6 +161,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification arn(String arn) {
     this.arn = arn;
+    isSetArn = true; // mark as set
     return this;
   }
 
@@ -150,6 +189,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArn(String arn) {
     this.arn = arn;
+    isSetArn = true; // mark as set
   }
 
   /**
@@ -160,6 +200,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -183,6 +224,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -195,6 +237,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -222,6 +265,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -232,6 +276,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -255,6 +300,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -265,6 +311,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification disputedAmount(Amount disputedAmount) {
     this.disputedAmount = disputedAmount;
+    isSetDisputedAmount = true; // mark as set
     return this;
   }
 
@@ -288,6 +335,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputedAmount(Amount disputedAmount) {
     this.disputedAmount = disputedAmount;
+    isSetDisputedAmount = true; // mark as set
   }
 
   /**
@@ -298,6 +346,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -321,6 +370,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -331,6 +381,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -354,6 +405,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -364,6 +416,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification statusDetail(String statusDetail) {
     this.statusDetail = statusDetail;
+    isSetStatusDetail = true; // mark as set
     return this;
   }
 
@@ -387,6 +440,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusDetail(String statusDetail) {
     this.statusDetail = statusDetail;
+    isSetStatusDetail = true; // mark as set
   }
 
   /**
@@ -398,6 +452,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification transactionId(String transactionId) {
     this.transactionId = transactionId;
+    isSetTransactionId = true; // mark as set
     return this;
   }
 
@@ -423,6 +478,7 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionId(String transactionId) {
     this.transactionId = transactionId;
+    isSetTransactionId = true; // mark as set
   }
 
   /**
@@ -433,6 +489,7 @@ public class DisputeEventNotification {
    */
   public DisputeEventNotification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -456,6 +513,27 @@ public class DisputeEventNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DisputeEventNotification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DisputeEventNotification object is equal to o. */
@@ -521,6 +599,57 @@ public class DisputeEventNotification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetArn) {
+      addIfNull(nulls, JSON_PROPERTY_ARN, this.arn);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetDisputedAmount) {
+      addIfNull(nulls, JSON_PROPERTY_DISPUTED_AMOUNT, this.disputedAmount);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetStatusDetail) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS_DETAIL, this.statusDetail);
+    }
+    if (isSetTransactionId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_ID, this.transactionId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

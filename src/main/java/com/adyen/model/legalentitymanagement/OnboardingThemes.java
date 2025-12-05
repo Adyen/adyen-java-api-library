@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,11 +31,26 @@ public class OnboardingThemes {
   public static final String JSON_PROPERTY_NEXT = "next";
   private String next;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNext = false;
+
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private String previous;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPrevious = false;
+
   public static final String JSON_PROPERTY_THEMES = "themes";
   private List<OnboardingTheme> themes;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThemes = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public OnboardingThemes() {}
 
@@ -45,6 +62,7 @@ public class OnboardingThemes {
    */
   public OnboardingThemes next(String next) {
     this.next = next;
+    isSetNext = true; // mark as set
     return this;
   }
 
@@ -68,6 +86,7 @@ public class OnboardingThemes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(String next) {
     this.next = next;
+    isSetNext = true; // mark as set
   }
 
   /**
@@ -78,6 +97,7 @@ public class OnboardingThemes {
    */
   public OnboardingThemes previous(String previous) {
     this.previous = previous;
+    isSetPrevious = true; // mark as set
     return this;
   }
 
@@ -101,6 +121,7 @@ public class OnboardingThemes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(String previous) {
     this.previous = previous;
+    isSetPrevious = true; // mark as set
   }
 
   /**
@@ -111,6 +132,7 @@ public class OnboardingThemes {
    */
   public OnboardingThemes themes(List<OnboardingTheme> themes) {
     this.themes = themes;
+    isSetThemes = true; // mark as set
     return this;
   }
 
@@ -142,6 +164,27 @@ public class OnboardingThemes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemes(List<OnboardingTheme> themes) {
     this.themes = themes;
+    isSetThemes = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public OnboardingThemes includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this OnboardingThemes object is equal to o. */
@@ -183,6 +226,36 @@ public class OnboardingThemes {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetNext) {
+      addIfNull(nulls, JSON_PROPERTY_NEXT, this.next);
+    }
+    if (isSetPrevious) {
+      addIfNull(nulls, JSON_PROPERTY_PREVIOUS, this.previous);
+    }
+    if (isSetThemes) {
+      addIfNull(nulls, JSON_PROPERTY_THEMES, this.themes);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,20 +34,44 @@ public class PaypalUpdateOrderRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_DELIVERY_METHODS = "deliveryMethods";
   private List<DeliveryMethod> deliveryMethods;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryMethods = false;
 
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentData = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
 
   public static final String JSON_PROPERTY_SESSION_ID = "sessionId";
   private String sessionId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSessionId = false;
+
   public static final String JSON_PROPERTY_TAX_TOTAL = "taxTotal";
   private TaxTotal taxTotal;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxTotal = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaypalUpdateOrderRequest() {}
 
@@ -57,6 +83,7 @@ public class PaypalUpdateOrderRequest {
    */
   public PaypalUpdateOrderRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -80,6 +107,7 @@ public class PaypalUpdateOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -90,6 +118,7 @@ public class PaypalUpdateOrderRequest {
    */
   public PaypalUpdateOrderRequest deliveryMethods(List<DeliveryMethod> deliveryMethods) {
     this.deliveryMethods = deliveryMethods;
+    isSetDeliveryMethods = true; // mark as set
     return this;
   }
 
@@ -121,6 +150,7 @@ public class PaypalUpdateOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
     this.deliveryMethods = deliveryMethods;
+    isSetDeliveryMethods = true; // mark as set
   }
 
   /**
@@ -133,6 +163,7 @@ public class PaypalUpdateOrderRequest {
    */
   public PaypalUpdateOrderRequest paymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
     return this;
   }
 
@@ -160,6 +191,7 @@ public class PaypalUpdateOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
   }
 
   /**
@@ -171,6 +203,7 @@ public class PaypalUpdateOrderRequest {
    */
   public PaypalUpdateOrderRequest pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -196,6 +229,7 @@ public class PaypalUpdateOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -206,6 +240,7 @@ public class PaypalUpdateOrderRequest {
    */
   public PaypalUpdateOrderRequest sessionId(String sessionId) {
     this.sessionId = sessionId;
+    isSetSessionId = true; // mark as set
     return this;
   }
 
@@ -229,6 +264,7 @@ public class PaypalUpdateOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionId(String sessionId) {
     this.sessionId = sessionId;
+    isSetSessionId = true; // mark as set
   }
 
   /**
@@ -239,6 +275,7 @@ public class PaypalUpdateOrderRequest {
    */
   public PaypalUpdateOrderRequest taxTotal(TaxTotal taxTotal) {
     this.taxTotal = taxTotal;
+    isSetTaxTotal = true; // mark as set
     return this;
   }
 
@@ -262,6 +299,27 @@ public class PaypalUpdateOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxTotal(TaxTotal taxTotal) {
     this.taxTotal = taxTotal;
+    isSetTaxTotal = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaypalUpdateOrderRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaypalUpdateOrderRequest object is equal to o. */
@@ -309,6 +367,45 @@ public class PaypalUpdateOrderRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetDeliveryMethods) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_METHODS, this.deliveryMethods);
+    }
+    if (isSetPaymentData) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_DATA, this.paymentData);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetSessionId) {
+      addIfNull(nulls, JSON_PROPERTY_SESSION_ID, this.sessionId);
+    }
+    if (isSetTaxTotal) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_TOTAL, this.taxTotal);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

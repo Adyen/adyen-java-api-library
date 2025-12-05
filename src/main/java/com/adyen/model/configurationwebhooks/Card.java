@@ -11,7 +11,9 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,29 +44,56 @@ public class Card {
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private Authentication authentication;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthentication = false;
+
   public static final String JSON_PROPERTY_BIN = "bin";
   private String bin;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBin = false;
 
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_BRAND_VARIANT = "brandVariant";
   private String brandVariant;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrandVariant = false;
 
   public static final String JSON_PROPERTY_CARDHOLDER_NAME = "cardholderName";
   private String cardholderName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardholderName = false;
+
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
   private CardConfiguration configuration;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfiguration = false;
 
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvc = false;
+
   public static final String JSON_PROPERTY_DELIVERY_CONTACT = "deliveryContact";
   private DeliveryContact deliveryContact;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryContact = false;
+
   public static final String JSON_PROPERTY_EXPIRATION = "expiration";
   private Expiry expiration;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiration = false;
 
   /** The form factor of the card. Possible values: **virtual**, **physical**. */
   public enum FormFactorEnum {
@@ -112,17 +141,38 @@ public class Card {
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private FormFactorEnum formFactor;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFormFactor = false;
+
   public static final String JSON_PROPERTY_LAST_FOUR = "lastFour";
   private String lastFour;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastFour = false;
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
+
   public static final String JSON_PROPERTY_THREE_D_SECURE = "threeDSecure";
   private String threeDSecure;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSecure = false;
+
   public static final String JSON_PROPERTY_USAGE = "usage";
   private String usage;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsage = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Card() {}
 
@@ -134,6 +184,7 @@ public class Card {
    */
   public Card authentication(Authentication authentication) {
     this.authentication = authentication;
+    isSetAuthentication = true; // mark as set
     return this;
   }
 
@@ -157,6 +208,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(Authentication authentication) {
     this.authentication = authentication;
+    isSetAuthentication = true; // mark as set
   }
 
   /**
@@ -167,6 +219,7 @@ public class Card {
    */
   public Card bin(String bin) {
     this.bin = bin;
+    isSetBin = true; // mark as set
     return this;
   }
 
@@ -190,6 +243,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
     this.bin = bin;
+    isSetBin = true; // mark as set
   }
 
   /**
@@ -200,6 +254,7 @@ public class Card {
    */
   public Card brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -223,6 +278,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -237,6 +293,7 @@ public class Card {
    */
   public Card brandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
+    isSetBrandVariant = true; // mark as set
     return this;
   }
 
@@ -268,6 +325,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
+    isSetBrandVariant = true; // mark as set
   }
 
   /**
@@ -278,6 +336,7 @@ public class Card {
    */
   public Card cardholderName(String cardholderName) {
     this.cardholderName = cardholderName;
+    isSetCardholderName = true; // mark as set
     return this;
   }
 
@@ -301,6 +360,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderName(String cardholderName) {
     this.cardholderName = cardholderName;
+    isSetCardholderName = true; // mark as set
   }
 
   /**
@@ -311,6 +371,7 @@ public class Card {
    */
   public Card configuration(CardConfiguration configuration) {
     this.configuration = configuration;
+    isSetConfiguration = true; // mark as set
     return this;
   }
 
@@ -334,6 +395,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(CardConfiguration configuration) {
     this.configuration = configuration;
+    isSetConfiguration = true; // mark as set
   }
 
   /**
@@ -346,6 +408,7 @@ public class Card {
    */
   public Card cvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
     return this;
   }
 
@@ -373,6 +436,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
   }
 
   /**
@@ -383,6 +447,7 @@ public class Card {
    */
   public Card deliveryContact(DeliveryContact deliveryContact) {
     this.deliveryContact = deliveryContact;
+    isSetDeliveryContact = true; // mark as set
     return this;
   }
 
@@ -406,6 +471,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryContact(DeliveryContact deliveryContact) {
     this.deliveryContact = deliveryContact;
+    isSetDeliveryContact = true; // mark as set
   }
 
   /**
@@ -416,6 +482,7 @@ public class Card {
    */
   public Card expiration(Expiry expiration) {
     this.expiration = expiration;
+    isSetExpiration = true; // mark as set
     return this;
   }
 
@@ -439,6 +506,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiration(Expiry expiration) {
     this.expiration = expiration;
+    isSetExpiration = true; // mark as set
   }
 
   /**
@@ -449,6 +517,7 @@ public class Card {
    */
   public Card formFactor(FormFactorEnum formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
     return this;
   }
 
@@ -472,6 +541,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(FormFactorEnum formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
   }
 
   /**
@@ -482,6 +552,7 @@ public class Card {
    */
   public Card lastFour(String lastFour) {
     this.lastFour = lastFour;
+    isSetLastFour = true; // mark as set
     return this;
   }
 
@@ -505,6 +576,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastFour(String lastFour) {
     this.lastFour = lastFour;
+    isSetLastFour = true; // mark as set
   }
 
   /**
@@ -517,6 +589,7 @@ public class Card {
    */
   public Card number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -544,6 +617,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -558,6 +632,7 @@ public class Card {
    */
   public Card threeDSecure(String threeDSecure) {
     this.threeDSecure = threeDSecure;
+    isSetThreeDSecure = true; // mark as set
     return this;
   }
 
@@ -589,6 +664,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSecure(String threeDSecure) {
     this.threeDSecure = threeDSecure;
+    isSetThreeDSecure = true; // mark as set
   }
 
   /**
@@ -602,6 +678,7 @@ public class Card {
    */
   public Card usage(String usage) {
     this.usage = usage;
+    isSetUsage = true; // mark as set
     return this;
   }
 
@@ -631,6 +708,27 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsage(String usage) {
     this.usage = usage;
+    isSetUsage = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Card includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Card object is equal to o. */
@@ -708,6 +806,69 @@ public class Card {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthentication) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION, this.authentication);
+    }
+    if (isSetBin) {
+      addIfNull(nulls, JSON_PROPERTY_BIN, this.bin);
+    }
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetBrandVariant) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND_VARIANT, this.brandVariant);
+    }
+    if (isSetCardholderName) {
+      addIfNull(nulls, JSON_PROPERTY_CARDHOLDER_NAME, this.cardholderName);
+    }
+    if (isSetConfiguration) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIGURATION, this.configuration);
+    }
+    if (isSetCvc) {
+      addIfNull(nulls, JSON_PROPERTY_CVC, this.cvc);
+    }
+    if (isSetDeliveryContact) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_CONTACT, this.deliveryContact);
+    }
+    if (isSetExpiration) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRATION, this.expiration);
+    }
+    if (isSetFormFactor) {
+      addIfNull(nulls, JSON_PROPERTY_FORM_FACTOR, this.formFactor);
+    }
+    if (isSetLastFour) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_FOUR, this.lastFour);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetThreeDSecure) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_SECURE, this.threeDSecure);
+    }
+    if (isSetUsage) {
+      addIfNull(nulls, JSON_PROPERTY_USAGE, this.usage);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

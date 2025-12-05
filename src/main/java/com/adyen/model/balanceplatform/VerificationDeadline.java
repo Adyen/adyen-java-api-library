@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -192,11 +194,26 @@ public class VerificationDeadline {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private List<CapabilitiesEnum> capabilities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCapabilities = false;
+
   public static final String JSON_PROPERTY_ENTITY_IDS = "entityIds";
   private List<String> entityIds;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityIds = false;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public VerificationDeadline() {}
 
@@ -244,6 +261,26 @@ public class VerificationDeadline {
     return expiresAt;
   }
 
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public VerificationDeadline includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
   /** Return true if this VerificationDeadline object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -283,6 +320,36 @@ public class VerificationDeadline {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCapabilities) {
+      addIfNull(nulls, JSON_PROPERTY_CAPABILITIES, this.capabilities);
+    }
+    if (isSetEntityIds) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_IDS, this.entityIds);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

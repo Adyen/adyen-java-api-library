@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class FinancialReport {
   public static final String JSON_PROPERTY_ANNUAL_TURNOVER = "annualTurnover";
   private String annualTurnover;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAnnualTurnover = false;
+
   public static final String JSON_PROPERTY_BALANCE_SHEET_TOTAL = "balanceSheetTotal";
   private String balanceSheetTotal;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceSheetTotal = false;
 
   public static final String JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA = "currencyOfFinancialData";
   private String currencyOfFinancialData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrencyOfFinancialData = false;
+
   public static final String JSON_PROPERTY_DATE_OF_FINANCIAL_DATA = "dateOfFinancialData";
   private String dateOfFinancialData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfFinancialData = false;
 
   public static final String JSON_PROPERTY_EMPLOYEE_COUNT = "employeeCount";
   private String employeeCount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmployeeCount = false;
+
   public static final String JSON_PROPERTY_NET_ASSETS = "netAssets";
   private String netAssets;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetAssets = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public FinancialReport() {}
 
@@ -55,6 +81,7 @@ public class FinancialReport {
    */
   public FinancialReport annualTurnover(String annualTurnover) {
     this.annualTurnover = annualTurnover;
+    isSetAnnualTurnover = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class FinancialReport {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAnnualTurnover(String annualTurnover) {
     this.annualTurnover = annualTurnover;
+    isSetAnnualTurnover = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class FinancialReport {
    */
   public FinancialReport balanceSheetTotal(String balanceSheetTotal) {
     this.balanceSheetTotal = balanceSheetTotal;
+    isSetBalanceSheetTotal = true; // mark as set
     return this;
   }
 
@@ -111,6 +140,7 @@ public class FinancialReport {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceSheetTotal(String balanceSheetTotal) {
     this.balanceSheetTotal = balanceSheetTotal;
+    isSetBalanceSheetTotal = true; // mark as set
   }
 
   /**
@@ -122,6 +152,7 @@ public class FinancialReport {
    */
   public FinancialReport currencyOfFinancialData(String currencyOfFinancialData) {
     this.currencyOfFinancialData = currencyOfFinancialData;
+    isSetCurrencyOfFinancialData = true; // mark as set
     return this;
   }
 
@@ -147,6 +178,7 @@ public class FinancialReport {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyOfFinancialData(String currencyOfFinancialData) {
     this.currencyOfFinancialData = currencyOfFinancialData;
+    isSetCurrencyOfFinancialData = true; // mark as set
   }
 
   /**
@@ -157,6 +189,7 @@ public class FinancialReport {
    */
   public FinancialReport dateOfFinancialData(String dateOfFinancialData) {
     this.dateOfFinancialData = dateOfFinancialData;
+    isSetDateOfFinancialData = true; // mark as set
     return this;
   }
 
@@ -180,6 +213,7 @@ public class FinancialReport {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfFinancialData(String dateOfFinancialData) {
     this.dateOfFinancialData = dateOfFinancialData;
+    isSetDateOfFinancialData = true; // mark as set
   }
 
   /**
@@ -190,6 +224,7 @@ public class FinancialReport {
    */
   public FinancialReport employeeCount(String employeeCount) {
     this.employeeCount = employeeCount;
+    isSetEmployeeCount = true; // mark as set
     return this;
   }
 
@@ -213,6 +248,7 @@ public class FinancialReport {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmployeeCount(String employeeCount) {
     this.employeeCount = employeeCount;
+    isSetEmployeeCount = true; // mark as set
   }
 
   /**
@@ -223,6 +259,7 @@ public class FinancialReport {
    */
   public FinancialReport netAssets(String netAssets) {
     this.netAssets = netAssets;
+    isSetNetAssets = true; // mark as set
     return this;
   }
 
@@ -246,6 +283,27 @@ public class FinancialReport {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetAssets(String netAssets) {
     this.netAssets = netAssets;
+    isSetNetAssets = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public FinancialReport includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this FinancialReport object is equal to o. */
@@ -303,6 +361,45 @@ public class FinancialReport {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAnnualTurnover) {
+      addIfNull(nulls, JSON_PROPERTY_ANNUAL_TURNOVER, this.annualTurnover);
+    }
+    if (isSetBalanceSheetTotal) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_SHEET_TOTAL, this.balanceSheetTotal);
+    }
+    if (isSetCurrencyOfFinancialData) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA, this.currencyOfFinancialData);
+    }
+    if (isSetDateOfFinancialData) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_FINANCIAL_DATA, this.dateOfFinancialData);
+    }
+    if (isSetEmployeeCount) {
+      addIfNull(nulls, JSON_PROPERTY_EMPLOYEE_COUNT, this.employeeCount);
+    }
+    if (isSetNetAssets) {
+      addIfNull(nulls, JSON_PROPERTY_NET_ASSETS, this.netAssets);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

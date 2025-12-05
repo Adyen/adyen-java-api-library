@@ -11,6 +11,8 @@
 
 package com.adyen.model.balancewebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class Balances {
   public static final String JSON_PROPERTY_AVAILABLE = "available";
   private Long available;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAvailable = false;
+
   public static final String JSON_PROPERTY_BALANCE = "balance";
   private Long balance;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalance = false;
 
   public static final String JSON_PROPERTY_PENDING = "pending";
   private Long pending;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPending = false;
+
   public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Long reserved;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReserved = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Balances() {}
 
@@ -47,6 +67,7 @@ public class Balances {
    */
   public Balances available(Long available) {
     this.available = available;
+    isSetAvailable = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class Balances {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
     this.available = available;
+    isSetAvailable = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class Balances {
    */
   public Balances balance(Long balance) {
     this.balance = balance;
+    isSetBalance = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class Balances {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
+    isSetBalance = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class Balances {
    */
   public Balances pending(Long pending) {
     this.pending = pending;
+    isSetPending = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class Balances {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPending(Long pending) {
     this.pending = pending;
+    isSetPending = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class Balances {
    */
   public Balances reserved(Long reserved) {
     this.reserved = reserved;
+    isSetReserved = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class Balances {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
+    isSetReserved = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Balances includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Balances object is equal to o. */
@@ -212,6 +260,39 @@ public class Balances {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAvailable) {
+      addIfNull(nulls, JSON_PROPERTY_AVAILABLE, this.available);
+    }
+    if (isSetBalance) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE, this.balance);
+    }
+    if (isSetPending) {
+      addIfNull(nulls, JSON_PROPERTY_PENDING, this.pending);
+    }
+    if (isSetReserved) {
+      addIfNull(nulls, JSON_PROPERTY_RESERVED, this.reserved);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

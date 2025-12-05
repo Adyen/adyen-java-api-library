@@ -11,6 +11,8 @@
 
 package com.adyen.model.reportwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,26 +35,56 @@ public class ReportNotificationData {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT = "balanceAccount";
   private ResourceReference balanceAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccount = false;
 
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_DOWNLOAD_URL = "downloadUrl";
   private String downloadUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDownloadUrl = false;
+
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
   private String fileName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFileName = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_REPORT_TYPE = "reportType";
   private String reportType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReportType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ReportNotificationData() {}
 
@@ -64,6 +96,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData accountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -87,6 +120,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -97,6 +131,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData balanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
     return this;
   }
 
@@ -120,6 +155,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
   }
 
   /**
@@ -130,6 +166,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -153,6 +190,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -165,6 +203,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -192,6 +231,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -206,6 +246,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
+    isSetDownloadUrl = true; // mark as set
     return this;
   }
 
@@ -237,6 +278,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
+    isSetDownloadUrl = true; // mark as set
   }
 
   /**
@@ -247,6 +289,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData fileName(String fileName) {
     this.fileName = fileName;
+    isSetFileName = true; // mark as set
     return this;
   }
 
@@ -270,6 +313,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
     this.fileName = fileName;
+    isSetFileName = true; // mark as set
   }
 
   /**
@@ -280,6 +324,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -303,6 +348,7 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -322,6 +368,7 @@ public class ReportNotificationData {
    */
   public ReportNotificationData reportType(String reportType) {
     this.reportType = reportType;
+    isSetReportType = true; // mark as set
     return this;
   }
 
@@ -363,6 +410,27 @@ public class ReportNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReportType(String reportType) {
     this.reportType = reportType;
+    isSetReportType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ReportNotificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ReportNotificationData object is equal to o. */
@@ -422,6 +490,51 @@ public class ReportNotificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetBalanceAccount) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT, this.balanceAccount);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetDownloadUrl) {
+      addIfNull(nulls, JSON_PROPERTY_DOWNLOAD_URL, this.downloadUrl);
+    }
+    if (isSetFileName) {
+      addIfNull(nulls, JSON_PROPERTY_FILE_NAME, this.fileName);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetReportType) {
+      addIfNull(nulls, JSON_PROPERTY_REPORT_TYPE, this.reportType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

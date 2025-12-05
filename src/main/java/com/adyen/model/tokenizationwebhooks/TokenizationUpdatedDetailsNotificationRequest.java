@@ -11,7 +11,9 @@
 
 package com.adyen.model.tokenizationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,8 +37,14 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private RecurringTokenStoreOperation data;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
 
   /** The environment from which the webhook originated. Possible values: **test**, **live**. */
   public enum EnvironmentEnum {
@@ -82,8 +90,14 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private EnvironmentEnum environment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnvironment = false;
+
   public static final String JSON_PROPERTY_EVENT_ID = "eventId";
   private String eventId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventId = false;
 
   /** The type of webhook. */
   public enum TypeEnum {
@@ -127,8 +141,20 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TokenizationUpdatedDetailsNotificationRequest() {}
 
@@ -141,6 +167,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
    */
   public TokenizationUpdatedDetailsNotificationRequest createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -164,6 +191,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -175,6 +203,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
    */
   public TokenizationUpdatedDetailsNotificationRequest data(RecurringTokenStoreOperation data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -198,6 +227,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(RecurringTokenStoreOperation data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -210,6 +240,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
    */
   public TokenizationUpdatedDetailsNotificationRequest environment(EnvironmentEnum environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
     return this;
   }
 
@@ -235,6 +266,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(EnvironmentEnum environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
   }
 
   /**
@@ -246,6 +278,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
    */
   public TokenizationUpdatedDetailsNotificationRequest eventId(String eventId) {
     this.eventId = eventId;
+    isSetEventId = true; // mark as set
     return this;
   }
 
@@ -269,6 +302,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventId(String eventId) {
     this.eventId = eventId;
+    isSetEventId = true; // mark as set
   }
 
   /**
@@ -280,6 +314,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
    */
   public TokenizationUpdatedDetailsNotificationRequest type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -303,6 +338,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -314,6 +350,7 @@ public class TokenizationUpdatedDetailsNotificationRequest {
    */
   public TokenizationUpdatedDetailsNotificationRequest version(String version) {
     this.version = version;
+    isSetVersion = true; // mark as set
     return this;
   }
 
@@ -337,6 +374,28 @@ public class TokenizationUpdatedDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {
     this.version = version;
+    isSetVersion = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TokenizationUpdatedDetailsNotificationRequest includeNullValues(
+      boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TokenizationUpdatedDetailsNotificationRequest object is equal to o. */
@@ -386,6 +445,45 @@ public class TokenizationUpdatedDetailsNotificationRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetEnvironment) {
+      addIfNull(nulls, JSON_PROPERTY_ENVIRONMENT, this.environment);
+    }
+    if (isSetEventId) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_ID, this.eventId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetVersion) {
+      addIfNull(nulls, JSON_PROPERTY_VERSION, this.version);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

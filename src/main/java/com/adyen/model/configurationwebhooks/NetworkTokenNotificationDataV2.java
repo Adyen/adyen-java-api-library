@@ -11,6 +11,8 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,44 +42,92 @@ public class NetworkTokenNotificationDataV2 {
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private TokenAuthentication authentication;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthentication = false;
+
   public static final String JSON_PROPERTY_AUTHENTICATION_APPLIED = "authenticationApplied";
   private Boolean authenticationApplied;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationApplied = false;
 
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
+
   public static final String JSON_PROPERTY_DECISION = "decision";
   private String decision;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDecision = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentId = false;
 
   public static final String JSON_PROPERTY_SCHEME_RISK_SCORE = "schemeRiskScore";
   private String schemeRiskScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSchemeRiskScore = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
 
   public static final String JSON_PROPERTY_TOKEN_LAST_FOUR = "tokenLastFour";
   private String tokenLastFour;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenLastFour = false;
+
   public static final String JSON_PROPERTY_TOKEN_REQUESTOR = "tokenRequestor";
   private NetworkTokenRequestor tokenRequestor;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenRequestor = false;
 
   public static final String JSON_PROPERTY_TRANSACTION_RULES_RESULT = "transactionRulesResult";
   private NetworkTokenTransactionRulesResult transactionRulesResult;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionRulesResult = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
 
   public static final String JSON_PROPERTY_VALIDATION_FACTS = "validationFacts";
   private List<ValidationFacts> validationFacts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValidationFacts = false;
+
   public static final String JSON_PROPERTY_WALLET = "wallet";
   private Wallet wallet;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWallet = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public NetworkTokenNotificationDataV2() {}
 
@@ -90,6 +140,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 authentication(TokenAuthentication authentication) {
     this.authentication = authentication;
+    isSetAuthentication = true; // mark as set
     return this;
   }
 
@@ -113,6 +164,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(TokenAuthentication authentication) {
     this.authentication = authentication;
+    isSetAuthentication = true; // mark as set
   }
 
   /**
@@ -125,6 +177,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 authenticationApplied(Boolean authenticationApplied) {
     this.authenticationApplied = authenticationApplied;
+    isSetAuthenticationApplied = true; // mark as set
     return this;
   }
 
@@ -150,6 +203,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationApplied(Boolean authenticationApplied) {
     this.authenticationApplied = authenticationApplied;
+    isSetAuthenticationApplied = true; // mark as set
   }
 
   /**
@@ -161,6 +215,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -184,6 +239,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -197,6 +253,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 decision(String decision) {
     this.decision = decision;
+    isSetDecision = true; // mark as set
     return this;
   }
 
@@ -224,6 +281,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDecision(String decision) {
     this.decision = decision;
+    isSetDecision = true; // mark as set
   }
 
   /**
@@ -235,6 +293,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -258,6 +317,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -270,6 +330,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
     return this;
   }
 
@@ -295,6 +356,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
   }
 
   /**
@@ -311,6 +373,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 schemeRiskScore(String schemeRiskScore) {
     this.schemeRiskScore = schemeRiskScore;
+    isSetSchemeRiskScore = true; // mark as set
     return this;
   }
 
@@ -344,6 +407,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeRiskScore(String schemeRiskScore) {
     this.schemeRiskScore = schemeRiskScore;
+    isSetSchemeRiskScore = true; // mark as set
   }
 
   /**
@@ -355,6 +419,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -378,6 +443,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -391,6 +457,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 tokenLastFour(String tokenLastFour) {
     this.tokenLastFour = tokenLastFour;
+    isSetTokenLastFour = true; // mark as set
     return this;
   }
 
@@ -418,6 +485,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenLastFour(String tokenLastFour) {
     this.tokenLastFour = tokenLastFour;
+    isSetTokenLastFour = true; // mark as set
   }
 
   /**
@@ -429,6 +497,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 tokenRequestor(NetworkTokenRequestor tokenRequestor) {
     this.tokenRequestor = tokenRequestor;
+    isSetTokenRequestor = true; // mark as set
     return this;
   }
 
@@ -452,6 +521,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenRequestor(NetworkTokenRequestor tokenRequestor) {
     this.tokenRequestor = tokenRequestor;
+    isSetTokenRequestor = true; // mark as set
   }
 
   /**
@@ -464,6 +534,7 @@ public class NetworkTokenNotificationDataV2 {
   public NetworkTokenNotificationDataV2 transactionRulesResult(
       NetworkTokenTransactionRulesResult transactionRulesResult) {
     this.transactionRulesResult = transactionRulesResult;
+    isSetTransactionRulesResult = true; // mark as set
     return this;
   }
 
@@ -487,6 +558,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRulesResult(NetworkTokenTransactionRulesResult transactionRulesResult) {
     this.transactionRulesResult = transactionRulesResult;
+    isSetTransactionRulesResult = true; // mark as set
   }
 
   /**
@@ -498,6 +570,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -521,6 +594,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -533,6 +607,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 validationFacts(List<ValidationFacts> validationFacts) {
     this.validationFacts = validationFacts;
+    isSetValidationFacts = true; // mark as set
     return this;
   }
 
@@ -567,6 +642,7 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationFacts(List<ValidationFacts> validationFacts) {
     this.validationFacts = validationFacts;
+    isSetValidationFacts = true; // mark as set
   }
 
   /**
@@ -578,6 +654,7 @@ public class NetworkTokenNotificationDataV2 {
    */
   public NetworkTokenNotificationDataV2 wallet(Wallet wallet) {
     this.wallet = wallet;
+    isSetWallet = true; // mark as set
     return this;
   }
 
@@ -601,6 +678,27 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWallet(Wallet wallet) {
     this.wallet = wallet;
+    isSetWallet = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NetworkTokenNotificationDataV2 includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NetworkTokenNotificationDataV2 object is equal to o. */
@@ -688,6 +786,69 @@ public class NetworkTokenNotificationDataV2 {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthentication) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION, this.authentication);
+    }
+    if (isSetAuthenticationApplied) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_APPLIED, this.authenticationApplied);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetDecision) {
+      addIfNull(nulls, JSON_PROPERTY_DECISION, this.decision);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPaymentInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_ID, this.paymentInstrumentId);
+    }
+    if (isSetSchemeRiskScore) {
+      addIfNull(nulls, JSON_PROPERTY_SCHEME_RISK_SCORE, this.schemeRiskScore);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTokenLastFour) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_LAST_FOUR, this.tokenLastFour);
+    }
+    if (isSetTokenRequestor) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_REQUESTOR, this.tokenRequestor);
+    }
+    if (isSetTransactionRulesResult) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_RULES_RESULT, this.transactionRulesResult);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetValidationFacts) {
+      addIfNull(nulls, JSON_PROPERTY_VALIDATION_FACTS, this.validationFacts);
+    }
+    if (isSetWallet) {
+      addIfNull(nulls, JSON_PROPERTY_WALLET, this.wallet);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

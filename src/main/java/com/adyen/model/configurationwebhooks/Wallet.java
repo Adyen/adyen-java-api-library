@@ -11,7 +11,9 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,14 +38,26 @@ public class Wallet {
   public static final String JSON_PROPERTY_ACCOUNT_SCORE = "accountScore";
   private String accountScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountScore = false;
+
   public static final String JSON_PROPERTY_DEVICE = "device";
   private Device device;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDevice = false;
 
   public static final String JSON_PROPERTY_DEVICE_SCORE = "deviceScore";
   private String deviceScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceScore = false;
+
   public static final String JSON_PROPERTY_PROVISIONING_METHOD = "provisioningMethod";
   private String provisioningMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProvisioningMethod = false;
 
   /** Gets or Sets recommendationReasons */
   public enum RecommendationReasonsEnum {
@@ -195,10 +209,22 @@ public class Wallet {
   public static final String JSON_PROPERTY_RECOMMENDATION_REASONS = "recommendationReasons";
   private List<RecommendationReasonsEnum> recommendationReasons;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecommendationReasons = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
   // instead.
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Wallet() {}
 
@@ -214,6 +240,7 @@ public class Wallet {
    */
   public Wallet accountScore(String accountScore) {
     this.accountScore = accountScore;
+    isSetAccountScore = true; // mark as set
     return this;
   }
 
@@ -245,6 +272,7 @@ public class Wallet {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountScore(String accountScore) {
     this.accountScore = accountScore;
+    isSetAccountScore = true; // mark as set
   }
 
   /**
@@ -255,6 +283,7 @@ public class Wallet {
    */
   public Wallet device(Device device) {
     this.device = device;
+    isSetDevice = true; // mark as set
     return this;
   }
 
@@ -278,6 +307,7 @@ public class Wallet {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDevice(Device device) {
     this.device = device;
+    isSetDevice = true; // mark as set
   }
 
   /**
@@ -292,6 +322,7 @@ public class Wallet {
    */
   public Wallet deviceScore(String deviceScore) {
     this.deviceScore = deviceScore;
+    isSetDeviceScore = true; // mark as set
     return this;
   }
 
@@ -323,6 +354,7 @@ public class Wallet {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceScore(String deviceScore) {
     this.deviceScore = deviceScore;
+    isSetDeviceScore = true; // mark as set
   }
 
   /**
@@ -335,6 +367,7 @@ public class Wallet {
    */
   public Wallet provisioningMethod(String provisioningMethod) {
     this.provisioningMethod = provisioningMethod;
+    isSetProvisioningMethod = true; // mark as set
     return this;
   }
 
@@ -362,6 +395,7 @@ public class Wallet {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProvisioningMethod(String provisioningMethod) {
     this.provisioningMethod = provisioningMethod;
+    isSetProvisioningMethod = true; // mark as set
   }
 
   /**
@@ -377,6 +411,7 @@ public class Wallet {
    */
   public Wallet recommendationReasons(List<RecommendationReasonsEnum> recommendationReasons) {
     this.recommendationReasons = recommendationReasons;
+    isSetRecommendationReasons = true; // mark as set
     return this;
   }
 
@@ -418,6 +453,7 @@ public class Wallet {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecommendationReasons(List<RecommendationReasonsEnum> recommendationReasons) {
     this.recommendationReasons = recommendationReasons;
+    isSetRecommendationReasons = true; // mark as set
   }
 
   /**
@@ -433,6 +469,7 @@ public class Wallet {
   // instead.
   public Wallet type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -467,6 +504,27 @@ public class Wallet {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Wallet includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Wallet object is equal to o. */
@@ -517,6 +575,45 @@ public class Wallet {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountScore) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_SCORE, this.accountScore);
+    }
+    if (isSetDevice) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE, this.device);
+    }
+    if (isSetDeviceScore) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_SCORE, this.deviceScore);
+    }
+    if (isSetProvisioningMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PROVISIONING_METHOD, this.provisioningMethod);
+    }
+    if (isSetRecommendationReasons) {
+      addIfNull(nulls, JSON_PROPERTY_RECOMMENDATION_REASONS, this.recommendationReasons);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,23 +41,44 @@ public class PaymentInstrumentInfo {
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccountId = false;
+
   public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
   private BankAccountModel bankAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccount = false;
 
   public static final String JSON_PROPERTY_CARD = "card";
   private CardInfo card;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
   private String issuingCountryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuingCountryCode = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID = "paymentInstrumentGroupId";
   private String paymentInstrumentGroupId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentGroupId = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * The status of the payment instrument. If a status is not specified when creating a payment
@@ -114,8 +137,14 @@ public class PaymentInstrumentInfo {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_STATUS_COMMENT = "statusComment";
   private String statusComment;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatusComment = false;
 
   /**
    * The reason for the status of the payment instrument. Possible values: **accountClosure**,
@@ -180,6 +209,9 @@ public class PaymentInstrumentInfo {
   public static final String JSON_PROPERTY_STATUS_REASON = "statusReason";
   private StatusReasonEnum statusReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatusReason = false;
+
   /** The type of payment instrument. Possible values: **card**, **bankAccount**. */
   public enum TypeEnum {
     BANKACCOUNT(String.valueOf("bankAccount")),
@@ -224,6 +256,15 @@ public class PaymentInstrumentInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PaymentInstrumentInfo() {}
 
   /**
@@ -238,6 +279,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -269,6 +311,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -279,6 +322,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo bankAccount(BankAccountModel bankAccount) {
     this.bankAccount = bankAccount;
+    isSetBankAccount = true; // mark as set
     return this;
   }
 
@@ -302,6 +346,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountModel bankAccount) {
     this.bankAccount = bankAccount;
+    isSetBankAccount = true; // mark as set
   }
 
   /**
@@ -312,6 +357,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo card(CardInfo card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -335,6 +381,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardInfo card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -345,6 +392,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -368,6 +416,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -381,6 +430,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo issuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
+    isSetIssuingCountryCode = true; // mark as set
     return this;
   }
 
@@ -410,6 +460,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
+    isSetIssuingCountryCode = true; // mark as set
   }
 
   /**
@@ -424,6 +475,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo paymentInstrumentGroupId(String paymentInstrumentGroupId) {
     this.paymentInstrumentGroupId = paymentInstrumentGroupId;
+    isSetPaymentInstrumentGroupId = true; // mark as set
     return this;
   }
 
@@ -455,6 +507,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentGroupId(String paymentInstrumentGroupId) {
     this.paymentInstrumentGroupId = paymentInstrumentGroupId;
+    isSetPaymentInstrumentGroupId = true; // mark as set
   }
 
   /**
@@ -465,6 +518,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -488,6 +542,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -513,6 +568,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -566,6 +622,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -578,6 +635,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo statusComment(String statusComment) {
     this.statusComment = statusComment;
+    isSetStatusComment = true; // mark as set
     return this;
   }
 
@@ -605,6 +663,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusComment(String statusComment) {
     this.statusComment = statusComment;
+    isSetStatusComment = true; // mark as set
   }
 
   /**
@@ -621,6 +680,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo statusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
+    isSetStatusReason = true; // mark as set
     return this;
   }
 
@@ -656,6 +716,7 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
+    isSetStatusReason = true; // mark as set
   }
 
   /**
@@ -666,6 +727,7 @@ public class PaymentInstrumentInfo {
    */
   public PaymentInstrumentInfo type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -689,6 +751,27 @@ public class PaymentInstrumentInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentInstrumentInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentInstrumentInfo object is equal to o. */
@@ -760,6 +843,60 @@ public class PaymentInstrumentInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT_ID, this.balanceAccountId);
+    }
+    if (isSetBankAccount) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT, this.bankAccount);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetIssuingCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUING_COUNTRY_CODE, this.issuingCountryCode);
+    }
+    if (isSetPaymentInstrumentGroupId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID, this.paymentInstrumentGroupId);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetStatusComment) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS_COMMENT, this.statusComment);
+    }
+    if (isSetStatusReason) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS_REASON, this.statusReason);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

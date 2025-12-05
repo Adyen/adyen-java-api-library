@@ -11,6 +11,8 @@
 
 package com.adyen.model.managementwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class TerminalAssignmentNotificationRequest {
   public static final String JSON_PROPERTY_ASSIGNED_TO_ACCOUNT = "assignedToAccount";
   private String assignedToAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssignedToAccount = false;
+
   public static final String JSON_PROPERTY_ASSIGNED_TO_STORE = "assignedToStore";
   private String assignedToStore;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssignedToStore = false;
 
   public static final String JSON_PROPERTY_ASSIGNED_TO_STORE_ID = "assignedToStoreId";
   private String assignedToStoreId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssignedToStoreId = false;
+
   public static final String JSON_PROPERTY_EVENT_DATE = "eventDate";
   private String eventDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventDate = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_UNIQUE_TERMINAL_ID = "uniqueTerminalId";
   private String uniqueTerminalId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUniqueTerminalId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalAssignmentNotificationRequest() {}
 
@@ -57,6 +83,7 @@ public class TerminalAssignmentNotificationRequest {
    */
   public TerminalAssignmentNotificationRequest assignedToAccount(String assignedToAccount) {
     this.assignedToAccount = assignedToAccount;
+    isSetAssignedToAccount = true; // mark as set
     return this;
   }
 
@@ -82,6 +109,7 @@ public class TerminalAssignmentNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToAccount(String assignedToAccount) {
     this.assignedToAccount = assignedToAccount;
+    isSetAssignedToAccount = true; // mark as set
   }
 
   /**
@@ -95,6 +123,7 @@ public class TerminalAssignmentNotificationRequest {
    */
   public TerminalAssignmentNotificationRequest assignedToStore(String assignedToStore) {
     this.assignedToStore = assignedToStore;
+    isSetAssignedToStore = true; // mark as set
     return this;
   }
 
@@ -122,6 +151,7 @@ public class TerminalAssignmentNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToStore(String assignedToStore) {
     this.assignedToStore = assignedToStore;
+    isSetAssignedToStore = true; // mark as set
   }
 
   /**
@@ -133,6 +163,7 @@ public class TerminalAssignmentNotificationRequest {
    */
   public TerminalAssignmentNotificationRequest assignedToStoreId(String assignedToStoreId) {
     this.assignedToStoreId = assignedToStoreId;
+    isSetAssignedToStoreId = true; // mark as set
     return this;
   }
 
@@ -156,6 +187,7 @@ public class TerminalAssignmentNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToStoreId(String assignedToStoreId) {
     this.assignedToStoreId = assignedToStoreId;
+    isSetAssignedToStoreId = true; // mark as set
   }
 
   /**
@@ -167,6 +199,7 @@ public class TerminalAssignmentNotificationRequest {
    */
   public TerminalAssignmentNotificationRequest eventDate(String eventDate) {
     this.eventDate = eventDate;
+    isSetEventDate = true; // mark as set
     return this;
   }
 
@@ -190,6 +223,7 @@ public class TerminalAssignmentNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventDate(String eventDate) {
     this.eventDate = eventDate;
+    isSetEventDate = true; // mark as set
   }
 
   /**
@@ -201,6 +235,7 @@ public class TerminalAssignmentNotificationRequest {
    */
   public TerminalAssignmentNotificationRequest pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -224,6 +259,7 @@ public class TerminalAssignmentNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -235,6 +271,7 @@ public class TerminalAssignmentNotificationRequest {
    */
   public TerminalAssignmentNotificationRequest uniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
+    isSetUniqueTerminalId = true; // mark as set
     return this;
   }
 
@@ -258,6 +295,27 @@ public class TerminalAssignmentNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
+    isSetUniqueTerminalId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TerminalAssignmentNotificationRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalAssignmentNotificationRequest object is equal to o. */
@@ -316,6 +374,45 @@ public class TerminalAssignmentNotificationRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAssignedToAccount) {
+      addIfNull(nulls, JSON_PROPERTY_ASSIGNED_TO_ACCOUNT, this.assignedToAccount);
+    }
+    if (isSetAssignedToStore) {
+      addIfNull(nulls, JSON_PROPERTY_ASSIGNED_TO_STORE, this.assignedToStore);
+    }
+    if (isSetAssignedToStoreId) {
+      addIfNull(nulls, JSON_PROPERTY_ASSIGNED_TO_STORE_ID, this.assignedToStoreId);
+    }
+    if (isSetEventDate) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_DATE, this.eventDate);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetUniqueTerminalId) {
+      addIfNull(nulls, JSON_PROPERTY_UNIQUE_TERMINAL_ID, this.uniqueTerminalId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

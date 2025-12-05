@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,23 +36,50 @@ public class DocumentReference {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActive = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
   private String fileName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFileName = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_MODIFICATION_DATE = "modificationDate";
   private OffsetDateTime modificationDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModificationDate = false;
+
   public static final String JSON_PROPERTY_PAGES = "pages";
   private List<DocumentPage> pages;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPages = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DocumentReference() {}
 
@@ -62,6 +91,7 @@ public class DocumentReference {
    */
   public DocumentReference active(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
     return this;
   }
 
@@ -85,6 +115,7 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
   }
 
   /**
@@ -95,6 +126,7 @@ public class DocumentReference {
    */
   public DocumentReference description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -118,6 +150,7 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -128,6 +161,7 @@ public class DocumentReference {
    */
   public DocumentReference fileName(String fileName) {
     this.fileName = fileName;
+    isSetFileName = true; // mark as set
     return this;
   }
 
@@ -151,6 +185,7 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
     this.fileName = fileName;
+    isSetFileName = true; // mark as set
   }
 
   /**
@@ -161,6 +196,7 @@ public class DocumentReference {
    */
   public DocumentReference id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -184,6 +220,7 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -194,6 +231,7 @@ public class DocumentReference {
    */
   public DocumentReference modificationDate(OffsetDateTime modificationDate) {
     this.modificationDate = modificationDate;
+    isSetModificationDate = true; // mark as set
     return this;
   }
 
@@ -217,6 +255,7 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationDate(OffsetDateTime modificationDate) {
     this.modificationDate = modificationDate;
+    isSetModificationDate = true; // mark as set
   }
 
   /**
@@ -227,6 +266,7 @@ public class DocumentReference {
    */
   public DocumentReference pages(List<DocumentPage> pages) {
     this.pages = pages;
+    isSetPages = true; // mark as set
     return this;
   }
 
@@ -258,6 +298,7 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPages(List<DocumentPage> pages) {
     this.pages = pages;
+    isSetPages = true; // mark as set
   }
 
   /**
@@ -268,6 +309,7 @@ public class DocumentReference {
    */
   public DocumentReference type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -291,6 +333,27 @@ public class DocumentReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DocumentReference includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DocumentReference object is equal to o. */
@@ -340,6 +403,48 @@ public class DocumentReference {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetActive) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE, this.active);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetFileName) {
+      addIfNull(nulls, JSON_PROPERTY_FILE_NAME, this.fileName);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetModificationDate) {
+      addIfNull(nulls, JSON_PROPERTY_MODIFICATION_DATE, this.modificationDate);
+    }
+    if (isSetPages) {
+      addIfNull(nulls, JSON_PROPERTY_PAGES, this.pages);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

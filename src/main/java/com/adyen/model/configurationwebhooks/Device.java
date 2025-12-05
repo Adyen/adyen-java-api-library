@@ -11,6 +11,8 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Device {
   public static final String JSON_PROPERTY_DEVICE_ID = "deviceId";
   private String deviceId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceId = false;
+
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private String formFactor;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFormFactor = false;
+
   public static final String JSON_PROPERTY_OS_NAME = "osName";
   private String osName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOsName = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Device() {}
 
@@ -43,6 +60,7 @@ public class Device {
    */
   public Device deviceId(String deviceId) {
     this.deviceId = deviceId;
+    isSetDeviceId = true; // mark as set
     return this;
   }
 
@@ -66,6 +84,7 @@ public class Device {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceId(String deviceId) {
     this.deviceId = deviceId;
+    isSetDeviceId = true; // mark as set
   }
 
   /**
@@ -78,6 +97,7 @@ public class Device {
    */
   public Device formFactor(String formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
     return this;
   }
 
@@ -105,6 +125,7 @@ public class Device {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
   }
 
   /**
@@ -115,6 +136,7 @@ public class Device {
    */
   public Device osName(String osName) {
     this.osName = osName;
+    isSetOsName = true; // mark as set
     return this;
   }
 
@@ -138,6 +160,27 @@ public class Device {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsName(String osName) {
     this.osName = osName;
+    isSetOsName = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Device includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Device object is equal to o. */
@@ -179,6 +222,36 @@ public class Device {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDeviceId) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_ID, this.deviceId);
+    }
+    if (isSetFormFactor) {
+      addIfNull(nulls, JSON_PROPERTY_FORM_FACTOR, this.formFactor);
+    }
+    if (isSetOsName) {
+      addIfNull(nulls, JSON_PROPERTY_OS_NAME, this.osName);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

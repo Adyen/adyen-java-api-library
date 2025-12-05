@@ -11,7 +11,9 @@
 
 package com.adyen.model.transferwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +32,9 @@ import java.util.logging.Logger;
 public class AmountAdjustment {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   /**
    * The type of markup that is applied to an authorised payment. Possible values: **exchange**,
@@ -82,8 +87,20 @@ public class AmountAdjustment {
   public static final String JSON_PROPERTY_AMOUNT_ADJUSTMENT_TYPE = "amountAdjustmentType";
   private AmountAdjustmentTypeEnum amountAdjustmentType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmountAdjustmentType = false;
+
   public static final String JSON_PROPERTY_BASEPOINTS = "basepoints";
   private Integer basepoints;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBasepoints = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AmountAdjustment() {}
 
@@ -95,6 +112,7 @@ public class AmountAdjustment {
    */
   public AmountAdjustment amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -118,6 +136,7 @@ public class AmountAdjustment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -130,6 +149,7 @@ public class AmountAdjustment {
    */
   public AmountAdjustment amountAdjustmentType(AmountAdjustmentTypeEnum amountAdjustmentType) {
     this.amountAdjustmentType = amountAdjustmentType;
+    isSetAmountAdjustmentType = true; // mark as set
     return this;
   }
 
@@ -157,6 +177,7 @@ public class AmountAdjustment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustmentType(AmountAdjustmentTypeEnum amountAdjustmentType) {
     this.amountAdjustmentType = amountAdjustmentType;
+    isSetAmountAdjustmentType = true; // mark as set
   }
 
   /**
@@ -167,6 +188,7 @@ public class AmountAdjustment {
    */
   public AmountAdjustment basepoints(Integer basepoints) {
     this.basepoints = basepoints;
+    isSetBasepoints = true; // mark as set
     return this;
   }
 
@@ -190,6 +212,27 @@ public class AmountAdjustment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasepoints(Integer basepoints) {
     this.basepoints = basepoints;
+    isSetBasepoints = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AmountAdjustment includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AmountAdjustment object is equal to o. */
@@ -233,6 +276,36 @@ public class AmountAdjustment {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetAmountAdjustmentType) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT_ADJUSTMENT_TYPE, this.amountAdjustmentType);
+    }
+    if (isSetBasepoints) {
+      addIfNull(nulls, JSON_PROPERTY_BASEPOINTS, this.basepoints);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

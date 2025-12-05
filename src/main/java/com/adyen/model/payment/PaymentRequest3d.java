@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -79,78 +81,153 @@ public class PaymentRequest3d {
   public static final String JSON_PROPERTY_ACCOUNT_INFO = "accountInfo";
   private AccountInfo accountInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountInfo = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_AMOUNT = "additionalAmount";
   private Amount additionalAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalAmount = false;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
 
   public static final String JSON_PROPERTY_BROWSER_INFO = "browserInfo";
   private BrowserInfo browserInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrowserInfo = false;
+
   public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCaptureDelayHours = false;
 
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
+
   public static final String JSON_PROPERTY_DCC_QUOTE = "dccQuote";
   private ForexQuote dccQuote;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDccQuote = false;
 
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private Address deliveryAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddress = false;
+
   public static final String JSON_PROPERTY_DELIVERY_DATE = "deliveryDate";
   private OffsetDateTime deliveryDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryDate = false;
 
   public static final String JSON_PROPERTY_DEVICE_FINGERPRINT = "deviceFingerprint";
   private String deviceFingerprint;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceFingerprint = false;
+
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudOffset = false;
+
   public static final String JSON_PROPERTY_INSTALLMENTS = "installments";
   private Installments installments;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallments = false;
 
   public static final String JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT =
       "localizedShopperStatement";
   private Map<String, String> localizedShopperStatement;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalizedShopperStatement = false;
+
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcc = false;
 
   public static final String JSON_PROPERTY_MD = "md";
   private String md;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMd = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
   private String merchantOrderReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantOrderReference = false;
+
   public static final String JSON_PROPERTY_MERCHANT_RISK_INDICATOR = "merchantRiskIndicator";
   private MerchantRiskIndicator merchantRiskIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantRiskIndicator = false;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMetadata = false;
+
   public static final String JSON_PROPERTY_ORDER_REFERENCE = "orderReference";
   private String orderReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderReference = false;
 
   public static final String JSON_PROPERTY_PA_RESPONSE = "paResponse";
   private String paResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaResponse = false;
+
   public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurring = false;
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details or
@@ -209,24 +286,45 @@ public class PaymentRequest3d {
   public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringProcessingModel = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SELECTED_BRAND = "selectedBrand";
   private String selectedBrand;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelectedBrand = false;
 
   public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE =
       "selectedRecurringDetailReference";
   private String selectedRecurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelectedRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SESSION_ID = "sessionId";
   private String sessionId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSessionId = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
   private String shopperIP;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperIP = false;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether
@@ -288,42 +386,87 @@ public class PaymentRequest3d {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperLocale = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
 
   public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperStatement = false;
+
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
+
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private ThreeDS2RequestData threeDS2RequestData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2RequestData = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY =
       "threeDSAuthenticationOnly";
   private Boolean threeDSAuthenticationOnly;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSAuthenticationOnly = false;
+
   public static final String JSON_PROPERTY_TOTALS_GROUP = "totalsGroup";
   private String totalsGroup;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTotalsGroup = false;
+
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrustedShopper = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentRequest3d() {}
 
@@ -335,6 +478,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d accountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+    isSetAccountInfo = true; // mark as set
     return this;
   }
 
@@ -358,6 +502,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+    isSetAccountInfo = true; // mark as set
   }
 
   /**
@@ -368,6 +513,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d additionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
+    isSetAdditionalAmount = true; // mark as set
     return this;
   }
 
@@ -391,6 +537,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
+    isSetAdditionalAmount = true; // mark as set
   }
 
   /**
@@ -405,6 +552,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -444,6 +592,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -454,6 +603,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -477,6 +627,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -487,6 +638,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -510,6 +662,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -520,6 +673,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -543,6 +697,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -553,6 +708,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d browserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
+    isSetBrowserInfo = true; // mark as set
     return this;
   }
 
@@ -576,6 +732,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrowserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
+    isSetBrowserInfo = true; // mark as set
   }
 
   /**
@@ -587,6 +744,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
+    isSetCaptureDelayHours = true; // mark as set
     return this;
   }
 
@@ -612,6 +770,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
+    isSetCaptureDelayHours = true; // mark as set
   }
 
   /**
@@ -624,6 +783,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -651,6 +811,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -661,6 +822,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d dccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
+    isSetDccQuote = true; // mark as set
     return this;
   }
 
@@ -684,6 +846,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
+    isSetDccQuote = true; // mark as set
   }
 
   /**
@@ -694,6 +857,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d deliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
     return this;
   }
 
@@ -717,6 +881,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
   }
 
   /**
@@ -731,6 +896,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d deliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
+    isSetDeliveryDate = true; // mark as set
     return this;
   }
 
@@ -762,6 +928,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
+    isSetDeliveryDate = true; // mark as set
   }
 
   /**
@@ -775,6 +942,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d deviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
+    isSetDeviceFingerprint = true; // mark as set
     return this;
   }
 
@@ -804,6 +972,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
+    isSetDeviceFingerprint = true; // mark as set
   }
 
   /**
@@ -816,6 +985,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
     return this;
   }
 
@@ -843,6 +1013,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
   }
 
   /**
@@ -853,6 +1024,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d installments(Installments installments) {
     this.installments = installments;
+    isSetInstallments = true; // mark as set
     return this;
   }
 
@@ -876,6 +1048,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Installments installments) {
     this.installments = installments;
+    isSetInstallments = true; // mark as set
   }
 
   /**
@@ -896,6 +1069,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d localizedShopperStatement(Map<String, String> localizedShopperStatement) {
     this.localizedShopperStatement = localizedShopperStatement;
+    isSetLocalizedShopperStatement = true; // mark as set
     return this;
   }
 
@@ -948,6 +1122,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalizedShopperStatement(Map<String, String> localizedShopperStatement) {
     this.localizedShopperStatement = localizedShopperStatement;
+    isSetLocalizedShopperStatement = true; // mark as set
   }
 
   /**
@@ -962,6 +1137,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d mcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -993,6 +1169,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
   }
 
   /**
@@ -1003,6 +1180,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d md(String md) {
     this.md = md;
+    isSetMd = true; // mark as set
     return this;
   }
 
@@ -1026,6 +1204,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMd(String md) {
     this.md = md;
+    isSetMd = true; // mark as set
   }
 
   /**
@@ -1037,6 +1216,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -1062,6 +1242,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -1086,6 +1267,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
+    isSetMerchantOrderReference = true; // mark as set
     return this;
   }
 
@@ -1138,6 +1320,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
+    isSetMerchantOrderReference = true; // mark as set
   }
 
   /**
@@ -1148,6 +1331,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
+    isSetMerchantRiskIndicator = true; // mark as set
     return this;
   }
 
@@ -1171,6 +1355,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
+    isSetMerchantRiskIndicator = true; // mark as set
   }
 
   /**
@@ -1187,6 +1372,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
     return this;
   }
 
@@ -1230,6 +1416,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
   }
 
   /**
@@ -1245,6 +1432,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d orderReference(String orderReference) {
     this.orderReference = orderReference;
+    isSetOrderReference = true; // mark as set
     return this;
   }
 
@@ -1278,6 +1466,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderReference(String orderReference) {
     this.orderReference = orderReference;
+    isSetOrderReference = true; // mark as set
   }
 
   /**
@@ -1290,6 +1479,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d paResponse(String paResponse) {
     this.paResponse = paResponse;
+    isSetPaResponse = true; // mark as set
     return this;
   }
 
@@ -1317,6 +1507,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaResponse(String paResponse) {
     this.paResponse = paResponse;
+    isSetPaResponse = true; // mark as set
   }
 
   /**
@@ -1327,6 +1518,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d recurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
     return this;
   }
 
@@ -1350,6 +1542,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
   }
 
   /**
@@ -1378,6 +1571,7 @@ public class PaymentRequest3d {
   public PaymentRequest3d recurringProcessingModel(
       RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
     return this;
   }
 
@@ -1435,6 +1629,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
   }
 
   /**
@@ -1451,6 +1646,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -1486,6 +1682,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -1502,6 +1699,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d selectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
+    isSetSelectedBrand = true; // mark as set
     return this;
   }
 
@@ -1537,6 +1735,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
+    isSetSelectedBrand = true; // mark as set
   }
 
   /**
@@ -1551,6 +1750,7 @@ public class PaymentRequest3d {
   public PaymentRequest3d selectedRecurringDetailReference(
       String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -1580,6 +1780,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -1590,6 +1791,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d sessionId(String sessionId) {
     this.sessionId = sessionId;
+    isSetSessionId = true; // mark as set
     return this;
   }
 
@@ -1613,6 +1815,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionId(String sessionId) {
     this.sessionId = sessionId;
+    isSetSessionId = true; // mark as set
   }
 
   /**
@@ -1627,6 +1830,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -1658,6 +1862,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -1681,6 +1886,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
     return this;
   }
 
@@ -1730,6 +1936,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
   }
 
   /**
@@ -1761,6 +1968,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -1826,6 +2034,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -1838,6 +2047,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
     return this;
   }
 
@@ -1865,6 +2075,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
   }
 
   /**
@@ -1875,6 +2086,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -1898,6 +2110,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -1914,6 +2127,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -1949,6 +2163,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -1964,6 +2179,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
     return this;
   }
 
@@ -1997,6 +2213,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
   }
 
   /**
@@ -2007,6 +2224,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -2030,6 +2248,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
   }
 
   /**
@@ -2046,6 +2265,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -2089,6 +2309,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -2112,6 +2333,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -2161,6 +2383,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
   }
 
   /**
@@ -2179,6 +2402,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -2218,6 +2442,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -2228,6 +2453,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d threeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
     return this;
   }
 
@@ -2251,6 +2477,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
   }
 
   /**
@@ -2267,6 +2494,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
     return this;
   }
 
@@ -2302,6 +2530,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
   }
 
   /**
@@ -2314,6 +2543,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d totalsGroup(String totalsGroup) {
     this.totalsGroup = totalsGroup;
+    isSetTotalsGroup = true; // mark as set
     return this;
   }
 
@@ -2341,6 +2571,7 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalsGroup(String totalsGroup) {
     this.totalsGroup = totalsGroup;
+    isSetTotalsGroup = true; // mark as set
   }
 
   /**
@@ -2351,6 +2582,7 @@ public class PaymentRequest3d {
    */
   public PaymentRequest3d trustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
+    isSetTrustedShopper = true; // mark as set
     return this;
   }
 
@@ -2374,6 +2606,27 @@ public class PaymentRequest3d {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
+    isSetTrustedShopper = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentRequest3d includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentRequest3d object is equal to o. */
@@ -2564,6 +2817,165 @@ public class PaymentRequest3d {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountInfo) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_INFO, this.accountInfo);
+    }
+    if (isSetAdditionalAmount) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_AMOUNT, this.additionalAmount);
+    }
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetBrowserInfo) {
+      addIfNull(nulls, JSON_PROPERTY_BROWSER_INFO, this.browserInfo);
+    }
+    if (isSetCaptureDelayHours) {
+      addIfNull(nulls, JSON_PROPERTY_CAPTURE_DELAY_HOURS, this.captureDelayHours);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetDccQuote) {
+      addIfNull(nulls, JSON_PROPERTY_DCC_QUOTE, this.dccQuote);
+    }
+    if (isSetDeliveryAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
+    if (isSetDeliveryDate) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_DATE, this.deliveryDate);
+    }
+    if (isSetDeviceFingerprint) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_FINGERPRINT, this.deviceFingerprint);
+    }
+    if (isSetFraudOffset) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_OFFSET, this.fraudOffset);
+    }
+    if (isSetInstallments) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLMENTS, this.installments);
+    }
+    if (isSetLocalizedShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT, this.localizedShopperStatement);
+    }
+    if (isSetMcc) {
+      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
+    }
+    if (isSetMd) {
+      addIfNull(nulls, JSON_PROPERTY_MD, this.md);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetMerchantOrderReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ORDER_REFERENCE, this.merchantOrderReference);
+    }
+    if (isSetMerchantRiskIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_RISK_INDICATOR, this.merchantRiskIndicator);
+    }
+    if (isSetMetadata) {
+      addIfNull(nulls, JSON_PROPERTY_METADATA, this.metadata);
+    }
+    if (isSetOrderReference) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_REFERENCE, this.orderReference);
+    }
+    if (isSetPaResponse) {
+      addIfNull(nulls, JSON_PROPERTY_PA_RESPONSE, this.paResponse);
+    }
+    if (isSetRecurring) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING, this.recurring);
+    }
+    if (isSetRecurringProcessingModel) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_PROCESSING_MODEL, this.recurringProcessingModel);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSelectedBrand) {
+      addIfNull(nulls, JSON_PROPERTY_SELECTED_BRAND, this.selectedBrand);
+    }
+    if (isSetSelectedRecurringDetailReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+          this.selectedRecurringDetailReference);
+    }
+    if (isSetSessionId) {
+      addIfNull(nulls, JSON_PROPERTY_SESSION_ID, this.sessionId);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperIP) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_I_P, this.shopperIP);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetShopperLocale) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_LOCALE, this.shopperLocale);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetThreeDS2RequestData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);
+    }
+    if (isSetThreeDSAuthenticationOnly) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY, this.threeDSAuthenticationOnly);
+    }
+    if (isSetTotalsGroup) {
+      addIfNull(nulls, JSON_PROPERTY_TOTALS_GROUP, this.totalsGroup);
+    }
+    if (isSetTrustedShopper) {
+      addIfNull(nulls, JSON_PROPERTY_TRUSTED_SHOPPER, this.trustedShopper);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

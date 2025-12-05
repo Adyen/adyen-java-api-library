@@ -11,6 +11,8 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class NetworkTokenTriggeredRiskRule {
   public static final String JSON_PROPERTY_REASON = "reason";
   private String reason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReason = false;
+
   public static final String JSON_PROPERTY_TRANSACTION_RULE = "transactionRule";
   private NetworkTokenRiskRuleData transactionRule;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionRule = false;
+
   public static final String JSON_PROPERTY_TRANSACTION_RULE_SOURCE = "transactionRuleSource";
   private NetworkTokenRiskRuleSource transactionRuleSource;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionRuleSource = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public NetworkTokenTriggeredRiskRule() {}
 
@@ -44,6 +61,7 @@ public class NetworkTokenTriggeredRiskRule {
    */
   public NetworkTokenTriggeredRiskRule reason(String reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
     return this;
   }
 
@@ -67,6 +85,7 @@ public class NetworkTokenTriggeredRiskRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
   }
 
   /**
@@ -78,6 +97,7 @@ public class NetworkTokenTriggeredRiskRule {
    */
   public NetworkTokenTriggeredRiskRule transactionRule(NetworkTokenRiskRuleData transactionRule) {
     this.transactionRule = transactionRule;
+    isSetTransactionRule = true; // mark as set
     return this;
   }
 
@@ -101,6 +121,7 @@ public class NetworkTokenTriggeredRiskRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRule(NetworkTokenRiskRuleData transactionRule) {
     this.transactionRule = transactionRule;
+    isSetTransactionRule = true; // mark as set
   }
 
   /**
@@ -113,6 +134,7 @@ public class NetworkTokenTriggeredRiskRule {
   public NetworkTokenTriggeredRiskRule transactionRuleSource(
       NetworkTokenRiskRuleSource transactionRuleSource) {
     this.transactionRuleSource = transactionRuleSource;
+    isSetTransactionRuleSource = true; // mark as set
     return this;
   }
 
@@ -136,6 +158,27 @@ public class NetworkTokenTriggeredRiskRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRuleSource(NetworkTokenRiskRuleSource transactionRuleSource) {
     this.transactionRuleSource = transactionRuleSource;
+    isSetTransactionRuleSource = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NetworkTokenTriggeredRiskRule includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NetworkTokenTriggeredRiskRule object is equal to o. */
@@ -180,6 +223,36 @@ public class NetworkTokenTriggeredRiskRule {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetReason) {
+      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
+    }
+    if (isSetTransactionRule) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_RULE, this.transactionRule);
+    }
+    if (isSetTransactionRuleSource) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_RULE_SOURCE, this.transactionRuleSource);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

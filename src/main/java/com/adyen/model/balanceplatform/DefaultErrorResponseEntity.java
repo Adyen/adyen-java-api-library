@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,26 +36,56 @@ public class DefaultErrorResponseEntity {
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDetail = false;
+
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorCode = false;
 
   public static final String JSON_PROPERTY_INSTANCE = "instance";
   private String instance;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstance = false;
+
   public static final String JSON_PROPERTY_INVALID_FIELDS = "invalidFields";
   private List<InvalidField> invalidFields;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInvalidFields = false;
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestId = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTitle = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DefaultErrorResponseEntity() {}
 
@@ -65,6 +97,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity detail(String detail) {
     this.detail = detail;
+    isSetDetail = true; // mark as set
     return this;
   }
 
@@ -88,6 +121,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
     this.detail = detail;
+    isSetDetail = true; // mark as set
   }
 
   /**
@@ -98,6 +132,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity errorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
     return this;
   }
 
@@ -121,6 +156,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
   }
 
   /**
@@ -131,6 +167,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity instance(String instance) {
     this.instance = instance;
+    isSetInstance = true; // mark as set
     return this;
   }
 
@@ -154,6 +191,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
     this.instance = instance;
+    isSetInstance = true; // mark as set
   }
 
   /**
@@ -164,6 +202,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity invalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
+    isSetInvalidFields = true; // mark as set
     return this;
   }
 
@@ -195,6 +234,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
     this.invalidFields = invalidFields;
+    isSetInvalidFields = true; // mark as set
   }
 
   /**
@@ -205,6 +245,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity requestId(String requestId) {
     this.requestId = requestId;
+    isSetRequestId = true; // mark as set
     return this;
   }
 
@@ -228,6 +269,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+    isSetRequestId = true; // mark as set
   }
 
   /**
@@ -238,6 +280,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity status(Integer status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -261,6 +304,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -271,6 +315,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity title(String title) {
     this.title = title;
+    isSetTitle = true; // mark as set
     return this;
   }
 
@@ -294,6 +339,7 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
+    isSetTitle = true; // mark as set
   }
 
   /**
@@ -306,6 +352,7 @@ public class DefaultErrorResponseEntity {
    */
   public DefaultErrorResponseEntity type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -333,6 +380,27 @@ public class DefaultErrorResponseEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DefaultErrorResponseEntity includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DefaultErrorResponseEntity object is equal to o. */
@@ -384,6 +452,51 @@ public class DefaultErrorResponseEntity {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDetail) {
+      addIfNull(nulls, JSON_PROPERTY_DETAIL, this.detail);
+    }
+    if (isSetErrorCode) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_CODE, this.errorCode);
+    }
+    if (isSetInstance) {
+      addIfNull(nulls, JSON_PROPERTY_INSTANCE, this.instance);
+    }
+    if (isSetInvalidFields) {
+      addIfNull(nulls, JSON_PROPERTY_INVALID_FIELDS, this.invalidFields);
+    }
+    if (isSetRequestId) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_ID, this.requestId);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTitle) {
+      addIfNull(nulls, JSON_PROPERTY_TITLE, this.title);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

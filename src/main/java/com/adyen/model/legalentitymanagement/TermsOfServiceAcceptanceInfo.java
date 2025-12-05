@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,14 +37,26 @@ public class TermsOfServiceAcceptanceInfo {
   public static final String JSON_PROPERTY_ACCEPTED_BY = "acceptedBy";
   private String acceptedBy;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptedBy = false;
+
   public static final String JSON_PROPERTY_ACCEPTED_FOR = "acceptedFor";
   private String acceptedFor;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptedFor = false;
 
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
@@ -108,8 +122,20 @@ public class TermsOfServiceAcceptanceInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_VALID_TO = "validTo";
   private OffsetDateTime validTo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValidTo = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TermsOfServiceAcceptanceInfo() {}
 
@@ -121,6 +147,7 @@ public class TermsOfServiceAcceptanceInfo {
    */
   public TermsOfServiceAcceptanceInfo acceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
+    isSetAcceptedBy = true; // mark as set
     return this;
   }
 
@@ -144,6 +171,7 @@ public class TermsOfServiceAcceptanceInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
+    isSetAcceptedBy = true; // mark as set
   }
 
   /**
@@ -155,6 +183,7 @@ public class TermsOfServiceAcceptanceInfo {
    */
   public TermsOfServiceAcceptanceInfo acceptedFor(String acceptedFor) {
     this.acceptedFor = acceptedFor;
+    isSetAcceptedFor = true; // mark as set
     return this;
   }
 
@@ -180,6 +209,7 @@ public class TermsOfServiceAcceptanceInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedFor(String acceptedFor) {
     this.acceptedFor = acceptedFor;
+    isSetAcceptedFor = true; // mark as set
   }
 
   /**
@@ -192,6 +222,7 @@ public class TermsOfServiceAcceptanceInfo {
    */
   public TermsOfServiceAcceptanceInfo createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -219,6 +250,7 @@ public class TermsOfServiceAcceptanceInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -229,6 +261,7 @@ public class TermsOfServiceAcceptanceInfo {
    */
   public TermsOfServiceAcceptanceInfo id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -252,6 +285,7 @@ public class TermsOfServiceAcceptanceInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -266,6 +300,7 @@ public class TermsOfServiceAcceptanceInfo {
    */
   public TermsOfServiceAcceptanceInfo type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -297,6 +332,7 @@ public class TermsOfServiceAcceptanceInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -309,6 +345,7 @@ public class TermsOfServiceAcceptanceInfo {
    */
   public TermsOfServiceAcceptanceInfo validTo(OffsetDateTime validTo) {
     this.validTo = validTo;
+    isSetValidTo = true; // mark as set
     return this;
   }
 
@@ -336,6 +373,27 @@ public class TermsOfServiceAcceptanceInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTo(OffsetDateTime validTo) {
     this.validTo = validTo;
+    isSetValidTo = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TermsOfServiceAcceptanceInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TermsOfServiceAcceptanceInfo object is equal to o. */
@@ -383,6 +441,45 @@ public class TermsOfServiceAcceptanceInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcceptedBy) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTED_BY, this.acceptedBy);
+    }
+    if (isSetAcceptedFor) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTED_FOR, this.acceptedFor);
+    }
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetValidTo) {
+      addIfNull(nulls, JSON_PROPERTY_VALID_TO, this.validTo);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

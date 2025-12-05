@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -56,45 +58,87 @@ public class CardDetails {
   public static final String JSON_PROPERTY_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
   private String billingSequenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingSequenceNumber = false;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
   @Deprecated // deprecated
   private String cupsecureplusSmscode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCupsecureplusSmscode = false;
+
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvc = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_CARD = "encryptedCard";
   private String encryptedCard;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedCard = false;
+
   public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedCardNumber = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
   private String encryptedExpiryMonth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedExpiryMonth = false;
+
   public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
   private String encryptedExpiryYear;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedExpiryYear = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_PASSWORD = "encryptedPassword";
   private String encryptedPassword;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedPassword = false;
+
   public static final String JSON_PROPERTY_ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
   private String encryptedSecurityCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedSecurityCode = false;
 
   public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryMonth = false;
+
   public static final String JSON_PROPERTY_EXPIRY_YEAR = "expiryYear";
   private String expiryYear;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryYear = false;
+
   public static final String JSON_PROPERTY_FASTLANE_DATA = "fastlaneData";
   private String fastlaneData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFastlaneData = false;
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo
@@ -143,43 +187,82 @@ public class CardDetails {
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
+
   public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
   private String holderName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE = "networkPaymentReference";
   private String networkPaymentReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkPaymentReference = false;
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE =
       "shopperNotificationReference";
   private String shopperNotificationReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperNotificationReference = false;
+
   public static final String JSON_PROPERTY_SRC_CORRELATION_ID = "srcCorrelationId";
   private String srcCorrelationId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSrcCorrelationId = false;
 
   public static final String JSON_PROPERTY_SRC_DIGITAL_CARD_ID = "srcDigitalCardId";
   private String srcDigitalCardId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSrcDigitalCardId = false;
+
   public static final String JSON_PROPERTY_SRC_SCHEME = "srcScheme";
   private String srcScheme;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSrcScheme = false;
 
   public static final String JSON_PROPERTY_SRC_TOKEN_REFERENCE = "srcTokenReference";
   private String srcTokenReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSrcTokenReference = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_SDK_VERSION = "threeDS2SdkVersion";
   private String threeDS2SdkVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2SdkVersion = false;
 
   /**
    * Default payment method details. Common for scheme payment methods, and for simple payment
@@ -236,6 +319,15 @@ public class CardDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CardDetails() {}
 
   /**
@@ -249,6 +341,7 @@ public class CardDetails {
    */
   public CardDetails billingSequenceNumber(String billingSequenceNumber) {
     this.billingSequenceNumber = billingSequenceNumber;
+    isSetBillingSequenceNumber = true; // mark as set
     return this;
   }
 
@@ -278,6 +371,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingSequenceNumber(String billingSequenceNumber) {
     this.billingSequenceNumber = billingSequenceNumber;
+    isSetBillingSequenceNumber = true; // mark as set
   }
 
   /**
@@ -288,6 +382,7 @@ public class CardDetails {
    */
   public CardDetails brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -311,6 +406,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -321,6 +417,7 @@ public class CardDetails {
    */
   public CardDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -344,6 +441,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -356,6 +454,7 @@ public class CardDetails {
   @Deprecated // deprecated
   public CardDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
+    isSetCupsecureplusSmscode = true; // mark as set
     return this;
   }
 
@@ -383,6 +482,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
+    isSetCupsecureplusSmscode = true; // mark as set
   }
 
   /**
@@ -395,6 +495,7 @@ public class CardDetails {
    */
   public CardDetails cvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
     return this;
   }
 
@@ -422,6 +523,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
   }
 
   /**
@@ -434,6 +536,7 @@ public class CardDetails {
    */
   public CardDetails encryptedCard(String encryptedCard) {
     this.encryptedCard = encryptedCard;
+    isSetEncryptedCard = true; // mark as set
     return this;
   }
 
@@ -461,6 +564,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCard(String encryptedCard) {
     this.encryptedCard = encryptedCard;
+    isSetEncryptedCard = true; // mark as set
   }
 
   /**
@@ -471,6 +575,7 @@ public class CardDetails {
    */
   public CardDetails encryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
+    isSetEncryptedCardNumber = true; // mark as set
     return this;
   }
 
@@ -494,6 +599,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
+    isSetEncryptedCardNumber = true; // mark as set
   }
 
   /**
@@ -504,6 +610,7 @@ public class CardDetails {
    */
   public CardDetails encryptedExpiryMonth(String encryptedExpiryMonth) {
     this.encryptedExpiryMonth = encryptedExpiryMonth;
+    isSetEncryptedExpiryMonth = true; // mark as set
     return this;
   }
 
@@ -527,6 +634,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryMonth(String encryptedExpiryMonth) {
     this.encryptedExpiryMonth = encryptedExpiryMonth;
+    isSetEncryptedExpiryMonth = true; // mark as set
   }
 
   /**
@@ -537,6 +645,7 @@ public class CardDetails {
    */
   public CardDetails encryptedExpiryYear(String encryptedExpiryYear) {
     this.encryptedExpiryYear = encryptedExpiryYear;
+    isSetEncryptedExpiryYear = true; // mark as set
     return this;
   }
 
@@ -560,6 +669,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryYear(String encryptedExpiryYear) {
     this.encryptedExpiryYear = encryptedExpiryYear;
+    isSetEncryptedExpiryYear = true; // mark as set
   }
 
   /**
@@ -572,6 +682,7 @@ public class CardDetails {
    */
   public CardDetails encryptedPassword(String encryptedPassword) {
     this.encryptedPassword = encryptedPassword;
+    isSetEncryptedPassword = true; // mark as set
     return this;
   }
 
@@ -599,6 +710,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedPassword(String encryptedPassword) {
     this.encryptedPassword = encryptedPassword;
+    isSetEncryptedPassword = true; // mark as set
   }
 
   /**
@@ -609,6 +721,7 @@ public class CardDetails {
    */
   public CardDetails encryptedSecurityCode(String encryptedSecurityCode) {
     this.encryptedSecurityCode = encryptedSecurityCode;
+    isSetEncryptedSecurityCode = true; // mark as set
     return this;
   }
 
@@ -632,6 +745,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedSecurityCode(String encryptedSecurityCode) {
     this.encryptedSecurityCode = encryptedSecurityCode;
+    isSetEncryptedSecurityCode = true; // mark as set
   }
 
   /**
@@ -644,6 +758,7 @@ public class CardDetails {
    */
   public CardDetails expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
     return this;
   }
 
@@ -671,6 +786,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
   }
 
   /**
@@ -683,6 +799,7 @@ public class CardDetails {
    */
   public CardDetails expiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
     return this;
   }
 
@@ -710,6 +827,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
   }
 
   /**
@@ -720,6 +838,7 @@ public class CardDetails {
    */
   public CardDetails fastlaneData(String fastlaneData) {
     this.fastlaneData = fastlaneData;
+    isSetFastlaneData = true; // mark as set
     return this;
   }
 
@@ -743,6 +862,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFastlaneData(String fastlaneData) {
     this.fastlaneData = fastlaneData;
+    isSetFastlaneData = true; // mark as set
   }
 
   /**
@@ -756,6 +876,7 @@ public class CardDetails {
    */
   public CardDetails fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -785,6 +906,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -795,6 +917,7 @@ public class CardDetails {
    */
   public CardDetails holderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
     return this;
   }
 
@@ -818,6 +941,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
   }
 
   /**
@@ -832,6 +956,7 @@ public class CardDetails {
    */
   public CardDetails networkPaymentReference(String networkPaymentReference) {
     this.networkPaymentReference = networkPaymentReference;
+    isSetNetworkPaymentReference = true; // mark as set
     return this;
   }
 
@@ -863,6 +988,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkPaymentReference(String networkPaymentReference) {
     this.networkPaymentReference = networkPaymentReference;
+    isSetNetworkPaymentReference = true; // mark as set
   }
 
   /**
@@ -875,6 +1001,7 @@ public class CardDetails {
    */
   public CardDetails number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -902,6 +1029,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -916,6 +1044,7 @@ public class CardDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public CardDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -947,6 +1076,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -957,6 +1087,7 @@ public class CardDetails {
    */
   public CardDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -981,6 +1112,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -994,6 +1126,7 @@ public class CardDetails {
    */
   public CardDetails shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
     return this;
   }
 
@@ -1023,6 +1156,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
   }
 
   /**
@@ -1033,6 +1167,7 @@ public class CardDetails {
    */
   public CardDetails srcCorrelationId(String srcCorrelationId) {
     this.srcCorrelationId = srcCorrelationId;
+    isSetSrcCorrelationId = true; // mark as set
     return this;
   }
 
@@ -1056,6 +1191,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcCorrelationId(String srcCorrelationId) {
     this.srcCorrelationId = srcCorrelationId;
+    isSetSrcCorrelationId = true; // mark as set
   }
 
   /**
@@ -1066,6 +1202,7 @@ public class CardDetails {
    */
   public CardDetails srcDigitalCardId(String srcDigitalCardId) {
     this.srcDigitalCardId = srcDigitalCardId;
+    isSetSrcDigitalCardId = true; // mark as set
     return this;
   }
 
@@ -1089,6 +1226,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcDigitalCardId(String srcDigitalCardId) {
     this.srcDigitalCardId = srcDigitalCardId;
+    isSetSrcDigitalCardId = true; // mark as set
   }
 
   /**
@@ -1099,6 +1237,7 @@ public class CardDetails {
    */
   public CardDetails srcScheme(String srcScheme) {
     this.srcScheme = srcScheme;
+    isSetSrcScheme = true; // mark as set
     return this;
   }
 
@@ -1122,6 +1261,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcScheme(String srcScheme) {
     this.srcScheme = srcScheme;
+    isSetSrcScheme = true; // mark as set
   }
 
   /**
@@ -1132,6 +1272,7 @@ public class CardDetails {
    */
   public CardDetails srcTokenReference(String srcTokenReference) {
     this.srcTokenReference = srcTokenReference;
+    isSetSrcTokenReference = true; // mark as set
     return this;
   }
 
@@ -1155,6 +1296,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcTokenReference(String srcTokenReference) {
     this.srcTokenReference = srcTokenReference;
+    isSetSrcTokenReference = true; // mark as set
   }
 
   /**
@@ -1167,6 +1309,7 @@ public class CardDetails {
    */
   public CardDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -1194,6 +1337,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -1205,6 +1349,7 @@ public class CardDetails {
    */
   public CardDetails threeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
+    isSetThreeDS2SdkVersion = true; // mark as set
     return this;
   }
 
@@ -1230,6 +1375,7 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
+    isSetThreeDS2SdkVersion = true; // mark as set
   }
 
   /**
@@ -1242,6 +1388,7 @@ public class CardDetails {
    */
   public CardDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1269,6 +1416,27 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CardDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CardDetails object is equal to o. */
@@ -1409,6 +1577,112 @@ public class CardDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingSequenceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_SEQUENCE_NUMBER, this.billingSequenceNumber);
+    }
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetCupsecureplusSmscode) {
+      addIfNull(nulls, JSON_PROPERTY_CUPSECUREPLUS_SMSCODE, this.cupsecureplusSmscode);
+    }
+    if (isSetCvc) {
+      addIfNull(nulls, JSON_PROPERTY_CVC, this.cvc);
+    }
+    if (isSetEncryptedCard) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_CARD, this.encryptedCard);
+    }
+    if (isSetEncryptedCardNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_CARD_NUMBER, this.encryptedCardNumber);
+    }
+    if (isSetEncryptedExpiryMonth) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH, this.encryptedExpiryMonth);
+    }
+    if (isSetEncryptedExpiryYear) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR, this.encryptedExpiryYear);
+    }
+    if (isSetEncryptedPassword) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_PASSWORD, this.encryptedPassword);
+    }
+    if (isSetEncryptedSecurityCode) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_SECURITY_CODE, this.encryptedSecurityCode);
+    }
+    if (isSetExpiryMonth) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_MONTH, this.expiryMonth);
+    }
+    if (isSetExpiryYear) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_YEAR, this.expiryYear);
+    }
+    if (isSetFastlaneData) {
+      addIfNull(nulls, JSON_PROPERTY_FASTLANE_DATA, this.fastlaneData);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetHolderName) {
+      addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);
+    }
+    if (isSetNetworkPaymentReference) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE, this.networkPaymentReference);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetShopperNotificationReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE, this.shopperNotificationReference);
+    }
+    if (isSetSrcCorrelationId) {
+      addIfNull(nulls, JSON_PROPERTY_SRC_CORRELATION_ID, this.srcCorrelationId);
+    }
+    if (isSetSrcDigitalCardId) {
+      addIfNull(nulls, JSON_PROPERTY_SRC_DIGITAL_CARD_ID, this.srcDigitalCardId);
+    }
+    if (isSetSrcScheme) {
+      addIfNull(nulls, JSON_PROPERTY_SRC_SCHEME, this.srcScheme);
+    }
+    if (isSetSrcTokenReference) {
+      addIfNull(nulls, JSON_PROPERTY_SRC_TOKEN_REFERENCE, this.srcTokenReference);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetThreeDS2SdkVersion) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_SDK_VERSION, this.threeDS2SdkVersion);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

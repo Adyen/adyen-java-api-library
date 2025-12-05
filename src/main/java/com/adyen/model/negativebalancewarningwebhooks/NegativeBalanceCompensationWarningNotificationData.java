@@ -11,6 +11,8 @@
 
 package com.adyen.model.negativebalancewarningwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,26 +35,56 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_LIABLE_BALANCE_ACCOUNT_ID = "liableBalanceAccountId";
   private String liableBalanceAccountId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLiableBalanceAccountId = false;
 
   public static final String JSON_PROPERTY_NEGATIVE_BALANCE_SINCE = "negativeBalanceSince";
   private OffsetDateTime negativeBalanceSince;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNegativeBalanceSince = false;
+
   public static final String JSON_PROPERTY_SCHEDULED_COMPENSATION_AT = "scheduledCompensationAt";
   private OffsetDateTime scheduledCompensationAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScheduledCompensationAt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public NegativeBalanceCompensationWarningNotificationData() {}
 
@@ -66,6 +98,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public NegativeBalanceCompensationWarningNotificationData accountHolder(
       ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -89,6 +122,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -100,6 +134,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    */
   public NegativeBalanceCompensationWarningNotificationData amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -123,6 +158,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -135,6 +171,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public NegativeBalanceCompensationWarningNotificationData balancePlatform(
       String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -158,6 +195,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -172,6 +210,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public NegativeBalanceCompensationWarningNotificationData creationDate(
       OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -199,6 +238,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -210,6 +250,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    */
   public NegativeBalanceCompensationWarningNotificationData id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -233,6 +274,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -247,6 +289,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public NegativeBalanceCompensationWarningNotificationData liableBalanceAccountId(
       String liableBalanceAccountId) {
     this.liableBalanceAccountId = liableBalanceAccountId;
+    isSetLiableBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -274,6 +317,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLiableBalanceAccountId(String liableBalanceAccountId) {
     this.liableBalanceAccountId = liableBalanceAccountId;
+    isSetLiableBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -286,6 +330,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public NegativeBalanceCompensationWarningNotificationData negativeBalanceSince(
       OffsetDateTime negativeBalanceSince) {
     this.negativeBalanceSince = negativeBalanceSince;
+    isSetNegativeBalanceSince = true; // mark as set
     return this;
   }
 
@@ -309,6 +354,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNegativeBalanceSince(OffsetDateTime negativeBalanceSince) {
     this.negativeBalanceSince = negativeBalanceSince;
+    isSetNegativeBalanceSince = true; // mark as set
   }
 
   /**
@@ -322,6 +368,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
   public NegativeBalanceCompensationWarningNotificationData scheduledCompensationAt(
       OffsetDateTime scheduledCompensationAt) {
     this.scheduledCompensationAt = scheduledCompensationAt;
+    isSetScheduledCompensationAt = true; // mark as set
     return this;
   }
 
@@ -347,6 +394,28 @@ public class NegativeBalanceCompensationWarningNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledCompensationAt(OffsetDateTime scheduledCompensationAt) {
     this.scheduledCompensationAt = scheduledCompensationAt;
+    isSetScheduledCompensationAt = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NegativeBalanceCompensationWarningNotificationData includeNullValues(
+      boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /**
@@ -426,6 +495,51 @@ public class NegativeBalanceCompensationWarningNotificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLiableBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_LIABLE_BALANCE_ACCOUNT_ID, this.liableBalanceAccountId);
+    }
+    if (isSetNegativeBalanceSince) {
+      addIfNull(nulls, JSON_PROPERTY_NEGATIVE_BALANCE_SINCE, this.negativeBalanceSince);
+    }
+    if (isSetScheduledCompensationAt) {
+      addIfNull(nulls, JSON_PROPERTY_SCHEDULED_COMPENSATION_AT, this.scheduledCompensationAt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

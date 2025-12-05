@@ -11,7 +11,9 @@
 
 package com.adyen.model.managementwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,17 +39,32 @@ public class MidServiceNotificationData {
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowed = false;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnabled = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantId = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * The status of the request to add a payment method. Possible values: * **success**: the payment
@@ -103,11 +120,20 @@ public class MidServiceNotificationData {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_STORE_ID = "storeId";
   private String storeId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreId = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
@@ -159,6 +185,15 @@ public class MidServiceNotificationData {
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private VerificationStatusEnum verificationStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public MidServiceNotificationData() {}
 
   /**
@@ -171,6 +206,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData allowed(Boolean allowed) {
     this.allowed = allowed;
+    isSetAllowed = true; // mark as set
     return this;
   }
 
@@ -198,6 +234,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
+    isSetAllowed = true; // mark as set
   }
 
   /**
@@ -209,6 +246,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData enabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
     return this;
   }
 
@@ -234,6 +272,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
   }
 
   /**
@@ -244,6 +283,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -267,6 +307,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -277,6 +318,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData merchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -300,6 +342,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
   }
 
   /**
@@ -310,6 +353,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -333,6 +377,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -347,6 +392,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -378,6 +424,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -392,6 +439,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData storeId(String storeId) {
     this.storeId = storeId;
+    isSetStoreId = true; // mark as set
     return this;
   }
 
@@ -423,6 +471,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
+    isSetStoreId = true; // mark as set
   }
 
   /**
@@ -435,6 +484,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -462,6 +512,7 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -473,6 +524,7 @@ public class MidServiceNotificationData {
    */
   public MidServiceNotificationData verificationStatus(VerificationStatusEnum verificationStatus) {
     this.verificationStatus = verificationStatus;
+    isSetVerificationStatus = true; // mark as set
     return this;
   }
 
@@ -498,6 +550,27 @@ public class MidServiceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
     this.verificationStatus = verificationStatus;
+    isSetVerificationStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public MidServiceNotificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this MidServiceNotificationData object is equal to o. */
@@ -552,6 +625,54 @@ public class MidServiceNotificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowed) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED, this.allowed);
+    }
+    if (isSetEnabled) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLED, this.enabled);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetMerchantId) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetStoreId) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_ID, this.storeId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetVerificationStatus) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_STATUS, this.verificationStatus);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

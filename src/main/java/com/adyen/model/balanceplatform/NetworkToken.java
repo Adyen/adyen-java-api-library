@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,17 +40,32 @@ public class NetworkToken {
   public static final String JSON_PROPERTY_BRAND_VARIANT = "brandVariant";
   private String brandVariant;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrandVariant = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_DEVICE = "device";
   private DeviceInfo device;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDevice = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentId = false;
 
   /**
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**,
@@ -101,14 +118,32 @@ public class NetworkToken {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TOKEN_LAST_FOUR = "tokenLastFour";
   private String tokenLastFour;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenLastFour = false;
 
   public static final String JSON_PROPERTY_TOKEN_REQUESTOR = "tokenRequestor";
   private NetworkTokenRequestor tokenRequestor;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenRequestor = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public NetworkToken() {}
 
@@ -122,6 +157,7 @@ public class NetworkToken {
    */
   public NetworkToken brandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
+    isSetBrandVariant = true; // mark as set
     return this;
   }
 
@@ -149,6 +185,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
+    isSetBrandVariant = true; // mark as set
   }
 
   /**
@@ -163,6 +200,7 @@ public class NetworkToken {
    */
   public NetworkToken creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -194,6 +232,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -204,6 +243,7 @@ public class NetworkToken {
    */
   public NetworkToken device(DeviceInfo device) {
     this.device = device;
+    isSetDevice = true; // mark as set
     return this;
   }
 
@@ -227,6 +267,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDevice(DeviceInfo device) {
     this.device = device;
+    isSetDevice = true; // mark as set
   }
 
   /**
@@ -237,6 +278,7 @@ public class NetworkToken {
    */
   public NetworkToken id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -260,6 +302,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -271,6 +314,7 @@ public class NetworkToken {
    */
   public NetworkToken paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
     return this;
   }
 
@@ -296,6 +340,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
   }
 
   /**
@@ -308,6 +353,7 @@ public class NetworkToken {
    */
   public NetworkToken status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -335,6 +381,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -345,6 +392,7 @@ public class NetworkToken {
    */
   public NetworkToken tokenLastFour(String tokenLastFour) {
     this.tokenLastFour = tokenLastFour;
+    isSetTokenLastFour = true; // mark as set
     return this;
   }
 
@@ -368,6 +416,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenLastFour(String tokenLastFour) {
     this.tokenLastFour = tokenLastFour;
+    isSetTokenLastFour = true; // mark as set
   }
 
   /**
@@ -378,6 +427,7 @@ public class NetworkToken {
    */
   public NetworkToken tokenRequestor(NetworkTokenRequestor tokenRequestor) {
     this.tokenRequestor = tokenRequestor;
+    isSetTokenRequestor = true; // mark as set
     return this;
   }
 
@@ -401,6 +451,7 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenRequestor(NetworkTokenRequestor tokenRequestor) {
     this.tokenRequestor = tokenRequestor;
+    isSetTokenRequestor = true; // mark as set
   }
 
   /**
@@ -411,6 +462,7 @@ public class NetworkToken {
    */
   public NetworkToken type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -434,6 +486,27 @@ public class NetworkToken {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NetworkToken includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NetworkToken object is equal to o. */
@@ -498,6 +571,54 @@ public class NetworkToken {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBrandVariant) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND_VARIANT, this.brandVariant);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetDevice) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE, this.device);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPaymentInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_ID, this.paymentInstrumentId);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTokenLastFour) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_LAST_FOUR, this.tokenLastFour);
+    }
+    if (isSetTokenRequestor) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_REQUESTOR, this.tokenRequestor);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.acswebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,8 +46,14 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_ACS_TRANS_ID = "acsTransId";
   private String acsTransId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsTransId = false;
+
   public static final String JSON_PROPERTY_CHALLENGE = "challenge";
   private ChallengeInfo challenge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallenge = false;
 
   /**
    * Specifies a preference for receiving a challenge. Possible values: * **01**: No preference *
@@ -116,8 +124,14 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
   private ChallengeIndicatorEnum challengeIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeIndicator = false;
+
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
 
   /**
    * Indicates the type of channel interface being used to initiate the transaction. Possible
@@ -169,8 +183,14 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_DEVICE_CHANNEL = "deviceChannel";
   private DeviceChannelEnum deviceChannel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceChannel = false;
+
   public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsTransID = false;
 
   /**
    * Indicates the exemption type that was applied to the authentication by the issuer, if exemption
@@ -231,8 +251,14 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_EXEMPTION_INDICATOR = "exemptionIndicator";
   private ExemptionIndicatorEnum exemptionIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExemptionIndicator = false;
+
   public static final String JSON_PROPERTY_IN_P_S_D2_SCOPE = "inPSD2Scope";
   private Boolean inPSD2Scope;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInPSD2Scope = false;
 
   /**
    * Identifies the category of the message for a specific use case. Possible values: * **payment**
@@ -281,14 +307,26 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_MESSAGE_CATEGORY = "messageCategory";
   private MessageCategoryEnum messageCategory;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessageCategory = false;
+
   public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
   private String messageVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessageVersion = false;
 
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private Integer riskScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskScore = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D = "threeDSServerTransID";
   private String threeDSServerTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSServerTransID = false;
 
   /**
    * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:
@@ -345,6 +383,9 @@ public class AuthenticationInfo {
 
   public static final String JSON_PROPERTY_TRANS_STATUS = "transStatus";
   private TransStatusEnum transStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatus = false;
 
   /**
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For
@@ -460,6 +501,9 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_TRANS_STATUS_REASON = "transStatusReason";
   private TransStatusReasonEnum transStatusReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatusReason = false;
+
   /** The type of authentication performed. Possible values: * **frictionless** * **challenge** */
   public enum TypeEnum {
     FRICTIONLESS(String.valueOf("frictionless")),
@@ -504,6 +548,15 @@ public class AuthenticationInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AuthenticationInfo() {}
 
   /**
@@ -516,6 +569,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo acsTransId(String acsTransId) {
     this.acsTransId = acsTransId;
+    isSetAcsTransId = true; // mark as set
     return this;
   }
 
@@ -543,6 +597,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsTransId(String acsTransId) {
     this.acsTransId = acsTransId;
+    isSetAcsTransId = true; // mark as set
   }
 
   /**
@@ -553,6 +608,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo challenge(ChallengeInfo challenge) {
     this.challenge = challenge;
+    isSetChallenge = true; // mark as set
     return this;
   }
 
@@ -576,6 +632,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallenge(ChallengeInfo challenge) {
     this.challenge = challenge;
+    isSetChallenge = true; // mark as set
   }
 
   /**
@@ -600,6 +657,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
+    isSetChallengeIndicator = true; // mark as set
     return this;
   }
 
@@ -651,6 +709,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
+    isSetChallengeIndicator = true; // mark as set
   }
 
   /**
@@ -665,6 +724,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -696,6 +756,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -710,6 +771,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo deviceChannel(DeviceChannelEnum deviceChannel) {
     this.deviceChannel = deviceChannel;
+    isSetDeviceChannel = true; // mark as set
     return this;
   }
 
@@ -741,6 +803,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceChannel(DeviceChannelEnum deviceChannel) {
     this.deviceChannel = deviceChannel;
+    isSetDeviceChannel = true; // mark as set
   }
 
   /**
@@ -753,6 +816,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
     return this;
   }
 
@@ -780,6 +844,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
   }
 
   /**
@@ -796,6 +861,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo exemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
+    isSetExemptionIndicator = true; // mark as set
     return this;
   }
 
@@ -831,6 +897,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
+    isSetExemptionIndicator = true; // mark as set
   }
 
   /**
@@ -841,6 +908,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo inPSD2Scope(Boolean inPSD2Scope) {
     this.inPSD2Scope = inPSD2Scope;
+    isSetInPSD2Scope = true; // mark as set
     return this;
   }
 
@@ -864,6 +932,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInPSD2Scope(Boolean inPSD2Scope) {
     this.inPSD2Scope = inPSD2Scope;
+    isSetInPSD2Scope = true; // mark as set
   }
 
   /**
@@ -876,6 +945,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo messageCategory(MessageCategoryEnum messageCategory) {
     this.messageCategory = messageCategory;
+    isSetMessageCategory = true; // mark as set
     return this;
   }
 
@@ -903,6 +973,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageCategory(MessageCategoryEnum messageCategory) {
     this.messageCategory = messageCategory;
+    isSetMessageCategory = true; // mark as set
   }
 
   /**
@@ -914,6 +985,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo messageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
     return this;
   }
 
@@ -939,6 +1011,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
   }
 
   /**
@@ -949,6 +1022,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo riskScore(Integer riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
     return this;
   }
 
@@ -972,6 +1046,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(Integer riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
   }
 
   /**
@@ -983,6 +1058,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo threeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
+    isSetThreeDSServerTransID = true; // mark as set
     return this;
   }
 
@@ -1008,6 +1084,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
+    isSetThreeDSServerTransID = true; // mark as set
   }
 
   /**
@@ -1027,6 +1104,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo transStatus(TransStatusEnum transStatus) {
     this.transStatus = transStatus;
+    isSetTransStatus = true; // mark as set
     return this;
   }
 
@@ -1068,6 +1146,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(TransStatusEnum transStatus) {
     this.transStatus = transStatus;
+    isSetTransStatus = true; // mark as set
   }
 
   /**
@@ -1082,6 +1161,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo transStatusReason(TransStatusReasonEnum transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
     return this;
   }
 
@@ -1113,6 +1193,7 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(TransStatusReasonEnum transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
   }
 
   /**
@@ -1124,6 +1205,7 @@ public class AuthenticationInfo {
    */
   public AuthenticationInfo type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1149,6 +1231,27 @@ public class AuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AuthenticationInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AuthenticationInfo object is equal to o. */
@@ -1231,6 +1334,72 @@ public class AuthenticationInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcsTransId) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_TRANS_ID, this.acsTransId);
+    }
+    if (isSetChallenge) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE, this.challenge);
+    }
+    if (isSetChallengeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_INDICATOR, this.challengeIndicator);
+    }
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetDeviceChannel) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_CHANNEL, this.deviceChannel);
+    }
+    if (isSetDsTransID) {
+      addIfNull(nulls, JSON_PROPERTY_DS_TRANS_I_D, this.dsTransID);
+    }
+    if (isSetExemptionIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_EXEMPTION_INDICATOR, this.exemptionIndicator);
+    }
+    if (isSetInPSD2Scope) {
+      addIfNull(nulls, JSON_PROPERTY_IN_P_S_D2_SCOPE, this.inPSD2Scope);
+    }
+    if (isSetMessageCategory) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE_CATEGORY, this.messageCategory);
+    }
+    if (isSetMessageVersion) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE_VERSION, this.messageVersion);
+    }
+    if (isSetRiskScore) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SCORE, this.riskScore);
+    }
+    if (isSetThreeDSServerTransID) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D, this.threeDSServerTransID);
+    }
+    if (isSetTransStatus) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS, this.transStatus);
+    }
+    if (isSetTransStatusReason) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS_REASON, this.transStatusReason);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

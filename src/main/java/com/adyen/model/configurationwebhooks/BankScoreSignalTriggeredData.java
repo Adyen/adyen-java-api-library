@@ -11,6 +11,8 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,29 +38,62 @@ public class BankScoreSignalTriggeredData {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_STATUS = "accountHolderStatus";
   private String accountHolderStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolderStatus = false;
 
   public static final String JSON_PROPERTY_AUTOMATED_ACTIONS = "automatedActions";
   private List<String> automatedActions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAutomatedActions = false;
+
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private Integer riskScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskScore = false;
+
   public static final String JSON_PROPERTY_SCORE_SIGNALS_TRIGGERED = "scoreSignalsTriggered";
   private List<String> scoreSignalsTriggered;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScoreSignalsTriggered = false;
+
   public static final String JSON_PROPERTY_SIGNAL_SOURCE_TYPES = "signalSourceTypes";
   private List<String> signalSourceTypes;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSignalSourceTypes = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BankScoreSignalTriggeredData() {}
 
@@ -70,6 +105,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData accountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -93,6 +129,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -103,6 +140,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData accountHolderStatus(String accountHolderStatus) {
     this.accountHolderStatus = accountHolderStatus;
+    isSetAccountHolderStatus = true; // mark as set
     return this;
   }
 
@@ -126,6 +164,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderStatus(String accountHolderStatus) {
     this.accountHolderStatus = accountHolderStatus;
+    isSetAccountHolderStatus = true; // mark as set
   }
 
   /**
@@ -137,6 +176,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData automatedActions(List<String> automatedActions) {
     this.automatedActions = automatedActions;
+    isSetAutomatedActions = true; // mark as set
     return this;
   }
 
@@ -170,6 +210,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutomatedActions(List<String> automatedActions) {
     this.automatedActions = automatedActions;
+    isSetAutomatedActions = true; // mark as set
   }
 
   /**
@@ -180,6 +221,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -203,6 +245,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -215,6 +258,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -242,6 +286,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -252,6 +297,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -275,6 +321,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -285,6 +332,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData riskScore(Integer riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
     return this;
   }
 
@@ -308,6 +356,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(Integer riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
   }
 
   /**
@@ -318,6 +367,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData scoreSignalsTriggered(List<String> scoreSignalsTriggered) {
     this.scoreSignalsTriggered = scoreSignalsTriggered;
+    isSetScoreSignalsTriggered = true; // mark as set
     return this;
   }
 
@@ -350,6 +400,7 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScoreSignalsTriggered(List<String> scoreSignalsTriggered) {
     this.scoreSignalsTriggered = scoreSignalsTriggered;
+    isSetScoreSignalsTriggered = true; // mark as set
   }
 
   /**
@@ -360,6 +411,7 @@ public class BankScoreSignalTriggeredData {
    */
   public BankScoreSignalTriggeredData signalSourceTypes(List<String> signalSourceTypes) {
     this.signalSourceTypes = signalSourceTypes;
+    isSetSignalSourceTypes = true; // mark as set
     return this;
   }
 
@@ -391,6 +443,27 @@ public class BankScoreSignalTriggeredData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignalSourceTypes(List<String> signalSourceTypes) {
     this.signalSourceTypes = signalSourceTypes;
+    isSetSignalSourceTypes = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BankScoreSignalTriggeredData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BankScoreSignalTriggeredData object is equal to o. */
@@ -459,6 +532,54 @@ public class BankScoreSignalTriggeredData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetAccountHolderStatus) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER_STATUS, this.accountHolderStatus);
+    }
+    if (isSetAutomatedActions) {
+      addIfNull(nulls, JSON_PROPERTY_AUTOMATED_ACTIONS, this.automatedActions);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetRiskScore) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SCORE, this.riskScore);
+    }
+    if (isSetScoreSignalsTriggered) {
+      addIfNull(nulls, JSON_PROPERTY_SCORE_SIGNALS_TRIGGERED, this.scoreSignalsTriggered);
+    }
+    if (isSetSignalSourceTypes) {
+      addIfNull(nulls, JSON_PROPERTY_SIGNAL_SOURCE_TYPES, this.signalSourceTypes);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

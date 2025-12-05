@@ -11,6 +11,8 @@
 
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,24 +33,51 @@ public class NotifyShopperResult {
   public static final String JSON_PROPERTY_DISPLAYED_REFERENCE = "displayedReference";
   private String displayedReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisplayedReference = false;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessage = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE =
       "shopperNotificationReference";
   private String shopperNotificationReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperNotificationReference = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public NotifyShopperResult() {}
 
@@ -60,6 +89,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult displayedReference(String displayedReference) {
     this.displayedReference = displayedReference;
+    isSetDisplayedReference = true; // mark as set
     return this;
   }
 
@@ -83,6 +113,7 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
     this.displayedReference = displayedReference;
+    isSetDisplayedReference = true; // mark as set
   }
 
   /**
@@ -93,6 +124,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult message(String message) {
     this.message = message;
+    isSetMessage = true; // mark as set
     return this;
   }
 
@@ -116,6 +148,7 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
+    isSetMessage = true; // mark as set
   }
 
   /**
@@ -126,6 +159,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -149,6 +183,7 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -159,6 +194,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -182,6 +218,7 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -192,6 +229,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult resultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -215,6 +253,7 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
   }
 
   /**
@@ -225,6 +264,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
     return this;
   }
 
@@ -248,6 +288,7 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
   }
 
   /**
@@ -259,6 +300,7 @@ public class NotifyShopperResult {
    */
   public NotifyShopperResult storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -284,6 +326,27 @@ public class NotifyShopperResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NotifyShopperResult includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NotifyShopperResult object is equal to o. */
@@ -345,6 +408,49 @@ public class NotifyShopperResult {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDisplayedReference) {
+      addIfNull(nulls, JSON_PROPERTY_DISPLAYED_REFERENCE, this.displayedReference);
+    }
+    if (isSetMessage) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE, this.message);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+    if (isSetShopperNotificationReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE, this.shopperNotificationReference);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +38,9 @@ import java.util.logging.Logger;
 public class GooglePayDonations {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo
@@ -84,24 +89,45 @@ public class GooglePayDonations {
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
+
   public static final String JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK = "googlePayCardNetwork";
   private String googlePayCardNetwork;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGooglePayCardNetwork = false;
+
   public static final String JSON_PROPERTY_GOOGLE_PAY_TOKEN = "googlePayToken";
   private String googlePayToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGooglePayToken = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_SDK_VERSION = "threeDS2SdkVersion";
   private String threeDS2SdkVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2SdkVersion = false;
 
   /** **googlepay**, **paywithgoogle** */
   public enum TypeEnum {
@@ -145,6 +171,15 @@ public class GooglePayDonations {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public GooglePayDonations() {}
 
   /**
@@ -155,6 +190,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -178,6 +214,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -191,6 +228,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -220,6 +258,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -230,6 +269,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations googlePayCardNetwork(String googlePayCardNetwork) {
     this.googlePayCardNetwork = googlePayCardNetwork;
+    isSetGooglePayCardNetwork = true; // mark as set
     return this;
   }
 
@@ -253,6 +293,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePayCardNetwork(String googlePayCardNetwork) {
     this.googlePayCardNetwork = googlePayCardNetwork;
+    isSetGooglePayCardNetwork = true; // mark as set
   }
 
   /**
@@ -267,6 +308,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations googlePayToken(String googlePayToken) {
     this.googlePayToken = googlePayToken;
+    isSetGooglePayToken = true; // mark as set
     return this;
   }
 
@@ -298,6 +340,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePayToken(String googlePayToken) {
     this.googlePayToken = googlePayToken;
+    isSetGooglePayToken = true; // mark as set
   }
 
   /**
@@ -312,6 +355,7 @@ public class GooglePayDonations {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public GooglePayDonations recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -343,6 +387,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -353,6 +398,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -377,6 +423,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -389,6 +436,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -416,6 +464,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -427,6 +476,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations threeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
+    isSetThreeDS2SdkVersion = true; // mark as set
     return this;
   }
 
@@ -452,6 +502,7 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
     this.threeDS2SdkVersion = threeDS2SdkVersion;
+    isSetThreeDS2SdkVersion = true; // mark as set
   }
 
   /**
@@ -462,6 +513,7 @@ public class GooglePayDonations {
    */
   public GooglePayDonations type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -485,6 +537,27 @@ public class GooglePayDonations {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public GooglePayDonations includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this GooglePayDonations object is equal to o. */
@@ -554,6 +627,54 @@ public class GooglePayDonations {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetGooglePayCardNetwork) {
+      addIfNull(nulls, JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK, this.googlePayCardNetwork);
+    }
+    if (isSetGooglePayToken) {
+      addIfNull(nulls, JSON_PROPERTY_GOOGLE_PAY_TOKEN, this.googlePayToken);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetThreeDS2SdkVersion) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_SDK_VERSION, this.threeDS2SdkVersion);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

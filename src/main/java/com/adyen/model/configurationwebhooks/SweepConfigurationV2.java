@@ -11,7 +11,9 @@
 
 package com.adyen.model.configurationwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -96,17 +98,32 @@ public class SweepConfigurationV2 {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCategory = false;
+
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private SweepCounterparty counterparty;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCounterparty = false;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   /** Gets or Sets priorities */
   public enum PrioritiesEnum {
@@ -160,6 +177,9 @@ public class SweepConfigurationV2 {
   public static final String JSON_PROPERTY_PRIORITIES = "priorities";
   private List<PrioritiesEnum> priorities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPriorities = false;
+
   /** The reason for disabling the sweep. */
   public enum ReasonEnum {
     ACCOUNTHIERARCHYNOTACTIVE(String.valueOf("accountHierarchyNotActive")),
@@ -209,6 +229,8 @@ public class SweepConfigurationV2 {
 
     SCAFAILED(String.valueOf("scaFailed")),
 
+    SCHEMEADVICE(String.valueOf("schemeAdvice")),
+
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
     UNKNOWN(String.valueOf("unknown"));
@@ -251,17 +273,32 @@ public class SweepConfigurationV2 {
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReason = false;
+
   public static final String JSON_PROPERTY_REASON_DETAIL = "reasonDetail";
   private String reasonDetail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReasonDetail = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReferenceForBeneficiary = false;
+
   public static final String JSON_PROPERTY_SCHEDULE = "schedule";
   private SweepSchedule schedule;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSchedule = false;
 
   /**
    * The status of the sweep. If not provided, by default, this is set to **active**. Possible
@@ -311,14 +348,26 @@ public class SweepConfigurationV2 {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_SWEEP_AMOUNT = "sweepAmount";
   private Amount sweepAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSweepAmount = false;
 
   public static final String JSON_PROPERTY_TARGET_AMOUNT = "targetAmount";
   private Amount targetAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTargetAmount = false;
+
   public static final String JSON_PROPERTY_TRIGGER_AMOUNT = "triggerAmount";
   private Amount triggerAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTriggerAmount = false;
 
   /**
    * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not
@@ -369,6 +418,15 @@ public class SweepConfigurationV2 {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public SweepConfigurationV2() {}
 
   /**
@@ -389,6 +447,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 category(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
     return this;
   }
 
@@ -432,6 +491,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
   }
 
   /**
@@ -442,6 +502,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 counterparty(SweepCounterparty counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
     return this;
   }
 
@@ -465,6 +526,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(SweepCounterparty counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
   }
 
   /**
@@ -481,6 +543,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -516,6 +579,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -530,6 +594,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -561,6 +626,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -571,6 +637,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -594,6 +661,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -605,14 +673,14 @@ public class SweepConfigurationV2 {
    * priorities is valid (i.e., supported by Adyen and activated for your platform). For example, if
    * you provide &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    * supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   * Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   * Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    * transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.
-   * * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional priorities
    * setup for
    * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -628,14 +696,14 @@ public class SweepConfigurationV2 {
    *     activated for your platform). For example, if you provide
    *     &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    *     supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   *     Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster
+   *     Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster
    *     way to transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional
    *     priorities setup for
    *     [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -645,6 +713,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 priorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
+    isSetPriorities = true; // mark as set
     return this;
   }
 
@@ -665,14 +734,14 @@ public class SweepConfigurationV2 {
    * priorities is valid (i.e., supported by Adyen and activated for your platform). For example, if
    * you provide &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    * supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   * Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   * Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    * transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.
-   * * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional priorities
    * setup for
    * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -688,14 +757,14 @@ public class SweepConfigurationV2 {
    *     activated for your platform). For example, if you provide
    *     &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    *     supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   *     Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster
+   *     Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster
    *     way to transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional
    *     priorities setup for
    *     [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -717,14 +786,14 @@ public class SweepConfigurationV2 {
    * priorities is valid (i.e., supported by Adyen and activated for your platform). For example, if
    * you provide &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    * supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   * Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   * Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    * transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.
-   * * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional priorities
    * setup for
    * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -740,14 +809,14 @@ public class SweepConfigurationV2 {
    *     activated for your platform). For example, if you provide
    *     &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    *     supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   *     Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster
+   *     Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster
    *     way to transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional
    *     priorities setup for
    *     [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -758,6 +827,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
+    isSetPriorities = true; // mark as set
   }
 
   /**
@@ -768,6 +838,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 reason(ReasonEnum reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
     return this;
   }
 
@@ -791,6 +862,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
   }
 
   /**
@@ -801,6 +873,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 reasonDetail(String reasonDetail) {
     this.reasonDetail = reasonDetail;
+    isSetReasonDetail = true; // mark as set
     return this;
   }
 
@@ -824,6 +897,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReasonDetail(String reasonDetail) {
     this.reasonDetail = reasonDetail;
+    isSetReasonDetail = true; // mark as set
   }
 
   /**
@@ -834,6 +908,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -857,6 +932,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -869,6 +945,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
     return this;
   }
 
@@ -896,6 +973,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
   }
 
   /**
@@ -906,6 +984,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 schedule(SweepSchedule schedule) {
     this.schedule = schedule;
+    isSetSchedule = true; // mark as set
     return this;
   }
 
@@ -929,6 +1008,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchedule(SweepSchedule schedule) {
     this.schedule = schedule;
+    isSetSchedule = true; // mark as set
   }
 
   /**
@@ -944,6 +1024,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -977,6 +1058,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -987,6 +1069,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 sweepAmount(Amount sweepAmount) {
     this.sweepAmount = sweepAmount;
+    isSetSweepAmount = true; // mark as set
     return this;
   }
 
@@ -1010,6 +1093,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweepAmount(Amount sweepAmount) {
     this.sweepAmount = sweepAmount;
+    isSetSweepAmount = true; // mark as set
   }
 
   /**
@@ -1020,6 +1104,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 targetAmount(Amount targetAmount) {
     this.targetAmount = targetAmount;
+    isSetTargetAmount = true; // mark as set
     return this;
   }
 
@@ -1043,6 +1128,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAmount(Amount targetAmount) {
     this.targetAmount = targetAmount;
+    isSetTargetAmount = true; // mark as set
   }
 
   /**
@@ -1053,6 +1139,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 triggerAmount(Amount triggerAmount) {
     this.triggerAmount = triggerAmount;
+    isSetTriggerAmount = true; // mark as set
     return this;
   }
 
@@ -1076,6 +1163,7 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggerAmount(Amount triggerAmount) {
     this.triggerAmount = triggerAmount;
+    isSetTriggerAmount = true; // mark as set
   }
 
   /**
@@ -1092,6 +1180,7 @@ public class SweepConfigurationV2 {
    */
   public SweepConfigurationV2 type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1127,6 +1216,27 @@ public class SweepConfigurationV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SweepConfigurationV2 includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SweepConfigurationV2 object is equal to o. */
@@ -1213,6 +1323,75 @@ public class SweepConfigurationV2 {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCategory) {
+      addIfNull(nulls, JSON_PROPERTY_CATEGORY, this.category);
+    }
+    if (isSetCounterparty) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY, this.counterparty);
+    }
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPriorities) {
+      addIfNull(nulls, JSON_PROPERTY_PRIORITIES, this.priorities);
+    }
+    if (isSetReason) {
+      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
+    }
+    if (isSetReasonDetail) {
+      addIfNull(nulls, JSON_PROPERTY_REASON_DETAIL, this.reasonDetail);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetReferenceForBeneficiary) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY, this.referenceForBeneficiary);
+    }
+    if (isSetSchedule) {
+      addIfNull(nulls, JSON_PROPERTY_SCHEDULE, this.schedule);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetSweepAmount) {
+      addIfNull(nulls, JSON_PROPERTY_SWEEP_AMOUNT, this.sweepAmount);
+    }
+    if (isSetTargetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_TARGET_AMOUNT, this.targetAmount);
+    }
+    if (isSetTriggerAmount) {
+      addIfNull(nulls, JSON_PROPERTY_TRIGGER_AMOUNT, this.triggerAmount);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

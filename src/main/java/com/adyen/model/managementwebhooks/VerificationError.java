@@ -11,7 +11,9 @@
 
 package com.adyen.model.managementwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,14 +37,26 @@ public class VerificationError {
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCode = false;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessage = false;
 
   public static final String JSON_PROPERTY_REMEDIATING_ACTIONS = "remediatingActions";
   private List<RemediatingAction> remediatingActions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRemediatingActions = false;
+
   public static final String JSON_PROPERTY_SUB_ERRORS = "subErrors";
   private List<VerificationErrorRecursive> subErrors;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubErrors = false;
 
   /**
    * The type of verification error. Possible values: **invalidInput**, **dataMissing**, and
@@ -95,6 +109,15 @@ public class VerificationError {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public VerificationError() {}
 
   /**
@@ -105,6 +128,7 @@ public class VerificationError {
    */
   public VerificationError code(String code) {
     this.code = code;
+    isSetCode = true; // mark as set
     return this;
   }
 
@@ -128,6 +152,7 @@ public class VerificationError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
+    isSetCode = true; // mark as set
   }
 
   /**
@@ -138,6 +163,7 @@ public class VerificationError {
    */
   public VerificationError message(String message) {
     this.message = message;
+    isSetMessage = true; // mark as set
     return this;
   }
 
@@ -161,6 +187,7 @@ public class VerificationError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
+    isSetMessage = true; // mark as set
   }
 
   /**
@@ -171,6 +198,7 @@ public class VerificationError {
    */
   public VerificationError remediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
+    isSetRemediatingActions = true; // mark as set
     return this;
   }
 
@@ -202,6 +230,7 @@ public class VerificationError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
+    isSetRemediatingActions = true; // mark as set
   }
 
   /**
@@ -212,6 +241,7 @@ public class VerificationError {
    */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
     this.subErrors = subErrors;
+    isSetSubErrors = true; // mark as set
     return this;
   }
 
@@ -243,6 +273,7 @@ public class VerificationError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubErrors(List<VerificationErrorRecursive> subErrors) {
     this.subErrors = subErrors;
+    isSetSubErrors = true; // mark as set
   }
 
   /**
@@ -255,6 +286,7 @@ public class VerificationError {
    */
   public VerificationError type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -282,6 +314,27 @@ public class VerificationError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public VerificationError includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this VerificationError object is equal to o. */
@@ -327,6 +380,42 @@ public class VerificationError {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCode) {
+      addIfNull(nulls, JSON_PROPERTY_CODE, this.code);
+    }
+    if (isSetMessage) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE, this.message);
+    }
+    if (isSetRemediatingActions) {
+      addIfNull(nulls, JSON_PROPERTY_REMEDIATING_ACTIONS, this.remediatingActions);
+    }
+    if (isSetSubErrors) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_ERRORS, this.subErrors);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

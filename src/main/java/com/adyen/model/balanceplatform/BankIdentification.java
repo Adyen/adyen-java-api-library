@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class BankIdentification {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountry = false;
+
   public static final String JSON_PROPERTY_IDENTIFICATION = "identification";
   private String identification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdentification = false;
 
   /**
    * The type of the identification. Possible values: **iban**, **routingNumber**, **sortCode**,
@@ -85,6 +93,15 @@ public class BankIdentification {
   public static final String JSON_PROPERTY_IDENTIFICATION_TYPE = "identificationType";
   private IdentificationTypeEnum identificationType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdentificationType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public BankIdentification() {}
 
   /**
@@ -97,6 +114,7 @@ public class BankIdentification {
    */
   public BankIdentification country(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -124,6 +142,7 @@ public class BankIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
   }
 
   /**
@@ -134,6 +153,7 @@ public class BankIdentification {
    */
   public BankIdentification identification(String identification) {
     this.identification = identification;
+    isSetIdentification = true; // mark as set
     return this;
   }
 
@@ -157,6 +177,7 @@ public class BankIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
     this.identification = identification;
+    isSetIdentification = true; // mark as set
   }
 
   /**
@@ -169,6 +190,7 @@ public class BankIdentification {
    */
   public BankIdentification identificationType(IdentificationTypeEnum identificationType) {
     this.identificationType = identificationType;
+    isSetIdentificationType = true; // mark as set
     return this;
   }
 
@@ -196,6 +218,27 @@ public class BankIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(IdentificationTypeEnum identificationType) {
     this.identificationType = identificationType;
+    isSetIdentificationType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BankIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BankIdentification object is equal to o. */
@@ -237,6 +280,36 @@ public class BankIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCountry) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetIdentification) {
+      addIfNull(nulls, JSON_PROPERTY_IDENTIFICATION, this.identification);
+    }
+    if (isSetIdentificationType) {
+      addIfNull(nulls, JSON_PROPERTY_IDENTIFICATION_TYPE, this.identificationType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
