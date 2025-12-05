@@ -198,6 +198,7 @@ public class ModelTest {
     assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
   }
 
+	// test null values are not serialized
   @Test
   public void testToJsonTerminalSettingsSurchargeNotSet() throws JsonProcessingException {
     TerminalSettings terminalSettings = new TerminalSettings();
@@ -207,6 +208,18 @@ public class ModelTest {
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
   }
 
+	// test values set as null are not serialized when includeNullValues is false
+	@Test
+	public void testToJsonTerminalSettingsSurchargeSetToNullWithoutEnablingIncludeNullValues() throws JsonProcessingException {
+		TerminalSettings terminalSettings = new TerminalSettings();
+		terminalSettings
+				.connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
+				.setSurcharge(null);
+		String json = terminalSettings.toJson();
+		assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+	}
+
+	// test values set as null (using setters) are serialized
   @Test
   public void testToJsonTerminalSettingsSurchargeSetToNull() throws JsonProcessingException {
     TerminalSettings terminalSettings = new TerminalSettings();
@@ -218,6 +231,7 @@ public class ModelTest {
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
   }
 
+	// test values set as null (using build methods) are serialized
   @Test
   public void testToJsonTerminalSettingsSurchargeChainToNull() throws JsonProcessingException {
     TerminalSettings terminalSettings = new TerminalSettings();
