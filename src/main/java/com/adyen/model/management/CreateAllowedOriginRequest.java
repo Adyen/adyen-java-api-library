@@ -53,9 +53,9 @@ public class CreateAllowedOriginRequest {
   public CreateAllowedOriginRequest() {}
 
   /**
-   * References to resources linked to the allowed origin.
+   * links
    *
-   * @param links References to resources linked to the allowed origin.
+   * @param links
    * @return the current {@code CreateAllowedOriginRequest} instance, allowing for method chaining
    */
   public CreateAllowedOriginRequest links(Links links) {
@@ -65,9 +65,9 @@ public class CreateAllowedOriginRequest {
   }
 
   /**
-   * References to resources linked to the allowed origin.
+   * Get links
    *
-   * @return links References to resources linked to the allowed origin.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,9 +76,9 @@ public class CreateAllowedOriginRequest {
   }
 
   /**
-   * References to resources linked to the allowed origin.
+   * links
    *
-   * @param links References to resources linked to the allowed origin.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

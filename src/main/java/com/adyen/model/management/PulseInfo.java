@@ -165,11 +165,9 @@ public class PulseInfo {
   }
 
   /**
-   * Information regarding the transaction description. &gt; You cannot configure the transaction
-   * description in the test environment.
+   * transactionDescription
    *
-   * @param transactionDescription Information regarding the transaction description. &gt; You
-   *     cannot configure the transaction description in the test environment.
+   * @param transactionDescription
    * @return the current {@code PulseInfo} instance, allowing for method chaining
    */
   public PulseInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
@@ -179,11 +177,9 @@ public class PulseInfo {
   }
 
   /**
-   * Information regarding the transaction description. &gt; You cannot configure the transaction
-   * description in the test environment.
+   * Get transactionDescription
    *
-   * @return transactionDescription Information regarding the transaction description. &gt; You
-   *     cannot configure the transaction description in the test environment.
+   * @return transactionDescription
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,11 +188,9 @@ public class PulseInfo {
   }
 
   /**
-   * Information regarding the transaction description. &gt; You cannot configure the transaction
-   * description in the test environment.
+   * transactionDescription
    *
-   * @param transactionDescription Information regarding the transaction description. &gt; You
-   *     cannot configure the transaction description in the test environment.
+   * @param transactionDescription
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

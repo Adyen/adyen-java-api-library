@@ -858,13 +858,9 @@ public class UpdateSplitConfigurationLogicRequest {
   }
 
   /**
-   * Defines whether to book an additional commission for payments to your user&#39;s balance
-   * account. The commission amount can be defined as a fixed amount (specified in minor units), a
-   * percentage (specified in basis points), or both.
+   * additionalCommission
    *
-   * @param additionalCommission Defines whether to book an additional commission for payments to
-   *     your user&#39;s balance account. The commission amount can be defined as a fixed amount
-   *     (specified in minor units), a percentage (specified in basis points), or both.
+   * @param additionalCommission
    * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method
    *     chaining
    */
@@ -876,13 +872,9 @@ public class UpdateSplitConfigurationLogicRequest {
   }
 
   /**
-   * Defines whether to book an additional commission for payments to your user&#39;s balance
-   * account. The commission amount can be defined as a fixed amount (specified in minor units), a
-   * percentage (specified in basis points), or both.
+   * Get additionalCommission
    *
-   * @return additionalCommission Defines whether to book an additional commission for payments to
-   *     your user&#39;s balance account. The commission amount can be defined as a fixed amount
-   *     (specified in minor units), a percentage (specified in basis points), or both.
+   * @return additionalCommission
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -891,13 +883,9 @@ public class UpdateSplitConfigurationLogicRequest {
   }
 
   /**
-   * Defines whether to book an additional commission for payments to your user&#39;s balance
-   * account. The commission amount can be defined as a fixed amount (specified in minor units), a
-   * percentage (specified in basis points), or both.
+   * additionalCommission
    *
-   * @param additionalCommission Defines whether to book an additional commission for payments to
-   *     your user&#39;s balance account. The commission amount can be defined as a fixed amount
-   *     (specified in minor units), a percentage (specified in basis points), or both.
+   * @param additionalCommission
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1145,13 +1133,9 @@ public class UpdateSplitConfigurationLogicRequest {
   }
 
   /**
-   * Defines your platform&#39;s commission for the processed payments as a fixed amount (specified
-   * in minor units), a percentage (specified in basis points), or both. The commission is booked to
-   * your platform&#39;s liable balance account.
+   * commission
    *
-   * @param commission Defines your platform&#39;s commission for the processed payments as a fixed
-   *     amount (specified in minor units), a percentage (specified in basis points), or both. The
-   *     commission is booked to your platform&#39;s liable balance account.
+   * @param commission
    * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method
    *     chaining
    */
@@ -1162,13 +1146,9 @@ public class UpdateSplitConfigurationLogicRequest {
   }
 
   /**
-   * Defines your platform&#39;s commission for the processed payments as a fixed amount (specified
-   * in minor units), a percentage (specified in basis points), or both. The commission is booked to
-   * your platform&#39;s liable balance account.
+   * Get commission
    *
-   * @return commission Defines your platform&#39;s commission for the processed payments as a fixed
-   *     amount (specified in minor units), a percentage (specified in basis points), or both. The
-   *     commission is booked to your platform&#39;s liable balance account.
+   * @return commission
    */
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1177,13 +1157,9 @@ public class UpdateSplitConfigurationLogicRequest {
   }
 
   /**
-   * Defines your platform&#39;s commission for the processed payments as a fixed amount (specified
-   * in minor units), a percentage (specified in basis points), or both. The commission is booked to
-   * your platform&#39;s liable balance account.
+   * commission
    *
-   * @param commission Defines your platform&#39;s commission for the processed payments as a fixed
-   *     amount (specified in minor units), a percentage (specified in basis points), or both. The
-   *     commission is booked to your platform&#39;s liable balance account.
+   * @param commission
    */
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

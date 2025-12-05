@@ -122,13 +122,9 @@ public class TestCompanyWebhookRequest {
   }
 
   /**
-   * Custom test notification object. Required when the
-   * [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
-   * list contains **CUSTOM**.
+   * notification
    *
-   * @param notification Custom test notification object. Required when the
-   *     [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
-   *     list contains **CUSTOM**.
+   * @param notification
    * @return the current {@code TestCompanyWebhookRequest} instance, allowing for method chaining
    */
   public TestCompanyWebhookRequest notification(CustomNotification notification) {
@@ -138,13 +134,9 @@ public class TestCompanyWebhookRequest {
   }
 
   /**
-   * Custom test notification object. Required when the
-   * [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
-   * list contains **CUSTOM**.
+   * Get notification
    *
-   * @return notification Custom test notification object. Required when the
-   *     [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
-   *     list contains **CUSTOM**.
+   * @return notification
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,13 +145,9 @@ public class TestCompanyWebhookRequest {
   }
 
   /**
-   * Custom test notification object. Required when the
-   * [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
-   * list contains **CUSTOM**.
+   * notification
    *
-   * @param notification Custom test notification object. Required when the
-   *     [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
-   *     list contains **CUSTOM**.
+   * @param notification
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

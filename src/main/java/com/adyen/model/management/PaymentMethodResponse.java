@@ -160,6 +160,8 @@ public class PaymentMethodResponse {
 
     GIROCARD(String.valueOf("girocard")),
 
+    GIVEX(String.valueOf("givex")),
+
     GOOGLEPAY(String.valueOf("googlepay")),
 
     GREEN_CARD(String.valueOf("green_card")),
@@ -187,6 +189,8 @@ public class PaymentMethodResponse {
     KLARNA(String.valueOf("klarna")),
 
     KLARNA_ACCOUNT(String.valueOf("klarna_account")),
+
+    KLARNA_B2B(String.valueOf("klarna_b2b")),
 
     KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
 
@@ -270,6 +274,8 @@ public class PaymentMethodResponse {
 
     STAR(String.valueOf("star")),
 
+    SVS(String.valueOf("svs")),
+
     SWISH(String.valueOf("swish")),
 
     TICKET(String.valueOf("ticket")),
@@ -293,6 +299,8 @@ public class PaymentMethodResponse {
     VALE_REFEICAO(String.valueOf("vale_refeicao")),
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
+
+    VALUELINK(String.valueOf("valuelink")),
 
     VEGAS_CARD(String.valueOf("vegas_card")),
 
@@ -370,9 +378,9 @@ public class PaymentMethodResponse {
   public PaymentMethodResponse() {}
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
    */
   public PaymentMethodResponse links(PaginationLinks links) {
@@ -382,9 +390,9 @@ public class PaymentMethodResponse {
   }
 
   /**
-   * Pagination references.
+   * Get links
    *
-   * @return links Pagination references.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -393,9 +401,9 @@ public class PaymentMethodResponse {
   }
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

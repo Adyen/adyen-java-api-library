@@ -60,9 +60,9 @@ public class ShippingLocation {
   public ShippingLocation() {}
 
   /**
-   * The address details of the shipping location.
+   * address
    *
-   * @param address The address details of the shipping location.
+   * @param address
    * @return the current {@code ShippingLocation} instance, allowing for method chaining
    */
   public ShippingLocation address(Address address) {
@@ -72,9 +72,9 @@ public class ShippingLocation {
   }
 
   /**
-   * The address details of the shipping location.
+   * Get address
    *
-   * @return address The address details of the shipping location.
+   * @return address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,9 +83,9 @@ public class ShippingLocation {
   }
 
   /**
-   * The address details of the shipping location.
+   * address
    *
-   * @param address The address details of the shipping location.
+   * @param address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,9 +95,9 @@ public class ShippingLocation {
   }
 
   /**
-   * The contact details for the shipping location.
+   * contact
    *
-   * @param contact The contact details for the shipping location.
+   * @param contact
    * @return the current {@code ShippingLocation} instance, allowing for method chaining
    */
   public ShippingLocation contact(Contact contact) {
@@ -107,9 +107,9 @@ public class ShippingLocation {
   }
 
   /**
-   * The contact details for the shipping location.
+   * Get contact
    *
-   * @return contact The contact details for the shipping location.
+   * @return contact
    */
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,9 +118,9 @@ public class ShippingLocation {
   }
 
   /**
-   * The contact details for the shipping location.
+   * contact
    *
-   * @param contact The contact details for the shipping location.
+   * @param contact
    */
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

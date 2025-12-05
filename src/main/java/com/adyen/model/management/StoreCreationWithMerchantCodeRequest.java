@@ -104,9 +104,9 @@ public class StoreCreationWithMerchantCodeRequest {
   public StoreCreationWithMerchantCodeRequest() {}
 
   /**
-   * The address of the store.
+   * address
    *
-   * @param address The address of the store.
+   * @param address
    * @return the current {@code StoreCreationWithMerchantCodeRequest} instance, allowing for method
    *     chaining
    */
@@ -117,9 +117,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The address of the store.
+   * Get address
    *
-   * @return address The address of the store.
+   * @return address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,9 +128,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The address of the store.
+   * address
    *
-   * @param address The address of the store.
+   * @param address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -484,10 +484,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * Rules for Adyen for Platforms merchants to split the transaction amount and fees.
+   * splitConfiguration
    *
-   * @param splitConfiguration Rules for Adyen for Platforms merchants to split the transaction
-   *     amount and fees.
+   * @param splitConfiguration
    * @return the current {@code StoreCreationWithMerchantCodeRequest} instance, allowing for method
    *     chaining
    */
@@ -499,10 +498,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * Rules for Adyen for Platforms merchants to split the transaction amount and fees.
+   * Get splitConfiguration
    *
-   * @return splitConfiguration Rules for Adyen for Platforms merchants to split the transaction
-   *     amount and fees.
+   * @return splitConfiguration
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -511,10 +509,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * Rules for Adyen for Platforms merchants to split the transaction amount and fees.
+   * splitConfiguration
    *
-   * @param splitConfiguration Rules for Adyen for Platforms merchants to split the transaction
-   *     amount and fees.
+   * @param splitConfiguration
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -524,11 +521,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The sub-merchant data relevant for registered payment facilitators transacting on standalone
-   * terminals.
+   * subMerchantData
    *
-   * @param subMerchantData The sub-merchant data relevant for registered payment facilitators
-   *     transacting on standalone terminals.
+   * @param subMerchantData
    * @return the current {@code StoreCreationWithMerchantCodeRequest} instance, allowing for method
    *     chaining
    */
@@ -539,11 +534,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The sub-merchant data relevant for registered payment facilitators transacting on standalone
-   * terminals.
+   * Get subMerchantData
    *
-   * @return subMerchantData The sub-merchant data relevant for registered payment facilitators
-   *     transacting on standalone terminals.
+   * @return subMerchantData
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -552,11 +545,9 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The sub-merchant data relevant for registered payment facilitators transacting on standalone
-   * terminals.
+   * subMerchantData
    *
-   * @param subMerchantData The sub-merchant data relevant for registered payment facilitators
-   *     transacting on standalone terminals.
+   * @param subMerchantData
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

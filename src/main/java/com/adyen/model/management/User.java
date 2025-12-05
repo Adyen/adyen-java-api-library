@@ -104,9 +104,9 @@ public class User {
   public User() {}
 
   /**
-   * References to resources connected with this user.
+   * links
    *
-   * @param links References to resources connected with this user.
+   * @param links
    * @return the current {@code User} instance, allowing for method chaining
    */
   public User links(Links links) {
@@ -116,9 +116,9 @@ public class User {
   }
 
   /**
-   * References to resources connected with this user.
+   * Get links
    *
-   * @return links References to resources connected with this user.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,9 +127,9 @@ public class User {
   }
 
   /**
-   * References to resources connected with this user.
+   * links
    *
-   * @param links References to resources connected with this user.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,9 +339,9 @@ public class User {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    * @return the current {@code User} instance, allowing for method chaining
    */
   public User name(Name name) {
@@ -351,9 +351,9 @@ public class User {
   }
 
   /**
-   * The user&#39;s full name.
+   * Get name
    *
-   * @return name The user&#39;s full name.
+   * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,9 +362,9 @@ public class User {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

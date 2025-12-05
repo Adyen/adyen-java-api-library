@@ -62,9 +62,9 @@ public class ListStoresResponse {
   public ListStoresResponse() {}
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    * @return the current {@code ListStoresResponse} instance, allowing for method chaining
    */
   public ListStoresResponse links(PaginationLinks links) {
@@ -74,9 +74,9 @@ public class ListStoresResponse {
   }
 
   /**
-   * Pagination references.
+   * Get links
    *
-   * @return links Pagination references.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,9 +85,9 @@ public class ListStoresResponse {
   }
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

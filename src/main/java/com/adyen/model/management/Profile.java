@@ -452,12 +452,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The root certificate from the CA that
-   * signed the certificate of the RADIUS server that is part of your wireless network.
+   * eapCaCert
    *
-   * @param eapCaCert For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The root certificate
-   *     from the CA that signed the certificate of the RADIUS server that is part of your wireless
-   *     network.
+   * @param eapCaCert
    * @return the current {@code Profile} instance, allowing for method chaining
    */
   public Profile eapCaCert(ModelFile eapCaCert) {
@@ -467,12 +464,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The root certificate from the CA that
-   * signed the certificate of the RADIUS server that is part of your wireless network.
+   * Get eapCaCert
    *
-   * @return eapCaCert For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The root certificate
-   *     from the CA that signed the certificate of the RADIUS server that is part of your wireless
-   *     network.
+   * @return eapCaCert
    */
   @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -481,12 +475,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The root certificate from the CA that
-   * signed the certificate of the RADIUS server that is part of your wireless network.
+   * eapCaCert
    *
-   * @param eapCaCert For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The root certificate
-   *     from the CA that signed the certificate of the RADIUS server that is part of your wireless
-   *     network.
+   * @param eapCaCert
    */
   @JsonProperty(JSON_PROPERTY_EAP_CA_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -496,11 +487,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The certificate chain for the terminals. All terminals in the same
-   * network will use the same EAP client certificate.
+   * eapClientCert
    *
-   * @param eapClientCert For &#x60;eap&#x60; **tls**. The certificate chain for the terminals. All
-   *     terminals in the same network will use the same EAP client certificate.
+   * @param eapClientCert
    * @return the current {@code Profile} instance, allowing for method chaining
    */
   public Profile eapClientCert(ModelFile eapClientCert) {
@@ -510,11 +499,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The certificate chain for the terminals. All terminals in the same
-   * network will use the same EAP client certificate.
+   * Get eapClientCert
    *
-   * @return eapClientCert For &#x60;eap&#x60; **tls**. The certificate chain for the terminals. All
-   *     terminals in the same network will use the same EAP client certificate.
+   * @return eapClientCert
    */
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -523,11 +510,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The certificate chain for the terminals. All terminals in the same
-   * network will use the same EAP client certificate.
+   * eapClientCert
    *
-   * @param eapClientCert For &#x60;eap&#x60; **tls**. The certificate chain for the terminals. All
-   *     terminals in the same network will use the same EAP client certificate.
+   * @param eapClientCert
    */
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -537,11 +522,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The RSA private key for the client. Include the lines BEGIN RSA
-   * PRIVATE KEY and END RSA PRIVATE KEY.
+   * eapClientKey
    *
-   * @param eapClientKey For &#x60;eap&#x60; **tls**. The RSA private key for the client. Include
-   *     the lines BEGIN RSA PRIVATE KEY and END RSA PRIVATE KEY.
+   * @param eapClientKey
    * @return the current {@code Profile} instance, allowing for method chaining
    */
   public Profile eapClientKey(ModelFile eapClientKey) {
@@ -551,11 +534,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The RSA private key for the client. Include the lines BEGIN RSA
-   * PRIVATE KEY and END RSA PRIVATE KEY.
+   * Get eapClientKey
    *
-   * @return eapClientKey For &#x60;eap&#x60; **tls**. The RSA private key for the client. Include
-   *     the lines BEGIN RSA PRIVATE KEY and END RSA PRIVATE KEY.
+   * @return eapClientKey
    */
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -564,11 +545,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The RSA private key for the client. Include the lines BEGIN RSA
-   * PRIVATE KEY and END RSA PRIVATE KEY.
+   * eapClientKey
    *
-   * @param eapClientKey For &#x60;eap&#x60; **tls**. The RSA private key for the client. Include
-   *     the lines BEGIN RSA PRIVATE KEY and END RSA PRIVATE KEY.
+   * @param eapClientKey
    */
   @JsonProperty(JSON_PROPERTY_EAP_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -660,9 +639,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The EAP intermediate certificate.
+   * eapIntermediateCert
    *
-   * @param eapIntermediateCert For &#x60;eap&#x60; **tls**. The EAP intermediate certificate.
+   * @param eapIntermediateCert
    * @return the current {@code Profile} instance, allowing for method chaining
    */
   public Profile eapIntermediateCert(ModelFile eapIntermediateCert) {
@@ -672,9 +651,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The EAP intermediate certificate.
+   * Get eapIntermediateCert
    *
-   * @return eapIntermediateCert For &#x60;eap&#x60; **tls**. The EAP intermediate certificate.
+   * @return eapIntermediateCert
    */
   @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -683,9 +662,9 @@ public class Profile {
   }
 
   /**
-   * For &#x60;eap&#x60; **tls**. The EAP intermediate certificate.
+   * eapIntermediateCert
    *
-   * @param eapIntermediateCert For &#x60;eap&#x60; **tls**. The EAP intermediate certificate.
+   * @param eapIntermediateCert
    */
   @JsonProperty(JSON_PROPERTY_EAP_INTERMEDIATE_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

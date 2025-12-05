@@ -81,11 +81,9 @@ public class PayByBankPlaidInfo {
   }
 
   /**
-   * Information regarding the transaction description. &gt; You cannot configure the transaction
-   * description in the test environment.
+   * transactionDescription
    *
-   * @param transactionDescription Information regarding the transaction description. &gt; You
-   *     cannot configure the transaction description in the test environment.
+   * @param transactionDescription
    * @return the current {@code PayByBankPlaidInfo} instance, allowing for method chaining
    */
   public PayByBankPlaidInfo transactionDescription(
@@ -96,11 +94,9 @@ public class PayByBankPlaidInfo {
   }
 
   /**
-   * Information regarding the transaction description. &gt; You cannot configure the transaction
-   * description in the test environment.
+   * Get transactionDescription
    *
-   * @return transactionDescription Information regarding the transaction description. &gt; You
-   *     cannot configure the transaction description in the test environment.
+   * @return transactionDescription
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,11 +105,9 @@ public class PayByBankPlaidInfo {
   }
 
   /**
-   * Information regarding the transaction description. &gt; You cannot configure the transaction
-   * description in the test environment.
+   * transactionDescription
    *
-   * @param transactionDescription Information regarding the transaction description. &gt; You
-   *     cannot configure the transaction description in the test environment.
+   * @param transactionDescription
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

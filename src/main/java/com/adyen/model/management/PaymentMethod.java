@@ -48,6 +48,7 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethod.JSON_PROPERTY_ENABLED,
   PaymentMethod.JSON_PROPERTY_GIROCARD,
+  PaymentMethod.JSON_PROPERTY_GIVEX,
   PaymentMethod.JSON_PROPERTY_GOOGLE_PAY,
   PaymentMethod.JSON_PROPERTY_ID,
   PaymentMethod.JSON_PROPERTY_IDEAL,
@@ -71,10 +72,12 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_SOFORT,
   PaymentMethod.JSON_PROPERTY_STAR,
   PaymentMethod.JSON_PROPERTY_STORE_IDS,
+  PaymentMethod.JSON_PROPERTY_SVS,
   PaymentMethod.JSON_PROPERTY_SWISH,
   PaymentMethod.JSON_PROPERTY_TICKET,
   PaymentMethod.JSON_PROPERTY_TWINT,
   PaymentMethod.JSON_PROPERTY_TYPE,
+  PaymentMethod.JSON_PROPERTY_VALUELINK,
   PaymentMethod.JSON_PROPERTY_VERIFICATION_STATUS,
   PaymentMethod.JSON_PROPERTY_VIPPS,
   PaymentMethod.JSON_PROPERTY_VISA,
@@ -207,6 +210,12 @@ public class PaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetGirocard = false;
+
+  public static final String JSON_PROPERTY_GIVEX = "givex";
+  private GivexInfo givex;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGivex = false;
 
   public static final String JSON_PROPERTY_GOOGLE_PAY = "googlePay";
   private GooglePayInfo googlePay;
@@ -346,6 +355,12 @@ public class PaymentMethod {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoreIds = false;
 
+  public static final String JSON_PROPERTY_SVS = "svs";
+  private SvsInfo svs;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSvs = false;
+
   public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
 
@@ -369,6 +384,12 @@ public class PaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetType = false;
+
+  public static final String JSON_PROPERTY_VALUELINK = "valuelink";
+  private ValuelinkInfo valuelink;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValuelink = false;
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
@@ -456,9 +477,9 @@ public class PaymentMethod {
   public PaymentMethod() {}
 
   /**
-   * ACCEL details.
+   * accel
    *
-   * @param accel ACCEL details.
+   * @param accel
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod accel(AccelInfo accel) {
@@ -468,9 +489,9 @@ public class PaymentMethod {
   }
 
   /**
-   * ACCEL details.
+   * Get accel
    *
-   * @return accel ACCEL details.
+   * @return accel
    */
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -479,9 +500,9 @@ public class PaymentMethod {
   }
 
   /**
-   * ACCEL details.
+   * accel
    *
-   * @param accel ACCEL details.
+   * @param accel
    */
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -491,9 +512,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Affirm details.
+   * affirm
    *
-   * @param affirm Affirm details.
+   * @param affirm
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod affirm(AffirmInfo affirm) {
@@ -503,9 +524,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Affirm details.
+   * Get affirm
    *
-   * @return affirm Affirm details.
+   * @return affirm
    */
   @JsonProperty(JSON_PROPERTY_AFFIRM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,9 +535,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Affirm details.
+   * affirm
    *
-   * @param affirm Affirm details.
+   * @param affirm
    */
   @JsonProperty(JSON_PROPERTY_AFFIRM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -526,9 +547,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Afterpay Touch details.
+   * afterpayTouch
    *
-   * @param afterpayTouch Afterpay Touch details.
+   * @param afterpayTouch
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod afterpayTouch(AfterpayTouchInfo afterpayTouch) {
@@ -538,9 +559,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Afterpay Touch details.
+   * Get afterpayTouch
    *
-   * @return afterpayTouch Afterpay Touch details.
+   * @return afterpayTouch
    */
   @JsonProperty(JSON_PROPERTY_AFTERPAY_TOUCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -549,9 +570,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Afterpay Touch details.
+   * afterpayTouch
    *
-   * @param afterpayTouch Afterpay Touch details.
+   * @param afterpayTouch
    */
   @JsonProperty(JSON_PROPERTY_AFTERPAY_TOUCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -561,9 +582,9 @@ public class PaymentMethod {
   }
 
   /**
-   * AlipayPlus details.
+   * alipayPlus
    *
-   * @param alipayPlus AlipayPlus details.
+   * @param alipayPlus
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod alipayPlus(AlipayPlusInfo alipayPlus) {
@@ -573,9 +594,9 @@ public class PaymentMethod {
   }
 
   /**
-   * AlipayPlus details.
+   * Get alipayPlus
    *
-   * @return alipayPlus AlipayPlus details.
+   * @return alipayPlus
    */
   @JsonProperty(JSON_PROPERTY_ALIPAY_PLUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -584,9 +605,9 @@ public class PaymentMethod {
   }
 
   /**
-   * AlipayPlus details.
+   * alipayPlus
    *
-   * @param alipayPlus AlipayPlus details.
+   * @param alipayPlus
    */
   @JsonProperty(JSON_PROPERTY_ALIPAY_PLUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -637,9 +658,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Amex details.
+   * amex
    *
-   * @param amex Amex details.
+   * @param amex
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod amex(AmexInfo amex) {
@@ -649,9 +670,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Amex details.
+   * Get amex
    *
-   * @return amex Amex details.
+   * @return amex
    */
   @JsonProperty(JSON_PROPERTY_AMEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -660,9 +681,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Amex details.
+   * amex
    *
-   * @param amex Amex details.
+   * @param amex
    */
   @JsonProperty(JSON_PROPERTY_AMEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -672,9 +693,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Apple Pay details.
+   * applePay
    *
-   * @param applePay Apple Pay details.
+   * @param applePay
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod applePay(ApplePayInfo applePay) {
@@ -684,9 +705,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Apple Pay details.
+   * Get applePay
    *
-   * @return applePay Apple Pay details.
+   * @return applePay
    */
   @JsonProperty(JSON_PROPERTY_APPLE_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -695,9 +716,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Apple Pay details.
+   * applePay
    *
-   * @param applePay Apple Pay details.
+   * @param applePay
    */
   @JsonProperty(JSON_PROPERTY_APPLE_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -707,9 +728,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Bancontact details.
+   * bcmc
    *
-   * @param bcmc Bancontact details.
+   * @param bcmc
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod bcmc(BcmcInfo bcmc) {
@@ -719,9 +740,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Bancontact details.
+   * Get bcmc
    *
-   * @return bcmc Bancontact details.
+   * @return bcmc
    */
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -730,9 +751,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Bancontact details.
+   * bcmc
    *
-   * @param bcmc Bancontact details.
+   * @param bcmc
    */
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -783,9 +804,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Cartes Bancaires details.
+   * cartesBancaires
    *
-   * @param cartesBancaires Cartes Bancaires details.
+   * @param cartesBancaires
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod cartesBancaires(CartesBancairesInfo cartesBancaires) {
@@ -795,9 +816,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Cartes Bancaires details.
+   * Get cartesBancaires
    *
-   * @return cartesBancaires Cartes Bancaires details.
+   * @return cartesBancaires
    */
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -806,9 +827,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Cartes Bancaires details.
+   * cartesBancaires
    *
-   * @param cartesBancaires Cartes Bancaires details.
+   * @param cartesBancaires
    */
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -818,9 +839,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Clearpay details.
+   * clearpay
    *
-   * @param clearpay Clearpay details.
+   * @param clearpay
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod clearpay(ClearpayInfo clearpay) {
@@ -830,9 +851,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Clearpay details.
+   * Get clearpay
    *
-   * @return clearpay Clearpay details.
+   * @return clearpay
    */
   @JsonProperty(JSON_PROPERTY_CLEARPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -841,9 +862,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Clearpay details.
+   * clearpay
    *
-   * @param clearpay Clearpay details.
+   * @param clearpay
    */
   @JsonProperty(JSON_PROPERTY_CLEARPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -902,9 +923,9 @@ public class PaymentMethod {
   }
 
   /**
-   * China Union Pay details.
+   * cup
    *
-   * @param cup China Union Pay details.
+   * @param cup
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod cup(GenericPmWithTdiInfo cup) {
@@ -914,9 +935,9 @@ public class PaymentMethod {
   }
 
   /**
-   * China Union Pay details.
+   * Get cup
    *
-   * @return cup China Union Pay details.
+   * @return cup
    */
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -925,9 +946,9 @@ public class PaymentMethod {
   }
 
   /**
-   * China Union Pay details.
+   * cup
    *
-   * @param cup China Union Pay details.
+   * @param cup
    */
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1032,15 +1053,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Diners details. For merchants operating in Japan, Diners payments are processed through the JCB
-   * network. This means that you must include [JCB-specific
-   * fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
-   * in this object.
+   * diners
    *
-   * @param diners Diners details. For merchants operating in Japan, Diners payments are processed
-   *     through the JCB network. This means that you must include [JCB-specific
-   *     fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
-   *     in this object.
+   * @param diners
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod diners(DinersInfo diners) {
@@ -1050,15 +1065,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Diners details. For merchants operating in Japan, Diners payments are processed through the JCB
-   * network. This means that you must include [JCB-specific
-   * fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
-   * in this object.
+   * Get diners
    *
-   * @return diners Diners details. For merchants operating in Japan, Diners payments are processed
-   *     through the JCB network. This means that you must include [JCB-specific
-   *     fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
-   *     in this object.
+   * @return diners
    */
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1067,15 +1076,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Diners details. For merchants operating in Japan, Diners payments are processed through the JCB
-   * network. This means that you must include [JCB-specific
-   * fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
-   * in this object.
+   * diners
    *
-   * @param diners Diners details. For merchants operating in Japan, Diners payments are processed
-   *     through the JCB network. This means that you must include [JCB-specific
-   *     fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
-   *     in this object.
+   * @param diners
    */
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1085,13 +1088,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Discover details. For merchants operating in Japan, request
-   * [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
-   * payment method instead. Discover is automatically requested, together with Diners.
+   * discover
    *
-   * @param discover Discover details. For merchants operating in Japan, request
-   *     [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
-   *     payment method instead. Discover is automatically requested, together with Diners.
+   * @param discover
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod discover(GenericPmWithTdiInfo discover) {
@@ -1101,13 +1100,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Discover details. For merchants operating in Japan, request
-   * [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
-   * payment method instead. Discover is automatically requested, together with Diners.
+   * Get discover
    *
-   * @return discover Discover details. For merchants operating in Japan, request
-   *     [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
-   *     payment method instead. Discover is automatically requested, together with Diners.
+   * @return discover
    */
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1116,13 +1111,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Discover details. For merchants operating in Japan, request
-   * [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
-   * payment method instead. Discover is automatically requested, together with Diners.
+   * discover
    *
-   * @param discover Discover details. For merchants operating in Japan, request
-   *     [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
-   *     payment method instead. Discover is automatically requested, together with Diners.
+   * @param discover
    */
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1132,9 +1123,9 @@ public class PaymentMethod {
   }
 
   /**
-   * EFT PAD details.
+   * eftDirectdebitCA
    *
-   * @param eftDirectdebitCA EFT PAD details.
+   * @param eftDirectdebitCA
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod eftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
@@ -1144,9 +1135,9 @@ public class PaymentMethod {
   }
 
   /**
-   * EFT PAD details.
+   * Get eftDirectdebitCA
    *
-   * @return eftDirectdebitCA EFT PAD details.
+   * @return eftDirectdebitCA
    */
   @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1155,9 +1146,9 @@ public class PaymentMethod {
   }
 
   /**
-   * EFT PAD details.
+   * eftDirectdebitCA
    *
-   * @param eftDirectdebitCA EFT PAD details.
+   * @param eftDirectdebitCA
    */
   @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1167,9 +1158,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Eftpos Australia details.
+   * eftposAustralia
    *
-   * @param eftposAustralia Eftpos Australia details.
+   * @param eftposAustralia
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod eftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
@@ -1179,9 +1170,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Eftpos Australia details.
+   * Get eftposAustralia
    *
-   * @return eftposAustralia Eftpos Australia details.
+   * @return eftposAustralia
    */
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1190,9 +1181,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Eftpos Australia details.
+   * eftposAustralia
    *
-   * @param eftposAustralia Eftpos Australia details.
+   * @param eftposAustralia
    */
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1240,9 +1231,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Girocard details.
+   * girocard
    *
-   * @param girocard Girocard details.
+   * @param girocard
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod girocard(GenericPmWithTdiInfo girocard) {
@@ -1252,9 +1243,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Girocard details.
+   * Get girocard
    *
-   * @return girocard Girocard details.
+   * @return girocard
    */
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1263,9 +1254,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Girocard details.
+   * girocard
    *
-   * @param girocard Girocard details.
+   * @param girocard
    */
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1275,9 +1266,44 @@ public class PaymentMethod {
   }
 
   /**
-   * Google Pay details.
+   * givex
    *
-   * @param googlePay Google Pay details.
+   * @param givex
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod givex(GivexInfo givex) {
+    this.givex = givex;
+    isSetGivex = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get givex
+   *
+   * @return givex
+   */
+  @JsonProperty(JSON_PROPERTY_GIVEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GivexInfo getGivex() {
+    return givex;
+  }
+
+  /**
+   * givex
+   *
+   * @param givex
+   */
+  @JsonProperty(JSON_PROPERTY_GIVEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGivex(GivexInfo givex) {
+    this.givex = givex;
+    isSetGivex = true; // mark as set
+  }
+
+  /**
+   * googlePay
+   *
+   * @param googlePay
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod googlePay(GooglePayInfo googlePay) {
@@ -1287,9 +1313,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Google Pay details.
+   * Get googlePay
    *
-   * @return googlePay Google Pay details.
+   * @return googlePay
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1298,9 +1324,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Google Pay details.
+   * googlePay
    *
-   * @param googlePay Google Pay details.
+   * @param googlePay
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1345,9 +1371,9 @@ public class PaymentMethod {
   }
 
   /**
-   * iDeal details.
+   * ideal
    *
-   * @param ideal iDeal details.
+   * @param ideal
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod ideal(GenericPmWithTdiInfo ideal) {
@@ -1357,9 +1383,9 @@ public class PaymentMethod {
   }
 
   /**
-   * iDeal details.
+   * Get ideal
    *
-   * @return ideal iDeal details.
+   * @return ideal
    */
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1368,9 +1394,9 @@ public class PaymentMethod {
   }
 
   /**
-   * iDeal details.
+   * ideal
    *
-   * @param ideal iDeal details.
+   * @param ideal
    */
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1380,9 +1406,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Interac Card details.
+   * interacCard
    *
-   * @param interacCard Interac Card details.
+   * @param interacCard
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod interacCard(GenericPmWithTdiInfo interacCard) {
@@ -1392,9 +1418,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Interac Card details.
+   * Get interacCard
    *
-   * @return interacCard Interac Card details.
+   * @return interacCard
    */
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1403,9 +1429,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Interac Card details.
+   * interacCard
    *
-   * @param interacCard Interac Card details.
+   * @param interacCard
    */
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1415,13 +1441,9 @@ public class PaymentMethod {
   }
 
   /**
-   * JCB details. For merchants operating in Japan, &#x60;midNumber&#x60;,
-   * &#x60;reuseMidNumber&#x60;, and &#x60;serviceLevel&#x60; fields are required. For merchants
-   * operating outside of Japan, these fields are not required.
+   * jcb
    *
-   * @param jcb JCB details. For merchants operating in Japan, &#x60;midNumber&#x60;,
-   *     &#x60;reuseMidNumber&#x60;, and &#x60;serviceLevel&#x60; fields are required. For merchants
-   *     operating outside of Japan, these fields are not required.
+   * @param jcb
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod jcb(JCBInfo jcb) {
@@ -1431,13 +1453,9 @@ public class PaymentMethod {
   }
 
   /**
-   * JCB details. For merchants operating in Japan, &#x60;midNumber&#x60;,
-   * &#x60;reuseMidNumber&#x60;, and &#x60;serviceLevel&#x60; fields are required. For merchants
-   * operating outside of Japan, these fields are not required.
+   * Get jcb
    *
-   * @return jcb JCB details. For merchants operating in Japan, &#x60;midNumber&#x60;,
-   *     &#x60;reuseMidNumber&#x60;, and &#x60;serviceLevel&#x60; fields are required. For merchants
-   *     operating outside of Japan, these fields are not required.
+   * @return jcb
    */
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1446,13 +1464,9 @@ public class PaymentMethod {
   }
 
   /**
-   * JCB details. For merchants operating in Japan, &#x60;midNumber&#x60;,
-   * &#x60;reuseMidNumber&#x60;, and &#x60;serviceLevel&#x60; fields are required. For merchants
-   * operating outside of Japan, these fields are not required.
+   * jcb
    *
-   * @param jcb JCB details. For merchants operating in Japan, &#x60;midNumber&#x60;,
-   *     &#x60;reuseMidNumber&#x60;, and &#x60;serviceLevel&#x60; fields are required. For merchants
-   *     operating outside of Japan, these fields are not required.
+   * @param jcb
    */
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1462,9 +1476,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Klarna details.
+   * klarna
    *
-   * @param klarna Klarna details.
+   * @param klarna
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod klarna(KlarnaInfo klarna) {
@@ -1474,9 +1488,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Klarna details.
+   * Get klarna
    *
-   * @return klarna Klarna details.
+   * @return klarna
    */
   @JsonProperty(JSON_PROPERTY_KLARNA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1485,9 +1499,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Klarna details.
+   * klarna
    *
-   * @param klarna Klarna details.
+   * @param klarna
    */
   @JsonProperty(JSON_PROPERTY_KLARNA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1497,11 +1511,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Maestro details. In the US, &#x60;maestro&#x60; is not supported; use &#x60;maestro_usa&#x60;
-   * instead.
+   * maestro
    *
-   * @param maestro Maestro details. In the US, &#x60;maestro&#x60; is not supported; use
-   *     &#x60;maestro_usa&#x60; instead.
+   * @param maestro
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod maestro(GenericPmWithTdiInfo maestro) {
@@ -1511,11 +1523,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Maestro details. In the US, &#x60;maestro&#x60; is not supported; use &#x60;maestro_usa&#x60;
-   * instead.
+   * Get maestro
    *
-   * @return maestro Maestro details. In the US, &#x60;maestro&#x60; is not supported; use
-   *     &#x60;maestro_usa&#x60; instead.
+   * @return maestro
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1524,11 +1534,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Maestro details. In the US, &#x60;maestro&#x60; is not supported; use &#x60;maestro_usa&#x60;
-   * instead.
+   * maestro
    *
-   * @param maestro Maestro details. In the US, &#x60;maestro&#x60; is not supported; use
-   *     &#x60;maestro_usa&#x60; instead.
+   * @param maestro
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1538,10 +1546,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Maestro USA details. Only for Maestro USA, for global use &#x60;maestro&#x60;.
+   * maestroUsa
    *
-   * @param maestroUsa Maestro USA details. Only for Maestro USA, for global use
-   *     &#x60;maestro&#x60;.
+   * @param maestroUsa
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod maestroUsa(GenericPmWithTdiInfo maestroUsa) {
@@ -1551,10 +1558,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Maestro USA details. Only for Maestro USA, for global use &#x60;maestro&#x60;.
+   * Get maestroUsa
    *
-   * @return maestroUsa Maestro USA details. Only for Maestro USA, for global use
-   *     &#x60;maestro&#x60;.
+   * @return maestroUsa
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1563,10 +1569,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Maestro USA details. Only for Maestro USA, for global use &#x60;maestro&#x60;.
+   * maestroUsa
    *
-   * @param maestroUsa Maestro USA details. Only for Maestro USA, for global use
-   *     &#x60;maestro&#x60;.
+   * @param maestroUsa
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1576,9 +1581,9 @@ public class PaymentMethod {
   }
 
   /**
-   * MasterCard details.
+   * mc
    *
-   * @param mc MasterCard details.
+   * @param mc
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod mc(GenericPmWithTdiInfo mc) {
@@ -1588,9 +1593,9 @@ public class PaymentMethod {
   }
 
   /**
-   * MasterCard details.
+   * Get mc
    *
-   * @return mc MasterCard details.
+   * @return mc
    */
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1599,9 +1604,9 @@ public class PaymentMethod {
   }
 
   /**
-   * MasterCard details.
+   * mc
    *
-   * @param mc MasterCard details.
+   * @param mc
    */
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1611,9 +1616,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Meal Voucher FR details.
+   * mealVoucherFR
    *
-   * @param mealVoucherFR Meal Voucher FR details.
+   * @param mealVoucherFR
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod mealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
@@ -1623,9 +1628,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Meal Voucher FR details.
+   * Get mealVoucherFR
    *
-   * @return mealVoucherFR Meal Voucher FR details.
+   * @return mealVoucherFR
    */
   @JsonProperty(JSON_PROPERTY_MEAL_VOUCHER_F_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1634,9 +1639,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Meal Voucher FR details.
+   * mealVoucherFR
    *
-   * @param mealVoucherFR Meal Voucher FR details.
+   * @param mealVoucherFR
    */
   @JsonProperty(JSON_PROPERTY_MEAL_VOUCHER_F_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1646,9 +1651,9 @@ public class PaymentMethod {
   }
 
   /**
-   * NYCE details.
+   * nyce
    *
-   * @param nyce NYCE details.
+   * @param nyce
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod nyce(NyceInfo nyce) {
@@ -1658,9 +1663,9 @@ public class PaymentMethod {
   }
 
   /**
-   * NYCE details.
+   * Get nyce
    *
-   * @return nyce NYCE details.
+   * @return nyce
    */
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1669,9 +1674,9 @@ public class PaymentMethod {
   }
 
   /**
-   * NYCE details.
+   * nyce
    *
-   * @param nyce NYCE details.
+   * @param nyce
    */
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1681,9 +1686,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayByBank Plaid details.
+   * paybybankPlaid
    *
-   * @param paybybankPlaid PayByBank Plaid details.
+   * @param paybybankPlaid
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod paybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
@@ -1693,9 +1698,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayByBank Plaid details.
+   * Get paybybankPlaid
    *
-   * @return paybybankPlaid PayByBank Plaid details.
+   * @return paybybankPlaid
    */
   @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1704,9 +1709,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayByBank Plaid details.
+   * paybybankPlaid
    *
-   * @param paybybankPlaid PayByBank Plaid details.
+   * @param paybybankPlaid
    */
   @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1716,9 +1721,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayMe details.
+   * payme
    *
-   * @param payme PayMe details.
+   * @param payme
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod payme(PayMeInfo payme) {
@@ -1728,9 +1733,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayMe details.
+   * Get payme
    *
-   * @return payme PayMe details.
+   * @return payme
    */
   @JsonProperty(JSON_PROPERTY_PAYME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1739,9 +1744,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayMe details.
+   * payme
    *
-   * @param payme PayMe details.
+   * @param payme
    */
   @JsonProperty(JSON_PROPERTY_PAYME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1751,9 +1756,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayPal details.
+   * paypal
    *
-   * @param paypal PayPal details.
+   * @param paypal
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod paypal(PayPalInfo paypal) {
@@ -1763,9 +1768,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayPal details.
+   * Get paypal
    *
-   * @return paypal PayPal details.
+   * @return paypal
    */
   @JsonProperty(JSON_PROPERTY_PAYPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1774,9 +1779,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayPal details.
+   * paypal
    *
-   * @param paypal PayPal details.
+   * @param paypal
    */
   @JsonProperty(JSON_PROPERTY_PAYPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1786,9 +1791,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayTo details.
+   * payto
    *
-   * @param payto PayTo details.
+   * @param payto
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod payto(PayToInfo payto) {
@@ -1798,9 +1803,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayTo details.
+   * Get payto
    *
-   * @return payto PayTo details.
+   * @return payto
    */
   @JsonProperty(JSON_PROPERTY_PAYTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1809,9 +1814,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PayTo details.
+   * payto
    *
-   * @param payto PayTo details.
+   * @param payto
    */
   @JsonProperty(JSON_PROPERTY_PAYTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1821,9 +1826,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PULSE details.
+   * pulse
    *
-   * @param pulse PULSE details.
+   * @param pulse
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod pulse(PulseInfo pulse) {
@@ -1833,9 +1838,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PULSE details.
+   * Get pulse
    *
-   * @return pulse PULSE details.
+   * @return pulse
    */
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1844,9 +1849,9 @@ public class PaymentMethod {
   }
 
   /**
-   * PULSE details.
+   * pulse
    *
-   * @param pulse PULSE details.
+   * @param pulse
    */
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1891,9 +1896,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sepa Direct Debit details.
+   * sepadirectdebit
    *
-   * @param sepadirectdebit Sepa Direct Debit details.
+   * @param sepadirectdebit
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod sepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
@@ -1903,9 +1908,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sepa Direct Debit details.
+   * Get sepadirectdebit
    *
-   * @return sepadirectdebit Sepa Direct Debit details.
+   * @return sepadirectdebit
    */
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1914,9 +1919,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sepa Direct Debit details.
+   * sepadirectdebit
    *
-   * @param sepadirectdebit Sepa Direct Debit details.
+   * @param sepadirectdebit
    */
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1961,9 +1966,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sodexo details.
+   * sodexo
    *
-   * @param sodexo Sodexo details.
+   * @param sodexo
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod sodexo(SodexoInfo sodexo) {
@@ -1973,9 +1978,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sodexo details.
+   * Get sodexo
    *
-   * @return sodexo Sodexo details.
+   * @return sodexo
    */
   @JsonProperty(JSON_PROPERTY_SODEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1984,9 +1989,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sodexo details.
+   * sodexo
    *
-   * @param sodexo Sodexo details.
+   * @param sodexo
    */
   @JsonProperty(JSON_PROPERTY_SODEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1996,9 +2001,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sofort details.
+   * sofort
    *
-   * @param sofort Sofort details.
+   * @param sofort
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod sofort(SofortInfo sofort) {
@@ -2008,9 +2013,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sofort details.
+   * Get sofort
    *
-   * @return sofort Sofort details.
+   * @return sofort
    */
   @JsonProperty(JSON_PROPERTY_SOFORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2019,9 +2024,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Sofort details.
+   * sofort
    *
-   * @param sofort Sofort details.
+   * @param sofort
    */
   @JsonProperty(JSON_PROPERTY_SOFORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2031,9 +2036,9 @@ public class PaymentMethod {
   }
 
   /**
-   * STAR details.
+   * star
    *
-   * @param star STAR details.
+   * @param star
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod star(StarInfo star) {
@@ -2043,9 +2048,9 @@ public class PaymentMethod {
   }
 
   /**
-   * STAR details.
+   * Get star
    *
-   * @return star STAR details.
+   * @return star
    */
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2054,9 +2059,9 @@ public class PaymentMethod {
   }
 
   /**
-   * STAR details.
+   * star
    *
-   * @param star STAR details.
+   * @param star
    */
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2112,15 +2117,44 @@ public class PaymentMethod {
   }
 
   /**
-   * Swish details. - This field is required only if you have a contract with Swish. Swish handles
-   * settlement directly with you (not through Adyen). - If not specified then it&#39;s assumed that
-   * you are using Adyen&#39;s contract with Swish.You don&#39;t have a direct relationship with
-   * Swish.
+   * svs
    *
-   * @param swish Swish details. - This field is required only if you have a contract with Swish.
-   *     Swish handles settlement directly with you (not through Adyen). - If not specified then
-   *     it&#39;s assumed that you are using Adyen&#39;s contract with Swish.You don&#39;t have a
-   *     direct relationship with Swish.
+   * @param svs
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod svs(SvsInfo svs) {
+    this.svs = svs;
+    isSetSvs = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get svs
+   *
+   * @return svs
+   */
+  @JsonProperty(JSON_PROPERTY_SVS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SvsInfo getSvs() {
+    return svs;
+  }
+
+  /**
+   * svs
+   *
+   * @param svs
+   */
+  @JsonProperty(JSON_PROPERTY_SVS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSvs(SvsInfo svs) {
+    this.svs = svs;
+    isSetSvs = true; // mark as set
+  }
+
+  /**
+   * swish
+   *
+   * @param swish
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod swish(SwishInfo swish) {
@@ -2130,15 +2164,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Swish details. - This field is required only if you have a contract with Swish. Swish handles
-   * settlement directly with you (not through Adyen). - If not specified then it&#39;s assumed that
-   * you are using Adyen&#39;s contract with Swish.You don&#39;t have a direct relationship with
-   * Swish.
+   * Get swish
    *
-   * @return swish Swish details. - This field is required only if you have a contract with Swish.
-   *     Swish handles settlement directly with you (not through Adyen). - If not specified then
-   *     it&#39;s assumed that you are using Adyen&#39;s contract with Swish.You don&#39;t have a
-   *     direct relationship with Swish.
+   * @return swish
    */
   @JsonProperty(JSON_PROPERTY_SWISH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2147,15 +2175,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Swish details. - This field is required only if you have a contract with Swish. Swish handles
-   * settlement directly with you (not through Adyen). - If not specified then it&#39;s assumed that
-   * you are using Adyen&#39;s contract with Swish.You don&#39;t have a direct relationship with
-   * Swish.
+   * swish
    *
-   * @param swish Swish details. - This field is required only if you have a contract with Swish.
-   *     Swish handles settlement directly with you (not through Adyen). - If not specified then
-   *     it&#39;s assumed that you are using Adyen&#39;s contract with Swish.You don&#39;t have a
-   *     direct relationship with Swish.
+   * @param swish
    */
   @JsonProperty(JSON_PROPERTY_SWISH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2165,9 +2187,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Edenred (Brazil) details.
+   * ticket
    *
-   * @param ticket Edenred (Brazil) details.
+   * @param ticket
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod ticket(TicketInfo ticket) {
@@ -2177,9 +2199,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Edenred (Brazil) details.
+   * Get ticket
    *
-   * @return ticket Edenred (Brazil) details.
+   * @return ticket
    */
   @JsonProperty(JSON_PROPERTY_TICKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2188,9 +2210,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Edenred (Brazil) details.
+   * ticket
    *
-   * @param ticket Edenred (Brazil) details.
+   * @param ticket
    */
   @JsonProperty(JSON_PROPERTY_TICKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2200,9 +2222,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Twint details.
+   * twint
    *
-   * @param twint Twint details.
+   * @param twint
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod twint(TwintInfo twint) {
@@ -2212,9 +2234,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Twint details.
+   * Get twint
    *
-   * @return twint Twint details.
+   * @return twint
    */
   @JsonProperty(JSON_PROPERTY_TWINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2223,9 +2245,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Twint details.
+   * twint
    *
-   * @param twint Twint details.
+   * @param twint
    */
   @JsonProperty(JSON_PROPERTY_TWINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2276,6 +2298,41 @@ public class PaymentMethod {
   }
 
   /**
+   * valuelink
+   *
+   * @param valuelink
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod valuelink(ValuelinkInfo valuelink) {
+    this.valuelink = valuelink;
+    isSetValuelink = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get valuelink
+   *
+   * @return valuelink
+   */
+  @JsonProperty(JSON_PROPERTY_VALUELINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ValuelinkInfo getValuelink() {
+    return valuelink;
+  }
+
+  /**
+   * valuelink
+   *
+   * @param valuelink
+   */
+  @JsonProperty(JSON_PROPERTY_VALUELINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValuelink(ValuelinkInfo valuelink) {
+    this.valuelink = valuelink;
+    isSetValuelink = true; // mark as set
+  }
+
+  /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    *
    * @param verificationStatus Payment method status. Possible values: * **valid** * **pending** *
@@ -2314,9 +2371,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Vipps details.
+   * vipps
    *
-   * @param vipps Vipps details.
+   * @param vipps
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod vipps(VippsInfo vipps) {
@@ -2326,9 +2383,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Vipps details.
+   * Get vipps
    *
-   * @return vipps Vipps details.
+   * @return vipps
    */
   @JsonProperty(JSON_PROPERTY_VIPPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2337,9 +2394,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Vipps details.
+   * vipps
    *
-   * @param vipps Vipps details.
+   * @param vipps
    */
   @JsonProperty(JSON_PROPERTY_VIPPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2349,9 +2406,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Visa details.
+   * visa
    *
-   * @param visa Visa details.
+   * @param visa
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod visa(GenericPmWithTdiInfo visa) {
@@ -2361,9 +2418,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Visa details.
+   * Get visa
    *
-   * @return visa Visa details.
+   * @return visa
    */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2372,9 +2429,9 @@ public class PaymentMethod {
   }
 
   /**
-   * Visa details.
+   * visa
    *
-   * @param visa Visa details.
+   * @param visa
    */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2384,9 +2441,9 @@ public class PaymentMethod {
   }
 
   /**
-   * WeChat Pay details.
+   * wechatpay
    *
-   * @param wechatpay WeChat Pay details.
+   * @param wechatpay
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod wechatpay(WeChatPayInfo wechatpay) {
@@ -2396,9 +2453,9 @@ public class PaymentMethod {
   }
 
   /**
-   * WeChat Pay details.
+   * Get wechatpay
    *
-   * @return wechatpay WeChat Pay details.
+   * @return wechatpay
    */
   @JsonProperty(JSON_PROPERTY_WECHATPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2407,9 +2464,9 @@ public class PaymentMethod {
   }
 
   /**
-   * WeChat Pay details.
+   * wechatpay
    *
-   * @param wechatpay WeChat Pay details.
+   * @param wechatpay
    */
   @JsonProperty(JSON_PROPERTY_WECHATPAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2419,9 +2476,9 @@ public class PaymentMethod {
   }
 
   /**
-   * WeChat Pay POS details.
+   * wechatpayPos
    *
-   * @param wechatpayPos WeChat Pay POS details.
+   * @param wechatpayPos
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod wechatpayPos(WeChatPayPosInfo wechatpayPos) {
@@ -2431,9 +2488,9 @@ public class PaymentMethod {
   }
 
   /**
-   * WeChat Pay POS details.
+   * Get wechatpayPos
    *
-   * @return wechatpayPos WeChat Pay POS details.
+   * @return wechatpayPos
    */
   @JsonProperty(JSON_PROPERTY_WECHATPAY_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2442,9 +2499,9 @@ public class PaymentMethod {
   }
 
   /**
-   * WeChat Pay POS details.
+   * wechatpayPos
    *
-   * @param wechatpayPos WeChat Pay POS details.
+   * @param wechatpayPos
    */
   @JsonProperty(JSON_PROPERTY_WECHATPAY_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2504,6 +2561,7 @@ public class PaymentMethod {
         && Objects.equals(this.eftposAustralia, paymentMethod.eftposAustralia)
         && Objects.equals(this.enabled, paymentMethod.enabled)
         && Objects.equals(this.girocard, paymentMethod.girocard)
+        && Objects.equals(this.givex, paymentMethod.givex)
         && Objects.equals(this.googlePay, paymentMethod.googlePay)
         && Objects.equals(this.id, paymentMethod.id)
         && Objects.equals(this.ideal, paymentMethod.ideal)
@@ -2527,10 +2585,12 @@ public class PaymentMethod {
         && Objects.equals(this.sofort, paymentMethod.sofort)
         && Objects.equals(this.star, paymentMethod.star)
         && Objects.equals(this.storeIds, paymentMethod.storeIds)
+        && Objects.equals(this.svs, paymentMethod.svs)
         && Objects.equals(this.swish, paymentMethod.swish)
         && Objects.equals(this.ticket, paymentMethod.ticket)
         && Objects.equals(this.twint, paymentMethod.twint)
         && Objects.equals(this.type, paymentMethod.type)
+        && Objects.equals(this.valuelink, paymentMethod.valuelink)
         && Objects.equals(this.verificationStatus, paymentMethod.verificationStatus)
         && Objects.equals(this.vipps, paymentMethod.vipps)
         && Objects.equals(this.visa, paymentMethod.visa)
@@ -2562,6 +2622,7 @@ public class PaymentMethod {
         eftposAustralia,
         enabled,
         girocard,
+        givex,
         googlePay,
         id,
         ideal,
@@ -2585,10 +2646,12 @@ public class PaymentMethod {
         sofort,
         star,
         storeIds,
+        svs,
         swish,
         ticket,
         twint,
         type,
+        valuelink,
         verificationStatus,
         vipps,
         visa,
@@ -2621,6 +2684,7 @@ public class PaymentMethod {
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
+    sb.append("    givex: ").append(toIndentedString(givex)).append("\n");
     sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ideal: ").append(toIndentedString(ideal)).append("\n");
@@ -2644,10 +2708,12 @@ public class PaymentMethod {
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
+    sb.append("    svs: ").append(toIndentedString(svs)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
     sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
     sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    valuelink: ").append(toIndentedString(valuelink)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
@@ -2740,6 +2806,9 @@ public class PaymentMethod {
     if (isSetGirocard) {
       addIfNull(nulls, JSON_PROPERTY_GIROCARD, this.girocard);
     }
+    if (isSetGivex) {
+      addIfNull(nulls, JSON_PROPERTY_GIVEX, this.givex);
+    }
     if (isSetGooglePay) {
       addIfNull(nulls, JSON_PROPERTY_GOOGLE_PAY, this.googlePay);
     }
@@ -2809,6 +2878,9 @@ public class PaymentMethod {
     if (isSetStoreIds) {
       addIfNull(nulls, JSON_PROPERTY_STORE_IDS, this.storeIds);
     }
+    if (isSetSvs) {
+      addIfNull(nulls, JSON_PROPERTY_SVS, this.svs);
+    }
     if (isSetSwish) {
       addIfNull(nulls, JSON_PROPERTY_SWISH, this.swish);
     }
@@ -2820,6 +2892,9 @@ public class PaymentMethod {
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetValuelink) {
+      addIfNull(nulls, JSON_PROPERTY_VALUELINK, this.valuelink);
     }
     if (isSetVerificationStatus) {
       addIfNull(nulls, JSON_PROPERTY_VERIFICATION_STATUS, this.verificationStatus);

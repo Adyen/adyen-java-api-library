@@ -49,6 +49,7 @@ public class Nexo {
   private boolean isSetEventUrls = false;
 
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   private List<String> nexoEventUrls;
 
   /** Mark when the attribute has been explicitly set. */
@@ -69,10 +70,9 @@ public class Nexo {
   public Nexo() {}
 
   /**
-   * The list of local and public URLs to send display notifications to when using Terminal API.
+   * displayUrls
    *
-   * @param displayUrls The list of local and public URLs to send display notifications to when
-   *     using Terminal API.
+   * @param displayUrls
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo displayUrls(NotificationUrl displayUrls) {
@@ -82,10 +82,9 @@ public class Nexo {
   }
 
   /**
-   * The list of local and public URLs to send display notifications to when using Terminal API.
+   * Get displayUrls
    *
-   * @return displayUrls The list of local and public URLs to send display notifications to when
-   *     using Terminal API.
+   * @return displayUrls
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,10 +93,9 @@ public class Nexo {
   }
 
   /**
-   * The list of local and public URLs to send display notifications to when using Terminal API.
+   * displayUrls
    *
-   * @param displayUrls The list of local and public URLs to send display notifications to when
-   *     using Terminal API.
+   * @param displayUrls
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,10 +105,9 @@ public class Nexo {
   }
 
   /**
-   * The key you share with Adyen to secure local communications when using Terminal API.
+   * encryptionKey
    *
-   * @param encryptionKey The key you share with Adyen to secure local communications when using
-   *     Terminal API.
+   * @param encryptionKey
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo encryptionKey(Key encryptionKey) {
@@ -120,10 +117,9 @@ public class Nexo {
   }
 
   /**
-   * The key you share with Adyen to secure local communications when using Terminal API.
+   * Get encryptionKey
    *
-   * @return encryptionKey The key you share with Adyen to secure local communications when using
-   *     Terminal API.
+   * @return encryptionKey
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,10 +128,9 @@ public class Nexo {
   }
 
   /**
-   * The key you share with Adyen to secure local communications when using Terminal API.
+   * encryptionKey
    *
-   * @param encryptionKey The key you share with Adyen to secure local communications when using
-   *     Terminal API.
+   * @param encryptionKey
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,10 +140,9 @@ public class Nexo {
   }
 
   /**
-   * The list of local and public URLs to send event notifications to when using Terminal API.
+   * eventUrls
    *
-   * @param eventUrls The list of local and public URLs to send event notifications to when using
-   *     Terminal API.
+   * @param eventUrls
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo eventUrls(EventUrl eventUrls) {
@@ -158,10 +152,9 @@ public class Nexo {
   }
 
   /**
-   * The list of local and public URLs to send event notifications to when using Terminal API.
+   * Get eventUrls
    *
-   * @return eventUrls The list of local and public URLs to send event notifications to when using
-   *     Terminal API.
+   * @return eventUrls
    */
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,10 +163,9 @@ public class Nexo {
   }
 
   /**
-   * The list of local and public URLs to send event notifications to when using Terminal API.
+   * eventUrls
    *
-   * @param eventUrls The list of local and public URLs to send event notifications to when using
-   *     Terminal API.
+   * @param eventUrls
    */
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +179,9 @@ public class Nexo {
    *
    * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
+   * @deprecated since Management API v1 Use &#x60;eventUrls&#x60; instead.
    */
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
     isSetNexoEventUrls = true; // mark as set
@@ -206,7 +200,9 @@ public class Nexo {
    * One or more URLs to send event messages to when using Terminal API.
    *
    * @return nexoEventUrls One or more URLs to send event messages to when using Terminal API.
+   * @deprecated // deprecated since Management API v1: Use `eventUrls` instead.
    */
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNexoEventUrls() {
@@ -217,7 +213,9 @@ public class Nexo {
    * One or more URLs to send event messages to when using Terminal API.
    *
    * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
+   * @deprecated since Management API v1 Use &#x60;eventUrls&#x60; instead.
    */
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexoEventUrls(List<String> nexoEventUrls) {
@@ -226,11 +224,9 @@ public class Nexo {
   }
 
   /**
-   * Configures sending event notifications by pressing a button on a terminal, for example used for
-   * pay-at-table.
+   * notification
    *
-   * @param notification Configures sending event notifications by pressing a button on a terminal,
-   *     for example used for pay-at-table.
+   * @param notification
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo notification(Notification notification) {
@@ -240,11 +236,9 @@ public class Nexo {
   }
 
   /**
-   * Configures sending event notifications by pressing a button on a terminal, for example used for
-   * pay-at-table.
+   * Get notification
    *
-   * @return notification Configures sending event notifications by pressing a button on a terminal,
-   *     for example used for pay-at-table.
+   * @return notification
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,11 +247,9 @@ public class Nexo {
   }
 
   /**
-   * Configures sending event notifications by pressing a button on a terminal, for example used for
-   * pay-at-table.
+   * notification
    *
-   * @param notification Configures sending event notifications by pressing a button on a terminal,
-   *     for example used for pay-at-table.
+   * @param notification
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

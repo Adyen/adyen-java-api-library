@@ -38,12 +38,16 @@ public class CardholderReceipt {
   public CardholderReceipt() {}
 
   /**
-   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two
-   * comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+   * The structure of the header to show on the shopper receipt. You can define the order of one or
+   * two header lines and blank lines. For example, **header1,header2,filler**. The text of the
+   * header lines is defined in the Customer Area under **In-person payments** &gt; **Terminal
+   * settings** &gt; **Receipts** in the **Receipt lines** block.
    *
-   * @param headerForAuthorizedReceipt A custom header to show on the shopper receipt for an
-   *     authorised transaction. Allows one or two comma-separated header lines, and blank lines.
-   *     For example, &#x60;header,header,filler&#x60;
+   * @param headerForAuthorizedReceipt The structure of the header to show on the shopper receipt.
+   *     You can define the order of one or two header lines and blank lines. For example,
+   *     **header1,header2,filler**. The text of the header lines is defined in the Customer Area
+   *     under **In-person payments** &gt; **Terminal settings** &gt; **Receipts** in the **Receipt
+   *     lines** block.
    * @return the current {@code CardholderReceipt} instance, allowing for method chaining
    */
   public CardholderReceipt headerForAuthorizedReceipt(String headerForAuthorizedReceipt) {
@@ -53,12 +57,16 @@ public class CardholderReceipt {
   }
 
   /**
-   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two
-   * comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+   * The structure of the header to show on the shopper receipt. You can define the order of one or
+   * two header lines and blank lines. For example, **header1,header2,filler**. The text of the
+   * header lines is defined in the Customer Area under **In-person payments** &gt; **Terminal
+   * settings** &gt; **Receipts** in the **Receipt lines** block.
    *
-   * @return headerForAuthorizedReceipt A custom header to show on the shopper receipt for an
-   *     authorised transaction. Allows one or two comma-separated header lines, and blank lines.
-   *     For example, &#x60;header,header,filler&#x60;
+   * @return headerForAuthorizedReceipt The structure of the header to show on the shopper receipt.
+   *     You can define the order of one or two header lines and blank lines. For example,
+   *     **header1,header2,filler**. The text of the header lines is defined in the Customer Area
+   *     under **In-person payments** &gt; **Terminal settings** &gt; **Receipts** in the **Receipt
+   *     lines** block.
    */
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,12 +75,16 @@ public class CardholderReceipt {
   }
 
   /**
-   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two
-   * comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+   * The structure of the header to show on the shopper receipt. You can define the order of one or
+   * two header lines and blank lines. For example, **header1,header2,filler**. The text of the
+   * header lines is defined in the Customer Area under **In-person payments** &gt; **Terminal
+   * settings** &gt; **Receipts** in the **Receipt lines** block.
    *
-   * @param headerForAuthorizedReceipt A custom header to show on the shopper receipt for an
-   *     authorised transaction. Allows one or two comma-separated header lines, and blank lines.
-   *     For example, &#x60;header,header,filler&#x60;
+   * @param headerForAuthorizedReceipt The structure of the header to show on the shopper receipt.
+   *     You can define the order of one or two header lines and blank lines. For example,
+   *     **header1,header2,filler**. The text of the header lines is defined in the Customer Area
+   *     under **In-person payments** &gt; **Terminal settings** &gt; **Receipts** in the **Receipt
+   *     lines** block.
    */
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

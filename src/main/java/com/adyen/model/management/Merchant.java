@@ -134,9 +134,9 @@ public class Merchant {
   public Merchant() {}
 
   /**
-   * References to resources connected with this merchant.
+   * links
    *
-   * @param links References to resources connected with this merchant.
+   * @param links
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant links(MerchantLinks links) {
@@ -146,9 +146,9 @@ public class Merchant {
   }
 
   /**
-   * References to resources connected with this merchant.
+   * Get links
    *
-   * @return links References to resources connected with this merchant.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,9 +157,9 @@ public class Merchant {
   }
 
   /**
-   * References to resources connected with this merchant.
+   * links
    *
-   * @param links References to resources connected with this merchant.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

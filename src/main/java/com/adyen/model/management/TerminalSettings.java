@@ -28,6 +28,7 @@ import java.util.List;
   TerminalSettings.JSON_PROPERTY_GRATUITIES,
   TerminalSettings.JSON_PROPERTY_HARDWARE,
   TerminalSettings.JSON_PROPERTY_LOCALIZATION,
+  TerminalSettings.JSON_PROPERTY_MOTO,
   TerminalSettings.JSON_PROPERTY_NEXO,
   TerminalSettings.JSON_PROPERTY_OFFLINE_PROCESSING,
   TerminalSettings.JSON_PROPERTY_OPI,
@@ -76,6 +77,12 @@ public class TerminalSettings {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLocalization = false;
+
+  public static final String JSON_PROPERTY_MOTO = "moto";
+  private Moto moto;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMoto = false;
 
   public static final String JSON_PROPERTY_NEXO = "nexo";
   private Nexo nexo;
@@ -188,9 +195,9 @@ public class TerminalSettings {
   public TerminalSettings() {}
 
   /**
-   * Settings to define the header of the shopper receipt.
+   * cardholderReceipt
    *
-   * @param cardholderReceipt Settings to define the header of the shopper receipt.
+   * @param cardholderReceipt
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings cardholderReceipt(CardholderReceipt cardholderReceipt) {
@@ -200,9 +207,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to define the header of the shopper receipt.
+   * Get cardholderReceipt
    *
-   * @return cardholderReceipt Settings to define the header of the shopper receipt.
+   * @return cardholderReceipt
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,9 +218,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to define the header of the shopper receipt.
+   * cardholderReceipt
    *
-   * @param cardholderReceipt Settings to define the header of the shopper receipt.
+   * @param cardholderReceipt
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,9 +230,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for terminal connectivity features.
+   * connectivity
    *
-   * @param connectivity Settings for terminal connectivity features.
+   * @param connectivity
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings connectivity(Connectivity connectivity) {
@@ -235,9 +242,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for terminal connectivity features.
+   * Get connectivity
    *
-   * @return connectivity Settings for terminal connectivity features.
+   * @return connectivity
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,9 +253,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for terminal connectivity features.
+   * connectivity
    *
-   * @param connectivity Settings for terminal connectivity features.
+   * @param connectivity
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,9 +317,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for terminal hardware features.
+   * hardware
    *
-   * @param hardware Settings for terminal hardware features.
+   * @param hardware
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings hardware(Hardware hardware) {
@@ -322,9 +329,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for terminal hardware features.
+   * Get hardware
    *
-   * @return hardware Settings for terminal hardware features.
+   * @return hardware
    */
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,9 +340,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for terminal hardware features.
+   * hardware
    *
-   * @param hardware Settings for terminal hardware features.
+   * @param hardware
    */
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,9 +352,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for localization.
+   * localization
    *
-   * @param localization Settings for localization.
+   * @param localization
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings localization(Localization localization) {
@@ -357,9 +364,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for localization.
+   * Get localization
    *
-   * @return localization Settings for localization.
+   * @return localization
    */
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,9 +375,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for localization.
+   * localization
    *
-   * @param localization Settings for localization.
+   * @param localization
    */
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,9 +387,44 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for a Terminal API integration.
+   * moto
    *
-   * @param nexo Settings for a Terminal API integration.
+   * @param moto
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
+  public TerminalSettings moto(Moto moto) {
+    this.moto = moto;
+    isSetMoto = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get moto
+   *
+   * @return moto
+   */
+  @JsonProperty(JSON_PROPERTY_MOTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Moto getMoto() {
+    return moto;
+  }
+
+  /**
+   * moto
+   *
+   * @param moto
+   */
+  @JsonProperty(JSON_PROPERTY_MOTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMoto(Moto moto) {
+    this.moto = moto;
+    isSetMoto = true; // mark as set
+  }
+
+  /**
+   * nexo
+   *
+   * @param nexo
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings nexo(Nexo nexo) {
@@ -392,9 +434,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for a Terminal API integration.
+   * Get nexo
    *
-   * @return nexo Settings for a Terminal API integration.
+   * @return nexo
    */
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -403,9 +445,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for a Terminal API integration.
+   * nexo
    *
-   * @param nexo Settings for a Terminal API integration.
+   * @param nexo
    */
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,10 +457,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+   * offlineProcessing
    *
-   * @param offlineProcessing Settings for [offline
-   *     payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+   * @param offlineProcessing
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings offlineProcessing(OfflineProcessing offlineProcessing) {
@@ -428,10 +469,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+   * Get offlineProcessing
    *
-   * @return offlineProcessing Settings for [offline
-   *     payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+   * @return offlineProcessing
    */
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,10 +480,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+   * offlineProcessing
    *
-   * @param offlineProcessing Settings for [offline
-   *     payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+   * @param offlineProcessing
    */
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -453,9 +492,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for an Oracle Payment Interface (OPI) integration.
+   * opi
    *
-   * @param opi Settings for an Oracle Payment Interface (OPI) integration.
+   * @param opi
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings opi(Opi opi) {
@@ -465,9 +504,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for an Oracle Payment Interface (OPI) integration.
+   * Get opi
    *
-   * @return opi Settings for an Oracle Payment Interface (OPI) integration.
+   * @return opi
    */
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,9 +515,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for an Oracle Payment Interface (OPI) integration.
+   * opi
    *
-   * @param opi Settings for an Oracle Payment Interface (OPI) integration.
+   * @param opi
    */
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -488,13 +527,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for
-   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
-   * features.
+   * passcodes
    *
-   * @param passcodes Settings for
-   *     [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
-   *     features.
+   * @param passcodes
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings passcodes(Passcodes passcodes) {
@@ -504,13 +539,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for
-   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
-   * features.
+   * Get passcodes
    *
-   * @return passcodes Settings for
-   *     [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
-   *     features.
+   * @return passcodes
    */
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -519,13 +550,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for
-   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
-   * features.
+   * passcodes
    *
-   * @param passcodes Settings for
-   *     [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
-   *     features.
+   * @param passcodes
    */
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,10 +562,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
+   * payAtTable
    *
-   * @param payAtTable Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x)
-   *     features.
+   * @param payAtTable
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings payAtTable(PayAtTable payAtTable) {
@@ -548,10 +574,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
+   * Get payAtTable
    *
-   * @return payAtTable Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x)
-   *     features.
+   * @return payAtTable
    */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -560,10 +585,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
+   * payAtTable
    *
-   * @param payAtTable Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x)
-   *     features.
+   * @param payAtTable
    */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -573,9 +597,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for payment features.
+   * payment
    *
-   * @param payment Settings for payment features.
+   * @param payment
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings payment(Payment payment) {
@@ -585,9 +609,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for payment features.
+   * Get payment
    *
-   * @return payment Settings for payment features.
+   * @return payment
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,9 +620,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for payment features.
+   * payment
    *
-   * @param payment Settings for payment features.
+   * @param payment
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -608,9 +632,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Generic receipt settings.
+   * receiptOptions
    *
-   * @param receiptOptions Generic receipt settings.
+   * @param receiptOptions
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings receiptOptions(ReceiptOptions receiptOptions) {
@@ -620,9 +644,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Generic receipt settings.
+   * Get receiptOptions
    *
-   * @return receiptOptions Generic receipt settings.
+   * @return receiptOptions
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -631,9 +655,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Generic receipt settings.
+   * receiptOptions
    *
-   * @param receiptOptions Generic receipt settings.
+   * @param receiptOptions
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -643,11 +667,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
-   * receipt for.
+   * receiptPrinting
    *
-   * @param receiptPrinting Transaction outcomes that you want the terminal to print a merchant
-   *     receipt or a shopper receipt for.
+   * @param receiptPrinting
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings receiptPrinting(ReceiptPrinting receiptPrinting) {
@@ -657,11 +679,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
-   * receipt for.
+   * Get receiptPrinting
    *
-   * @return receiptPrinting Transaction outcomes that you want the terminal to print a merchant
-   *     receipt or a shopper receipt for.
+   * @return receiptPrinting
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -670,11 +690,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
-   * receipt for.
+   * receiptPrinting
    *
-   * @param receiptPrinting Transaction outcomes that you want the terminal to print a merchant
-   *     receipt or a shopper receipt for.
+   * @param receiptPrinting
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -684,9 +702,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for refunds.
+   * refunds
    *
-   * @param refunds Settings for refunds.
+   * @param refunds
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings refunds(Refunds refunds) {
@@ -696,9 +714,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for refunds.
+   * Get refunds
    *
-   * @return refunds Settings for refunds.
+   * @return refunds
    */
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -707,9 +725,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for refunds.
+   * refunds
    *
-   * @param refunds Settings for refunds.
+   * @param refunds
    */
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -719,9 +737,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to skip signature, sign on display, or sign on receipt.
+   * signature
    *
-   * @param signature Settings to skip signature, sign on display, or sign on receipt.
+   * @param signature
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings signature(Signature signature) {
@@ -731,9 +749,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to skip signature, sign on display, or sign on receipt.
+   * Get signature
    *
-   * @return signature Settings to skip signature, sign on display, or sign on receipt.
+   * @return signature
    */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -742,9 +760,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to skip signature, sign on display, or sign on receipt.
+   * signature
    *
-   * @param signature Settings to skip signature, sign on display, or sign on receipt.
+   * @param signature
    */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -754,13 +772,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for
-   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
-   * features.
+   * standalone
    *
-   * @param standalone Settings for
-   *     [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
-   *     features.
+   * @param standalone
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings standalone(Standalone standalone) {
@@ -770,13 +784,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for
-   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
-   * features.
+   * Get standalone
    *
-   * @return standalone Settings for
-   *     [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
-   *     features.
+   * @return standalone
    */
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -785,13 +795,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for
-   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
-   * features.
+   * standalone
    *
-   * @param standalone Settings for
-   *     [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
-   *     features.
+   * @param standalone
    */
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -801,14 +807,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for store-and-forward offline payments. The &#x60;maxAmount&#x60;,
-   * &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60; parameters must be configured,
-   * either in the request or inherited from a higher level in your account structure.
+   * storeAndForward
    *
-   * @param storeAndForward Settings for store-and-forward offline payments. The
-   *     &#x60;maxAmount&#x60;, &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60;
-   *     parameters must be configured, either in the request or inherited from a higher level in
-   *     your account structure.
+   * @param storeAndForward
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings storeAndForward(StoreAndForward storeAndForward) {
@@ -818,14 +819,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for store-and-forward offline payments. The &#x60;maxAmount&#x60;,
-   * &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60; parameters must be configured,
-   * either in the request or inherited from a higher level in your account structure.
+   * Get storeAndForward
    *
-   * @return storeAndForward Settings for store-and-forward offline payments. The
-   *     &#x60;maxAmount&#x60;, &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60;
-   *     parameters must be configured, either in the request or inherited from a higher level in
-   *     your account structure.
+   * @return storeAndForward
    */
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -834,14 +830,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for store-and-forward offline payments. The &#x60;maxAmount&#x60;,
-   * &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60; parameters must be configured,
-   * either in the request or inherited from a higher level in your account structure.
+   * storeAndForward
    *
-   * @param storeAndForward Settings for store-and-forward offline payments. The
-   *     &#x60;maxAmount&#x60;, &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60;
-   *     parameters must be configured, either in the request or inherited from a higher level in
-   *     your account structure.
+   * @param storeAndForward
    */
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -851,10 +842,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
+   * surcharge
    *
-   * @param surcharge Settings for payment
-   *     [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
+   * @param surcharge
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings surcharge(Surcharge surcharge) {
@@ -864,10 +854,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
+   * Get surcharge
    *
-   * @return surcharge Settings for payment
-   *     [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
+   * @return surcharge
    */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -876,10 +865,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
+   * surcharge
    *
-   * @param surcharge Settings for payment
-   *     [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
+   * @param surcharge
    */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -889,9 +877,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for Tap to Pay.
+   * tapToPay
    *
-   * @param tapToPay Settings for Tap to Pay.
+   * @param tapToPay
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings tapToPay(TapToPay tapToPay) {
@@ -901,9 +889,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for Tap to Pay.
+   * Get tapToPay
    *
-   * @return tapToPay Settings for Tap to Pay.
+   * @return tapToPay
    */
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -912,9 +900,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for Tap to Pay.
+   * tapToPay
    *
-   * @param tapToPay Settings for Tap to Pay.
+   * @param tapToPay
    */
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -924,9 +912,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to define the behaviour of the payment terminal.
+   * terminalInstructions
    *
-   * @param terminalInstructions Settings to define the behaviour of the payment terminal.
+   * @param terminalInstructions
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings terminalInstructions(TerminalInstructions terminalInstructions) {
@@ -936,9 +924,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to define the behaviour of the payment terminal.
+   * Get terminalInstructions
    *
-   * @return terminalInstructions Settings to define the behaviour of the payment terminal.
+   * @return terminalInstructions
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -947,9 +935,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings to define the behaviour of the payment terminal.
+   * terminalInstructions
    *
-   * @param terminalInstructions Settings to define the behaviour of the payment terminal.
+   * @param terminalInstructions
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -959,11 +947,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for device
-   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   * timeouts
    *
-   * @param timeouts Settings for device
-   *     [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   * @param timeouts
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings timeouts(Timeouts timeouts) {
@@ -973,11 +959,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for device
-   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   * Get timeouts
    *
-   * @return timeouts Settings for device
-   *     [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   * @return timeouts
    */
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -986,11 +970,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Settings for device
-   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   * timeouts
    *
-   * @param timeouts Settings for device
-   *     [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   * @param timeouts
    */
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1000,9 +982,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
+   * wifiProfiles
    *
-   * @param wifiProfiles Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
+   * @param wifiProfiles
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings wifiProfiles(WifiProfiles wifiProfiles) {
@@ -1012,9 +994,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
+   * Get wifiProfiles
    *
-   * @return wifiProfiles Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
+   * @return wifiProfiles
    */
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1023,9 +1005,9 @@ public class TerminalSettings {
   }
 
   /**
-   * Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
+   * wifiProfiles
    *
-   * @param wifiProfiles Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
+   * @param wifiProfiles
    */
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1069,6 +1051,7 @@ public class TerminalSettings {
         && Objects.equals(this.gratuities, terminalSettings.gratuities)
         && Objects.equals(this.hardware, terminalSettings.hardware)
         && Objects.equals(this.localization, terminalSettings.localization)
+        && Objects.equals(this.moto, terminalSettings.moto)
         && Objects.equals(this.nexo, terminalSettings.nexo)
         && Objects.equals(this.offlineProcessing, terminalSettings.offlineProcessing)
         && Objects.equals(this.opi, terminalSettings.opi)
@@ -1096,6 +1079,7 @@ public class TerminalSettings {
         gratuities,
         hardware,
         localization,
+        moto,
         nexo,
         offlineProcessing,
         opi,
@@ -1124,6 +1108,7 @@ public class TerminalSettings {
     sb.append("    gratuities: ").append(toIndentedString(gratuities)).append("\n");
     sb.append("    hardware: ").append(toIndentedString(hardware)).append("\n");
     sb.append("    localization: ").append(toIndentedString(localization)).append("\n");
+    sb.append("    moto: ").append(toIndentedString(moto)).append("\n");
     sb.append("    nexo: ").append(toIndentedString(nexo)).append("\n");
     sb.append("    offlineProcessing: ").append(toIndentedString(offlineProcessing)).append("\n");
     sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
@@ -1181,6 +1166,9 @@ public class TerminalSettings {
     }
     if (isSetLocalization) {
       addIfNull(nulls, JSON_PROPERTY_LOCALIZATION, this.localization);
+    }
+    if (isSetMoto) {
+      addIfNull(nulls, JSON_PROPERTY_MOTO, this.moto);
     }
     if (isSetNexo) {
       addIfNull(nulls, JSON_PROPERTY_NEXO, this.nexo);

@@ -90,9 +90,9 @@ public class TerminalOrder {
   public TerminalOrder() {}
 
   /**
-   * The details of the entity that the order is billed to.
+   * billingEntity
    *
-   * @param billingEntity The details of the entity that the order is billed to.
+   * @param billingEntity
    * @return the current {@code TerminalOrder} instance, allowing for method chaining
    */
   public TerminalOrder billingEntity(BillingEntity billingEntity) {
@@ -102,9 +102,9 @@ public class TerminalOrder {
   }
 
   /**
-   * The details of the entity that the order is billed to.
+   * Get billingEntity
    *
-   * @return billingEntity The details of the entity that the order is billed to.
+   * @return billingEntity
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,9 +113,9 @@ public class TerminalOrder {
   }
 
   /**
-   * The details of the entity that the order is billed to.
+   * billingEntity
    *
-   * @param billingEntity The details of the entity that the order is billed to.
+   * @param billingEntity
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,9 +282,9 @@ public class TerminalOrder {
   }
 
   /**
-   * The details of the location where the order is shipped to.
+   * shippingLocation
    *
-   * @param shippingLocation The details of the location where the order is shipped to.
+   * @param shippingLocation
    * @return the current {@code TerminalOrder} instance, allowing for method chaining
    */
   public TerminalOrder shippingLocation(ShippingLocation shippingLocation) {
@@ -294,9 +294,9 @@ public class TerminalOrder {
   }
 
   /**
-   * The details of the location where the order is shipped to.
+   * Get shippingLocation
    *
-   * @return shippingLocation The details of the location where the order is shipped to.
+   * @return shippingLocation
    */
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,9 +305,9 @@ public class TerminalOrder {
   }
 
   /**
-   * The details of the location where the order is shipped to.
+   * shippingLocation
    *
-   * @param shippingLocation The details of the location where the order is shipped to.
+   * @param shippingLocation
    */
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

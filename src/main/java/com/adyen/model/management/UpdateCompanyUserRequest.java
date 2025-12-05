@@ -317,9 +317,9 @@ public class UpdateCompanyUserRequest {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    * @return the current {@code UpdateCompanyUserRequest} instance, allowing for method chaining
    */
   public UpdateCompanyUserRequest name(Name2 name) {
@@ -329,9 +329,9 @@ public class UpdateCompanyUserRequest {
   }
 
   /**
-   * The user&#39;s full name.
+   * Get name
    *
-   * @return name The user&#39;s full name.
+   * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,9 +340,9 @@ public class UpdateCompanyUserRequest {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

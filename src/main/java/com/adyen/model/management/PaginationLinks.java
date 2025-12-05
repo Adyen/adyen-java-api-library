@@ -67,9 +67,9 @@ public class PaginationLinks {
   public PaginationLinks() {}
 
   /**
-   * The first page.
+   * first
    *
-   * @param first The first page.
+   * @param first
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks first(LinksElement first) {
@@ -79,9 +79,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The first page.
+   * Get first
    *
-   * @return first The first page.
+   * @return first
    */
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,9 +90,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The first page.
+   * first
    *
-   * @param first The first page.
+   * @param first
    */
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,9 +102,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The last page.
+   * last
    *
-   * @param last The last page.
+   * @param last
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks last(LinksElement last) {
@@ -114,9 +114,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The last page.
+   * Get last
    *
-   * @return last The last page.
+   * @return last
    */
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,9 +125,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The last page.
+   * last
    *
-   * @param last The last page.
+   * @param last
    */
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,9 +137,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The next page. Only present if there is a next page.
+   * next
    *
-   * @param next The next page. Only present if there is a next page.
+   * @param next
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks next(LinksElement next) {
@@ -149,9 +149,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The next page. Only present if there is a next page.
+   * Get next
    *
-   * @return next The next page. Only present if there is a next page.
+   * @return next
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,9 +160,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The next page. Only present if there is a next page.
+   * next
    *
-   * @param next The next page. Only present if there is a next page.
+   * @param next
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,9 +172,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The previous page. Only present if there is a previous page.
+   * prev
    *
-   * @param prev The previous page. Only present if there is a previous page.
+   * @param prev
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks prev(LinksElement prev) {
@@ -184,9 +184,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The previous page. Only present if there is a previous page.
+   * Get prev
    *
-   * @return prev The previous page. Only present if there is a previous page.
+   * @return prev
    */
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,9 +195,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The previous page. Only present if there is a previous page.
+   * prev
    *
-   * @param prev The previous page. Only present if there is a previous page.
+   * @param prev
    */
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,9 +207,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The current page.
+   * self
    *
-   * @param self The current page.
+   * @param self
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks self(LinksElement self) {
@@ -219,9 +219,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The current page.
+   * Get self
    *
-   * @return self The current page.
+   * @return self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,9 +230,9 @@ public class PaginationLinks {
   }
 
   /**
-   * The current page.
+   * self
    *
-   * @param self The current page.
+   * @param self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

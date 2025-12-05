@@ -105,9 +105,9 @@ public class CompanyApiCredential {
   public CompanyApiCredential() {}
 
   /**
-   * References to resources linked to the API credential.
+   * links
    *
-   * @param links References to resources linked to the API credential.
+   * @param links
    * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
    */
   public CompanyApiCredential links(ApiCredentialLinks links) {
@@ -117,9 +117,9 @@ public class CompanyApiCredential {
   }
 
   /**
-   * References to resources linked to the API credential.
+   * Get links
    *
-   * @return links References to resources linked to the API credential.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,9 +128,9 @@ public class CompanyApiCredential {
   }
 
   /**
-   * References to resources linked to the API credential.
+   * links
    *
-   * @param links References to resources linked to the API credential.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

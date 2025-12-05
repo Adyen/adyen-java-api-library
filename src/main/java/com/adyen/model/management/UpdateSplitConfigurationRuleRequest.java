@@ -202,20 +202,20 @@ public class UpdateSplitConfigurationRuleRequest {
 
   /**
    * The sales channel condition that defines whether the split logic applies. Possible values: *
-   * **Ecommerce**: online transactions where the cardholder is present. * **ContAuth**: card on
+   * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on
    * file and/or subscription transactions, where the cardholder is known to the merchant (returning
-   * customer). * **Moto**: mail-order and telephone-order transactions where the customer is in
-   * contact with the merchant via email or telephone. * **POS**: point-of-sale transactions where
+   * customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in
+   * contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where
    * the customer is physically present to make a payment using a secure payment terminal. *
-   * **ANY**: all sales channels.
+   * **ANY**: All sales channels.
    *
    * @param shopperInteraction The sales channel condition that defines whether the split logic
-   *     applies. Possible values: * **Ecommerce**: online transactions where the cardholder is
-   *     present. * **ContAuth**: card on file and/or subscription transactions, where the
-   *     cardholder is known to the merchant (returning customer). * **Moto**: mail-order and
+   *     applies. Possible values: * **Ecommerce**: Online transactions where the cardholder is
+   *     present. * **ContAuth**: Card on file and/or subscription transactions, where the
+   *     cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and
    *     telephone-order transactions where the customer is in contact with the merchant via email
-   *     or telephone. * **POS**: point-of-sale transactions where the customer is physically
-   *     present to make a payment using a secure payment terminal. * **ANY**: all sales channels.
+   *     or telephone. * **POS**: Point-of-sale transactions where the customer is physically
+   *     present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
    * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method
    *     chaining
    */
@@ -227,20 +227,20 @@ public class UpdateSplitConfigurationRuleRequest {
 
   /**
    * The sales channel condition that defines whether the split logic applies. Possible values: *
-   * **Ecommerce**: online transactions where the cardholder is present. * **ContAuth**: card on
+   * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on
    * file and/or subscription transactions, where the cardholder is known to the merchant (returning
-   * customer). * **Moto**: mail-order and telephone-order transactions where the customer is in
-   * contact with the merchant via email or telephone. * **POS**: point-of-sale transactions where
+   * customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in
+   * contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where
    * the customer is physically present to make a payment using a secure payment terminal. *
-   * **ANY**: all sales channels.
+   * **ANY**: All sales channels.
    *
    * @return shopperInteraction The sales channel condition that defines whether the split logic
-   *     applies. Possible values: * **Ecommerce**: online transactions where the cardholder is
-   *     present. * **ContAuth**: card on file and/or subscription transactions, where the
-   *     cardholder is known to the merchant (returning customer). * **Moto**: mail-order and
+   *     applies. Possible values: * **Ecommerce**: Online transactions where the cardholder is
+   *     present. * **ContAuth**: Card on file and/or subscription transactions, where the
+   *     cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and
    *     telephone-order transactions where the customer is in contact with the merchant via email
-   *     or telephone. * **POS**: point-of-sale transactions where the customer is physically
-   *     present to make a payment using a secure payment terminal. * **ANY**: all sales channels.
+   *     or telephone. * **POS**: Point-of-sale transactions where the customer is physically
+   *     present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,20 +250,20 @@ public class UpdateSplitConfigurationRuleRequest {
 
   /**
    * The sales channel condition that defines whether the split logic applies. Possible values: *
-   * **Ecommerce**: online transactions where the cardholder is present. * **ContAuth**: card on
+   * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on
    * file and/or subscription transactions, where the cardholder is known to the merchant (returning
-   * customer). * **Moto**: mail-order and telephone-order transactions where the customer is in
-   * contact with the merchant via email or telephone. * **POS**: point-of-sale transactions where
+   * customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in
+   * contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where
    * the customer is physically present to make a payment using a secure payment terminal. *
-   * **ANY**: all sales channels.
+   * **ANY**: All sales channels.
    *
    * @param shopperInteraction The sales channel condition that defines whether the split logic
-   *     applies. Possible values: * **Ecommerce**: online transactions where the cardholder is
-   *     present. * **ContAuth**: card on file and/or subscription transactions, where the
-   *     cardholder is known to the merchant (returning customer). * **Moto**: mail-order and
+   *     applies. Possible values: * **Ecommerce**: Online transactions where the cardholder is
+   *     present. * **ContAuth**: Card on file and/or subscription transactions, where the
+   *     cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and
    *     telephone-order transactions where the customer is in contact with the merchant via email
-   *     or telephone. * **POS**: point-of-sale transactions where the customer is physically
-   *     present to make a payment using a secure payment terminal. * **ANY**: all sales channels.
+   *     or telephone. * **POS**: Point-of-sale transactions where the customer is physically
+   *     present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

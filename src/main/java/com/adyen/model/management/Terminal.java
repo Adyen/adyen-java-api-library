@@ -96,14 +96,9 @@ public class Terminal {
   public Terminal() {}
 
   /**
-   * Indicates the account level to which the terminal is assigned, the [assignment
-   * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
-   * and where the terminals is in the process of being reassigned to.
+   * assignment
    *
-   * @param assignment Indicates the account level to which the terminal is assigned, the
-   *     [assignment
-   *     status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
-   *     and where the terminals is in the process of being reassigned to.
+   * @param assignment
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal assignment(TerminalAssignment assignment) {
@@ -113,14 +108,9 @@ public class Terminal {
   }
 
   /**
-   * Indicates the account level to which the terminal is assigned, the [assignment
-   * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
-   * and where the terminals is in the process of being reassigned to.
+   * Get assignment
    *
-   * @return assignment Indicates the account level to which the terminal is assigned, the
-   *     [assignment
-   *     status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
-   *     and where the terminals is in the process of being reassigned to.
+   * @return assignment
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,14 +119,9 @@ public class Terminal {
   }
 
   /**
-   * Indicates the account level to which the terminal is assigned, the [assignment
-   * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
-   * and where the terminals is in the process of being reassigned to.
+   * assignment
    *
-   * @param assignment Indicates the account level to which the terminal is assigned, the
-   *     [assignment
-   *     status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
-   *     and where the terminals is in the process of being reassigned to.
+   * @param assignment
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,10 +131,9 @@ public class Terminal {
   }
 
   /**
-   * Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
+   * connectivity
    *
-   * @param connectivity Information about bluetooth, cellular, ethernet and wifi connectivity for
-   *     the terminal.
+   * @param connectivity
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal connectivity(TerminalConnectivity connectivity) {
@@ -159,10 +143,9 @@ public class Terminal {
   }
 
   /**
-   * Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
+   * Get connectivity
    *
-   * @return connectivity Information about bluetooth, cellular, ethernet and wifi connectivity for
-   *     the terminal.
+   * @return connectivity
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +154,9 @@ public class Terminal {
   }
 
   /**
-   * Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
+   * connectivity
    *
-   * @param connectivity Information about bluetooth, cellular, ethernet and wifi connectivity for
-   *     the terminal.
+   * @param connectivity
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

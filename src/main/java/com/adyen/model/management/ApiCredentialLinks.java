@@ -74,9 +74,9 @@ public class ApiCredentialLinks {
   public ApiCredentialLinks() {}
 
   /**
-   * List of allowed origins.
+   * allowedOrigins
    *
-   * @param allowedOrigins List of allowed origins.
+   * @param allowedOrigins
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks allowedOrigins(LinksElement allowedOrigins) {
@@ -86,9 +86,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * List of allowed origins.
+   * Get allowedOrigins
    *
-   * @return allowedOrigins List of allowed origins.
+   * @return allowedOrigins
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,9 +97,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * List of allowed origins.
+   * allowedOrigins
    *
-   * @param allowedOrigins List of allowed origins.
+   * @param allowedOrigins
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,10 +109,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Company account that the API credential is linked to. Only present for company-level webhooks.
+   * company
    *
-   * @param company Company account that the API credential is linked to. Only present for
-   *     company-level webhooks.
+   * @param company
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks company(LinksElement company) {
@@ -122,10 +121,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Company account that the API credential is linked to. Only present for company-level webhooks.
+   * Get company
    *
-   * @return company Company account that the API credential is linked to. Only present for
-   *     company-level webhooks.
+   * @return company
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,10 +132,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Company account that the API credential is linked to. Only present for company-level webhooks.
+   * company
    *
-   * @param company Company account that the API credential is linked to. Only present for
-   *     company-level webhooks.
+   * @param company
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,11 +144,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
-   * hours.
+   * generateApiKey
    *
-   * @param generateApiKey Generates a new API key. When you generate a new one, the existing key
-   *     remains valid for 24 hours.
+   * @param generateApiKey
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks generateApiKey(LinksElement generateApiKey) {
@@ -161,11 +156,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
-   * hours.
+   * Get generateApiKey
    *
-   * @return generateApiKey Generates a new API key. When you generate a new one, the existing key
-   *     remains valid for 24 hours.
+   * @return generateApiKey
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,11 +167,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
-   * hours.
+   * generateApiKey
    *
-   * @param generateApiKey Generates a new API key. When you generate a new one, the existing key
-   *     remains valid for 24 hours.
+   * @param generateApiKey
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,11 +179,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Generates a new client key, used to authenticate client-side requests. When you generate a new
-   * one, the existing key remains valid for 24 hours.
+   * generateClientKey
    *
-   * @param generateClientKey Generates a new client key, used to authenticate client-side requests.
-   *     When you generate a new one, the existing key remains valid for 24 hours.
+   * @param generateClientKey
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks generateClientKey(LinksElement generateClientKey) {
@@ -202,11 +191,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Generates a new client key, used to authenticate client-side requests. When you generate a new
-   * one, the existing key remains valid for 24 hours.
+   * Get generateClientKey
    *
-   * @return generateClientKey Generates a new client key, used to authenticate client-side
-   *     requests. When you generate a new one, the existing key remains valid for 24 hours.
+   * @return generateClientKey
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,11 +202,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Generates a new client key, used to authenticate client-side requests. When you generate a new
-   * one, the existing key remains valid for 24 hours.
+   * generateClientKey
    *
-   * @param generateClientKey Generates a new client key, used to authenticate client-side requests.
-   *     When you generate a new one, the existing key remains valid for 24 hours.
+   * @param generateClientKey
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,11 +214,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * The merchant account that the API credential is linked to. Only present for merchant-level API
-   * credentials.
+   * merchant
    *
-   * @param merchant The merchant account that the API credential is linked to. Only present for
-   *     merchant-level API credentials.
+   * @param merchant
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks merchant(LinksElement merchant) {
@@ -243,11 +226,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * The merchant account that the API credential is linked to. Only present for merchant-level API
-   * credentials.
+   * Get merchant
    *
-   * @return merchant The merchant account that the API credential is linked to. Only present for
-   *     merchant-level API credentials.
+   * @return merchant
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,11 +237,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * The merchant account that the API credential is linked to. Only present for merchant-level API
-   * credentials.
+   * merchant
    *
-   * @param merchant The merchant account that the API credential is linked to. Only present for
-   *     merchant-level API credentials.
+   * @param merchant
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,9 +249,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * self
    *
-   * @param self Link to the resource itself.
+   * @param self
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks self(LinksElement self) {
@@ -282,9 +261,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * Get self
    *
-   * @return self Link to the resource itself.
+   * @return self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,9 +272,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * self
    *
-   * @param self Link to the resource itself.
+   * @param self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -82,11 +82,9 @@ public class CustomNotification {
   public CustomNotification() {}
 
   /**
-   * The amount of the payment that the notification is about. Set the value in [minor
-   * units](https://docs.adyen.com/development-resources/currency-codes).
+   * amount
    *
-   * @param amount The amount of the payment that the notification is about. Set the value in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @param amount
    * @return the current {@code CustomNotification} instance, allowing for method chaining
    */
   public CustomNotification amount(Amount amount) {
@@ -96,11 +94,9 @@ public class CustomNotification {
   }
 
   /**
-   * The amount of the payment that the notification is about. Set the value in [minor
-   * units](https://docs.adyen.com/development-resources/currency-codes).
+   * Get amount
    *
-   * @return amount The amount of the payment that the notification is about. Set the value in
-   *     [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,11 +105,9 @@ public class CustomNotification {
   }
 
   /**
-   * The amount of the payment that the notification is about. Set the value in [minor
-   * units](https://docs.adyen.com/development-resources/currency-codes).
+   * amount
    *
-   * @param amount The amount of the payment that the notification is about. Set the value in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -69,9 +69,9 @@ public class ListWebhooksResponse {
   public ListWebhooksResponse() {}
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
    */
   public ListWebhooksResponse links(PaginationLinks links) {
@@ -81,9 +81,9 @@ public class ListWebhooksResponse {
   }
 
   /**
-   * Pagination references.
+   * Get links
    *
-   * @return links Pagination references.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,9 +92,9 @@ public class ListWebhooksResponse {
   }
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

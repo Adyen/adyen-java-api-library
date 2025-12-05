@@ -43,9 +43,9 @@ public class Refunds {
   public Refunds() {}
 
   /**
-   * Settings for referenced refunds.
+   * referenced
    *
-   * @param referenced Settings for referenced refunds.
+   * @param referenced
    * @return the current {@code Refunds} instance, allowing for method chaining
    */
   public Refunds referenced(Referenced referenced) {
@@ -55,9 +55,9 @@ public class Refunds {
   }
 
   /**
-   * Settings for referenced refunds.
+   * Get referenced
    *
-   * @return referenced Settings for referenced refunds.
+   * @return referenced
    */
   @JsonProperty(JSON_PROPERTY_REFERENCED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -66,9 +66,9 @@ public class Refunds {
   }
 
   /**
-   * Settings for referenced refunds.
+   * referenced
    *
-   * @param referenced Settings for referenced refunds.
+   * @param referenced
    */
   @JsonProperty(JSON_PROPERTY_REFERENCED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,9 +78,9 @@ public class Refunds {
   }
 
   /**
-   * Settings for unreferenced refunds.
+   * unreferenced
    *
-   * @param unreferenced Settings for unreferenced refunds.
+   * @param unreferenced
    * @return the current {@code Refunds} instance, allowing for method chaining
    */
   public Refunds unreferenced(Unreferenced unreferenced) {
@@ -90,9 +90,9 @@ public class Refunds {
   }
 
   /**
-   * Settings for unreferenced refunds.
+   * Get unreferenced
    *
-   * @return unreferenced Settings for unreferenced refunds.
+   * @return unreferenced
    */
   @JsonProperty(JSON_PROPERTY_UNREFERENCED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,9 +101,9 @@ public class Refunds {
   }
 
   /**
-   * Settings for unreferenced refunds.
+   * unreferenced
    *
-   * @param unreferenced Settings for unreferenced refunds.
+   * @param unreferenced
    */
   @JsonProperty(JSON_PROPERTY_UNREFERENCED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

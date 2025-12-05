@@ -252,9 +252,9 @@ public class UpdateMerchantUserRequest {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest name(Name2 name) {
@@ -264,9 +264,9 @@ public class UpdateMerchantUserRequest {
   }
 
   /**
-   * The user&#39;s full name.
+   * Get name
    *
-   * @return name The user&#39;s full name.
+   * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,9 +275,9 @@ public class UpdateMerchantUserRequest {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

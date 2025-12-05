@@ -83,9 +83,9 @@ public class Company {
   public Company() {}
 
   /**
-   * References to resources connected with this company.
+   * links
    *
-   * @param links References to resources connected with this company.
+   * @param links
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company links(CompanyLinks links) {
@@ -95,9 +95,9 @@ public class Company {
   }
 
   /**
-   * References to resources connected with this company.
+   * Get links
    *
-   * @return links References to resources connected with this company.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,9 +106,9 @@ public class Company {
   }
 
   /**
-   * References to resources connected with this company.
+   * links
    *
-   * @param links References to resources connected with this company.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

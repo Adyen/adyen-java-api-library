@@ -498,16 +498,9 @@ public class CreateCompanyWebhookRequest {
   }
 
   /**
-   * Additional shopper and transaction information to be included in your [standard
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   * Find out more about the available [additional
-   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * additionalSettings
    *
-   * @param additionalSettings Additional shopper and transaction information to be included in your
-   *     [standard
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   *     Find out more about the available [additional
-   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * @param additionalSettings
    * @return the current {@code CreateCompanyWebhookRequest} instance, allowing for method chaining
    */
   public CreateCompanyWebhookRequest additionalSettings(AdditionalSettings additionalSettings) {
@@ -517,16 +510,9 @@ public class CreateCompanyWebhookRequest {
   }
 
   /**
-   * Additional shopper and transaction information to be included in your [standard
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   * Find out more about the available [additional
-   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * Get additionalSettings
    *
-   * @return additionalSettings Additional shopper and transaction information to be included in
-   *     your [standard
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   *     Find out more about the available [additional
-   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * @return additionalSettings
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,16 +521,9 @@ public class CreateCompanyWebhookRequest {
   }
 
   /**
-   * Additional shopper and transaction information to be included in your [standard
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   * Find out more about the available [additional
-   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * additionalSettings
    *
-   * @param additionalSettings Additional shopper and transaction information to be included in your
-   *     [standard
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   *     Find out more about the available [additional
-   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * @param additionalSettings
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

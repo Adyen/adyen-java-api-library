@@ -142,11 +142,9 @@ public class StoreAndForward {
   }
 
   /**
-   * The type of card for which the terminal accepts store-and-forward payments. You can specify
-   * multiple card types.
+   * supportedCardTypes
    *
-   * @param supportedCardTypes The type of card for which the terminal accepts store-and-forward
-   *     payments. You can specify multiple card types.
+   * @param supportedCardTypes
    * @return the current {@code StoreAndForward} instance, allowing for method chaining
    */
   public StoreAndForward supportedCardTypes(SupportedCardTypes supportedCardTypes) {
@@ -156,11 +154,9 @@ public class StoreAndForward {
   }
 
   /**
-   * The type of card for which the terminal accepts store-and-forward payments. You can specify
-   * multiple card types.
+   * Get supportedCardTypes
    *
-   * @return supportedCardTypes The type of card for which the terminal accepts store-and-forward
-   *     payments. You can specify multiple card types.
+   * @return supportedCardTypes
    */
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CARD_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,11 +165,9 @@ public class StoreAndForward {
   }
 
   /**
-   * The type of card for which the terminal accepts store-and-forward payments. You can specify
-   * multiple card types.
+   * supportedCardTypes
    *
-   * @param supportedCardTypes The type of card for which the terminal accepts store-and-forward
-   *     payments. You can specify multiple card types.
+   * @param supportedCardTypes
    */
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CARD_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -193,10 +193,9 @@ public class TerminalAssignment {
   }
 
   /**
-   * Indicates where the terminal is in the process of being reassigned to.
+   * reassignmentTarget
    *
-   * @param reassignmentTarget Indicates where the terminal is in the process of being reassigned
-   *     to.
+   * @param reassignmentTarget
    * @return the current {@code TerminalAssignment} instance, allowing for method chaining
    */
   public TerminalAssignment reassignmentTarget(TerminalReassignmentTarget reassignmentTarget) {
@@ -206,10 +205,9 @@ public class TerminalAssignment {
   }
 
   /**
-   * Indicates where the terminal is in the process of being reassigned to.
+   * Get reassignmentTarget
    *
-   * @return reassignmentTarget Indicates where the terminal is in the process of being reassigned
-   *     to.
+   * @return reassignmentTarget
    */
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,10 +216,9 @@ public class TerminalAssignment {
   }
 
   /**
-   * Indicates where the terminal is in the process of being reassigned to.
+   * reassignmentTarget
    *
-   * @param reassignmentTarget Indicates where the terminal is in the process of being reassigned
-   *     to.
+   * @param reassignmentTarget
    */
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

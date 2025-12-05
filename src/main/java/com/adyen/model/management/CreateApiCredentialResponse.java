@@ -111,9 +111,9 @@ public class CreateApiCredentialResponse {
   public CreateApiCredentialResponse() {}
 
   /**
-   * References to resources linked to the API credential.
+   * links
    *
-   * @param links References to resources linked to the API credential.
+   * @param links
    * @return the current {@code CreateApiCredentialResponse} instance, allowing for method chaining
    */
   public CreateApiCredentialResponse links(ApiCredentialLinks links) {
@@ -123,9 +123,9 @@ public class CreateApiCredentialResponse {
   }
 
   /**
-   * References to resources linked to the API credential.
+   * Get links
    *
-   * @return links References to resources linked to the API credential.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,9 +134,9 @@ public class CreateApiCredentialResponse {
   }
 
   /**
-   * References to resources linked to the API credential.
+   * links
    *
-   * @param links References to resources linked to the API credential.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

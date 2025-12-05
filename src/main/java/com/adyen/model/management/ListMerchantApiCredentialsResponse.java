@@ -62,9 +62,9 @@ public class ListMerchantApiCredentialsResponse {
   public ListMerchantApiCredentialsResponse() {}
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    * @return the current {@code ListMerchantApiCredentialsResponse} instance, allowing for method
    *     chaining
    */
@@ -75,9 +75,9 @@ public class ListMerchantApiCredentialsResponse {
   }
 
   /**
-   * Pagination references.
+   * Get links
    *
-   * @return links Pagination references.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,9 +86,9 @@ public class ListMerchantApiCredentialsResponse {
   }
 
   /**
-   * Pagination references.
+   * links
    *
-   * @param links Pagination references.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

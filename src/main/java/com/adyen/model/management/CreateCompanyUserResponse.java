@@ -112,9 +112,9 @@ public class CreateCompanyUserResponse {
   public CreateCompanyUserResponse() {}
 
   /**
-   * References to resources connected with this user.
+   * links
    *
-   * @param links References to resources connected with this user.
+   * @param links
    * @return the current {@code CreateCompanyUserResponse} instance, allowing for method chaining
    */
   public CreateCompanyUserResponse links(Links links) {
@@ -124,9 +124,9 @@ public class CreateCompanyUserResponse {
   }
 
   /**
-   * References to resources connected with this user.
+   * Get links
    *
-   * @return links References to resources connected with this user.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,9 +135,9 @@ public class CreateCompanyUserResponse {
   }
 
   /**
-   * References to resources connected with this user.
+   * links
    *
-   * @param links References to resources connected with this user.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,9 +404,9 @@ public class CreateCompanyUserResponse {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    * @return the current {@code CreateCompanyUserResponse} instance, allowing for method chaining
    */
   public CreateCompanyUserResponse name(Name name) {
@@ -416,9 +416,9 @@ public class CreateCompanyUserResponse {
   }
 
   /**
-   * The user&#39;s full name.
+   * Get name
    *
-   * @return name The user&#39;s full name.
+   * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,9 +427,9 @@ public class CreateCompanyUserResponse {
   }
 
   /**
-   * The user&#39;s full name.
+   * name
    *
-   * @param name The user&#39;s full name.
+   * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

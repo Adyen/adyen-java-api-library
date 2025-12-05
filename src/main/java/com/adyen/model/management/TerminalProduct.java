@@ -217,9 +217,9 @@ public class TerminalProduct {
   }
 
   /**
-   * The price of the product.
+   * price
    *
-   * @param price The price of the product.
+   * @param price
    * @return the current {@code TerminalProduct} instance, allowing for method chaining
    */
   public TerminalProduct price(TerminalProductPrice price) {
@@ -229,9 +229,9 @@ public class TerminalProduct {
   }
 
   /**
-   * The price of the product.
+   * Get price
    *
-   * @return price The price of the product.
+   * @return price
    */
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,9 +240,9 @@ public class TerminalProduct {
   }
 
   /**
-   * The price of the product.
+   * price
    *
-   * @param price The price of the product.
+   * @param price
    */
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

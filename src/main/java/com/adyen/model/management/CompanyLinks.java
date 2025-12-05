@@ -95,9 +95,9 @@ public class CompanyLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * self
    *
-   * @param self Link to the resource itself.
+   * @param self
    * @return the current {@code CompanyLinks} instance, allowing for method chaining
    */
   public CompanyLinks self(LinksElement self) {
@@ -107,9 +107,9 @@ public class CompanyLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * Get self
    *
-   * @return self Link to the resource itself.
+   * @return self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,9 +118,9 @@ public class CompanyLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * self
    *
-   * @param self Link to the resource itself.
+   * @param self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

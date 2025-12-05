@@ -67,11 +67,9 @@ public class WebhookLinks {
   public WebhookLinks() {}
 
   /**
-   * The company account that the webhook is configured for. Only present for company-level
-   * webhooks.
+   * company
    *
-   * @param company The company account that the webhook is configured for. Only present for
-   *     company-level webhooks.
+   * @param company
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks company(LinksElement company) {
@@ -81,11 +79,9 @@ public class WebhookLinks {
   }
 
   /**
-   * The company account that the webhook is configured for. Only present for company-level
-   * webhooks.
+   * Get company
    *
-   * @return company The company account that the webhook is configured for. Only present for
-   *     company-level webhooks.
+   * @return company
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,11 +90,9 @@ public class WebhookLinks {
   }
 
   /**
-   * The company account that the webhook is configured for. Only present for company-level
-   * webhooks.
+   * company
    *
-   * @param company The company account that the webhook is configured for. Only present for
-   *     company-level webhooks.
+   * @param company
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,9 +102,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Generate an HMAC key.
+   * generateHmac
    *
-   * @param generateHmac Generate an HMAC key.
+   * @param generateHmac
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks generateHmac(LinksElement generateHmac) {
@@ -120,9 +114,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Generate an HMAC key.
+   * Get generateHmac
    *
-   * @return generateHmac Generate an HMAC key.
+   * @return generateHmac
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,9 +125,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Generate an HMAC key.
+   * generateHmac
    *
-   * @param generateHmac Generate an HMAC key.
+   * @param generateHmac
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,11 +137,9 @@ public class WebhookLinks {
   }
 
   /**
-   * The merchant account that the webhook is configured for. Only present for merchant-level
-   * webhooks.
+   * merchant
    *
-   * @param merchant The merchant account that the webhook is configured for. Only present for
-   *     merchant-level webhooks.
+   * @param merchant
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks merchant(LinksElement merchant) {
@@ -157,11 +149,9 @@ public class WebhookLinks {
   }
 
   /**
-   * The merchant account that the webhook is configured for. Only present for merchant-level
-   * webhooks.
+   * Get merchant
    *
-   * @return merchant The merchant account that the webhook is configured for. Only present for
-   *     merchant-level webhooks.
+   * @return merchant
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,11 +160,9 @@ public class WebhookLinks {
   }
 
   /**
-   * The merchant account that the webhook is configured for. Only present for merchant-level
-   * webhooks.
+   * merchant
    *
-   * @param merchant The merchant account that the webhook is configured for. Only present for
-   *     merchant-level webhooks.
+   * @param merchant
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,9 +172,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * self
    *
-   * @param self Link to the resource itself.
+   * @param self
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks self(LinksElement self) {
@@ -196,9 +184,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * Get self
    *
-   * @return self Link to the resource itself.
+   * @return self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,9 +195,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Link to the resource itself.
+   * self
    *
-   * @param self Link to the resource itself.
+   * @param self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,9 +207,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Test the webhook setup.
+   * testWebhook
    *
-   * @param testWebhook Test the webhook setup.
+   * @param testWebhook
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks testWebhook(LinksElement testWebhook) {
@@ -231,9 +219,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Test the webhook setup.
+   * Get testWebhook
    *
-   * @return testWebhook Test the webhook setup.
+   * @return testWebhook
    */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,9 +230,9 @@ public class WebhookLinks {
   }
 
   /**
-   * Test the webhook setup.
+   * testWebhook
    *
-   * @param testWebhook Test the webhook setup.
+   * @param testWebhook
    */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

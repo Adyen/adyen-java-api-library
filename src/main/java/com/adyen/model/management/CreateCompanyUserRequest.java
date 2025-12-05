@@ -282,9 +282,9 @@ public class CreateCompanyUserRequest {
   }
 
   /**
-   * The user&#39;s full name. Allowed length: 1—80 characters.
+   * name
    *
-   * @param name The user&#39;s full name. Allowed length: 1—80 characters.
+   * @param name
    * @return the current {@code CreateCompanyUserRequest} instance, allowing for method chaining
    */
   public CreateCompanyUserRequest name(Name name) {
@@ -294,9 +294,9 @@ public class CreateCompanyUserRequest {
   }
 
   /**
-   * The user&#39;s full name. Allowed length: 1—80 characters.
+   * Get name
    *
-   * @return name The user&#39;s full name. Allowed length: 1—80 characters.
+   * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,9 +305,9 @@ public class CreateCompanyUserRequest {
   }
 
   /**
-   * The user&#39;s full name. Allowed length: 1—80 characters.
+   * name
    *
-   * @param name The user&#39;s full name. Allowed length: 1—80 characters.
+   * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -159,10 +159,9 @@ public class Connectivity {
   }
 
   /**
-   * The list of local and public URLs to send notifications to when using local integrations.
+   * terminalIPAddressURL
    *
-   * @param terminalIPAddressURL The list of local and public URLs to send notifications to when
-   *     using local integrations.
+   * @param terminalIPAddressURL
    * @return the current {@code Connectivity} instance, allowing for method chaining
    */
   public Connectivity terminalIPAddressURL(EventUrl terminalIPAddressURL) {
@@ -172,10 +171,9 @@ public class Connectivity {
   }
 
   /**
-   * The list of local and public URLs to send notifications to when using local integrations.
+   * Get terminalIPAddressURL
    *
-   * @return terminalIPAddressURL The list of local and public URLs to send notifications to when
-   *     using local integrations.
+   * @return terminalIPAddressURL
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,10 +182,9 @@ public class Connectivity {
   }
 
   /**
-   * The list of local and public URLs to send notifications to when using local integrations.
+   * terminalIPAddressURL
    *
-   * @param terminalIPAddressURL The list of local and public URLs to send notifications to when
-   *     using local integrations.
+   * @param terminalIPAddressURL
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -377,9 +377,9 @@ public class Webhook {
   public Webhook() {}
 
   /**
-   * References to resources connected with this webhook.
+   * links
    *
-   * @param links References to resources connected with this webhook.
+   * @param links
    * @return the current {@code Webhook} instance, allowing for method chaining
    */
   public Webhook links(WebhookLinks links) {
@@ -389,9 +389,9 @@ public class Webhook {
   }
 
   /**
-   * References to resources connected with this webhook.
+   * Get links
    *
-   * @return links References to resources connected with this webhook.
+   * @return links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,9 +400,9 @@ public class Webhook {
   }
 
   /**
-   * References to resources connected with this webhook.
+   * links
    *
-   * @param links References to resources connected with this webhook.
+   * @param links
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -602,16 +602,9 @@ public class Webhook {
   }
 
   /**
-   * Additional shopper and transaction information to be included in your [standard
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   * Find out more about the available [additional
-   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * additionalSettings
    *
-   * @param additionalSettings Additional shopper and transaction information to be included in your
-   *     [standard
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   *     Find out more about the available [additional
-   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * @param additionalSettings
    * @return the current {@code Webhook} instance, allowing for method chaining
    */
   public Webhook additionalSettings(AdditionalSettingsResponse additionalSettings) {
@@ -621,16 +614,9 @@ public class Webhook {
   }
 
   /**
-   * Additional shopper and transaction information to be included in your [standard
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   * Find out more about the available [additional
-   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * Get additionalSettings
    *
-   * @return additionalSettings Additional shopper and transaction information to be included in
-   *     your [standard
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   *     Find out more about the available [additional
-   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * @return additionalSettings
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -639,16 +625,9 @@ public class Webhook {
   }
 
   /**
-   * Additional shopper and transaction information to be included in your [standard
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   * Find out more about the available [additional
-   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * additionalSettings
    *
-   * @param additionalSettings Additional shopper and transaction information to be included in your
-   *     [standard
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
-   *     Find out more about the available [additional
-   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
+   * @param additionalSettings
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

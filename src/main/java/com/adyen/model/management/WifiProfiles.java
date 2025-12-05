@@ -88,9 +88,9 @@ public class WifiProfiles {
   }
 
   /**
-   * General Wi-Fi settings.
+   * settings
    *
-   * @param settings General Wi-Fi settings.
+   * @param settings
    * @return the current {@code WifiProfiles} instance, allowing for method chaining
    */
   public WifiProfiles settings(Settings settings) {
@@ -100,9 +100,9 @@ public class WifiProfiles {
   }
 
   /**
-   * General Wi-Fi settings.
+   * Get settings
    *
-   * @return settings General Wi-Fi settings.
+   * @return settings
    */
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,9 +111,9 @@ public class WifiProfiles {
   }
 
   /**
-   * General Wi-Fi settings.
+   * settings
    *
-   * @param settings General Wi-Fi settings.
+   * @param settings
    */
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

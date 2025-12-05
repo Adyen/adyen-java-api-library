@@ -67,9 +67,9 @@ public class BillingEntity {
   public BillingEntity() {}
 
   /**
-   * The address details of the billing entity.
+   * address
    *
-   * @param address The address details of the billing entity.
+   * @param address
    * @return the current {@code BillingEntity} instance, allowing for method chaining
    */
   public BillingEntity address(Address address) {
@@ -79,9 +79,9 @@ public class BillingEntity {
   }
 
   /**
-   * The address details of the billing entity.
+   * Get address
    *
-   * @return address The address details of the billing entity.
+   * @return address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,9 +90,9 @@ public class BillingEntity {
   }
 
   /**
-   * The address details of the billing entity.
+   * address
    *
-   * @param address The address details of the billing entity.
+   * @param address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
