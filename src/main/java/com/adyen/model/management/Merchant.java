@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,46 +42,94 @@ public class Merchant {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private MerchantLinks links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_CAPTURE_DELAY = "captureDelay";
   private String captureDelay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCaptureDelay = false;
 
   public static final String JSON_PROPERTY_COMPANY_ID = "companyId";
   private String companyId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompanyId = false;
+
   public static final String JSON_PROPERTY_DATA_CENTERS = "dataCenters";
   private List<DataCenter> dataCenters;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDataCenters = false;
 
   public static final String JSON_PROPERTY_DEFAULT_SHOPPER_INTERACTION =
       "defaultShopperInteraction";
   private String defaultShopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefaultShopperInteraction = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_MERCHANT_CITY = "merchantCity";
   private String merchantCity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantCity = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_PRICING_PLAN = "pricingPlan";
   private String pricingPlan;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPricingPlan = false;
 
   public static final String JSON_PROPERTY_PRIMARY_SETTLEMENT_CURRENCY =
       "primarySettlementCurrency";
   private String primarySettlementCurrency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPrimarySettlementCurrency = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SHOP_WEB_ADDRESS = "shopWebAddress";
   private String shopWebAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopWebAddress = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Merchant() {}
 
@@ -91,6 +141,7 @@ public class Merchant {
    */
   public Merchant links(MerchantLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
@@ -114,6 +165,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(MerchantLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -129,6 +181,7 @@ public class Merchant {
    */
   public Merchant captureDelay(String captureDelay) {
     this.captureDelay = captureDelay;
+    isSetCaptureDelay = true; // mark as set
     return this;
   }
 
@@ -162,6 +215,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelay(String captureDelay) {
     this.captureDelay = captureDelay;
+    isSetCaptureDelay = true; // mark as set
   }
 
   /**
@@ -172,6 +226,7 @@ public class Merchant {
    */
   public Merchant companyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
     return this;
   }
 
@@ -195,6 +250,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
   }
 
   /**
@@ -209,6 +265,7 @@ public class Merchant {
    */
   public Merchant dataCenters(List<DataCenter> dataCenters) {
     this.dataCenters = dataCenters;
+    isSetDataCenters = true; // mark as set
     return this;
   }
 
@@ -248,6 +305,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataCenters(List<DataCenter> dataCenters) {
     this.dataCenters = dataCenters;
+    isSetDataCenters = true; // mark as set
   }
 
   /**
@@ -262,6 +320,7 @@ public class Merchant {
    */
   public Merchant defaultShopperInteraction(String defaultShopperInteraction) {
     this.defaultShopperInteraction = defaultShopperInteraction;
+    isSetDefaultShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -293,6 +352,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultShopperInteraction(String defaultShopperInteraction) {
     this.defaultShopperInteraction = defaultShopperInteraction;
+    isSetDefaultShopperInteraction = true; // mark as set
   }
 
   /**
@@ -303,6 +363,7 @@ public class Merchant {
    */
   public Merchant description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -326,6 +387,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -336,6 +398,7 @@ public class Merchant {
    */
   public Merchant id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -359,6 +422,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -369,6 +433,7 @@ public class Merchant {
    */
   public Merchant merchantCity(String merchantCity) {
     this.merchantCity = merchantCity;
+    isSetMerchantCity = true; // mark as set
     return this;
   }
 
@@ -392,6 +457,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCity(String merchantCity) {
     this.merchantCity = merchantCity;
+    isSetMerchantCity = true; // mark as set
   }
 
   /**
@@ -402,6 +468,7 @@ public class Merchant {
    */
   public Merchant name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -425,6 +492,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -437,6 +505,7 @@ public class Merchant {
    */
   public Merchant pricingPlan(String pricingPlan) {
     this.pricingPlan = pricingPlan;
+    isSetPricingPlan = true; // mark as set
     return this;
   }
 
@@ -464,6 +533,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPricingPlan(String pricingPlan) {
     this.pricingPlan = pricingPlan;
+    isSetPricingPlan = true; // mark as set
   }
 
   /**
@@ -479,6 +549,7 @@ public class Merchant {
    */
   public Merchant primarySettlementCurrency(String primarySettlementCurrency) {
     this.primarySettlementCurrency = primarySettlementCurrency;
+    isSetPrimarySettlementCurrency = true; // mark as set
     return this;
   }
 
@@ -512,6 +583,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimarySettlementCurrency(String primarySettlementCurrency) {
     this.primarySettlementCurrency = primarySettlementCurrency;
+    isSetPrimarySettlementCurrency = true; // mark as set
   }
 
   /**
@@ -522,6 +594,7 @@ public class Merchant {
    */
   public Merchant reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -545,6 +618,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -555,6 +629,7 @@ public class Merchant {
    */
   public Merchant shopWebAddress(String shopWebAddress) {
     this.shopWebAddress = shopWebAddress;
+    isSetShopWebAddress = true; // mark as set
     return this;
   }
 
@@ -578,6 +653,7 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopWebAddress(String shopWebAddress) {
     this.shopWebAddress = shopWebAddress;
+    isSetShopWebAddress = true; // mark as set
   }
 
   /**
@@ -605,6 +681,7 @@ public class Merchant {
    */
   public Merchant status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -662,6 +739,27 @@ public class Merchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Merchant includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Merchant object is equal to o. */
@@ -743,6 +841,69 @@ public class Merchant {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetCaptureDelay) {
+      addIfNull(nulls, JSON_PROPERTY_CAPTURE_DELAY, this.captureDelay);
+    }
+    if (isSetCompanyId) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY_ID, this.companyId);
+    }
+    if (isSetDataCenters) {
+      addIfNull(nulls, JSON_PROPERTY_DATA_CENTERS, this.dataCenters);
+    }
+    if (isSetDefaultShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_DEFAULT_SHOPPER_INTERACTION, this.defaultShopperInteraction);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetMerchantCity) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_CITY, this.merchantCity);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPricingPlan) {
+      addIfNull(nulls, JSON_PROPERTY_PRICING_PLAN, this.pricingPlan);
+    }
+    if (isSetPrimarySettlementCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_PRIMARY_SETTLEMENT_CURRENCY, this.primarySettlementCurrency);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetShopWebAddress) {
+      addIfNull(nulls, JSON_PROPERTY_SHOP_WEB_ADDRESS, this.shopWebAddress);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

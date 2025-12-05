@@ -10,6 +10,8 @@ import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.StoredPaymentMethodDetails;
 import com.adyen.model.legalentitymanagement.*;
+import com.adyen.model.management.Connectivity;
+import com.adyen.model.management.TerminalSettings;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
 import java.time.ZoneId;
@@ -195,4 +197,66 @@ public class ModelTest {
         StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE, storedPaymentMethodDetails.getType());
     assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
   }
+
+	// test null values are not serialized
+  @Test
+  public void testToJsonTerminalSettingsSurchargeNotSet() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings.setConnectivity(
+        new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+  }
+
+	// test values set as null are not serialized when includeNullValues is false
+	@Test
+	public void testToJsonTerminalSettingsSurchargeSetToNullWithoutEnablingIncludeNullValues() throws JsonProcessingException {
+		TerminalSettings terminalSettings = new TerminalSettings();
+		terminalSettings
+				.connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
+				.setSurcharge(null);
+		String json = terminalSettings.toJson();
+		assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+	}
+
+	// test values set as null (using setters) are serialized
+  @Test
+  public void testToJsonTerminalSettingsSurchargeSetToNull() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings.includeNullValues(true);
+    terminalSettings.setConnectivity(
+        new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+    terminalSettings.setSurcharge(null);
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
+  }
+
+	// test values set as null (using build methods) are serialized
+  @Test
+  public void testToJsonTerminalSettingsSurchargeChainToNull() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings
+        .includeNullValues(true)
+        .connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
+        .setSurcharge(null);
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
+  }
+
+	// test values, that are not explicitly SET as null, are not serialized (even when includeNullValues is true)
+	@Test
+	public void testToJsonFlagTrueButFieldNotSet() throws JsonProcessingException {
+		TerminalSettings terminalSettings = new TerminalSettings();
+		// must consider null values that are explicitly set
+		terminalSettings.includeNullValues(true);
+
+		// We set connectivity, but we NEVER touch 'surcharge'
+		terminalSettings.setConnectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+
+		String json = terminalSettings.toJson();
+
+		// Expectation: 'surcharge' should NOT be present, even though the flag is true.
+		// It should only be present if we called setSurcharge().
+		assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+	}
 }

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,11 +31,26 @@ public class StoreAndForward {
   public static final String JSON_PROPERTY_MAX_AMOUNT = "maxAmount";
   private List<MinorUnitsMonetaryValue> maxAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaxAmount = false;
+
   public static final String JSON_PROPERTY_MAX_PAYMENTS = "maxPayments";
   private Integer maxPayments;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaxPayments = false;
+
   public static final String JSON_PROPERTY_SUPPORTED_CARD_TYPES = "supportedCardTypes";
   private SupportedCardTypes supportedCardTypes;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupportedCardTypes = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoreAndForward() {}
 
@@ -46,6 +63,7 @@ public class StoreAndForward {
    */
   public StoreAndForward maxAmount(List<MinorUnitsMonetaryValue> maxAmount) {
     this.maxAmount = maxAmount;
+    isSetMaxAmount = true; // mark as set
     return this;
   }
 
@@ -79,6 +97,7 @@ public class StoreAndForward {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(List<MinorUnitsMonetaryValue> maxAmount) {
     this.maxAmount = maxAmount;
+    isSetMaxAmount = true; // mark as set
   }
 
   /**
@@ -91,6 +110,7 @@ public class StoreAndForward {
    */
   public StoreAndForward maxPayments(Integer maxPayments) {
     this.maxPayments = maxPayments;
+    isSetMaxPayments = true; // mark as set
     return this;
   }
 
@@ -118,6 +138,7 @@ public class StoreAndForward {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxPayments(Integer maxPayments) {
     this.maxPayments = maxPayments;
+    isSetMaxPayments = true; // mark as set
   }
 
   /**
@@ -128,6 +149,7 @@ public class StoreAndForward {
    */
   public StoreAndForward supportedCardTypes(SupportedCardTypes supportedCardTypes) {
     this.supportedCardTypes = supportedCardTypes;
+    isSetSupportedCardTypes = true; // mark as set
     return this;
   }
 
@@ -151,6 +173,27 @@ public class StoreAndForward {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedCardTypes(SupportedCardTypes supportedCardTypes) {
     this.supportedCardTypes = supportedCardTypes;
+    isSetSupportedCardTypes = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoreAndForward includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoreAndForward object is equal to o. */
@@ -192,6 +235,36 @@ public class StoreAndForward {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMaxAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MAX_AMOUNT, this.maxAmount);
+    }
+    if (isSetMaxPayments) {
+      addIfNull(nulls, JSON_PROPERTY_MAX_PAYMENTS, this.maxPayments);
+    }
+    if (isSetSupportedCardTypes) {
+      addIfNull(nulls, JSON_PROPERTY_SUPPORTED_CARD_TYPES, this.supportedCardTypes);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

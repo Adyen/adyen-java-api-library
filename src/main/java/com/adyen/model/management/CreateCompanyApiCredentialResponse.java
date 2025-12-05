@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,39 +40,81 @@ public class CreateCompanyApiCredentialResponse {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private ApiCredentialLinks links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActive = false;
 
   public static final String JSON_PROPERTY_ALLOWED_IP_ADDRESSES = "allowedIpAddresses";
   private List<String> allowedIpAddresses;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedIpAddresses = false;
+
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
   private List<AllowedOrigin> allowedOrigins;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedOrigins = false;
+
   public static final String JSON_PROPERTY_API_KEY = "apiKey";
   private String apiKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApiKey = false;
 
   public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS =
       "associatedMerchantAccounts";
   private List<String> associatedMerchantAccounts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssociatedMerchantAccounts = false;
+
   public static final String JSON_PROPERTY_CLIENT_KEY = "clientKey";
   private String clientKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetClientKey = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPassword = false;
+
   public static final String JSON_PROPERTY_ROLES = "roles";
   private List<String> roles;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoles = false;
+
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsername = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateCompanyApiCredentialResponse() {}
 
@@ -83,6 +127,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse links(ApiCredentialLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
@@ -106,6 +151,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(ApiCredentialLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -119,6 +165,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse active(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
     return this;
   }
 
@@ -146,6 +193,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
   }
 
   /**
@@ -161,6 +209,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse allowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
+    isSetAllowedIpAddresses = true; // mark as set
     return this;
   }
 
@@ -201,6 +250,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
+    isSetAllowedIpAddresses = true; // mark as set
   }
 
   /**
@@ -216,6 +266,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse allowedOrigins(List<AllowedOrigin> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
+    isSetAllowedOrigins = true; // mark as set
     return this;
   }
 
@@ -256,6 +307,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<AllowedOrigin> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
+    isSetAllowedOrigins = true; // mark as set
   }
 
   /**
@@ -267,6 +319,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse apiKey(String apiKey) {
     this.apiKey = apiKey;
+    isSetApiKey = true; // mark as set
     return this;
   }
 
@@ -290,6 +343,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
+    isSetApiKey = true; // mark as set
   }
 
   /**
@@ -303,6 +357,7 @@ public class CreateCompanyApiCredentialResponse {
   public CreateCompanyApiCredentialResponse associatedMerchantAccounts(
       List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
+    isSetAssociatedMerchantAccounts = true; // mark as set
     return this;
   }
 
@@ -337,6 +392,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
+    isSetAssociatedMerchantAccounts = true; // mark as set
   }
 
   /**
@@ -352,6 +408,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse clientKey(String clientKey) {
     this.clientKey = clientKey;
+    isSetClientKey = true; // mark as set
     return this;
   }
 
@@ -383,6 +440,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
+    isSetClientKey = true; // mark as set
   }
 
   /**
@@ -394,6 +452,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -417,6 +476,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -428,6 +488,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -451,6 +512,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -462,6 +524,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse password(String password) {
     this.password = password;
+    isSetPassword = true; // mark as set
     return this;
   }
 
@@ -485,6 +548,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
+    isSetPassword = true; // mark as set
   }
 
   /**
@@ -499,6 +563,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse roles(List<String> roles) {
     this.roles = roles;
+    isSetRoles = true; // mark as set
     return this;
   }
 
@@ -536,6 +601,7 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
+    isSetRoles = true; // mark as set
   }
 
   /**
@@ -550,6 +616,7 @@ public class CreateCompanyApiCredentialResponse {
    */
   public CreateCompanyApiCredentialResponse username(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
     return this;
   }
 
@@ -579,6 +646,27 @@ public class CreateCompanyApiCredentialResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateCompanyApiCredentialResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateCompanyApiCredentialResponse object is equal to o. */
@@ -656,6 +744,63 @@ public class CreateCompanyApiCredentialResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetActive) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE, this.active);
+    }
+    if (isSetAllowedIpAddresses) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_IP_ADDRESSES, this.allowedIpAddresses);
+    }
+    if (isSetAllowedOrigins) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_ORIGINS, this.allowedOrigins);
+    }
+    if (isSetApiKey) {
+      addIfNull(nulls, JSON_PROPERTY_API_KEY, this.apiKey);
+    }
+    if (isSetAssociatedMerchantAccounts) {
+      addIfNull(nulls, JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS, this.associatedMerchantAccounts);
+    }
+    if (isSetClientKey) {
+      addIfNull(nulls, JSON_PROPERTY_CLIENT_KEY, this.clientKey);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPassword) {
+      addIfNull(nulls, JSON_PROPERTY_PASSWORD, this.password);
+    }
+    if (isSetRoles) {
+      addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetUsername) {
+      addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

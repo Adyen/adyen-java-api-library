@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Hardware {
   public static final String JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT = "displayMaximumBackLight";
   private Integer displayMaximumBackLight;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisplayMaximumBackLight = false;
+
   public static final String JSON_PROPERTY_RESET_TOTALS_HOUR = "resetTotalsHour";
   private Integer resetTotalsHour;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResetTotalsHour = false;
+
   public static final String JSON_PROPERTY_RESTART_HOUR = "restartHour";
   private Integer restartHour;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRestartHour = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Hardware() {}
 
@@ -44,6 +61,7 @@ public class Hardware {
    */
   public Hardware displayMaximumBackLight(Integer displayMaximumBackLight) {
     this.displayMaximumBackLight = displayMaximumBackLight;
+    isSetDisplayMaximumBackLight = true; // mark as set
     return this;
   }
 
@@ -69,6 +87,7 @@ public class Hardware {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayMaximumBackLight(Integer displayMaximumBackLight) {
     this.displayMaximumBackLight = displayMaximumBackLight;
+    isSetDisplayMaximumBackLight = true; // mark as set
   }
 
   /**
@@ -82,6 +101,7 @@ public class Hardware {
    */
   public Hardware resetTotalsHour(Integer resetTotalsHour) {
     this.resetTotalsHour = resetTotalsHour;
+    isSetResetTotalsHour = true; // mark as set
     return this;
   }
 
@@ -111,6 +131,7 @@ public class Hardware {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResetTotalsHour(Integer resetTotalsHour) {
     this.resetTotalsHour = resetTotalsHour;
+    isSetResetTotalsHour = true; // mark as set
   }
 
   /**
@@ -125,6 +146,7 @@ public class Hardware {
    */
   public Hardware restartHour(Integer restartHour) {
     this.restartHour = restartHour;
+    isSetRestartHour = true; // mark as set
     return this;
   }
 
@@ -156,6 +178,27 @@ public class Hardware {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestartHour(Integer restartHour) {
     this.restartHour = restartHour;
+    isSetRestartHour = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Hardware includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Hardware object is equal to o. */
@@ -199,6 +242,36 @@ public class Hardware {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDisplayMaximumBackLight) {
+      addIfNull(nulls, JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT, this.displayMaximumBackLight);
+    }
+    if (isSetResetTotalsHour) {
+      addIfNull(nulls, JSON_PROPERTY_RESET_TOTALS_HOUR, this.resetTotalsHour);
+    }
+    if (isSetRestartHour) {
+      addIfNull(nulls, JSON_PROPERTY_RESTART_HOUR, this.restartHour);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

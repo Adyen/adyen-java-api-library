@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,21 +41,39 @@ public class AndroidApp {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   @Deprecated // deprecated since Management API v3: Use `errors` instead.
   private String errorCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorCode = false;
+
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<AndroidAppError> errors;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrors = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLabel = false;
+
   public static final String JSON_PROPERTY_PACKAGE_NAME = "packageName";
   private String packageName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPackageName = false;
 
   /**
    * The status of the app. Possible values: * &#x60;processing&#x60;: the app is being signed and
@@ -113,11 +133,26 @@ public class AndroidApp {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_VERSION_CODE = "versionCode";
   private Integer versionCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVersionCode = false;
+
   public static final String JSON_PROPERTY_VERSION_NAME = "versionName";
   private String versionName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVersionName = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AndroidApp() {}
 
@@ -131,6 +166,7 @@ public class AndroidApp {
    */
   public AndroidApp description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -158,6 +194,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -172,6 +209,7 @@ public class AndroidApp {
   @Deprecated // deprecated since Management API v3: Use `errors` instead.
   public AndroidApp errorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
     return this;
   }
 
@@ -203,6 +241,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
   }
 
   /**
@@ -213,6 +252,7 @@ public class AndroidApp {
    */
   public AndroidApp errors(List<AndroidAppError> errors) {
     this.errors = errors;
+    isSetErrors = true; // mark as set
     return this;
   }
 
@@ -244,6 +284,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrors(List<AndroidAppError> errors) {
     this.errors = errors;
+    isSetErrors = true; // mark as set
   }
 
   /**
@@ -254,6 +295,7 @@ public class AndroidApp {
    */
   public AndroidApp id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -277,6 +319,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -287,6 +330,7 @@ public class AndroidApp {
    */
   public AndroidApp label(String label) {
     this.label = label;
+    isSetLabel = true; // mark as set
     return this;
   }
 
@@ -310,6 +354,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabel(String label) {
     this.label = label;
+    isSetLabel = true; // mark as set
   }
 
   /**
@@ -320,6 +365,7 @@ public class AndroidApp {
    */
   public AndroidApp packageName(String packageName) {
     this.packageName = packageName;
+    isSetPackageName = true; // mark as set
     return this;
   }
 
@@ -343,6 +389,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPackageName(String packageName) {
     this.packageName = packageName;
+    isSetPackageName = true; // mark as set
   }
 
   /**
@@ -365,6 +412,7 @@ public class AndroidApp {
    */
   public AndroidApp status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -412,6 +460,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -422,6 +471,7 @@ public class AndroidApp {
    */
   public AndroidApp versionCode(Integer versionCode) {
     this.versionCode = versionCode;
+    isSetVersionCode = true; // mark as set
     return this;
   }
 
@@ -445,6 +495,7 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionCode(Integer versionCode) {
     this.versionCode = versionCode;
+    isSetVersionCode = true; // mark as set
   }
 
   /**
@@ -455,6 +506,7 @@ public class AndroidApp {
    */
   public AndroidApp versionName(String versionName) {
     this.versionName = versionName;
+    isSetVersionName = true; // mark as set
     return this;
   }
 
@@ -478,6 +530,27 @@ public class AndroidApp {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionName(String versionName) {
     this.versionName = versionName;
+    isSetVersionName = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AndroidApp includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AndroidApp object is equal to o. */
@@ -532,6 +605,54 @@ public class AndroidApp {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetErrorCode) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_CODE, this.errorCode);
+    }
+    if (isSetErrors) {
+      addIfNull(nulls, JSON_PROPERTY_ERRORS, this.errors);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLabel) {
+      addIfNull(nulls, JSON_PROPERTY_LABEL, this.label);
+    }
+    if (isSetPackageName) {
+      addIfNull(nulls, JSON_PROPERTY_PACKAGE_NAME, this.packageName);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetVersionCode) {
+      addIfNull(nulls, JSON_PROPERTY_VERSION_CODE, this.versionCode);
+    }
+    if (isSetVersionName) {
+      addIfNull(nulls, JSON_PROPERTY_VERSION_NAME, this.versionName);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

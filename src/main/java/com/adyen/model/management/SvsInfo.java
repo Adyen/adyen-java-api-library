@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,26 +25,39 @@ public class SvsInfo {
   public static final String JSON_PROPERTY_AUTHORISATION_MID = "authorisationMid";
   private String authorisationMid;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisationMid = false;
+
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
   private String currencyCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrencyCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SvsInfo() {}
 
   /**
-   * Authorisation Mid
+   * The merchant ID (MID) that the acquirer recognizes you by.
    *
-   * @param authorisationMid Authorisation Mid
+   * @param authorisationMid The merchant ID (MID) that the acquirer recognizes you by.
    * @return the current {@code SvsInfo} instance, allowing for method chaining
    */
   public SvsInfo authorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
+    isSetAuthorisationMid = true; // mark as set
     return this;
   }
 
   /**
-   * Authorisation Mid
+   * The merchant ID (MID) that the acquirer recognizes you by.
    *
-   * @return authorisationMid Authorisation Mid
+   * @return authorisationMid The merchant ID (MID) that the acquirer recognizes you by.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -51,31 +66,33 @@ public class SvsInfo {
   }
 
   /**
-   * Authorisation Mid
+   * The merchant ID (MID) that the acquirer recognizes you by.
    *
-   * @param authorisationMid Authorisation Mid
+   * @param authorisationMid The merchant ID (MID) that the acquirer recognizes you by.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
+    isSetAuthorisationMid = true; // mark as set
   }
 
   /**
-   * CurrencyCode
+   * The three-character ISO currency code, example **USD**
    *
-   * @param currencyCode CurrencyCode
+   * @param currencyCode The three-character ISO currency code, example **USD**
    * @return the current {@code SvsInfo} instance, allowing for method chaining
    */
   public SvsInfo currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+    isSetCurrencyCode = true; // mark as set
     return this;
   }
 
   /**
-   * CurrencyCode
+   * The three-character ISO currency code, example **USD**
    *
-   * @return currencyCode CurrencyCode
+   * @return currencyCode The three-character ISO currency code, example **USD**
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,14 +101,35 @@ public class SvsInfo {
   }
 
   /**
-   * CurrencyCode
+   * The three-character ISO currency code, example **USD**
    *
-   * @param currencyCode CurrencyCode
+   * @param currencyCode The three-character ISO currency code, example **USD**
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+    isSetCurrencyCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SvsInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SvsInfo object is equal to o. */
@@ -131,6 +169,33 @@ public class SvsInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthorisationMid) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_MID, this.authorisationMid);
+    }
+    if (isSetCurrencyCode) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY_CODE, this.currencyCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

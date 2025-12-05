@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,32 +38,68 @@ public class StoreCreationWithMerchantCodeRequest {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private StoreLocation address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_BUSINESS_LINE_IDS = "businessLineIds";
   private List<String> businessLineIds;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBusinessLineIds = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_EXTERNAL_REFERENCE_ID = "externalReferenceId";
   private String externalReferenceId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExternalReferenceId = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantId = false;
+
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperStatement = false;
 
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION = "splitConfiguration";
   private StoreSplitConfiguration splitConfiguration;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitConfiguration = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
   private SubMerchantData subMerchantData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoreCreationWithMerchantCodeRequest() {}
 
@@ -74,6 +112,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest address(StoreLocation address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
@@ -97,6 +136,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(StoreLocation address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -115,6 +155,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest businessLineIds(List<String> businessLineIds) {
     this.businessLineIds = businessLineIds;
+    isSetBusinessLineIds = true; // mark as set
     return this;
   }
 
@@ -160,6 +201,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
     this.businessLineIds = businessLineIds;
+    isSetBusinessLineIds = true; // mark as set
   }
 
   /**
@@ -171,6 +213,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -194,6 +237,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -211,6 +255,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest externalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
+    isSetExternalReferenceId = true; // mark as set
     return this;
   }
 
@@ -246,6 +291,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
+    isSetExternalReferenceId = true; // mark as set
   }
 
   /**
@@ -257,6 +303,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest merchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -280,6 +327,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
   }
 
   /**
@@ -295,6 +343,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -326,6 +375,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -345,6 +395,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -384,6 +435,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -398,6 +450,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
     return this;
   }
 
@@ -427,6 +480,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
   }
 
   /**
@@ -439,6 +493,7 @@ public class StoreCreationWithMerchantCodeRequest {
   public StoreCreationWithMerchantCodeRequest splitConfiguration(
       StoreSplitConfiguration splitConfiguration) {
     this.splitConfiguration = splitConfiguration;
+    isSetSplitConfiguration = true; // mark as set
     return this;
   }
 
@@ -462,6 +517,7 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {
     this.splitConfiguration = splitConfiguration;
+    isSetSplitConfiguration = true; // mark as set
   }
 
   /**
@@ -473,6 +529,7 @@ public class StoreCreationWithMerchantCodeRequest {
    */
   public StoreCreationWithMerchantCodeRequest subMerchantData(SubMerchantData subMerchantData) {
     this.subMerchantData = subMerchantData;
+    isSetSubMerchantData = true; // mark as set
     return this;
   }
 
@@ -496,6 +553,27 @@ public class StoreCreationWithMerchantCodeRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantData(SubMerchantData subMerchantData) {
     this.subMerchantData = subMerchantData;
+    isSetSubMerchantData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoreCreationWithMerchantCodeRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoreCreationWithMerchantCodeRequest object is equal to o. */
@@ -569,6 +647,57 @@ public class StoreCreationWithMerchantCodeRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetBusinessLineIds) {
+      addIfNull(nulls, JSON_PROPERTY_BUSINESS_LINE_IDS, this.businessLineIds);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetExternalReferenceId) {
+      addIfNull(nulls, JSON_PROPERTY_EXTERNAL_REFERENCE_ID, this.externalReferenceId);
+    }
+    if (isSetMerchantId) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetSplitConfiguration) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_CONFIGURATION, this.splitConfiguration);
+    }
+    if (isSetSubMerchantData) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_DATA, this.subMerchantData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,59 +45,122 @@ public class Profile {
   public static final String JSON_PROPERTY_AUTH_TYPE = "authType";
   private String authType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthType = false;
+
   public static final String JSON_PROPERTY_AUTO_WIFI = "autoWifi";
   private Boolean autoWifi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAutoWifi = false;
 
   public static final String JSON_PROPERTY_BSS_TYPE = "bssType";
   private String bssType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBssType = false;
+
   public static final String JSON_PROPERTY_CHANNEL = "channel";
   private Integer channel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChannel = false;
 
   public static final String JSON_PROPERTY_DEFAULT_PROFILE = "defaultProfile";
   private Boolean defaultProfile;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefaultProfile = false;
+
   public static final String JSON_PROPERTY_DOMAIN_SUFFIX = "domainSuffix";
   private String domainSuffix;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDomainSuffix = false;
 
   public static final String JSON_PROPERTY_EAP = "eap";
   private String eap;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEap = false;
+
   public static final String JSON_PROPERTY_EAP_CA_CERT = "eapCaCert";
   private ModelFile eapCaCert;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapCaCert = false;
 
   public static final String JSON_PROPERTY_EAP_CLIENT_CERT = "eapClientCert";
   private ModelFile eapClientCert;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapClientCert = false;
+
   public static final String JSON_PROPERTY_EAP_CLIENT_KEY = "eapClientKey";
   private ModelFile eapClientKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapClientKey = false;
 
   public static final String JSON_PROPERTY_EAP_CLIENT_PWD = "eapClientPwd";
   private String eapClientPwd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapClientPwd = false;
+
   public static final String JSON_PROPERTY_EAP_IDENTITY = "eapIdentity";
   private String eapIdentity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapIdentity = false;
 
   public static final String JSON_PROPERTY_EAP_INTERMEDIATE_CERT = "eapIntermediateCert";
   private ModelFile eapIntermediateCert;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapIntermediateCert = false;
+
   public static final String JSON_PROPERTY_EAP_PWD = "eapPwd";
   private String eapPwd;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEapPwd = false;
 
   public static final String JSON_PROPERTY_HIDDEN_SSID = "hiddenSsid";
   private Boolean hiddenSsid;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHiddenSsid = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_PSK = "psk";
   private String psk;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPsk = false;
+
   public static final String JSON_PROPERTY_SSID = "ssid";
   private String ssid;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSsid = false;
+
   public static final String JSON_PROPERTY_WSEC = "wsec";
   private String wsec;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWsec = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Profile() {}
 
@@ -109,6 +174,7 @@ public class Profile {
    */
   public Profile authType(String authType) {
     this.authType = authType;
+    isSetAuthType = true; // mark as set
     return this;
   }
 
@@ -136,6 +202,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthType(String authType) {
     this.authType = authType;
+    isSetAuthType = true; // mark as set
   }
 
   /**
@@ -148,6 +215,7 @@ public class Profile {
    */
   public Profile autoWifi(Boolean autoWifi) {
     this.autoWifi = autoWifi;
+    isSetAutoWifi = true; // mark as set
     return this;
   }
 
@@ -175,6 +243,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoWifi(Boolean autoWifi) {
     this.autoWifi = autoWifi;
+    isSetAutoWifi = true; // mark as set
   }
 
   /**
@@ -187,6 +256,7 @@ public class Profile {
    */
   public Profile bssType(String bssType) {
     this.bssType = bssType;
+    isSetBssType = true; // mark as set
     return this;
   }
 
@@ -214,6 +284,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBssType(String bssType) {
     this.bssType = bssType;
+    isSetBssType = true; // mark as set
   }
 
   /**
@@ -226,6 +297,7 @@ public class Profile {
    */
   public Profile channel(Integer channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
     return this;
   }
 
@@ -253,6 +325,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(Integer channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
   }
 
   /**
@@ -265,6 +338,7 @@ public class Profile {
    */
   public Profile defaultProfile(Boolean defaultProfile) {
     this.defaultProfile = defaultProfile;
+    isSetDefaultProfile = true; // mark as set
     return this;
   }
 
@@ -292,6 +366,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultProfile(Boolean defaultProfile) {
     this.defaultProfile = defaultProfile;
+    isSetDefaultProfile = true; // mark as set
   }
 
   /**
@@ -304,6 +379,7 @@ public class Profile {
    */
   public Profile domainSuffix(String domainSuffix) {
     this.domainSuffix = domainSuffix;
+    isSetDomainSuffix = true; // mark as set
     return this;
   }
 
@@ -331,6 +407,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomainSuffix(String domainSuffix) {
     this.domainSuffix = domainSuffix;
+    isSetDomainSuffix = true; // mark as set
   }
 
   /**
@@ -343,6 +420,7 @@ public class Profile {
    */
   public Profile eap(String eap) {
     this.eap = eap;
+    isSetEap = true; // mark as set
     return this;
   }
 
@@ -370,6 +448,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEap(String eap) {
     this.eap = eap;
+    isSetEap = true; // mark as set
   }
 
   /**
@@ -380,6 +459,7 @@ public class Profile {
    */
   public Profile eapCaCert(ModelFile eapCaCert) {
     this.eapCaCert = eapCaCert;
+    isSetEapCaCert = true; // mark as set
     return this;
   }
 
@@ -403,6 +483,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapCaCert(ModelFile eapCaCert) {
     this.eapCaCert = eapCaCert;
+    isSetEapCaCert = true; // mark as set
   }
 
   /**
@@ -413,6 +494,7 @@ public class Profile {
    */
   public Profile eapClientCert(ModelFile eapClientCert) {
     this.eapClientCert = eapClientCert;
+    isSetEapClientCert = true; // mark as set
     return this;
   }
 
@@ -436,6 +518,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientCert(ModelFile eapClientCert) {
     this.eapClientCert = eapClientCert;
+    isSetEapClientCert = true; // mark as set
   }
 
   /**
@@ -446,6 +529,7 @@ public class Profile {
    */
   public Profile eapClientKey(ModelFile eapClientKey) {
     this.eapClientKey = eapClientKey;
+    isSetEapClientKey = true; // mark as set
     return this;
   }
 
@@ -469,6 +553,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientKey(ModelFile eapClientKey) {
     this.eapClientKey = eapClientKey;
+    isSetEapClientKey = true; // mark as set
   }
 
   /**
@@ -481,6 +566,7 @@ public class Profile {
    */
   public Profile eapClientPwd(String eapClientPwd) {
     this.eapClientPwd = eapClientPwd;
+    isSetEapClientPwd = true; // mark as set
     return this;
   }
 
@@ -508,6 +594,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapClientPwd(String eapClientPwd) {
     this.eapClientPwd = eapClientPwd;
+    isSetEapClientPwd = true; // mark as set
   }
 
   /**
@@ -520,6 +607,7 @@ public class Profile {
    */
   public Profile eapIdentity(String eapIdentity) {
     this.eapIdentity = eapIdentity;
+    isSetEapIdentity = true; // mark as set
     return this;
   }
 
@@ -547,6 +635,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIdentity(String eapIdentity) {
     this.eapIdentity = eapIdentity;
+    isSetEapIdentity = true; // mark as set
   }
 
   /**
@@ -557,6 +646,7 @@ public class Profile {
    */
   public Profile eapIntermediateCert(ModelFile eapIntermediateCert) {
     this.eapIntermediateCert = eapIntermediateCert;
+    isSetEapIntermediateCert = true; // mark as set
     return this;
   }
 
@@ -580,6 +670,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapIntermediateCert(ModelFile eapIntermediateCert) {
     this.eapIntermediateCert = eapIntermediateCert;
+    isSetEapIntermediateCert = true; // mark as set
   }
 
   /**
@@ -592,6 +683,7 @@ public class Profile {
    */
   public Profile eapPwd(String eapPwd) {
     this.eapPwd = eapPwd;
+    isSetEapPwd = true; // mark as set
     return this;
   }
 
@@ -619,6 +711,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEapPwd(String eapPwd) {
     this.eapPwd = eapPwd;
+    isSetEapPwd = true; // mark as set
   }
 
   /**
@@ -632,6 +725,7 @@ public class Profile {
    */
   public Profile hiddenSsid(Boolean hiddenSsid) {
     this.hiddenSsid = hiddenSsid;
+    isSetHiddenSsid = true; // mark as set
     return this;
   }
 
@@ -661,6 +755,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHiddenSsid(Boolean hiddenSsid) {
     this.hiddenSsid = hiddenSsid;
+    isSetHiddenSsid = true; // mark as set
   }
 
   /**
@@ -671,6 +766,7 @@ public class Profile {
    */
   public Profile name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -694,6 +790,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -705,6 +802,7 @@ public class Profile {
    */
   public Profile psk(String psk) {
     this.psk = psk;
+    isSetPsk = true; // mark as set
     return this;
   }
 
@@ -730,6 +828,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPsk(String psk) {
     this.psk = psk;
+    isSetPsk = true; // mark as set
   }
 
   /**
@@ -740,6 +839,7 @@ public class Profile {
    */
   public Profile ssid(String ssid) {
     this.ssid = ssid;
+    isSetSsid = true; // mark as set
     return this;
   }
 
@@ -763,6 +863,7 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {
     this.ssid = ssid;
+    isSetSsid = true; // mark as set
   }
 
   /**
@@ -773,6 +874,7 @@ public class Profile {
    */
   public Profile wsec(String wsec) {
     this.wsec = wsec;
+    isSetWsec = true; // mark as set
     return this;
   }
 
@@ -797,6 +899,27 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWsec(String wsec) {
     this.wsec = wsec;
+    isSetWsec = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Profile includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Profile object is equal to o. */
@@ -891,6 +1014,84 @@ public class Profile {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthType) {
+      addIfNull(nulls, JSON_PROPERTY_AUTH_TYPE, this.authType);
+    }
+    if (isSetAutoWifi) {
+      addIfNull(nulls, JSON_PROPERTY_AUTO_WIFI, this.autoWifi);
+    }
+    if (isSetBssType) {
+      addIfNull(nulls, JSON_PROPERTY_BSS_TYPE, this.bssType);
+    }
+    if (isSetChannel) {
+      addIfNull(nulls, JSON_PROPERTY_CHANNEL, this.channel);
+    }
+    if (isSetDefaultProfile) {
+      addIfNull(nulls, JSON_PROPERTY_DEFAULT_PROFILE, this.defaultProfile);
+    }
+    if (isSetDomainSuffix) {
+      addIfNull(nulls, JSON_PROPERTY_DOMAIN_SUFFIX, this.domainSuffix);
+    }
+    if (isSetEap) {
+      addIfNull(nulls, JSON_PROPERTY_EAP, this.eap);
+    }
+    if (isSetEapCaCert) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_CA_CERT, this.eapCaCert);
+    }
+    if (isSetEapClientCert) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_CLIENT_CERT, this.eapClientCert);
+    }
+    if (isSetEapClientKey) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_CLIENT_KEY, this.eapClientKey);
+    }
+    if (isSetEapClientPwd) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_CLIENT_PWD, this.eapClientPwd);
+    }
+    if (isSetEapIdentity) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_IDENTITY, this.eapIdentity);
+    }
+    if (isSetEapIntermediateCert) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_INTERMEDIATE_CERT, this.eapIntermediateCert);
+    }
+    if (isSetEapPwd) {
+      addIfNull(nulls, JSON_PROPERTY_EAP_PWD, this.eapPwd);
+    }
+    if (isSetHiddenSsid) {
+      addIfNull(nulls, JSON_PROPERTY_HIDDEN_SSID, this.hiddenSsid);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPsk) {
+      addIfNull(nulls, JSON_PROPERTY_PSK, this.psk);
+    }
+    if (isSetSsid) {
+      addIfNull(nulls, JSON_PROPERTY_SSID, this.ssid);
+    }
+    if (isSetWsec) {
+      addIfNull(nulls, JSON_PROPERTY_WSEC, this.wsec);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

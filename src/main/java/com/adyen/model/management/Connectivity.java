@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -77,8 +79,20 @@ public class Connectivity {
   public static final String JSON_PROPERTY_SIMCARD_STATUS = "simcardStatus";
   private SimcardStatusEnum simcardStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSimcardStatus = false;
+
   public static final String JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L = "terminalIPAddressURL";
   private EventUrl terminalIPAddressURL;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalIPAddressURL = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Connectivity() {}
 
@@ -99,6 +113,7 @@ public class Connectivity {
    */
   public Connectivity simcardStatus(SimcardStatusEnum simcardStatus) {
     this.simcardStatus = simcardStatus;
+    isSetSimcardStatus = true; // mark as set
     return this;
   }
 
@@ -140,6 +155,7 @@ public class Connectivity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimcardStatus(SimcardStatusEnum simcardStatus) {
     this.simcardStatus = simcardStatus;
+    isSetSimcardStatus = true; // mark as set
   }
 
   /**
@@ -150,6 +166,7 @@ public class Connectivity {
    */
   public Connectivity terminalIPAddressURL(EventUrl terminalIPAddressURL) {
     this.terminalIPAddressURL = terminalIPAddressURL;
+    isSetTerminalIPAddressURL = true; // mark as set
     return this;
   }
 
@@ -173,6 +190,27 @@ public class Connectivity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalIPAddressURL(EventUrl terminalIPAddressURL) {
     this.terminalIPAddressURL = terminalIPAddressURL;
+    isSetTerminalIPAddressURL = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Connectivity includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Connectivity object is equal to o. */
@@ -214,6 +252,33 @@ public class Connectivity {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetSimcardStatus) {
+      addIfNull(nulls, JSON_PROPERTY_SIMCARD_STATUS, this.simcardStatus);
+    }
+    if (isSetTerminalIPAddressURL) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L, this.terminalIPAddressURL);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

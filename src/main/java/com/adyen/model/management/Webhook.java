@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -52,29 +54,53 @@ public class Webhook {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private WebhookLinks links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE =
       "acceptsExpiredCertificate";
   private Boolean acceptsExpiredCertificate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsExpiredCertificate = false;
 
   public static final String JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE =
       "acceptsSelfSignedCertificate";
   private Boolean acceptsSelfSignedCertificate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsSelfSignedCertificate = false;
+
   public static final String JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE =
       "acceptsUntrustedRootCertificate";
   private Boolean acceptsUntrustedRootCertificate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsUntrustedRootCertificate = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_REFERENCE = "accountReference";
   private String accountReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountReference = false;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActive = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_SETTINGS = "additionalSettings";
   private AdditionalSettingsResponse additionalSettings;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalSettings = false;
+
   public static final String JSON_PROPERTY_CERTIFICATE_ALIAS = "certificateAlias";
   private String certificateAlias;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCertificateAlias = false;
 
   /**
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json**
@@ -124,8 +150,14 @@ public class Webhook {
   public static final String JSON_PROPERTY_COMMUNICATION_FORMAT = "communicationFormat";
   private CommunicationFormatEnum communicationFormat;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCommunicationFormat = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   /**
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible
@@ -176,6 +208,9 @@ public class Webhook {
 
   public static final String JSON_PROPERTY_ENCRYPTION_PROTOCOL = "encryptionProtocol";
   private EncryptionProtocolEnum encryptionProtocol;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptionProtocol = false;
 
   /**
    * Shows how merchant accounts are included in company-level webhooks. Possible values: *
@@ -229,20 +264,38 @@ public class Webhook {
       "filterMerchantAccountType";
   private FilterMerchantAccountTypeEnum filterMerchantAccountType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFilterMerchantAccountType = false;
+
   public static final String JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS = "filterMerchantAccounts";
   private List<String> filterMerchantAccounts;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFilterMerchantAccounts = false;
 
   public static final String JSON_PROPERTY_HAS_ERROR = "hasError";
   private Boolean hasError;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHasError = false;
+
   public static final String JSON_PROPERTY_HAS_PASSWORD = "hasPassword";
   private Boolean hasPassword;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHasPassword = false;
 
   public static final String JSON_PROPERTY_HMAC_KEY_CHECK_VALUE = "hmacKeyCheckValue";
   private String hmacKeyCheckValue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHmacKeyCheckValue = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   /** Network type for Terminal API details webhooks. */
   public enum NetworkTypeEnum {
@@ -288,17 +341,38 @@ public class Webhook {
   public static final String JSON_PROPERTY_NETWORK_TYPE = "networkType";
   private NetworkTypeEnum networkType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkType = false;
+
   public static final String JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER = "populateSoapActionHeader";
   private Boolean populateSoapActionHeader;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPopulateSoapActionHeader = false;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsername = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Webhook() {}
 
@@ -310,6 +384,7 @@ public class Webhook {
    */
   public Webhook links(WebhookLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
@@ -333,6 +408,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(WebhookLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -344,6 +420,7 @@ public class Webhook {
    */
   public Webhook acceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
+    isSetAcceptsExpiredCertificate = true; // mark as set
     return this;
   }
 
@@ -369,6 +446,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
+    isSetAcceptsExpiredCertificate = true; // mark as set
   }
 
   /**
@@ -380,6 +458,7 @@ public class Webhook {
    */
   public Webhook acceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
+    isSetAcceptsSelfSignedCertificate = true; // mark as set
     return this;
   }
 
@@ -405,6 +484,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
+    isSetAcceptsSelfSignedCertificate = true; // mark as set
   }
 
   /**
@@ -416,6 +496,7 @@ public class Webhook {
    */
   public Webhook acceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
+    isSetAcceptsUntrustedRootCertificate = true; // mark as set
     return this;
   }
 
@@ -441,6 +522,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
+    isSetAcceptsUntrustedRootCertificate = true; // mark as set
   }
 
   /**
@@ -451,6 +533,7 @@ public class Webhook {
    */
   public Webhook accountReference(String accountReference) {
     this.accountReference = accountReference;
+    isSetAccountReference = true; // mark as set
     return this;
   }
 
@@ -474,6 +557,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountReference(String accountReference) {
     this.accountReference = accountReference;
+    isSetAccountReference = true; // mark as set
   }
 
   /**
@@ -486,6 +570,7 @@ public class Webhook {
    */
   public Webhook active(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
     return this;
   }
 
@@ -513,6 +598,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
   }
 
   /**
@@ -523,6 +609,7 @@ public class Webhook {
    */
   public Webhook additionalSettings(AdditionalSettingsResponse additionalSettings) {
     this.additionalSettings = additionalSettings;
+    isSetAdditionalSettings = true; // mark as set
     return this;
   }
 
@@ -546,6 +633,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSettings(AdditionalSettingsResponse additionalSettings) {
     this.additionalSettings = additionalSettings;
+    isSetAdditionalSettings = true; // mark as set
   }
 
   /**
@@ -558,6 +646,7 @@ public class Webhook {
    */
   public Webhook certificateAlias(String certificateAlias) {
     this.certificateAlias = certificateAlias;
+    isSetCertificateAlias = true; // mark as set
     return this;
   }
 
@@ -585,6 +674,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificateAlias(String certificateAlias) {
     this.certificateAlias = certificateAlias;
+    isSetCertificateAlias = true; // mark as set
   }
 
   /**
@@ -596,6 +686,7 @@ public class Webhook {
    */
   public Webhook communicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
+    isSetCommunicationFormat = true; // mark as set
     return this;
   }
 
@@ -621,6 +712,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
+    isSetCommunicationFormat = true; // mark as set
   }
 
   /**
@@ -631,6 +723,7 @@ public class Webhook {
    */
   public Webhook description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -654,6 +747,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -669,6 +763,7 @@ public class Webhook {
    */
   public Webhook encryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
+    isSetEncryptionProtocol = true; // mark as set
     return this;
   }
 
@@ -702,6 +797,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
+    isSetEncryptionProtocol = true; // mark as set
   }
 
   /**
@@ -718,6 +814,7 @@ public class Webhook {
   public Webhook filterMerchantAccountType(
       FilterMerchantAccountTypeEnum filterMerchantAccountType) {
     this.filterMerchantAccountType = filterMerchantAccountType;
+    isSetFilterMerchantAccountType = true; // mark as set
     return this;
   }
 
@@ -752,6 +849,7 @@ public class Webhook {
   public void setFilterMerchantAccountType(
       FilterMerchantAccountTypeEnum filterMerchantAccountType) {
     this.filterMerchantAccountType = filterMerchantAccountType;
+    isSetFilterMerchantAccountType = true; // mark as set
   }
 
   /**
@@ -769,6 +867,7 @@ public class Webhook {
    */
   public Webhook filterMerchantAccounts(List<String> filterMerchantAccounts) {
     this.filterMerchantAccounts = filterMerchantAccounts;
+    isSetFilterMerchantAccounts = true; // mark as set
     return this;
   }
 
@@ -814,6 +913,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccounts(List<String> filterMerchantAccounts) {
     this.filterMerchantAccounts = filterMerchantAccounts;
+    isSetFilterMerchantAccounts = true; // mark as set
   }
 
   /**
@@ -828,6 +928,7 @@ public class Webhook {
    */
   public Webhook hasError(Boolean hasError) {
     this.hasError = hasError;
+    isSetHasError = true; // mark as set
     return this;
   }
 
@@ -859,6 +960,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasError(Boolean hasError) {
     this.hasError = hasError;
+    isSetHasError = true; // mark as set
   }
 
   /**
@@ -869,6 +971,7 @@ public class Webhook {
    */
   public Webhook hasPassword(Boolean hasPassword) {
     this.hasPassword = hasPassword;
+    isSetHasPassword = true; // mark as set
     return this;
   }
 
@@ -892,6 +995,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPassword(Boolean hasPassword) {
     this.hasPassword = hasPassword;
+    isSetHasPassword = true; // mark as set
   }
 
   /**
@@ -906,6 +1010,7 @@ public class Webhook {
    */
   public Webhook hmacKeyCheckValue(String hmacKeyCheckValue) {
     this.hmacKeyCheckValue = hmacKeyCheckValue;
+    isSetHmacKeyCheckValue = true; // mark as set
     return this;
   }
 
@@ -937,6 +1042,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHmacKeyCheckValue(String hmacKeyCheckValue) {
     this.hmacKeyCheckValue = hmacKeyCheckValue;
+    isSetHmacKeyCheckValue = true; // mark as set
   }
 
   /**
@@ -947,6 +1053,7 @@ public class Webhook {
    */
   public Webhook id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -970,6 +1077,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -980,6 +1088,7 @@ public class Webhook {
    */
   public Webhook networkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
+    isSetNetworkType = true; // mark as set
     return this;
   }
 
@@ -1003,6 +1112,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
+    isSetNetworkType = true; // mark as set
   }
 
   /**
@@ -1015,6 +1125,7 @@ public class Webhook {
    */
   public Webhook populateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
+    isSetPopulateSoapActionHeader = true; // mark as set
     return this;
   }
 
@@ -1042,6 +1153,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
+    isSetPopulateSoapActionHeader = true; // mark as set
   }
 
   /**
@@ -1070,6 +1182,7 @@ public class Webhook {
    */
   public Webhook type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1129,6 +1242,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -1141,6 +1255,7 @@ public class Webhook {
    */
   public Webhook url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -1168,6 +1283,7 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
   }
 
   /**
@@ -1178,6 +1294,7 @@ public class Webhook {
    */
   public Webhook username(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
     return this;
   }
 
@@ -1201,6 +1318,27 @@ public class Webhook {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Webhook includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Webhook object is equal to o. */
@@ -1317,6 +1455,97 @@ public class Webhook {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetAcceptsExpiredCertificate) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE, this.acceptsExpiredCertificate);
+    }
+    if (isSetAcceptsSelfSignedCertificate) {
+      addIfNull(
+          nulls, JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE, this.acceptsSelfSignedCertificate);
+    }
+    if (isSetAcceptsUntrustedRootCertificate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE,
+          this.acceptsUntrustedRootCertificate);
+    }
+    if (isSetAccountReference) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_REFERENCE, this.accountReference);
+    }
+    if (isSetActive) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE, this.active);
+    }
+    if (isSetAdditionalSettings) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_SETTINGS, this.additionalSettings);
+    }
+    if (isSetCertificateAlias) {
+      addIfNull(nulls, JSON_PROPERTY_CERTIFICATE_ALIAS, this.certificateAlias);
+    }
+    if (isSetCommunicationFormat) {
+      addIfNull(nulls, JSON_PROPERTY_COMMUNICATION_FORMAT, this.communicationFormat);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetEncryptionProtocol) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTION_PROTOCOL, this.encryptionProtocol);
+    }
+    if (isSetFilterMerchantAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE, this.filterMerchantAccountType);
+    }
+    if (isSetFilterMerchantAccounts) {
+      addIfNull(nulls, JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS, this.filterMerchantAccounts);
+    }
+    if (isSetHasError) {
+      addIfNull(nulls, JSON_PROPERTY_HAS_ERROR, this.hasError);
+    }
+    if (isSetHasPassword) {
+      addIfNull(nulls, JSON_PROPERTY_HAS_PASSWORD, this.hasPassword);
+    }
+    if (isSetHmacKeyCheckValue) {
+      addIfNull(nulls, JSON_PROPERTY_HMAC_KEY_CHECK_VALUE, this.hmacKeyCheckValue);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetNetworkType) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TYPE, this.networkType);
+    }
+    if (isSetPopulateSoapActionHeader) {
+      addIfNull(nulls, JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER, this.populateSoapActionHeader);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+    if (isSetUsername) {
+      addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

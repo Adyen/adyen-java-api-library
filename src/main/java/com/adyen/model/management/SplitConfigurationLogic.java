@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -90,8 +92,14 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_ACQUIRING_FEES = "acquiringFees";
   private AcquiringFeesEnum acquiringFees;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcquiringFees = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_COMMISSION = "additionalCommission";
   private AdditionalCommission additionalCommission;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalCommission = false;
 
   /**
    * Deducts the transaction fee due to Adyen under [blended
@@ -142,6 +150,9 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_ADYEN_COMMISSION = "adyenCommission";
   private AdyenCommissionEnum adyenCommission;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdyenCommission = false;
+
   /**
    * Deducts the fees due to Adyen (markup or commission) from the specified balance account.
    * Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
@@ -188,6 +199,9 @@ public class SplitConfigurationLogic {
 
   public static final String JSON_PROPERTY_ADYEN_FEES = "adyenFees";
   private AdyenFeesEnum adyenFees;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdyenFees = false;
 
   /**
    * Deducts the transaction fee due to Adyen under [Interchange ++
@@ -236,6 +250,9 @@ public class SplitConfigurationLogic {
 
   public static final String JSON_PROPERTY_ADYEN_MARKUP = "adyenMarkup";
   private AdyenMarkupEnum adyenMarkup;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdyenMarkup = false;
 
   /**
    * Specifies how and from which balance account(s) to deduct the chargeback amount. Possible
@@ -287,6 +304,9 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_CHARGEBACK = "chargeback";
   private ChargebackEnum chargeback;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChargeback = false;
+
   /**
    * Deducts the chargeback costs from the specified balance account. Possible values:
    * **deductFromLiableAccount**, **deductFromOneBalanceAccount**
@@ -335,8 +355,14 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_CHARGEBACK_COST_ALLOCATION = "chargebackCostAllocation";
   private ChargebackCostAllocationEnum chargebackCostAllocation;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChargebackCostAllocation = false;
+
   public static final String JSON_PROPERTY_COMMISSION = "commission";
   private Commission commission;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCommission = false;
 
   /**
    * Deducts the interchange fee from specified balance account. Possible values:
@@ -384,6 +410,9 @@ public class SplitConfigurationLogic {
 
   public static final String JSON_PROPERTY_INTERCHANGE = "interchange";
   private InterchangeEnum interchange;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInterchange = false;
 
   /**
    * Deducts all transaction fees incurred by the payment from the specified balance account. The
@@ -454,6 +483,9 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_PAYMENT_FEE = "paymentFee";
   private PaymentFeeEnum paymentFee;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentFee = false;
+
   /**
    * Specifies how and from which balance account(s) to deduct the refund amount. Possible values:
    * **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**
@@ -503,6 +535,9 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_REFUND = "refund";
   private RefundEnum refund;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefund = false;
+
   /**
    * Deducts the refund costs from the specified balance account. Possible values:
    * **deductFromLiableAccount**, **deductFromOneBalanceAccount**
@@ -549,6 +584,9 @@ public class SplitConfigurationLogic {
 
   public static final String JSON_PROPERTY_REFUND_COST_ALLOCATION = "refundCostAllocation";
   private RefundCostAllocationEnum refundCostAllocation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefundCostAllocation = false;
 
   /**
    * Books the amount left over after currency conversion to the specified balance account. Possible
@@ -597,6 +635,9 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_REMAINDER = "remainder";
   private RemainderEnum remainder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRemainder = false;
+
   /**
    * Deducts the scheme fee from the specified balance account. Possible values:
    * **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
@@ -644,8 +685,14 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_SCHEME_FEE = "schemeFee";
   private SchemeFeeEnum schemeFee;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSchemeFee = false;
+
   public static final String JSON_PROPERTY_SPLIT_LOGIC_ID = "splitLogicId";
   private String splitLogicId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitLogicId = false;
 
   /**
    * Books the surcharge amount to the specified balance account. Possible values:
@@ -694,6 +741,9 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private SurchargeEnum surcharge;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSurcharge = false;
+
   /**
    * Books the tips (gratuity) to the specified balance account. Possible values:
    * **addToLiableAccount**, **addToOneBalanceAccount**.
@@ -741,6 +791,15 @@ public class SplitConfigurationLogic {
   public static final String JSON_PROPERTY_TIP = "tip";
   private TipEnum tip;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTip = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public SplitConfigurationLogic() {}
 
   @JsonCreator
@@ -761,6 +820,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic acquiringFees(AcquiringFeesEnum acquiringFees) {
     this.acquiringFees = acquiringFees;
+    isSetAcquiringFees = true; // mark as set
     return this;
   }
 
@@ -792,6 +852,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquiringFees(AcquiringFeesEnum acquiringFees) {
     this.acquiringFees = acquiringFees;
+    isSetAcquiringFees = true; // mark as set
   }
 
   /**
@@ -802,6 +863,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic additionalCommission(AdditionalCommission additionalCommission) {
     this.additionalCommission = additionalCommission;
+    isSetAdditionalCommission = true; // mark as set
     return this;
   }
 
@@ -825,6 +887,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalCommission(AdditionalCommission additionalCommission) {
     this.additionalCommission = additionalCommission;
+    isSetAdditionalCommission = true; // mark as set
   }
 
   /**
@@ -841,6 +904,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic adyenCommission(AdyenCommissionEnum adyenCommission) {
     this.adyenCommission = adyenCommission;
+    isSetAdyenCommission = true; // mark as set
     return this;
   }
 
@@ -876,6 +940,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenCommission(AdyenCommissionEnum adyenCommission) {
     this.adyenCommission = adyenCommission;
+    isSetAdyenCommission = true; // mark as set
   }
 
   /**
@@ -889,6 +954,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic adyenFees(AdyenFeesEnum adyenFees) {
     this.adyenFees = adyenFees;
+    isSetAdyenFees = true; // mark as set
     return this;
   }
 
@@ -918,6 +984,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenFees(AdyenFeesEnum adyenFees) {
     this.adyenFees = adyenFees;
+    isSetAdyenFees = true; // mark as set
   }
 
   /**
@@ -932,6 +999,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic adyenMarkup(AdyenMarkupEnum adyenMarkup) {
     this.adyenMarkup = adyenMarkup;
+    isSetAdyenMarkup = true; // mark as set
     return this;
   }
 
@@ -963,6 +1031,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenMarkup(AdyenMarkupEnum adyenMarkup) {
     this.adyenMarkup = adyenMarkup;
+    isSetAdyenMarkup = true; // mark as set
   }
 
   /**
@@ -977,6 +1046,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic chargeback(ChargebackEnum chargeback) {
     this.chargeback = chargeback;
+    isSetChargeback = true; // mark as set
     return this;
   }
 
@@ -1008,6 +1078,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargeback(ChargebackEnum chargeback) {
     this.chargeback = chargeback;
+    isSetChargeback = true; // mark as set
   }
 
   /**
@@ -1021,6 +1092,7 @@ public class SplitConfigurationLogic {
   public SplitConfigurationLogic chargebackCostAllocation(
       ChargebackCostAllocationEnum chargebackCostAllocation) {
     this.chargebackCostAllocation = chargebackCostAllocation;
+    isSetChargebackCostAllocation = true; // mark as set
     return this;
   }
 
@@ -1048,6 +1120,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargebackCostAllocation(ChargebackCostAllocationEnum chargebackCostAllocation) {
     this.chargebackCostAllocation = chargebackCostAllocation;
+    isSetChargebackCostAllocation = true; // mark as set
   }
 
   /**
@@ -1058,6 +1131,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic commission(Commission commission) {
     this.commission = commission;
+    isSetCommission = true; // mark as set
     return this;
   }
 
@@ -1081,6 +1155,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommission(Commission commission) {
     this.commission = commission;
+    isSetCommission = true; // mark as set
   }
 
   /**
@@ -1093,6 +1168,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic interchange(InterchangeEnum interchange) {
     this.interchange = interchange;
+    isSetInterchange = true; // mark as set
     return this;
   }
 
@@ -1120,6 +1196,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterchange(InterchangeEnum interchange) {
     this.interchange = interchange;
+    isSetInterchange = true; // mark as set
   }
 
   /**
@@ -1177,6 +1254,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic paymentFee(PaymentFeeEnum paymentFee) {
     this.paymentFee = paymentFee;
+    isSetPaymentFee = true; // mark as set
     return this;
   }
 
@@ -1294,6 +1372,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentFee(PaymentFeeEnum paymentFee) {
     this.paymentFee = paymentFee;
+    isSetPaymentFee = true; // mark as set
   }
 
   /**
@@ -1307,6 +1386,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic refund(RefundEnum refund) {
     this.refund = refund;
+    isSetRefund = true; // mark as set
     return this;
   }
 
@@ -1336,6 +1416,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefund(RefundEnum refund) {
     this.refund = refund;
+    isSetRefund = true; // mark as set
   }
 
   /**
@@ -1349,6 +1430,7 @@ public class SplitConfigurationLogic {
   public SplitConfigurationLogic refundCostAllocation(
       RefundCostAllocationEnum refundCostAllocation) {
     this.refundCostAllocation = refundCostAllocation;
+    isSetRefundCostAllocation = true; // mark as set
     return this;
   }
 
@@ -1376,6 +1458,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundCostAllocation(RefundCostAllocationEnum refundCostAllocation) {
     this.refundCostAllocation = refundCostAllocation;
+    isSetRefundCostAllocation = true; // mark as set
   }
 
   /**
@@ -1388,6 +1471,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic remainder(RemainderEnum remainder) {
     this.remainder = remainder;
+    isSetRemainder = true; // mark as set
     return this;
   }
 
@@ -1415,6 +1499,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainder(RemainderEnum remainder) {
     this.remainder = remainder;
+    isSetRemainder = true; // mark as set
   }
 
   /**
@@ -1427,6 +1512,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic schemeFee(SchemeFeeEnum schemeFee) {
     this.schemeFee = schemeFee;
+    isSetSchemeFee = true; // mark as set
     return this;
   }
 
@@ -1454,6 +1540,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeFee(SchemeFeeEnum schemeFee) {
     this.schemeFee = schemeFee;
+    isSetSchemeFee = true; // mark as set
   }
 
   /**
@@ -1479,6 +1566,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic surcharge(SurchargeEnum surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
     return this;
   }
 
@@ -1506,6 +1594,7 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(SurchargeEnum surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
   }
 
   /**
@@ -1518,6 +1607,7 @@ public class SplitConfigurationLogic {
    */
   public SplitConfigurationLogic tip(TipEnum tip) {
     this.tip = tip;
+    isSetTip = true; // mark as set
     return this;
   }
 
@@ -1545,6 +1635,27 @@ public class SplitConfigurationLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTip(TipEnum tip) {
     this.tip = tip;
+    isSetTip = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SplitConfigurationLogic includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SplitConfigurationLogic object is equal to o. */
@@ -1638,6 +1749,78 @@ public class SplitConfigurationLogic {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcquiringFees) {
+      addIfNull(nulls, JSON_PROPERTY_ACQUIRING_FEES, this.acquiringFees);
+    }
+    if (isSetAdditionalCommission) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_COMMISSION, this.additionalCommission);
+    }
+    if (isSetAdyenCommission) {
+      addIfNull(nulls, JSON_PROPERTY_ADYEN_COMMISSION, this.adyenCommission);
+    }
+    if (isSetAdyenFees) {
+      addIfNull(nulls, JSON_PROPERTY_ADYEN_FEES, this.adyenFees);
+    }
+    if (isSetAdyenMarkup) {
+      addIfNull(nulls, JSON_PROPERTY_ADYEN_MARKUP, this.adyenMarkup);
+    }
+    if (isSetChargeback) {
+      addIfNull(nulls, JSON_PROPERTY_CHARGEBACK, this.chargeback);
+    }
+    if (isSetChargebackCostAllocation) {
+      addIfNull(nulls, JSON_PROPERTY_CHARGEBACK_COST_ALLOCATION, this.chargebackCostAllocation);
+    }
+    if (isSetCommission) {
+      addIfNull(nulls, JSON_PROPERTY_COMMISSION, this.commission);
+    }
+    if (isSetInterchange) {
+      addIfNull(nulls, JSON_PROPERTY_INTERCHANGE, this.interchange);
+    }
+    if (isSetPaymentFee) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_FEE, this.paymentFee);
+    }
+    if (isSetRefund) {
+      addIfNull(nulls, JSON_PROPERTY_REFUND, this.refund);
+    }
+    if (isSetRefundCostAllocation) {
+      addIfNull(nulls, JSON_PROPERTY_REFUND_COST_ALLOCATION, this.refundCostAllocation);
+    }
+    if (isSetRemainder) {
+      addIfNull(nulls, JSON_PROPERTY_REMAINDER, this.remainder);
+    }
+    if (isSetSchemeFee) {
+      addIfNull(nulls, JSON_PROPERTY_SCHEME_FEE, this.schemeFee);
+    }
+    if (isSetSplitLogicId) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_LOGIC_ID, this.splitLogicId);
+    }
+    if (isSetSurcharge) {
+      addIfNull(nulls, JSON_PROPERTY_SURCHARGE, this.surcharge);
+    }
+    if (isSetTip) {
+      addIfNull(nulls, JSON_PROPERTY_TIP, this.tip);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

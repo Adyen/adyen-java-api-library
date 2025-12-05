@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,18 +33,39 @@ public class Nexo {
   public static final String JSON_PROPERTY_DISPLAY_URLS = "displayUrls";
   private NotificationUrl displayUrls;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisplayUrls = false;
+
   public static final String JSON_PROPERTY_ENCRYPTION_KEY = "encryptionKey";
   private Key encryptionKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptionKey = false;
+
   public static final String JSON_PROPERTY_EVENT_URLS = "eventUrls";
   private EventUrl eventUrls;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventUrls = false;
 
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
   @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   private List<String> nexoEventUrls;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNexoEventUrls = false;
+
   public static final String JSON_PROPERTY_NOTIFICATION = "notification";
   private Notification notification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNotification = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Nexo() {}
 
@@ -54,6 +77,7 @@ public class Nexo {
    */
   public Nexo displayUrls(NotificationUrl displayUrls) {
     this.displayUrls = displayUrls;
+    isSetDisplayUrls = true; // mark as set
     return this;
   }
 
@@ -77,6 +101,7 @@ public class Nexo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayUrls(NotificationUrl displayUrls) {
     this.displayUrls = displayUrls;
+    isSetDisplayUrls = true; // mark as set
   }
 
   /**
@@ -87,6 +112,7 @@ public class Nexo {
    */
   public Nexo encryptionKey(Key encryptionKey) {
     this.encryptionKey = encryptionKey;
+    isSetEncryptionKey = true; // mark as set
     return this;
   }
 
@@ -110,6 +136,7 @@ public class Nexo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionKey(Key encryptionKey) {
     this.encryptionKey = encryptionKey;
+    isSetEncryptionKey = true; // mark as set
   }
 
   /**
@@ -120,6 +147,7 @@ public class Nexo {
    */
   public Nexo eventUrls(EventUrl eventUrls) {
     this.eventUrls = eventUrls;
+    isSetEventUrls = true; // mark as set
     return this;
   }
 
@@ -143,6 +171,7 @@ public class Nexo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventUrls(EventUrl eventUrls) {
     this.eventUrls = eventUrls;
+    isSetEventUrls = true; // mark as set
   }
 
   /**
@@ -155,6 +184,7 @@ public class Nexo {
   @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
+    isSetNexoEventUrls = true; // mark as set
     return this;
   }
 
@@ -190,6 +220,7 @@ public class Nexo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
+    isSetNexoEventUrls = true; // mark as set
   }
 
   /**
@@ -200,6 +231,7 @@ public class Nexo {
    */
   public Nexo notification(Notification notification) {
     this.notification = notification;
+    isSetNotification = true; // mark as set
     return this;
   }
 
@@ -223,6 +255,27 @@ public class Nexo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(Notification notification) {
     this.notification = notification;
+    isSetNotification = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Nexo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Nexo object is equal to o. */
@@ -268,6 +321,42 @@ public class Nexo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDisplayUrls) {
+      addIfNull(nulls, JSON_PROPERTY_DISPLAY_URLS, this.displayUrls);
+    }
+    if (isSetEncryptionKey) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTION_KEY, this.encryptionKey);
+    }
+    if (isSetEventUrls) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_URLS, this.eventUrls);
+    }
+    if (isSetNexoEventUrls) {
+      addIfNull(nulls, JSON_PROPERTY_NEXO_EVENT_URLS, this.nexoEventUrls);
+    }
+    if (isSetNotification) {
+      addIfNull(nulls, JSON_PROPERTY_NOTIFICATION, this.notification);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

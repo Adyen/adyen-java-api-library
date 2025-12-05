@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Standalone {
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
   private String currencyCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrencyCode = false;
+
   public static final String JSON_PROPERTY_ENABLE_GRATUITIES = "enableGratuities";
   private Boolean enableGratuities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnableGratuities = false;
+
   public static final String JSON_PROPERTY_ENABLE_STANDALONE = "enableStandalone";
   private Boolean enableStandalone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnableStandalone = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Standalone() {}
 
@@ -45,6 +62,7 @@ public class Standalone {
    */
   public Standalone currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+    isSetCurrencyCode = true; // mark as set
     return this;
   }
 
@@ -72,6 +90,7 @@ public class Standalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+    isSetCurrencyCode = true; // mark as set
   }
 
   /**
@@ -84,6 +103,7 @@ public class Standalone {
    */
   public Standalone enableGratuities(Boolean enableGratuities) {
     this.enableGratuities = enableGratuities;
+    isSetEnableGratuities = true; // mark as set
     return this;
   }
 
@@ -111,6 +131,7 @@ public class Standalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableGratuities(Boolean enableGratuities) {
     this.enableGratuities = enableGratuities;
+    isSetEnableGratuities = true; // mark as set
   }
 
   /**
@@ -121,6 +142,7 @@ public class Standalone {
    */
   public Standalone enableStandalone(Boolean enableStandalone) {
     this.enableStandalone = enableStandalone;
+    isSetEnableStandalone = true; // mark as set
     return this;
   }
 
@@ -144,6 +166,27 @@ public class Standalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableStandalone(Boolean enableStandalone) {
     this.enableStandalone = enableStandalone;
+    isSetEnableStandalone = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Standalone includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Standalone object is equal to o. */
@@ -185,6 +228,36 @@ public class Standalone {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCurrencyCode) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY_CODE, this.currencyCode);
+    }
+    if (isSetEnableGratuities) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLE_GRATUITIES, this.enableGratuities);
+    }
+    if (isSetEnableStandalone) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLE_STANDALONE, this.enableStandalone);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

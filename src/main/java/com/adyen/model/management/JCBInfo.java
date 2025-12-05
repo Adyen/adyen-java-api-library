@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,8 +34,14 @@ public class JCBInfo {
   public static final String JSON_PROPERTY_MID_NUMBER = "midNumber";
   private String midNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMidNumber = false;
+
   public static final String JSON_PROPERTY_REUSE_MID_NUMBER = "reuseMidNumber";
   private Boolean reuseMidNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReuseMidNumber = false;
 
   /**
    * Specifies the service level (settlement type) of this payment method. Required for merchants
@@ -89,8 +97,20 @@ public class JCBInfo {
   public static final String JSON_PROPERTY_SERVICE_LEVEL = "serviceLevel";
   private ServiceLevelEnum serviceLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetServiceLevel = false;
+
   public static final String JSON_PROPERTY_TRANSACTION_DESCRIPTION = "transactionDescription";
   private TransactionDescriptionInfo transactionDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionDescription = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public JCBInfo() {}
 
@@ -109,6 +129,7 @@ public class JCBInfo {
    */
   public JCBInfo midNumber(String midNumber) {
     this.midNumber = midNumber;
+    isSetMidNumber = true; // mark as set
     return this;
   }
 
@@ -146,6 +167,7 @@ public class JCBInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMidNumber(String midNumber) {
     this.midNumber = midNumber;
+    isSetMidNumber = true; // mark as set
   }
 
   /**
@@ -160,6 +182,7 @@ public class JCBInfo {
    */
   public JCBInfo reuseMidNumber(Boolean reuseMidNumber) {
     this.reuseMidNumber = reuseMidNumber;
+    isSetReuseMidNumber = true; // mark as set
     return this;
   }
 
@@ -191,6 +214,7 @@ public class JCBInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMidNumber(Boolean reuseMidNumber) {
     this.reuseMidNumber = reuseMidNumber;
+    isSetReuseMidNumber = true; // mark as set
   }
 
   /**
@@ -214,6 +238,7 @@ public class JCBInfo {
    */
   public JCBInfo serviceLevel(ServiceLevelEnum serviceLevel) {
     this.serviceLevel = serviceLevel;
+    isSetServiceLevel = true; // mark as set
     return this;
   }
 
@@ -263,6 +288,7 @@ public class JCBInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceLevel(ServiceLevelEnum serviceLevel) {
     this.serviceLevel = serviceLevel;
+    isSetServiceLevel = true; // mark as set
   }
 
   /**
@@ -273,6 +299,7 @@ public class JCBInfo {
    */
   public JCBInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
+    isSetTransactionDescription = true; // mark as set
     return this;
   }
 
@@ -296,6 +323,27 @@ public class JCBInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
+    isSetTransactionDescription = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public JCBInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this JCBInfo object is equal to o. */
@@ -341,6 +389,39 @@ public class JCBInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMidNumber) {
+      addIfNull(nulls, JSON_PROPERTY_MID_NUMBER, this.midNumber);
+    }
+    if (isSetReuseMidNumber) {
+      addIfNull(nulls, JSON_PROPERTY_REUSE_MID_NUMBER, this.reuseMidNumber);
+    }
+    if (isSetServiceLevel) {
+      addIfNull(nulls, JSON_PROPERTY_SERVICE_LEVEL, this.serviceLevel);
+    }
+    if (isSetTransactionDescription) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_DESCRIPTION, this.transactionDescription);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

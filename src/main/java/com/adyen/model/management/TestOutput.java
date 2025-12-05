@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class TestOutput {
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantId = false;
+
   public static final String JSON_PROPERTY_OUTPUT = "output";
   private String output;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOutput = false;
 
   public static final String JSON_PROPERTY_REQUEST_SENT = "requestSent";
   private String requestSent;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestSent = false;
+
   public static final String JSON_PROPERTY_RESPONSE_CODE = "responseCode";
   private String responseCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResponseCode = false;
 
   public static final String JSON_PROPERTY_RESPONSE_TIME = "responseTime";
   private String responseTime;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResponseTime = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TestOutput() {}
 
@@ -55,6 +81,7 @@ public class TestOutput {
    */
   public TestOutput merchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class TestOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
   }
 
   /**
@@ -100,6 +128,7 @@ public class TestOutput {
    */
   public TestOutput output(String output) {
     this.output = output;
+    isSetOutput = true; // mark as set
     return this;
   }
 
@@ -147,6 +176,7 @@ public class TestOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutput(String output) {
     this.output = output;
+    isSetOutput = true; // mark as set
   }
 
   /**
@@ -161,6 +191,7 @@ public class TestOutput {
    */
   public TestOutput requestSent(String requestSent) {
     this.requestSent = requestSent;
+    isSetRequestSent = true; // mark as set
     return this;
   }
 
@@ -192,6 +223,7 @@ public class TestOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestSent(String requestSent) {
     this.requestSent = requestSent;
+    isSetRequestSent = true; // mark as set
   }
 
   /**
@@ -208,6 +240,7 @@ public class TestOutput {
    */
   public TestOutput responseCode(String responseCode) {
     this.responseCode = responseCode;
+    isSetResponseCode = true; // mark as set
     return this;
   }
 
@@ -243,6 +276,7 @@ public class TestOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseCode(String responseCode) {
     this.responseCode = responseCode;
+    isSetResponseCode = true; // mark as set
   }
 
   /**
@@ -257,6 +291,7 @@ public class TestOutput {
    */
   public TestOutput responseTime(String responseTime) {
     this.responseTime = responseTime;
+    isSetResponseTime = true; // mark as set
     return this;
   }
 
@@ -288,6 +323,7 @@ public class TestOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseTime(String responseTime) {
     this.responseTime = responseTime;
+    isSetResponseTime = true; // mark as set
   }
 
   /**
@@ -310,6 +346,7 @@ public class TestOutput {
    */
   public TestOutput status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -357,6 +394,27 @@ public class TestOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TestOutput includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TestOutput object is equal to o. */
@@ -404,6 +462,45 @@ public class TestOutput {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantId) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
+    }
+    if (isSetOutput) {
+      addIfNull(nulls, JSON_PROPERTY_OUTPUT, this.output);
+    }
+    if (isSetRequestSent) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_SENT, this.requestSent);
+    }
+    if (isSetResponseCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESPONSE_CODE, this.responseCode);
+    }
+    if (isSetResponseTime) {
+      addIfNull(nulls, JSON_PROPERTY_RESPONSE_TIME, this.responseTime);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

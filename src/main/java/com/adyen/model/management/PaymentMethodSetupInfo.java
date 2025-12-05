@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,6 +46,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethodSetupInfo.JSON_PROPERTY_GIROCARD,
+  PaymentMethodSetupInfo.JSON_PROPERTY_GIVEX,
   PaymentMethodSetupInfo.JSON_PROPERTY_GOOGLE_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_IDEAL,
   PaymentMethodSetupInfo.JSON_PROPERTY_INTERAC_CARD,
@@ -71,7 +74,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_TICKET,
   PaymentMethodSetupInfo.JSON_PROPERTY_TWINT,
   PaymentMethodSetupInfo.JSON_PROPERTY_TYPE,
-  PaymentMethodSetupInfo.JSON_PROPERTY_VALUE_LINK,
+  PaymentMethodSetupInfo.JSON_PROPERTY_VALUELINK,
   PaymentMethodSetupInfo.JSON_PROPERTY_VIPPS,
   PaymentMethodSetupInfo.JSON_PROPERTY_VISA,
   PaymentMethodSetupInfo.JSON_PROPERTY_WECHATPAY,
@@ -81,110 +84,224 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_ACCEL = "accel";
   private AccelInfo accel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccel = false;
+
   public static final String JSON_PROPERTY_AFFIRM = "affirm";
   private AffirmInfo affirm;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAffirm = false;
 
   public static final String JSON_PROPERTY_AFTERPAY_TOUCH = "afterpayTouch";
   private AfterpayTouchInfo afterpayTouch;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAfterpayTouch = false;
+
   public static final String JSON_PROPERTY_ALIPAY_PLUS = "alipayPlus";
   private AlipayPlusInfo alipayPlus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlipayPlus = false;
 
   public static final String JSON_PROPERTY_AMEX = "amex";
   private AmexInfo amex;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmex = false;
+
   public static final String JSON_PROPERTY_APPLE_PAY = "applePay";
   private ApplePayInfo applePay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplePay = false;
 
   public static final String JSON_PROPERTY_BCMC = "bcmc";
   private BcmcInfo bcmc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBcmc = false;
+
   public static final String JSON_PROPERTY_BUSINESS_LINE_ID = "businessLineId";
   private String businessLineId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBusinessLineId = false;
 
   public static final String JSON_PROPERTY_CARTES_BANCAIRES = "cartesBancaires";
   private CartesBancairesInfo cartesBancaires;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCartesBancaires = false;
+
   public static final String JSON_PROPERTY_CLEARPAY = "clearpay";
   private ClearpayInfo clearpay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetClearpay = false;
 
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private List<String> countries;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountries = false;
+
   public static final String JSON_PROPERTY_CUP = "cup";
   private GenericPmWithTdiInfo cup;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCup = false;
 
   public static final String JSON_PROPERTY_CURRENCIES = "currencies";
   private List<String> currencies;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrencies = false;
+
   public static final String JSON_PROPERTY_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
   private List<String> customRoutingFlags;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCustomRoutingFlags = false;
 
   public static final String JSON_PROPERTY_DINERS = "diners";
   private DinersInfo diners;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDiners = false;
+
   public static final String JSON_PROPERTY_DISCOVER = "discover";
   private GenericPmWithTdiInfo discover;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDiscover = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
   private GenericPmWithTdiInfo eftDirectdebitCA;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEftDirectdebitCA = false;
+
   public static final String JSON_PROPERTY_EFTPOS_AUSTRALIA = "eftpos_australia";
   private GenericPmWithTdiInfo eftposAustralia;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEftposAustralia = false;
 
   public static final String JSON_PROPERTY_GIROCARD = "girocard";
   private GenericPmWithTdiInfo girocard;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGirocard = false;
+
+  public static final String JSON_PROPERTY_GIVEX = "givex";
+  private GivexInfo givex;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGivex = false;
+
   public static final String JSON_PROPERTY_GOOGLE_PAY = "googlePay";
   private GooglePayInfo googlePay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGooglePay = false;
 
   public static final String JSON_PROPERTY_IDEAL = "ideal";
   private GenericPmWithTdiInfo ideal;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdeal = false;
+
   public static final String JSON_PROPERTY_INTERAC_CARD = "interac_card";
   private GenericPmWithTdiInfo interacCard;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInteracCard = false;
 
   public static final String JSON_PROPERTY_JCB = "jcb";
   private JCBInfo jcb;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetJcb = false;
+
   public static final String JSON_PROPERTY_KLARNA = "klarna";
   private KlarnaInfo klarna;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetKlarna = false;
 
   public static final String JSON_PROPERTY_MAESTRO = "maestro";
   private GenericPmWithTdiInfo maestro;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaestro = false;
+
   public static final String JSON_PROPERTY_MAESTRO_USA = "maestro_usa";
   private GenericPmWithTdiInfo maestroUsa;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaestroUsa = false;
 
   public static final String JSON_PROPERTY_MC = "mc";
   private GenericPmWithTdiInfo mc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMc = false;
+
   public static final String JSON_PROPERTY_MEAL_VOUCHER_F_R = "mealVoucher_FR";
   private MealVoucherFRInfo mealVoucherFR;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMealVoucherFR = false;
 
   public static final String JSON_PROPERTY_NYCE = "nyce";
   private NyceInfo nyce;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNyce = false;
+
   public static final String JSON_PROPERTY_PAYBYBANK_PLAID = "paybybank_plaid";
   private PayByBankPlaidInfo paybybankPlaid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaybybankPlaid = false;
 
   public static final String JSON_PROPERTY_PAYME = "payme";
   private PayMeInfo payme;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayme = false;
+
   public static final String JSON_PROPERTY_PAYPAL = "paypal";
   private PayPalInfo paypal;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaypal = false;
 
   public static final String JSON_PROPERTY_PAYTO = "payto";
   private PayToInfo payto;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayto = false;
+
   public static final String JSON_PROPERTY_PULSE = "pulse";
   private PulseInfo pulse;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPulse = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SEPADIRECTDEBIT = "sepadirectdebit";
   private SepaDirectDebitInfo sepadirectdebit;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSepadirectdebit = false;
 
   /**
    * The sales channel. Required if the merchant account does not have a sales channel. When you
@@ -238,29 +355,56 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SODEXO = "sodexo";
   private SodexoInfo sodexo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSodexo = false;
 
   public static final String JSON_PROPERTY_SOFORT = "sofort";
   private SofortInfo sofort;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSofort = false;
+
   public static final String JSON_PROPERTY_STAR = "star";
   private StarInfo star;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStar = false;
 
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   private List<String> storeIds;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreIds = false;
+
   public static final String JSON_PROPERTY_SVS = "svs";
   private SvsInfo svs;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSvs = false;
 
   public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSwish = false;
+
   public static final String JSON_PROPERTY_TICKET = "ticket";
   private TicketInfo ticket;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTicket = false;
+
   public static final String JSON_PROPERTY_TWINT = "twint";
   private TwintInfo twint;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTwint = false;
 
   /**
    * Payment method
@@ -366,6 +510,8 @@ public class PaymentMethodSetupInfo {
     ELODEBIT(String.valueOf("elodebit")),
 
     GIROCARD(String.valueOf("girocard")),
+
+    GIVEX(String.valueOf("givex")),
 
     GOOGLEPAY(String.valueOf("googlepay")),
 
@@ -505,7 +651,7 @@ public class PaymentMethodSetupInfo {
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
 
-    VALUELINK(String.valueOf("valueLink")),
+    VALUELINK(String.valueOf("valuelink")),
 
     VEGAS_CARD(String.valueOf("vegas_card")),
 
@@ -571,20 +717,44 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public static final String JSON_PROPERTY_VALUE_LINK = "valueLink";
-  private ValueLinkInfo valueLink;
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  public static final String JSON_PROPERTY_VALUELINK = "valuelink";
+  private ValuelinkInfo valuelink;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValuelink = false;
 
   public static final String JSON_PROPERTY_VIPPS = "vipps";
   private VippsInfo vipps;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVipps = false;
+
   public static final String JSON_PROPERTY_VISA = "visa";
   private GenericPmWithTdiInfo visa;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVisa = false;
 
   public static final String JSON_PROPERTY_WECHATPAY = "wechatpay";
   private WeChatPayInfo wechatpay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWechatpay = false;
+
   public static final String JSON_PROPERTY_WECHATPAY_POS = "wechatpay_pos";
   private WeChatPayPosInfo wechatpayPos;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWechatpayPos = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethodSetupInfo() {}
 
@@ -596,6 +766,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo accel(AccelInfo accel) {
     this.accel = accel;
+    isSetAccel = true; // mark as set
     return this;
   }
 
@@ -619,6 +790,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccel(AccelInfo accel) {
     this.accel = accel;
+    isSetAccel = true; // mark as set
   }
 
   /**
@@ -629,6 +801,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo affirm(AffirmInfo affirm) {
     this.affirm = affirm;
+    isSetAffirm = true; // mark as set
     return this;
   }
 
@@ -652,6 +825,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAffirm(AffirmInfo affirm) {
     this.affirm = affirm;
+    isSetAffirm = true; // mark as set
   }
 
   /**
@@ -662,6 +836,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo afterpayTouch(AfterpayTouchInfo afterpayTouch) {
     this.afterpayTouch = afterpayTouch;
+    isSetAfterpayTouch = true; // mark as set
     return this;
   }
 
@@ -685,6 +860,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAfterpayTouch(AfterpayTouchInfo afterpayTouch) {
     this.afterpayTouch = afterpayTouch;
+    isSetAfterpayTouch = true; // mark as set
   }
 
   /**
@@ -695,6 +871,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo alipayPlus(AlipayPlusInfo alipayPlus) {
     this.alipayPlus = alipayPlus;
+    isSetAlipayPlus = true; // mark as set
     return this;
   }
 
@@ -718,6 +895,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlipayPlus(AlipayPlusInfo alipayPlus) {
     this.alipayPlus = alipayPlus;
+    isSetAlipayPlus = true; // mark as set
   }
 
   /**
@@ -728,6 +906,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo amex(AmexInfo amex) {
     this.amex = amex;
+    isSetAmex = true; // mark as set
     return this;
   }
 
@@ -751,6 +930,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmex(AmexInfo amex) {
     this.amex = amex;
+    isSetAmex = true; // mark as set
   }
 
   /**
@@ -761,6 +941,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo applePay(ApplePayInfo applePay) {
     this.applePay = applePay;
+    isSetApplePay = true; // mark as set
     return this;
   }
 
@@ -784,6 +965,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplePay(ApplePayInfo applePay) {
     this.applePay = applePay;
+    isSetApplePay = true; // mark as set
   }
 
   /**
@@ -794,6 +976,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo bcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
+    isSetBcmc = true; // mark as set
     return this;
   }
 
@@ -817,6 +1000,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
+    isSetBcmc = true; // mark as set
   }
 
   /**
@@ -829,6 +1013,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo businessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
+    isSetBusinessLineId = true; // mark as set
     return this;
   }
 
@@ -856,6 +1041,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
+    isSetBusinessLineId = true; // mark as set
   }
 
   /**
@@ -866,6 +1052,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo cartesBancaires(CartesBancairesInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
+    isSetCartesBancaires = true; // mark as set
     return this;
   }
 
@@ -889,6 +1076,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
+    isSetCartesBancaires = true; // mark as set
   }
 
   /**
@@ -899,6 +1087,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo clearpay(ClearpayInfo clearpay) {
     this.clearpay = clearpay;
+    isSetClearpay = true; // mark as set
     return this;
   }
 
@@ -922,6 +1111,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearpay(ClearpayInfo clearpay) {
     this.clearpay = clearpay;
+    isSetClearpay = true; // mark as set
   }
 
   /**
@@ -934,6 +1124,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo countries(List<String> countries) {
     this.countries = countries;
+    isSetCountries = true; // mark as set
     return this;
   }
 
@@ -969,6 +1160,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(List<String> countries) {
     this.countries = countries;
+    isSetCountries = true; // mark as set
   }
 
   /**
@@ -979,6 +1171,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo cup(GenericPmWithTdiInfo cup) {
     this.cup = cup;
+    isSetCup = true; // mark as set
     return this;
   }
 
@@ -1002,6 +1195,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCup(GenericPmWithTdiInfo cup) {
     this.cup = cup;
+    isSetCup = true; // mark as set
   }
 
   /**
@@ -1014,6 +1208,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo currencies(List<String> currencies) {
     this.currencies = currencies;
+    isSetCurrencies = true; // mark as set
     return this;
   }
 
@@ -1049,6 +1244,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<String> currencies) {
     this.currencies = currencies;
+    isSetCurrencies = true; // mark as set
   }
 
   /**
@@ -1060,6 +1256,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo customRoutingFlags(List<String> customRoutingFlags) {
     this.customRoutingFlags = customRoutingFlags;
+    isSetCustomRoutingFlags = true; // mark as set
     return this;
   }
 
@@ -1093,6 +1290,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlags(List<String> customRoutingFlags) {
     this.customRoutingFlags = customRoutingFlags;
+    isSetCustomRoutingFlags = true; // mark as set
   }
 
   /**
@@ -1103,6 +1301,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo diners(DinersInfo diners) {
     this.diners = diners;
+    isSetDiners = true; // mark as set
     return this;
   }
 
@@ -1126,6 +1325,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiners(DinersInfo diners) {
     this.diners = diners;
+    isSetDiners = true; // mark as set
   }
 
   /**
@@ -1136,6 +1336,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo discover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
+    isSetDiscover = true; // mark as set
     return this;
   }
 
@@ -1159,6 +1360,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
+    isSetDiscover = true; // mark as set
   }
 
   /**
@@ -1169,6 +1371,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo eftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
     this.eftDirectdebitCA = eftDirectdebitCA;
+    isSetEftDirectdebitCA = true; // mark as set
     return this;
   }
 
@@ -1192,6 +1395,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
     this.eftDirectdebitCA = eftDirectdebitCA;
+    isSetEftDirectdebitCA = true; // mark as set
   }
 
   /**
@@ -1202,6 +1406,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo eftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
     this.eftposAustralia = eftposAustralia;
+    isSetEftposAustralia = true; // mark as set
     return this;
   }
 
@@ -1225,6 +1430,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
     this.eftposAustralia = eftposAustralia;
+    isSetEftposAustralia = true; // mark as set
   }
 
   /**
@@ -1235,6 +1441,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo girocard(GenericPmWithTdiInfo girocard) {
     this.girocard = girocard;
+    isSetGirocard = true; // mark as set
     return this;
   }
 
@@ -1258,6 +1465,42 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGirocard(GenericPmWithTdiInfo girocard) {
     this.girocard = girocard;
+    isSetGirocard = true; // mark as set
+  }
+
+  /**
+   * givex
+   *
+   * @param givex
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo givex(GivexInfo givex) {
+    this.givex = givex;
+    isSetGivex = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get givex
+   *
+   * @return givex
+   */
+  @JsonProperty(JSON_PROPERTY_GIVEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GivexInfo getGivex() {
+    return givex;
+  }
+
+  /**
+   * givex
+   *
+   * @param givex
+   */
+  @JsonProperty(JSON_PROPERTY_GIVEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGivex(GivexInfo givex) {
+    this.givex = givex;
+    isSetGivex = true; // mark as set
   }
 
   /**
@@ -1268,6 +1511,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo googlePay(GooglePayInfo googlePay) {
     this.googlePay = googlePay;
+    isSetGooglePay = true; // mark as set
     return this;
   }
 
@@ -1291,6 +1535,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePay(GooglePayInfo googlePay) {
     this.googlePay = googlePay;
+    isSetGooglePay = true; // mark as set
   }
 
   /**
@@ -1301,6 +1546,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo ideal(GenericPmWithTdiInfo ideal) {
     this.ideal = ideal;
+    isSetIdeal = true; // mark as set
     return this;
   }
 
@@ -1324,6 +1570,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdeal(GenericPmWithTdiInfo ideal) {
     this.ideal = ideal;
+    isSetIdeal = true; // mark as set
   }
 
   /**
@@ -1334,6 +1581,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo interacCard(GenericPmWithTdiInfo interacCard) {
     this.interacCard = interacCard;
+    isSetInteracCard = true; // mark as set
     return this;
   }
 
@@ -1357,6 +1605,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInteracCard(GenericPmWithTdiInfo interacCard) {
     this.interacCard = interacCard;
+    isSetInteracCard = true; // mark as set
   }
 
   /**
@@ -1367,6 +1616,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo jcb(JCBInfo jcb) {
     this.jcb = jcb;
+    isSetJcb = true; // mark as set
     return this;
   }
 
@@ -1390,6 +1640,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJcb(JCBInfo jcb) {
     this.jcb = jcb;
+    isSetJcb = true; // mark as set
   }
 
   /**
@@ -1400,6 +1651,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo klarna(KlarnaInfo klarna) {
     this.klarna = klarna;
+    isSetKlarna = true; // mark as set
     return this;
   }
 
@@ -1423,6 +1675,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKlarna(KlarnaInfo klarna) {
     this.klarna = klarna;
+    isSetKlarna = true; // mark as set
   }
 
   /**
@@ -1433,6 +1686,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo maestro(GenericPmWithTdiInfo maestro) {
     this.maestro = maestro;
+    isSetMaestro = true; // mark as set
     return this;
   }
 
@@ -1456,6 +1710,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestro(GenericPmWithTdiInfo maestro) {
     this.maestro = maestro;
+    isSetMaestro = true; // mark as set
   }
 
   /**
@@ -1466,6 +1721,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo maestroUsa(GenericPmWithTdiInfo maestroUsa) {
     this.maestroUsa = maestroUsa;
+    isSetMaestroUsa = true; // mark as set
     return this;
   }
 
@@ -1489,6 +1745,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestroUsa(GenericPmWithTdiInfo maestroUsa) {
     this.maestroUsa = maestroUsa;
+    isSetMaestroUsa = true; // mark as set
   }
 
   /**
@@ -1499,6 +1756,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo mc(GenericPmWithTdiInfo mc) {
     this.mc = mc;
+    isSetMc = true; // mark as set
     return this;
   }
 
@@ -1522,6 +1780,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMc(GenericPmWithTdiInfo mc) {
     this.mc = mc;
+    isSetMc = true; // mark as set
   }
 
   /**
@@ -1532,6 +1791,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo mealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
     this.mealVoucherFR = mealVoucherFR;
+    isSetMealVoucherFR = true; // mark as set
     return this;
   }
 
@@ -1555,6 +1815,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
     this.mealVoucherFR = mealVoucherFR;
+    isSetMealVoucherFR = true; // mark as set
   }
 
   /**
@@ -1565,6 +1826,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo nyce(NyceInfo nyce) {
     this.nyce = nyce;
+    isSetNyce = true; // mark as set
     return this;
   }
 
@@ -1588,6 +1850,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNyce(NyceInfo nyce) {
     this.nyce = nyce;
+    isSetNyce = true; // mark as set
   }
 
   /**
@@ -1598,6 +1861,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo paybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
     this.paybybankPlaid = paybybankPlaid;
+    isSetPaybybankPlaid = true; // mark as set
     return this;
   }
 
@@ -1621,6 +1885,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
     this.paybybankPlaid = paybybankPlaid;
+    isSetPaybybankPlaid = true; // mark as set
   }
 
   /**
@@ -1631,6 +1896,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo payme(PayMeInfo payme) {
     this.payme = payme;
+    isSetPayme = true; // mark as set
     return this;
   }
 
@@ -1654,6 +1920,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayme(PayMeInfo payme) {
     this.payme = payme;
+    isSetPayme = true; // mark as set
   }
 
   /**
@@ -1664,6 +1931,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo paypal(PayPalInfo paypal) {
     this.paypal = paypal;
+    isSetPaypal = true; // mark as set
     return this;
   }
 
@@ -1687,6 +1955,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaypal(PayPalInfo paypal) {
     this.paypal = paypal;
+    isSetPaypal = true; // mark as set
   }
 
   /**
@@ -1697,6 +1966,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo payto(PayToInfo payto) {
     this.payto = payto;
+    isSetPayto = true; // mark as set
     return this;
   }
 
@@ -1720,6 +1990,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayto(PayToInfo payto) {
     this.payto = payto;
+    isSetPayto = true; // mark as set
   }
 
   /**
@@ -1730,6 +2001,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo pulse(PulseInfo pulse) {
     this.pulse = pulse;
+    isSetPulse = true; // mark as set
     return this;
   }
 
@@ -1753,6 +2025,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPulse(PulseInfo pulse) {
     this.pulse = pulse;
+    isSetPulse = true; // mark as set
   }
 
   /**
@@ -1763,6 +2036,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -1786,6 +2060,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -1796,6 +2071,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo sepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
     this.sepadirectdebit = sepadirectdebit;
+    isSetSepadirectdebit = true; // mark as set
     return this;
   }
 
@@ -1819,6 +2095,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
     this.sepadirectdebit = sepadirectdebit;
+    isSetSepadirectdebit = true; // mark as set
   }
 
   /**
@@ -1833,6 +2110,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -1864,6 +2142,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -1874,6 +2153,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo sodexo(SodexoInfo sodexo) {
     this.sodexo = sodexo;
+    isSetSodexo = true; // mark as set
     return this;
   }
 
@@ -1897,6 +2177,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSodexo(SodexoInfo sodexo) {
     this.sodexo = sodexo;
+    isSetSodexo = true; // mark as set
   }
 
   /**
@@ -1907,6 +2188,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo sofort(SofortInfo sofort) {
     this.sofort = sofort;
+    isSetSofort = true; // mark as set
     return this;
   }
 
@@ -1930,6 +2212,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSofort(SofortInfo sofort) {
     this.sofort = sofort;
+    isSetSofort = true; // mark as set
   }
 
   /**
@@ -1940,6 +2223,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo star(StarInfo star) {
     this.star = star;
+    isSetStar = true; // mark as set
     return this;
   }
 
@@ -1963,6 +2247,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStar(StarInfo star) {
     this.star = star;
+    isSetStar = true; // mark as set
   }
 
   /**
@@ -1974,6 +2259,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
+    isSetStoreIds = true; // mark as set
     return this;
   }
 
@@ -2007,6 +2293,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
     this.storeIds = storeIds;
+    isSetStoreIds = true; // mark as set
   }
 
   /**
@@ -2017,6 +2304,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo svs(SvsInfo svs) {
     this.svs = svs;
+    isSetSvs = true; // mark as set
     return this;
   }
 
@@ -2040,6 +2328,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSvs(SvsInfo svs) {
     this.svs = svs;
+    isSetSvs = true; // mark as set
   }
 
   /**
@@ -2050,6 +2339,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo swish(SwishInfo swish) {
     this.swish = swish;
+    isSetSwish = true; // mark as set
     return this;
   }
 
@@ -2073,6 +2363,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwish(SwishInfo swish) {
     this.swish = swish;
+    isSetSwish = true; // mark as set
   }
 
   /**
@@ -2083,6 +2374,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo ticket(TicketInfo ticket) {
     this.ticket = ticket;
+    isSetTicket = true; // mark as set
     return this;
   }
 
@@ -2106,6 +2398,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTicket(TicketInfo ticket) {
     this.ticket = ticket;
+    isSetTicket = true; // mark as set
   }
 
   /**
@@ -2116,6 +2409,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo twint(TwintInfo twint) {
     this.twint = twint;
+    isSetTwint = true; // mark as set
     return this;
   }
 
@@ -2139,6 +2433,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTwint(TwintInfo twint) {
     this.twint = twint;
+    isSetTwint = true; // mark as set
   }
 
   /**
@@ -2151,6 +2446,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -2178,39 +2474,42 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
-   * valueLink
+   * valuelink
    *
-   * @param valueLink
+   * @param valuelink
    * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
    */
-  public PaymentMethodSetupInfo valueLink(ValueLinkInfo valueLink) {
-    this.valueLink = valueLink;
+  public PaymentMethodSetupInfo valuelink(ValuelinkInfo valuelink) {
+    this.valuelink = valuelink;
+    isSetValuelink = true; // mark as set
     return this;
   }
 
   /**
-   * Get valueLink
+   * Get valuelink
    *
-   * @return valueLink
+   * @return valuelink
    */
-  @JsonProperty(JSON_PROPERTY_VALUE_LINK)
+  @JsonProperty(JSON_PROPERTY_VALUELINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ValueLinkInfo getValueLink() {
-    return valueLink;
+  public ValuelinkInfo getValuelink() {
+    return valuelink;
   }
 
   /**
-   * valueLink
+   * valuelink
    *
-   * @param valueLink
+   * @param valuelink
    */
-  @JsonProperty(JSON_PROPERTY_VALUE_LINK)
+  @JsonProperty(JSON_PROPERTY_VALUELINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValueLink(ValueLinkInfo valueLink) {
-    this.valueLink = valueLink;
+  public void setValuelink(ValuelinkInfo valuelink) {
+    this.valuelink = valuelink;
+    isSetValuelink = true; // mark as set
   }
 
   /**
@@ -2221,6 +2520,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo vipps(VippsInfo vipps) {
     this.vipps = vipps;
+    isSetVipps = true; // mark as set
     return this;
   }
 
@@ -2244,6 +2544,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVipps(VippsInfo vipps) {
     this.vipps = vipps;
+    isSetVipps = true; // mark as set
   }
 
   /**
@@ -2254,6 +2555,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo visa(GenericPmWithTdiInfo visa) {
     this.visa = visa;
+    isSetVisa = true; // mark as set
     return this;
   }
 
@@ -2277,6 +2579,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisa(GenericPmWithTdiInfo visa) {
     this.visa = visa;
+    isSetVisa = true; // mark as set
   }
 
   /**
@@ -2287,6 +2590,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo wechatpay(WeChatPayInfo wechatpay) {
     this.wechatpay = wechatpay;
+    isSetWechatpay = true; // mark as set
     return this;
   }
 
@@ -2310,6 +2614,7 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWechatpay(WeChatPayInfo wechatpay) {
     this.wechatpay = wechatpay;
+    isSetWechatpay = true; // mark as set
   }
 
   /**
@@ -2320,6 +2625,7 @@ public class PaymentMethodSetupInfo {
    */
   public PaymentMethodSetupInfo wechatpayPos(WeChatPayPosInfo wechatpayPos) {
     this.wechatpayPos = wechatpayPos;
+    isSetWechatpayPos = true; // mark as set
     return this;
   }
 
@@ -2343,6 +2649,27 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWechatpayPos(WeChatPayPosInfo wechatpayPos) {
     this.wechatpayPos = wechatpayPos;
+    isSetWechatpayPos = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodSetupInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethodSetupInfo object is equal to o. */
@@ -2374,6 +2701,7 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.eftDirectdebitCA, paymentMethodSetupInfo.eftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, paymentMethodSetupInfo.eftposAustralia)
         && Objects.equals(this.girocard, paymentMethodSetupInfo.girocard)
+        && Objects.equals(this.givex, paymentMethodSetupInfo.givex)
         && Objects.equals(this.googlePay, paymentMethodSetupInfo.googlePay)
         && Objects.equals(this.ideal, paymentMethodSetupInfo.ideal)
         && Objects.equals(this.interacCard, paymentMethodSetupInfo.interacCard)
@@ -2401,7 +2729,7 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.ticket, paymentMethodSetupInfo.ticket)
         && Objects.equals(this.twint, paymentMethodSetupInfo.twint)
         && Objects.equals(this.type, paymentMethodSetupInfo.type)
-        && Objects.equals(this.valueLink, paymentMethodSetupInfo.valueLink)
+        && Objects.equals(this.valuelink, paymentMethodSetupInfo.valuelink)
         && Objects.equals(this.vipps, paymentMethodSetupInfo.vipps)
         && Objects.equals(this.visa, paymentMethodSetupInfo.visa)
         && Objects.equals(this.wechatpay, paymentMethodSetupInfo.wechatpay)
@@ -2430,6 +2758,7 @@ public class PaymentMethodSetupInfo {
         eftDirectdebitCA,
         eftposAustralia,
         girocard,
+        givex,
         googlePay,
         ideal,
         interacCard,
@@ -2457,7 +2786,7 @@ public class PaymentMethodSetupInfo {
         ticket,
         twint,
         type,
-        valueLink,
+        valuelink,
         vipps,
         visa,
         wechatpay,
@@ -2487,6 +2816,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
+    sb.append("    givex: ").append(toIndentedString(givex)).append("\n");
     sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    ideal: ").append(toIndentedString(ideal)).append("\n");
     sb.append("    interacCard: ").append(toIndentedString(interacCard)).append("\n");
@@ -2514,7 +2844,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
     sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    valueLink: ").append(toIndentedString(valueLink)).append("\n");
+    sb.append("    valuelink: ").append(toIndentedString(valuelink)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
     sb.append("    wechatpay: ").append(toIndentedString(wechatpay)).append("\n");
@@ -2531,6 +2861,183 @@ public class PaymentMethodSetupInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccel) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEL, this.accel);
+    }
+    if (isSetAffirm) {
+      addIfNull(nulls, JSON_PROPERTY_AFFIRM, this.affirm);
+    }
+    if (isSetAfterpayTouch) {
+      addIfNull(nulls, JSON_PROPERTY_AFTERPAY_TOUCH, this.afterpayTouch);
+    }
+    if (isSetAlipayPlus) {
+      addIfNull(nulls, JSON_PROPERTY_ALIPAY_PLUS, this.alipayPlus);
+    }
+    if (isSetAmex) {
+      addIfNull(nulls, JSON_PROPERTY_AMEX, this.amex);
+    }
+    if (isSetApplePay) {
+      addIfNull(nulls, JSON_PROPERTY_APPLE_PAY, this.applePay);
+    }
+    if (isSetBcmc) {
+      addIfNull(nulls, JSON_PROPERTY_BCMC, this.bcmc);
+    }
+    if (isSetBusinessLineId) {
+      addIfNull(nulls, JSON_PROPERTY_BUSINESS_LINE_ID, this.businessLineId);
+    }
+    if (isSetCartesBancaires) {
+      addIfNull(nulls, JSON_PROPERTY_CARTES_BANCAIRES, this.cartesBancaires);
+    }
+    if (isSetClearpay) {
+      addIfNull(nulls, JSON_PROPERTY_CLEARPAY, this.clearpay);
+    }
+    if (isSetCountries) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRIES, this.countries);
+    }
+    if (isSetCup) {
+      addIfNull(nulls, JSON_PROPERTY_CUP, this.cup);
+    }
+    if (isSetCurrencies) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCIES, this.currencies);
+    }
+    if (isSetCustomRoutingFlags) {
+      addIfNull(nulls, JSON_PROPERTY_CUSTOM_ROUTING_FLAGS, this.customRoutingFlags);
+    }
+    if (isSetDiners) {
+      addIfNull(nulls, JSON_PROPERTY_DINERS, this.diners);
+    }
+    if (isSetDiscover) {
+      addIfNull(nulls, JSON_PROPERTY_DISCOVER, this.discover);
+    }
+    if (isSetEftDirectdebitCA) {
+      addIfNull(nulls, JSON_PROPERTY_EFT_DIRECTDEBIT_C_A, this.eftDirectdebitCA);
+    }
+    if (isSetEftposAustralia) {
+      addIfNull(nulls, JSON_PROPERTY_EFTPOS_AUSTRALIA, this.eftposAustralia);
+    }
+    if (isSetGirocard) {
+      addIfNull(nulls, JSON_PROPERTY_GIROCARD, this.girocard);
+    }
+    if (isSetGivex) {
+      addIfNull(nulls, JSON_PROPERTY_GIVEX, this.givex);
+    }
+    if (isSetGooglePay) {
+      addIfNull(nulls, JSON_PROPERTY_GOOGLE_PAY, this.googlePay);
+    }
+    if (isSetIdeal) {
+      addIfNull(nulls, JSON_PROPERTY_IDEAL, this.ideal);
+    }
+    if (isSetInteracCard) {
+      addIfNull(nulls, JSON_PROPERTY_INTERAC_CARD, this.interacCard);
+    }
+    if (isSetJcb) {
+      addIfNull(nulls, JSON_PROPERTY_JCB, this.jcb);
+    }
+    if (isSetKlarna) {
+      addIfNull(nulls, JSON_PROPERTY_KLARNA, this.klarna);
+    }
+    if (isSetMaestro) {
+      addIfNull(nulls, JSON_PROPERTY_MAESTRO, this.maestro);
+    }
+    if (isSetMaestroUsa) {
+      addIfNull(nulls, JSON_PROPERTY_MAESTRO_USA, this.maestroUsa);
+    }
+    if (isSetMc) {
+      addIfNull(nulls, JSON_PROPERTY_MC, this.mc);
+    }
+    if (isSetMealVoucherFR) {
+      addIfNull(nulls, JSON_PROPERTY_MEAL_VOUCHER_F_R, this.mealVoucherFR);
+    }
+    if (isSetNyce) {
+      addIfNull(nulls, JSON_PROPERTY_NYCE, this.nyce);
+    }
+    if (isSetPaybybankPlaid) {
+      addIfNull(nulls, JSON_PROPERTY_PAYBYBANK_PLAID, this.paybybankPlaid);
+    }
+    if (isSetPayme) {
+      addIfNull(nulls, JSON_PROPERTY_PAYME, this.payme);
+    }
+    if (isSetPaypal) {
+      addIfNull(nulls, JSON_PROPERTY_PAYPAL, this.paypal);
+    }
+    if (isSetPayto) {
+      addIfNull(nulls, JSON_PROPERTY_PAYTO, this.payto);
+    }
+    if (isSetPulse) {
+      addIfNull(nulls, JSON_PROPERTY_PULSE, this.pulse);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSepadirectdebit) {
+      addIfNull(nulls, JSON_PROPERTY_SEPADIRECTDEBIT, this.sepadirectdebit);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetSodexo) {
+      addIfNull(nulls, JSON_PROPERTY_SODEXO, this.sodexo);
+    }
+    if (isSetSofort) {
+      addIfNull(nulls, JSON_PROPERTY_SOFORT, this.sofort);
+    }
+    if (isSetStar) {
+      addIfNull(nulls, JSON_PROPERTY_STAR, this.star);
+    }
+    if (isSetStoreIds) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_IDS, this.storeIds);
+    }
+    if (isSetSvs) {
+      addIfNull(nulls, JSON_PROPERTY_SVS, this.svs);
+    }
+    if (isSetSwish) {
+      addIfNull(nulls, JSON_PROPERTY_SWISH, this.swish);
+    }
+    if (isSetTicket) {
+      addIfNull(nulls, JSON_PROPERTY_TICKET, this.ticket);
+    }
+    if (isSetTwint) {
+      addIfNull(nulls, JSON_PROPERTY_TWINT, this.twint);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetValuelink) {
+      addIfNull(nulls, JSON_PROPERTY_VALUELINK, this.valuelink);
+    }
+    if (isSetVipps) {
+      addIfNull(nulls, JSON_PROPERTY_VIPPS, this.vipps);
+    }
+    if (isSetVisa) {
+      addIfNull(nulls, JSON_PROPERTY_VISA, this.visa);
+    }
+    if (isSetWechatpay) {
+      addIfNull(nulls, JSON_PROPERTY_WECHATPAY, this.wechatpay);
+    }
+    if (isSetWechatpayPos) {
+      addIfNull(nulls, JSON_PROPERTY_WECHATPAY_POS, this.wechatpayPos);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

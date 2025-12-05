@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,8 +30,20 @@ public class AndroidAppError {
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorCode = false;
+
   public static final String JSON_PROPERTY_TERMINAL_MODELS = "terminalModels";
   private List<String> terminalModels;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalModels = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AndroidAppError() {}
 
@@ -43,6 +57,7 @@ public class AndroidAppError {
    */
   public AndroidAppError errorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
     return this;
   }
 
@@ -70,6 +85,7 @@ public class AndroidAppError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
   }
 
   /**
@@ -81,6 +97,7 @@ public class AndroidAppError {
    */
   public AndroidAppError terminalModels(List<String> terminalModels) {
     this.terminalModels = terminalModels;
+    isSetTerminalModels = true; // mark as set
     return this;
   }
 
@@ -114,6 +131,27 @@ public class AndroidAppError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalModels(List<String> terminalModels) {
     this.terminalModels = terminalModels;
+    isSetTerminalModels = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AndroidAppError includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AndroidAppError object is equal to o. */
@@ -153,6 +191,33 @@ public class AndroidAppError {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetErrorCode) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_CODE, this.errorCode);
+    }
+    if (isSetTerminalModels) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_MODELS, this.terminalModels);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

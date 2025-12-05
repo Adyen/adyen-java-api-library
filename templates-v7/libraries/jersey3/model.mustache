@@ -8,10 +8,11 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 {{/useReflectionEqualsHashCode}}
 {{#models}}
 {{#model}}
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 {{#additionalPropertiesType}}
 import java.util.Map;
 import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 {{/additionalPropertiesType}}
 {{/model}}

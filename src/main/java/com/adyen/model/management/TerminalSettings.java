@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +28,7 @@ import java.util.List;
   TerminalSettings.JSON_PROPERTY_GRATUITIES,
   TerminalSettings.JSON_PROPERTY_HARDWARE,
   TerminalSettings.JSON_PROPERTY_LOCALIZATION,
+  TerminalSettings.JSON_PROPERTY_MOTO,
   TerminalSettings.JSON_PROPERTY_NEXO,
   TerminalSettings.JSON_PROPERTY_OFFLINE_PROCESSING,
   TerminalSettings.JSON_PROPERTY_OPI,
@@ -48,68 +51,146 @@ public class TerminalSettings {
   public static final String JSON_PROPERTY_CARDHOLDER_RECEIPT = "cardholderReceipt";
   private CardholderReceipt cardholderReceipt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardholderReceipt = false;
+
   public static final String JSON_PROPERTY_CONNECTIVITY = "connectivity";
   private Connectivity connectivity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConnectivity = false;
 
   public static final String JSON_PROPERTY_GRATUITIES = "gratuities";
   private List<Gratuity> gratuities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGratuities = false;
+
   public static final String JSON_PROPERTY_HARDWARE = "hardware";
   private Hardware hardware;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHardware = false;
 
   public static final String JSON_PROPERTY_LOCALIZATION = "localization";
   private Localization localization;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalization = false;
+
+  public static final String JSON_PROPERTY_MOTO = "moto";
+  private Moto moto;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMoto = false;
+
   public static final String JSON_PROPERTY_NEXO = "nexo";
   private Nexo nexo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNexo = false;
 
   public static final String JSON_PROPERTY_OFFLINE_PROCESSING = "offlineProcessing";
   private OfflineProcessing offlineProcessing;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOfflineProcessing = false;
+
   public static final String JSON_PROPERTY_OPI = "opi";
   private Opi opi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpi = false;
 
   public static final String JSON_PROPERTY_PASSCODES = "passcodes";
   private Passcodes passcodes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPasscodes = false;
+
   public static final String JSON_PROPERTY_PAY_AT_TABLE = "payAtTable";
   private PayAtTable payAtTable;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayAtTable = false;
 
   public static final String JSON_PROPERTY_PAYMENT = "payment";
   private Payment payment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayment = false;
+
   public static final String JSON_PROPERTY_RECEIPT_OPTIONS = "receiptOptions";
   private ReceiptOptions receiptOptions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReceiptOptions = false;
 
   public static final String JSON_PROPERTY_RECEIPT_PRINTING = "receiptPrinting";
   private ReceiptPrinting receiptPrinting;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReceiptPrinting = false;
+
   public static final String JSON_PROPERTY_REFUNDS = "refunds";
   private Refunds refunds;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefunds = false;
 
   public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private Signature signature;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSignature = false;
+
   public static final String JSON_PROPERTY_STANDALONE = "standalone";
   private Standalone standalone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStandalone = false;
 
   public static final String JSON_PROPERTY_STORE_AND_FORWARD = "storeAndForward";
   private StoreAndForward storeAndForward;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreAndForward = false;
+
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private Surcharge surcharge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSurcharge = false;
 
   public static final String JSON_PROPERTY_TAP_TO_PAY = "tapToPay";
   private TapToPay tapToPay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTapToPay = false;
+
   public static final String JSON_PROPERTY_TERMINAL_INSTRUCTIONS = "terminalInstructions";
   private TerminalInstructions terminalInstructions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalInstructions = false;
 
   public static final String JSON_PROPERTY_TIMEOUTS = "timeouts";
   private Timeouts timeouts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeouts = false;
+
   public static final String JSON_PROPERTY_WIFI_PROFILES = "wifiProfiles";
   private WifiProfiles wifiProfiles;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWifiProfiles = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalSettings() {}
 
@@ -121,6 +202,7 @@ public class TerminalSettings {
    */
   public TerminalSettings cardholderReceipt(CardholderReceipt cardholderReceipt) {
     this.cardholderReceipt = cardholderReceipt;
+    isSetCardholderReceipt = true; // mark as set
     return this;
   }
 
@@ -144,6 +226,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderReceipt(CardholderReceipt cardholderReceipt) {
     this.cardholderReceipt = cardholderReceipt;
+    isSetCardholderReceipt = true; // mark as set
   }
 
   /**
@@ -154,6 +237,7 @@ public class TerminalSettings {
    */
   public TerminalSettings connectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
+    isSetConnectivity = true; // mark as set
     return this;
   }
 
@@ -177,6 +261,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
+    isSetConnectivity = true; // mark as set
   }
 
   /**
@@ -190,6 +275,7 @@ public class TerminalSettings {
    */
   public TerminalSettings gratuities(List<Gratuity> gratuities) {
     this.gratuities = gratuities;
+    isSetGratuities = true; // mark as set
     return this;
   }
 
@@ -227,6 +313,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGratuities(List<Gratuity> gratuities) {
     this.gratuities = gratuities;
+    isSetGratuities = true; // mark as set
   }
 
   /**
@@ -237,6 +324,7 @@ public class TerminalSettings {
    */
   public TerminalSettings hardware(Hardware hardware) {
     this.hardware = hardware;
+    isSetHardware = true; // mark as set
     return this;
   }
 
@@ -260,6 +348,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHardware(Hardware hardware) {
     this.hardware = hardware;
+    isSetHardware = true; // mark as set
   }
 
   /**
@@ -270,6 +359,7 @@ public class TerminalSettings {
    */
   public TerminalSettings localization(Localization localization) {
     this.localization = localization;
+    isSetLocalization = true; // mark as set
     return this;
   }
 
@@ -293,6 +383,42 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalization(Localization localization) {
     this.localization = localization;
+    isSetLocalization = true; // mark as set
+  }
+
+  /**
+   * moto
+   *
+   * @param moto
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
+  public TerminalSettings moto(Moto moto) {
+    this.moto = moto;
+    isSetMoto = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get moto
+   *
+   * @return moto
+   */
+  @JsonProperty(JSON_PROPERTY_MOTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Moto getMoto() {
+    return moto;
+  }
+
+  /**
+   * moto
+   *
+   * @param moto
+   */
+  @JsonProperty(JSON_PROPERTY_MOTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMoto(Moto moto) {
+    this.moto = moto;
+    isSetMoto = true; // mark as set
   }
 
   /**
@@ -303,6 +429,7 @@ public class TerminalSettings {
    */
   public TerminalSettings nexo(Nexo nexo) {
     this.nexo = nexo;
+    isSetNexo = true; // mark as set
     return this;
   }
 
@@ -326,6 +453,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexo(Nexo nexo) {
     this.nexo = nexo;
+    isSetNexo = true; // mark as set
   }
 
   /**
@@ -336,6 +464,7 @@ public class TerminalSettings {
    */
   public TerminalSettings offlineProcessing(OfflineProcessing offlineProcessing) {
     this.offlineProcessing = offlineProcessing;
+    isSetOfflineProcessing = true; // mark as set
     return this;
   }
 
@@ -359,6 +488,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineProcessing(OfflineProcessing offlineProcessing) {
     this.offlineProcessing = offlineProcessing;
+    isSetOfflineProcessing = true; // mark as set
   }
 
   /**
@@ -369,6 +499,7 @@ public class TerminalSettings {
    */
   public TerminalSettings opi(Opi opi) {
     this.opi = opi;
+    isSetOpi = true; // mark as set
     return this;
   }
 
@@ -392,6 +523,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpi(Opi opi) {
     this.opi = opi;
+    isSetOpi = true; // mark as set
   }
 
   /**
@@ -402,6 +534,7 @@ public class TerminalSettings {
    */
   public TerminalSettings passcodes(Passcodes passcodes) {
     this.passcodes = passcodes;
+    isSetPasscodes = true; // mark as set
     return this;
   }
 
@@ -425,6 +558,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasscodes(Passcodes passcodes) {
     this.passcodes = passcodes;
+    isSetPasscodes = true; // mark as set
   }
 
   /**
@@ -435,6 +569,7 @@ public class TerminalSettings {
    */
   public TerminalSettings payAtTable(PayAtTable payAtTable) {
     this.payAtTable = payAtTable;
+    isSetPayAtTable = true; // mark as set
     return this;
   }
 
@@ -458,6 +593,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTable(PayAtTable payAtTable) {
     this.payAtTable = payAtTable;
+    isSetPayAtTable = true; // mark as set
   }
 
   /**
@@ -468,6 +604,7 @@ public class TerminalSettings {
    */
   public TerminalSettings payment(Payment payment) {
     this.payment = payment;
+    isSetPayment = true; // mark as set
     return this;
   }
 
@@ -491,6 +628,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(Payment payment) {
     this.payment = payment;
+    isSetPayment = true; // mark as set
   }
 
   /**
@@ -501,6 +639,7 @@ public class TerminalSettings {
    */
   public TerminalSettings receiptOptions(ReceiptOptions receiptOptions) {
     this.receiptOptions = receiptOptions;
+    isSetReceiptOptions = true; // mark as set
     return this;
   }
 
@@ -524,6 +663,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptOptions(ReceiptOptions receiptOptions) {
     this.receiptOptions = receiptOptions;
+    isSetReceiptOptions = true; // mark as set
   }
 
   /**
@@ -534,6 +674,7 @@ public class TerminalSettings {
    */
   public TerminalSettings receiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
+    isSetReceiptPrinting = true; // mark as set
     return this;
   }
 
@@ -557,6 +698,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
+    isSetReceiptPrinting = true; // mark as set
   }
 
   /**
@@ -567,6 +709,7 @@ public class TerminalSettings {
    */
   public TerminalSettings refunds(Refunds refunds) {
     this.refunds = refunds;
+    isSetRefunds = true; // mark as set
     return this;
   }
 
@@ -590,6 +733,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefunds(Refunds refunds) {
     this.refunds = refunds;
+    isSetRefunds = true; // mark as set
   }
 
   /**
@@ -600,6 +744,7 @@ public class TerminalSettings {
    */
   public TerminalSettings signature(Signature signature) {
     this.signature = signature;
+    isSetSignature = true; // mark as set
     return this;
   }
 
@@ -623,6 +768,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(Signature signature) {
     this.signature = signature;
+    isSetSignature = true; // mark as set
   }
 
   /**
@@ -633,6 +779,7 @@ public class TerminalSettings {
    */
   public TerminalSettings standalone(Standalone standalone) {
     this.standalone = standalone;
+    isSetStandalone = true; // mark as set
     return this;
   }
 
@@ -656,6 +803,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStandalone(Standalone standalone) {
     this.standalone = standalone;
+    isSetStandalone = true; // mark as set
   }
 
   /**
@@ -666,6 +814,7 @@ public class TerminalSettings {
    */
   public TerminalSettings storeAndForward(StoreAndForward storeAndForward) {
     this.storeAndForward = storeAndForward;
+    isSetStoreAndForward = true; // mark as set
     return this;
   }
 
@@ -689,6 +838,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreAndForward(StoreAndForward storeAndForward) {
     this.storeAndForward = storeAndForward;
+    isSetStoreAndForward = true; // mark as set
   }
 
   /**
@@ -699,6 +849,7 @@ public class TerminalSettings {
    */
   public TerminalSettings surcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
     return this;
   }
 
@@ -722,6 +873,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
   }
 
   /**
@@ -732,6 +884,7 @@ public class TerminalSettings {
    */
   public TerminalSettings tapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
+    isSetTapToPay = true; // mark as set
     return this;
   }
 
@@ -755,6 +908,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
+    isSetTapToPay = true; // mark as set
   }
 
   /**
@@ -765,6 +919,7 @@ public class TerminalSettings {
    */
   public TerminalSettings terminalInstructions(TerminalInstructions terminalInstructions) {
     this.terminalInstructions = terminalInstructions;
+    isSetTerminalInstructions = true; // mark as set
     return this;
   }
 
@@ -788,6 +943,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalInstructions(TerminalInstructions terminalInstructions) {
     this.terminalInstructions = terminalInstructions;
+    isSetTerminalInstructions = true; // mark as set
   }
 
   /**
@@ -798,6 +954,7 @@ public class TerminalSettings {
    */
   public TerminalSettings timeouts(Timeouts timeouts) {
     this.timeouts = timeouts;
+    isSetTimeouts = true; // mark as set
     return this;
   }
 
@@ -821,6 +978,7 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeouts(Timeouts timeouts) {
     this.timeouts = timeouts;
+    isSetTimeouts = true; // mark as set
   }
 
   /**
@@ -831,6 +989,7 @@ public class TerminalSettings {
    */
   public TerminalSettings wifiProfiles(WifiProfiles wifiProfiles) {
     this.wifiProfiles = wifiProfiles;
+    isSetWifiProfiles = true; // mark as set
     return this;
   }
 
@@ -854,6 +1013,27 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiProfiles(WifiProfiles wifiProfiles) {
     this.wifiProfiles = wifiProfiles;
+    isSetWifiProfiles = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TerminalSettings includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalSettings object is equal to o. */
@@ -871,6 +1051,7 @@ public class TerminalSettings {
         && Objects.equals(this.gratuities, terminalSettings.gratuities)
         && Objects.equals(this.hardware, terminalSettings.hardware)
         && Objects.equals(this.localization, terminalSettings.localization)
+        && Objects.equals(this.moto, terminalSettings.moto)
         && Objects.equals(this.nexo, terminalSettings.nexo)
         && Objects.equals(this.offlineProcessing, terminalSettings.offlineProcessing)
         && Objects.equals(this.opi, terminalSettings.opi)
@@ -898,6 +1079,7 @@ public class TerminalSettings {
         gratuities,
         hardware,
         localization,
+        moto,
         nexo,
         offlineProcessing,
         opi,
@@ -926,6 +1108,7 @@ public class TerminalSettings {
     sb.append("    gratuities: ").append(toIndentedString(gratuities)).append("\n");
     sb.append("    hardware: ").append(toIndentedString(hardware)).append("\n");
     sb.append("    localization: ").append(toIndentedString(localization)).append("\n");
+    sb.append("    moto: ").append(toIndentedString(moto)).append("\n");
     sb.append("    nexo: ").append(toIndentedString(nexo)).append("\n");
     sb.append("    offlineProcessing: ").append(toIndentedString(offlineProcessing)).append("\n");
     sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
@@ -957,6 +1140,96 @@ public class TerminalSettings {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardholderReceipt) {
+      addIfNull(nulls, JSON_PROPERTY_CARDHOLDER_RECEIPT, this.cardholderReceipt);
+    }
+    if (isSetConnectivity) {
+      addIfNull(nulls, JSON_PROPERTY_CONNECTIVITY, this.connectivity);
+    }
+    if (isSetGratuities) {
+      addIfNull(nulls, JSON_PROPERTY_GRATUITIES, this.gratuities);
+    }
+    if (isSetHardware) {
+      addIfNull(nulls, JSON_PROPERTY_HARDWARE, this.hardware);
+    }
+    if (isSetLocalization) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZATION, this.localization);
+    }
+    if (isSetMoto) {
+      addIfNull(nulls, JSON_PROPERTY_MOTO, this.moto);
+    }
+    if (isSetNexo) {
+      addIfNull(nulls, JSON_PROPERTY_NEXO, this.nexo);
+    }
+    if (isSetOfflineProcessing) {
+      addIfNull(nulls, JSON_PROPERTY_OFFLINE_PROCESSING, this.offlineProcessing);
+    }
+    if (isSetOpi) {
+      addIfNull(nulls, JSON_PROPERTY_OPI, this.opi);
+    }
+    if (isSetPasscodes) {
+      addIfNull(nulls, JSON_PROPERTY_PASSCODES, this.passcodes);
+    }
+    if (isSetPayAtTable) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_AT_TABLE, this.payAtTable);
+    }
+    if (isSetPayment) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT, this.payment);
+    }
+    if (isSetReceiptOptions) {
+      addIfNull(nulls, JSON_PROPERTY_RECEIPT_OPTIONS, this.receiptOptions);
+    }
+    if (isSetReceiptPrinting) {
+      addIfNull(nulls, JSON_PROPERTY_RECEIPT_PRINTING, this.receiptPrinting);
+    }
+    if (isSetRefunds) {
+      addIfNull(nulls, JSON_PROPERTY_REFUNDS, this.refunds);
+    }
+    if (isSetSignature) {
+      addIfNull(nulls, JSON_PROPERTY_SIGNATURE, this.signature);
+    }
+    if (isSetStandalone) {
+      addIfNull(nulls, JSON_PROPERTY_STANDALONE, this.standalone);
+    }
+    if (isSetStoreAndForward) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_AND_FORWARD, this.storeAndForward);
+    }
+    if (isSetSurcharge) {
+      addIfNull(nulls, JSON_PROPERTY_SURCHARGE, this.surcharge);
+    }
+    if (isSetTapToPay) {
+      addIfNull(nulls, JSON_PROPERTY_TAP_TO_PAY, this.tapToPay);
+    }
+    if (isSetTerminalInstructions) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_INSTRUCTIONS, this.terminalInstructions);
+    }
+    if (isSetTimeouts) {
+      addIfNull(nulls, JSON_PROPERTY_TIMEOUTS, this.timeouts);
+    }
+    if (isSetWifiProfiles) {
+      addIfNull(nulls, JSON_PROPERTY_WIFI_PROFILES, this.wifiProfiles);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

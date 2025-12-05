@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class ApiCredentialLinks {
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
   private LinksElement allowedOrigins;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedOrigins = false;
+
   public static final String JSON_PROPERTY_COMPANY = "company";
   private LinksElement company;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompany = false;
 
   public static final String JSON_PROPERTY_GENERATE_API_KEY = "generateApiKey";
   private LinksElement generateApiKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGenerateApiKey = false;
+
   public static final String JSON_PROPERTY_GENERATE_CLIENT_KEY = "generateClientKey";
   private LinksElement generateClientKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGenerateClientKey = false;
 
   public static final String JSON_PROPERTY_MERCHANT = "merchant";
   private LinksElement merchant;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchant = false;
+
   public static final String JSON_PROPERTY_SELF = "self";
   private LinksElement self;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelf = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ApiCredentialLinks() {}
 
@@ -55,6 +81,7 @@ public class ApiCredentialLinks {
    */
   public ApiCredentialLinks allowedOrigins(LinksElement allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
+    isSetAllowedOrigins = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class ApiCredentialLinks {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(LinksElement allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
+    isSetAllowedOrigins = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class ApiCredentialLinks {
    */
   public ApiCredentialLinks company(LinksElement company) {
     this.company = company;
+    isSetCompany = true; // mark as set
     return this;
   }
 
@@ -111,6 +140,7 @@ public class ApiCredentialLinks {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
     this.company = company;
+    isSetCompany = true; // mark as set
   }
 
   /**
@@ -121,6 +151,7 @@ public class ApiCredentialLinks {
    */
   public ApiCredentialLinks generateApiKey(LinksElement generateApiKey) {
     this.generateApiKey = generateApiKey;
+    isSetGenerateApiKey = true; // mark as set
     return this;
   }
 
@@ -144,6 +175,7 @@ public class ApiCredentialLinks {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateApiKey(LinksElement generateApiKey) {
     this.generateApiKey = generateApiKey;
+    isSetGenerateApiKey = true; // mark as set
   }
 
   /**
@@ -154,6 +186,7 @@ public class ApiCredentialLinks {
    */
   public ApiCredentialLinks generateClientKey(LinksElement generateClientKey) {
     this.generateClientKey = generateClientKey;
+    isSetGenerateClientKey = true; // mark as set
     return this;
   }
 
@@ -177,6 +210,7 @@ public class ApiCredentialLinks {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateClientKey(LinksElement generateClientKey) {
     this.generateClientKey = generateClientKey;
+    isSetGenerateClientKey = true; // mark as set
   }
 
   /**
@@ -187,6 +221,7 @@ public class ApiCredentialLinks {
    */
   public ApiCredentialLinks merchant(LinksElement merchant) {
     this.merchant = merchant;
+    isSetMerchant = true; // mark as set
     return this;
   }
 
@@ -210,6 +245,7 @@ public class ApiCredentialLinks {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
     this.merchant = merchant;
+    isSetMerchant = true; // mark as set
   }
 
   /**
@@ -220,6 +256,7 @@ public class ApiCredentialLinks {
    */
   public ApiCredentialLinks self(LinksElement self) {
     this.self = self;
+    isSetSelf = true; // mark as set
     return this;
   }
 
@@ -243,6 +280,27 @@ public class ApiCredentialLinks {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
+    isSetSelf = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ApiCredentialLinks includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ApiCredentialLinks object is equal to o. */
@@ -290,6 +348,45 @@ public class ApiCredentialLinks {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowedOrigins) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_ORIGINS, this.allowedOrigins);
+    }
+    if (isSetCompany) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY, this.company);
+    }
+    if (isSetGenerateApiKey) {
+      addIfNull(nulls, JSON_PROPERTY_GENERATE_API_KEY, this.generateApiKey);
+    }
+    if (isSetGenerateClientKey) {
+      addIfNull(nulls, JSON_PROPERTY_GENERATE_CLIENT_KEY, this.generateClientKey);
+    }
+    if (isSetMerchant) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT, this.merchant);
+    }
+    if (isSetSelf) {
+      addIfNull(nulls, JSON_PROPERTY_SELF, this.self);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
