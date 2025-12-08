@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -48,40 +50,76 @@ public class LegalEntity {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, LegalEntityCapability> capabilities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCapabilities = false;
+
   public static final String JSON_PROPERTY_DOCUMENT_DETAILS = "documentDetails";
   private List<DocumentReference> documentDetails;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDocumentDetails = false;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
   @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array
   // instead.
   private List<EntityReference> documents;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDocuments = false;
+
   public static final String JSON_PROPERTY_ENTITY_ASSOCIATIONS = "entityAssociations";
   private List<LegalEntityAssociation> entityAssociations;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityAssociations = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_INDIVIDUAL = "individual";
   private Individual individual;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndividual = false;
 
   public static final String JSON_PROPERTY_ORGANIZATION = "organization";
   private Organization organization;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrganization = false;
+
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
   private List<CapabilityProblem> problems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProblems = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SOLE_PROPRIETORSHIP = "soleProprietorship";
   private SoleProprietorship soleProprietorship;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSoleProprietorship = false;
 
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENTS = "transferInstruments";
   private List<TransferInstrumentReference> transferInstruments;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstruments = false;
+
   public static final String JSON_PROPERTY_TRUST = "trust";
   private Trust trust;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrust = false;
 
   /**
    * The type of legal entity. Possible values: **individual**, **organization**,
@@ -136,14 +174,32 @@ public class LegalEntity {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP = "unincorporatedPartnership";
   private UnincorporatedPartnership unincorporatedPartnership;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUnincorporatedPartnership = false;
 
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
   private List<VerificationDeadline> verificationDeadlines;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationDeadlines = false;
+
   public static final String JSON_PROPERTY_VERIFICATION_PLAN = "verificationPlan";
   private String verificationPlan;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationPlan = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public LegalEntity() {}
 
@@ -173,6 +229,7 @@ public class LegalEntity {
    */
   public LegalEntity capabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
     return this;
   }
 
@@ -214,6 +271,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
   }
 
   /**
@@ -224,6 +282,7 @@ public class LegalEntity {
    */
   public LegalEntity documentDetails(List<DocumentReference> documentDetails) {
     this.documentDetails = documentDetails;
+    isSetDocumentDetails = true; // mark as set
     return this;
   }
 
@@ -255,6 +314,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocumentDetails(List<DocumentReference> documentDetails) {
     this.documentDetails = documentDetails;
+    isSetDocumentDetails = true; // mark as set
   }
 
   /**
@@ -269,6 +329,7 @@ public class LegalEntity {
   // instead.
   public LegalEntity documents(List<EntityReference> documents) {
     this.documents = documents;
+    isSetDocuments = true; // mark as set
     return this;
   }
 
@@ -308,6 +369,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<EntityReference> documents) {
     this.documents = documents;
+    isSetDocuments = true; // mark as set
   }
 
   /**
@@ -322,6 +384,7 @@ public class LegalEntity {
    */
   public LegalEntity entityAssociations(List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
+    isSetEntityAssociations = true; // mark as set
     return this;
   }
 
@@ -361,6 +424,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityAssociations(List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
+    isSetEntityAssociations = true; // mark as set
   }
 
   /**
@@ -382,6 +446,7 @@ public class LegalEntity {
    */
   public LegalEntity individual(Individual individual) {
     this.individual = individual;
+    isSetIndividual = true; // mark as set
     return this;
   }
 
@@ -405,6 +470,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndividual(Individual individual) {
     this.individual = individual;
+    isSetIndividual = true; // mark as set
   }
 
   /**
@@ -415,6 +481,7 @@ public class LegalEntity {
    */
   public LegalEntity organization(Organization organization) {
     this.organization = organization;
+    isSetOrganization = true; // mark as set
     return this;
   }
 
@@ -438,6 +505,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrganization(Organization organization) {
     this.organization = organization;
+    isSetOrganization = true; // mark as set
   }
 
   /**
@@ -448,6 +516,7 @@ public class LegalEntity {
    */
   public LegalEntity problems(List<CapabilityProblem> problems) {
     this.problems = problems;
+    isSetProblems = true; // mark as set
     return this;
   }
 
@@ -479,6 +548,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
     this.problems = problems;
+    isSetProblems = true; // mark as set
   }
 
   /**
@@ -489,6 +559,7 @@ public class LegalEntity {
    */
   public LegalEntity reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -512,6 +583,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -522,6 +594,7 @@ public class LegalEntity {
    */
   public LegalEntity soleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
+    isSetSoleProprietorship = true; // mark as set
     return this;
   }
 
@@ -545,6 +618,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSoleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
+    isSetSoleProprietorship = true; // mark as set
   }
 
   /**
@@ -566,6 +640,7 @@ public class LegalEntity {
    */
   public LegalEntity trust(Trust trust) {
     this.trust = trust;
+    isSetTrust = true; // mark as set
     return this;
   }
 
@@ -589,6 +664,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrust(Trust trust) {
     this.trust = trust;
+    isSetTrust = true; // mark as set
   }
 
   /**
@@ -601,6 +677,7 @@ public class LegalEntity {
    */
   public LegalEntity type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -628,6 +705,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -639,6 +717,7 @@ public class LegalEntity {
   public LegalEntity unincorporatedPartnership(
       UnincorporatedPartnership unincorporatedPartnership) {
     this.unincorporatedPartnership = unincorporatedPartnership;
+    isSetUnincorporatedPartnership = true; // mark as set
     return this;
   }
 
@@ -662,6 +741,7 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
     this.unincorporatedPartnership = unincorporatedPartnership;
+    isSetUnincorporatedPartnership = true; // mark as set
   }
 
   /**
@@ -689,6 +769,7 @@ public class LegalEntity {
    */
   public LegalEntity verificationPlan(String verificationPlan) {
     this.verificationPlan = verificationPlan;
+    isSetVerificationPlan = true; // mark as set
     return this;
   }
 
@@ -720,6 +801,27 @@ public class LegalEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationPlan(String verificationPlan) {
     this.verificationPlan = verificationPlan;
+    isSetVerificationPlan = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public LegalEntity includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this LegalEntity object is equal to o. */
@@ -809,6 +911,75 @@ public class LegalEntity {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCapabilities) {
+      addIfNull(nulls, JSON_PROPERTY_CAPABILITIES, this.capabilities);
+    }
+    if (isSetDocumentDetails) {
+      addIfNull(nulls, JSON_PROPERTY_DOCUMENT_DETAILS, this.documentDetails);
+    }
+    if (isSetDocuments) {
+      addIfNull(nulls, JSON_PROPERTY_DOCUMENTS, this.documents);
+    }
+    if (isSetEntityAssociations) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_ASSOCIATIONS, this.entityAssociations);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetIndividual) {
+      addIfNull(nulls, JSON_PROPERTY_INDIVIDUAL, this.individual);
+    }
+    if (isSetOrganization) {
+      addIfNull(nulls, JSON_PROPERTY_ORGANIZATION, this.organization);
+    }
+    if (isSetProblems) {
+      addIfNull(nulls, JSON_PROPERTY_PROBLEMS, this.problems);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSoleProprietorship) {
+      addIfNull(nulls, JSON_PROPERTY_SOLE_PROPRIETORSHIP, this.soleProprietorship);
+    }
+    if (isSetTransferInstruments) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENTS, this.transferInstruments);
+    }
+    if (isSetTrust) {
+      addIfNull(nulls, JSON_PROPERTY_TRUST, this.trust);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUnincorporatedPartnership) {
+      addIfNull(nulls, JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP, this.unincorporatedPartnership);
+    }
+    if (isSetVerificationDeadlines) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_DEADLINES, this.verificationDeadlines);
+    }
+    if (isSetVerificationPlan) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_PLAN, this.verificationPlan);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,35 +45,68 @@ public class SoleProprietorship {
   public static final String JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW = "countryOfGoverningLaw";
   private String countryOfGoverningLaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryOfGoverningLaw = false;
+
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfIncorporation = false;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDoingBusinessAs = false;
+
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS_ABSENT = "doingBusinessAsAbsent";
   private Boolean doingBusinessAsAbsent;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDoingBusinessAsAbsent = false;
 
   public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
   private List<FinancialReport> financialReports;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFinancialReports = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS = "principalPlaceOfBusiness";
   private Address principalPlaceOfBusiness;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPrincipalPlaceOfBusiness = false;
+
   public static final String JSON_PROPERTY_REGISTERED_ADDRESS = "registeredAddress";
   private Address registeredAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegisteredAddress = false;
 
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegistrationNumber = false;
+
   public static final String JSON_PROPERTY_TAX_ABSENT = "taxAbsent";
   private Boolean taxAbsent;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxAbsent = false;
+
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
   private List<TaxInformation> taxInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxInformation = false;
 
   /**
    * The reason for not providing a VAT number. Possible values: **industryExemption**,
@@ -120,8 +155,20 @@ public class SoleProprietorship {
   public static final String JSON_PROPERTY_VAT_ABSENCE_REASON = "vatAbsenceReason";
   private VatAbsenceReasonEnum vatAbsenceReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVatAbsenceReason = false;
+
   public static final String JSON_PROPERTY_VAT_NUMBER = "vatNumber";
   private String vatNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVatNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SoleProprietorship() {}
 
@@ -136,6 +183,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship countryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
+    isSetCountryOfGoverningLaw = true; // mark as set
     return this;
   }
 
@@ -165,6 +213,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
+    isSetCountryOfGoverningLaw = true; // mark as set
   }
 
   /**
@@ -176,6 +225,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship dateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+    isSetDateOfIncorporation = true; // mark as set
     return this;
   }
 
@@ -201,6 +251,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+    isSetDateOfIncorporation = true; // mark as set
   }
 
   /**
@@ -211,6 +262,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship doingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
+    isSetDoingBusinessAs = true; // mark as set
     return this;
   }
 
@@ -234,6 +286,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
+    isSetDoingBusinessAs = true; // mark as set
   }
 
   /**
@@ -246,6 +299,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship doingBusinessAsAbsent(Boolean doingBusinessAsAbsent) {
     this.doingBusinessAsAbsent = doingBusinessAsAbsent;
+    isSetDoingBusinessAsAbsent = true; // mark as set
     return this;
   }
 
@@ -273,6 +327,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAsAbsent(Boolean doingBusinessAsAbsent) {
     this.doingBusinessAsAbsent = doingBusinessAsAbsent;
+    isSetDoingBusinessAsAbsent = true; // mark as set
   }
 
   /**
@@ -283,6 +338,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship financialReports(List<FinancialReport> financialReports) {
     this.financialReports = financialReports;
+    isSetFinancialReports = true; // mark as set
     return this;
   }
 
@@ -314,6 +370,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialReports(List<FinancialReport> financialReports) {
     this.financialReports = financialReports;
+    isSetFinancialReports = true; // mark as set
   }
 
   /**
@@ -324,6 +381,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -347,6 +405,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -357,6 +416,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
+    isSetPrincipalPlaceOfBusiness = true; // mark as set
     return this;
   }
 
@@ -380,6 +440,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
+    isSetPrincipalPlaceOfBusiness = true; // mark as set
   }
 
   /**
@@ -390,6 +451,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship registeredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
+    isSetRegisteredAddress = true; // mark as set
     return this;
   }
 
@@ -413,6 +475,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
+    isSetRegisteredAddress = true; // mark as set
   }
 
   /**
@@ -423,6 +486,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+    isSetRegistrationNumber = true; // mark as set
     return this;
   }
 
@@ -446,6 +510,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+    isSetRegistrationNumber = true; // mark as set
   }
 
   /**
@@ -456,6 +521,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship taxAbsent(Boolean taxAbsent) {
     this.taxAbsent = taxAbsent;
+    isSetTaxAbsent = true; // mark as set
     return this;
   }
 
@@ -479,6 +545,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxAbsent(Boolean taxAbsent) {
     this.taxAbsent = taxAbsent;
+    isSetTaxAbsent = true; // mark as set
   }
 
   /**
@@ -489,6 +556,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
+    isSetTaxInformation = true; // mark as set
     return this;
   }
 
@@ -520,6 +588,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
+    isSetTaxInformation = true; // mark as set
   }
 
   /**
@@ -532,6 +601,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
+    isSetVatAbsenceReason = true; // mark as set
     return this;
   }
 
@@ -559,6 +629,7 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
+    isSetVatAbsenceReason = true; // mark as set
   }
 
   /**
@@ -569,6 +640,7 @@ public class SoleProprietorship {
    */
   public SoleProprietorship vatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
+    isSetVatNumber = true; // mark as set
     return this;
   }
 
@@ -592,6 +664,27 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
+    isSetVatNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SoleProprietorship includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SoleProprietorship object is equal to o. */
@@ -675,6 +768,66 @@ public class SoleProprietorship {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCountryOfGoverningLaw) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW, this.countryOfGoverningLaw);
+    }
+    if (isSetDateOfIncorporation) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_INCORPORATION, this.dateOfIncorporation);
+    }
+    if (isSetDoingBusinessAs) {
+      addIfNull(nulls, JSON_PROPERTY_DOING_BUSINESS_AS, this.doingBusinessAs);
+    }
+    if (isSetDoingBusinessAsAbsent) {
+      addIfNull(nulls, JSON_PROPERTY_DOING_BUSINESS_AS_ABSENT, this.doingBusinessAsAbsent);
+    }
+    if (isSetFinancialReports) {
+      addIfNull(nulls, JSON_PROPERTY_FINANCIAL_REPORTS, this.financialReports);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPrincipalPlaceOfBusiness) {
+      addIfNull(nulls, JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS, this.principalPlaceOfBusiness);
+    }
+    if (isSetRegisteredAddress) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTERED_ADDRESS, this.registeredAddress);
+    }
+    if (isSetRegistrationNumber) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER, this.registrationNumber);
+    }
+    if (isSetTaxAbsent) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ABSENT, this.taxAbsent);
+    }
+    if (isSetTaxInformation) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_INFORMATION, this.taxInformation);
+    }
+    if (isSetVatAbsenceReason) {
+      addIfNull(nulls, JSON_PROPERTY_VAT_ABSENCE_REASON, this.vatAbsenceReason);
+    }
+    if (isSetVatNumber) {
+      addIfNull(nulls, JSON_PROPERTY_VAT_NUMBER, this.vatNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

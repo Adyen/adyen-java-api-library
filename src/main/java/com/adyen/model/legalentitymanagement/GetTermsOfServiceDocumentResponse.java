@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,19 +36,34 @@ public class GetTermsOfServiceDocumentResponse {
   public static final String JSON_PROPERTY_DOCUMENT = "document";
   private byte[] document;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDocument = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLanguage = false;
 
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT =
       "termsOfServiceDocumentFormat";
   private String termsOfServiceDocumentFormat;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsOfServiceDocumentFormat = false;
+
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID =
       "termsOfServiceDocumentId";
   private String termsOfServiceDocumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsOfServiceDocumentId = false;
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
@@ -112,6 +129,15 @@ public class GetTermsOfServiceDocumentResponse {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public GetTermsOfServiceDocumentResponse() {}
 
   /**
@@ -123,6 +149,7 @@ public class GetTermsOfServiceDocumentResponse {
    */
   public GetTermsOfServiceDocumentResponse document(byte[] document) {
     this.document = document;
+    isSetDocument = true; // mark as set
     return this;
   }
 
@@ -146,6 +173,7 @@ public class GetTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocument(byte[] document) {
     this.document = document;
+    isSetDocument = true; // mark as set
   }
 
   /**
@@ -157,6 +185,7 @@ public class GetTermsOfServiceDocumentResponse {
    */
   public GetTermsOfServiceDocumentResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -180,6 +209,7 @@ public class GetTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -199,6 +229,7 @@ public class GetTermsOfServiceDocumentResponse {
    */
   public GetTermsOfServiceDocumentResponse language(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
     return this;
   }
 
@@ -238,6 +269,7 @@ public class GetTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
   }
 
   /**
@@ -250,6 +282,7 @@ public class GetTermsOfServiceDocumentResponse {
   public GetTermsOfServiceDocumentResponse termsOfServiceDocumentFormat(
       String termsOfServiceDocumentFormat) {
     this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+    isSetTermsOfServiceDocumentFormat = true; // mark as set
     return this;
   }
 
@@ -273,6 +306,7 @@ public class GetTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
     this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+    isSetTermsOfServiceDocumentFormat = true; // mark as set
   }
 
   /**
@@ -285,6 +319,7 @@ public class GetTermsOfServiceDocumentResponse {
   public GetTermsOfServiceDocumentResponse termsOfServiceDocumentId(
       String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
+    isSetTermsOfServiceDocumentId = true; // mark as set
     return this;
   }
 
@@ -308,6 +343,7 @@ public class GetTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentId(String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
+    isSetTermsOfServiceDocumentId = true; // mark as set
   }
 
   /**
@@ -323,6 +359,7 @@ public class GetTermsOfServiceDocumentResponse {
    */
   public GetTermsOfServiceDocumentResponse type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -354,6 +391,27 @@ public class GetTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public GetTermsOfServiceDocumentResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this GetTermsOfServiceDocumentResponse object is equal to o. */
@@ -416,6 +474,46 @@ public class GetTermsOfServiceDocumentResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDocument) {
+      addIfNull(nulls, JSON_PROPERTY_DOCUMENT, this.document);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLanguage) {
+      addIfNull(nulls, JSON_PROPERTY_LANGUAGE, this.language);
+    }
+    if (isSetTermsOfServiceDocumentFormat) {
+      addIfNull(
+          nulls, JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT, this.termsOfServiceDocumentFormat);
+    }
+    if (isSetTermsOfServiceDocumentId) {
+      addIfNull(nulls, JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID, this.termsOfServiceDocumentId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
