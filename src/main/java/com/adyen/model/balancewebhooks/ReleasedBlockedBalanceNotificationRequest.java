@@ -24,16 +24,16 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** BalanceAccountBalanceNotificationRequest */
+/** ReleasedBlockedBalanceNotificationRequest */
 @JsonPropertyOrder({
-  BalanceAccountBalanceNotificationRequest.JSON_PROPERTY_DATA,
-  BalanceAccountBalanceNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
-  BalanceAccountBalanceNotificationRequest.JSON_PROPERTY_TIMESTAMP,
-  BalanceAccountBalanceNotificationRequest.JSON_PROPERTY_TYPE
+  ReleasedBlockedBalanceNotificationRequest.JSON_PROPERTY_DATA,
+  ReleasedBlockedBalanceNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
+  ReleasedBlockedBalanceNotificationRequest.JSON_PROPERTY_TIMESTAMP,
+  ReleasedBlockedBalanceNotificationRequest.JSON_PROPERTY_TYPE
 })
-public class BalanceAccountBalanceNotificationRequest {
+public class ReleasedBlockedBalanceNotificationRequest {
   public static final String JSON_PROPERTY_DATA = "data";
-  private BalanceNotificationData data;
+  private ReleaseBlockedBalanceNotificationData data;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetData = false;
@@ -52,8 +52,8 @@ public class BalanceAccountBalanceNotificationRequest {
 
   /** Type of webhook. */
   public enum TypeEnum {
-    BALANCEPLATFORM_BALANCEACCOUNT_BALANCE_UPDATED(
-        String.valueOf("balancePlatform.balanceAccount.balance.updated"));
+    BALANCEPLATFORM_BALANCEACCOUNT_BALANCE_BLOCK_RELEASED(
+        String.valueOf("balancePlatform.balanceAccount.balance.block.released"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -102,16 +102,17 @@ public class BalanceAccountBalanceNotificationRequest {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public BalanceAccountBalanceNotificationRequest() {}
+  public ReleasedBlockedBalanceNotificationRequest() {}
 
   /**
    * data
    *
    * @param data
-   * @return the current {@code BalanceAccountBalanceNotificationRequest} instance, allowing for
+   * @return the current {@code ReleasedBlockedBalanceNotificationRequest} instance, allowing for
    *     method chaining
    */
-  public BalanceAccountBalanceNotificationRequest data(BalanceNotificationData data) {
+  public ReleasedBlockedBalanceNotificationRequest data(
+      ReleaseBlockedBalanceNotificationData data) {
     this.data = data;
     isSetData = true; // mark as set
     return this;
@@ -124,7 +125,7 @@ public class BalanceAccountBalanceNotificationRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BalanceNotificationData getData() {
+  public ReleaseBlockedBalanceNotificationData getData() {
     return data;
   }
 
@@ -135,7 +136,7 @@ public class BalanceAccountBalanceNotificationRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(BalanceNotificationData data) {
+  public void setData(ReleaseBlockedBalanceNotificationData data) {
     this.data = data;
     isSetData = true; // mark as set
   }
@@ -145,10 +146,10 @@ public class BalanceAccountBalanceNotificationRequest {
    *
    * @param environment The environment from which the webhook originated. Possible values:
    *     **test**, **live**.
-   * @return the current {@code BalanceAccountBalanceNotificationRequest} instance, allowing for
+   * @return the current {@code ReleasedBlockedBalanceNotificationRequest} instance, allowing for
    *     method chaining
    */
-  public BalanceAccountBalanceNotificationRequest environment(String environment) {
+  public ReleasedBlockedBalanceNotificationRequest environment(String environment) {
     this.environment = environment;
     isSetEnvironment = true; // mark as set
     return this;
@@ -183,10 +184,10 @@ public class BalanceAccountBalanceNotificationRequest {
    * When the event was queued.
    *
    * @param timestamp When the event was queued.
-   * @return the current {@code BalanceAccountBalanceNotificationRequest} instance, allowing for
+   * @return the current {@code ReleasedBlockedBalanceNotificationRequest} instance, allowing for
    *     method chaining
    */
-  public BalanceAccountBalanceNotificationRequest timestamp(OffsetDateTime timestamp) {
+  public ReleasedBlockedBalanceNotificationRequest timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     isSetTimestamp = true; // mark as set
     return this;
@@ -219,10 +220,10 @@ public class BalanceAccountBalanceNotificationRequest {
    * Type of webhook.
    *
    * @param type Type of webhook.
-   * @return the current {@code BalanceAccountBalanceNotificationRequest} instance, allowing for
+   * @return the current {@code ReleasedBlockedBalanceNotificationRequest} instance, allowing for
    *     method chaining
    */
-  public BalanceAccountBalanceNotificationRequest type(TypeEnum type) {
+  public ReleasedBlockedBalanceNotificationRequest type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
@@ -254,7 +255,7 @@ public class BalanceAccountBalanceNotificationRequest {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public BalanceAccountBalanceNotificationRequest includeNullValues(boolean includeNullValues) {
+  public ReleasedBlockedBalanceNotificationRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -271,7 +272,7 @@ public class BalanceAccountBalanceNotificationRequest {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this BalanceAccountBalanceNotificationRequest object is equal to o. */
+  /** Return true if this ReleasedBlockedBalanceNotificationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -280,12 +281,12 @@ public class BalanceAccountBalanceNotificationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BalanceAccountBalanceNotificationRequest balanceAccountBalanceNotificationRequest =
-        (BalanceAccountBalanceNotificationRequest) o;
-    return Objects.equals(this.data, balanceAccountBalanceNotificationRequest.data)
-        && Objects.equals(this.environment, balanceAccountBalanceNotificationRequest.environment)
-        && Objects.equals(this.timestamp, balanceAccountBalanceNotificationRequest.timestamp)
-        && Objects.equals(this.type, balanceAccountBalanceNotificationRequest.type);
+    ReleasedBlockedBalanceNotificationRequest releasedBlockedBalanceNotificationRequest =
+        (ReleasedBlockedBalanceNotificationRequest) o;
+    return Objects.equals(this.data, releasedBlockedBalanceNotificationRequest.data)
+        && Objects.equals(this.environment, releasedBlockedBalanceNotificationRequest.environment)
+        && Objects.equals(this.timestamp, releasedBlockedBalanceNotificationRequest.timestamp)
+        && Objects.equals(this.type, releasedBlockedBalanceNotificationRequest.type);
   }
 
   @Override
@@ -296,7 +297,7 @@ public class BalanceAccountBalanceNotificationRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BalanceAccountBalanceNotificationRequest {\n");
+    sb.append("class ReleasedBlockedBalanceNotificationRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
@@ -349,20 +350,20 @@ public class BalanceAccountBalanceNotificationRequest {
   }
 
   /**
-   * Create an instance of BalanceAccountBalanceNotificationRequest given an JSON string
+   * Create an instance of ReleasedBlockedBalanceNotificationRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BalanceAccountBalanceNotificationRequest
+   * @return An instance of ReleasedBlockedBalanceNotificationRequest
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     BalanceAccountBalanceNotificationRequest
+   *     ReleasedBlockedBalanceNotificationRequest
    */
-  public static BalanceAccountBalanceNotificationRequest fromJson(String jsonString)
+  public static ReleasedBlockedBalanceNotificationRequest fromJson(String jsonString)
       throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BalanceAccountBalanceNotificationRequest.class);
+    return JSON.getMapper().readValue(jsonString, ReleasedBlockedBalanceNotificationRequest.class);
   }
 
   /**
-   * Convert an instance of BalanceAccountBalanceNotificationRequest to an JSON string
+   * Convert an instance of ReleasedBlockedBalanceNotificationRequest to an JSON string
    *
    * @return JSON string
    */
