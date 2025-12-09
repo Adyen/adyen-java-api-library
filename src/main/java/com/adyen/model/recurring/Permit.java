@@ -11,6 +11,8 @@
 
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,17 +32,38 @@ public class Permit {
   public static final String JSON_PROPERTY_PARTNER_ID = "partnerId";
   private String partnerId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPartnerId = false;
+
   public static final String JSON_PROPERTY_PROFILE_REFERENCE = "profileReference";
   private String profileReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProfileReference = false;
 
   public static final String JSON_PROPERTY_RESTRICTION = "restriction";
   private PermitRestriction restriction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRestriction = false;
+
   public static final String JSON_PROPERTY_RESULT_KEY = "resultKey";
   private String resultKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultKey = false;
+
   public static final String JSON_PROPERTY_VALID_TILL_DATE = "validTillDate";
   private OffsetDateTime validTillDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValidTillDate = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Permit() {}
 
@@ -52,6 +75,7 @@ public class Permit {
    */
   public Permit partnerId(String partnerId) {
     this.partnerId = partnerId;
+    isSetPartnerId = true; // mark as set
     return this;
   }
 
@@ -75,6 +99,7 @@ public class Permit {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPartnerId(String partnerId) {
     this.partnerId = partnerId;
+    isSetPartnerId = true; // mark as set
   }
 
   /**
@@ -86,6 +111,7 @@ public class Permit {
    */
   public Permit profileReference(String profileReference) {
     this.profileReference = profileReference;
+    isSetProfileReference = true; // mark as set
     return this;
   }
 
@@ -111,6 +137,7 @@ public class Permit {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
     this.profileReference = profileReference;
+    isSetProfileReference = true; // mark as set
   }
 
   /**
@@ -121,6 +148,7 @@ public class Permit {
    */
   public Permit restriction(PermitRestriction restriction) {
     this.restriction = restriction;
+    isSetRestriction = true; // mark as set
     return this;
   }
 
@@ -144,6 +172,7 @@ public class Permit {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestriction(PermitRestriction restriction) {
     this.restriction = restriction;
+    isSetRestriction = true; // mark as set
   }
 
   /**
@@ -154,6 +183,7 @@ public class Permit {
    */
   public Permit resultKey(String resultKey) {
     this.resultKey = resultKey;
+    isSetResultKey = true; // mark as set
     return this;
   }
 
@@ -177,6 +207,7 @@ public class Permit {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
     this.resultKey = resultKey;
+    isSetResultKey = true; // mark as set
   }
 
   /**
@@ -187,6 +218,7 @@ public class Permit {
    */
   public Permit validTillDate(OffsetDateTime validTillDate) {
     this.validTillDate = validTillDate;
+    isSetValidTillDate = true; // mark as set
     return this;
   }
 
@@ -210,6 +242,27 @@ public class Permit {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTillDate(OffsetDateTime validTillDate) {
     this.validTillDate = validTillDate;
+    isSetValidTillDate = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Permit includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Permit object is equal to o. */
@@ -255,6 +308,42 @@ public class Permit {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPartnerId) {
+      addIfNull(nulls, JSON_PROPERTY_PARTNER_ID, this.partnerId);
+    }
+    if (isSetProfileReference) {
+      addIfNull(nulls, JSON_PROPERTY_PROFILE_REFERENCE, this.profileReference);
+    }
+    if (isSetRestriction) {
+      addIfNull(nulls, JSON_PROPERTY_RESTRICTION, this.restriction);
+    }
+    if (isSetResultKey) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_KEY, this.resultKey);
+    }
+    if (isSetValidTillDate) {
+      addIfNull(nulls, JSON_PROPERTY_VALID_TILL_DATE, this.validTillDate);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
