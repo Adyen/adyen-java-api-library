@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -85,9 +87,15 @@ public class TaxReportingClassification {
   public static final String JSON_PROPERTY_BUSINESS_TYPE = "businessType";
   private BusinessTypeEnum businessType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBusinessType = false;
+
   public static final String JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER =
       "financialInstitutionNumber";
   private String financialInstitutionNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFinancialInstitutionNumber = false;
 
   /**
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is
@@ -143,6 +151,9 @@ public class TaxReportingClassification {
   public static final String JSON_PROPERTY_MAIN_SOURCE_OF_INCOME = "mainSourceOfIncome";
   private MainSourceOfIncomeEnum mainSourceOfIncome;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMainSourceOfIncome = false;
+
   /**
    * The tax reporting classification type. Possible values: **nonFinancialNonReportable**,
    * **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
@@ -194,6 +205,15 @@ public class TaxReportingClassification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TaxReportingClassification() {}
 
   /**
@@ -208,6 +228,7 @@ public class TaxReportingClassification {
    */
   public TaxReportingClassification businessType(BusinessTypeEnum businessType) {
     this.businessType = businessType;
+    isSetBusinessType = true; // mark as set
     return this;
   }
 
@@ -239,6 +260,7 @@ public class TaxReportingClassification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessType(BusinessTypeEnum businessType) {
     this.businessType = businessType;
+    isSetBusinessType = true; // mark as set
   }
 
   /**
@@ -253,6 +275,7 @@ public class TaxReportingClassification {
    */
   public TaxReportingClassification financialInstitutionNumber(String financialInstitutionNumber) {
     this.financialInstitutionNumber = financialInstitutionNumber;
+    isSetFinancialInstitutionNumber = true; // mark as set
     return this;
   }
 
@@ -284,6 +307,7 @@ public class TaxReportingClassification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialInstitutionNumber(String financialInstitutionNumber) {
     this.financialInstitutionNumber = financialInstitutionNumber;
+    isSetFinancialInstitutionNumber = true; // mark as set
   }
 
   /**
@@ -298,6 +322,7 @@ public class TaxReportingClassification {
    */
   public TaxReportingClassification mainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
     this.mainSourceOfIncome = mainSourceOfIncome;
+    isSetMainSourceOfIncome = true; // mark as set
     return this;
   }
 
@@ -329,6 +354,7 @@ public class TaxReportingClassification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
     this.mainSourceOfIncome = mainSourceOfIncome;
+    isSetMainSourceOfIncome = true; // mark as set
   }
 
   /**
@@ -342,6 +368,7 @@ public class TaxReportingClassification {
    */
   public TaxReportingClassification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -371,6 +398,27 @@ public class TaxReportingClassification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TaxReportingClassification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TaxReportingClassification object is equal to o. */
@@ -417,6 +465,39 @@ public class TaxReportingClassification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBusinessType) {
+      addIfNull(nulls, JSON_PROPERTY_BUSINESS_TYPE, this.businessType);
+    }
+    if (isSetFinancialInstitutionNumber) {
+      addIfNull(nulls, JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER, this.financialInstitutionNumber);
+    }
+    if (isSetMainSourceOfIncome) {
+      addIfNull(nulls, JSON_PROPERTY_MAIN_SOURCE_OF_INCOME, this.mainSourceOfIncome);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

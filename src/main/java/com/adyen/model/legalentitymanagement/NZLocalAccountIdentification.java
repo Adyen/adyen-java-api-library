@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +31,9 @@ import java.util.logging.Logger;
 public class NZLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountNumber = false;
 
   /** **nzLocal** */
   public enum TypeEnum {
@@ -72,6 +77,15 @@ public class NZLocalAccountIdentification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public NZLocalAccountIdentification() {}
 
   /**
@@ -86,6 +100,7 @@ public class NZLocalAccountIdentification {
    */
   public NZLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
     return this;
   }
 
@@ -117,6 +132,7 @@ public class NZLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
   }
 
   /**
@@ -127,6 +143,7 @@ public class NZLocalAccountIdentification {
    */
   public NZLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -150,6 +167,27 @@ public class NZLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public NZLocalAccountIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NZLocalAccountIdentification object is equal to o. */
@@ -189,6 +227,33 @@ public class NZLocalAccountIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_NUMBER, this.accountNumber);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
