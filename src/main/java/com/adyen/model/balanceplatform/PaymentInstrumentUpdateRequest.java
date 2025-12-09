@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,8 +35,14 @@ public class PaymentInstrumentUpdateRequest {
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccountId = false;
+
   public static final String JSON_PROPERTY_CARD = "card";
   private CardInfo card;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
 
   /**
    * The status of the payment instrument. If a status is not specified when creating a payment
@@ -93,8 +101,14 @@ public class PaymentInstrumentUpdateRequest {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_STATUS_COMMENT = "statusComment";
   private String statusComment;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatusComment = false;
 
   /**
    * The reason for updating the status of the payment instrument. Possible values: **lost**,
@@ -159,6 +173,15 @@ public class PaymentInstrumentUpdateRequest {
   public static final String JSON_PROPERTY_STATUS_REASON = "statusReason";
   private StatusReasonEnum statusReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatusReason = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PaymentInstrumentUpdateRequest() {}
 
   /**
@@ -173,6 +196,7 @@ public class PaymentInstrumentUpdateRequest {
    */
   public PaymentInstrumentUpdateRequest balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -202,6 +226,7 @@ public class PaymentInstrumentUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -213,6 +238,7 @@ public class PaymentInstrumentUpdateRequest {
    */
   public PaymentInstrumentUpdateRequest card(CardInfo card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -236,6 +262,7 @@ public class PaymentInstrumentUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardInfo card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -262,6 +289,7 @@ public class PaymentInstrumentUpdateRequest {
    */
   public PaymentInstrumentUpdateRequest status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -315,6 +343,7 @@ public class PaymentInstrumentUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -328,6 +357,7 @@ public class PaymentInstrumentUpdateRequest {
    */
   public PaymentInstrumentUpdateRequest statusComment(String statusComment) {
     this.statusComment = statusComment;
+    isSetStatusComment = true; // mark as set
     return this;
   }
 
@@ -355,6 +385,7 @@ public class PaymentInstrumentUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusComment(String statusComment) {
     this.statusComment = statusComment;
+    isSetStatusComment = true; // mark as set
   }
 
   /**
@@ -372,6 +403,7 @@ public class PaymentInstrumentUpdateRequest {
    */
   public PaymentInstrumentUpdateRequest statusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
+    isSetStatusReason = true; // mark as set
     return this;
   }
 
@@ -407,6 +439,27 @@ public class PaymentInstrumentUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusReason(StatusReasonEnum statusReason) {
     this.statusReason = statusReason;
+    isSetStatusReason = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentInstrumentUpdateRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentInstrumentUpdateRequest object is equal to o. */
@@ -453,6 +506,42 @@ public class PaymentInstrumentUpdateRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT_ID, this.balanceAccountId);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetStatusComment) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS_COMMENT, this.statusComment);
+    }
+    if (isSetStatusReason) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS_REASON, this.statusReason);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

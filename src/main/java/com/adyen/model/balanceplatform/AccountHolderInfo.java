@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,31 +38,64 @@ public class AccountHolderInfo {
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
+
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, AccountHolderCapability> capabilities;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCapabilities = false;
 
   public static final String JSON_PROPERTY_CONTACT_DETAILS = "contactDetails";
   @Deprecated // deprecated
   private ContactDetails contactDetails;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContactDetails = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalEntityId = false;
+
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMetadata = false;
 
   public static final String JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE =
       "migratedAccountHolderCode";
   private String migratedAccountHolderCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMigratedAccountHolderCode = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
   private String timeZone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeZone = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AccountHolderInfo() {}
 
@@ -85,6 +120,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -120,6 +156,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -135,6 +172,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo capabilities(Map<String, AccountHolderCapability> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
     return this;
   }
 
@@ -177,6 +215,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountHolderCapability> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
   }
 
   /**
@@ -189,6 +228,7 @@ public class AccountHolderInfo {
   @Deprecated // deprecated
   public AccountHolderInfo contactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
+    isSetContactDetails = true; // mark as set
     return this;
   }
 
@@ -216,6 +256,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
+    isSetContactDetails = true; // mark as set
   }
 
   /**
@@ -226,6 +267,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -249,6 +291,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -265,6 +308,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
     return this;
   }
 
@@ -300,6 +344,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
   }
 
   /**
@@ -315,6 +360,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
     return this;
   }
 
@@ -356,6 +402,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
   }
 
   /**
@@ -378,6 +425,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -401,6 +449,7 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -416,6 +465,7 @@ public class AccountHolderInfo {
    */
   public AccountHolderInfo timeZone(String timeZone) {
     this.timeZone = timeZone;
+    isSetTimeZone = true; // mark as set
     return this;
   }
 
@@ -449,6 +499,27 @@ public class AccountHolderInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
+    isSetTimeZone = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AccountHolderInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AccountHolderInfo object is equal to o. */
@@ -514,6 +585,54 @@ public class AccountHolderInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetCapabilities) {
+      addIfNull(nulls, JSON_PROPERTY_CAPABILITIES, this.capabilities);
+    }
+    if (isSetContactDetails) {
+      addIfNull(nulls, JSON_PROPERTY_CONTACT_DETAILS, this.contactDetails);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetLegalEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
+    }
+    if (isSetMetadata) {
+      addIfNull(nulls, JSON_PROPERTY_METADATA, this.metadata);
+    }
+    if (isSetMigratedAccountHolderCode) {
+      addIfNull(nulls, JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE, this.migratedAccountHolderCode);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetTimeZone) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_ZONE, this.timeZone);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

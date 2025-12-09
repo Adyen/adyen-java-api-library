@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,23 +34,50 @@ public class CreateTransferLimitRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_ENDS_AT = "endsAt";
   private OffsetDateTime endsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndsAt = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SCA_INFORMATION = "scaInformation";
   private CreateScaInformation scaInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaInformation = false;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private Scope scope;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScope = false;
+
   public static final String JSON_PROPERTY_STARTS_AT = "startsAt";
   private OffsetDateTime startsAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartsAt = false;
+
   public static final String JSON_PROPERTY_TRANSFER_TYPE = "transferType";
   private TransferType transferType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateTransferLimitRequest() {}
 
@@ -60,6 +89,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -83,6 +113,7 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -97,6 +128,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest endsAt(OffsetDateTime endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
     return this;
   }
 
@@ -128,6 +160,7 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(OffsetDateTime endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
   }
 
   /**
@@ -138,6 +171,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -161,6 +195,7 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -171,6 +206,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest scaInformation(CreateScaInformation scaInformation) {
     this.scaInformation = scaInformation;
+    isSetScaInformation = true; // mark as set
     return this;
   }
 
@@ -194,6 +230,7 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaInformation(CreateScaInformation scaInformation) {
     this.scaInformation = scaInformation;
+    isSetScaInformation = true; // mark as set
   }
 
   /**
@@ -204,6 +241,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest scope(Scope scope) {
     this.scope = scope;
+    isSetScope = true; // mark as set
     return this;
   }
 
@@ -227,6 +265,7 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScope(Scope scope) {
     this.scope = scope;
+    isSetScope = true; // mark as set
   }
 
   /**
@@ -241,6 +280,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest startsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
     return this;
   }
 
@@ -272,6 +312,7 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
   }
 
   /**
@@ -282,6 +323,7 @@ public class CreateTransferLimitRequest {
    */
   public CreateTransferLimitRequest transferType(TransferType transferType) {
     this.transferType = transferType;
+    isSetTransferType = true; // mark as set
     return this;
   }
 
@@ -305,6 +347,27 @@ public class CreateTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferType(TransferType transferType) {
     this.transferType = transferType;
+    isSetTransferType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateTransferLimitRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateTransferLimitRequest object is equal to o. */
@@ -354,6 +417,48 @@ public class CreateTransferLimitRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetEndsAt) {
+      addIfNull(nulls, JSON_PROPERTY_ENDS_AT, this.endsAt);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetScaInformation) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_INFORMATION, this.scaInformation);
+    }
+    if (isSetScope) {
+      addIfNull(nulls, JSON_PROPERTY_SCOPE, this.scope);
+    }
+    if (isSetStartsAt) {
+      addIfNull(nulls, JSON_PROPERTY_STARTS_AT, this.startsAt);
+    }
+    if (isSetTransferType) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_TYPE, this.transferType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

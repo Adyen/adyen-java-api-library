@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,68 +40,117 @@ public class CardConfiguration {
   public static final String JSON_PROPERTY_ACTIVATION = "activation";
   private String activation;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActivation = false;
+
   public static final String JSON_PROPERTY_ACTIVATION_URL = "activationUrl";
   private String activationUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActivationUrl = false;
 
   public static final String JSON_PROPERTY_BULK_ADDRESS = "bulkAddress";
   private BulkAddress bulkAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBulkAddress = false;
+
   public static final String JSON_PROPERTY_CARD_IMAGE_ID = "cardImageId";
   private String cardImageId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardImageId = false;
 
   public static final String JSON_PROPERTY_CARRIER = "carrier";
   private String carrier;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarrier = false;
+
   public static final String JSON_PROPERTY_CARRIER_IMAGE_ID = "carrierImageId";
   private String carrierImageId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarrierImageId = false;
 
   public static final String JSON_PROPERTY_CONFIGURATION_PROFILE_ID = "configurationProfileId";
   private String configurationProfileId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfigurationProfileId = false;
+
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
 
   public static final String JSON_PROPERTY_ENVELOPE = "envelope";
   private String envelope;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnvelope = false;
+
   public static final String JSON_PROPERTY_INSERT = "insert";
   private String insert;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInsert = false;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLanguage = false;
+
   public static final String JSON_PROPERTY_LOGO_IMAGE_ID = "logoImageId";
   private String logoImageId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLogoImageId = false;
 
   public static final String JSON_PROPERTY_PIN_MAILER = "pinMailer";
   private String pinMailer;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPinMailer = false;
+
   public static final String JSON_PROPERTY_SHIPMENT_METHOD = "shipmentMethod";
   private String shipmentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShipmentMethod = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CardConfiguration() {}
 
   /**
-   * Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The
-   * activation label is attached to the card and contains the activation instructions.
+   * The activation label attached to the card that contains the activation instructions. This field
+   * overrides the activation label design ID defined in the card configuration profile.
    *
-   * @param activation Overrides the activation label design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The activation label is attached to the card and
-   *     contains the activation instructions.
+   * @param activation The activation label attached to the card that contains the activation
+   *     instructions. This field overrides the activation label design ID defined in the card
+   *     configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration activation(String activation) {
     this.activation = activation;
+    isSetActivation = true; // mark as set
     return this;
   }
 
   /**
-   * Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The
-   * activation label is attached to the card and contains the activation instructions.
+   * The activation label attached to the card that contains the activation instructions. This field
+   * overrides the activation label design ID defined in the card configuration profile.
    *
-   * @return activation Overrides the activation label design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The activation label is attached to the card and
-   *     contains the activation instructions.
+   * @return activation The activation label attached to the card that contains the activation
+   *     instructions. This field overrides the activation label design ID defined in the card
+   *     configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_ACTIVATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,17 +159,18 @@ public class CardConfiguration {
   }
 
   /**
-   * Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The
-   * activation label is attached to the card and contains the activation instructions.
+   * The activation label attached to the card that contains the activation instructions. This field
+   * overrides the activation label design ID defined in the card configuration profile.
    *
-   * @param activation Overrides the activation label design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The activation label is attached to the card and
-   *     contains the activation instructions.
+   * @param activation The activation label attached to the card that contains the activation
+   *     instructions. This field overrides the activation label design ID defined in the card
+   *     configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_ACTIVATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActivation(String activation) {
     this.activation = activation;
+    isSetActivation = true; // mark as set
   }
 
   /**
@@ -135,6 +187,7 @@ public class CardConfiguration {
    */
   public CardConfiguration activationUrl(String activationUrl) {
     this.activationUrl = activationUrl;
+    isSetActivationUrl = true; // mark as set
     return this;
   }
 
@@ -170,6 +223,7 @@ public class CardConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActivationUrl(String activationUrl) {
     this.activationUrl = activationUrl;
+    isSetActivationUrl = true; // mark as set
   }
 
   /**
@@ -180,6 +234,7 @@ public class CardConfiguration {
    */
   public CardConfiguration bulkAddress(BulkAddress bulkAddress) {
     this.bulkAddress = bulkAddress;
+    isSetBulkAddress = true; // mark as set
     return this;
   }
 
@@ -203,25 +258,27 @@ public class CardConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBulkAddress(BulkAddress bulkAddress) {
     this.bulkAddress = bulkAddress;
+    isSetBulkAddress = true; // mark as set
   }
 
   /**
-   * The ID of the card image. This is the image that will be printed on the full front of the card.
+   * The unique identifier of the card image. This image is printed on the full front of the card.
    *
-   * @param cardImageId The ID of the card image. This is the image that will be printed on the full
+   * @param cardImageId The unique identifier of the card image. This image is printed on the full
    *     front of the card.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration cardImageId(String cardImageId) {
     this.cardImageId = cardImageId;
+    isSetCardImageId = true; // mark as set
     return this;
   }
 
   /**
-   * The ID of the card image. This is the image that will be printed on the full front of the card.
+   * The unique identifier of the card image. This image is printed on the full front of the card.
    *
-   * @return cardImageId The ID of the card image. This is the image that will be printed on the
-   *     full front of the card.
+   * @return cardImageId The unique identifier of the card image. This image is printed on the full
+   *     front of the card.
    */
   @JsonProperty(JSON_PROPERTY_CARD_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,38 +287,38 @@ public class CardConfiguration {
   }
 
   /**
-   * The ID of the card image. This is the image that will be printed on the full front of the card.
+   * The unique identifier of the card image. This image is printed on the full front of the card.
    *
-   * @param cardImageId The ID of the card image. This is the image that will be printed on the full
+   * @param cardImageId The unique identifier of the card image. This image is printed on the full
    *     front of the card.
    */
   @JsonProperty(JSON_PROPERTY_CARD_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardImageId(String cardImageId) {
     this.cardImageId = cardImageId;
+    isSetCardImageId = true; // mark as set
   }
 
   /**
-   * Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier
-   * is the letter or packaging to which the card is attached.
+   * The letter or packaging to which the card is attached. This field overrides the carrier design
+   * ID defined in the card configuration profile.
    *
-   * @param carrier Overrides the carrier design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the
-   *     card is attached.
+   * @param carrier The letter or packaging to which the card is attached. This field overrides the
+   *     carrier design ID defined in the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration carrier(String carrier) {
     this.carrier = carrier;
+    isSetCarrier = true; // mark as set
     return this;
   }
 
   /**
-   * Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier
-   * is the letter or packaging to which the card is attached.
+   * The letter or packaging to which the card is attached. This field overrides the carrier design
+   * ID defined in the card configuration profile.
    *
-   * @return carrier Overrides the carrier design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the
-   *     card is attached.
+   * @return carrier The letter or packaging to which the card is attached. This field overrides the
+   *     carrier design ID defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_CARRIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,37 +327,38 @@ public class CardConfiguration {
   }
 
   /**
-   * Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier
-   * is the letter or packaging to which the card is attached.
+   * The letter or packaging to which the card is attached. This field overrides the carrier design
+   * ID defined in the card configuration profile.
    *
-   * @param carrier Overrides the carrier design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the
-   *     card is attached.
+   * @param carrier The letter or packaging to which the card is attached. This field overrides the
+   *     carrier design ID defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_CARRIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarrier(String carrier) {
     this.carrier = carrier;
+    isSetCarrier = true; // mark as set
   }
 
   /**
-   * The ID of the carrier image. This is the image that will printed on the letter to which the
+   * The unique identifier of the carrier image. This image is printed on the letter to which the
    * card is attached.
    *
-   * @param carrierImageId The ID of the carrier image. This is the image that will printed on the
+   * @param carrierImageId The unique identifier of the carrier image. This image is printed on the
    *     letter to which the card is attached.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration carrierImageId(String carrierImageId) {
     this.carrierImageId = carrierImageId;
+    isSetCarrierImageId = true; // mark as set
     return this;
   }
 
   /**
-   * The ID of the carrier image. This is the image that will printed on the letter to which the
+   * The unique identifier of the carrier image. This image is printed on the letter to which the
    * card is attached.
    *
-   * @return carrierImageId The ID of the carrier image. This is the image that will printed on the
+   * @return carrierImageId The unique identifier of the carrier image. This image is printed on the
    *     letter to which the card is attached.
    */
   @JsonProperty(JSON_PROPERTY_CARRIER_IMAGE_ID)
@@ -310,51 +368,55 @@ public class CardConfiguration {
   }
 
   /**
-   * The ID of the carrier image. This is the image that will printed on the letter to which the
+   * The unique identifier of the carrier image. This image is printed on the letter to which the
    * card is attached.
    *
-   * @param carrierImageId The ID of the carrier image. This is the image that will printed on the
+   * @param carrierImageId The unique identifier of the carrier image. This image is printed on the
    *     letter to which the card is attached.
    */
   @JsonProperty(JSON_PROPERTY_CARRIER_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarrierImageId(String carrierImageId) {
     this.carrierImageId = carrierImageId;
+    isSetCarrierImageId = true; // mark as set
   }
 
   /**
-   * The ID of the card configuration profile that contains the settings of the card. For example,
-   * the envelope and PIN mailer designs or the logistics company handling the shipment. All the
-   * settings in the profile are applied to the card, unless you provide other fields to override
-   * them. For example, send the &#x60;shipmentMethod&#x60; to override the logistics company
-   * defined in the card configuration profile.
+   * The unique identifier of the card configuration profile that contains the settings that are
+   * applied to the card. For example, the envelope and PIN mailer designs or the logistics company
+   * handling the shipment. You can override some of the existing settings in the configuration
+   * profile by providing the corresponding fields in the &#x60;configuration&#x60; object. For
+   * example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the
+   * card configuration profile.
    *
-   * @param configurationProfileId The ID of the card configuration profile that contains the
-   *     settings of the card. For example, the envelope and PIN mailer designs or the logistics
-   *     company handling the shipment. All the settings in the profile are applied to the card,
-   *     unless you provide other fields to override them. For example, send the
-   *     &#x60;shipmentMethod&#x60; to override the logistics company defined in the card
-   *     configuration profile.
+   * @param configurationProfileId The unique identifier of the card configuration profile that
+   *     contains the settings that are applied to the card. For example, the envelope and PIN
+   *     mailer designs or the logistics company handling the shipment. You can override some of the
+   *     existing settings in the configuration profile by providing the corresponding fields in the
+   *     &#x60;configuration&#x60; object. For example, send the &#x60;shipmentMethod&#x60; to
+   *     override the logistics company defined in the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration configurationProfileId(String configurationProfileId) {
     this.configurationProfileId = configurationProfileId;
+    isSetConfigurationProfileId = true; // mark as set
     return this;
   }
 
   /**
-   * The ID of the card configuration profile that contains the settings of the card. For example,
-   * the envelope and PIN mailer designs or the logistics company handling the shipment. All the
-   * settings in the profile are applied to the card, unless you provide other fields to override
-   * them. For example, send the &#x60;shipmentMethod&#x60; to override the logistics company
-   * defined in the card configuration profile.
+   * The unique identifier of the card configuration profile that contains the settings that are
+   * applied to the card. For example, the envelope and PIN mailer designs or the logistics company
+   * handling the shipment. You can override some of the existing settings in the configuration
+   * profile by providing the corresponding fields in the &#x60;configuration&#x60; object. For
+   * example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the
+   * card configuration profile.
    *
-   * @return configurationProfileId The ID of the card configuration profile that contains the
-   *     settings of the card. For example, the envelope and PIN mailer designs or the logistics
-   *     company handling the shipment. All the settings in the profile are applied to the card,
-   *     unless you provide other fields to override them. For example, send the
-   *     &#x60;shipmentMethod&#x60; to override the logistics company defined in the card
-   *     configuration profile.
+   * @return configurationProfileId The unique identifier of the card configuration profile that
+   *     contains the settings that are applied to the card. For example, the envelope and PIN
+   *     mailer designs or the logistics company handling the shipment. You can override some of the
+   *     existing settings in the configuration profile by providing the corresponding fields in the
+   *     &#x60;configuration&#x60; object. For example, send the &#x60;shipmentMethod&#x60; to
+   *     override the logistics company defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,44 +425,51 @@ public class CardConfiguration {
   }
 
   /**
-   * The ID of the card configuration profile that contains the settings of the card. For example,
-   * the envelope and PIN mailer designs or the logistics company handling the shipment. All the
-   * settings in the profile are applied to the card, unless you provide other fields to override
-   * them. For example, send the &#x60;shipmentMethod&#x60; to override the logistics company
-   * defined in the card configuration profile.
+   * The unique identifier of the card configuration profile that contains the settings that are
+   * applied to the card. For example, the envelope and PIN mailer designs or the logistics company
+   * handling the shipment. You can override some of the existing settings in the configuration
+   * profile by providing the corresponding fields in the &#x60;configuration&#x60; object. For
+   * example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the
+   * card configuration profile.
    *
-   * @param configurationProfileId The ID of the card configuration profile that contains the
-   *     settings of the card. For example, the envelope and PIN mailer designs or the logistics
-   *     company handling the shipment. All the settings in the profile are applied to the card,
-   *     unless you provide other fields to override them. For example, send the
-   *     &#x60;shipmentMethod&#x60; to override the logistics company defined in the card
-   *     configuration profile.
+   * @param configurationProfileId The unique identifier of the card configuration profile that
+   *     contains the settings that are applied to the card. For example, the envelope and PIN
+   *     mailer designs or the logistics company handling the shipment. You can override some of the
+   *     existing settings in the configuration profile by providing the corresponding fields in the
+   *     &#x60;configuration&#x60; object. For example, send the &#x60;shipmentMethod&#x60; to
+   *     override the logistics company defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurationProfileId(String configurationProfileId) {
     this.configurationProfileId = configurationProfileId;
+    isSetConfigurationProfileId = true; // mark as set
   }
 
   /**
    * The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card.
-   * For example, **EUR**.
+   * For example, **EUR**. This field overrides the existing currency setting on the card
+   * configuration profile.
    *
    * @param currency The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency
-   *     code of the card. For example, **EUR**.
+   *     code of the card. For example, **EUR**. This field overrides the existing currency setting
+   *     on the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
   /**
    * The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card.
-   * For example, **EUR**.
+   * For example, **EUR**. This field overrides the existing currency setting on the card
+   * configuration profile.
    *
    * @return currency The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency
-   *     code of the card. For example, **EUR**.
+   *     code of the card. For example, **EUR**. This field overrides the existing currency setting
+   *     on the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -410,34 +479,36 @@ public class CardConfiguration {
 
   /**
    * The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card.
-   * For example, **EUR**.
+   * For example, **EUR**. This field overrides the existing currency setting on the card
+   * configuration profile.
    *
    * @param currency The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency
-   *     code of the card. For example, **EUR**.
+   *     code of the card. For example, **EUR**. This field overrides the existing currency setting
+   *     on the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
-   * Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;.
+   * Overrides the envelope design ID defined in the card configuration profile.
    *
-   * @param envelope Overrides the envelope design ID defined in the
-   *     &#x60;configurationProfileId&#x60;.
+   * @param envelope Overrides the envelope design ID defined in the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration envelope(String envelope) {
     this.envelope = envelope;
+    isSetEnvelope = true; // mark as set
     return this;
   }
 
   /**
-   * Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;.
+   * Overrides the envelope design ID defined in the card configuration profile.
    *
-   * @return envelope Overrides the envelope design ID defined in the
-   *     &#x60;configurationProfileId&#x60;.
+   * @return envelope Overrides the envelope design ID defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_ENVELOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -446,38 +517,39 @@ public class CardConfiguration {
   }
 
   /**
-   * Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;.
+   * Overrides the envelope design ID defined in the card configuration profile.
    *
-   * @param envelope Overrides the envelope design ID defined in the
-   *     &#x60;configurationProfileId&#x60;.
+   * @param envelope Overrides the envelope design ID defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_ENVELOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvelope(String envelope) {
     this.envelope = envelope;
+    isSetEnvelope = true; // mark as set
   }
 
   /**
-   * Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is
-   * any additional material, such as marketing materials, that are shipped together with the card.
+   * Any additional material, such as marketing material, that is shipped together with the card.
+   * This field overrides the insert design ID defined in the card configuration profile.
    *
-   * @param insert Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;.
-   *     An insert is any additional material, such as marketing materials, that are shipped
-   *     together with the card.
+   * @param insert Any additional material, such as marketing material, that is shipped together
+   *     with the card. This field overrides the insert design ID defined in the card configuration
+   *     profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration insert(String insert) {
     this.insert = insert;
+    isSetInsert = true; // mark as set
     return this;
   }
 
   /**
-   * Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is
-   * any additional material, such as marketing materials, that are shipped together with the card.
+   * Any additional material, such as marketing material, that is shipped together with the card.
+   * This field overrides the insert design ID defined in the card configuration profile.
    *
-   * @return insert Overrides the insert design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing
-   *     materials, that are shipped together with the card.
+   * @return insert Any additional material, such as marketing material, that is shipped together
+   *     with the card. This field overrides the insert design ID defined in the card configuration
+   *     profile.
    */
   @JsonProperty(JSON_PROPERTY_INSERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -486,17 +558,18 @@ public class CardConfiguration {
   }
 
   /**
-   * Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is
-   * any additional material, such as marketing materials, that are shipped together with the card.
+   * Any additional material, such as marketing material, that is shipped together with the card.
+   * This field overrides the insert design ID defined in the card configuration profile.
    *
-   * @param insert Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;.
-   *     An insert is any additional material, such as marketing materials, that are shipped
-   *     together with the card.
+   * @param insert Any additional material, such as marketing material, that is shipped together
+   *     with the card. This field overrides the insert design ID defined in the card configuration
+   *     profile.
    */
   @JsonProperty(JSON_PROPERTY_INSERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInsert(String insert) {
     this.insert = insert;
+    isSetInsert = true; // mark as set
   }
 
   /**
@@ -510,6 +583,7 @@ public class CardConfiguration {
    */
   public CardConfiguration language(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
     return this;
   }
 
@@ -539,27 +613,29 @@ public class CardConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
   }
 
   /**
-   * The ID of the logo image. This is the image that will be printed on the partial front of the
-   * card, such as a logo on the upper right corner.
+   * The unique identifier of the logo image. This image is printed on the partial front of the
+   * card, for example, a logo on the upper right corner.
    *
-   * @param logoImageId The ID of the logo image. This is the image that will be printed on the
-   *     partial front of the card, such as a logo on the upper right corner.
+   * @param logoImageId The unique identifier of the logo image. This image is printed on the
+   *     partial front of the card, for example, a logo on the upper right corner.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration logoImageId(String logoImageId) {
     this.logoImageId = logoImageId;
+    isSetLogoImageId = true; // mark as set
     return this;
   }
 
   /**
-   * The ID of the logo image. This is the image that will be printed on the partial front of the
-   * card, such as a logo on the upper right corner.
+   * The unique identifier of the logo image. This image is printed on the partial front of the
+   * card, for example, a logo on the upper right corner.
    *
-   * @return logoImageId The ID of the logo image. This is the image that will be printed on the
-   *     partial front of the card, such as a logo on the upper right corner.
+   * @return logoImageId The unique identifier of the logo image. This image is printed on the
+   *     partial front of the card, for example, a logo on the upper right corner.
    */
   @JsonProperty(JSON_PROPERTY_LOGO_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -568,39 +644,39 @@ public class CardConfiguration {
   }
 
   /**
-   * The ID of the logo image. This is the image that will be printed on the partial front of the
-   * card, such as a logo on the upper right corner.
+   * The unique identifier of the logo image. This image is printed on the partial front of the
+   * card, for example, a logo on the upper right corner.
    *
-   * @param logoImageId The ID of the logo image. This is the image that will be printed on the
-   *     partial front of the card, such as a logo on the upper right corner.
+   * @param logoImageId The unique identifier of the logo image. This image is printed on the
+   *     partial front of the card, for example, a logo on the upper right corner.
    */
   @JsonProperty(JSON_PROPERTY_LOGO_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogoImageId(String logoImageId) {
     this.logoImageId = logoImageId;
+    isSetLogoImageId = true; // mark as set
   }
 
   /**
-   * Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN
-   * mailer is the letter on which the PIN is printed.
+   * The letter on which the PIN of the card is printed. This field overrides the PIN mailer design
+   * ID defined in the card configuration profile.
    *
-   * @param pinMailer Overrides the PIN mailer design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is
-   *     printed.
+   * @param pinMailer The letter on which the PIN of the card is printed. This field overrides the
+   *     PIN mailer design ID defined in the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration pinMailer(String pinMailer) {
     this.pinMailer = pinMailer;
+    isSetPinMailer = true; // mark as set
     return this;
   }
 
   /**
-   * Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN
-   * mailer is the letter on which the PIN is printed.
+   * The letter on which the PIN of the card is printed. This field overrides the PIN mailer design
+   * ID defined in the card configuration profile.
    *
-   * @return pinMailer Overrides the PIN mailer design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is
-   *     printed.
+   * @return pinMailer The letter on which the PIN of the card is printed. This field overrides the
+   *     PIN mailer design ID defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_PIN_MAILER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -609,36 +685,39 @@ public class CardConfiguration {
   }
 
   /**
-   * Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN
-   * mailer is the letter on which the PIN is printed.
+   * The letter on which the PIN of the card is printed. This field overrides the PIN mailer design
+   * ID defined in the card configuration profile.
    *
-   * @param pinMailer Overrides the PIN mailer design ID defined in the
-   *     &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is
-   *     printed.
+   * @param pinMailer The letter on which the PIN of the card is printed. This field overrides the
+   *     PIN mailer design ID defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_PIN_MAILER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPinMailer(String pinMailer) {
     this.pinMailer = pinMailer;
+    isSetPinMailer = true; // mark as set
   }
 
   /**
-   * Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
+   * The logistics company that ships the card. This field overrides the logistics company defined
+   * in the card configuration profile.
    *
-   * @param shipmentMethod Overrides the logistics company defined in the
-   *     &#x60;configurationProfileId&#x60;.
+   * @param shipmentMethod The logistics company that ships the card. This field overrides the
+   *     logistics company defined in the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration shipmentMethod(String shipmentMethod) {
     this.shipmentMethod = shipmentMethod;
+    isSetShipmentMethod = true; // mark as set
     return this;
   }
 
   /**
-   * Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
+   * The logistics company that ships the card. This field overrides the logistics company defined
+   * in the card configuration profile.
    *
-   * @return shipmentMethod Overrides the logistics company defined in the
-   *     &#x60;configurationProfileId&#x60;.
+   * @return shipmentMethod The logistics company that ships the card. This field overrides the
+   *     logistics company defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_SHIPMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -647,15 +726,37 @@ public class CardConfiguration {
   }
 
   /**
-   * Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
+   * The logistics company that ships the card. This field overrides the logistics company defined
+   * in the card configuration profile.
    *
-   * @param shipmentMethod Overrides the logistics company defined in the
-   *     &#x60;configurationProfileId&#x60;.
+   * @param shipmentMethod The logistics company that ships the card. This field overrides the
+   *     logistics company defined in the card configuration profile.
    */
   @JsonProperty(JSON_PROPERTY_SHIPMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipmentMethod(String shipmentMethod) {
     this.shipmentMethod = shipmentMethod;
+    isSetShipmentMethod = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CardConfiguration includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CardConfiguration object is equal to o. */
@@ -735,6 +836,69 @@ public class CardConfiguration {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetActivation) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVATION, this.activation);
+    }
+    if (isSetActivationUrl) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVATION_URL, this.activationUrl);
+    }
+    if (isSetBulkAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BULK_ADDRESS, this.bulkAddress);
+    }
+    if (isSetCardImageId) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_IMAGE_ID, this.cardImageId);
+    }
+    if (isSetCarrier) {
+      addIfNull(nulls, JSON_PROPERTY_CARRIER, this.carrier);
+    }
+    if (isSetCarrierImageId) {
+      addIfNull(nulls, JSON_PROPERTY_CARRIER_IMAGE_ID, this.carrierImageId);
+    }
+    if (isSetConfigurationProfileId) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIGURATION_PROFILE_ID, this.configurationProfileId);
+    }
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetEnvelope) {
+      addIfNull(nulls, JSON_PROPERTY_ENVELOPE, this.envelope);
+    }
+    if (isSetInsert) {
+      addIfNull(nulls, JSON_PROPERTY_INSERT, this.insert);
+    }
+    if (isSetLanguage) {
+      addIfNull(nulls, JSON_PROPERTY_LANGUAGE, this.language);
+    }
+    if (isSetLogoImageId) {
+      addIfNull(nulls, JSON_PROPERTY_LOGO_IMAGE_ID, this.logoImageId);
+    }
+    if (isSetPinMailer) {
+      addIfNull(nulls, JSON_PROPERTY_PIN_MAILER, this.pinMailer);
+    }
+    if (isSetShipmentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_SHIPMENT_METHOD, this.shipmentMethod);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

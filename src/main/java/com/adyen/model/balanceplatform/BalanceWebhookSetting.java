@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,6 +40,15 @@ public class BalanceWebhookSetting extends WebhookSetting {
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
   private List<Condition> conditions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConditions = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public BalanceWebhookSetting() {}
 
   /**
@@ -50,6 +61,7 @@ public class BalanceWebhookSetting extends WebhookSetting {
    */
   public BalanceWebhookSetting conditions(List<Condition> conditions) {
     this.conditions = conditions;
+    isSetConditions = true; // mark as set
     return this;
   }
 
@@ -85,6 +97,27 @@ public class BalanceWebhookSetting extends WebhookSetting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConditions(List<Condition> conditions) {
     this.conditions = conditions;
+    isSetConditions = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BalanceWebhookSetting includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BalanceWebhookSetting object is equal to o. */
@@ -130,6 +163,30 @@ public class BalanceWebhookSetting extends WebhookSetting {
     Map<String, Class<?>> mappings = new HashMap<>();
     mappings.put("BalanceWebhookSetting", BalanceWebhookSetting.class);
     JSON.registerDiscriminator(BalanceWebhookSetting.class, "type", mappings);
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetConditions) {
+      addIfNull(nulls, JSON_PROPERTY_CONDITIONS, this.conditions);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
