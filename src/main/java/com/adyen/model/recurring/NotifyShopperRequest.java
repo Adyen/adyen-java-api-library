@@ -479,29 +479,51 @@ public class NotifyShopperRequest {
     }
     NotifyShopperRequest notifyShopperRequest = (NotifyShopperRequest) o;
     return Objects.equals(this.amount, notifyShopperRequest.amount)
+        && Objects.equals(this.isSetAmount, notifyShopperRequest.isSetAmount)
         && Objects.equals(this.billingDate, notifyShopperRequest.billingDate)
+        && Objects.equals(this.isSetBillingDate, notifyShopperRequest.isSetBillingDate)
         && Objects.equals(this.billingSequenceNumber, notifyShopperRequest.billingSequenceNumber)
+        && Objects.equals(
+            this.isSetBillingSequenceNumber, notifyShopperRequest.isSetBillingSequenceNumber)
         && Objects.equals(this.displayedReference, notifyShopperRequest.displayedReference)
+        && Objects.equals(
+            this.isSetDisplayedReference, notifyShopperRequest.isSetDisplayedReference)
         && Objects.equals(this.merchantAccount, notifyShopperRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, notifyShopperRequest.isSetMerchantAccount)
         && Objects.equals(
             this.recurringDetailReference, notifyShopperRequest.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, notifyShopperRequest.isSetRecurringDetailReference)
         && Objects.equals(this.reference, notifyShopperRequest.reference)
+        && Objects.equals(this.isSetReference, notifyShopperRequest.isSetReference)
         && Objects.equals(this.shopperReference, notifyShopperRequest.shopperReference)
-        && Objects.equals(this.storedPaymentMethodId, notifyShopperRequest.storedPaymentMethodId);
+        && Objects.equals(this.isSetShopperReference, notifyShopperRequest.isSetShopperReference)
+        && Objects.equals(this.storedPaymentMethodId, notifyShopperRequest.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, notifyShopperRequest.isSetStoredPaymentMethodId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         billingDate,
+        isSetBillingDate,
         billingSequenceNumber,
+        isSetBillingSequenceNumber,
         displayedReference,
+        isSetDisplayedReference,
         merchantAccount,
+        isSetMerchantAccount,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         reference,
+        isSetReference,
         shopperReference,
-        storedPaymentMethodId);
+        isSetShopperReference,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId);
   }
 
   @Override

@@ -162,12 +162,14 @@ public class CreatePermitResult {
     }
     CreatePermitResult createPermitResult = (CreatePermitResult) o;
     return Objects.equals(this.permitResultList, createPermitResult.permitResultList)
-        && Objects.equals(this.pspReference, createPermitResult.pspReference);
+        && Objects.equals(this.isSetPermitResultList, createPermitResult.isSetPermitResultList)
+        && Objects.equals(this.pspReference, createPermitResult.pspReference)
+        && Objects.equals(this.isSetPspReference, createPermitResult.isSetPspReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permitResultList, pspReference);
+    return Objects.hash(permitResultList, isSetPermitResultList, pspReference, isSetPspReference);
   }
 
   @Override

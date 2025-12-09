@@ -156,12 +156,14 @@ public class TokenDetails {
     }
     TokenDetails tokenDetails = (TokenDetails) o;
     return Objects.equals(this.tokenData, tokenDetails.tokenData)
-        && Objects.equals(this.tokenDataType, tokenDetails.tokenDataType);
+        && Objects.equals(this.isSetTokenData, tokenDetails.isSetTokenData)
+        && Objects.equals(this.tokenDataType, tokenDetails.tokenDataType)
+        && Objects.equals(this.isSetTokenDataType, tokenDetails.isSetTokenDataType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenData, tokenDataType);
+    return Objects.hash(tokenData, isSetTokenData, tokenDataType, isSetTokenDataType);
   }
 
   @Override

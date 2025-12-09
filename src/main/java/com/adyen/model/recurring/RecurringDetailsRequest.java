@@ -194,13 +194,23 @@ public class RecurringDetailsRequest {
     }
     RecurringDetailsRequest recurringDetailsRequest = (RecurringDetailsRequest) o;
     return Objects.equals(this.merchantAccount, recurringDetailsRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, recurringDetailsRequest.isSetMerchantAccount)
         && Objects.equals(this.recurring, recurringDetailsRequest.recurring)
-        && Objects.equals(this.shopperReference, recurringDetailsRequest.shopperReference);
+        && Objects.equals(this.isSetRecurring, recurringDetailsRequest.isSetRecurring)
+        && Objects.equals(this.shopperReference, recurringDetailsRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, recurringDetailsRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, recurring, shopperReference);
+    return Objects.hash(
+        merchantAccount,
+        isSetMerchantAccount,
+        recurring,
+        isSetRecurring,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override

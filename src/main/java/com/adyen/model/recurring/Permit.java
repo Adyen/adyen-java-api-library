@@ -276,15 +276,30 @@ public class Permit {
     }
     Permit permit = (Permit) o;
     return Objects.equals(this.partnerId, permit.partnerId)
+        && Objects.equals(this.isSetPartnerId, permit.isSetPartnerId)
         && Objects.equals(this.profileReference, permit.profileReference)
+        && Objects.equals(this.isSetProfileReference, permit.isSetProfileReference)
         && Objects.equals(this.restriction, permit.restriction)
+        && Objects.equals(this.isSetRestriction, permit.isSetRestriction)
         && Objects.equals(this.resultKey, permit.resultKey)
-        && Objects.equals(this.validTillDate, permit.validTillDate);
+        && Objects.equals(this.isSetResultKey, permit.isSetResultKey)
+        && Objects.equals(this.validTillDate, permit.validTillDate)
+        && Objects.equals(this.isSetValidTillDate, permit.isSetValidTillDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partnerId, profileReference, restriction, resultKey, validTillDate);
+    return Objects.hash(
+        partnerId,
+        isSetPartnerId,
+        profileReference,
+        isSetProfileReference,
+        restriction,
+        isSetRestriction,
+        resultKey,
+        isSetResultKey,
+        validTillDate,
+        isSetValidTillDate);
   }
 
   @Override

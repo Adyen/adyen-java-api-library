@@ -244,14 +244,27 @@ public class RecurringDetailsResult {
     }
     RecurringDetailsResult recurringDetailsResult = (RecurringDetailsResult) o;
     return Objects.equals(this.creationDate, recurringDetailsResult.creationDate)
+        && Objects.equals(this.isSetCreationDate, recurringDetailsResult.isSetCreationDate)
         && Objects.equals(this.details, recurringDetailsResult.details)
+        && Objects.equals(this.isSetDetails, recurringDetailsResult.isSetDetails)
         && Objects.equals(this.lastKnownShopperEmail, recurringDetailsResult.lastKnownShopperEmail)
-        && Objects.equals(this.shopperReference, recurringDetailsResult.shopperReference);
+        && Objects.equals(
+            this.isSetLastKnownShopperEmail, recurringDetailsResult.isSetLastKnownShopperEmail)
+        && Objects.equals(this.shopperReference, recurringDetailsResult.shopperReference)
+        && Objects.equals(this.isSetShopperReference, recurringDetailsResult.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, details, lastKnownShopperEmail, shopperReference);
+    return Objects.hash(
+        creationDate,
+        isSetCreationDate,
+        details,
+        isSetDetails,
+        lastKnownShopperEmail,
+        isSetLastKnownShopperEmail,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override

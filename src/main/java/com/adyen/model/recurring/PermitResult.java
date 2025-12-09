@@ -143,12 +143,14 @@ public class PermitResult {
     }
     PermitResult permitResult = (PermitResult) o;
     return Objects.equals(this.resultKey, permitResult.resultKey)
-        && Objects.equals(this.token, permitResult.token);
+        && Objects.equals(this.isSetResultKey, permitResult.isSetResultKey)
+        && Objects.equals(this.token, permitResult.token)
+        && Objects.equals(this.isSetToken, permitResult.isSetToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resultKey, token);
+    return Objects.hash(resultKey, isSetResultKey, token, isSetToken);
   }
 
   @Override

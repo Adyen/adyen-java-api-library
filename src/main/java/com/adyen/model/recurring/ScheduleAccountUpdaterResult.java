@@ -158,12 +158,14 @@ public class ScheduleAccountUpdaterResult {
     }
     ScheduleAccountUpdaterResult scheduleAccountUpdaterResult = (ScheduleAccountUpdaterResult) o;
     return Objects.equals(this.pspReference, scheduleAccountUpdaterResult.pspReference)
-        && Objects.equals(this.result, scheduleAccountUpdaterResult.result);
+        && Objects.equals(this.isSetPspReference, scheduleAccountUpdaterResult.isSetPspReference)
+        && Objects.equals(this.result, scheduleAccountUpdaterResult.result)
+        && Objects.equals(this.isSetResult, scheduleAccountUpdaterResult.isSetResult);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pspReference, result);
+    return Objects.hash(pspReference, isSetPspReference, result, isSetResult);
   }
 
   @Override

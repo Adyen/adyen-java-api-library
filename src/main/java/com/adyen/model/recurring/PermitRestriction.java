@@ -194,13 +194,23 @@ public class PermitRestriction {
     }
     PermitRestriction permitRestriction = (PermitRestriction) o;
     return Objects.equals(this.maxAmount, permitRestriction.maxAmount)
+        && Objects.equals(this.isSetMaxAmount, permitRestriction.isSetMaxAmount)
         && Objects.equals(this.singleTransactionLimit, permitRestriction.singleTransactionLimit)
-        && Objects.equals(this.singleUse, permitRestriction.singleUse);
+        && Objects.equals(
+            this.isSetSingleTransactionLimit, permitRestriction.isSetSingleTransactionLimit)
+        && Objects.equals(this.singleUse, permitRestriction.singleUse)
+        && Objects.equals(this.isSetSingleUse, permitRestriction.isSetSingleUse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxAmount, singleTransactionLimit, singleUse);
+    return Objects.hash(
+        maxAmount,
+        isSetMaxAmount,
+        singleTransactionLimit,
+        isSetSingleTransactionLimit,
+        singleUse,
+        isSetSingleUse);
   }
 
   @Override

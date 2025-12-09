@@ -101,12 +101,13 @@ public class RecurringDetailWrapper {
       return false;
     }
     RecurringDetailWrapper recurringDetailWrapper = (RecurringDetailWrapper) o;
-    return Objects.equals(this.recurringDetail, recurringDetailWrapper.recurringDetail);
+    return Objects.equals(this.recurringDetail, recurringDetailWrapper.recurringDetail)
+        && Objects.equals(this.isSetRecurringDetail, recurringDetailWrapper.isSetRecurringDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recurringDetail);
+    return Objects.hash(recurringDetail, isSetRecurringDetail);
   }
 
   @Override

@@ -509,28 +509,46 @@ public class BankAccount {
     }
     BankAccount bankAccount = (BankAccount) o;
     return Objects.equals(this.bankAccountNumber, bankAccount.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, bankAccount.isSetBankAccountNumber)
         && Objects.equals(this.bankCity, bankAccount.bankCity)
+        && Objects.equals(this.isSetBankCity, bankAccount.isSetBankCity)
         && Objects.equals(this.bankLocationId, bankAccount.bankLocationId)
+        && Objects.equals(this.isSetBankLocationId, bankAccount.isSetBankLocationId)
         && Objects.equals(this.bankName, bankAccount.bankName)
+        && Objects.equals(this.isSetBankName, bankAccount.isSetBankName)
         && Objects.equals(this.bic, bankAccount.bic)
+        && Objects.equals(this.isSetBic, bankAccount.isSetBic)
         && Objects.equals(this.countryCode, bankAccount.countryCode)
+        && Objects.equals(this.isSetCountryCode, bankAccount.isSetCountryCode)
         && Objects.equals(this.iban, bankAccount.iban)
+        && Objects.equals(this.isSetIban, bankAccount.isSetIban)
         && Objects.equals(this.ownerName, bankAccount.ownerName)
-        && Objects.equals(this.taxId, bankAccount.taxId);
+        && Objects.equals(this.isSetOwnerName, bankAccount.isSetOwnerName)
+        && Objects.equals(this.taxId, bankAccount.taxId)
+        && Objects.equals(this.isSetTaxId, bankAccount.isSetTaxId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         bankAccountNumber,
+        isSetBankAccountNumber,
         bankCity,
+        isSetBankCity,
         bankLocationId,
+        isSetBankLocationId,
         bankName,
+        isSetBankName,
         bic,
+        isSetBic,
         countryCode,
+        isSetCountryCode,
         iban,
+        isSetIban,
         ownerName,
-        taxId);
+        isSetOwnerName,
+        taxId,
+        isSetTaxId);
   }
 
   @Override

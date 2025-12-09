@@ -246,15 +246,28 @@ public class CreatePermitRequest {
     }
     CreatePermitRequest createPermitRequest = (CreatePermitRequest) o;
     return Objects.equals(this.merchantAccount, createPermitRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, createPermitRequest.isSetMerchantAccount)
         && Objects.equals(this.permits, createPermitRequest.permits)
+        && Objects.equals(this.isSetPermits, createPermitRequest.isSetPermits)
         && Objects.equals(
             this.recurringDetailReference, createPermitRequest.recurringDetailReference)
-        && Objects.equals(this.shopperReference, createPermitRequest.shopperReference);
+        && Objects.equals(
+            this.isSetRecurringDetailReference, createPermitRequest.isSetRecurringDetailReference)
+        && Objects.equals(this.shopperReference, createPermitRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, createPermitRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, permits, recurringDetailReference, shopperReference);
+    return Objects.hash(
+        merchantAccount,
+        isSetMerchantAccount,
+        permits,
+        isSetPermits,
+        recurringDetailReference,
+        isSetRecurringDetailReference,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override

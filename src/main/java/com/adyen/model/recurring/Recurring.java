@@ -451,16 +451,30 @@ public class Recurring {
     }
     Recurring recurring = (Recurring) o;
     return Objects.equals(this.contract, recurring.contract)
+        && Objects.equals(this.isSetContract, recurring.isSetContract)
         && Objects.equals(this.recurringDetailName, recurring.recurringDetailName)
+        && Objects.equals(this.isSetRecurringDetailName, recurring.isSetRecurringDetailName)
         && Objects.equals(this.recurringExpiry, recurring.recurringExpiry)
+        && Objects.equals(this.isSetRecurringExpiry, recurring.isSetRecurringExpiry)
         && Objects.equals(this.recurringFrequency, recurring.recurringFrequency)
-        && Objects.equals(this.tokenService, recurring.tokenService);
+        && Objects.equals(this.isSetRecurringFrequency, recurring.isSetRecurringFrequency)
+        && Objects.equals(this.tokenService, recurring.tokenService)
+        && Objects.equals(this.isSetTokenService, recurring.isSetTokenService);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        contract, recurringDetailName, recurringExpiry, recurringFrequency, tokenService);
+        contract,
+        isSetContract,
+        recurringDetailName,
+        isSetRecurringDetailName,
+        recurringExpiry,
+        isSetRecurringExpiry,
+        recurringFrequency,
+        isSetRecurringFrequency,
+        tokenService,
+        isSetTokenService);
   }
 
   @Override

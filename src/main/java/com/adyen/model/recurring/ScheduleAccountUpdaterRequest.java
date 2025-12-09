@@ -345,24 +345,41 @@ public class ScheduleAccountUpdaterRequest {
     }
     ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest = (ScheduleAccountUpdaterRequest) o;
     return Objects.equals(this.additionalData, scheduleAccountUpdaterRequest.additionalData)
+        && Objects.equals(
+            this.isSetAdditionalData, scheduleAccountUpdaterRequest.isSetAdditionalData)
         && Objects.equals(this.card, scheduleAccountUpdaterRequest.card)
+        && Objects.equals(this.isSetCard, scheduleAccountUpdaterRequest.isSetCard)
         && Objects.equals(this.merchantAccount, scheduleAccountUpdaterRequest.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, scheduleAccountUpdaterRequest.isSetMerchantAccount)
         && Objects.equals(this.reference, scheduleAccountUpdaterRequest.reference)
+        && Objects.equals(this.isSetReference, scheduleAccountUpdaterRequest.isSetReference)
         && Objects.equals(
             this.selectedRecurringDetailReference,
             scheduleAccountUpdaterRequest.selectedRecurringDetailReference)
-        && Objects.equals(this.shopperReference, scheduleAccountUpdaterRequest.shopperReference);
+        && Objects.equals(
+            this.isSetSelectedRecurringDetailReference,
+            scheduleAccountUpdaterRequest.isSetSelectedRecurringDetailReference)
+        && Objects.equals(this.shopperReference, scheduleAccountUpdaterRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, scheduleAccountUpdaterRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         card,
+        isSetCard,
         merchantAccount,
+        isSetMerchantAccount,
         reference,
+        isSetReference,
         selectedRecurringDetailReference,
-        shopperReference);
+        isSetSelectedRecurringDetailReference,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override

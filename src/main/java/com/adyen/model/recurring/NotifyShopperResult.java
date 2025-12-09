@@ -360,25 +360,42 @@ public class NotifyShopperResult {
     }
     NotifyShopperResult notifyShopperResult = (NotifyShopperResult) o;
     return Objects.equals(this.displayedReference, notifyShopperResult.displayedReference)
+        && Objects.equals(this.isSetDisplayedReference, notifyShopperResult.isSetDisplayedReference)
         && Objects.equals(this.message, notifyShopperResult.message)
+        && Objects.equals(this.isSetMessage, notifyShopperResult.isSetMessage)
         && Objects.equals(this.pspReference, notifyShopperResult.pspReference)
+        && Objects.equals(this.isSetPspReference, notifyShopperResult.isSetPspReference)
         && Objects.equals(this.reference, notifyShopperResult.reference)
+        && Objects.equals(this.isSetReference, notifyShopperResult.isSetReference)
         && Objects.equals(this.resultCode, notifyShopperResult.resultCode)
+        && Objects.equals(this.isSetResultCode, notifyShopperResult.isSetResultCode)
         && Objects.equals(
             this.shopperNotificationReference, notifyShopperResult.shopperNotificationReference)
-        && Objects.equals(this.storedPaymentMethodId, notifyShopperResult.storedPaymentMethodId);
+        && Objects.equals(
+            this.isSetShopperNotificationReference,
+            notifyShopperResult.isSetShopperNotificationReference)
+        && Objects.equals(this.storedPaymentMethodId, notifyShopperResult.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, notifyShopperResult.isSetStoredPaymentMethodId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         displayedReference,
+        isSetDisplayedReference,
         message,
+        isSetMessage,
         pspReference,
+        isSetPspReference,
         reference,
+        isSetReference,
         resultCode,
+        isSetResultCode,
         shopperNotificationReference,
-        storedPaymentMethodId);
+        isSetShopperNotificationReference,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId);
   }
 
   @Override

@@ -152,12 +152,14 @@ public class DisablePermitResult {
     }
     DisablePermitResult disablePermitResult = (DisablePermitResult) o;
     return Objects.equals(this.pspReference, disablePermitResult.pspReference)
-        && Objects.equals(this.status, disablePermitResult.status);
+        && Objects.equals(this.isSetPspReference, disablePermitResult.isSetPspReference)
+        && Objects.equals(this.status, disablePermitResult.status)
+        && Objects.equals(this.isSetStatus, disablePermitResult.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pspReference, status);
+    return Objects.hash(pspReference, isSetPspReference, status, isSetStatus);
   }
 
   @Override

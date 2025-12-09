@@ -458,19 +458,42 @@ public class Card {
     }
     Card card = (Card) o;
     return Objects.equals(this.cvc, card.cvc)
+        && Objects.equals(this.isSetCvc, card.isSetCvc)
         && Objects.equals(this.expiryMonth, card.expiryMonth)
+        && Objects.equals(this.isSetExpiryMonth, card.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, card.expiryYear)
+        && Objects.equals(this.isSetExpiryYear, card.isSetExpiryYear)
         && Objects.equals(this.holderName, card.holderName)
+        && Objects.equals(this.isSetHolderName, card.isSetHolderName)
         && Objects.equals(this.issueNumber, card.issueNumber)
+        && Objects.equals(this.isSetIssueNumber, card.isSetIssueNumber)
         && Objects.equals(this.number, card.number)
+        && Objects.equals(this.isSetNumber, card.isSetNumber)
         && Objects.equals(this.startMonth, card.startMonth)
-        && Objects.equals(this.startYear, card.startYear);
+        && Objects.equals(this.isSetStartMonth, card.isSetStartMonth)
+        && Objects.equals(this.startYear, card.startYear)
+        && Objects.equals(this.isSetStartYear, card.isSetStartYear);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cvc, expiryMonth, expiryYear, holderName, issueNumber, number, startMonth, startYear);
+        cvc,
+        isSetCvc,
+        expiryMonth,
+        isSetExpiryMonth,
+        expiryYear,
+        isSetExpiryYear,
+        holderName,
+        isSetHolderName,
+        issueNumber,
+        isSetIssueNumber,
+        number,
+        isSetNumber,
+        startMonth,
+        isSetStartMonth,
+        startYear,
+        isSetStartYear);
   }
 
   @Override

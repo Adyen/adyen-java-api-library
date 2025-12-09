@@ -149,12 +149,14 @@ public class DisablePermitRequest {
     }
     DisablePermitRequest disablePermitRequest = (DisablePermitRequest) o;
     return Objects.equals(this.merchantAccount, disablePermitRequest.merchantAccount)
-        && Objects.equals(this.token, disablePermitRequest.token);
+        && Objects.equals(this.isSetMerchantAccount, disablePermitRequest.isSetMerchantAccount)
+        && Objects.equals(this.token, disablePermitRequest.token)
+        && Objects.equals(this.isSetToken, disablePermitRequest.isSetToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, token);
+    return Objects.hash(merchantAccount, isSetMerchantAccount, token, isSetToken);
   }
 
   @Override

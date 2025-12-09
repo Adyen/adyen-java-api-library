@@ -266,14 +266,27 @@ public class DisableRequest {
     }
     DisableRequest disableRequest = (DisableRequest) o;
     return Objects.equals(this.contract, disableRequest.contract)
+        && Objects.equals(this.isSetContract, disableRequest.isSetContract)
         && Objects.equals(this.merchantAccount, disableRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, disableRequest.isSetMerchantAccount)
         && Objects.equals(this.recurringDetailReference, disableRequest.recurringDetailReference)
-        && Objects.equals(this.shopperReference, disableRequest.shopperReference);
+        && Objects.equals(
+            this.isSetRecurringDetailReference, disableRequest.isSetRecurringDetailReference)
+        && Objects.equals(this.shopperReference, disableRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, disableRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contract, merchantAccount, recurringDetailReference, shopperReference);
+    return Objects.hash(
+        contract,
+        isSetContract,
+        merchantAccount,
+        isSetMerchantAccount,
+        recurringDetailReference,
+        isSetRecurringDetailReference,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override

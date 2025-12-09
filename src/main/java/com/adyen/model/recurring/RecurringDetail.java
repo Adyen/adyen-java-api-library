@@ -854,44 +854,79 @@ public class RecurringDetail {
     }
     RecurringDetail recurringDetail = (RecurringDetail) o;
     return Objects.equals(this.additionalData, recurringDetail.additionalData)
+        && Objects.equals(this.isSetAdditionalData, recurringDetail.isSetAdditionalData)
         && Objects.equals(this.alias, recurringDetail.alias)
+        && Objects.equals(this.isSetAlias, recurringDetail.isSetAlias)
         && Objects.equals(this.aliasType, recurringDetail.aliasType)
+        && Objects.equals(this.isSetAliasType, recurringDetail.isSetAliasType)
         && Objects.equals(this.bank, recurringDetail.bank)
+        && Objects.equals(this.isSetBank, recurringDetail.isSetBank)
         && Objects.equals(this.billingAddress, recurringDetail.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, recurringDetail.isSetBillingAddress)
         && Objects.equals(this.card, recurringDetail.card)
+        && Objects.equals(this.isSetCard, recurringDetail.isSetCard)
         && Objects.equals(this.contractTypes, recurringDetail.contractTypes)
+        && Objects.equals(this.isSetContractTypes, recurringDetail.isSetContractTypes)
         && Objects.equals(this.creationDate, recurringDetail.creationDate)
+        && Objects.equals(this.isSetCreationDate, recurringDetail.isSetCreationDate)
         && Objects.equals(this.firstPspReference, recurringDetail.firstPspReference)
+        && Objects.equals(this.isSetFirstPspReference, recurringDetail.isSetFirstPspReference)
         && Objects.equals(this.name, recurringDetail.name)
+        && Objects.equals(this.isSetName, recurringDetail.isSetName)
         && Objects.equals(this.networkTxReference, recurringDetail.networkTxReference)
+        && Objects.equals(this.isSetNetworkTxReference, recurringDetail.isSetNetworkTxReference)
         && Objects.equals(this.paymentMethodVariant, recurringDetail.paymentMethodVariant)
+        && Objects.equals(this.isSetPaymentMethodVariant, recurringDetail.isSetPaymentMethodVariant)
         && Objects.equals(this.recurringDetailReference, recurringDetail.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, recurringDetail.isSetRecurringDetailReference)
         && Objects.equals(this.shopperName, recurringDetail.shopperName)
+        && Objects.equals(this.isSetShopperName, recurringDetail.isSetShopperName)
         && Objects.equals(this.socialSecurityNumber, recurringDetail.socialSecurityNumber)
+        && Objects.equals(this.isSetSocialSecurityNumber, recurringDetail.isSetSocialSecurityNumber)
         && Objects.equals(this.tokenDetails, recurringDetail.tokenDetails)
-        && Objects.equals(this.variant, recurringDetail.variant);
+        && Objects.equals(this.isSetTokenDetails, recurringDetail.isSetTokenDetails)
+        && Objects.equals(this.variant, recurringDetail.variant)
+        && Objects.equals(this.isSetVariant, recurringDetail.isSetVariant);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         alias,
+        isSetAlias,
         aliasType,
+        isSetAliasType,
         bank,
+        isSetBank,
         billingAddress,
+        isSetBillingAddress,
         card,
+        isSetCard,
         contractTypes,
+        isSetContractTypes,
         creationDate,
+        isSetCreationDate,
         firstPspReference,
+        isSetFirstPspReference,
         name,
+        isSetName,
         networkTxReference,
+        isSetNetworkTxReference,
         paymentMethodVariant,
+        isSetPaymentMethodVariant,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         shopperName,
+        isSetShopperName,
         socialSecurityNumber,
+        isSetSocialSecurityNumber,
         tokenDetails,
-        variant);
+        isSetTokenDetails,
+        variant,
+        isSetVariant);
   }
 
   @Override

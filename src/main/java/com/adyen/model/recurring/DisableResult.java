@@ -107,12 +107,13 @@ public class DisableResult {
       return false;
     }
     DisableResult disableResult = (DisableResult) o;
-    return Objects.equals(this.response, disableResult.response);
+    return Objects.equals(this.response, disableResult.response)
+        && Objects.equals(this.isSetResponse, disableResult.isSetResponse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(response);
+    return Objects.hash(response, isSetResponse);
   }
 
   @Override
