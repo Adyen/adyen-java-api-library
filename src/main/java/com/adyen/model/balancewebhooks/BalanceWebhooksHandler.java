@@ -59,6 +59,30 @@ public class BalanceWebhooksHandler {
   }
 
   /**
+   * Attempts to deserialize the webhook payload into a ReleasedBlockedBalanceNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<ReleasedBlockedBalanceNotificationRequest>
+      getReleasedBlockedBalanceNotificationRequest() {
+
+    var optionalReleasedBlockedBalanceNotificationRequest =
+        getOptionalField(ReleasedBlockedBalanceNotificationRequest.class);
+
+    if (optionalReleasedBlockedBalanceNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : ReleasedBlockedBalanceNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalReleasedBlockedBalanceNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalReleasedBlockedBalanceNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
    * Deserializes the payload into the specified class type.
    *
    * @param clazz the class to deserialize into
