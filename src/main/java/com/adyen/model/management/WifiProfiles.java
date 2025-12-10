@@ -153,12 +153,14 @@ public class WifiProfiles {
     }
     WifiProfiles wifiProfiles = (WifiProfiles) o;
     return Objects.equals(this.profiles, wifiProfiles.profiles)
-        && Objects.equals(this.settings, wifiProfiles.settings);
+        && Objects.equals(this.isSetProfiles, wifiProfiles.isSetProfiles)
+        && Objects.equals(this.settings, wifiProfiles.settings)
+        && Objects.equals(this.isSetSettings, wifiProfiles.isSetSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profiles, settings);
+    return Objects.hash(profiles, isSetProfiles, settings, isSetSettings);
   }
 
   @Override

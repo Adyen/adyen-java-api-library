@@ -526,21 +526,50 @@ public class User {
     }
     User user = (User) o;
     return Objects.equals(this.links, user.links)
+        && Objects.equals(this.isSetLinks, user.isSetLinks)
         && Objects.equals(this.accountGroups, user.accountGroups)
+        && Objects.equals(this.isSetAccountGroups, user.isSetAccountGroups)
         && Objects.equals(this.active, user.active)
+        && Objects.equals(this.isSetActive, user.isSetActive)
         && Objects.equals(this.apps, user.apps)
+        && Objects.equals(this.isSetApps, user.isSetApps)
         && Objects.equals(this.email, user.email)
+        && Objects.equals(this.isSetEmail, user.isSetEmail)
         && Objects.equals(this.id, user.id)
+        && Objects.equals(this.isSetId, user.isSetId)
         && Objects.equals(this.name, user.name)
+        && Objects.equals(this.isSetName, user.isSetName)
         && Objects.equals(this.roles, user.roles)
+        && Objects.equals(this.isSetRoles, user.isSetRoles)
         && Objects.equals(this.timeZoneCode, user.timeZoneCode)
-        && Objects.equals(this.username, user.username);
+        && Objects.equals(this.isSetTimeZoneCode, user.isSetTimeZoneCode)
+        && Objects.equals(this.username, user.username)
+        && Objects.equals(this.isSetUsername, user.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        links, accountGroups, active, apps, email, id, name, roles, timeZoneCode, username);
+        links,
+        isSetLinks,
+        accountGroups,
+        isSetAccountGroups,
+        active,
+        isSetActive,
+        apps,
+        isSetApps,
+        email,
+        isSetEmail,
+        id,
+        isSetId,
+        name,
+        isSetName,
+        roles,
+        isSetRoles,
+        timeZoneCode,
+        isSetTimeZoneCode,
+        username,
+        isSetUsername);
   }
 
   @Override

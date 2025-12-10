@@ -111,12 +111,13 @@ public class AndroidAppsResponse {
       return false;
     }
     AndroidAppsResponse androidAppsResponse = (AndroidAppsResponse) o;
-    return Objects.equals(this.data, androidAppsResponse.data);
+    return Objects.equals(this.data, androidAppsResponse.data)
+        && Objects.equals(this.isSetData, androidAppsResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

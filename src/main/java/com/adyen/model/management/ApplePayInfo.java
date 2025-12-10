@@ -123,12 +123,13 @@ public class ApplePayInfo {
       return false;
     }
     ApplePayInfo applePayInfo = (ApplePayInfo) o;
-    return Objects.equals(this.domains, applePayInfo.domains);
+    return Objects.equals(this.domains, applePayInfo.domains)
+        && Objects.equals(this.isSetDomains, applePayInfo.isSetDomains);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domains);
+    return Objects.hash(domains, isSetDomains);
   }
 
   @Override

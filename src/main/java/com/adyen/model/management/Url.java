@@ -230,14 +230,19 @@ public class Url {
     }
     Url url = (Url) o;
     return Objects.equals(this.encrypted, url.encrypted)
+        && Objects.equals(this.isSetEncrypted, url.isSetEncrypted)
         && Objects.equals(this.password, url.password)
+        && Objects.equals(this.isSetPassword, url.isSetPassword)
         && Objects.equals(this.url, url.url)
-        && Objects.equals(this.username, url.username);
+        && Objects.equals(this.isSetUrl, url.isSetUrl)
+        && Objects.equals(this.username, url.username)
+        && Objects.equals(this.isSetUsername, url.isSetUsername);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encrypted, password, url, username);
+    return Objects.hash(
+        encrypted, isSetEncrypted, password, isSetPassword, url, isSetUrl, username, isSetUsername);
   }
 
   @Override

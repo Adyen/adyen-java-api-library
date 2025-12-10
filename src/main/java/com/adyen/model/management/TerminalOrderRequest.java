@@ -333,17 +333,36 @@ public class TerminalOrderRequest {
     }
     TerminalOrderRequest terminalOrderRequest = (TerminalOrderRequest) o;
     return Objects.equals(this.billingEntityId, terminalOrderRequest.billingEntityId)
+        && Objects.equals(this.isSetBillingEntityId, terminalOrderRequest.isSetBillingEntityId)
         && Objects.equals(this.customerOrderReference, terminalOrderRequest.customerOrderReference)
+        && Objects.equals(
+            this.isSetCustomerOrderReference, terminalOrderRequest.isSetCustomerOrderReference)
         && Objects.equals(this.items, terminalOrderRequest.items)
+        && Objects.equals(this.isSetItems, terminalOrderRequest.isSetItems)
         && Objects.equals(this.orderType, terminalOrderRequest.orderType)
+        && Objects.equals(this.isSetOrderType, terminalOrderRequest.isSetOrderType)
         && Objects.equals(this.shippingLocationId, terminalOrderRequest.shippingLocationId)
-        && Objects.equals(this.taxId, terminalOrderRequest.taxId);
+        && Objects.equals(
+            this.isSetShippingLocationId, terminalOrderRequest.isSetShippingLocationId)
+        && Objects.equals(this.taxId, terminalOrderRequest.taxId)
+        && Objects.equals(this.isSetTaxId, terminalOrderRequest.isSetTaxId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        billingEntityId, customerOrderReference, items, orderType, shippingLocationId, taxId);
+        billingEntityId,
+        isSetBillingEntityId,
+        customerOrderReference,
+        isSetCustomerOrderReference,
+        items,
+        isSetItems,
+        orderType,
+        isSetOrderType,
+        shippingLocationId,
+        isSetShippingLocationId,
+        taxId,
+        isSetTaxId);
   }
 
   @Override

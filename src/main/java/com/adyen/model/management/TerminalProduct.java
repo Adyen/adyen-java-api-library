@@ -282,15 +282,30 @@ public class TerminalProduct {
     }
     TerminalProduct terminalProduct = (TerminalProduct) o;
     return Objects.equals(this.description, terminalProduct.description)
+        && Objects.equals(this.isSetDescription, terminalProduct.isSetDescription)
         && Objects.equals(this.id, terminalProduct.id)
+        && Objects.equals(this.isSetId, terminalProduct.isSetId)
         && Objects.equals(this.itemsIncluded, terminalProduct.itemsIncluded)
+        && Objects.equals(this.isSetItemsIncluded, terminalProduct.isSetItemsIncluded)
         && Objects.equals(this.name, terminalProduct.name)
-        && Objects.equals(this.price, terminalProduct.price);
+        && Objects.equals(this.isSetName, terminalProduct.isSetName)
+        && Objects.equals(this.price, terminalProduct.price)
+        && Objects.equals(this.isSetPrice, terminalProduct.isSetPrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, itemsIncluded, name, price);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        itemsIncluded,
+        isSetItemsIncluded,
+        name,
+        isSetName,
+        price,
+        isSetPrice);
   }
 
   @Override

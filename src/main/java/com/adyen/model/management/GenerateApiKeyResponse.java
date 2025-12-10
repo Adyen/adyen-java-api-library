@@ -101,12 +101,13 @@ public class GenerateApiKeyResponse {
       return false;
     }
     GenerateApiKeyResponse generateApiKeyResponse = (GenerateApiKeyResponse) o;
-    return Objects.equals(this.apiKey, generateApiKeyResponse.apiKey);
+    return Objects.equals(this.apiKey, generateApiKeyResponse.apiKey)
+        && Objects.equals(this.isSetApiKey, generateApiKeyResponse.isSetApiKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey);
+    return Objects.hash(apiKey, isSetApiKey);
   }
 
   @Override

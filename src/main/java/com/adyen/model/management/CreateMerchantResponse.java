@@ -389,18 +389,38 @@ public class CreateMerchantResponse {
     }
     CreateMerchantResponse createMerchantResponse = (CreateMerchantResponse) o;
     return Objects.equals(this.businessLineId, createMerchantResponse.businessLineId)
+        && Objects.equals(this.isSetBusinessLineId, createMerchantResponse.isSetBusinessLineId)
         && Objects.equals(this.companyId, createMerchantResponse.companyId)
+        && Objects.equals(this.isSetCompanyId, createMerchantResponse.isSetCompanyId)
         && Objects.equals(this.description, createMerchantResponse.description)
+        && Objects.equals(this.isSetDescription, createMerchantResponse.isSetDescription)
         && Objects.equals(this.id, createMerchantResponse.id)
+        && Objects.equals(this.isSetId, createMerchantResponse.isSetId)
         && Objects.equals(this.legalEntityId, createMerchantResponse.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, createMerchantResponse.isSetLegalEntityId)
         && Objects.equals(this.pricingPlan, createMerchantResponse.pricingPlan)
-        && Objects.equals(this.reference, createMerchantResponse.reference);
+        && Objects.equals(this.isSetPricingPlan, createMerchantResponse.isSetPricingPlan)
+        && Objects.equals(this.reference, createMerchantResponse.reference)
+        && Objects.equals(this.isSetReference, createMerchantResponse.isSetReference);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        businessLineId, companyId, description, id, legalEntityId, pricingPlan, reference);
+        businessLineId,
+        isSetBusinessLineId,
+        companyId,
+        isSetCompanyId,
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        legalEntityId,
+        isSetLegalEntityId,
+        pricingPlan,
+        isSetPricingPlan,
+        reference,
+        isSetReference);
   }
 
   @Override

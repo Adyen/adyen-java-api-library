@@ -808,41 +808,78 @@ public class UpdateMerchantWebhookRequest {
     return Objects.equals(
             this.acceptsExpiredCertificate, updateMerchantWebhookRequest.acceptsExpiredCertificate)
         && Objects.equals(
+            this.isSetAcceptsExpiredCertificate,
+            updateMerchantWebhookRequest.isSetAcceptsExpiredCertificate)
+        && Objects.equals(
             this.acceptsSelfSignedCertificate,
             updateMerchantWebhookRequest.acceptsSelfSignedCertificate)
         && Objects.equals(
+            this.isSetAcceptsSelfSignedCertificate,
+            updateMerchantWebhookRequest.isSetAcceptsSelfSignedCertificate)
+        && Objects.equals(
             this.acceptsUntrustedRootCertificate,
             updateMerchantWebhookRequest.acceptsUntrustedRootCertificate)
+        && Objects.equals(
+            this.isSetAcceptsUntrustedRootCertificate,
+            updateMerchantWebhookRequest.isSetAcceptsUntrustedRootCertificate)
         && Objects.equals(this.active, updateMerchantWebhookRequest.active)
+        && Objects.equals(this.isSetActive, updateMerchantWebhookRequest.isSetActive)
         && Objects.equals(this.additionalSettings, updateMerchantWebhookRequest.additionalSettings)
         && Objects.equals(
+            this.isSetAdditionalSettings, updateMerchantWebhookRequest.isSetAdditionalSettings)
+        && Objects.equals(
             this.communicationFormat, updateMerchantWebhookRequest.communicationFormat)
+        && Objects.equals(
+            this.isSetCommunicationFormat, updateMerchantWebhookRequest.isSetCommunicationFormat)
         && Objects.equals(this.description, updateMerchantWebhookRequest.description)
+        && Objects.equals(this.isSetDescription, updateMerchantWebhookRequest.isSetDescription)
         && Objects.equals(this.encryptionProtocol, updateMerchantWebhookRequest.encryptionProtocol)
+        && Objects.equals(
+            this.isSetEncryptionProtocol, updateMerchantWebhookRequest.isSetEncryptionProtocol)
         && Objects.equals(this.networkType, updateMerchantWebhookRequest.networkType)
+        && Objects.equals(this.isSetNetworkType, updateMerchantWebhookRequest.isSetNetworkType)
         && Objects.equals(this.password, updateMerchantWebhookRequest.password)
+        && Objects.equals(this.isSetPassword, updateMerchantWebhookRequest.isSetPassword)
         && Objects.equals(
             this.populateSoapActionHeader, updateMerchantWebhookRequest.populateSoapActionHeader)
+        && Objects.equals(
+            this.isSetPopulateSoapActionHeader,
+            updateMerchantWebhookRequest.isSetPopulateSoapActionHeader)
         && Objects.equals(this.url, updateMerchantWebhookRequest.url)
-        && Objects.equals(this.username, updateMerchantWebhookRequest.username);
+        && Objects.equals(this.isSetUrl, updateMerchantWebhookRequest.isSetUrl)
+        && Objects.equals(this.username, updateMerchantWebhookRequest.username)
+        && Objects.equals(this.isSetUsername, updateMerchantWebhookRequest.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acceptsExpiredCertificate,
+        isSetAcceptsExpiredCertificate,
         acceptsSelfSignedCertificate,
+        isSetAcceptsSelfSignedCertificate,
         acceptsUntrustedRootCertificate,
+        isSetAcceptsUntrustedRootCertificate,
         active,
+        isSetActive,
         additionalSettings,
+        isSetAdditionalSettings,
         communicationFormat,
+        isSetCommunicationFormat,
         description,
+        isSetDescription,
         encryptionProtocol,
+        isSetEncryptionProtocol,
         networkType,
+        isSetNetworkType,
         password,
+        isSetPassword,
         populateSoapActionHeader,
+        isSetPopulateSoapActionHeader,
         url,
-        username);
+        isSetUrl,
+        username,
+        isSetUsername);
   }
 
   @Override

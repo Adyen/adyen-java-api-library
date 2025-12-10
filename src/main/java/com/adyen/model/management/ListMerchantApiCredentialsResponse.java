@@ -245,14 +245,26 @@ public class ListMerchantApiCredentialsResponse {
     ListMerchantApiCredentialsResponse listMerchantApiCredentialsResponse =
         (ListMerchantApiCredentialsResponse) o;
     return Objects.equals(this.links, listMerchantApiCredentialsResponse.links)
+        && Objects.equals(this.isSetLinks, listMerchantApiCredentialsResponse.isSetLinks)
         && Objects.equals(this.data, listMerchantApiCredentialsResponse.data)
+        && Objects.equals(this.isSetData, listMerchantApiCredentialsResponse.isSetData)
         && Objects.equals(this.itemsTotal, listMerchantApiCredentialsResponse.itemsTotal)
-        && Objects.equals(this.pagesTotal, listMerchantApiCredentialsResponse.pagesTotal);
+        && Objects.equals(this.isSetItemsTotal, listMerchantApiCredentialsResponse.isSetItemsTotal)
+        && Objects.equals(this.pagesTotal, listMerchantApiCredentialsResponse.pagesTotal)
+        && Objects.equals(this.isSetPagesTotal, listMerchantApiCredentialsResponse.isSetPagesTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data, itemsTotal, pagesTotal);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        data,
+        isSetData,
+        itemsTotal,
+        isSetItemsTotal,
+        pagesTotal,
+        isSetPagesTotal);
   }
 
   @Override

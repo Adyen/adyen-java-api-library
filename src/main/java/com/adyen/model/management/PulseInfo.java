@@ -230,12 +230,15 @@ public class PulseInfo {
     }
     PulseInfo pulseInfo = (PulseInfo) o;
     return Objects.equals(this.processingType, pulseInfo.processingType)
-        && Objects.equals(this.transactionDescription, pulseInfo.transactionDescription);
+        && Objects.equals(this.isSetProcessingType, pulseInfo.isSetProcessingType)
+        && Objects.equals(this.transactionDescription, pulseInfo.transactionDescription)
+        && Objects.equals(this.isSetTransactionDescription, pulseInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(processingType, transactionDescription);
+    return Objects.hash(
+        processingType, isSetProcessingType, transactionDescription, isSetTransactionDescription);
   }
 
   @Override

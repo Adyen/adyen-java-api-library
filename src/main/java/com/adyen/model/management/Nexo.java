@@ -289,15 +289,30 @@ public class Nexo {
     }
     Nexo nexo = (Nexo) o;
     return Objects.equals(this.displayUrls, nexo.displayUrls)
+        && Objects.equals(this.isSetDisplayUrls, nexo.isSetDisplayUrls)
         && Objects.equals(this.encryptionKey, nexo.encryptionKey)
+        && Objects.equals(this.isSetEncryptionKey, nexo.isSetEncryptionKey)
         && Objects.equals(this.eventUrls, nexo.eventUrls)
+        && Objects.equals(this.isSetEventUrls, nexo.isSetEventUrls)
         && Objects.equals(this.nexoEventUrls, nexo.nexoEventUrls)
-        && Objects.equals(this.notification, nexo.notification);
+        && Objects.equals(this.isSetNexoEventUrls, nexo.isSetNexoEventUrls)
+        && Objects.equals(this.notification, nexo.notification)
+        && Objects.equals(this.isSetNotification, nexo.isSetNotification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayUrls, encryptionKey, eventUrls, nexoEventUrls, notification);
+    return Objects.hash(
+        displayUrls,
+        isSetDisplayUrls,
+        encryptionKey,
+        isSetEncryptionKey,
+        eventUrls,
+        isSetEventUrls,
+        nexoEventUrls,
+        isSetNexoEventUrls,
+        notification,
+        isSetNotification);
   }
 
   @Override

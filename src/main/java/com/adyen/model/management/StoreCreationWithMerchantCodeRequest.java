@@ -588,35 +588,65 @@ public class StoreCreationWithMerchantCodeRequest {
     StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest =
         (StoreCreationWithMerchantCodeRequest) o;
     return Objects.equals(this.address, storeCreationWithMerchantCodeRequest.address)
+        && Objects.equals(this.isSetAddress, storeCreationWithMerchantCodeRequest.isSetAddress)
         && Objects.equals(
             this.businessLineIds, storeCreationWithMerchantCodeRequest.businessLineIds)
+        && Objects.equals(
+            this.isSetBusinessLineIds, storeCreationWithMerchantCodeRequest.isSetBusinessLineIds)
         && Objects.equals(this.description, storeCreationWithMerchantCodeRequest.description)
         && Objects.equals(
+            this.isSetDescription, storeCreationWithMerchantCodeRequest.isSetDescription)
+        && Objects.equals(
             this.externalReferenceId, storeCreationWithMerchantCodeRequest.externalReferenceId)
+        && Objects.equals(
+            this.isSetExternalReferenceId,
+            storeCreationWithMerchantCodeRequest.isSetExternalReferenceId)
         && Objects.equals(this.merchantId, storeCreationWithMerchantCodeRequest.merchantId)
+        && Objects.equals(
+            this.isSetMerchantId, storeCreationWithMerchantCodeRequest.isSetMerchantId)
         && Objects.equals(this.phoneNumber, storeCreationWithMerchantCodeRequest.phoneNumber)
+        && Objects.equals(
+            this.isSetPhoneNumber, storeCreationWithMerchantCodeRequest.isSetPhoneNumber)
         && Objects.equals(this.reference, storeCreationWithMerchantCodeRequest.reference)
+        && Objects.equals(this.isSetReference, storeCreationWithMerchantCodeRequest.isSetReference)
         && Objects.equals(
             this.shopperStatement, storeCreationWithMerchantCodeRequest.shopperStatement)
         && Objects.equals(
+            this.isSetShopperStatement, storeCreationWithMerchantCodeRequest.isSetShopperStatement)
+        && Objects.equals(
             this.splitConfiguration, storeCreationWithMerchantCodeRequest.splitConfiguration)
         && Objects.equals(
-            this.subMerchantData, storeCreationWithMerchantCodeRequest.subMerchantData);
+            this.isSetSplitConfiguration,
+            storeCreationWithMerchantCodeRequest.isSetSplitConfiguration)
+        && Objects.equals(
+            this.subMerchantData, storeCreationWithMerchantCodeRequest.subMerchantData)
+        && Objects.equals(
+            this.isSetSubMerchantData, storeCreationWithMerchantCodeRequest.isSetSubMerchantData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         address,
+        isSetAddress,
         businessLineIds,
+        isSetBusinessLineIds,
         description,
+        isSetDescription,
         externalReferenceId,
+        isSetExternalReferenceId,
         merchantId,
+        isSetMerchantId,
         phoneNumber,
+        isSetPhoneNumber,
         reference,
+        isSetReference,
         shopperStatement,
+        isSetShopperStatement,
         splitConfiguration,
-        subMerchantData);
+        isSetSplitConfiguration,
+        subMerchantData,
+        isSetSubMerchantData);
   }
 
   @Override

@@ -290,13 +290,17 @@ public class TestCompanyWebhookRequest {
     }
     TestCompanyWebhookRequest testCompanyWebhookRequest = (TestCompanyWebhookRequest) o;
     return Objects.equals(this.merchantIds, testCompanyWebhookRequest.merchantIds)
+        && Objects.equals(this.isSetMerchantIds, testCompanyWebhookRequest.isSetMerchantIds)
         && Objects.equals(this.notification, testCompanyWebhookRequest.notification)
-        && Objects.equals(this.types, testCompanyWebhookRequest.types);
+        && Objects.equals(this.isSetNotification, testCompanyWebhookRequest.isSetNotification)
+        && Objects.equals(this.types, testCompanyWebhookRequest.types)
+        && Objects.equals(this.isSetTypes, testCompanyWebhookRequest.isSetTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantIds, notification, types);
+    return Objects.hash(
+        merchantIds, isSetMerchantIds, notification, isSetNotification, types, isSetTypes);
   }
 
   @Override

@@ -316,14 +316,26 @@ public class DinersInfo {
     }
     DinersInfo dinersInfo = (DinersInfo) o;
     return Objects.equals(this.midNumber, dinersInfo.midNumber)
+        && Objects.equals(this.isSetMidNumber, dinersInfo.isSetMidNumber)
         && Objects.equals(this.reuseMidNumber, dinersInfo.reuseMidNumber)
+        && Objects.equals(this.isSetReuseMidNumber, dinersInfo.isSetReuseMidNumber)
         && Objects.equals(this.serviceLevel, dinersInfo.serviceLevel)
-        && Objects.equals(this.transactionDescription, dinersInfo.transactionDescription);
+        && Objects.equals(this.isSetServiceLevel, dinersInfo.isSetServiceLevel)
+        && Objects.equals(this.transactionDescription, dinersInfo.transactionDescription)
+        && Objects.equals(this.isSetTransactionDescription, dinersInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(midNumber, reuseMidNumber, serviceLevel, transactionDescription);
+    return Objects.hash(
+        midNumber,
+        isSetMidNumber,
+        reuseMidNumber,
+        isSetReuseMidNumber,
+        serviceLevel,
+        isSetServiceLevel,
+        transactionDescription,
+        isSetTransactionDescription);
   }
 
   @Override

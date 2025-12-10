@@ -1689,48 +1689,96 @@ public class UpdateSplitConfigurationLogicRequest {
         (UpdateSplitConfigurationLogicRequest) o;
     return Objects.equals(this.acquiringFees, updateSplitConfigurationLogicRequest.acquiringFees)
         && Objects.equals(
+            this.isSetAcquiringFees, updateSplitConfigurationLogicRequest.isSetAcquiringFees)
+        && Objects.equals(
             this.additionalCommission, updateSplitConfigurationLogicRequest.additionalCommission)
         && Objects.equals(
+            this.isSetAdditionalCommission,
+            updateSplitConfigurationLogicRequest.isSetAdditionalCommission)
+        && Objects.equals(
             this.adyenCommission, updateSplitConfigurationLogicRequest.adyenCommission)
+        && Objects.equals(
+            this.isSetAdyenCommission, updateSplitConfigurationLogicRequest.isSetAdyenCommission)
         && Objects.equals(this.adyenFees, updateSplitConfigurationLogicRequest.adyenFees)
+        && Objects.equals(this.isSetAdyenFees, updateSplitConfigurationLogicRequest.isSetAdyenFees)
         && Objects.equals(this.adyenMarkup, updateSplitConfigurationLogicRequest.adyenMarkup)
+        && Objects.equals(
+            this.isSetAdyenMarkup, updateSplitConfigurationLogicRequest.isSetAdyenMarkup)
         && Objects.equals(this.chargeback, updateSplitConfigurationLogicRequest.chargeback)
+        && Objects.equals(
+            this.isSetChargeback, updateSplitConfigurationLogicRequest.isSetChargeback)
         && Objects.equals(
             this.chargebackCostAllocation,
             updateSplitConfigurationLogicRequest.chargebackCostAllocation)
+        && Objects.equals(
+            this.isSetChargebackCostAllocation,
+            updateSplitConfigurationLogicRequest.isSetChargebackCostAllocation)
         && Objects.equals(this.commission, updateSplitConfigurationLogicRequest.commission)
+        && Objects.equals(
+            this.isSetCommission, updateSplitConfigurationLogicRequest.isSetCommission)
         && Objects.equals(this.interchange, updateSplitConfigurationLogicRequest.interchange)
+        && Objects.equals(
+            this.isSetInterchange, updateSplitConfigurationLogicRequest.isSetInterchange)
         && Objects.equals(this.paymentFee, updateSplitConfigurationLogicRequest.paymentFee)
+        && Objects.equals(
+            this.isSetPaymentFee, updateSplitConfigurationLogicRequest.isSetPaymentFee)
         && Objects.equals(this.refund, updateSplitConfigurationLogicRequest.refund)
+        && Objects.equals(this.isSetRefund, updateSplitConfigurationLogicRequest.isSetRefund)
         && Objects.equals(
             this.refundCostAllocation, updateSplitConfigurationLogicRequest.refundCostAllocation)
+        && Objects.equals(
+            this.isSetRefundCostAllocation,
+            updateSplitConfigurationLogicRequest.isSetRefundCostAllocation)
         && Objects.equals(this.remainder, updateSplitConfigurationLogicRequest.remainder)
+        && Objects.equals(this.isSetRemainder, updateSplitConfigurationLogicRequest.isSetRemainder)
         && Objects.equals(this.schemeFee, updateSplitConfigurationLogicRequest.schemeFee)
+        && Objects.equals(this.isSetSchemeFee, updateSplitConfigurationLogicRequest.isSetSchemeFee)
         && Objects.equals(this.splitLogicId, updateSplitConfigurationLogicRequest.splitLogicId)
+        && Objects.equals(
+            this.isSetSplitLogicId, updateSplitConfigurationLogicRequest.isSetSplitLogicId)
         && Objects.equals(this.surcharge, updateSplitConfigurationLogicRequest.surcharge)
-        && Objects.equals(this.tip, updateSplitConfigurationLogicRequest.tip);
+        && Objects.equals(this.isSetSurcharge, updateSplitConfigurationLogicRequest.isSetSurcharge)
+        && Objects.equals(this.tip, updateSplitConfigurationLogicRequest.tip)
+        && Objects.equals(this.isSetTip, updateSplitConfigurationLogicRequest.isSetTip);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acquiringFees,
+        isSetAcquiringFees,
         additionalCommission,
+        isSetAdditionalCommission,
         adyenCommission,
+        isSetAdyenCommission,
         adyenFees,
+        isSetAdyenFees,
         adyenMarkup,
+        isSetAdyenMarkup,
         chargeback,
+        isSetChargeback,
         chargebackCostAllocation,
+        isSetChargebackCostAllocation,
         commission,
+        isSetCommission,
         interchange,
+        isSetInterchange,
         paymentFee,
+        isSetPaymentFee,
         refund,
+        isSetRefund,
         refundCostAllocation,
+        isSetRefundCostAllocation,
         remainder,
+        isSetRemainder,
         schemeFee,
+        isSetSchemeFee,
         splitLogicId,
+        isSetSplitLogicId,
         surcharge,
-        tip);
+        isSetSurcharge,
+        tip,
+        isSetTip);
   }
 
   @Override

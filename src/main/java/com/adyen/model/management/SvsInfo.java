@@ -143,12 +143,14 @@ public class SvsInfo {
     }
     SvsInfo svsInfo = (SvsInfo) o;
     return Objects.equals(this.authorisationMid, svsInfo.authorisationMid)
-        && Objects.equals(this.currencyCode, svsInfo.currencyCode);
+        && Objects.equals(this.isSetAuthorisationMid, svsInfo.isSetAuthorisationMid)
+        && Objects.equals(this.currencyCode, svsInfo.currencyCode)
+        && Objects.equals(this.isSetCurrencyCode, svsInfo.isSetCurrencyCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorisationMid, currencyCode);
+    return Objects.hash(authorisationMid, isSetAuthorisationMid, currencyCode, isSetCurrencyCode);
   }
 
   @Override

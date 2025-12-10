@@ -102,12 +102,13 @@ public class SwishInfo {
       return false;
     }
     SwishInfo swishInfo = (SwishInfo) o;
-    return Objects.equals(this.swishNumber, swishInfo.swishNumber);
+    return Objects.equals(this.swishNumber, swishInfo.swishNumber)
+        && Objects.equals(this.isSetSwishNumber, swishInfo.isSetSwishNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(swishNumber);
+    return Objects.hash(swishNumber, isSetSwishNumber);
   }
 
   @Override

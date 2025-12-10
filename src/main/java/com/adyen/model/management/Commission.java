@@ -146,12 +146,14 @@ public class Commission {
     }
     Commission commission = (Commission) o;
     return Objects.equals(this.fixedAmount, commission.fixedAmount)
-        && Objects.equals(this.variablePercentage, commission.variablePercentage);
+        && Objects.equals(this.isSetFixedAmount, commission.isSetFixedAmount)
+        && Objects.equals(this.variablePercentage, commission.variablePercentage)
+        && Objects.equals(this.isSetVariablePercentage, commission.isSetVariablePercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixedAmount, variablePercentage);
+    return Objects.hash(fixedAmount, isSetFixedAmount, variablePercentage, isSetVariablePercentage);
   }
 
   @Override

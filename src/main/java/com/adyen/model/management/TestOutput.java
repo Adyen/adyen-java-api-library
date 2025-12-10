@@ -428,16 +428,34 @@ public class TestOutput {
     }
     TestOutput testOutput = (TestOutput) o;
     return Objects.equals(this.merchantId, testOutput.merchantId)
+        && Objects.equals(this.isSetMerchantId, testOutput.isSetMerchantId)
         && Objects.equals(this.output, testOutput.output)
+        && Objects.equals(this.isSetOutput, testOutput.isSetOutput)
         && Objects.equals(this.requestSent, testOutput.requestSent)
+        && Objects.equals(this.isSetRequestSent, testOutput.isSetRequestSent)
         && Objects.equals(this.responseCode, testOutput.responseCode)
+        && Objects.equals(this.isSetResponseCode, testOutput.isSetResponseCode)
         && Objects.equals(this.responseTime, testOutput.responseTime)
-        && Objects.equals(this.status, testOutput.status);
+        && Objects.equals(this.isSetResponseTime, testOutput.isSetResponseTime)
+        && Objects.equals(this.status, testOutput.status)
+        && Objects.equals(this.isSetStatus, testOutput.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, output, requestSent, responseCode, responseTime, status);
+    return Objects.hash(
+        merchantId,
+        isSetMerchantId,
+        output,
+        isSetOutput,
+        requestSent,
+        isSetRequestSent,
+        responseCode,
+        isSetResponseCode,
+        responseTime,
+        isSetResponseTime,
+        status,
+        isSetStatus);
   }
 
   @Override

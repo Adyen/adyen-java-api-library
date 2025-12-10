@@ -101,12 +101,13 @@ public class ClearpayInfo {
       return false;
     }
     ClearpayInfo clearpayInfo = (ClearpayInfo) o;
-    return Objects.equals(this.supportUrl, clearpayInfo.supportUrl);
+    return Objects.equals(this.supportUrl, clearpayInfo.supportUrl)
+        && Objects.equals(this.isSetSupportUrl, clearpayInfo.isSetSupportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportUrl);
+    return Objects.hash(supportUrl, isSetSupportUrl);
   }
 
   @Override

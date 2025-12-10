@@ -215,13 +215,22 @@ public class ReceiptOptions {
     }
     ReceiptOptions receiptOptions = (ReceiptOptions) o;
     return Objects.equals(this.logo, receiptOptions.logo)
+        && Objects.equals(this.isSetLogo, receiptOptions.isSetLogo)
         && Objects.equals(this.promptBeforePrinting, receiptOptions.promptBeforePrinting)
-        && Objects.equals(this.qrCodeData, receiptOptions.qrCodeData);
+        && Objects.equals(this.isSetPromptBeforePrinting, receiptOptions.isSetPromptBeforePrinting)
+        && Objects.equals(this.qrCodeData, receiptOptions.qrCodeData)
+        && Objects.equals(this.isSetQrCodeData, receiptOptions.isSetQrCodeData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo, promptBeforePrinting, qrCodeData);
+    return Objects.hash(
+        logo,
+        isSetLogo,
+        promptBeforePrinting,
+        isSetPromptBeforePrinting,
+        qrCodeData,
+        isSetQrCodeData);
   }
 
   @Override

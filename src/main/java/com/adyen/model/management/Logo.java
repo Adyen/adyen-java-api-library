@@ -104,12 +104,12 @@ public class Logo {
       return false;
     }
     Logo logo = (Logo) o;
-    return Objects.equals(this.data, logo.data);
+    return Objects.equals(this.data, logo.data) && Objects.equals(this.isSetData, logo.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

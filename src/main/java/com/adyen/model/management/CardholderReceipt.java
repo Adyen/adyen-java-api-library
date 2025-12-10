@@ -124,12 +124,15 @@ public class CardholderReceipt {
     }
     CardholderReceipt cardholderReceipt = (CardholderReceipt) o;
     return Objects.equals(
-        this.headerForAuthorizedReceipt, cardholderReceipt.headerForAuthorizedReceipt);
+            this.headerForAuthorizedReceipt, cardholderReceipt.headerForAuthorizedReceipt)
+        && Objects.equals(
+            this.isSetHeaderForAuthorizedReceipt,
+            cardholderReceipt.isSetHeaderForAuthorizedReceipt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headerForAuthorizedReceipt);
+    return Objects.hash(headerForAuthorizedReceipt, isSetHeaderForAuthorizedReceipt);
   }
 
   @Override

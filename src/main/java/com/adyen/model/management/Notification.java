@@ -337,15 +337,30 @@ public class Notification {
     }
     Notification notification = (Notification) o;
     return Objects.equals(this.category, notification.category)
+        && Objects.equals(this.isSetCategory, notification.isSetCategory)
         && Objects.equals(this.details, notification.details)
+        && Objects.equals(this.isSetDetails, notification.isSetDetails)
         && Objects.equals(this.enabled, notification.enabled)
+        && Objects.equals(this.isSetEnabled, notification.isSetEnabled)
         && Objects.equals(this.showButton, notification.showButton)
-        && Objects.equals(this.title, notification.title);
+        && Objects.equals(this.isSetShowButton, notification.isSetShowButton)
+        && Objects.equals(this.title, notification.title)
+        && Objects.equals(this.isSetTitle, notification.isSetTitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, details, enabled, showButton, title);
+    return Objects.hash(
+        category,
+        isSetCategory,
+        details,
+        isSetDetails,
+        enabled,
+        isSetEnabled,
+        showButton,
+        isSetShowButton,
+        title,
+        isSetTitle);
   }
 
   @Override

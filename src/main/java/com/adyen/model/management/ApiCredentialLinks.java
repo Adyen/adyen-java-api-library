@@ -314,16 +314,34 @@ public class ApiCredentialLinks {
     }
     ApiCredentialLinks apiCredentialLinks = (ApiCredentialLinks) o;
     return Objects.equals(this.allowedOrigins, apiCredentialLinks.allowedOrigins)
+        && Objects.equals(this.isSetAllowedOrigins, apiCredentialLinks.isSetAllowedOrigins)
         && Objects.equals(this.company, apiCredentialLinks.company)
+        && Objects.equals(this.isSetCompany, apiCredentialLinks.isSetCompany)
         && Objects.equals(this.generateApiKey, apiCredentialLinks.generateApiKey)
+        && Objects.equals(this.isSetGenerateApiKey, apiCredentialLinks.isSetGenerateApiKey)
         && Objects.equals(this.generateClientKey, apiCredentialLinks.generateClientKey)
+        && Objects.equals(this.isSetGenerateClientKey, apiCredentialLinks.isSetGenerateClientKey)
         && Objects.equals(this.merchant, apiCredentialLinks.merchant)
-        && Objects.equals(this.self, apiCredentialLinks.self);
+        && Objects.equals(this.isSetMerchant, apiCredentialLinks.isSetMerchant)
+        && Objects.equals(this.self, apiCredentialLinks.self)
+        && Objects.equals(this.isSetSelf, apiCredentialLinks.isSetSelf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedOrigins, company, generateApiKey, generateClientKey, merchant, self);
+    return Objects.hash(
+        allowedOrigins,
+        isSetAllowedOrigins,
+        company,
+        isSetCompany,
+        generateApiKey,
+        isSetGenerateApiKey,
+        generateClientKey,
+        isSetGenerateClientKey,
+        merchant,
+        isSetMerchant,
+        self,
+        isSetSelf);
   }
 
   @Override

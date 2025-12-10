@@ -207,13 +207,16 @@ public class MealVoucherFRInfo {
     }
     MealVoucherFRInfo mealVoucherFRInfo = (MealVoucherFRInfo) o;
     return Objects.equals(this.conecsId, mealVoucherFRInfo.conecsId)
+        && Objects.equals(this.isSetConecsId, mealVoucherFRInfo.isSetConecsId)
         && Objects.equals(this.siret, mealVoucherFRInfo.siret)
-        && Objects.equals(this.subTypes, mealVoucherFRInfo.subTypes);
+        && Objects.equals(this.isSetSiret, mealVoucherFRInfo.isSetSiret)
+        && Objects.equals(this.subTypes, mealVoucherFRInfo.subTypes)
+        && Objects.equals(this.isSetSubTypes, mealVoucherFRInfo.isSetSubTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conecsId, siret, subTypes);
+    return Objects.hash(conecsId, isSetConecsId, siret, isSetSiret, subTypes, isSetSubTypes);
   }
 
   @Override

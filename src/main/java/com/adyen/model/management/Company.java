@@ -402,17 +402,38 @@ public class Company {
     }
     Company company = (Company) o;
     return Objects.equals(this.links, company.links)
+        && Objects.equals(this.isSetLinks, company.isSetLinks)
         && Objects.equals(this.dataCenters, company.dataCenters)
+        && Objects.equals(this.isSetDataCenters, company.isSetDataCenters)
         && Objects.equals(this.description, company.description)
+        && Objects.equals(this.isSetDescription, company.isSetDescription)
         && Objects.equals(this.id, company.id)
+        && Objects.equals(this.isSetId, company.isSetId)
         && Objects.equals(this.name, company.name)
+        && Objects.equals(this.isSetName, company.isSetName)
         && Objects.equals(this.reference, company.reference)
-        && Objects.equals(this.status, company.status);
+        && Objects.equals(this.isSetReference, company.isSetReference)
+        && Objects.equals(this.status, company.status)
+        && Objects.equals(this.isSetStatus, company.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, dataCenters, description, id, name, reference, status);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        dataCenters,
+        isSetDataCenters,
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        name,
+        isSetName,
+        reference,
+        isSetReference,
+        status,
+        isSetStatus);
   }
 
   @Override

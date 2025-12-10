@@ -111,12 +111,13 @@ public class ShippingLocationsResponse {
       return false;
     }
     ShippingLocationsResponse shippingLocationsResponse = (ShippingLocationsResponse) o;
-    return Objects.equals(this.data, shippingLocationsResponse.data);
+    return Objects.equals(this.data, shippingLocationsResponse.data)
+        && Objects.equals(this.isSetData, shippingLocationsResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

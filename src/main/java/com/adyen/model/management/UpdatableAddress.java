@@ -329,16 +329,34 @@ public class UpdatableAddress {
     }
     UpdatableAddress updatableAddress = (UpdatableAddress) o;
     return Objects.equals(this.city, updatableAddress.city)
+        && Objects.equals(this.isSetCity, updatableAddress.isSetCity)
         && Objects.equals(this.line1, updatableAddress.line1)
+        && Objects.equals(this.isSetLine1, updatableAddress.isSetLine1)
         && Objects.equals(this.line2, updatableAddress.line2)
+        && Objects.equals(this.isSetLine2, updatableAddress.isSetLine2)
         && Objects.equals(this.line3, updatableAddress.line3)
+        && Objects.equals(this.isSetLine3, updatableAddress.isSetLine3)
         && Objects.equals(this.postalCode, updatableAddress.postalCode)
-        && Objects.equals(this.stateOrProvince, updatableAddress.stateOrProvince);
+        && Objects.equals(this.isSetPostalCode, updatableAddress.isSetPostalCode)
+        && Objects.equals(this.stateOrProvince, updatableAddress.stateOrProvince)
+        && Objects.equals(this.isSetStateOrProvince, updatableAddress.isSetStateOrProvince);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, line1, line2, line3, postalCode, stateOrProvince);
+    return Objects.hash(
+        city,
+        isSetCity,
+        line1,
+        isSetLine1,
+        line2,
+        isSetLine2,
+        line3,
+        isSetLine3,
+        postalCode,
+        isSetPostalCode,
+        stateOrProvince,
+        isSetStateOrProvince);
   }
 
   @Override

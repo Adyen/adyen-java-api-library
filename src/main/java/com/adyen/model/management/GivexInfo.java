@@ -275,14 +275,26 @@ public class GivexInfo {
     }
     GivexInfo givexInfo = (GivexInfo) o;
     return Objects.equals(this.currencyCode, givexInfo.currencyCode)
+        && Objects.equals(this.isSetCurrencyCode, givexInfo.isSetCurrencyCode)
         && Objects.equals(this.password, givexInfo.password)
+        && Objects.equals(this.isSetPassword, givexInfo.isSetPassword)
         && Objects.equals(this.paymentFlow, givexInfo.paymentFlow)
-        && Objects.equals(this.username, givexInfo.username);
+        && Objects.equals(this.isSetPaymentFlow, givexInfo.isSetPaymentFlow)
+        && Objects.equals(this.username, givexInfo.username)
+        && Objects.equals(this.isSetUsername, givexInfo.isSetUsername);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, password, paymentFlow, username);
+    return Objects.hash(
+        currencyCode,
+        isSetCurrencyCode,
+        password,
+        isSetPassword,
+        paymentFlow,
+        isSetPaymentFlow,
+        username,
+        isSetUsername);
   }
 
   @Override

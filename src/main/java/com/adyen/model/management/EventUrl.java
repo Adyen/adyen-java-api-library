@@ -170,12 +170,14 @@ public class EventUrl {
     }
     EventUrl eventUrl = (EventUrl) o;
     return Objects.equals(this.eventLocalUrls, eventUrl.eventLocalUrls)
-        && Objects.equals(this.eventPublicUrls, eventUrl.eventPublicUrls);
+        && Objects.equals(this.isSetEventLocalUrls, eventUrl.isSetEventLocalUrls)
+        && Objects.equals(this.eventPublicUrls, eventUrl.eventPublicUrls)
+        && Objects.equals(this.isSetEventPublicUrls, eventUrl.isSetEventPublicUrls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventLocalUrls, eventPublicUrls);
+    return Objects.hash(eventLocalUrls, isSetEventLocalUrls, eventPublicUrls, isSetEventPublicUrls);
   }
 
   @Override

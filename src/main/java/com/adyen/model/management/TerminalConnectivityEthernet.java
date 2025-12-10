@@ -188,13 +188,23 @@ public class TerminalConnectivityEthernet {
     }
     TerminalConnectivityEthernet terminalConnectivityEthernet = (TerminalConnectivityEthernet) o;
     return Objects.equals(this.ipAddress, terminalConnectivityEthernet.ipAddress)
+        && Objects.equals(this.isSetIpAddress, terminalConnectivityEthernet.isSetIpAddress)
         && Objects.equals(this.linkNegotiation, terminalConnectivityEthernet.linkNegotiation)
-        && Objects.equals(this.macAddress, terminalConnectivityEthernet.macAddress);
+        && Objects.equals(
+            this.isSetLinkNegotiation, terminalConnectivityEthernet.isSetLinkNegotiation)
+        && Objects.equals(this.macAddress, terminalConnectivityEthernet.macAddress)
+        && Objects.equals(this.isSetMacAddress, terminalConnectivityEthernet.isSetMacAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, linkNegotiation, macAddress);
+    return Objects.hash(
+        ipAddress,
+        isSetIpAddress,
+        linkNegotiation,
+        isSetLinkNegotiation,
+        macAddress,
+        isSetMacAddress);
   }
 
   @Override

@@ -283,13 +283,22 @@ public class PayAtTable {
     }
     PayAtTable payAtTable = (PayAtTable) o;
     return Objects.equals(this.authenticationMethod, payAtTable.authenticationMethod)
+        && Objects.equals(this.isSetAuthenticationMethod, payAtTable.isSetAuthenticationMethod)
         && Objects.equals(this.enablePayAtTable, payAtTable.enablePayAtTable)
-        && Objects.equals(this.paymentInstrument, payAtTable.paymentInstrument);
+        && Objects.equals(this.isSetEnablePayAtTable, payAtTable.isSetEnablePayAtTable)
+        && Objects.equals(this.paymentInstrument, payAtTable.paymentInstrument)
+        && Objects.equals(this.isSetPaymentInstrument, payAtTable.isSetPaymentInstrument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationMethod, enablePayAtTable, paymentInstrument);
+    return Objects.hash(
+        authenticationMethod,
+        isSetAuthenticationMethod,
+        enablePayAtTable,
+        isSetEnablePayAtTable,
+        paymentInstrument,
+        isSetPaymentInstrument);
   }
 
   @Override

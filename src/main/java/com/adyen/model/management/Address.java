@@ -377,18 +377,38 @@ public class Address {
     }
     Address address = (Address) o;
     return Objects.equals(this.city, address.city)
+        && Objects.equals(this.isSetCity, address.isSetCity)
         && Objects.equals(this.companyName, address.companyName)
+        && Objects.equals(this.isSetCompanyName, address.isSetCompanyName)
         && Objects.equals(this.country, address.country)
+        && Objects.equals(this.isSetCountry, address.isSetCountry)
         && Objects.equals(this.postalCode, address.postalCode)
+        && Objects.equals(this.isSetPostalCode, address.isSetPostalCode)
         && Objects.equals(this.stateOrProvince, address.stateOrProvince)
+        && Objects.equals(this.isSetStateOrProvince, address.isSetStateOrProvince)
         && Objects.equals(this.streetAddress, address.streetAddress)
-        && Objects.equals(this.streetAddress2, address.streetAddress2);
+        && Objects.equals(this.isSetStreetAddress, address.isSetStreetAddress)
+        && Objects.equals(this.streetAddress2, address.streetAddress2)
+        && Objects.equals(this.isSetStreetAddress2, address.isSetStreetAddress2);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        city, companyName, country, postalCode, stateOrProvince, streetAddress, streetAddress2);
+        city,
+        isSetCity,
+        companyName,
+        isSetCompanyName,
+        country,
+        isSetCountry,
+        postalCode,
+        isSetPostalCode,
+        stateOrProvince,
+        isSetStateOrProvince,
+        streetAddress,
+        isSetStreetAddress,
+        streetAddress2,
+        isSetStreetAddress2);
   }
 
   @Override

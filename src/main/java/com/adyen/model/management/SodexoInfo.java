@@ -101,12 +101,13 @@ public class SodexoInfo {
       return false;
     }
     SodexoInfo sodexoInfo = (SodexoInfo) o;
-    return Objects.equals(this.merchantContactPhone, sodexoInfo.merchantContactPhone);
+    return Objects.equals(this.merchantContactPhone, sodexoInfo.merchantContactPhone)
+        && Objects.equals(this.isSetMerchantContactPhone, sodexoInfo.isSetMerchantContactPhone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantContactPhone);
+    return Objects.hash(merchantContactPhone, isSetMerchantContactPhone);
   }
 
   @Override

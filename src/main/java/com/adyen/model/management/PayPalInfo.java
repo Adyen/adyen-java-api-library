@@ -206,13 +206,17 @@ public class PayPalInfo {
     }
     PayPalInfo payPalInfo = (PayPalInfo) o;
     return Objects.equals(this.directCapture, payPalInfo.directCapture)
+        && Objects.equals(this.isSetDirectCapture, payPalInfo.isSetDirectCapture)
         && Objects.equals(this.payerId, payPalInfo.payerId)
-        && Objects.equals(this.subject, payPalInfo.subject);
+        && Objects.equals(this.isSetPayerId, payPalInfo.isSetPayerId)
+        && Objects.equals(this.subject, payPalInfo.subject)
+        && Objects.equals(this.isSetSubject, payPalInfo.isSetSubject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(directCapture, payerId, subject);
+    return Objects.hash(
+        directCapture, isSetDirectCapture, payerId, isSetPayerId, subject, isSetSubject);
   }
 
   @Override

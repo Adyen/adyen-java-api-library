@@ -240,14 +240,26 @@ public class ListTerminalsResponse {
     }
     ListTerminalsResponse listTerminalsResponse = (ListTerminalsResponse) o;
     return Objects.equals(this.links, listTerminalsResponse.links)
+        && Objects.equals(this.isSetLinks, listTerminalsResponse.isSetLinks)
         && Objects.equals(this.data, listTerminalsResponse.data)
+        && Objects.equals(this.isSetData, listTerminalsResponse.isSetData)
         && Objects.equals(this.itemsTotal, listTerminalsResponse.itemsTotal)
-        && Objects.equals(this.pagesTotal, listTerminalsResponse.pagesTotal);
+        && Objects.equals(this.isSetItemsTotal, listTerminalsResponse.isSetItemsTotal)
+        && Objects.equals(this.pagesTotal, listTerminalsResponse.pagesTotal)
+        && Objects.equals(this.isSetPagesTotal, listTerminalsResponse.isSetPagesTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data, itemsTotal, pagesTotal);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        data,
+        isSetData,
+        itemsTotal,
+        isSetItemsTotal,
+        pagesTotal,
+        isSetPagesTotal);
   }
 
   @Override

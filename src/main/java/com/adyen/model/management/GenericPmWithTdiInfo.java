@@ -102,12 +102,14 @@ public class GenericPmWithTdiInfo {
       return false;
     }
     GenericPmWithTdiInfo genericPmWithTdiInfo = (GenericPmWithTdiInfo) o;
-    return Objects.equals(this.transactionDescription, genericPmWithTdiInfo.transactionDescription);
+    return Objects.equals(this.transactionDescription, genericPmWithTdiInfo.transactionDescription)
+        && Objects.equals(
+            this.isSetTransactionDescription, genericPmWithTdiInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionDescription);
+    return Objects.hash(transactionDescription, isSetTransactionDescription);
   }
 
   @Override

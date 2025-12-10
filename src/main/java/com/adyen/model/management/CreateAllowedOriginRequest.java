@@ -188,13 +188,16 @@ public class CreateAllowedOriginRequest {
     }
     CreateAllowedOriginRequest createAllowedOriginRequest = (CreateAllowedOriginRequest) o;
     return Objects.equals(this.links, createAllowedOriginRequest.links)
+        && Objects.equals(this.isSetLinks, createAllowedOriginRequest.isSetLinks)
         && Objects.equals(this.domain, createAllowedOriginRequest.domain)
-        && Objects.equals(this.id, createAllowedOriginRequest.id);
+        && Objects.equals(this.isSetDomain, createAllowedOriginRequest.isSetDomain)
+        && Objects.equals(this.id, createAllowedOriginRequest.id)
+        && Objects.equals(this.isSetId, createAllowedOriginRequest.isSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, domain, id);
+    return Objects.hash(links, isSetLinks, domain, isSetDomain, id, isSetId);
   }
 
   @Override

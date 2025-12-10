@@ -640,18 +640,39 @@ public class SplitConfigurationRule {
     }
     SplitConfigurationRule splitConfigurationRule = (SplitConfigurationRule) o;
     return Objects.equals(this.cardRegion, splitConfigurationRule.cardRegion)
+        && Objects.equals(this.isSetCardRegion, splitConfigurationRule.isSetCardRegion)
         && Objects.equals(this.currency, splitConfigurationRule.currency)
+        && Objects.equals(this.isSetCurrency, splitConfigurationRule.isSetCurrency)
         && Objects.equals(this.fundingSource, splitConfigurationRule.fundingSource)
+        && Objects.equals(this.isSetFundingSource, splitConfigurationRule.isSetFundingSource)
         && Objects.equals(this.paymentMethod, splitConfigurationRule.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, splitConfigurationRule.isSetPaymentMethod)
         && Objects.equals(this.ruleId, splitConfigurationRule.ruleId)
+        && Objects.equals(this.isSetRuleId, splitConfigurationRule.isSetRuleId)
         && Objects.equals(this.shopperInteraction, splitConfigurationRule.shopperInteraction)
-        && Objects.equals(this.splitLogic, splitConfigurationRule.splitLogic);
+        && Objects.equals(
+            this.isSetShopperInteraction, splitConfigurationRule.isSetShopperInteraction)
+        && Objects.equals(this.splitLogic, splitConfigurationRule.splitLogic)
+        && Objects.equals(this.isSetSplitLogic, splitConfigurationRule.isSetSplitLogic);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cardRegion, currency, fundingSource, paymentMethod, ruleId, shopperInteraction, splitLogic);
+        cardRegion,
+        isSetCardRegion,
+        currency,
+        isSetCurrency,
+        fundingSource,
+        isSetFundingSource,
+        paymentMethod,
+        isSetPaymentMethod,
+        ruleId,
+        isSetRuleId,
+        shopperInteraction,
+        isSetShopperInteraction,
+        splitLogic,
+        isSetSplitLogic);
   }
 
   @Override

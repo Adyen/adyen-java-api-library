@@ -194,13 +194,16 @@ public class Settings {
     }
     Settings settings = (Settings) o;
     return Objects.equals(this.band, settings.band)
+        && Objects.equals(this.isSetBand, settings.isSetBand)
         && Objects.equals(this.roaming, settings.roaming)
-        && Objects.equals(this.timeout, settings.timeout);
+        && Objects.equals(this.isSetRoaming, settings.isSetRoaming)
+        && Objects.equals(this.timeout, settings.timeout)
+        && Objects.equals(this.isSetTimeout, settings.isSetTimeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(band, roaming, timeout);
+    return Objects.hash(band, isSetBand, roaming, isSetRoaming, timeout, isSetTimeout);
   }
 
   @Override

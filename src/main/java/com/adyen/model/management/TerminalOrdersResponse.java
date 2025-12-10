@@ -111,12 +111,13 @@ public class TerminalOrdersResponse {
       return false;
     }
     TerminalOrdersResponse terminalOrdersResponse = (TerminalOrdersResponse) o;
-    return Objects.equals(this.data, terminalOrdersResponse.data);
+    return Objects.equals(this.data, terminalOrdersResponse.data)
+        && Objects.equals(this.isSetData, terminalOrdersResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

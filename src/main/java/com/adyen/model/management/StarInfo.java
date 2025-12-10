@@ -230,12 +230,15 @@ public class StarInfo {
     }
     StarInfo starInfo = (StarInfo) o;
     return Objects.equals(this.processingType, starInfo.processingType)
-        && Objects.equals(this.transactionDescription, starInfo.transactionDescription);
+        && Objects.equals(this.isSetProcessingType, starInfo.isSetProcessingType)
+        && Objects.equals(this.transactionDescription, starInfo.transactionDescription)
+        && Objects.equals(this.isSetTransactionDescription, starInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(processingType, transactionDescription);
+    return Objects.hash(
+        processingType, isSetProcessingType, transactionDescription, isSetTransactionDescription);
   }
 
   @Override

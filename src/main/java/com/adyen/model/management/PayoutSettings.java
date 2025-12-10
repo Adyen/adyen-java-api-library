@@ -576,18 +576,38 @@ public class PayoutSettings {
     }
     PayoutSettings payoutSettings = (PayoutSettings) o;
     return Objects.equals(this.allowed, payoutSettings.allowed)
+        && Objects.equals(this.isSetAllowed, payoutSettings.isSetAllowed)
         && Objects.equals(this.enabled, payoutSettings.enabled)
+        && Objects.equals(this.isSetEnabled, payoutSettings.isSetEnabled)
         && Objects.equals(this.enabledFromDate, payoutSettings.enabledFromDate)
+        && Objects.equals(this.isSetEnabledFromDate, payoutSettings.isSetEnabledFromDate)
         && Objects.equals(this.id, payoutSettings.id)
+        && Objects.equals(this.isSetId, payoutSettings.isSetId)
         && Objects.equals(this.priority, payoutSettings.priority)
+        && Objects.equals(this.isSetPriority, payoutSettings.isSetPriority)
         && Objects.equals(this.transferInstrumentId, payoutSettings.transferInstrumentId)
-        && Objects.equals(this.verificationStatus, payoutSettings.verificationStatus);
+        && Objects.equals(this.isSetTransferInstrumentId, payoutSettings.isSetTransferInstrumentId)
+        && Objects.equals(this.verificationStatus, payoutSettings.verificationStatus)
+        && Objects.equals(this.isSetVerificationStatus, payoutSettings.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        allowed, enabled, enabledFromDate, id, priority, transferInstrumentId, verificationStatus);
+        allowed,
+        isSetAllowed,
+        enabled,
+        isSetEnabled,
+        enabledFromDate,
+        isSetEnabledFromDate,
+        id,
+        isSetId,
+        priority,
+        isSetPriority,
+        transferInstrumentId,
+        isSetTransferInstrumentId,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override

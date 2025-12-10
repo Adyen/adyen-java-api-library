@@ -230,12 +230,15 @@ public class AccelInfo {
     }
     AccelInfo accelInfo = (AccelInfo) o;
     return Objects.equals(this.processingType, accelInfo.processingType)
-        && Objects.equals(this.transactionDescription, accelInfo.transactionDescription);
+        && Objects.equals(this.isSetProcessingType, accelInfo.isSetProcessingType)
+        && Objects.equals(this.transactionDescription, accelInfo.transactionDescription)
+        && Objects.equals(this.isSetTransactionDescription, accelInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(processingType, transactionDescription);
+    return Objects.hash(
+        processingType, isSetProcessingType, transactionDescription, isSetTransactionDescription);
   }
 
   @Override

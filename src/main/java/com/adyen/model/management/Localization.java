@@ -188,13 +188,22 @@ public class Localization {
     }
     Localization localization = (Localization) o;
     return Objects.equals(this.language, localization.language)
+        && Objects.equals(this.isSetLanguage, localization.isSetLanguage)
         && Objects.equals(this.secondaryLanguage, localization.secondaryLanguage)
-        && Objects.equals(this.timezone, localization.timezone);
+        && Objects.equals(this.isSetSecondaryLanguage, localization.isSetSecondaryLanguage)
+        && Objects.equals(this.timezone, localization.timezone)
+        && Objects.equals(this.isSetTimezone, localization.isSetTimezone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, secondaryLanguage, timezone);
+    return Objects.hash(
+        language,
+        isSetLanguage,
+        secondaryLanguage,
+        isSetSecondaryLanguage,
+        timezone,
+        isSetTimezone);
   }
 
   @Override

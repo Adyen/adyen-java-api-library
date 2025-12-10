@@ -200,13 +200,22 @@ public class Standalone {
     }
     Standalone standalone = (Standalone) o;
     return Objects.equals(this.currencyCode, standalone.currencyCode)
+        && Objects.equals(this.isSetCurrencyCode, standalone.isSetCurrencyCode)
         && Objects.equals(this.enableGratuities, standalone.enableGratuities)
-        && Objects.equals(this.enableStandalone, standalone.enableStandalone);
+        && Objects.equals(this.isSetEnableGratuities, standalone.isSetEnableGratuities)
+        && Objects.equals(this.enableStandalone, standalone.enableStandalone)
+        && Objects.equals(this.isSetEnableStandalone, standalone.isSetEnableStandalone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, enableGratuities, enableStandalone);
+    return Objects.hash(
+        currencyCode,
+        isSetCurrencyCode,
+        enableGratuities,
+        isSetEnableGratuities,
+        enableStandalone,
+        isSetEnableStandalone);
   }
 
   @Override

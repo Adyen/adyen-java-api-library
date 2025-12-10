@@ -165,12 +165,14 @@ public class AndroidAppError {
     }
     AndroidAppError androidAppError = (AndroidAppError) o;
     return Objects.equals(this.errorCode, androidAppError.errorCode)
-        && Objects.equals(this.terminalModels, androidAppError.terminalModels);
+        && Objects.equals(this.isSetErrorCode, androidAppError.isSetErrorCode)
+        && Objects.equals(this.terminalModels, androidAppError.terminalModels)
+        && Objects.equals(this.isSetTerminalModels, androidAppError.isSetTerminalModels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorCode, terminalModels);
+    return Objects.hash(errorCode, isSetErrorCode, terminalModels, isSetTerminalModels);
   }
 
   @Override

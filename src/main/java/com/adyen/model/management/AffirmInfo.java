@@ -190,12 +190,14 @@ public class AffirmInfo {
     }
     AffirmInfo affirmInfo = (AffirmInfo) o;
     return Objects.equals(this.pricePlan, affirmInfo.pricePlan)
-        && Objects.equals(this.supportEmail, affirmInfo.supportEmail);
+        && Objects.equals(this.isSetPricePlan, affirmInfo.isSetPricePlan)
+        && Objects.equals(this.supportEmail, affirmInfo.supportEmail)
+        && Objects.equals(this.isSetSupportEmail, affirmInfo.isSetSupportEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pricePlan, supportEmail);
+    return Objects.hash(pricePlan, isSetPricePlan, supportEmail, isSetSupportEmail);
   }
 
   @Override

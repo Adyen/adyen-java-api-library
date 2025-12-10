@@ -105,12 +105,14 @@ public class Unreferenced {
       return false;
     }
     Unreferenced unreferenced = (Unreferenced) o;
-    return Objects.equals(this.enableUnreferencedRefunds, unreferenced.enableUnreferencedRefunds);
+    return Objects.equals(this.enableUnreferencedRefunds, unreferenced.enableUnreferencedRefunds)
+        && Objects.equals(
+            this.isSetEnableUnreferencedRefunds, unreferenced.isSetEnableUnreferencedRefunds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableUnreferencedRefunds);
+    return Objects.hash(enableUnreferencedRefunds, isSetEnableUnreferencedRefunds);
   }
 
   @Override

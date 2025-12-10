@@ -534,28 +534,48 @@ public class StoreCreationRequest {
     }
     StoreCreationRequest storeCreationRequest = (StoreCreationRequest) o;
     return Objects.equals(this.address, storeCreationRequest.address)
+        && Objects.equals(this.isSetAddress, storeCreationRequest.isSetAddress)
         && Objects.equals(this.businessLineIds, storeCreationRequest.businessLineIds)
+        && Objects.equals(this.isSetBusinessLineIds, storeCreationRequest.isSetBusinessLineIds)
         && Objects.equals(this.description, storeCreationRequest.description)
+        && Objects.equals(this.isSetDescription, storeCreationRequest.isSetDescription)
         && Objects.equals(this.externalReferenceId, storeCreationRequest.externalReferenceId)
+        && Objects.equals(
+            this.isSetExternalReferenceId, storeCreationRequest.isSetExternalReferenceId)
         && Objects.equals(this.phoneNumber, storeCreationRequest.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, storeCreationRequest.isSetPhoneNumber)
         && Objects.equals(this.reference, storeCreationRequest.reference)
+        && Objects.equals(this.isSetReference, storeCreationRequest.isSetReference)
         && Objects.equals(this.shopperStatement, storeCreationRequest.shopperStatement)
+        && Objects.equals(this.isSetShopperStatement, storeCreationRequest.isSetShopperStatement)
         && Objects.equals(this.splitConfiguration, storeCreationRequest.splitConfiguration)
-        && Objects.equals(this.subMerchantData, storeCreationRequest.subMerchantData);
+        && Objects.equals(
+            this.isSetSplitConfiguration, storeCreationRequest.isSetSplitConfiguration)
+        && Objects.equals(this.subMerchantData, storeCreationRequest.subMerchantData)
+        && Objects.equals(this.isSetSubMerchantData, storeCreationRequest.isSetSubMerchantData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         address,
+        isSetAddress,
         businessLineIds,
+        isSetBusinessLineIds,
         description,
+        isSetDescription,
         externalReferenceId,
+        isSetExternalReferenceId,
         phoneNumber,
+        isSetPhoneNumber,
         reference,
+        isSetReference,
         shopperStatement,
+        isSetShopperStatement,
         splitConfiguration,
-        subMerchantData);
+        isSetSplitConfiguration,
+        subMerchantData,
+        isSetSubMerchantData);
   }
 
   @Override

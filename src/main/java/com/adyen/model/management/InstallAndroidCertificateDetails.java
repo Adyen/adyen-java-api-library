@@ -192,12 +192,15 @@ public class InstallAndroidCertificateDetails {
     InstallAndroidCertificateDetails installAndroidCertificateDetails =
         (InstallAndroidCertificateDetails) o;
     return Objects.equals(this.certificateId, installAndroidCertificateDetails.certificateId)
-        && Objects.equals(this.type, installAndroidCertificateDetails.type);
+        && Objects.equals(
+            this.isSetCertificateId, installAndroidCertificateDetails.isSetCertificateId)
+        && Objects.equals(this.type, installAndroidCertificateDetails.type)
+        && Objects.equals(this.isSetType, installAndroidCertificateDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, type);
+    return Objects.hash(certificateId, isSetCertificateId, type, isSetType);
   }
 
   @Override

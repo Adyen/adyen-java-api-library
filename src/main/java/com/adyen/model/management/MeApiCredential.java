@@ -568,30 +568,50 @@ public class MeApiCredential {
     }
     MeApiCredential meApiCredential = (MeApiCredential) o;
     return Objects.equals(this.links, meApiCredential.links)
+        && Objects.equals(this.isSetLinks, meApiCredential.isSetLinks)
         && Objects.equals(this.active, meApiCredential.active)
+        && Objects.equals(this.isSetActive, meApiCredential.isSetActive)
         && Objects.equals(this.allowedIpAddresses, meApiCredential.allowedIpAddresses)
+        && Objects.equals(this.isSetAllowedIpAddresses, meApiCredential.isSetAllowedIpAddresses)
         && Objects.equals(this.allowedOrigins, meApiCredential.allowedOrigins)
+        && Objects.equals(this.isSetAllowedOrigins, meApiCredential.isSetAllowedOrigins)
         && Objects.equals(this.clientKey, meApiCredential.clientKey)
+        && Objects.equals(this.isSetClientKey, meApiCredential.isSetClientKey)
         && Objects.equals(this.companyName, meApiCredential.companyName)
+        && Objects.equals(this.isSetCompanyName, meApiCredential.isSetCompanyName)
         && Objects.equals(this.description, meApiCredential.description)
+        && Objects.equals(this.isSetDescription, meApiCredential.isSetDescription)
         && Objects.equals(this.id, meApiCredential.id)
+        && Objects.equals(this.isSetId, meApiCredential.isSetId)
         && Objects.equals(this.roles, meApiCredential.roles)
-        && Objects.equals(this.username, meApiCredential.username);
+        && Objects.equals(this.isSetRoles, meApiCredential.isSetRoles)
+        && Objects.equals(this.username, meApiCredential.username)
+        && Objects.equals(this.isSetUsername, meApiCredential.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         active,
+        isSetActive,
         allowedIpAddresses,
+        isSetAllowedIpAddresses,
         allowedOrigins,
+        isSetAllowedOrigins,
         clientKey,
+        isSetClientKey,
         companyName,
+        isSetCompanyName,
         description,
+        isSetDescription,
         id,
+        isSetId,
         roles,
-        username);
+        isSetRoles,
+        username,
+        isSetUsername);
   }
 
   @Override

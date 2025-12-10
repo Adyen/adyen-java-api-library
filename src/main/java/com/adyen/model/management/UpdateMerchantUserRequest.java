@@ -404,17 +404,38 @@ public class UpdateMerchantUserRequest {
     }
     UpdateMerchantUserRequest updateMerchantUserRequest = (UpdateMerchantUserRequest) o;
     return Objects.equals(this.accountGroups, updateMerchantUserRequest.accountGroups)
+        && Objects.equals(this.isSetAccountGroups, updateMerchantUserRequest.isSetAccountGroups)
         && Objects.equals(this.active, updateMerchantUserRequest.active)
+        && Objects.equals(this.isSetActive, updateMerchantUserRequest.isSetActive)
         && Objects.equals(this.email, updateMerchantUserRequest.email)
+        && Objects.equals(this.isSetEmail, updateMerchantUserRequest.isSetEmail)
         && Objects.equals(this.loginMethod, updateMerchantUserRequest.loginMethod)
+        && Objects.equals(this.isSetLoginMethod, updateMerchantUserRequest.isSetLoginMethod)
         && Objects.equals(this.name, updateMerchantUserRequest.name)
+        && Objects.equals(this.isSetName, updateMerchantUserRequest.isSetName)
         && Objects.equals(this.roles, updateMerchantUserRequest.roles)
-        && Objects.equals(this.timeZoneCode, updateMerchantUserRequest.timeZoneCode);
+        && Objects.equals(this.isSetRoles, updateMerchantUserRequest.isSetRoles)
+        && Objects.equals(this.timeZoneCode, updateMerchantUserRequest.timeZoneCode)
+        && Objects.equals(this.isSetTimeZoneCode, updateMerchantUserRequest.isSetTimeZoneCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGroups, active, email, loginMethod, name, roles, timeZoneCode);
+    return Objects.hash(
+        accountGroups,
+        isSetAccountGroups,
+        active,
+        isSetActive,
+        email,
+        isSetEmail,
+        loginMethod,
+        isSetLoginMethod,
+        name,
+        isSetName,
+        roles,
+        isSetRoles,
+        timeZoneCode,
+        isSetTimeZoneCode);
   }
 
   @Override

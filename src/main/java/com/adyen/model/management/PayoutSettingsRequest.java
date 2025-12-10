@@ -248,13 +248,23 @@ public class PayoutSettingsRequest {
     }
     PayoutSettingsRequest payoutSettingsRequest = (PayoutSettingsRequest) o;
     return Objects.equals(this.enabled, payoutSettingsRequest.enabled)
+        && Objects.equals(this.isSetEnabled, payoutSettingsRequest.isSetEnabled)
         && Objects.equals(this.enabledFromDate, payoutSettingsRequest.enabledFromDate)
-        && Objects.equals(this.transferInstrumentId, payoutSettingsRequest.transferInstrumentId);
+        && Objects.equals(this.isSetEnabledFromDate, payoutSettingsRequest.isSetEnabledFromDate)
+        && Objects.equals(this.transferInstrumentId, payoutSettingsRequest.transferInstrumentId)
+        && Objects.equals(
+            this.isSetTransferInstrumentId, payoutSettingsRequest.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, enabledFromDate, transferInstrumentId);
+    return Objects.hash(
+        enabled,
+        isSetEnabled,
+        enabledFromDate,
+        isSetEnabledFromDate,
+        transferInstrumentId,
+        isSetTransferInstrumentId);
   }
 
   @Override

@@ -230,14 +230,26 @@ public class Passcodes {
     }
     Passcodes passcodes = (Passcodes) o;
     return Objects.equals(this.adminMenuPin, passcodes.adminMenuPin)
+        && Objects.equals(this.isSetAdminMenuPin, passcodes.isSetAdminMenuPin)
         && Objects.equals(this.refundPin, passcodes.refundPin)
+        && Objects.equals(this.isSetRefundPin, passcodes.isSetRefundPin)
         && Objects.equals(this.screenLockPin, passcodes.screenLockPin)
-        && Objects.equals(this.txMenuPin, passcodes.txMenuPin);
+        && Objects.equals(this.isSetScreenLockPin, passcodes.isSetScreenLockPin)
+        && Objects.equals(this.txMenuPin, passcodes.txMenuPin)
+        && Objects.equals(this.isSetTxMenuPin, passcodes.isSetTxMenuPin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminMenuPin, refundPin, screenLockPin, txMenuPin);
+    return Objects.hash(
+        adminMenuPin,
+        isSetAdminMenuPin,
+        refundPin,
+        isSetRefundPin,
+        screenLockPin,
+        isSetScreenLockPin,
+        txMenuPin,
+        isSetTxMenuPin);
   }
 
   @Override

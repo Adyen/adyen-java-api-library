@@ -304,15 +304,31 @@ public class UpdateSplitConfigurationRuleRequest {
     UpdateSplitConfigurationRuleRequest updateSplitConfigurationRuleRequest =
         (UpdateSplitConfigurationRuleRequest) o;
     return Objects.equals(this.currency, updateSplitConfigurationRuleRequest.currency)
+        && Objects.equals(this.isSetCurrency, updateSplitConfigurationRuleRequest.isSetCurrency)
         && Objects.equals(this.fundingSource, updateSplitConfigurationRuleRequest.fundingSource)
+        && Objects.equals(
+            this.isSetFundingSource, updateSplitConfigurationRuleRequest.isSetFundingSource)
         && Objects.equals(this.paymentMethod, updateSplitConfigurationRuleRequest.paymentMethod)
         && Objects.equals(
-            this.shopperInteraction, updateSplitConfigurationRuleRequest.shopperInteraction);
+            this.isSetPaymentMethod, updateSplitConfigurationRuleRequest.isSetPaymentMethod)
+        && Objects.equals(
+            this.shopperInteraction, updateSplitConfigurationRuleRequest.shopperInteraction)
+        && Objects.equals(
+            this.isSetShopperInteraction,
+            updateSplitConfigurationRuleRequest.isSetShopperInteraction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, fundingSource, paymentMethod, shopperInteraction);
+    return Objects.hash(
+        currency,
+        isSetCurrency,
+        fundingSource,
+        isSetFundingSource,
+        paymentMethod,
+        isSetPaymentMethod,
+        shopperInteraction,
+        isSetShopperInteraction);
   }
 
   @Override

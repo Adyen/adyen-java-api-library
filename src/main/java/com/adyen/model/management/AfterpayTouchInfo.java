@@ -146,12 +146,14 @@ public class AfterpayTouchInfo {
     }
     AfterpayTouchInfo afterpayTouchInfo = (AfterpayTouchInfo) o;
     return Objects.equals(this.supportEmail, afterpayTouchInfo.supportEmail)
-        && Objects.equals(this.supportUrl, afterpayTouchInfo.supportUrl);
+        && Objects.equals(this.isSetSupportEmail, afterpayTouchInfo.isSetSupportEmail)
+        && Objects.equals(this.supportUrl, afterpayTouchInfo.supportUrl)
+        && Objects.equals(this.isSetSupportUrl, afterpayTouchInfo.isSetSupportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportEmail, supportUrl);
+    return Objects.hash(supportEmail, isSetSupportEmail, supportUrl, isSetSupportUrl);
   }
 
   @Override

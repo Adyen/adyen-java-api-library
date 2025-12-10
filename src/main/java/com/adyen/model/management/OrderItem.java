@@ -233,14 +233,19 @@ public class OrderItem {
     }
     OrderItem orderItem = (OrderItem) o;
     return Objects.equals(this.id, orderItem.id)
+        && Objects.equals(this.isSetId, orderItem.isSetId)
         && Objects.equals(this.installments, orderItem.installments)
+        && Objects.equals(this.isSetInstallments, orderItem.isSetInstallments)
         && Objects.equals(this.name, orderItem.name)
-        && Objects.equals(this.quantity, orderItem.quantity);
+        && Objects.equals(this.isSetName, orderItem.isSetName)
+        && Objects.equals(this.quantity, orderItem.quantity)
+        && Objects.equals(this.isSetQuantity, orderItem.isSetQuantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, installments, name, quantity);
+    return Objects.hash(
+        id, isSetId, installments, isSetInstallments, name, isSetName, quantity, isSetQuantity);
   }
 
   @Override

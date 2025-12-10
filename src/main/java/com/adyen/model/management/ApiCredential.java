@@ -526,28 +526,46 @@ public class ApiCredential {
     }
     ApiCredential apiCredential = (ApiCredential) o;
     return Objects.equals(this.links, apiCredential.links)
+        && Objects.equals(this.isSetLinks, apiCredential.isSetLinks)
         && Objects.equals(this.active, apiCredential.active)
+        && Objects.equals(this.isSetActive, apiCredential.isSetActive)
         && Objects.equals(this.allowedIpAddresses, apiCredential.allowedIpAddresses)
+        && Objects.equals(this.isSetAllowedIpAddresses, apiCredential.isSetAllowedIpAddresses)
         && Objects.equals(this.allowedOrigins, apiCredential.allowedOrigins)
+        && Objects.equals(this.isSetAllowedOrigins, apiCredential.isSetAllowedOrigins)
         && Objects.equals(this.clientKey, apiCredential.clientKey)
+        && Objects.equals(this.isSetClientKey, apiCredential.isSetClientKey)
         && Objects.equals(this.description, apiCredential.description)
+        && Objects.equals(this.isSetDescription, apiCredential.isSetDescription)
         && Objects.equals(this.id, apiCredential.id)
+        && Objects.equals(this.isSetId, apiCredential.isSetId)
         && Objects.equals(this.roles, apiCredential.roles)
-        && Objects.equals(this.username, apiCredential.username);
+        && Objects.equals(this.isSetRoles, apiCredential.isSetRoles)
+        && Objects.equals(this.username, apiCredential.username)
+        && Objects.equals(this.isSetUsername, apiCredential.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         active,
+        isSetActive,
         allowedIpAddresses,
+        isSetAllowedIpAddresses,
         allowedOrigins,
+        isSetAllowedOrigins,
         clientKey,
+        isSetClientKey,
         description,
+        isSetDescription,
         id,
+        isSetId,
         roles,
-        username);
+        isSetRoles,
+        username,
+        isSetUsername);
   }
 
   @Override

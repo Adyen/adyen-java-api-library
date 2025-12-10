@@ -276,12 +276,15 @@ public class TransactionDescriptionInfo {
     }
     TransactionDescriptionInfo transactionDescriptionInfo = (TransactionDescriptionInfo) o;
     return Objects.equals(this.doingBusinessAsName, transactionDescriptionInfo.doingBusinessAsName)
-        && Objects.equals(this.type, transactionDescriptionInfo.type);
+        && Objects.equals(
+            this.isSetDoingBusinessAsName, transactionDescriptionInfo.isSetDoingBusinessAsName)
+        && Objects.equals(this.type, transactionDescriptionInfo.type)
+        && Objects.equals(this.isSetType, transactionDescriptionInfo.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(doingBusinessAsName, type);
+    return Objects.hash(doingBusinessAsName, isSetDoingBusinessAsName, type, isSetType);
   }
 
   @Override

@@ -147,12 +147,16 @@ public class SepaDirectDebitInfo {
     }
     SepaDirectDebitInfo sepaDirectDebitInfo = (SepaDirectDebitInfo) o;
     return Objects.equals(this.creditorId, sepaDirectDebitInfo.creditorId)
-        && Objects.equals(this.transactionDescription, sepaDirectDebitInfo.transactionDescription);
+        && Objects.equals(this.isSetCreditorId, sepaDirectDebitInfo.isSetCreditorId)
+        && Objects.equals(this.transactionDescription, sepaDirectDebitInfo.transactionDescription)
+        && Objects.equals(
+            this.isSetTransactionDescription, sepaDirectDebitInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creditorId, transactionDescription);
+    return Objects.hash(
+        creditorId, isSetCreditorId, transactionDescription, isSetTransactionDescription);
   }
 
   @Override

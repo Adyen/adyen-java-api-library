@@ -173,12 +173,14 @@ public class DataCenter {
     }
     DataCenter dataCenter = (DataCenter) o;
     return Objects.equals(this.livePrefix, dataCenter.livePrefix)
-        && Objects.equals(this.name, dataCenter.name);
+        && Objects.equals(this.isSetLivePrefix, dataCenter.isSetLivePrefix)
+        && Objects.equals(this.name, dataCenter.name)
+        && Objects.equals(this.isSetName, dataCenter.isSetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(livePrefix, name);
+    return Objects.hash(livePrefix, isSetLivePrefix, name, isSetName);
   }
 
   @Override

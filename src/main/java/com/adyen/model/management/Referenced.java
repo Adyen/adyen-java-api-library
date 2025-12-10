@@ -104,12 +104,14 @@ public class Referenced {
       return false;
     }
     Referenced referenced = (Referenced) o;
-    return Objects.equals(this.enableStandaloneRefunds, referenced.enableStandaloneRefunds);
+    return Objects.equals(this.enableStandaloneRefunds, referenced.enableStandaloneRefunds)
+        && Objects.equals(
+            this.isSetEnableStandaloneRefunds, referenced.isSetEnableStandaloneRefunds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableStandaloneRefunds);
+    return Objects.hash(enableStandaloneRefunds, isSetEnableStandaloneRefunds);
   }
 
   @Override

@@ -101,12 +101,13 @@ public class ReprocessAndroidAppResponse {
       return false;
     }
     ReprocessAndroidAppResponse reprocessAndroidAppResponse = (ReprocessAndroidAppResponse) o;
-    return Objects.equals(this.message, reprocessAndroidAppResponse.message);
+    return Objects.equals(this.message, reprocessAndroidAppResponse.message)
+        && Objects.equals(this.isSetMessage, reprocessAndroidAppResponse.isSetMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(message, isSetMessage);
   }
 
   @Override

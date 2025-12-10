@@ -591,33 +591,57 @@ public class CreateCompanyUserResponse {
     }
     CreateCompanyUserResponse createCompanyUserResponse = (CreateCompanyUserResponse) o;
     return Objects.equals(this.links, createCompanyUserResponse.links)
+        && Objects.equals(this.isSetLinks, createCompanyUserResponse.isSetLinks)
         && Objects.equals(this.accountGroups, createCompanyUserResponse.accountGroups)
+        && Objects.equals(this.isSetAccountGroups, createCompanyUserResponse.isSetAccountGroups)
         && Objects.equals(this.active, createCompanyUserResponse.active)
+        && Objects.equals(this.isSetActive, createCompanyUserResponse.isSetActive)
         && Objects.equals(this.apps, createCompanyUserResponse.apps)
+        && Objects.equals(this.isSetApps, createCompanyUserResponse.isSetApps)
         && Objects.equals(
             this.associatedMerchantAccounts, createCompanyUserResponse.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts,
+            createCompanyUserResponse.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.email, createCompanyUserResponse.email)
+        && Objects.equals(this.isSetEmail, createCompanyUserResponse.isSetEmail)
         && Objects.equals(this.id, createCompanyUserResponse.id)
+        && Objects.equals(this.isSetId, createCompanyUserResponse.isSetId)
         && Objects.equals(this.name, createCompanyUserResponse.name)
+        && Objects.equals(this.isSetName, createCompanyUserResponse.isSetName)
         && Objects.equals(this.roles, createCompanyUserResponse.roles)
+        && Objects.equals(this.isSetRoles, createCompanyUserResponse.isSetRoles)
         && Objects.equals(this.timeZoneCode, createCompanyUserResponse.timeZoneCode)
-        && Objects.equals(this.username, createCompanyUserResponse.username);
+        && Objects.equals(this.isSetTimeZoneCode, createCompanyUserResponse.isSetTimeZoneCode)
+        && Objects.equals(this.username, createCompanyUserResponse.username)
+        && Objects.equals(this.isSetUsername, createCompanyUserResponse.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         accountGroups,
+        isSetAccountGroups,
         active,
+        isSetActive,
         apps,
+        isSetApps,
         associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
         email,
+        isSetEmail,
         id,
+        isSetId,
         name,
+        isSetName,
         roles,
+        isSetRoles,
         timeZoneCode,
-        username);
+        isSetTimeZoneCode,
+        username,
+        isSetUsername);
   }
 
   @Override

@@ -337,17 +337,35 @@ public class UpdateCompanyApiCredentialRequest {
     UpdateCompanyApiCredentialRequest updateCompanyApiCredentialRequest =
         (UpdateCompanyApiCredentialRequest) o;
     return Objects.equals(this.active, updateCompanyApiCredentialRequest.active)
+        && Objects.equals(this.isSetActive, updateCompanyApiCredentialRequest.isSetActive)
         && Objects.equals(this.allowedOrigins, updateCompanyApiCredentialRequest.allowedOrigins)
+        && Objects.equals(
+            this.isSetAllowedOrigins, updateCompanyApiCredentialRequest.isSetAllowedOrigins)
         && Objects.equals(
             this.associatedMerchantAccounts,
             updateCompanyApiCredentialRequest.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts,
+            updateCompanyApiCredentialRequest.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.description, updateCompanyApiCredentialRequest.description)
-        && Objects.equals(this.roles, updateCompanyApiCredentialRequest.roles);
+        && Objects.equals(this.isSetDescription, updateCompanyApiCredentialRequest.isSetDescription)
+        && Objects.equals(this.roles, updateCompanyApiCredentialRequest.roles)
+        && Objects.equals(this.isSetRoles, updateCompanyApiCredentialRequest.isSetRoles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, allowedOrigins, associatedMerchantAccounts, description, roles);
+    return Objects.hash(
+        active,
+        isSetActive,
+        allowedOrigins,
+        isSetAllowedOrigins,
+        associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
+        description,
+        isSetDescription,
+        roles,
+        isSetRoles);
   }
 
   @Override

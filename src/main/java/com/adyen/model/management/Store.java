@@ -764,36 +764,62 @@ public class Store {
     }
     Store store = (Store) o;
     return Objects.equals(this.links, store.links)
+        && Objects.equals(this.isSetLinks, store.isSetLinks)
         && Objects.equals(this.address, store.address)
+        && Objects.equals(this.isSetAddress, store.isSetAddress)
         && Objects.equals(this.businessLineIds, store.businessLineIds)
+        && Objects.equals(this.isSetBusinessLineIds, store.isSetBusinessLineIds)
         && Objects.equals(this.description, store.description)
+        && Objects.equals(this.isSetDescription, store.isSetDescription)
         && Objects.equals(this.externalReferenceId, store.externalReferenceId)
+        && Objects.equals(this.isSetExternalReferenceId, store.isSetExternalReferenceId)
         && Objects.equals(this.id, store.id)
+        && Objects.equals(this.isSetId, store.isSetId)
         && Objects.equals(this.merchantId, store.merchantId)
+        && Objects.equals(this.isSetMerchantId, store.isSetMerchantId)
         && Objects.equals(this.phoneNumber, store.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, store.isSetPhoneNumber)
         && Objects.equals(this.reference, store.reference)
+        && Objects.equals(this.isSetReference, store.isSetReference)
         && Objects.equals(this.shopperStatement, store.shopperStatement)
+        && Objects.equals(this.isSetShopperStatement, store.isSetShopperStatement)
         && Objects.equals(this.splitConfiguration, store.splitConfiguration)
+        && Objects.equals(this.isSetSplitConfiguration, store.isSetSplitConfiguration)
         && Objects.equals(this.status, store.status)
-        && Objects.equals(this.subMerchantData, store.subMerchantData);
+        && Objects.equals(this.isSetStatus, store.isSetStatus)
+        && Objects.equals(this.subMerchantData, store.subMerchantData)
+        && Objects.equals(this.isSetSubMerchantData, store.isSetSubMerchantData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         address,
+        isSetAddress,
         businessLineIds,
+        isSetBusinessLineIds,
         description,
+        isSetDescription,
         externalReferenceId,
+        isSetExternalReferenceId,
         id,
+        isSetId,
         merchantId,
+        isSetMerchantId,
         phoneNumber,
+        isSetPhoneNumber,
         reference,
+        isSetReference,
         shopperStatement,
+        isSetShopperStatement,
         splitConfiguration,
+        isSetSplitConfiguration,
         status,
-        subMerchantData);
+        isSetStatus,
+        subMerchantData,
+        isSetSubMerchantData);
   }
 
   @Override

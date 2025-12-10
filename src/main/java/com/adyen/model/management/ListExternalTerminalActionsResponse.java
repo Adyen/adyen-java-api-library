@@ -113,12 +113,13 @@ public class ListExternalTerminalActionsResponse {
     }
     ListExternalTerminalActionsResponse listExternalTerminalActionsResponse =
         (ListExternalTerminalActionsResponse) o;
-    return Objects.equals(this.data, listExternalTerminalActionsResponse.data);
+    return Objects.equals(this.data, listExternalTerminalActionsResponse.data)
+        && Objects.equals(this.isSetData, listExternalTerminalActionsResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

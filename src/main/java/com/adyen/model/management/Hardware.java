@@ -212,13 +212,22 @@ public class Hardware {
     }
     Hardware hardware = (Hardware) o;
     return Objects.equals(this.displayMaximumBackLight, hardware.displayMaximumBackLight)
+        && Objects.equals(this.isSetDisplayMaximumBackLight, hardware.isSetDisplayMaximumBackLight)
         && Objects.equals(this.resetTotalsHour, hardware.resetTotalsHour)
-        && Objects.equals(this.restartHour, hardware.restartHour);
+        && Objects.equals(this.isSetResetTotalsHour, hardware.isSetResetTotalsHour)
+        && Objects.equals(this.restartHour, hardware.restartHour)
+        && Objects.equals(this.isSetRestartHour, hardware.isSetRestartHour);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayMaximumBackLight, resetTotalsHour, restartHour);
+    return Objects.hash(
+        displayMaximumBackLight,
+        isSetDisplayMaximumBackLight,
+        resetTotalsHour,
+        isSetResetTotalsHour,
+        restartHour,
+        isSetRestartHour);
   }
 
   @Override

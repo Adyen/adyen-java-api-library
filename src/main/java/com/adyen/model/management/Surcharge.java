@@ -205,14 +205,23 @@ public class Surcharge {
     }
     Surcharge surcharge = (Surcharge) o;
     return Objects.equals(this.askConfirmation, surcharge.askConfirmation)
+        && Objects.equals(this.isSetAskConfirmation, surcharge.isSetAskConfirmation)
         && Objects.equals(this.configurations, surcharge.configurations)
+        && Objects.equals(this.isSetConfigurations, surcharge.isSetConfigurations)
+        && Objects.equals(this.excludeGratuityFromSurcharge, surcharge.excludeGratuityFromSurcharge)
         && Objects.equals(
-            this.excludeGratuityFromSurcharge, surcharge.excludeGratuityFromSurcharge);
+            this.isSetExcludeGratuityFromSurcharge, surcharge.isSetExcludeGratuityFromSurcharge);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(askConfirmation, configurations, excludeGratuityFromSurcharge);
+    return Objects.hash(
+        askConfirmation,
+        isSetAskConfirmation,
+        configurations,
+        isSetConfigurations,
+        excludeGratuityFromSurcharge,
+        isSetExcludeGratuityFromSurcharge);
   }
 
   @Override

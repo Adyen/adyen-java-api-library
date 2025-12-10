@@ -590,31 +590,54 @@ public class CompanyApiCredential {
     }
     CompanyApiCredential companyApiCredential = (CompanyApiCredential) o;
     return Objects.equals(this.links, companyApiCredential.links)
+        && Objects.equals(this.isSetLinks, companyApiCredential.isSetLinks)
         && Objects.equals(this.active, companyApiCredential.active)
+        && Objects.equals(this.isSetActive, companyApiCredential.isSetActive)
         && Objects.equals(this.allowedIpAddresses, companyApiCredential.allowedIpAddresses)
+        && Objects.equals(
+            this.isSetAllowedIpAddresses, companyApiCredential.isSetAllowedIpAddresses)
         && Objects.equals(this.allowedOrigins, companyApiCredential.allowedOrigins)
+        && Objects.equals(this.isSetAllowedOrigins, companyApiCredential.isSetAllowedOrigins)
         && Objects.equals(
             this.associatedMerchantAccounts, companyApiCredential.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts,
+            companyApiCredential.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.clientKey, companyApiCredential.clientKey)
+        && Objects.equals(this.isSetClientKey, companyApiCredential.isSetClientKey)
         && Objects.equals(this.description, companyApiCredential.description)
+        && Objects.equals(this.isSetDescription, companyApiCredential.isSetDescription)
         && Objects.equals(this.id, companyApiCredential.id)
+        && Objects.equals(this.isSetId, companyApiCredential.isSetId)
         && Objects.equals(this.roles, companyApiCredential.roles)
-        && Objects.equals(this.username, companyApiCredential.username);
+        && Objects.equals(this.isSetRoles, companyApiCredential.isSetRoles)
+        && Objects.equals(this.username, companyApiCredential.username)
+        && Objects.equals(this.isSetUsername, companyApiCredential.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         active,
+        isSetActive,
         allowedIpAddresses,
+        isSetAllowedIpAddresses,
         allowedOrigins,
+        isSetAllowedOrigins,
         associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
         clientKey,
+        isSetClientKey,
         description,
+        isSetDescription,
         id,
+        isSetId,
         roles,
-        username);
+        isSetRoles,
+        username,
+        isSetUsername);
   }
 
   @Override

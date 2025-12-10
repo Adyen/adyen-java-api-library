@@ -602,15 +602,30 @@ public class PaymentMethodResponse {
     }
     PaymentMethodResponse paymentMethodResponse = (PaymentMethodResponse) o;
     return Objects.equals(this.links, paymentMethodResponse.links)
+        && Objects.equals(this.isSetLinks, paymentMethodResponse.isSetLinks)
         && Objects.equals(this.data, paymentMethodResponse.data)
+        && Objects.equals(this.isSetData, paymentMethodResponse.isSetData)
         && Objects.equals(this.itemsTotal, paymentMethodResponse.itemsTotal)
+        && Objects.equals(this.isSetItemsTotal, paymentMethodResponse.isSetItemsTotal)
         && Objects.equals(this.pagesTotal, paymentMethodResponse.pagesTotal)
-        && Objects.equals(this.typesWithErrors, paymentMethodResponse.typesWithErrors);
+        && Objects.equals(this.isSetPagesTotal, paymentMethodResponse.isSetPagesTotal)
+        && Objects.equals(this.typesWithErrors, paymentMethodResponse.typesWithErrors)
+        && Objects.equals(this.isSetTypesWithErrors, paymentMethodResponse.isSetTypesWithErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data, itemsTotal, pagesTotal, typesWithErrors);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        data,
+        isSetData,
+        itemsTotal,
+        isSetItemsTotal,
+        pagesTotal,
+        isSetPagesTotal,
+        typesWithErrors,
+        isSetTypesWithErrors);
   }
 
   @Override

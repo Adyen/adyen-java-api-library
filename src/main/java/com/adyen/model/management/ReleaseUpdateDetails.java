@@ -199,13 +199,18 @@ public class ReleaseUpdateDetails {
     }
     ReleaseUpdateDetails releaseUpdateDetails = (ReleaseUpdateDetails) o;
     return Objects.equals(this.type, releaseUpdateDetails.type)
+        && Objects.equals(this.isSetType, releaseUpdateDetails.isSetType)
         && Objects.equals(
-            this.updateAtFirstMaintenanceCall, releaseUpdateDetails.updateAtFirstMaintenanceCall);
+            this.updateAtFirstMaintenanceCall, releaseUpdateDetails.updateAtFirstMaintenanceCall)
+        && Objects.equals(
+            this.isSetUpdateAtFirstMaintenanceCall,
+            releaseUpdateDetails.isSetUpdateAtFirstMaintenanceCall);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, updateAtFirstMaintenanceCall);
+    return Objects.hash(
+        type, isSetType, updateAtFirstMaintenanceCall, isSetUpdateAtFirstMaintenanceCall);
   }
 
   @Override

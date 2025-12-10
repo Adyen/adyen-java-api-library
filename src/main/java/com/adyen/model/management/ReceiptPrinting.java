@@ -735,42 +735,81 @@ public class ReceiptPrinting {
     }
     ReceiptPrinting receiptPrinting = (ReceiptPrinting) o;
     return Objects.equals(this.merchantApproved, receiptPrinting.merchantApproved)
+        && Objects.equals(this.isSetMerchantApproved, receiptPrinting.isSetMerchantApproved)
         && Objects.equals(this.merchantCancelled, receiptPrinting.merchantCancelled)
+        && Objects.equals(this.isSetMerchantCancelled, receiptPrinting.isSetMerchantCancelled)
         && Objects.equals(this.merchantCaptureApproved, receiptPrinting.merchantCaptureApproved)
+        && Objects.equals(
+            this.isSetMerchantCaptureApproved, receiptPrinting.isSetMerchantCaptureApproved)
         && Objects.equals(this.merchantCaptureRefused, receiptPrinting.merchantCaptureRefused)
+        && Objects.equals(
+            this.isSetMerchantCaptureRefused, receiptPrinting.isSetMerchantCaptureRefused)
         && Objects.equals(this.merchantRefundApproved, receiptPrinting.merchantRefundApproved)
+        && Objects.equals(
+            this.isSetMerchantRefundApproved, receiptPrinting.isSetMerchantRefundApproved)
         && Objects.equals(this.merchantRefundRefused, receiptPrinting.merchantRefundRefused)
+        && Objects.equals(
+            this.isSetMerchantRefundRefused, receiptPrinting.isSetMerchantRefundRefused)
         && Objects.equals(this.merchantRefused, receiptPrinting.merchantRefused)
+        && Objects.equals(this.isSetMerchantRefused, receiptPrinting.isSetMerchantRefused)
         && Objects.equals(this.merchantVoid, receiptPrinting.merchantVoid)
+        && Objects.equals(this.isSetMerchantVoid, receiptPrinting.isSetMerchantVoid)
         && Objects.equals(this.shopperApproved, receiptPrinting.shopperApproved)
+        && Objects.equals(this.isSetShopperApproved, receiptPrinting.isSetShopperApproved)
         && Objects.equals(this.shopperCancelled, receiptPrinting.shopperCancelled)
+        && Objects.equals(this.isSetShopperCancelled, receiptPrinting.isSetShopperCancelled)
         && Objects.equals(this.shopperCaptureApproved, receiptPrinting.shopperCaptureApproved)
+        && Objects.equals(
+            this.isSetShopperCaptureApproved, receiptPrinting.isSetShopperCaptureApproved)
         && Objects.equals(this.shopperCaptureRefused, receiptPrinting.shopperCaptureRefused)
+        && Objects.equals(
+            this.isSetShopperCaptureRefused, receiptPrinting.isSetShopperCaptureRefused)
         && Objects.equals(this.shopperRefundApproved, receiptPrinting.shopperRefundApproved)
+        && Objects.equals(
+            this.isSetShopperRefundApproved, receiptPrinting.isSetShopperRefundApproved)
         && Objects.equals(this.shopperRefundRefused, receiptPrinting.shopperRefundRefused)
+        && Objects.equals(this.isSetShopperRefundRefused, receiptPrinting.isSetShopperRefundRefused)
         && Objects.equals(this.shopperRefused, receiptPrinting.shopperRefused)
-        && Objects.equals(this.shopperVoid, receiptPrinting.shopperVoid);
+        && Objects.equals(this.isSetShopperRefused, receiptPrinting.isSetShopperRefused)
+        && Objects.equals(this.shopperVoid, receiptPrinting.shopperVoid)
+        && Objects.equals(this.isSetShopperVoid, receiptPrinting.isSetShopperVoid);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         merchantApproved,
+        isSetMerchantApproved,
         merchantCancelled,
+        isSetMerchantCancelled,
         merchantCaptureApproved,
+        isSetMerchantCaptureApproved,
         merchantCaptureRefused,
+        isSetMerchantCaptureRefused,
         merchantRefundApproved,
+        isSetMerchantRefundApproved,
         merchantRefundRefused,
+        isSetMerchantRefundRefused,
         merchantRefused,
+        isSetMerchantRefused,
         merchantVoid,
+        isSetMerchantVoid,
         shopperApproved,
+        isSetShopperApproved,
         shopperCancelled,
+        isSetShopperCancelled,
         shopperCaptureApproved,
+        isSetShopperCaptureApproved,
         shopperCaptureRefused,
+        isSetShopperCaptureRefused,
         shopperRefundApproved,
+        isSetShopperRefundApproved,
         shopperRefundRefused,
+        isSetShopperRefundRefused,
         shopperRefused,
-        shopperVoid);
+        isSetShopperRefused,
+        shopperVoid,
+        isSetShopperVoid);
   }
 
   @Override

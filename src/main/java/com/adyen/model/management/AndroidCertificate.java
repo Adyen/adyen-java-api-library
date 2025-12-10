@@ -363,17 +363,38 @@ public class AndroidCertificate {
     }
     AndroidCertificate androidCertificate = (AndroidCertificate) o;
     return Objects.equals(this.description, androidCertificate.description)
+        && Objects.equals(this.isSetDescription, androidCertificate.isSetDescription)
         && Objects.equals(this.extension, androidCertificate.extension)
+        && Objects.equals(this.isSetExtension, androidCertificate.isSetExtension)
         && Objects.equals(this.id, androidCertificate.id)
+        && Objects.equals(this.isSetId, androidCertificate.isSetId)
         && Objects.equals(this.name, androidCertificate.name)
+        && Objects.equals(this.isSetName, androidCertificate.isSetName)
         && Objects.equals(this.notAfter, androidCertificate.notAfter)
+        && Objects.equals(this.isSetNotAfter, androidCertificate.isSetNotAfter)
         && Objects.equals(this.notBefore, androidCertificate.notBefore)
-        && Objects.equals(this.status, androidCertificate.status);
+        && Objects.equals(this.isSetNotBefore, androidCertificate.isSetNotBefore)
+        && Objects.equals(this.status, androidCertificate.status)
+        && Objects.equals(this.isSetStatus, androidCertificate.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, extension, id, name, notAfter, notBefore, status);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        extension,
+        isSetExtension,
+        id,
+        isSetId,
+        name,
+        isSetName,
+        notAfter,
+        isSetNotAfter,
+        notBefore,
+        isSetNotBefore,
+        status,
+        isSetStatus);
   }
 
   @Override

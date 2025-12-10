@@ -278,15 +278,21 @@ public class BillingEntity {
     }
     BillingEntity billingEntity = (BillingEntity) o;
     return Objects.equals(this.address, billingEntity.address)
+        && Objects.equals(this.isSetAddress, billingEntity.isSetAddress)
         && Objects.equals(this.email, billingEntity.email)
+        && Objects.equals(this.isSetEmail, billingEntity.isSetEmail)
         && Objects.equals(this.id, billingEntity.id)
+        && Objects.equals(this.isSetId, billingEntity.isSetId)
         && Objects.equals(this.name, billingEntity.name)
-        && Objects.equals(this.taxId, billingEntity.taxId);
+        && Objects.equals(this.isSetName, billingEntity.isSetName)
+        && Objects.equals(this.taxId, billingEntity.taxId)
+        && Objects.equals(this.isSetTaxId, billingEntity.isSetTaxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, email, id, name, taxId);
+    return Objects.hash(
+        address, isSetAddress, email, isSetEmail, id, isSetId, name, isSetName, taxId, isSetTaxId);
   }
 
   @Override

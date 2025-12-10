@@ -164,12 +164,14 @@ public class NotificationUrl {
     }
     NotificationUrl notificationUrl = (NotificationUrl) o;
     return Objects.equals(this.localUrls, notificationUrl.localUrls)
-        && Objects.equals(this.publicUrls, notificationUrl.publicUrls);
+        && Objects.equals(this.isSetLocalUrls, notificationUrl.isSetLocalUrls)
+        && Objects.equals(this.publicUrls, notificationUrl.publicUrls)
+        && Objects.equals(this.isSetPublicUrls, notificationUrl.isSetPublicUrls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localUrls, publicUrls);
+    return Objects.hash(localUrls, isSetLocalUrls, publicUrls, isSetPublicUrls);
   }
 
   @Override

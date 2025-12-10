@@ -249,13 +249,24 @@ public class AdditionalSettingsResponse {
     }
     AdditionalSettingsResponse additionalSettingsResponse = (AdditionalSettingsResponse) o;
     return Objects.equals(this.excludeEventCodes, additionalSettingsResponse.excludeEventCodes)
+        && Objects.equals(
+            this.isSetExcludeEventCodes, additionalSettingsResponse.isSetExcludeEventCodes)
         && Objects.equals(this.includeEventCodes, additionalSettingsResponse.includeEventCodes)
-        && Objects.equals(this.properties, additionalSettingsResponse.properties);
+        && Objects.equals(
+            this.isSetIncludeEventCodes, additionalSettingsResponse.isSetIncludeEventCodes)
+        && Objects.equals(this.properties, additionalSettingsResponse.properties)
+        && Objects.equals(this.isSetProperties, additionalSettingsResponse.isSetProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(excludeEventCodes, includeEventCodes, properties);
+    return Objects.hash(
+        excludeEventCodes,
+        isSetExcludeEventCodes,
+        includeEventCodes,
+        isSetIncludeEventCodes,
+        properties,
+        isSetProperties);
   }
 
   @Override

@@ -107,12 +107,13 @@ public class BcmcInfo {
       return false;
     }
     BcmcInfo bcmcInfo = (BcmcInfo) o;
-    return Objects.equals(this.enableBcmcMobile, bcmcInfo.enableBcmcMobile);
+    return Objects.equals(this.enableBcmcMobile, bcmcInfo.enableBcmcMobile)
+        && Objects.equals(this.isSetEnableBcmcMobile, bcmcInfo.isSetEnableBcmcMobile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableBcmcMobile);
+    return Objects.hash(enableBcmcMobile, isSetEnableBcmcMobile);
   }
 
   @Override

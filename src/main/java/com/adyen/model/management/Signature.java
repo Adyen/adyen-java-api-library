@@ -248,14 +248,26 @@ public class Signature {
     }
     Signature signature = (Signature) o;
     return Objects.equals(this.askSignatureOnScreen, signature.askSignatureOnScreen)
+        && Objects.equals(this.isSetAskSignatureOnScreen, signature.isSetAskSignatureOnScreen)
         && Objects.equals(this.deviceName, signature.deviceName)
+        && Objects.equals(this.isSetDeviceName, signature.isSetDeviceName)
         && Objects.equals(this.deviceSlogan, signature.deviceSlogan)
-        && Objects.equals(this.skipSignature, signature.skipSignature);
+        && Objects.equals(this.isSetDeviceSlogan, signature.isSetDeviceSlogan)
+        && Objects.equals(this.skipSignature, signature.skipSignature)
+        && Objects.equals(this.isSetSkipSignature, signature.isSetSkipSignature);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(askSignatureOnScreen, deviceName, deviceSlogan, skipSignature);
+    return Objects.hash(
+        askSignatureOnScreen,
+        isSetAskSignatureOnScreen,
+        deviceName,
+        isSetDeviceName,
+        deviceSlogan,
+        isSetDeviceSlogan,
+        skipSignature,
+        isSetSkipSignature);
   }
 
   @Override

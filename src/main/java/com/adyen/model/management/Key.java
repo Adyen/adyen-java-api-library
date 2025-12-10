@@ -233,13 +233,17 @@ public class Key {
     }
     Key key = (Key) o;
     return Objects.equals(this.identifier, key.identifier)
+        && Objects.equals(this.isSetIdentifier, key.isSetIdentifier)
         && Objects.equals(this.passphrase, key.passphrase)
-        && Objects.equals(this.version, key.version);
+        && Objects.equals(this.isSetPassphrase, key.isSetPassphrase)
+        && Objects.equals(this.version, key.version)
+        && Objects.equals(this.isSetVersion, key.isSetVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, passphrase, version);
+    return Objects.hash(
+        identifier, isSetIdentifier, passphrase, isSetPassphrase, version, isSetVersion);
   }
 
   @Override

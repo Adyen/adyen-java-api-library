@@ -182,13 +182,23 @@ public class SplitConfiguration {
     }
     SplitConfiguration splitConfiguration = (SplitConfiguration) o;
     return Objects.equals(this.description, splitConfiguration.description)
+        && Objects.equals(this.isSetDescription, splitConfiguration.isSetDescription)
         && Objects.equals(this.rules, splitConfiguration.rules)
-        && Objects.equals(this.splitConfigurationId, splitConfiguration.splitConfigurationId);
+        && Objects.equals(this.isSetRules, splitConfiguration.isSetRules)
+        && Objects.equals(this.splitConfigurationId, splitConfiguration.splitConfigurationId)
+        && Objects.equals(
+            this.isSetSplitConfigurationId, splitConfiguration.isSetSplitConfigurationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, rules, splitConfigurationId);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        rules,
+        isSetRules,
+        splitConfigurationId,
+        isSetSplitConfigurationId);
   }
 
   @Override

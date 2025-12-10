@@ -278,15 +278,30 @@ public class SupportedCardTypes {
     }
     SupportedCardTypes supportedCardTypes = (SupportedCardTypes) o;
     return Objects.equals(this.credit, supportedCardTypes.credit)
+        && Objects.equals(this.isSetCredit, supportedCardTypes.isSetCredit)
         && Objects.equals(this.debit, supportedCardTypes.debit)
+        && Objects.equals(this.isSetDebit, supportedCardTypes.isSetDebit)
         && Objects.equals(this.deferredDebit, supportedCardTypes.deferredDebit)
+        && Objects.equals(this.isSetDeferredDebit, supportedCardTypes.isSetDeferredDebit)
         && Objects.equals(this.prepaid, supportedCardTypes.prepaid)
-        && Objects.equals(this.unknown, supportedCardTypes.unknown);
+        && Objects.equals(this.isSetPrepaid, supportedCardTypes.isSetPrepaid)
+        && Objects.equals(this.unknown, supportedCardTypes.unknown)
+        && Objects.equals(this.isSetUnknown, supportedCardTypes.isSetUnknown);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credit, debit, deferredDebit, prepaid, unknown);
+    return Objects.hash(
+        credit,
+        isSetCredit,
+        debit,
+        isSetDebit,
+        deferredDebit,
+        isSetDeferredDebit,
+        prepaid,
+        isSetPrepaid,
+        unknown,
+        isSetUnknown);
   }
 
   @Override

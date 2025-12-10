@@ -107,12 +107,13 @@ public class Timeouts {
       return false;
     }
     Timeouts timeouts = (Timeouts) o;
-    return Objects.equals(this.fromActiveToSleep, timeouts.fromActiveToSleep);
+    return Objects.equals(this.fromActiveToSleep, timeouts.fromActiveToSleep)
+        && Objects.equals(this.isSetFromActiveToSleep, timeouts.isSetFromActiveToSleep);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fromActiveToSleep);
+    return Objects.hash(fromActiveToSleep, isSetFromActiveToSleep);
   }
 
   @Override

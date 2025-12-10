@@ -216,12 +216,14 @@ public class TestWebhookRequest {
     }
     TestWebhookRequest testWebhookRequest = (TestWebhookRequest) o;
     return Objects.equals(this.notification, testWebhookRequest.notification)
-        && Objects.equals(this.types, testWebhookRequest.types);
+        && Objects.equals(this.isSetNotification, testWebhookRequest.isSetNotification)
+        && Objects.equals(this.types, testWebhookRequest.types)
+        && Objects.equals(this.isSetTypes, testWebhookRequest.isSetTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(notification, types);
+    return Objects.hash(notification, isSetNotification, types, isSetTypes);
   }
 
   @Override

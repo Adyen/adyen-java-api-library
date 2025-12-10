@@ -191,13 +191,23 @@ public class AdditionalCommission {
     }
     AdditionalCommission additionalCommission = (AdditionalCommission) o;
     return Objects.equals(this.balanceAccountId, additionalCommission.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, additionalCommission.isSetBalanceAccountId)
         && Objects.equals(this.fixedAmount, additionalCommission.fixedAmount)
-        && Objects.equals(this.variablePercentage, additionalCommission.variablePercentage);
+        && Objects.equals(this.isSetFixedAmount, additionalCommission.isSetFixedAmount)
+        && Objects.equals(this.variablePercentage, additionalCommission.variablePercentage)
+        && Objects.equals(
+            this.isSetVariablePercentage, additionalCommission.isSetVariablePercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, fixedAmount, variablePercentage);
+    return Objects.hash(
+        balanceAccountId,
+        isSetBalanceAccountId,
+        fixedAmount,
+        isSetFixedAmount,
+        variablePercentage,
+        isSetVariablePercentage);
   }
 
   @Override

@@ -272,15 +272,21 @@ public class PaginationLinks {
     }
     PaginationLinks paginationLinks = (PaginationLinks) o;
     return Objects.equals(this.first, paginationLinks.first)
+        && Objects.equals(this.isSetFirst, paginationLinks.isSetFirst)
         && Objects.equals(this.last, paginationLinks.last)
+        && Objects.equals(this.isSetLast, paginationLinks.isSetLast)
         && Objects.equals(this.next, paginationLinks.next)
+        && Objects.equals(this.isSetNext, paginationLinks.isSetNext)
         && Objects.equals(this.prev, paginationLinks.prev)
-        && Objects.equals(this.self, paginationLinks.self);
+        && Objects.equals(this.isSetPrev, paginationLinks.isSetPrev)
+        && Objects.equals(this.self, paginationLinks.self)
+        && Objects.equals(this.isSetSelf, paginationLinks.isSetSelf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(first, last, next, prev, self);
+    return Objects.hash(
+        first, isSetFirst, last, isSetLast, next, isSetNext, prev, isSetPrev, self, isSetSelf);
   }
 
   @Override

@@ -188,13 +188,16 @@ public class AllowedOrigin {
     }
     AllowedOrigin allowedOrigin = (AllowedOrigin) o;
     return Objects.equals(this.links, allowedOrigin.links)
+        && Objects.equals(this.isSetLinks, allowedOrigin.isSetLinks)
         && Objects.equals(this.domain, allowedOrigin.domain)
-        && Objects.equals(this.id, allowedOrigin.id);
+        && Objects.equals(this.isSetDomain, allowedOrigin.isSetDomain)
+        && Objects.equals(this.id, allowedOrigin.id)
+        && Objects.equals(this.isSetId, allowedOrigin.isSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, domain, id);
+    return Objects.hash(links, isSetLinks, domain, isSetDomain, id, isSetId);
   }
 
   @Override

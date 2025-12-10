@@ -142,12 +142,15 @@ public class IdName {
       return false;
     }
     IdName idName = (IdName) o;
-    return Objects.equals(this.id, idName.id) && Objects.equals(this.name, idName.name);
+    return Objects.equals(this.id, idName.id)
+        && Objects.equals(this.isSetId, idName.isSetId)
+        && Objects.equals(this.name, idName.name)
+        && Objects.equals(this.isSetName, idName.isSetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(id, isSetId, name, isSetName);
   }
 
   @Override

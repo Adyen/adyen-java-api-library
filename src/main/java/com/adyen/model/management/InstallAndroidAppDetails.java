@@ -189,12 +189,14 @@ public class InstallAndroidAppDetails {
     }
     InstallAndroidAppDetails installAndroidAppDetails = (InstallAndroidAppDetails) o;
     return Objects.equals(this.appId, installAndroidAppDetails.appId)
-        && Objects.equals(this.type, installAndroidAppDetails.type);
+        && Objects.equals(this.isSetAppId, installAndroidAppDetails.isSetAppId)
+        && Objects.equals(this.type, installAndroidAppDetails.type)
+        && Objects.equals(this.isSetType, installAndroidAppDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, type);
+    return Objects.hash(appId, isSetAppId, type, isSetType);
   }
 
   @Override

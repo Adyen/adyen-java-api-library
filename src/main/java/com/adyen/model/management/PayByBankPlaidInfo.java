@@ -147,12 +147,15 @@ public class PayByBankPlaidInfo {
     }
     PayByBankPlaidInfo payByBankPlaidInfo = (PayByBankPlaidInfo) o;
     return Objects.equals(this.logo, payByBankPlaidInfo.logo)
-        && Objects.equals(this.transactionDescription, payByBankPlaidInfo.transactionDescription);
+        && Objects.equals(this.isSetLogo, payByBankPlaidInfo.isSetLogo)
+        && Objects.equals(this.transactionDescription, payByBankPlaidInfo.transactionDescription)
+        && Objects.equals(
+            this.isSetTransactionDescription, payByBankPlaidInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo, transactionDescription);
+    return Objects.hash(logo, isSetLogo, transactionDescription, isSetTransactionDescription);
   }
 
   @Override
