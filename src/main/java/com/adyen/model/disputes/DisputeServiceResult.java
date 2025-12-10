@@ -11,6 +11,8 @@
 
 package com.adyen.model.disputes;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,8 +28,20 @@ public class DisputeServiceResult {
   public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
   private String errorMessage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorMessage = false;
+
   public static final String JSON_PROPERTY_SUCCESS = "success";
   private Boolean success;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSuccess = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DisputeServiceResult() {}
 
@@ -39,6 +53,7 @@ public class DisputeServiceResult {
    */
   public DisputeServiceResult errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
+    isSetErrorMessage = true; // mark as set
     return this;
   }
 
@@ -62,6 +77,7 @@ public class DisputeServiceResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
+    isSetErrorMessage = true; // mark as set
   }
 
   /**
@@ -72,6 +88,7 @@ public class DisputeServiceResult {
    */
   public DisputeServiceResult success(Boolean success) {
     this.success = success;
+    isSetSuccess = true; // mark as set
     return this;
   }
 
@@ -95,6 +112,27 @@ public class DisputeServiceResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
+    isSetSuccess = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DisputeServiceResult includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DisputeServiceResult object is equal to o. */
@@ -108,12 +146,14 @@ public class DisputeServiceResult {
     }
     DisputeServiceResult disputeServiceResult = (DisputeServiceResult) o;
     return Objects.equals(this.errorMessage, disputeServiceResult.errorMessage)
-        && Objects.equals(this.success, disputeServiceResult.success);
+        && Objects.equals(this.isSetErrorMessage, disputeServiceResult.isSetErrorMessage)
+        && Objects.equals(this.success, disputeServiceResult.success)
+        && Objects.equals(this.isSetSuccess, disputeServiceResult.isSetSuccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, success);
+    return Objects.hash(errorMessage, isSetErrorMessage, success, isSetSuccess);
   }
 
   @Override
@@ -134,6 +174,33 @@ public class DisputeServiceResult {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetErrorMessage) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_MESSAGE, this.errorMessage);
+    }
+    if (isSetSuccess) {
+      addIfNull(nulls, JSON_PROPERTY_SUCCESS, this.success);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

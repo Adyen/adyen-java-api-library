@@ -11,6 +11,8 @@
 
 package com.adyen.model.disputes;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class DefenseDocumentType {
   public static final String JSON_PROPERTY_AVAILABLE = "available";
   private Boolean available;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAvailable = false;
+
   public static final String JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE = "defenseDocumentTypeCode";
   private String defenseDocumentTypeCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefenseDocumentTypeCode = false;
+
   public static final String JSON_PROPERTY_REQUIREMENT_LEVEL = "requirementLevel";
   private String requirementLevel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequirementLevel = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DefenseDocumentType() {}
 
@@ -45,6 +62,7 @@ public class DefenseDocumentType {
    */
   public DefenseDocumentType available(Boolean available) {
     this.available = available;
+    isSetAvailable = true; // mark as set
     return this;
   }
 
@@ -72,6 +90,7 @@ public class DefenseDocumentType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Boolean available) {
     this.available = available;
+    isSetAvailable = true; // mark as set
   }
 
   /**
@@ -82,6 +101,7 @@ public class DefenseDocumentType {
    */
   public DefenseDocumentType defenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
+    isSetDefenseDocumentTypeCode = true; // mark as set
     return this;
   }
 
@@ -105,6 +125,7 @@ public class DefenseDocumentType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
+    isSetDefenseDocumentTypeCode = true; // mark as set
   }
 
   /**
@@ -125,6 +146,7 @@ public class DefenseDocumentType {
    */
   public DefenseDocumentType requirementLevel(String requirementLevel) {
     this.requirementLevel = requirementLevel;
+    isSetRequirementLevel = true; // mark as set
     return this;
   }
 
@@ -168,6 +190,27 @@ public class DefenseDocumentType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirementLevel(String requirementLevel) {
     this.requirementLevel = requirementLevel;
+    isSetRequirementLevel = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DefenseDocumentType includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DefenseDocumentType object is equal to o. */
@@ -181,13 +224,23 @@ public class DefenseDocumentType {
     }
     DefenseDocumentType defenseDocumentType = (DefenseDocumentType) o;
     return Objects.equals(this.available, defenseDocumentType.available)
+        && Objects.equals(this.isSetAvailable, defenseDocumentType.isSetAvailable)
         && Objects.equals(this.defenseDocumentTypeCode, defenseDocumentType.defenseDocumentTypeCode)
-        && Objects.equals(this.requirementLevel, defenseDocumentType.requirementLevel);
+        && Objects.equals(
+            this.isSetDefenseDocumentTypeCode, defenseDocumentType.isSetDefenseDocumentTypeCode)
+        && Objects.equals(this.requirementLevel, defenseDocumentType.requirementLevel)
+        && Objects.equals(this.isSetRequirementLevel, defenseDocumentType.isSetRequirementLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, defenseDocumentTypeCode, requirementLevel);
+    return Objects.hash(
+        available,
+        isSetAvailable,
+        defenseDocumentTypeCode,
+        isSetDefenseDocumentTypeCode,
+        requirementLevel,
+        isSetRequirementLevel);
   }
 
   @Override
@@ -211,6 +264,36 @@ public class DefenseDocumentType {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAvailable) {
+      addIfNull(nulls, JSON_PROPERTY_AVAILABLE, this.available);
+    }
+    if (isSetDefenseDocumentTypeCode) {
+      addIfNull(nulls, JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE, this.defenseDocumentTypeCode);
+    }
+    if (isSetRequirementLevel) {
+      addIfNull(nulls, JSON_PROPERTY_REQUIREMENT_LEVEL, this.requirementLevel);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
