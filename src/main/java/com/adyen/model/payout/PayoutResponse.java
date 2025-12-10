@@ -11,7 +11,9 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,32 +43,62 @@ public class PayoutResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
   private String authCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthCode = false;
 
   public static final String JSON_PROPERTY_DCC_AMOUNT = "dccAmount";
   private Amount dccAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDccAmount = false;
+
   public static final String JSON_PROPERTY_DCC_SIGNATURE = "dccSignature";
   private String dccSignature;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDccSignature = false;
 
   public static final String JSON_PROPERTY_FRAUD_RESULT = "fraudResult";
   private FraudResult fraudResult;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudResult = false;
+
   public static final String JSON_PROPERTY_ISSUER_URL = "issuerUrl";
   private String issuerUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerUrl = false;
 
   public static final String JSON_PROPERTY_MD = "md";
   private String md;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMd = false;
+
   public static final String JSON_PROPERTY_PA_REQUEST = "paRequest";
   private String paRequest;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaRequest = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReason = false;
 
   /**
    * The result of the payment. For more information, see [Result
@@ -164,6 +196,15 @@ public class PayoutResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PayoutResponse() {}
 
   /**
@@ -177,6 +218,7 @@ public class PayoutResponse {
    */
   public PayoutResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -214,6 +256,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -227,6 +270,7 @@ public class PayoutResponse {
    */
   public PayoutResponse authCode(String authCode) {
     this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
     return this;
   }
 
@@ -256,6 +300,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
     this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
   }
 
   /**
@@ -266,6 +311,7 @@ public class PayoutResponse {
    */
   public PayoutResponse dccAmount(Amount dccAmount) {
     this.dccAmount = dccAmount;
+    isSetDccAmount = true; // mark as set
     return this;
   }
 
@@ -289,6 +335,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccAmount(Amount dccAmount) {
     this.dccAmount = dccAmount;
+    isSetDccAmount = true; // mark as set
   }
 
   /**
@@ -303,6 +350,7 @@ public class PayoutResponse {
    */
   public PayoutResponse dccSignature(String dccSignature) {
     this.dccSignature = dccSignature;
+    isSetDccSignature = true; // mark as set
     return this;
   }
 
@@ -334,6 +382,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDccSignature(String dccSignature) {
     this.dccSignature = dccSignature;
+    isSetDccSignature = true; // mark as set
   }
 
   /**
@@ -344,6 +393,7 @@ public class PayoutResponse {
    */
   public PayoutResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
     return this;
   }
 
@@ -367,6 +417,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
   }
 
   /**
@@ -379,6 +430,7 @@ public class PayoutResponse {
    */
   public PayoutResponse issuerUrl(String issuerUrl) {
     this.issuerUrl = issuerUrl;
+    isSetIssuerUrl = true; // mark as set
     return this;
   }
 
@@ -406,6 +458,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerUrl(String issuerUrl) {
     this.issuerUrl = issuerUrl;
+    isSetIssuerUrl = true; // mark as set
   }
 
   /**
@@ -416,6 +469,7 @@ public class PayoutResponse {
    */
   public PayoutResponse md(String md) {
     this.md = md;
+    isSetMd = true; // mark as set
     return this;
   }
 
@@ -439,6 +493,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMd(String md) {
     this.md = md;
+    isSetMd = true; // mark as set
   }
 
   /**
@@ -455,6 +510,7 @@ public class PayoutResponse {
    */
   public PayoutResponse paRequest(String paRequest) {
     this.paRequest = paRequest;
+    isSetPaRequest = true; // mark as set
     return this;
   }
 
@@ -490,6 +546,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaRequest(String paRequest) {
     this.paRequest = paRequest;
+    isSetPaRequest = true; // mark as set
   }
 
   /**
@@ -502,6 +559,7 @@ public class PayoutResponse {
    */
   public PayoutResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -530,6 +588,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -548,6 +607,7 @@ public class PayoutResponse {
    */
   public PayoutResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
     return this;
   }
 
@@ -587,6 +647,7 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
   }
 
   /**
@@ -650,6 +711,7 @@ public class PayoutResponse {
    */
   public PayoutResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -779,6 +841,27 @@ public class PayoutResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PayoutResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PayoutResponse object is equal to o. */
@@ -792,32 +875,54 @@ public class PayoutResponse {
     }
     PayoutResponse payoutResponse = (PayoutResponse) o;
     return Objects.equals(this.additionalData, payoutResponse.additionalData)
+        && Objects.equals(this.isSetAdditionalData, payoutResponse.isSetAdditionalData)
         && Objects.equals(this.authCode, payoutResponse.authCode)
+        && Objects.equals(this.isSetAuthCode, payoutResponse.isSetAuthCode)
         && Objects.equals(this.dccAmount, payoutResponse.dccAmount)
+        && Objects.equals(this.isSetDccAmount, payoutResponse.isSetDccAmount)
         && Objects.equals(this.dccSignature, payoutResponse.dccSignature)
+        && Objects.equals(this.isSetDccSignature, payoutResponse.isSetDccSignature)
         && Objects.equals(this.fraudResult, payoutResponse.fraudResult)
+        && Objects.equals(this.isSetFraudResult, payoutResponse.isSetFraudResult)
         && Objects.equals(this.issuerUrl, payoutResponse.issuerUrl)
+        && Objects.equals(this.isSetIssuerUrl, payoutResponse.isSetIssuerUrl)
         && Objects.equals(this.md, payoutResponse.md)
+        && Objects.equals(this.isSetMd, payoutResponse.isSetMd)
         && Objects.equals(this.paRequest, payoutResponse.paRequest)
+        && Objects.equals(this.isSetPaRequest, payoutResponse.isSetPaRequest)
         && Objects.equals(this.pspReference, payoutResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, payoutResponse.isSetPspReference)
         && Objects.equals(this.refusalReason, payoutResponse.refusalReason)
-        && Objects.equals(this.resultCode, payoutResponse.resultCode);
+        && Objects.equals(this.isSetRefusalReason, payoutResponse.isSetRefusalReason)
+        && Objects.equals(this.resultCode, payoutResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, payoutResponse.isSetResultCode);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         authCode,
+        isSetAuthCode,
         dccAmount,
+        isSetDccAmount,
         dccSignature,
+        isSetDccSignature,
         fraudResult,
+        isSetFraudResult,
         issuerUrl,
+        isSetIssuerUrl,
         md,
+        isSetMd,
         paRequest,
+        isSetPaRequest,
         pspReference,
+        isSetPspReference,
         refusalReason,
-        resultCode);
+        isSetRefusalReason,
+        resultCode,
+        isSetResultCode);
   }
 
   @Override
@@ -847,6 +952,60 @@ public class PayoutResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAuthCode) {
+      addIfNull(nulls, JSON_PROPERTY_AUTH_CODE, this.authCode);
+    }
+    if (isSetDccAmount) {
+      addIfNull(nulls, JSON_PROPERTY_DCC_AMOUNT, this.dccAmount);
+    }
+    if (isSetDccSignature) {
+      addIfNull(nulls, JSON_PROPERTY_DCC_SIGNATURE, this.dccSignature);
+    }
+    if (isSetFraudResult) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_RESULT, this.fraudResult);
+    }
+    if (isSetIssuerUrl) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_URL, this.issuerUrl);
+    }
+    if (isSetMd) {
+      addIfNull(nulls, JSON_PROPERTY_MD, this.md);
+    }
+    if (isSetPaRequest) {
+      addIfNull(nulls, JSON_PROPERTY_PA_REQUEST, this.paRequest);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON, this.refusalReason);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
