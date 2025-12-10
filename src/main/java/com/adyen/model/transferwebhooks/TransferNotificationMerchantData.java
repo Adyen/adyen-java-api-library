@@ -11,8 +11,6 @@
 
 package com.adyen.model.transferwebhooks;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,50 +31,23 @@ public class TransferNotificationMerchantData {
   public static final String JSON_PROPERTY_ACQUIRER_ID = "acquirerId";
   private String acquirerId;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAcquirerId = false;
-
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCity = false;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCountry = false;
-
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetMcc = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetMerchantId = false;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetName = false;
-
   public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPostalCode = false;
-
-  /**
-   * Sets whether attributes with null values should be explicitly included in the JSON payload.
-   * Default is false.
-   */
-  @JsonIgnore private boolean includeNullValues = false;
 
   public TransferNotificationMerchantData() {}
 
@@ -89,7 +60,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData acquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
-    isSetAcquirerId = true; // mark as set
     return this;
   }
 
@@ -113,7 +83,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
-    isSetAcquirerId = true; // mark as set
   }
 
   /**
@@ -125,7 +94,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData city(String city) {
     this.city = city;
-    isSetCity = true; // mark as set
     return this;
   }
 
@@ -149,7 +117,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
-    isSetCity = true; // mark as set
   }
 
   /**
@@ -161,7 +128,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData country(String country) {
     this.country = country;
-    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -185,7 +151,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
-    isSetCountry = true; // mark as set
   }
 
   /**
@@ -197,7 +162,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData mcc(String mcc) {
     this.mcc = mcc;
-    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -221,7 +185,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
-    isSetMcc = true; // mark as set
   }
 
   /**
@@ -233,7 +196,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData merchantId(String merchantId) {
     this.merchantId = merchantId;
-    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -257,7 +219,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
-    isSetMerchantId = true; // mark as set
   }
 
   /**
@@ -269,7 +230,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData name(String name) {
     this.name = name;
-    isSetName = true; // mark as set
     return this;
   }
 
@@ -293,7 +253,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
-    isSetName = true; // mark as set
   }
 
   /**
@@ -305,7 +264,6 @@ public class TransferNotificationMerchantData {
    */
   public TransferNotificationMerchantData postalCode(String postalCode) {
     this.postalCode = postalCode;
-    isSetPostalCode = true; // mark as set
     return this;
   }
 
@@ -329,27 +287,6 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
-    isSetPostalCode = true; // mark as set
-  }
-
-  /**
-   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
-   */
-  public TransferNotificationMerchantData includeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
-    return this;
-  }
-
-  /** Returns whether null values are explicitly serialized in the JSON payload. */
-  public boolean isIncludeNullValues() {
-    return includeNullValues;
-  }
-
-  /**
-   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
-   */
-  public void setIncludeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransferNotificationMerchantData object is equal to o. */
@@ -400,48 +337,6 @@ public class TransferNotificationMerchantData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
-  }
-
-  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
-  @JsonInclude(JsonInclude.Include.ALWAYS)
-  @JsonAnyGetter
-  public Map<String, Object> getExplicitNulls() {
-    if (!this.includeNullValues) {
-      return Collections.emptyMap();
-    }
-
-    Map<String, Object> nulls = new HashMap<>();
-
-    if (isSetAcquirerId) {
-      addIfNull(nulls, JSON_PROPERTY_ACQUIRER_ID, this.acquirerId);
-    }
-    if (isSetCity) {
-      addIfNull(nulls, JSON_PROPERTY_CITY, this.city);
-    }
-    if (isSetCountry) {
-      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
-    }
-    if (isSetMcc) {
-      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
-    }
-    if (isSetMerchantId) {
-      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
-    }
-    if (isSetName) {
-      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
-    }
-    if (isSetPostalCode) {
-      addIfNull(nulls, JSON_PROPERTY_POSTAL_CODE, this.postalCode);
-    }
-
-    return nulls;
-  }
-
-  // add to map when value is null
-  private void addIfNull(Map<String, Object> map, String key, Object value) {
-    if (value == null) {
-      map.put(key, null);
-    }
   }
 
   /**

@@ -11,9 +11,7 @@
 
 package com.adyen.model.transferwebhooks;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -62,32 +60,17 @@ public class TransferData {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAccountHolder = false;
-
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT = "balanceAccount";
   private ResourceReference balanceAccount;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetBalanceAccount = false;
-
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetBalancePlatform = false;
-
   public static final String JSON_PROPERTY_BALANCES = "balances";
   private List<BalanceMutation> balances;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetBalances = false;
 
   /**
    * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
@@ -150,45 +133,24 @@ public class TransferData {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCategory = false;
-
   public static final String JSON_PROPERTY_CATEGORY_DATA = "categoryData";
   private TransferDataCategoryData categoryData;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCategoryData = false;
 
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private TransferNotificationCounterParty counterparty;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCounterparty = false;
-
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCreatedAt = false;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   @Deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
   private OffsetDateTime creationDate;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCreationDate = false;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetDescription = false;
-
   public static final String JSON_PROPERTY_DIRECT_DEBIT_INFORMATION = "directDebitInformation";
   private DirectDebitInformation directDebitInformation;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetDirectDebitInformation = false;
 
   /** The direction of the transfer. Possible values: **incoming**, **outgoing**. */
   public enum DirectionEnum {
@@ -234,44 +196,23 @@ public class TransferData {
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private DirectionEnum direction;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetDirection = false;
-
   public static final String JSON_PROPERTY_EVENT_ID = "eventId";
   private String eventId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetEventId = false;
 
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<TransferEvent> events;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetEvents = false;
-
   public static final String JSON_PROPERTY_EXECUTION_DATE = "executionDate";
   private ExecutionDate executionDate;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetExecutionDate = false;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
   private ExternalReason externalReason;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetExternalReason = false;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetId = false;
-
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT = "paymentInstrument";
   private PaymentInstrument paymentInstrument;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPaymentInstrument = false;
 
   /** Additional information about the status of the transfer. */
   public enum ReasonEnum {
@@ -366,32 +307,17 @@ public class TransferData {
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetReason = false;
-
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetReferenceForBeneficiary = false;
-
   public static final String JSON_PROPERTY_REVIEW = "review";
   private TransferReview review;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetReview = false;
-
   public static final String JSON_PROPERTY_SEQUENCE_NUMBER = "sequenceNumber";
   private Integer sequenceNumber;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetSequenceNumber = false;
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
@@ -575,20 +501,11 @@ public class TransferData {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetStatus = false;
-
   public static final String JSON_PROPERTY_TRACKING = "tracking";
   private TransferDataTracking tracking;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTracking = false;
-
   public static final String JSON_PROPERTY_TRANSACTION_RULES_RESULT = "transactionRulesResult";
   private TransactionRulesResult transactionRulesResult;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTransactionRulesResult = false;
 
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**,
@@ -709,20 +626,8 @@ public class TransferData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetType = false;
-
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetUpdatedAt = false;
-
-  /**
-   * Sets whether attributes with null values should be explicitly included in the JSON payload.
-   * Default is false.
-   */
-  @JsonIgnore private boolean includeNullValues = false;
 
   public TransferData() {}
 
@@ -734,7 +639,6 @@ public class TransferData {
    */
   public TransferData accountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
-    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -758,7 +662,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
-    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -769,7 +672,6 @@ public class TransferData {
    */
   public TransferData amount(Amount amount) {
     this.amount = amount;
-    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -793,7 +695,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
-    isSetAmount = true; // mark as set
   }
 
   /**
@@ -804,7 +705,6 @@ public class TransferData {
    */
   public TransferData balanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
-    isSetBalanceAccount = true; // mark as set
     return this;
   }
 
@@ -828,7 +728,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
-    isSetBalanceAccount = true; // mark as set
   }
 
   /**
@@ -839,7 +738,6 @@ public class TransferData {
    */
   public TransferData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
-    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -863,7 +761,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
-    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -874,7 +771,6 @@ public class TransferData {
    */
   public TransferData balances(List<BalanceMutation> balances) {
     this.balances = balances;
-    isSetBalances = true; // mark as set
     return this;
   }
 
@@ -906,7 +802,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<BalanceMutation> balances) {
     this.balances = balances;
-    isSetBalances = true; // mark as set
   }
 
   /**
@@ -932,7 +827,6 @@ public class TransferData {
    */
   public TransferData category(CategoryEnum category) {
     this.category = category;
-    isSetCategory = true; // mark as set
     return this;
   }
 
@@ -986,7 +880,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
-    isSetCategory = true; // mark as set
   }
 
   /**
@@ -997,7 +890,6 @@ public class TransferData {
    */
   public TransferData categoryData(TransferDataCategoryData categoryData) {
     this.categoryData = categoryData;
-    isSetCategoryData = true; // mark as set
     return this;
   }
 
@@ -1021,7 +913,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategoryData(TransferDataCategoryData categoryData) {
     this.categoryData = categoryData;
-    isSetCategoryData = true; // mark as set
   }
 
   /**
@@ -1032,7 +923,6 @@ public class TransferData {
    */
   public TransferData counterparty(TransferNotificationCounterParty counterparty) {
     this.counterparty = counterparty;
-    isSetCounterparty = true; // mark as set
     return this;
   }
 
@@ -1056,7 +946,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(TransferNotificationCounterParty counterparty) {
     this.counterparty = counterparty;
-    isSetCounterparty = true; // mark as set
   }
 
   /**
@@ -1069,7 +958,6 @@ public class TransferData {
    */
   public TransferData createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
-    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -1097,7 +985,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
-    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -1112,7 +999,6 @@ public class TransferData {
   @Deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
   public TransferData creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
-    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -1144,7 +1030,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
-    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -1163,7 +1048,6 @@ public class TransferData {
    */
   public TransferData description(String description) {
     this.description = description;
-    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -1203,7 +1087,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
-    isSetDescription = true; // mark as set
   }
 
   /**
@@ -1214,7 +1097,6 @@ public class TransferData {
    */
   public TransferData directDebitInformation(DirectDebitInformation directDebitInformation) {
     this.directDebitInformation = directDebitInformation;
-    isSetDirectDebitInformation = true; // mark as set
     return this;
   }
 
@@ -1238,7 +1120,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectDebitInformation(DirectDebitInformation directDebitInformation) {
     this.directDebitInformation = directDebitInformation;
-    isSetDirectDebitInformation = true; // mark as set
   }
 
   /**
@@ -1249,7 +1130,6 @@ public class TransferData {
    */
   public TransferData direction(DirectionEnum direction) {
     this.direction = direction;
-    isSetDirection = true; // mark as set
     return this;
   }
 
@@ -1273,7 +1153,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(DirectionEnum direction) {
     this.direction = direction;
-    isSetDirection = true; // mark as set
   }
 
   /**
@@ -1286,7 +1165,6 @@ public class TransferData {
    */
   public TransferData eventId(String eventId) {
     this.eventId = eventId;
-    isSetEventId = true; // mark as set
     return this;
   }
 
@@ -1314,7 +1192,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventId(String eventId) {
     this.eventId = eventId;
-    isSetEventId = true; // mark as set
   }
 
   /**
@@ -1325,7 +1202,6 @@ public class TransferData {
    */
   public TransferData events(List<TransferEvent> events) {
     this.events = events;
-    isSetEvents = true; // mark as set
     return this;
   }
 
@@ -1357,7 +1233,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEvents(List<TransferEvent> events) {
     this.events = events;
-    isSetEvents = true; // mark as set
   }
 
   /**
@@ -1368,7 +1243,6 @@ public class TransferData {
    */
   public TransferData executionDate(ExecutionDate executionDate) {
     this.executionDate = executionDate;
-    isSetExecutionDate = true; // mark as set
     return this;
   }
 
@@ -1392,7 +1266,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExecutionDate(ExecutionDate executionDate) {
     this.executionDate = executionDate;
-    isSetExecutionDate = true; // mark as set
   }
 
   /**
@@ -1403,7 +1276,6 @@ public class TransferData {
    */
   public TransferData externalReason(ExternalReason externalReason) {
     this.externalReason = externalReason;
-    isSetExternalReason = true; // mark as set
     return this;
   }
 
@@ -1427,7 +1299,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReason(ExternalReason externalReason) {
     this.externalReason = externalReason;
-    isSetExternalReason = true; // mark as set
   }
 
   /**
@@ -1438,7 +1309,6 @@ public class TransferData {
    */
   public TransferData id(String id) {
     this.id = id;
-    isSetId = true; // mark as set
     return this;
   }
 
@@ -1462,7 +1332,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
-    isSetId = true; // mark as set
   }
 
   /**
@@ -1473,7 +1342,6 @@ public class TransferData {
    */
   public TransferData paymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
-    isSetPaymentInstrument = true; // mark as set
     return this;
   }
 
@@ -1497,7 +1365,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
-    isSetPaymentInstrument = true; // mark as set
   }
 
   /**
@@ -1508,7 +1375,6 @@ public class TransferData {
    */
   public TransferData reason(ReasonEnum reason) {
     this.reason = reason;
-    isSetReason = true; // mark as set
     return this;
   }
 
@@ -1532,7 +1398,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
-    isSetReason = true; // mark as set
   }
 
   /**
@@ -1545,7 +1410,6 @@ public class TransferData {
    */
   public TransferData reference(String reference) {
     this.reference = reference;
-    isSetReference = true; // mark as set
     return this;
   }
 
@@ -1573,7 +1437,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
-    isSetReference = true; // mark as set
   }
 
   /**
@@ -1592,7 +1455,6 @@ public class TransferData {
    */
   public TransferData referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
-    isSetReferenceForBeneficiary = true; // mark as set
     return this;
   }
 
@@ -1632,7 +1494,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
-    isSetReferenceForBeneficiary = true; // mark as set
   }
 
   /**
@@ -1643,7 +1504,6 @@ public class TransferData {
    */
   public TransferData review(TransferReview review) {
     this.review = review;
-    isSetReview = true; // mark as set
     return this;
   }
 
@@ -1667,7 +1527,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReview(TransferReview review) {
     this.review = review;
-    isSetReview = true; // mark as set
   }
 
   /**
@@ -1682,7 +1541,6 @@ public class TransferData {
    */
   public TransferData sequenceNumber(Integer sequenceNumber) {
     this.sequenceNumber = sequenceNumber;
-    isSetSequenceNumber = true; // mark as set
     return this;
   }
 
@@ -1714,7 +1572,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSequenceNumber(Integer sequenceNumber) {
     this.sequenceNumber = sequenceNumber;
-    isSetSequenceNumber = true; // mark as set
   }
 
   /**
@@ -1738,7 +1595,6 @@ public class TransferData {
    */
   public TransferData status(StatusEnum status) {
     this.status = status;
-    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -1788,7 +1644,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
-    isSetStatus = true; // mark as set
   }
 
   /**
@@ -1799,7 +1654,6 @@ public class TransferData {
    */
   public TransferData tracking(TransferDataTracking tracking) {
     this.tracking = tracking;
-    isSetTracking = true; // mark as set
     return this;
   }
 
@@ -1823,7 +1677,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTracking(TransferDataTracking tracking) {
     this.tracking = tracking;
-    isSetTracking = true; // mark as set
   }
 
   /**
@@ -1834,7 +1687,6 @@ public class TransferData {
    */
   public TransferData transactionRulesResult(TransactionRulesResult transactionRulesResult) {
     this.transactionRulesResult = transactionRulesResult;
-    isSetTransactionRulesResult = true; // mark as set
     return this;
   }
 
@@ -1858,7 +1710,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRulesResult(TransactionRulesResult transactionRulesResult) {
     this.transactionRulesResult = transactionRulesResult;
-    isSetTransactionRulesResult = true; // mark as set
   }
 
   /**
@@ -1871,7 +1722,6 @@ public class TransferData {
    */
   public TransferData type(TypeEnum type) {
     this.type = type;
-    isSetType = true; // mark as set
     return this;
   }
 
@@ -1899,7 +1749,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
-    isSetType = true; // mark as set
   }
 
   /**
@@ -1912,7 +1761,6 @@ public class TransferData {
    */
   public TransferData updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
-    isSetUpdatedAt = true; // mark as set
     return this;
   }
 
@@ -1940,27 +1788,6 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
-    isSetUpdatedAt = true; // mark as set
-  }
-
-  /**
-   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
-   */
-  public TransferData includeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
-    return this;
-  }
-
-  /** Returns whether null values are explicitly serialized in the JSON payload. */
-  public boolean isIncludeNullValues() {
-    return includeNullValues;
-  }
-
-  /**
-   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
-   */
-  public void setIncludeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransferData object is equal to o. */
@@ -2089,114 +1916,6 @@ public class TransferData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
-  }
-
-  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
-  @JsonInclude(JsonInclude.Include.ALWAYS)
-  @JsonAnyGetter
-  public Map<String, Object> getExplicitNulls() {
-    if (!this.includeNullValues) {
-      return Collections.emptyMap();
-    }
-
-    Map<String, Object> nulls = new HashMap<>();
-
-    if (isSetAccountHolder) {
-      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
-    }
-    if (isSetAmount) {
-      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
-    }
-    if (isSetBalanceAccount) {
-      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT, this.balanceAccount);
-    }
-    if (isSetBalancePlatform) {
-      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
-    }
-    if (isSetBalances) {
-      addIfNull(nulls, JSON_PROPERTY_BALANCES, this.balances);
-    }
-    if (isSetCategory) {
-      addIfNull(nulls, JSON_PROPERTY_CATEGORY, this.category);
-    }
-    if (isSetCategoryData) {
-      addIfNull(nulls, JSON_PROPERTY_CATEGORY_DATA, this.categoryData);
-    }
-    if (isSetCounterparty) {
-      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY, this.counterparty);
-    }
-    if (isSetCreatedAt) {
-      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
-    }
-    if (isSetCreationDate) {
-      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
-    }
-    if (isSetDescription) {
-      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
-    }
-    if (isSetDirectDebitInformation) {
-      addIfNull(nulls, JSON_PROPERTY_DIRECT_DEBIT_INFORMATION, this.directDebitInformation);
-    }
-    if (isSetDirection) {
-      addIfNull(nulls, JSON_PROPERTY_DIRECTION, this.direction);
-    }
-    if (isSetEventId) {
-      addIfNull(nulls, JSON_PROPERTY_EVENT_ID, this.eventId);
-    }
-    if (isSetEvents) {
-      addIfNull(nulls, JSON_PROPERTY_EVENTS, this.events);
-    }
-    if (isSetExecutionDate) {
-      addIfNull(nulls, JSON_PROPERTY_EXECUTION_DATE, this.executionDate);
-    }
-    if (isSetExternalReason) {
-      addIfNull(nulls, JSON_PROPERTY_EXTERNAL_REASON, this.externalReason);
-    }
-    if (isSetId) {
-      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
-    }
-    if (isSetPaymentInstrument) {
-      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT, this.paymentInstrument);
-    }
-    if (isSetReason) {
-      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
-    }
-    if (isSetReference) {
-      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
-    }
-    if (isSetReferenceForBeneficiary) {
-      addIfNull(nulls, JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY, this.referenceForBeneficiary);
-    }
-    if (isSetReview) {
-      addIfNull(nulls, JSON_PROPERTY_REVIEW, this.review);
-    }
-    if (isSetSequenceNumber) {
-      addIfNull(nulls, JSON_PROPERTY_SEQUENCE_NUMBER, this.sequenceNumber);
-    }
-    if (isSetStatus) {
-      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
-    }
-    if (isSetTracking) {
-      addIfNull(nulls, JSON_PROPERTY_TRACKING, this.tracking);
-    }
-    if (isSetTransactionRulesResult) {
-      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_RULES_RESULT, this.transactionRulesResult);
-    }
-    if (isSetType) {
-      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
-    }
-    if (isSetUpdatedAt) {
-      addIfNull(nulls, JSON_PROPERTY_UPDATED_AT, this.updatedAt);
-    }
-
-    return nulls;
-  }
-
-  // add to map when value is null
-  private void addIfNull(Map<String, Object> map, String key, Object value) {
-    if (value == null) {
-      map.put(key, null);
-    }
   }
 
   /**

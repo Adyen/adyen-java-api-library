@@ -11,8 +11,6 @@
 
 package com.adyen.model.transferwebhooks;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,38 +29,17 @@ public class TransactionRuleReference {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetDescription = false;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_OUTCOME_TYPE = "outcomeType";
   private String outcomeType;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetOutcomeType = false;
-
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetReference = false;
-
   public static final String JSON_PROPERTY_SCORE = "score";
   private Integer score;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetScore = false;
-
-  /**
-   * Sets whether attributes with null values should be explicitly included in the JSON payload.
-   * Default is false.
-   */
-  @JsonIgnore private boolean includeNullValues = false;
 
   public TransactionRuleReference() {}
 
@@ -74,7 +51,6 @@ public class TransactionRuleReference {
    */
   public TransactionRuleReference description(String description) {
     this.description = description;
-    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -98,7 +74,6 @@ public class TransactionRuleReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
-    isSetDescription = true; // mark as set
   }
 
   /**
@@ -109,7 +84,6 @@ public class TransactionRuleReference {
    */
   public TransactionRuleReference id(String id) {
     this.id = id;
-    isSetId = true; // mark as set
     return this;
   }
 
@@ -133,7 +107,6 @@ public class TransactionRuleReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
-    isSetId = true; // mark as set
   }
 
   /**
@@ -144,7 +117,6 @@ public class TransactionRuleReference {
    */
   public TransactionRuleReference outcomeType(String outcomeType) {
     this.outcomeType = outcomeType;
-    isSetOutcomeType = true; // mark as set
     return this;
   }
 
@@ -168,7 +140,6 @@ public class TransactionRuleReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(String outcomeType) {
     this.outcomeType = outcomeType;
-    isSetOutcomeType = true; // mark as set
   }
 
   /**
@@ -179,7 +150,6 @@ public class TransactionRuleReference {
    */
   public TransactionRuleReference reference(String reference) {
     this.reference = reference;
-    isSetReference = true; // mark as set
     return this;
   }
 
@@ -203,7 +173,6 @@ public class TransactionRuleReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
-    isSetReference = true; // mark as set
   }
 
   /**
@@ -216,7 +185,6 @@ public class TransactionRuleReference {
    */
   public TransactionRuleReference score(Integer score) {
     this.score = score;
-    isSetScore = true; // mark as set
     return this;
   }
 
@@ -244,27 +212,6 @@ public class TransactionRuleReference {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
-    isSetScore = true; // mark as set
-  }
-
-  /**
-   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
-   */
-  public TransactionRuleReference includeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
-    return this;
-  }
-
-  /** Returns whether null values are explicitly serialized in the JSON payload. */
-  public boolean isIncludeNullValues() {
-    return includeNullValues;
-  }
-
-  /**
-   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
-   */
-  public void setIncludeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransactionRuleReference object is equal to o. */
@@ -310,42 +257,6 @@ public class TransactionRuleReference {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
-  }
-
-  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
-  @JsonInclude(JsonInclude.Include.ALWAYS)
-  @JsonAnyGetter
-  public Map<String, Object> getExplicitNulls() {
-    if (!this.includeNullValues) {
-      return Collections.emptyMap();
-    }
-
-    Map<String, Object> nulls = new HashMap<>();
-
-    if (isSetDescription) {
-      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
-    }
-    if (isSetId) {
-      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
-    }
-    if (isSetOutcomeType) {
-      addIfNull(nulls, JSON_PROPERTY_OUTCOME_TYPE, this.outcomeType);
-    }
-    if (isSetReference) {
-      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
-    }
-    if (isSetScore) {
-      addIfNull(nulls, JSON_PROPERTY_SCORE, this.score);
-    }
-
-    return nulls;
-  }
-
-  // add to map when value is null
-  private void addIfNull(Map<String, Object> map, String key, Object value) {
-    if (value == null) {
-      map.put(key, null);
-    }
   }
 
   /**

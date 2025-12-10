@@ -11,9 +11,7 @@
 
 package com.adyen.model.transferwebhooks;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,9 +38,6 @@ import java.util.logging.Logger;
 public class IssuedCard {
   public static final String JSON_PROPERTY_AUTHORISATION_TYPE = "authorisationType";
   private String authorisationType;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAuthorisationType = false;
 
   /**
    * Indicates the method used for entering the PAN to initiate a transaction. Possible values:
@@ -100,9 +95,6 @@ public class IssuedCard {
 
   public static final String JSON_PROPERTY_PAN_ENTRY_MODE = "panEntryMode";
   private PanEntryModeEnum panEntryMode;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPanEntryMode = false;
 
   /**
    * Contains information about how the payment was processed. For example, **ecommerce** for online
@@ -163,33 +155,18 @@ public class IssuedCard {
   public static final String JSON_PROPERTY_PROCESSING_TYPE = "processingType";
   private ProcessingTypeEnum processingType;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetProcessingType = false;
-
   public static final String JSON_PROPERTY_RELAYED_AUTHORISATION_DATA = "relayedAuthorisationData";
   private RelayedAuthorisationData relayedAuthorisationData;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetRelayedAuthorisationData = false;
-
   public static final String JSON_PROPERTY_SCHEME_TRACE_ID = "schemeTraceId";
   private String schemeTraceId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetSchemeTraceId = false;
 
   public static final String JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID =
       "schemeUniqueTransactionId";
   private String schemeUniqueTransactionId;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetSchemeUniqueTransactionId = false;
-
   public static final String JSON_PROPERTY_THREE_D_SECURE = "threeDSecure";
   private ThreeDSecure threeDSecure;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetThreeDSecure = false;
 
   /** **issuedCard** */
   public enum TypeEnum {
@@ -233,20 +210,8 @@ public class IssuedCard {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetType = false;
-
   public static final String JSON_PROPERTY_VALIDATION_FACTS = "validationFacts";
   private List<TransferNotificationValidationFact> validationFacts;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetValidationFacts = false;
-
-  /**
-   * Sets whether attributes with null values should be explicitly included in the JSON payload.
-   * Default is false.
-   */
-  @JsonIgnore private boolean includeNullValues = false;
 
   public IssuedCard() {}
 
@@ -260,7 +225,6 @@ public class IssuedCard {
    */
   public IssuedCard authorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
-    isSetAuthorisationType = true; // mark as set
     return this;
   }
 
@@ -288,7 +252,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
-    isSetAuthorisationType = true; // mark as set
   }
 
   /**
@@ -302,7 +265,6 @@ public class IssuedCard {
    */
   public IssuedCard panEntryMode(PanEntryModeEnum panEntryMode) {
     this.panEntryMode = panEntryMode;
-    isSetPanEntryMode = true; // mark as set
     return this;
   }
 
@@ -332,7 +294,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPanEntryMode(PanEntryModeEnum panEntryMode) {
     this.panEntryMode = panEntryMode;
-    isSetPanEntryMode = true; // mark as set
   }
 
   /**
@@ -345,7 +306,6 @@ public class IssuedCard {
    */
   public IssuedCard processingType(ProcessingTypeEnum processingType) {
     this.processingType = processingType;
-    isSetProcessingType = true; // mark as set
     return this;
   }
 
@@ -373,7 +333,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingType(ProcessingTypeEnum processingType) {
     this.processingType = processingType;
-    isSetProcessingType = true; // mark as set
   }
 
   /**
@@ -384,7 +343,6 @@ public class IssuedCard {
    */
   public IssuedCard relayedAuthorisationData(RelayedAuthorisationData relayedAuthorisationData) {
     this.relayedAuthorisationData = relayedAuthorisationData;
-    isSetRelayedAuthorisationData = true; // mark as set
     return this;
   }
 
@@ -408,7 +366,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelayedAuthorisationData(RelayedAuthorisationData relayedAuthorisationData) {
     this.relayedAuthorisationData = relayedAuthorisationData;
-    isSetRelayedAuthorisationData = true; // mark as set
   }
 
   /**
@@ -427,7 +384,6 @@ public class IssuedCard {
    */
   public IssuedCard schemeTraceId(String schemeTraceId) {
     this.schemeTraceId = schemeTraceId;
-    isSetSchemeTraceId = true; // mark as set
     return this;
   }
 
@@ -467,7 +423,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeTraceId(String schemeTraceId) {
     this.schemeTraceId = schemeTraceId;
-    isSetSchemeTraceId = true; // mark as set
   }
 
   /**
@@ -480,7 +435,6 @@ public class IssuedCard {
    */
   public IssuedCard schemeUniqueTransactionId(String schemeUniqueTransactionId) {
     this.schemeUniqueTransactionId = schemeUniqueTransactionId;
-    isSetSchemeUniqueTransactionId = true; // mark as set
     return this;
   }
 
@@ -508,7 +462,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeUniqueTransactionId(String schemeUniqueTransactionId) {
     this.schemeUniqueTransactionId = schemeUniqueTransactionId;
-    isSetSchemeUniqueTransactionId = true; // mark as set
   }
 
   /**
@@ -519,7 +472,6 @@ public class IssuedCard {
    */
   public IssuedCard threeDSecure(ThreeDSecure threeDSecure) {
     this.threeDSecure = threeDSecure;
-    isSetThreeDSecure = true; // mark as set
     return this;
   }
 
@@ -543,7 +495,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSecure(ThreeDSecure threeDSecure) {
     this.threeDSecure = threeDSecure;
-    isSetThreeDSecure = true; // mark as set
   }
 
   /**
@@ -554,7 +505,6 @@ public class IssuedCard {
    */
   public IssuedCard type(TypeEnum type) {
     this.type = type;
-    isSetType = true; // mark as set
     return this;
   }
 
@@ -578,7 +528,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
-    isSetType = true; // mark as set
   }
 
   /**
@@ -591,7 +540,6 @@ public class IssuedCard {
    */
   public IssuedCard validationFacts(List<TransferNotificationValidationFact> validationFacts) {
     this.validationFacts = validationFacts;
-    isSetValidationFacts = true; // mark as set
     return this;
   }
 
@@ -627,27 +575,6 @@ public class IssuedCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationFacts(List<TransferNotificationValidationFact> validationFacts) {
     this.validationFacts = validationFacts;
-    isSetValidationFacts = true; // mark as set
-  }
-
-  /**
-   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
-   */
-  public IssuedCard includeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
-    return this;
-  }
-
-  /** Returns whether null values are explicitly serialized in the JSON payload. */
-  public boolean isIncludeNullValues() {
-    return includeNullValues;
-  }
-
-  /**
-   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
-   */
-  public void setIncludeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this IssuedCard object is equal to o. */
@@ -714,54 +641,6 @@ public class IssuedCard {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
-  }
-
-  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
-  @JsonInclude(JsonInclude.Include.ALWAYS)
-  @JsonAnyGetter
-  public Map<String, Object> getExplicitNulls() {
-    if (!this.includeNullValues) {
-      return Collections.emptyMap();
-    }
-
-    Map<String, Object> nulls = new HashMap<>();
-
-    if (isSetAuthorisationType) {
-      addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_TYPE, this.authorisationType);
-    }
-    if (isSetPanEntryMode) {
-      addIfNull(nulls, JSON_PROPERTY_PAN_ENTRY_MODE, this.panEntryMode);
-    }
-    if (isSetProcessingType) {
-      addIfNull(nulls, JSON_PROPERTY_PROCESSING_TYPE, this.processingType);
-    }
-    if (isSetRelayedAuthorisationData) {
-      addIfNull(nulls, JSON_PROPERTY_RELAYED_AUTHORISATION_DATA, this.relayedAuthorisationData);
-    }
-    if (isSetSchemeTraceId) {
-      addIfNull(nulls, JSON_PROPERTY_SCHEME_TRACE_ID, this.schemeTraceId);
-    }
-    if (isSetSchemeUniqueTransactionId) {
-      addIfNull(nulls, JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID, this.schemeUniqueTransactionId);
-    }
-    if (isSetThreeDSecure) {
-      addIfNull(nulls, JSON_PROPERTY_THREE_D_SECURE, this.threeDSecure);
-    }
-    if (isSetType) {
-      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
-    }
-    if (isSetValidationFacts) {
-      addIfNull(nulls, JSON_PROPERTY_VALIDATION_FACTS, this.validationFacts);
-    }
-
-    return nulls;
-  }
-
-  // add to map when value is null
-  private void addIfNull(Map<String, Object> map, String key, Object value) {
-    if (value == null) {
-      map.put(key, null);
-    }
   }
 
   /**

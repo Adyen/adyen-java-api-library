@@ -11,8 +11,6 @@
 
 package com.adyen.model.transferwebhooks;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,44 +30,20 @@ public class NameLocation {
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCity = false;
-
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCountry = false;
 
   public static final String JSON_PROPERTY_COUNTRY_OF_ORIGIN = "countryOfOrigin";
   private String countryOfOrigin;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCountryOfOrigin = false;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_RAW_DATA = "rawData";
   private String rawData;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetRawData = false;
-
   public static final String JSON_PROPERTY_STATE = "state";
   private String state;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetState = false;
-
-  /**
-   * Sets whether attributes with null values should be explicitly included in the JSON payload.
-   * Default is false.
-   */
-  @JsonIgnore private boolean includeNullValues = false;
 
   public NameLocation() {}
 
@@ -81,7 +55,6 @@ public class NameLocation {
    */
   public NameLocation city(String city) {
     this.city = city;
-    isSetCity = true; // mark as set
     return this;
   }
 
@@ -105,7 +78,6 @@ public class NameLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
-    isSetCity = true; // mark as set
   }
 
   /**
@@ -118,7 +90,6 @@ public class NameLocation {
    */
   public NameLocation country(String country) {
     this.country = country;
-    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -146,7 +117,6 @@ public class NameLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
-    isSetCountry = true; // mark as set
   }
 
   /**
@@ -161,7 +131,6 @@ public class NameLocation {
    */
   public NameLocation countryOfOrigin(String countryOfOrigin) {
     this.countryOfOrigin = countryOfOrigin;
-    isSetCountryOfOrigin = true; // mark as set
     return this;
   }
 
@@ -193,7 +162,6 @@ public class NameLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfOrigin(String countryOfOrigin) {
     this.countryOfOrigin = countryOfOrigin;
-    isSetCountryOfOrigin = true; // mark as set
   }
 
   /**
@@ -204,7 +172,6 @@ public class NameLocation {
    */
   public NameLocation name(String name) {
     this.name = name;
-    isSetName = true; // mark as set
     return this;
   }
 
@@ -228,7 +195,6 @@ public class NameLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
-    isSetName = true; // mark as set
   }
 
   /**
@@ -239,7 +205,6 @@ public class NameLocation {
    */
   public NameLocation rawData(String rawData) {
     this.rawData = rawData;
-    isSetRawData = true; // mark as set
     return this;
   }
 
@@ -263,7 +228,6 @@ public class NameLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRawData(String rawData) {
     this.rawData = rawData;
-    isSetRawData = true; // mark as set
   }
 
   /**
@@ -274,7 +238,6 @@ public class NameLocation {
    */
   public NameLocation state(String state) {
     this.state = state;
-    isSetState = true; // mark as set
     return this;
   }
 
@@ -298,27 +261,6 @@ public class NameLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(String state) {
     this.state = state;
-    isSetState = true; // mark as set
-  }
-
-  /**
-   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
-   */
-  public NameLocation includeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
-    return this;
-  }
-
-  /** Returns whether null values are explicitly serialized in the JSON payload. */
-  public boolean isIncludeNullValues() {
-    return includeNullValues;
-  }
-
-  /**
-   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
-   */
-  public void setIncludeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this NameLocation object is equal to o. */
@@ -366,45 +308,6 @@ public class NameLocation {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
-  }
-
-  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
-  @JsonInclude(JsonInclude.Include.ALWAYS)
-  @JsonAnyGetter
-  public Map<String, Object> getExplicitNulls() {
-    if (!this.includeNullValues) {
-      return Collections.emptyMap();
-    }
-
-    Map<String, Object> nulls = new HashMap<>();
-
-    if (isSetCity) {
-      addIfNull(nulls, JSON_PROPERTY_CITY, this.city);
-    }
-    if (isSetCountry) {
-      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
-    }
-    if (isSetCountryOfOrigin) {
-      addIfNull(nulls, JSON_PROPERTY_COUNTRY_OF_ORIGIN, this.countryOfOrigin);
-    }
-    if (isSetName) {
-      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
-    }
-    if (isSetRawData) {
-      addIfNull(nulls, JSON_PROPERTY_RAW_DATA, this.rawData);
-    }
-    if (isSetState) {
-      addIfNull(nulls, JSON_PROPERTY_STATE, this.state);
-    }
-
-    return nulls;
-  }
-
-  // add to map when value is null
-  private void addIfNull(Map<String, Object> map, String key, Object value) {
-    if (value == null) {
-      map.put(key, null);
-    }
   }
 
   /**

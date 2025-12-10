@@ -11,9 +11,7 @@
 
 package com.adyen.model.transferwebhooks;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -51,68 +49,35 @@ public class TransferEvent {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAmount = false;
-
   public static final String JSON_PROPERTY_AMOUNT_ADJUSTMENTS = "amountAdjustments";
   private List<AmountAdjustment> amountAdjustments;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAmountAdjustments = false;
 
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetArn = false;
-
   public static final String JSON_PROPERTY_BOOKING_DATE = "bookingDate";
   private OffsetDateTime bookingDate;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetBookingDate = false;
 
   public static final String JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME = "estimatedArrivalTime";
   private OffsetDateTime estimatedArrivalTime;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetEstimatedArrivalTime = false;
-
   public static final String JSON_PROPERTY_EVENTS_DATA = "eventsData";
   private List<TransferEventEventsDataInner> eventsData;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetEventsData = false;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
   private ExternalReason externalReason;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetExternalReason = false;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_MODIFICATION = "modification";
   private Modification modification;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetModification = false;
-
   public static final String JSON_PROPERTY_MUTATIONS = "mutations";
   private List<BalanceMutation> mutations;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetMutations = false;
-
   public static final String JSON_PROPERTY_ORIGINAL_AMOUNT = "originalAmount";
   private Amount originalAmount;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetOriginalAmount = false;
 
   /** The reason for the transfer status. */
   public enum ReasonEnum {
@@ -206,9 +171,6 @@ public class TransferEvent {
 
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetReason = false;
 
   /** The status of the transfer event. */
   public enum StatusEnum {
@@ -384,20 +346,11 @@ public class TransferEvent {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetStatus = false;
-
   public static final String JSON_PROPERTY_TRACKING_DATA = "trackingData";
   private TransferEventTrackingData trackingData;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTrackingData = false;
-
   public static final String JSON_PROPERTY_TRANSACTION_ID = "transactionId";
   private String transactionId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTransactionId = false;
 
   /** The type of the transfer event. Possible values: **accounting**, **tracking**. */
   public enum TypeEnum {
@@ -443,26 +396,11 @@ public class TransferEvent {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetType = false;
-
   public static final String JSON_PROPERTY_UPDATE_DATE = "updateDate";
   private OffsetDateTime updateDate;
 
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetUpdateDate = false;
-
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetValueDate = false;
-
-  /**
-   * Sets whether attributes with null values should be explicitly included in the JSON payload.
-   * Default is false.
-   */
-  @JsonIgnore private boolean includeNullValues = false;
 
   public TransferEvent() {}
 
@@ -474,7 +412,6 @@ public class TransferEvent {
    */
   public TransferEvent amount(Amount amount) {
     this.amount = amount;
-    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -498,7 +435,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
-    isSetAmount = true; // mark as set
   }
 
   /**
@@ -511,7 +447,6 @@ public class TransferEvent {
    */
   public TransferEvent amountAdjustments(List<AmountAdjustment> amountAdjustments) {
     this.amountAdjustments = amountAdjustments;
-    isSetAmountAdjustments = true; // mark as set
     return this;
   }
 
@@ -547,7 +482,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustments(List<AmountAdjustment> amountAdjustments) {
     this.amountAdjustments = amountAdjustments;
-    isSetAmountAdjustments = true; // mark as set
   }
 
   /**
@@ -558,7 +492,6 @@ public class TransferEvent {
    */
   public TransferEvent arn(String arn) {
     this.arn = arn;
-    isSetArn = true; // mark as set
     return this;
   }
 
@@ -583,7 +516,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArn(String arn) {
     this.arn = arn;
-    isSetArn = true; // mark as set
   }
 
   /**
@@ -594,7 +526,6 @@ public class TransferEvent {
    */
   public TransferEvent bookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
-    isSetBookingDate = true; // mark as set
     return this;
   }
 
@@ -618,7 +549,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
-    isSetBookingDate = true; // mark as set
   }
 
   /**
@@ -630,7 +560,6 @@ public class TransferEvent {
    */
   public TransferEvent estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
-    isSetEstimatedArrivalTime = true; // mark as set
     return this;
   }
 
@@ -656,7 +585,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
-    isSetEstimatedArrivalTime = true; // mark as set
   }
 
   /**
@@ -667,7 +595,6 @@ public class TransferEvent {
    */
   public TransferEvent eventsData(List<TransferEventEventsDataInner> eventsData) {
     this.eventsData = eventsData;
-    isSetEventsData = true; // mark as set
     return this;
   }
 
@@ -699,7 +626,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventsData(List<TransferEventEventsDataInner> eventsData) {
     this.eventsData = eventsData;
-    isSetEventsData = true; // mark as set
   }
 
   /**
@@ -710,7 +636,6 @@ public class TransferEvent {
    */
   public TransferEvent externalReason(ExternalReason externalReason) {
     this.externalReason = externalReason;
-    isSetExternalReason = true; // mark as set
     return this;
   }
 
@@ -734,7 +659,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReason(ExternalReason externalReason) {
     this.externalReason = externalReason;
-    isSetExternalReason = true; // mark as set
   }
 
   /**
@@ -745,7 +669,6 @@ public class TransferEvent {
    */
   public TransferEvent id(String id) {
     this.id = id;
-    isSetId = true; // mark as set
     return this;
   }
 
@@ -769,7 +692,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
-    isSetId = true; // mark as set
   }
 
   /**
@@ -780,7 +702,6 @@ public class TransferEvent {
    */
   public TransferEvent modification(Modification modification) {
     this.modification = modification;
-    isSetModification = true; // mark as set
     return this;
   }
 
@@ -804,7 +725,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModification(Modification modification) {
     this.modification = modification;
-    isSetModification = true; // mark as set
   }
 
   /**
@@ -815,7 +735,6 @@ public class TransferEvent {
    */
   public TransferEvent mutations(List<BalanceMutation> mutations) {
     this.mutations = mutations;
-    isSetMutations = true; // mark as set
     return this;
   }
 
@@ -847,7 +766,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMutations(List<BalanceMutation> mutations) {
     this.mutations = mutations;
-    isSetMutations = true; // mark as set
   }
 
   /**
@@ -858,7 +776,6 @@ public class TransferEvent {
    */
   public TransferEvent originalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
-    isSetOriginalAmount = true; // mark as set
     return this;
   }
 
@@ -882,7 +799,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
-    isSetOriginalAmount = true; // mark as set
   }
 
   /**
@@ -893,7 +809,6 @@ public class TransferEvent {
    */
   public TransferEvent reason(ReasonEnum reason) {
     this.reason = reason;
-    isSetReason = true; // mark as set
     return this;
   }
 
@@ -917,7 +832,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
-    isSetReason = true; // mark as set
   }
 
   /**
@@ -928,7 +842,6 @@ public class TransferEvent {
    */
   public TransferEvent status(StatusEnum status) {
     this.status = status;
-    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -952,7 +865,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
-    isSetStatus = true; // mark as set
   }
 
   /**
@@ -963,7 +875,6 @@ public class TransferEvent {
    */
   public TransferEvent trackingData(TransferEventTrackingData trackingData) {
     this.trackingData = trackingData;
-    isSetTrackingData = true; // mark as set
     return this;
   }
 
@@ -987,7 +898,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingData(TransferEventTrackingData trackingData) {
     this.trackingData = trackingData;
-    isSetTrackingData = true; // mark as set
   }
 
   /**
@@ -1000,7 +910,6 @@ public class TransferEvent {
    */
   public TransferEvent transactionId(String transactionId) {
     this.transactionId = transactionId;
-    isSetTransactionId = true; // mark as set
     return this;
   }
 
@@ -1028,7 +937,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionId(String transactionId) {
     this.transactionId = transactionId;
-    isSetTransactionId = true; // mark as set
   }
 
   /**
@@ -1039,7 +947,6 @@ public class TransferEvent {
    */
   public TransferEvent type(TypeEnum type) {
     this.type = type;
-    isSetType = true; // mark as set
     return this;
   }
 
@@ -1063,7 +970,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
-    isSetType = true; // mark as set
   }
 
   /**
@@ -1074,7 +980,6 @@ public class TransferEvent {
    */
   public TransferEvent updateDate(OffsetDateTime updateDate) {
     this.updateDate = updateDate;
-    isSetUpdateDate = true; // mark as set
     return this;
   }
 
@@ -1098,7 +1003,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateDate(OffsetDateTime updateDate) {
     this.updateDate = updateDate;
-    isSetUpdateDate = true; // mark as set
   }
 
   /**
@@ -1111,7 +1015,6 @@ public class TransferEvent {
    */
   public TransferEvent valueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
-    isSetValueDate = true; // mark as set
     return this;
   }
 
@@ -1139,27 +1042,6 @@ public class TransferEvent {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
-    isSetValueDate = true; // mark as set
-  }
-
-  /**
-   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
-   */
-  public TransferEvent includeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
-    return this;
-  }
-
-  /** Returns whether null values are explicitly serialized in the JSON payload. */
-  public boolean isIncludeNullValues() {
-    return includeNullValues;
-  }
-
-  /**
-   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
-   */
-  public void setIncludeNullValues(boolean includeNullValues) {
-    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransferEvent object is equal to o. */
@@ -1251,81 +1133,6 @@ public class TransferEvent {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
-  }
-
-  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
-  @JsonInclude(JsonInclude.Include.ALWAYS)
-  @JsonAnyGetter
-  public Map<String, Object> getExplicitNulls() {
-    if (!this.includeNullValues) {
-      return Collections.emptyMap();
-    }
-
-    Map<String, Object> nulls = new HashMap<>();
-
-    if (isSetAmount) {
-      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
-    }
-    if (isSetAmountAdjustments) {
-      addIfNull(nulls, JSON_PROPERTY_AMOUNT_ADJUSTMENTS, this.amountAdjustments);
-    }
-    if (isSetArn) {
-      addIfNull(nulls, JSON_PROPERTY_ARN, this.arn);
-    }
-    if (isSetBookingDate) {
-      addIfNull(nulls, JSON_PROPERTY_BOOKING_DATE, this.bookingDate);
-    }
-    if (isSetEstimatedArrivalTime) {
-      addIfNull(nulls, JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME, this.estimatedArrivalTime);
-    }
-    if (isSetEventsData) {
-      addIfNull(nulls, JSON_PROPERTY_EVENTS_DATA, this.eventsData);
-    }
-    if (isSetExternalReason) {
-      addIfNull(nulls, JSON_PROPERTY_EXTERNAL_REASON, this.externalReason);
-    }
-    if (isSetId) {
-      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
-    }
-    if (isSetModification) {
-      addIfNull(nulls, JSON_PROPERTY_MODIFICATION, this.modification);
-    }
-    if (isSetMutations) {
-      addIfNull(nulls, JSON_PROPERTY_MUTATIONS, this.mutations);
-    }
-    if (isSetOriginalAmount) {
-      addIfNull(nulls, JSON_PROPERTY_ORIGINAL_AMOUNT, this.originalAmount);
-    }
-    if (isSetReason) {
-      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
-    }
-    if (isSetStatus) {
-      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
-    }
-    if (isSetTrackingData) {
-      addIfNull(nulls, JSON_PROPERTY_TRACKING_DATA, this.trackingData);
-    }
-    if (isSetTransactionId) {
-      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_ID, this.transactionId);
-    }
-    if (isSetType) {
-      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
-    }
-    if (isSetUpdateDate) {
-      addIfNull(nulls, JSON_PROPERTY_UPDATE_DATE, this.updateDate);
-    }
-    if (isSetValueDate) {
-      addIfNull(nulls, JSON_PROPERTY_VALUE_DATE, this.valueDate);
-    }
-
-    return nulls;
-  }
-
-  // add to map when value is null
-  private void addIfNull(Map<String, Object> map, String key, Object value) {
-    if (value == null) {
-      map.put(key, null);
-    }
   }
 
   /**
