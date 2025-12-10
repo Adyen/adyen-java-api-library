@@ -11,6 +11,8 @@
 
 package com.adyen.model.sessionauthentication;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +38,15 @@ public class LegalEntityResource extends Resource {
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalEntityId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public LegalEntityResource() {}
 
   /**
@@ -55,6 +66,7 @@ public class LegalEntityResource extends Resource {
    */
   public LegalEntityResource legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
     return this;
   }
 
@@ -96,6 +108,27 @@ public class LegalEntityResource extends Resource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public LegalEntityResource includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this LegalEntityResource object is equal to o. */
@@ -108,12 +141,14 @@ public class LegalEntityResource extends Resource {
       return false;
     }
     LegalEntityResource legalEntityResource = (LegalEntityResource) o;
-    return Objects.equals(this.legalEntityId, legalEntityResource.legalEntityId) && super.equals(o);
+    return Objects.equals(this.legalEntityId, legalEntityResource.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, legalEntityResource.isSetLegalEntityId)
+        && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(legalEntityId, super.hashCode());
+    return Objects.hash(legalEntityId, isSetLegalEntityId, super.hashCode());
   }
 
   @Override
@@ -141,6 +176,30 @@ public class LegalEntityResource extends Resource {
     Map<String, Class<?>> mappings = new HashMap<>();
     mappings.put("LegalEntityResource", LegalEntityResource.class);
     JSON.registerDiscriminator(LegalEntityResource.class, "type", mappings);
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLegalEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
