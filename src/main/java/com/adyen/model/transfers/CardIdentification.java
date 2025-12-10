@@ -395,18 +395,39 @@ public class CardIdentification {
     }
     CardIdentification cardIdentification = (CardIdentification) o;
     return Objects.equals(this.expiryMonth, cardIdentification.expiryMonth)
+        && Objects.equals(this.isSetExpiryMonth, cardIdentification.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, cardIdentification.expiryYear)
+        && Objects.equals(this.isSetExpiryYear, cardIdentification.isSetExpiryYear)
         && Objects.equals(this.issueNumber, cardIdentification.issueNumber)
+        && Objects.equals(this.isSetIssueNumber, cardIdentification.isSetIssueNumber)
         && Objects.equals(this.number, cardIdentification.number)
+        && Objects.equals(this.isSetNumber, cardIdentification.isSetNumber)
         && Objects.equals(this.startMonth, cardIdentification.startMonth)
+        && Objects.equals(this.isSetStartMonth, cardIdentification.isSetStartMonth)
         && Objects.equals(this.startYear, cardIdentification.startYear)
-        && Objects.equals(this.storedPaymentMethodId, cardIdentification.storedPaymentMethodId);
+        && Objects.equals(this.isSetStartYear, cardIdentification.isSetStartYear)
+        && Objects.equals(this.storedPaymentMethodId, cardIdentification.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, cardIdentification.isSetStoredPaymentMethodId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        expiryMonth, expiryYear, issueNumber, number, startMonth, startYear, storedPaymentMethodId);
+        expiryMonth,
+        isSetExpiryMonth,
+        expiryYear,
+        isSetExpiryYear,
+        issueNumber,
+        isSetIssueNumber,
+        number,
+        isSetNumber,
+        startMonth,
+        isSetStartMonth,
+        startYear,
+        isSetStartYear,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId);
   }
 
   @Override

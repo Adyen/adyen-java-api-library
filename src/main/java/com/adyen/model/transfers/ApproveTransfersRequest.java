@@ -111,12 +111,13 @@ public class ApproveTransfersRequest {
       return false;
     }
     ApproveTransfersRequest approveTransfersRequest = (ApproveTransfersRequest) o;
-    return Objects.equals(this.transferIds, approveTransfersRequest.transferIds);
+    return Objects.equals(this.transferIds, approveTransfersRequest.transferIds)
+        && Objects.equals(this.isSetTransferIds, approveTransfersRequest.isSetTransferIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transferIds);
+    return Objects.hash(transferIds, isSetTransferIds);
   }
 
   @Override

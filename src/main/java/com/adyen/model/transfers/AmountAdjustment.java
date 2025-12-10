@@ -246,13 +246,23 @@ public class AmountAdjustment {
     }
     AmountAdjustment amountAdjustment = (AmountAdjustment) o;
     return Objects.equals(this.amount, amountAdjustment.amount)
+        && Objects.equals(this.isSetAmount, amountAdjustment.isSetAmount)
         && Objects.equals(this.amountAdjustmentType, amountAdjustment.amountAdjustmentType)
-        && Objects.equals(this.basepoints, amountAdjustment.basepoints);
+        && Objects.equals(
+            this.isSetAmountAdjustmentType, amountAdjustment.isSetAmountAdjustmentType)
+        && Objects.equals(this.basepoints, amountAdjustment.basepoints)
+        && Objects.equals(this.isSetBasepoints, amountAdjustment.isSetBasepoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountAdjustmentType, basepoints);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        amountAdjustmentType,
+        isSetAmountAdjustmentType,
+        basepoints,
+        isSetBasepoints);
   }
 
   @Override

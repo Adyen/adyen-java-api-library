@@ -255,12 +255,14 @@ public class ConfirmationTrackingData {
     }
     ConfirmationTrackingData confirmationTrackingData = (ConfirmationTrackingData) o;
     return Objects.equals(this.status, confirmationTrackingData.status)
-        && Objects.equals(this.type, confirmationTrackingData.type);
+        && Objects.equals(this.isSetStatus, confirmationTrackingData.isSetStatus)
+        && Objects.equals(this.type, confirmationTrackingData.type)
+        && Objects.equals(this.isSetType, confirmationTrackingData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, type);
+    return Objects.hash(status, isSetStatus, type, isSetType);
   }
 
   @Override

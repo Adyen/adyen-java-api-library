@@ -142,12 +142,15 @@ public class Links {
       return false;
     }
     Links links = (Links) o;
-    return Objects.equals(this.next, links.next) && Objects.equals(this.prev, links.prev);
+    return Objects.equals(this.next, links.next)
+        && Objects.equals(this.isSetNext, links.isSetNext)
+        && Objects.equals(this.prev, links.prev)
+        && Objects.equals(this.isSetPrev, links.isSetPrev);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(next, prev);
+    return Objects.hash(next, isSetNext, prev, isSetPrev);
   }
 
   @Override

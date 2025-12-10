@@ -564,20 +564,46 @@ public class PartyIdentification {
     }
     PartyIdentification partyIdentification = (PartyIdentification) o;
     return Objects.equals(this.address, partyIdentification.address)
+        && Objects.equals(this.isSetAddress, partyIdentification.isSetAddress)
         && Objects.equals(this.dateOfBirth, partyIdentification.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, partyIdentification.isSetDateOfBirth)
         && Objects.equals(this.email, partyIdentification.email)
+        && Objects.equals(this.isSetEmail, partyIdentification.isSetEmail)
         && Objects.equals(this.firstName, partyIdentification.firstName)
+        && Objects.equals(this.isSetFirstName, partyIdentification.isSetFirstName)
         && Objects.equals(this.fullName, partyIdentification.fullName)
+        && Objects.equals(this.isSetFullName, partyIdentification.isSetFullName)
         && Objects.equals(this.lastName, partyIdentification.lastName)
+        && Objects.equals(this.isSetLastName, partyIdentification.isSetLastName)
         && Objects.equals(this.reference, partyIdentification.reference)
+        && Objects.equals(this.isSetReference, partyIdentification.isSetReference)
         && Objects.equals(this.type, partyIdentification.type)
-        && Objects.equals(this.url, partyIdentification.url);
+        && Objects.equals(this.isSetType, partyIdentification.isSetType)
+        && Objects.equals(this.url, partyIdentification.url)
+        && Objects.equals(this.isSetUrl, partyIdentification.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        address, dateOfBirth, email, firstName, fullName, lastName, reference, type, url);
+        address,
+        isSetAddress,
+        dateOfBirth,
+        isSetDateOfBirth,
+        email,
+        isSetEmail,
+        firstName,
+        isSetFirstName,
+        fullName,
+        isSetFullName,
+        lastName,
+        isSetLastName,
+        reference,
+        isSetReference,
+        type,
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override

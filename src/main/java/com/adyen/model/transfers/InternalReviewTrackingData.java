@@ -355,13 +355,16 @@ public class InternalReviewTrackingData {
     }
     InternalReviewTrackingData internalReviewTrackingData = (InternalReviewTrackingData) o;
     return Objects.equals(this.reason, internalReviewTrackingData.reason)
+        && Objects.equals(this.isSetReason, internalReviewTrackingData.isSetReason)
         && Objects.equals(this.status, internalReviewTrackingData.status)
-        && Objects.equals(this.type, internalReviewTrackingData.type);
+        && Objects.equals(this.isSetStatus, internalReviewTrackingData.isSetStatus)
+        && Objects.equals(this.type, internalReviewTrackingData.type)
+        && Objects.equals(this.isSetType, internalReviewTrackingData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, status, type);
+    return Objects.hash(reason, isSetReason, status, isSetStatus, type, isSetType);
   }
 
   @Override

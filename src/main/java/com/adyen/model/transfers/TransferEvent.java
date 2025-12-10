@@ -1173,46 +1173,82 @@ public class TransferEvent {
     }
     TransferEvent transferEvent = (TransferEvent) o;
     return Objects.equals(this.amount, transferEvent.amount)
+        && Objects.equals(this.isSetAmount, transferEvent.isSetAmount)
         && Objects.equals(this.amountAdjustments, transferEvent.amountAdjustments)
+        && Objects.equals(this.isSetAmountAdjustments, transferEvent.isSetAmountAdjustments)
         && Objects.equals(this.arn, transferEvent.arn)
+        && Objects.equals(this.isSetArn, transferEvent.isSetArn)
         && Objects.equals(this.bookingDate, transferEvent.bookingDate)
+        && Objects.equals(this.isSetBookingDate, transferEvent.isSetBookingDate)
         && Objects.equals(this.estimatedArrivalTime, transferEvent.estimatedArrivalTime)
+        && Objects.equals(this.isSetEstimatedArrivalTime, transferEvent.isSetEstimatedArrivalTime)
         && Objects.equals(this.eventsData, transferEvent.eventsData)
+        && Objects.equals(this.isSetEventsData, transferEvent.isSetEventsData)
         && Objects.equals(this.externalReason, transferEvent.externalReason)
+        && Objects.equals(this.isSetExternalReason, transferEvent.isSetExternalReason)
         && Objects.equals(this.id, transferEvent.id)
+        && Objects.equals(this.isSetId, transferEvent.isSetId)
         && Objects.equals(this.modification, transferEvent.modification)
+        && Objects.equals(this.isSetModification, transferEvent.isSetModification)
         && Objects.equals(this.mutations, transferEvent.mutations)
+        && Objects.equals(this.isSetMutations, transferEvent.isSetMutations)
         && Objects.equals(this.originalAmount, transferEvent.originalAmount)
+        && Objects.equals(this.isSetOriginalAmount, transferEvent.isSetOriginalAmount)
         && Objects.equals(this.reason, transferEvent.reason)
+        && Objects.equals(this.isSetReason, transferEvent.isSetReason)
         && Objects.equals(this.status, transferEvent.status)
+        && Objects.equals(this.isSetStatus, transferEvent.isSetStatus)
         && Objects.equals(this.trackingData, transferEvent.trackingData)
+        && Objects.equals(this.isSetTrackingData, transferEvent.isSetTrackingData)
         && Objects.equals(this.transactionId, transferEvent.transactionId)
+        && Objects.equals(this.isSetTransactionId, transferEvent.isSetTransactionId)
         && Objects.equals(this.type, transferEvent.type)
+        && Objects.equals(this.isSetType, transferEvent.isSetType)
         && Objects.equals(this.updateDate, transferEvent.updateDate)
-        && Objects.equals(this.valueDate, transferEvent.valueDate);
+        && Objects.equals(this.isSetUpdateDate, transferEvent.isSetUpdateDate)
+        && Objects.equals(this.valueDate, transferEvent.valueDate)
+        && Objects.equals(this.isSetValueDate, transferEvent.isSetValueDate);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         amountAdjustments,
+        isSetAmountAdjustments,
         arn,
+        isSetArn,
         bookingDate,
+        isSetBookingDate,
         estimatedArrivalTime,
+        isSetEstimatedArrivalTime,
         eventsData,
+        isSetEventsData,
         externalReason,
+        isSetExternalReason,
         id,
+        isSetId,
         modification,
+        isSetModification,
         mutations,
+        isSetMutations,
         originalAmount,
+        isSetOriginalAmount,
         reason,
+        isSetReason,
         status,
+        isSetStatus,
         trackingData,
+        isSetTrackingData,
         transactionId,
+        isSetTransactionId,
         type,
+        isSetType,
         updateDate,
-        valueDate);
+        isSetUpdateDate,
+        valueDate,
+        isSetValueDate);
   }
 
   @Override

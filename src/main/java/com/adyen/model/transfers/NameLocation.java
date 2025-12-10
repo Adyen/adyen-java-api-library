@@ -332,16 +332,34 @@ public class NameLocation {
     }
     NameLocation nameLocation = (NameLocation) o;
     return Objects.equals(this.city, nameLocation.city)
+        && Objects.equals(this.isSetCity, nameLocation.isSetCity)
         && Objects.equals(this.country, nameLocation.country)
+        && Objects.equals(this.isSetCountry, nameLocation.isSetCountry)
         && Objects.equals(this.countryOfOrigin, nameLocation.countryOfOrigin)
+        && Objects.equals(this.isSetCountryOfOrigin, nameLocation.isSetCountryOfOrigin)
         && Objects.equals(this.name, nameLocation.name)
+        && Objects.equals(this.isSetName, nameLocation.isSetName)
         && Objects.equals(this.rawData, nameLocation.rawData)
-        && Objects.equals(this.state, nameLocation.state);
+        && Objects.equals(this.isSetRawData, nameLocation.isSetRawData)
+        && Objects.equals(this.state, nameLocation.state)
+        && Objects.equals(this.isSetState, nameLocation.isSetState);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, countryOfOrigin, name, rawData, state);
+    return Objects.hash(
+        city,
+        isSetCity,
+        country,
+        isSetCountry,
+        countryOfOrigin,
+        isSetCountryOfOrigin,
+        name,
+        isSetName,
+        rawData,
+        isSetRawData,
+        state,
+        isSetState);
   }
 
   @Override

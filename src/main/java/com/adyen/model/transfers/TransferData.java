@@ -1974,68 +1974,129 @@ public class TransferData {
     }
     TransferData transferData = (TransferData) o;
     return Objects.equals(this.accountHolder, transferData.accountHolder)
+        && Objects.equals(this.isSetAccountHolder, transferData.isSetAccountHolder)
         && Objects.equals(this.amount, transferData.amount)
+        && Objects.equals(this.isSetAmount, transferData.isSetAmount)
         && Objects.equals(this.balanceAccount, transferData.balanceAccount)
+        && Objects.equals(this.isSetBalanceAccount, transferData.isSetBalanceAccount)
         && Objects.equals(this.balancePlatform, transferData.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, transferData.isSetBalancePlatform)
         && Objects.equals(this.balances, transferData.balances)
+        && Objects.equals(this.isSetBalances, transferData.isSetBalances)
         && Objects.equals(this.category, transferData.category)
+        && Objects.equals(this.isSetCategory, transferData.isSetCategory)
         && Objects.equals(this.categoryData, transferData.categoryData)
+        && Objects.equals(this.isSetCategoryData, transferData.isSetCategoryData)
         && Objects.equals(this.counterparty, transferData.counterparty)
+        && Objects.equals(this.isSetCounterparty, transferData.isSetCounterparty)
         && Objects.equals(this.createdAt, transferData.createdAt)
+        && Objects.equals(this.isSetCreatedAt, transferData.isSetCreatedAt)
         && Objects.equals(this.creationDate, transferData.creationDate)
+        && Objects.equals(this.isSetCreationDate, transferData.isSetCreationDate)
         && Objects.equals(this.description, transferData.description)
+        && Objects.equals(this.isSetDescription, transferData.isSetDescription)
         && Objects.equals(this.directDebitInformation, transferData.directDebitInformation)
+        && Objects.equals(
+            this.isSetDirectDebitInformation, transferData.isSetDirectDebitInformation)
         && Objects.equals(this.direction, transferData.direction)
+        && Objects.equals(this.isSetDirection, transferData.isSetDirection)
         && Objects.equals(this.eventId, transferData.eventId)
+        && Objects.equals(this.isSetEventId, transferData.isSetEventId)
         && Objects.equals(this.events, transferData.events)
+        && Objects.equals(this.isSetEvents, transferData.isSetEvents)
         && Objects.equals(this.executionDate, transferData.executionDate)
+        && Objects.equals(this.isSetExecutionDate, transferData.isSetExecutionDate)
         && Objects.equals(this.externalReason, transferData.externalReason)
+        && Objects.equals(this.isSetExternalReason, transferData.isSetExternalReason)
         && Objects.equals(this.id, transferData.id)
+        && Objects.equals(this.isSetId, transferData.isSetId)
         && Objects.equals(this.paymentInstrument, transferData.paymentInstrument)
+        && Objects.equals(this.isSetPaymentInstrument, transferData.isSetPaymentInstrument)
         && Objects.equals(this.reason, transferData.reason)
+        && Objects.equals(this.isSetReason, transferData.isSetReason)
         && Objects.equals(this.reference, transferData.reference)
+        && Objects.equals(this.isSetReference, transferData.isSetReference)
         && Objects.equals(this.referenceForBeneficiary, transferData.referenceForBeneficiary)
+        && Objects.equals(
+            this.isSetReferenceForBeneficiary, transferData.isSetReferenceForBeneficiary)
         && Objects.equals(this.review, transferData.review)
+        && Objects.equals(this.isSetReview, transferData.isSetReview)
         && Objects.equals(this.sequenceNumber, transferData.sequenceNumber)
+        && Objects.equals(this.isSetSequenceNumber, transferData.isSetSequenceNumber)
         && Objects.equals(this.status, transferData.status)
+        && Objects.equals(this.isSetStatus, transferData.isSetStatus)
         && Objects.equals(this.tracking, transferData.tracking)
+        && Objects.equals(this.isSetTracking, transferData.isSetTracking)
         && Objects.equals(this.transactionRulesResult, transferData.transactionRulesResult)
+        && Objects.equals(
+            this.isSetTransactionRulesResult, transferData.isSetTransactionRulesResult)
         && Objects.equals(this.type, transferData.type)
-        && Objects.equals(this.updatedAt, transferData.updatedAt);
+        && Objects.equals(this.isSetType, transferData.isSetType)
+        && Objects.equals(this.updatedAt, transferData.updatedAt)
+        && Objects.equals(this.isSetUpdatedAt, transferData.isSetUpdatedAt);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolder,
+        isSetAccountHolder,
         amount,
+        isSetAmount,
         balanceAccount,
+        isSetBalanceAccount,
         balancePlatform,
+        isSetBalancePlatform,
         balances,
+        isSetBalances,
         category,
+        isSetCategory,
         categoryData,
+        isSetCategoryData,
         counterparty,
+        isSetCounterparty,
         createdAt,
+        isSetCreatedAt,
         creationDate,
+        isSetCreationDate,
         description,
+        isSetDescription,
         directDebitInformation,
+        isSetDirectDebitInformation,
         direction,
+        isSetDirection,
         eventId,
+        isSetEventId,
         events,
+        isSetEvents,
         executionDate,
+        isSetExecutionDate,
         externalReason,
+        isSetExternalReason,
         id,
+        isSetId,
         paymentInstrument,
+        isSetPaymentInstrument,
         reason,
+        isSetReason,
         reference,
+        isSetReference,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         review,
+        isSetReview,
         sequenceNumber,
+        isSetSequenceNumber,
         status,
+        isSetStatus,
         tracking,
+        isSetTracking,
         transactionRulesResult,
+        isSetTransactionRulesResult,
         type,
-        updatedAt);
+        isSetType,
+        updatedAt,
+        isSetUpdatedAt);
   }
 
   @Override

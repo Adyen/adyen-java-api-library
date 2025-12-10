@@ -526,30 +526,52 @@ public class TransferServiceRestServiceError {
     TransferServiceRestServiceError transferServiceRestServiceError =
         (TransferServiceRestServiceError) o;
     return Objects.equals(this.detail, transferServiceRestServiceError.detail)
+        && Objects.equals(this.isSetDetail, transferServiceRestServiceError.isSetDetail)
         && Objects.equals(this.errorCode, transferServiceRestServiceError.errorCode)
+        && Objects.equals(this.isSetErrorCode, transferServiceRestServiceError.isSetErrorCode)
         && Objects.equals(this.instance, transferServiceRestServiceError.instance)
+        && Objects.equals(this.isSetInstance, transferServiceRestServiceError.isSetInstance)
         && Objects.equals(this.invalidFields, transferServiceRestServiceError.invalidFields)
+        && Objects.equals(
+            this.isSetInvalidFields, transferServiceRestServiceError.isSetInvalidFields)
         && Objects.equals(this.requestId, transferServiceRestServiceError.requestId)
+        && Objects.equals(this.isSetRequestId, transferServiceRestServiceError.isSetRequestId)
         && Objects.equals(this.response, transferServiceRestServiceError.response)
+        && Objects.equals(this.isSetResponse, transferServiceRestServiceError.isSetResponse)
         && Objects.equals(this.routingDetails, transferServiceRestServiceError.routingDetails)
+        && Objects.equals(
+            this.isSetRoutingDetails, transferServiceRestServiceError.isSetRoutingDetails)
         && Objects.equals(this.status, transferServiceRestServiceError.status)
+        && Objects.equals(this.isSetStatus, transferServiceRestServiceError.isSetStatus)
         && Objects.equals(this.title, transferServiceRestServiceError.title)
-        && Objects.equals(this.type, transferServiceRestServiceError.type);
+        && Objects.equals(this.isSetTitle, transferServiceRestServiceError.isSetTitle)
+        && Objects.equals(this.type, transferServiceRestServiceError.type)
+        && Objects.equals(this.isSetType, transferServiceRestServiceError.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         detail,
+        isSetDetail,
         errorCode,
+        isSetErrorCode,
         instance,
+        isSetInstance,
         invalidFields,
+        isSetInvalidFields,
         requestId,
+        isSetRequestId,
         response,
+        isSetResponse,
         routingDetails,
+        isSetRoutingDetails,
         status,
+        isSetStatus,
         title,
-        type);
+        isSetTitle,
+        type,
+        isSetType);
   }
 
   @Override

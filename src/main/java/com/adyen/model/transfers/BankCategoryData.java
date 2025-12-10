@@ -307,12 +307,14 @@ public class BankCategoryData {
     }
     BankCategoryData bankCategoryData = (BankCategoryData) o;
     return Objects.equals(this.priority, bankCategoryData.priority)
-        && Objects.equals(this.type, bankCategoryData.type);
+        && Objects.equals(this.isSetPriority, bankCategoryData.isSetPriority)
+        && Objects.equals(this.type, bankCategoryData.type)
+        && Objects.equals(this.isSetType, bankCategoryData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(priority, type);
+    return Objects.hash(priority, isSetPriority, type, isSetType);
   }
 
   @Override

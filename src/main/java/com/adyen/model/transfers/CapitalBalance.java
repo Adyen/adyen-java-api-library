@@ -236,14 +236,19 @@ public class CapitalBalance {
     }
     CapitalBalance capitalBalance = (CapitalBalance) o;
     return Objects.equals(this.currency, capitalBalance.currency)
+        && Objects.equals(this.isSetCurrency, capitalBalance.isSetCurrency)
         && Objects.equals(this.fee, capitalBalance.fee)
+        && Objects.equals(this.isSetFee, capitalBalance.isSetFee)
         && Objects.equals(this.principal, capitalBalance.principal)
-        && Objects.equals(this.total, capitalBalance.total);
+        && Objects.equals(this.isSetPrincipal, capitalBalance.isSetPrincipal)
+        && Objects.equals(this.total, capitalBalance.total)
+        && Objects.equals(this.isSetTotal, capitalBalance.isSetTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, fee, principal, total);
+    return Objects.hash(
+        currency, isSetCurrency, fee, isSetFee, principal, isSetPrincipal, total, isSetTotal);
   }
 
   @Override

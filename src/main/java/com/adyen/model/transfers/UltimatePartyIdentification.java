@@ -606,30 +606,51 @@ public class UltimatePartyIdentification {
     }
     UltimatePartyIdentification ultimatePartyIdentification = (UltimatePartyIdentification) o;
     return Objects.equals(this.address, ultimatePartyIdentification.address)
+        && Objects.equals(this.isSetAddress, ultimatePartyIdentification.isSetAddress)
         && Objects.equals(this.dateOfBirth, ultimatePartyIdentification.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, ultimatePartyIdentification.isSetDateOfBirth)
         && Objects.equals(this.email, ultimatePartyIdentification.email)
+        && Objects.equals(this.isSetEmail, ultimatePartyIdentification.isSetEmail)
         && Objects.equals(this.firstName, ultimatePartyIdentification.firstName)
+        && Objects.equals(this.isSetFirstName, ultimatePartyIdentification.isSetFirstName)
         && Objects.equals(this.fullName, ultimatePartyIdentification.fullName)
+        && Objects.equals(this.isSetFullName, ultimatePartyIdentification.isSetFullName)
         && Objects.equals(this.fundingInstrument, ultimatePartyIdentification.fundingInstrument)
+        && Objects.equals(
+            this.isSetFundingInstrument, ultimatePartyIdentification.isSetFundingInstrument)
         && Objects.equals(this.lastName, ultimatePartyIdentification.lastName)
+        && Objects.equals(this.isSetLastName, ultimatePartyIdentification.isSetLastName)
         && Objects.equals(this.reference, ultimatePartyIdentification.reference)
+        && Objects.equals(this.isSetReference, ultimatePartyIdentification.isSetReference)
         && Objects.equals(this.type, ultimatePartyIdentification.type)
-        && Objects.equals(this.url, ultimatePartyIdentification.url);
+        && Objects.equals(this.isSetType, ultimatePartyIdentification.isSetType)
+        && Objects.equals(this.url, ultimatePartyIdentification.url)
+        && Objects.equals(this.isSetUrl, ultimatePartyIdentification.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         address,
+        isSetAddress,
         dateOfBirth,
+        isSetDateOfBirth,
         email,
+        isSetEmail,
         firstName,
+        isSetFirstName,
         fullName,
+        isSetFullName,
         fundingInstrument,
+        isSetFundingInstrument,
         lastName,
+        isSetLastName,
         reference,
+        isSetReference,
         type,
-        url);
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override

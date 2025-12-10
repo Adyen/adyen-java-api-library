@@ -661,28 +661,48 @@ public class IssuedCard {
     }
     IssuedCard issuedCard = (IssuedCard) o;
     return Objects.equals(this.authorisationType, issuedCard.authorisationType)
+        && Objects.equals(this.isSetAuthorisationType, issuedCard.isSetAuthorisationType)
         && Objects.equals(this.panEntryMode, issuedCard.panEntryMode)
+        && Objects.equals(this.isSetPanEntryMode, issuedCard.isSetPanEntryMode)
         && Objects.equals(this.processingType, issuedCard.processingType)
+        && Objects.equals(this.isSetProcessingType, issuedCard.isSetProcessingType)
         && Objects.equals(this.relayedAuthorisationData, issuedCard.relayedAuthorisationData)
+        && Objects.equals(
+            this.isSetRelayedAuthorisationData, issuedCard.isSetRelayedAuthorisationData)
         && Objects.equals(this.schemeTraceId, issuedCard.schemeTraceId)
+        && Objects.equals(this.isSetSchemeTraceId, issuedCard.isSetSchemeTraceId)
         && Objects.equals(this.schemeUniqueTransactionId, issuedCard.schemeUniqueTransactionId)
+        && Objects.equals(
+            this.isSetSchemeUniqueTransactionId, issuedCard.isSetSchemeUniqueTransactionId)
         && Objects.equals(this.threeDSecure, issuedCard.threeDSecure)
+        && Objects.equals(this.isSetThreeDSecure, issuedCard.isSetThreeDSecure)
         && Objects.equals(this.type, issuedCard.type)
-        && Objects.equals(this.validationFacts, issuedCard.validationFacts);
+        && Objects.equals(this.isSetType, issuedCard.isSetType)
+        && Objects.equals(this.validationFacts, issuedCard.validationFacts)
+        && Objects.equals(this.isSetValidationFacts, issuedCard.isSetValidationFacts);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         authorisationType,
+        isSetAuthorisationType,
         panEntryMode,
+        isSetPanEntryMode,
         processingType,
+        isSetProcessingType,
         relayedAuthorisationData,
+        isSetRelayedAuthorisationData,
         schemeTraceId,
+        isSetSchemeTraceId,
         schemeUniqueTransactionId,
+        isSetSchemeUniqueTransactionId,
         threeDSecure,
+        isSetThreeDSecure,
         type,
-        validationFacts);
+        isSetType,
+        validationFacts,
+        isSetValidationFacts);
   }
 
   @Override

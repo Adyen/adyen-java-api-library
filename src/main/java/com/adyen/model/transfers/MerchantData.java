@@ -272,15 +272,30 @@ public class MerchantData {
     }
     MerchantData merchantData = (MerchantData) o;
     return Objects.equals(this.acquirerId, merchantData.acquirerId)
+        && Objects.equals(this.isSetAcquirerId, merchantData.isSetAcquirerId)
         && Objects.equals(this.mcc, merchantData.mcc)
+        && Objects.equals(this.isSetMcc, merchantData.isSetMcc)
         && Objects.equals(this.merchantId, merchantData.merchantId)
+        && Objects.equals(this.isSetMerchantId, merchantData.isSetMerchantId)
         && Objects.equals(this.nameLocation, merchantData.nameLocation)
-        && Objects.equals(this.postalCode, merchantData.postalCode);
+        && Objects.equals(this.isSetNameLocation, merchantData.isSetNameLocation)
+        && Objects.equals(this.postalCode, merchantData.postalCode)
+        && Objects.equals(this.isSetPostalCode, merchantData.isSetPostalCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquirerId, mcc, merchantId, nameLocation, postalCode);
+    return Objects.hash(
+        acquirerId,
+        isSetAcquirerId,
+        mcc,
+        isSetMcc,
+        merchantId,
+        isSetMerchantId,
+        nameLocation,
+        isSetNameLocation,
+        postalCode,
+        isSetPostalCode);
   }
 
   @Override

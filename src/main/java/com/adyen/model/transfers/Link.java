@@ -101,12 +101,12 @@ public class Link {
       return false;
     }
     Link link = (Link) o;
-    return Objects.equals(this.href, link.href);
+    return Objects.equals(this.href, link.href) && Objects.equals(this.isSetHref, link.isSetHref);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(href, isSetHref);
   }
 
   @Override

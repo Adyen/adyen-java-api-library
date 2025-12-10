@@ -200,12 +200,15 @@ public class EstimationTrackingData {
     }
     EstimationTrackingData estimationTrackingData = (EstimationTrackingData) o;
     return Objects.equals(this.estimatedArrivalTime, estimationTrackingData.estimatedArrivalTime)
-        && Objects.equals(this.type, estimationTrackingData.type);
+        && Objects.equals(
+            this.isSetEstimatedArrivalTime, estimationTrackingData.isSetEstimatedArrivalTime)
+        && Objects.equals(this.type, estimationTrackingData.type)
+        && Objects.equals(this.isSetType, estimationTrackingData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(estimatedArrivalTime, type);
+    return Objects.hash(estimatedArrivalTime, isSetEstimatedArrivalTime, type, isSetType);
   }
 
   @Override

@@ -250,16 +250,31 @@ public class TransactionRulesResult {
     }
     TransactionRulesResult transactionRulesResult = (TransactionRulesResult) o;
     return Objects.equals(this.advice, transactionRulesResult.advice)
+        && Objects.equals(this.isSetAdvice, transactionRulesResult.isSetAdvice)
         && Objects.equals(
             this.allHardBlockRulesPassed, transactionRulesResult.allHardBlockRulesPassed)
-        && Objects.equals(this.score, transactionRulesResult.score)
         && Objects.equals(
-            this.triggeredTransactionRules, transactionRulesResult.triggeredTransactionRules);
+            this.isSetAllHardBlockRulesPassed, transactionRulesResult.isSetAllHardBlockRulesPassed)
+        && Objects.equals(this.score, transactionRulesResult.score)
+        && Objects.equals(this.isSetScore, transactionRulesResult.isSetScore)
+        && Objects.equals(
+            this.triggeredTransactionRules, transactionRulesResult.triggeredTransactionRules)
+        && Objects.equals(
+            this.isSetTriggeredTransactionRules,
+            transactionRulesResult.isSetTriggeredTransactionRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(advice, allHardBlockRulesPassed, score, triggeredTransactionRules);
+    return Objects.hash(
+        advice,
+        isSetAdvice,
+        allHardBlockRulesPassed,
+        isSetAllHardBlockRulesPassed,
+        score,
+        isSetScore,
+        triggeredTransactionRules,
+        isSetTriggeredTransactionRules);
   }
 
   @Override

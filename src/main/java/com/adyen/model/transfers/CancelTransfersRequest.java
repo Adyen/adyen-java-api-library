@@ -111,12 +111,13 @@ public class CancelTransfersRequest {
       return false;
     }
     CancelTransfersRequest cancelTransfersRequest = (CancelTransfersRequest) o;
-    return Objects.equals(this.transferIds, cancelTransfersRequest.transferIds);
+    return Objects.equals(this.transferIds, cancelTransfersRequest.transferIds)
+        && Objects.equals(this.isSetTransferIds, cancelTransfersRequest.isSetTransferIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transferIds);
+    return Objects.hash(transferIds, isSetTransferIds);
   }
 
   @Override

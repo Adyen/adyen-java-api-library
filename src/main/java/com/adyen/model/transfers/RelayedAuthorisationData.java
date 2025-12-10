@@ -162,12 +162,14 @@ public class RelayedAuthorisationData {
     }
     RelayedAuthorisationData relayedAuthorisationData = (RelayedAuthorisationData) o;
     return Objects.equals(this.metadata, relayedAuthorisationData.metadata)
-        && Objects.equals(this.reference, relayedAuthorisationData.reference);
+        && Objects.equals(this.isSetMetadata, relayedAuthorisationData.isSetMetadata)
+        && Objects.equals(this.reference, relayedAuthorisationData.reference)
+        && Objects.equals(this.isSetReference, relayedAuthorisationData.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, reference);
+    return Objects.hash(metadata, isSetMetadata, reference, isSetReference);
   }
 
   @Override

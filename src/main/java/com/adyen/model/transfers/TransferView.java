@@ -206,13 +206,16 @@ public class TransferView {
     }
     TransferView transferView = (TransferView) o;
     return Objects.equals(this.categoryData, transferView.categoryData)
+        && Objects.equals(this.isSetCategoryData, transferView.isSetCategoryData)
         && Objects.equals(this.id, transferView.id)
-        && Objects.equals(this.reference, transferView.reference);
+        && Objects.equals(this.isSetId, transferView.isSetId)
+        && Objects.equals(this.reference, transferView.reference)
+        && Objects.equals(this.isSetReference, transferView.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categoryData, id, reference);
+    return Objects.hash(categoryData, isSetCategoryData, id, isSetId, reference, isSetReference);
   }
 
   @Override

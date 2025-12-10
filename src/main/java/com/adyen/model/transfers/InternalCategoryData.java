@@ -237,13 +237,25 @@ public class InternalCategoryData {
     return Objects.equals(
             this.modificationMerchantReference, internalCategoryData.modificationMerchantReference)
         && Objects.equals(
+            this.isSetModificationMerchantReference,
+            internalCategoryData.isSetModificationMerchantReference)
+        && Objects.equals(
             this.modificationPspReference, internalCategoryData.modificationPspReference)
-        && Objects.equals(this.type, internalCategoryData.type);
+        && Objects.equals(
+            this.isSetModificationPspReference, internalCategoryData.isSetModificationPspReference)
+        && Objects.equals(this.type, internalCategoryData.type)
+        && Objects.equals(this.isSetType, internalCategoryData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(modificationMerchantReference, modificationPspReference, type);
+    return Objects.hash(
+        modificationMerchantReference,
+        isSetModificationMerchantReference,
+        modificationPspReference,
+        isSetModificationPspReference,
+        type,
+        isSetType);
   }
 
   @Override

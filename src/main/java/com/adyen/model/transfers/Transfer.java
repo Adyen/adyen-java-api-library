@@ -1554,50 +1554,90 @@ public class Transfer {
     }
     Transfer transfer = (Transfer) o;
     return Objects.equals(this.accountHolder, transfer.accountHolder)
+        && Objects.equals(this.isSetAccountHolder, transfer.isSetAccountHolder)
         && Objects.equals(this.amount, transfer.amount)
+        && Objects.equals(this.isSetAmount, transfer.isSetAmount)
         && Objects.equals(this.balanceAccount, transfer.balanceAccount)
+        && Objects.equals(this.isSetBalanceAccount, transfer.isSetBalanceAccount)
         && Objects.equals(this.category, transfer.category)
+        && Objects.equals(this.isSetCategory, transfer.isSetCategory)
         && Objects.equals(this.categoryData, transfer.categoryData)
+        && Objects.equals(this.isSetCategoryData, transfer.isSetCategoryData)
         && Objects.equals(this.counterparty, transfer.counterparty)
+        && Objects.equals(this.isSetCounterparty, transfer.isSetCounterparty)
         && Objects.equals(this.createdAt, transfer.createdAt)
+        && Objects.equals(this.isSetCreatedAt, transfer.isSetCreatedAt)
         && Objects.equals(this.creationDate, transfer.creationDate)
+        && Objects.equals(this.isSetCreationDate, transfer.isSetCreationDate)
         && Objects.equals(this.description, transfer.description)
+        && Objects.equals(this.isSetDescription, transfer.isSetDescription)
         && Objects.equals(this.directDebitInformation, transfer.directDebitInformation)
+        && Objects.equals(this.isSetDirectDebitInformation, transfer.isSetDirectDebitInformation)
         && Objects.equals(this.direction, transfer.direction)
+        && Objects.equals(this.isSetDirection, transfer.isSetDirection)
         && Objects.equals(this.executionDate, transfer.executionDate)
+        && Objects.equals(this.isSetExecutionDate, transfer.isSetExecutionDate)
         && Objects.equals(this.id, transfer.id)
+        && Objects.equals(this.isSetId, transfer.isSetId)
         && Objects.equals(this.paymentInstrument, transfer.paymentInstrument)
+        && Objects.equals(this.isSetPaymentInstrument, transfer.isSetPaymentInstrument)
         && Objects.equals(this.reason, transfer.reason)
+        && Objects.equals(this.isSetReason, transfer.isSetReason)
         && Objects.equals(this.reference, transfer.reference)
+        && Objects.equals(this.isSetReference, transfer.isSetReference)
         && Objects.equals(this.referenceForBeneficiary, transfer.referenceForBeneficiary)
+        && Objects.equals(this.isSetReferenceForBeneficiary, transfer.isSetReferenceForBeneficiary)
         && Objects.equals(this.review, transfer.review)
+        && Objects.equals(this.isSetReview, transfer.isSetReview)
         && Objects.equals(this.status, transfer.status)
-        && Objects.equals(this.type, transfer.type);
+        && Objects.equals(this.isSetStatus, transfer.isSetStatus)
+        && Objects.equals(this.type, transfer.type)
+        && Objects.equals(this.isSetType, transfer.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolder,
+        isSetAccountHolder,
         amount,
+        isSetAmount,
         balanceAccount,
+        isSetBalanceAccount,
         category,
+        isSetCategory,
         categoryData,
+        isSetCategoryData,
         counterparty,
+        isSetCounterparty,
         createdAt,
+        isSetCreatedAt,
         creationDate,
+        isSetCreationDate,
         description,
+        isSetDescription,
         directDebitInformation,
+        isSetDirectDebitInformation,
         direction,
+        isSetDirection,
         executionDate,
+        isSetExecutionDate,
         id,
+        isSetId,
         paymentInstrument,
+        isSetPaymentInstrument,
         reason,
+        isSetReason,
         reference,
+        isSetReference,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         review,
+        isSetReview,
         status,
-        type);
+        isSetStatus,
+        type,
+        isSetType);
   }
 
   @Override

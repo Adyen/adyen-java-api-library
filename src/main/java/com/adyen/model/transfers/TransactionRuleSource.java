@@ -164,12 +164,14 @@ public class TransactionRuleSource {
     }
     TransactionRuleSource transactionRuleSource = (TransactionRuleSource) o;
     return Objects.equals(this.id, transactionRuleSource.id)
-        && Objects.equals(this.type, transactionRuleSource.type);
+        && Objects.equals(this.isSetId, transactionRuleSource.isSetId)
+        && Objects.equals(this.type, transactionRuleSource.type)
+        && Objects.equals(this.isSetType, transactionRuleSource.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(id, isSetId, type, isSetType);
   }
 
   @Override

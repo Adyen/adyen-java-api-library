@@ -326,22 +326,34 @@ public class Leg {
     }
     Leg leg = (Leg) o;
     return Objects.equals(this.arrivalAirportCode, leg.arrivalAirportCode)
+        && Objects.equals(this.isSetArrivalAirportCode, leg.isSetArrivalAirportCode)
         && Objects.equals(this.basicFareCode, leg.basicFareCode)
+        && Objects.equals(this.isSetBasicFareCode, leg.isSetBasicFareCode)
         && Objects.equals(this.carrierCode, leg.carrierCode)
+        && Objects.equals(this.isSetCarrierCode, leg.isSetCarrierCode)
         && Objects.equals(this.departureAirportCode, leg.departureAirportCode)
+        && Objects.equals(this.isSetDepartureAirportCode, leg.isSetDepartureAirportCode)
         && Objects.equals(this.departureDate, leg.departureDate)
-        && Objects.equals(this.flightNumber, leg.flightNumber);
+        && Objects.equals(this.isSetDepartureDate, leg.isSetDepartureDate)
+        && Objects.equals(this.flightNumber, leg.flightNumber)
+        && Objects.equals(this.isSetFlightNumber, leg.isSetFlightNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         arrivalAirportCode,
+        isSetArrivalAirportCode,
         basicFareCode,
+        isSetBasicFareCode,
         carrierCode,
+        isSetCarrierCode,
         departureAirportCode,
+        isSetDepartureAirportCode,
         departureDate,
-        flightNumber);
+        isSetDepartureDate,
+        flightNumber,
+        isSetFlightNumber);
   }
 
   @Override

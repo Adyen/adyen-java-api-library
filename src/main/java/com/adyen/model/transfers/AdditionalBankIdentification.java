@@ -260,12 +260,14 @@ public class AdditionalBankIdentification {
     }
     AdditionalBankIdentification additionalBankIdentification = (AdditionalBankIdentification) o;
     return Objects.equals(this.code, additionalBankIdentification.code)
-        && Objects.equals(this.type, additionalBankIdentification.type);
+        && Objects.equals(this.isSetCode, additionalBankIdentification.isSetCode)
+        && Objects.equals(this.type, additionalBankIdentification.type)
+        && Objects.equals(this.isSetType, additionalBankIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, type);
+    return Objects.hash(code, isSetCode, type, isSetType);
   }
 
   @Override

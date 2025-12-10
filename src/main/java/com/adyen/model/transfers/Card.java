@@ -143,12 +143,14 @@ public class Card {
     }
     Card card = (Card) o;
     return Objects.equals(this.cardHolder, card.cardHolder)
-        && Objects.equals(this.cardIdentification, card.cardIdentification);
+        && Objects.equals(this.isSetCardHolder, card.isSetCardHolder)
+        && Objects.equals(this.cardIdentification, card.cardIdentification)
+        && Objects.equals(this.isSetCardIdentification, card.isSetCardIdentification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardHolder, cardIdentification);
+    return Objects.hash(cardHolder, isSetCardHolder, cardIdentification, isSetCardIdentification);
   }
 
   @Override

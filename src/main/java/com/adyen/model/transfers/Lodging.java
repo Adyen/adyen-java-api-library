@@ -143,12 +143,14 @@ public class Lodging {
     }
     Lodging lodging = (Lodging) o;
     return Objects.equals(this.checkInDate, lodging.checkInDate)
-        && Objects.equals(this.numberOfNights, lodging.numberOfNights);
+        && Objects.equals(this.isSetCheckInDate, lodging.isSetCheckInDate)
+        && Objects.equals(this.numberOfNights, lodging.numberOfNights)
+        && Objects.equals(this.isSetNumberOfNights, lodging.isSetNumberOfNights);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkInDate, numberOfNights);
+    return Objects.hash(checkInDate, isSetCheckInDate, numberOfNights, isSetNumberOfNights);
   }
 
   @Override

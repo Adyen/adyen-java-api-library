@@ -188,13 +188,16 @@ public class ExternalReason {
     }
     ExternalReason externalReason = (ExternalReason) o;
     return Objects.equals(this.code, externalReason.code)
+        && Objects.equals(this.isSetCode, externalReason.isSetCode)
         && Objects.equals(this.description, externalReason.description)
-        && Objects.equals(this.namespace, externalReason.namespace);
+        && Objects.equals(this.isSetDescription, externalReason.isSetDescription)
+        && Objects.equals(this.namespace, externalReason.namespace)
+        && Objects.equals(this.isSetNamespace, externalReason.isSetNamespace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, description, namespace);
+    return Objects.hash(code, isSetCode, description, isSetDescription, namespace, isSetNamespace);
   }
 
   @Override

@@ -181,12 +181,20 @@ public class TransferRequestReview {
     TransferRequestReview transferRequestReview = (TransferRequestReview) o;
     return Objects.equals(
             this.numberOfApprovalsRequired, transferRequestReview.numberOfApprovalsRequired)
-        && Objects.equals(this.scaOnApproval, transferRequestReview.scaOnApproval);
+        && Objects.equals(
+            this.isSetNumberOfApprovalsRequired,
+            transferRequestReview.isSetNumberOfApprovalsRequired)
+        && Objects.equals(this.scaOnApproval, transferRequestReview.scaOnApproval)
+        && Objects.equals(this.isSetScaOnApproval, transferRequestReview.isSetScaOnApproval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfApprovalsRequired, scaOnApproval);
+    return Objects.hash(
+        numberOfApprovalsRequired,
+        isSetNumberOfApprovalsRequired,
+        scaOnApproval,
+        isSetScaOnApproval);
   }
 
   @Override

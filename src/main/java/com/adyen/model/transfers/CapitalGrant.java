@@ -508,20 +508,46 @@ public class CapitalGrant {
     }
     CapitalGrant capitalGrant = (CapitalGrant) o;
     return Objects.equals(this.amount, capitalGrant.amount)
+        && Objects.equals(this.isSetAmount, capitalGrant.isSetAmount)
         && Objects.equals(this.balances, capitalGrant.balances)
+        && Objects.equals(this.isSetBalances, capitalGrant.isSetBalances)
         && Objects.equals(this.counterparty, capitalGrant.counterparty)
+        && Objects.equals(this.isSetCounterparty, capitalGrant.isSetCounterparty)
         && Objects.equals(this.fee, capitalGrant.fee)
+        && Objects.equals(this.isSetFee, capitalGrant.isSetFee)
         && Objects.equals(this.grantAccountId, capitalGrant.grantAccountId)
+        && Objects.equals(this.isSetGrantAccountId, capitalGrant.isSetGrantAccountId)
         && Objects.equals(this.grantOfferId, capitalGrant.grantOfferId)
+        && Objects.equals(this.isSetGrantOfferId, capitalGrant.isSetGrantOfferId)
         && Objects.equals(this.id, capitalGrant.id)
+        && Objects.equals(this.isSetId, capitalGrant.isSetId)
         && Objects.equals(this.repayment, capitalGrant.repayment)
-        && Objects.equals(this.status, capitalGrant.status);
+        && Objects.equals(this.isSetRepayment, capitalGrant.isSetRepayment)
+        && Objects.equals(this.status, capitalGrant.status)
+        && Objects.equals(this.isSetStatus, capitalGrant.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount, balances, counterparty, fee, grantAccountId, grantOfferId, id, repayment, status);
+        amount,
+        isSetAmount,
+        balances,
+        isSetBalances,
+        counterparty,
+        isSetCounterparty,
+        fee,
+        isSetFee,
+        grantAccountId,
+        isSetGrantAccountId,
+        grantOfferId,
+        isSetGrantOfferId,
+        id,
+        isSetId,
+        repayment,
+        isSetRepayment,
+        status,
+        isSetStatus);
   }
 
   @Override

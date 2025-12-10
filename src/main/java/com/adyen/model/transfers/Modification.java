@@ -447,15 +447,30 @@ public class Modification {
     }
     Modification modification = (Modification) o;
     return Objects.equals(this.direction, modification.direction)
+        && Objects.equals(this.isSetDirection, modification.isSetDirection)
         && Objects.equals(this.id, modification.id)
+        && Objects.equals(this.isSetId, modification.isSetId)
         && Objects.equals(this.reference, modification.reference)
+        && Objects.equals(this.isSetReference, modification.isSetReference)
         && Objects.equals(this.status, modification.status)
-        && Objects.equals(this.type, modification.type);
+        && Objects.equals(this.isSetStatus, modification.isSetStatus)
+        && Objects.equals(this.type, modification.type)
+        && Objects.equals(this.isSetType, modification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, id, reference, status, type);
+    return Objects.hash(
+        direction,
+        isSetDirection,
+        id,
+        isSetId,
+        reference,
+        isSetReference,
+        status,
+        isSetStatus,
+        type,
+        isSetType);
   }
 
   @Override

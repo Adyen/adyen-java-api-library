@@ -254,14 +254,26 @@ public class BalanceMutation {
     }
     BalanceMutation balanceMutation = (BalanceMutation) o;
     return Objects.equals(this.balance, balanceMutation.balance)
+        && Objects.equals(this.isSetBalance, balanceMutation.isSetBalance)
         && Objects.equals(this.currency, balanceMutation.currency)
+        && Objects.equals(this.isSetCurrency, balanceMutation.isSetCurrency)
         && Objects.equals(this.received, balanceMutation.received)
-        && Objects.equals(this.reserved, balanceMutation.reserved);
+        && Objects.equals(this.isSetReceived, balanceMutation.isSetReceived)
+        && Objects.equals(this.reserved, balanceMutation.reserved)
+        && Objects.equals(this.isSetReserved, balanceMutation.isSetReserved);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balance, currency, received, reserved);
+    return Objects.hash(
+        balance,
+        isSetBalance,
+        currency,
+        isSetCurrency,
+        received,
+        isSetReceived,
+        reserved,
+        isSetReserved);
   }
 
   @Override

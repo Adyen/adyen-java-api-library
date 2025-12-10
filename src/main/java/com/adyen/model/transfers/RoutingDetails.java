@@ -355,14 +355,19 @@ public class RoutingDetails {
     }
     RoutingDetails routingDetails = (RoutingDetails) o;
     return Objects.equals(this.detail, routingDetails.detail)
+        && Objects.equals(this.isSetDetail, routingDetails.isSetDetail)
         && Objects.equals(this.errorCode, routingDetails.errorCode)
+        && Objects.equals(this.isSetErrorCode, routingDetails.isSetErrorCode)
         && Objects.equals(this.priority, routingDetails.priority)
-        && Objects.equals(this.title, routingDetails.title);
+        && Objects.equals(this.isSetPriority, routingDetails.isSetPriority)
+        && Objects.equals(this.title, routingDetails.title)
+        && Objects.equals(this.isSetTitle, routingDetails.isSetTitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, errorCode, priority, title);
+    return Objects.hash(
+        detail, isSetDetail, errorCode, isSetErrorCode, priority, isSetPriority, title, isSetTitle);
   }
 
   @Override

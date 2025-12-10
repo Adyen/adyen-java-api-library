@@ -167,12 +167,14 @@ public class ReturnTransferRequest {
     }
     ReturnTransferRequest returnTransferRequest = (ReturnTransferRequest) o;
     return Objects.equals(this.amount, returnTransferRequest.amount)
-        && Objects.equals(this.reference, returnTransferRequest.reference);
+        && Objects.equals(this.isSetAmount, returnTransferRequest.isSetAmount)
+        && Objects.equals(this.reference, returnTransferRequest.reference)
+        && Objects.equals(this.isSetReference, returnTransferRequest.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, reference);
+    return Objects.hash(amount, isSetAmount, reference, isSetReference);
   }
 
   @Override

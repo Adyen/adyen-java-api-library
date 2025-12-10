@@ -111,12 +111,13 @@ public class CapitalGrants {
       return false;
     }
     CapitalGrants capitalGrants = (CapitalGrants) o;
-    return Objects.equals(this.grants, capitalGrants.grants);
+    return Objects.equals(this.grants, capitalGrants.grants)
+        && Objects.equals(this.isSetGrants, capitalGrants.isSetGrants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grants);
+    return Objects.hash(grants, isSetGrants);
   }
 
   @Override

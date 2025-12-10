@@ -215,12 +215,19 @@ public class TransferReview {
     }
     TransferReview transferReview = (TransferReview) o;
     return Objects.equals(this.numberOfApprovalsRequired, transferReview.numberOfApprovalsRequired)
-        && Objects.equals(this.scaOnApproval, transferReview.scaOnApproval);
+        && Objects.equals(
+            this.isSetNumberOfApprovalsRequired, transferReview.isSetNumberOfApprovalsRequired)
+        && Objects.equals(this.scaOnApproval, transferReview.scaOnApproval)
+        && Objects.equals(this.isSetScaOnApproval, transferReview.isSetScaOnApproval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfApprovalsRequired, scaOnApproval);
+    return Objects.hash(
+        numberOfApprovalsRequired,
+        isSetNumberOfApprovalsRequired,
+        scaOnApproval,
+        isSetScaOnApproval);
   }
 
   @Override

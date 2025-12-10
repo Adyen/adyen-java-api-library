@@ -201,12 +201,14 @@ public class PLLocalAccountIdentification {
     }
     PLLocalAccountIdentification plLocalAccountIdentification = (PLLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, plLocalAccountIdentification.accountNumber)
-        && Objects.equals(this.type, plLocalAccountIdentification.type);
+        && Objects.equals(this.isSetAccountNumber, plLocalAccountIdentification.isSetAccountNumber)
+        && Objects.equals(this.type, plLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, plLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, type, isSetType);
   }
 
   @Override

@@ -101,12 +101,13 @@ public class ThreeDSecure {
       return false;
     }
     ThreeDSecure threeDSecure = (ThreeDSecure) o;
-    return Objects.equals(this.acsTransactionId, threeDSecure.acsTransactionId);
+    return Objects.equals(this.acsTransactionId, threeDSecure.acsTransactionId)
+        && Objects.equals(this.isSetAcsTransactionId, threeDSecure.isSetAcsTransactionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acsTransactionId);
+    return Objects.hash(acsTransactionId, isSetAcsTransactionId);
   }
 
   @Override

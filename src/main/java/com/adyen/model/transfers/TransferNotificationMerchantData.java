@@ -364,17 +364,38 @@ public class TransferNotificationMerchantData {
     TransferNotificationMerchantData transferNotificationMerchantData =
         (TransferNotificationMerchantData) o;
     return Objects.equals(this.acquirerId, transferNotificationMerchantData.acquirerId)
+        && Objects.equals(this.isSetAcquirerId, transferNotificationMerchantData.isSetAcquirerId)
         && Objects.equals(this.city, transferNotificationMerchantData.city)
+        && Objects.equals(this.isSetCity, transferNotificationMerchantData.isSetCity)
         && Objects.equals(this.country, transferNotificationMerchantData.country)
+        && Objects.equals(this.isSetCountry, transferNotificationMerchantData.isSetCountry)
         && Objects.equals(this.mcc, transferNotificationMerchantData.mcc)
+        && Objects.equals(this.isSetMcc, transferNotificationMerchantData.isSetMcc)
         && Objects.equals(this.merchantId, transferNotificationMerchantData.merchantId)
+        && Objects.equals(this.isSetMerchantId, transferNotificationMerchantData.isSetMerchantId)
         && Objects.equals(this.name, transferNotificationMerchantData.name)
-        && Objects.equals(this.postalCode, transferNotificationMerchantData.postalCode);
+        && Objects.equals(this.isSetName, transferNotificationMerchantData.isSetName)
+        && Objects.equals(this.postalCode, transferNotificationMerchantData.postalCode)
+        && Objects.equals(this.isSetPostalCode, transferNotificationMerchantData.isSetPostalCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquirerId, city, country, mcc, merchantId, name, postalCode);
+    return Objects.hash(
+        acquirerId,
+        isSetAcquirerId,
+        city,
+        isSetCity,
+        country,
+        isSetCountry,
+        mcc,
+        isSetMcc,
+        merchantId,
+        isSetMerchantId,
+        name,
+        isSetName,
+        postalCode,
+        isSetPostalCode);
   }
 
   @Override

@@ -230,14 +230,26 @@ public class PaymentInstrument {
     }
     PaymentInstrument paymentInstrument = (PaymentInstrument) o;
     return Objects.equals(this.description, paymentInstrument.description)
+        && Objects.equals(this.isSetDescription, paymentInstrument.isSetDescription)
         && Objects.equals(this.id, paymentInstrument.id)
+        && Objects.equals(this.isSetId, paymentInstrument.isSetId)
         && Objects.equals(this.reference, paymentInstrument.reference)
-        && Objects.equals(this.tokenType, paymentInstrument.tokenType);
+        && Objects.equals(this.isSetReference, paymentInstrument.isSetReference)
+        && Objects.equals(this.tokenType, paymentInstrument.tokenType)
+        && Objects.equals(this.isSetTokenType, paymentInstrument.isSetTokenType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, reference, tokenType);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        reference,
+        isSetReference,
+        tokenType,
+        isSetTokenType);
   }
 
   @Override

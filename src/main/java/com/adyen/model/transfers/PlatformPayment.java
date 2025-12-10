@@ -578,22 +578,38 @@ public class PlatformPayment {
     PlatformPayment platformPayment = (PlatformPayment) o;
     return Objects.equals(
             this.modificationMerchantReference, platformPayment.modificationMerchantReference)
+        && Objects.equals(
+            this.isSetModificationMerchantReference,
+            platformPayment.isSetModificationMerchantReference)
         && Objects.equals(this.modificationPspReference, platformPayment.modificationPspReference)
+        && Objects.equals(
+            this.isSetModificationPspReference, platformPayment.isSetModificationPspReference)
         && Objects.equals(this.paymentMerchantReference, platformPayment.paymentMerchantReference)
+        && Objects.equals(
+            this.isSetPaymentMerchantReference, platformPayment.isSetPaymentMerchantReference)
         && Objects.equals(this.platformPaymentType, platformPayment.platformPaymentType)
+        && Objects.equals(this.isSetPlatformPaymentType, platformPayment.isSetPlatformPaymentType)
         && Objects.equals(this.pspPaymentReference, platformPayment.pspPaymentReference)
-        && Objects.equals(this.type, platformPayment.type);
+        && Objects.equals(this.isSetPspPaymentReference, platformPayment.isSetPspPaymentReference)
+        && Objects.equals(this.type, platformPayment.type)
+        && Objects.equals(this.isSetType, platformPayment.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         modificationMerchantReference,
+        isSetModificationMerchantReference,
         modificationPspReference,
+        isSetModificationPspReference,
         paymentMerchantReference,
+        isSetPaymentMerchantReference,
         platformPaymentType,
+        isSetPlatformPaymentType,
         pspPaymentReference,
-        type);
+        isSetPspPaymentReference,
+        type,
+        isSetType);
   }
 
   @Override

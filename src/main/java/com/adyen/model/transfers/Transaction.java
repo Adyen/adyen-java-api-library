@@ -696,36 +696,63 @@ public class Transaction {
     }
     Transaction transaction = (Transaction) o;
     return Objects.equals(this.accountHolder, transaction.accountHolder)
+        && Objects.equals(this.isSetAccountHolder, transaction.isSetAccountHolder)
         && Objects.equals(this.amount, transaction.amount)
+        && Objects.equals(this.isSetAmount, transaction.isSetAmount)
         && Objects.equals(this.balanceAccount, transaction.balanceAccount)
+        && Objects.equals(this.isSetBalanceAccount, transaction.isSetBalanceAccount)
         && Objects.equals(this.balancePlatform, transaction.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, transaction.isSetBalancePlatform)
         && Objects.equals(this.bookingDate, transaction.bookingDate)
+        && Objects.equals(this.isSetBookingDate, transaction.isSetBookingDate)
         && Objects.equals(this.creationDate, transaction.creationDate)
+        && Objects.equals(this.isSetCreationDate, transaction.isSetCreationDate)
         && Objects.equals(this.description, transaction.description)
+        && Objects.equals(this.isSetDescription, transaction.isSetDescription)
         && Objects.equals(this.id, transaction.id)
+        && Objects.equals(this.isSetId, transaction.isSetId)
         && Objects.equals(this.paymentInstrument, transaction.paymentInstrument)
+        && Objects.equals(this.isSetPaymentInstrument, transaction.isSetPaymentInstrument)
         && Objects.equals(this.referenceForBeneficiary, transaction.referenceForBeneficiary)
+        && Objects.equals(
+            this.isSetReferenceForBeneficiary, transaction.isSetReferenceForBeneficiary)
         && Objects.equals(this.status, transaction.status)
+        && Objects.equals(this.isSetStatus, transaction.isSetStatus)
         && Objects.equals(this.transfer, transaction.transfer)
-        && Objects.equals(this.valueDate, transaction.valueDate);
+        && Objects.equals(this.isSetTransfer, transaction.isSetTransfer)
+        && Objects.equals(this.valueDate, transaction.valueDate)
+        && Objects.equals(this.isSetValueDate, transaction.isSetValueDate);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolder,
+        isSetAccountHolder,
         amount,
+        isSetAmount,
         balanceAccount,
+        isSetBalanceAccount,
         balancePlatform,
+        isSetBalancePlatform,
         bookingDate,
+        isSetBookingDate,
         creationDate,
+        isSetCreationDate,
         description,
+        isSetDescription,
         id,
+        isSetId,
         paymentInstrument,
+        isSetPaymentInstrument,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         status,
+        isSetStatus,
         transfer,
-        valueDate);
+        isSetTransfer,
+        valueDate,
+        isSetValueDate);
   }
 
   @Override

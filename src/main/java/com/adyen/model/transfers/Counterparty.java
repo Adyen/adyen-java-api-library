@@ -206,13 +206,22 @@ public class Counterparty {
     }
     Counterparty counterparty = (Counterparty) o;
     return Objects.equals(this.accountHolderId, counterparty.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, counterparty.isSetAccountHolderId)
         && Objects.equals(this.balanceAccountId, counterparty.balanceAccountId)
-        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId);
+        && Objects.equals(this.isSetBalanceAccountId, counterparty.isSetBalanceAccountId)
+        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId)
+        && Objects.equals(this.isSetTransferInstrumentId, counterparty.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, balanceAccountId, transferInstrumentId);
+    return Objects.hash(
+        accountHolderId,
+        isSetAccountHolderId,
+        balanceAccountId,
+        isSetBalanceAccountId,
+        transferInstrumentId,
+        isSetTransferInstrumentId);
   }
 
   @Override

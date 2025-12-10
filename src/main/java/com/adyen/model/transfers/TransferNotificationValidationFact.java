@@ -149,12 +149,14 @@ public class TransferNotificationValidationFact {
     TransferNotificationValidationFact transferNotificationValidationFact =
         (TransferNotificationValidationFact) o;
     return Objects.equals(this.result, transferNotificationValidationFact.result)
-        && Objects.equals(this.type, transferNotificationValidationFact.type);
+        && Objects.equals(this.isSetResult, transferNotificationValidationFact.isSetResult)
+        && Objects.equals(this.type, transferNotificationValidationFact.type)
+        && Objects.equals(this.isSetType, transferNotificationValidationFact.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result, type);
+    return Objects.hash(result, isSetResult, type, isSetType);
   }
 
   @Override

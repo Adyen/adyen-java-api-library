@@ -174,12 +174,14 @@ public class ExecutionDate {
     }
     ExecutionDate executionDate = (ExecutionDate) o;
     return Objects.equals(this.date, executionDate.date)
-        && Objects.equals(this.timezone, executionDate.timezone);
+        && Objects.equals(this.isSetDate, executionDate.isSetDate)
+        && Objects.equals(this.timezone, executionDate.timezone)
+        && Objects.equals(this.isSetTimezone, executionDate.isSetTimezone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, timezone);
+    return Objects.hash(date, isSetDate, timezone, isSetTimezone);
   }
 
   @Override

@@ -195,13 +195,23 @@ public class BankAccountV3 {
     }
     BankAccountV3 bankAccountV3 = (BankAccountV3) o;
     return Objects.equals(this.accountHolder, bankAccountV3.accountHolder)
+        && Objects.equals(this.isSetAccountHolder, bankAccountV3.isSetAccountHolder)
         && Objects.equals(this.accountIdentification, bankAccountV3.accountIdentification)
-        && Objects.equals(this.storedPaymentMethodId, bankAccountV3.storedPaymentMethodId);
+        && Objects.equals(this.isSetAccountIdentification, bankAccountV3.isSetAccountIdentification)
+        && Objects.equals(this.storedPaymentMethodId, bankAccountV3.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, bankAccountV3.isSetStoredPaymentMethodId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, accountIdentification, storedPaymentMethodId);
+    return Objects.hash(
+        accountHolder,
+        isSetAccountHolder,
+        accountIdentification,
+        isSetAccountIdentification,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId);
   }
 
   @Override

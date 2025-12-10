@@ -156,12 +156,14 @@ public class TransactionSearchResponse {
     }
     TransactionSearchResponse transactionSearchResponse = (TransactionSearchResponse) o;
     return Objects.equals(this.links, transactionSearchResponse.links)
-        && Objects.equals(this.data, transactionSearchResponse.data);
+        && Objects.equals(this.isSetLinks, transactionSearchResponse.isSetLinks)
+        && Objects.equals(this.data, transactionSearchResponse.data)
+        && Objects.equals(this.isSetData, transactionSearchResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data);
+    return Objects.hash(links, isSetLinks, data, isSetData);
   }
 
   @Override

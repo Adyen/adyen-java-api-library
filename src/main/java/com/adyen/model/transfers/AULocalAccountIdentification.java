@@ -237,13 +237,16 @@ public class AULocalAccountIdentification {
     }
     AULocalAccountIdentification auLocalAccountIdentification = (AULocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, auLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, auLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.bsbCode, auLocalAccountIdentification.bsbCode)
-        && Objects.equals(this.type, auLocalAccountIdentification.type);
+        && Objects.equals(this.isSetBsbCode, auLocalAccountIdentification.isSetBsbCode)
+        && Objects.equals(this.type, auLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, auLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bsbCode, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, bsbCode, isSetBsbCode, type, isSetType);
   }
 
   @Override

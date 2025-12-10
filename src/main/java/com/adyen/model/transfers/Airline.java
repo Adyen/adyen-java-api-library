@@ -153,12 +153,14 @@ public class Airline {
     }
     Airline airline = (Airline) o;
     return Objects.equals(this.legs, airline.legs)
-        && Objects.equals(this.ticketNumber, airline.ticketNumber);
+        && Objects.equals(this.isSetLegs, airline.isSetLegs)
+        && Objects.equals(this.ticketNumber, airline.ticketNumber)
+        && Objects.equals(this.isSetTicketNumber, airline.isSetTicketNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(legs, ticketNumber);
+    return Objects.hash(legs, isSetLegs, ticketNumber, isSetTicketNumber);
   }
 
   @Override

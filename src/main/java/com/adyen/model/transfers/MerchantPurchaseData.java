@@ -246,13 +246,16 @@ public class MerchantPurchaseData {
     }
     MerchantPurchaseData merchantPurchaseData = (MerchantPurchaseData) o;
     return Objects.equals(this.airline, merchantPurchaseData.airline)
+        && Objects.equals(this.isSetAirline, merchantPurchaseData.isSetAirline)
         && Objects.equals(this.lodging, merchantPurchaseData.lodging)
-        && Objects.equals(this.type, merchantPurchaseData.type);
+        && Objects.equals(this.isSetLodging, merchantPurchaseData.isSetLodging)
+        && Objects.equals(this.type, merchantPurchaseData.type)
+        && Objects.equals(this.isSetType, merchantPurchaseData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(airline, lodging, type);
+    return Objects.hash(airline, isSetAirline, lodging, isSetLodging, type, isSetType);
   }
 
   @Override

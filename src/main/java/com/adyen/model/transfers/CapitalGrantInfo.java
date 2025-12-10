@@ -194,13 +194,22 @@ public class CapitalGrantInfo {
     }
     CapitalGrantInfo capitalGrantInfo = (CapitalGrantInfo) o;
     return Objects.equals(this.counterparty, capitalGrantInfo.counterparty)
+        && Objects.equals(this.isSetCounterparty, capitalGrantInfo.isSetCounterparty)
         && Objects.equals(this.grantAccountId, capitalGrantInfo.grantAccountId)
-        && Objects.equals(this.grantOfferId, capitalGrantInfo.grantOfferId);
+        && Objects.equals(this.isSetGrantAccountId, capitalGrantInfo.isSetGrantAccountId)
+        && Objects.equals(this.grantOfferId, capitalGrantInfo.grantOfferId)
+        && Objects.equals(this.isSetGrantOfferId, capitalGrantInfo.isSetGrantOfferId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(counterparty, grantAccountId, grantOfferId);
+    return Objects.hash(
+        counterparty,
+        isSetCounterparty,
+        grantAccountId,
+        isSetGrantAccountId,
+        grantOfferId,
+        isSetGrantOfferId);
   }
 
   @Override

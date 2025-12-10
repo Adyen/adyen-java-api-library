@@ -296,14 +296,27 @@ public class FundingInstrument {
     }
     FundingInstrument fundingInstrument = (FundingInstrument) o;
     return Objects.equals(this.cardIdentification, fundingInstrument.cardIdentification)
+        && Objects.equals(this.isSetCardIdentification, fundingInstrument.isSetCardIdentification)
         && Objects.equals(this.networkPaymentReference, fundingInstrument.networkPaymentReference)
+        && Objects.equals(
+            this.isSetNetworkPaymentReference, fundingInstrument.isSetNetworkPaymentReference)
         && Objects.equals(this.reference, fundingInstrument.reference)
-        && Objects.equals(this.sourceOfFunds, fundingInstrument.sourceOfFunds);
+        && Objects.equals(this.isSetReference, fundingInstrument.isSetReference)
+        && Objects.equals(this.sourceOfFunds, fundingInstrument.sourceOfFunds)
+        && Objects.equals(this.isSetSourceOfFunds, fundingInstrument.isSetSourceOfFunds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardIdentification, networkPaymentReference, reference, sourceOfFunds);
+    return Objects.hash(
+        cardIdentification,
+        isSetCardIdentification,
+        networkPaymentReference,
+        isSetNetworkPaymentReference,
+        reference,
+        isSetReference,
+        sourceOfFunds,
+        isSetSourceOfFunds);
   }
 
   @Override

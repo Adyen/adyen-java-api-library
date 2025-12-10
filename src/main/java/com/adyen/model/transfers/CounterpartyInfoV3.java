@@ -242,14 +242,27 @@ public class CounterpartyInfoV3 {
     }
     CounterpartyInfoV3 counterpartyInfoV3 = (CounterpartyInfoV3) o;
     return Objects.equals(this.balanceAccountId, counterpartyInfoV3.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, counterpartyInfoV3.isSetBalanceAccountId)
         && Objects.equals(this.bankAccount, counterpartyInfoV3.bankAccount)
+        && Objects.equals(this.isSetBankAccount, counterpartyInfoV3.isSetBankAccount)
         && Objects.equals(this.card, counterpartyInfoV3.card)
-        && Objects.equals(this.transferInstrumentId, counterpartyInfoV3.transferInstrumentId);
+        && Objects.equals(this.isSetCard, counterpartyInfoV3.isSetCard)
+        && Objects.equals(this.transferInstrumentId, counterpartyInfoV3.transferInstrumentId)
+        && Objects.equals(
+            this.isSetTransferInstrumentId, counterpartyInfoV3.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, bankAccount, card, transferInstrumentId);
+    return Objects.hash(
+        balanceAccountId,
+        isSetBalanceAccountId,
+        bankAccount,
+        isSetBankAccount,
+        card,
+        isSetCard,
+        transferInstrumentId,
+        isSetTransferInstrumentId);
   }
 
   @Override

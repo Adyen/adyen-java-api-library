@@ -188,13 +188,16 @@ public class ResourceReference {
     }
     ResourceReference resourceReference = (ResourceReference) o;
     return Objects.equals(this.description, resourceReference.description)
+        && Objects.equals(this.isSetDescription, resourceReference.isSetDescription)
         && Objects.equals(this.id, resourceReference.id)
-        && Objects.equals(this.reference, resourceReference.reference);
+        && Objects.equals(this.isSetId, resourceReference.isSetId)
+        && Objects.equals(this.reference, resourceReference.reference)
+        && Objects.equals(this.isSetReference, resourceReference.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, reference);
+    return Objects.hash(description, isSetDescription, id, isSetId, reference, isSetReference);
   }
 
   @Override

@@ -278,15 +278,30 @@ public class TransactionRuleReference {
     }
     TransactionRuleReference transactionRuleReference = (TransactionRuleReference) o;
     return Objects.equals(this.description, transactionRuleReference.description)
+        && Objects.equals(this.isSetDescription, transactionRuleReference.isSetDescription)
         && Objects.equals(this.id, transactionRuleReference.id)
+        && Objects.equals(this.isSetId, transactionRuleReference.isSetId)
         && Objects.equals(this.outcomeType, transactionRuleReference.outcomeType)
+        && Objects.equals(this.isSetOutcomeType, transactionRuleReference.isSetOutcomeType)
         && Objects.equals(this.reference, transactionRuleReference.reference)
-        && Objects.equals(this.score, transactionRuleReference.score);
+        && Objects.equals(this.isSetReference, transactionRuleReference.isSetReference)
+        && Objects.equals(this.score, transactionRuleReference.score)
+        && Objects.equals(this.isSetScore, transactionRuleReference.isSetScore);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, outcomeType, reference, score);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        outcomeType,
+        isSetOutcomeType,
+        reference,
+        isSetReference,
+        score,
+        isSetScore);
   }
 
   @Override

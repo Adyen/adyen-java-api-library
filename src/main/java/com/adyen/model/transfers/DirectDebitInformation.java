@@ -243,14 +243,26 @@ public class DirectDebitInformation {
     }
     DirectDebitInformation directDebitInformation = (DirectDebitInformation) o;
     return Objects.equals(this.dateOfSignature, directDebitInformation.dateOfSignature)
+        && Objects.equals(this.isSetDateOfSignature, directDebitInformation.isSetDateOfSignature)
         && Objects.equals(this.dueDate, directDebitInformation.dueDate)
+        && Objects.equals(this.isSetDueDate, directDebitInformation.isSetDueDate)
         && Objects.equals(this.mandateId, directDebitInformation.mandateId)
-        && Objects.equals(this.sequenceType, directDebitInformation.sequenceType);
+        && Objects.equals(this.isSetMandateId, directDebitInformation.isSetMandateId)
+        && Objects.equals(this.sequenceType, directDebitInformation.sequenceType)
+        && Objects.equals(this.isSetSequenceType, directDebitInformation.isSetSequenceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateOfSignature, dueDate, mandateId, sequenceType);
+    return Objects.hash(
+        dateOfSignature,
+        isSetDateOfSignature,
+        dueDate,
+        isSetDueDate,
+        mandateId,
+        isSetMandateId,
+        sequenceType,
+        isSetSequenceType);
   }
 
   @Override

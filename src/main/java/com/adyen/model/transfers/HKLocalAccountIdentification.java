@@ -237,13 +237,17 @@ public class HKLocalAccountIdentification {
     }
     HKLocalAccountIdentification hkLocalAccountIdentification = (HKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, hkLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, hkLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.clearingCode, hkLocalAccountIdentification.clearingCode)
-        && Objects.equals(this.type, hkLocalAccountIdentification.type);
+        && Objects.equals(this.isSetClearingCode, hkLocalAccountIdentification.isSetClearingCode)
+        && Objects.equals(this.type, hkLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, hkLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, clearingCode, type);
+    return Objects.hash(
+        accountNumber, isSetAccountNumber, clearingCode, isSetClearingCode, type, isSetType);
   }
 
   @Override

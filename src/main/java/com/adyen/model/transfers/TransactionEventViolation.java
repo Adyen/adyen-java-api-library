@@ -189,14 +189,24 @@ public class TransactionEventViolation {
     }
     TransactionEventViolation transactionEventViolation = (TransactionEventViolation) o;
     return Objects.equals(this.reason, transactionEventViolation.reason)
+        && Objects.equals(this.isSetReason, transactionEventViolation.isSetReason)
         && Objects.equals(this.transactionRule, transactionEventViolation.transactionRule)
+        && Objects.equals(this.isSetTransactionRule, transactionEventViolation.isSetTransactionRule)
         && Objects.equals(
-            this.transactionRuleSource, transactionEventViolation.transactionRuleSource);
+            this.transactionRuleSource, transactionEventViolation.transactionRuleSource)
+        && Objects.equals(
+            this.isSetTransactionRuleSource, transactionEventViolation.isSetTransactionRuleSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, transactionRule, transactionRuleSource);
+    return Objects.hash(
+        reason,
+        isSetReason,
+        transactionRule,
+        isSetTransactionRule,
+        transactionRuleSource,
+        isSetTransactionRuleSource);
   }
 
   @Override

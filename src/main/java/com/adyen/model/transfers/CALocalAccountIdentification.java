@@ -361,15 +361,31 @@ public class CALocalAccountIdentification {
     }
     CALocalAccountIdentification caLocalAccountIdentification = (CALocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, caLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, caLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.accountType, caLocalAccountIdentification.accountType)
+        && Objects.equals(this.isSetAccountType, caLocalAccountIdentification.isSetAccountType)
         && Objects.equals(this.institutionNumber, caLocalAccountIdentification.institutionNumber)
+        && Objects.equals(
+            this.isSetInstitutionNumber, caLocalAccountIdentification.isSetInstitutionNumber)
         && Objects.equals(this.transitNumber, caLocalAccountIdentification.transitNumber)
-        && Objects.equals(this.type, caLocalAccountIdentification.type);
+        && Objects.equals(this.isSetTransitNumber, caLocalAccountIdentification.isSetTransitNumber)
+        && Objects.equals(this.type, caLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, caLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, institutionNumber, transitNumber, type);
+    return Objects.hash(
+        accountNumber,
+        isSetAccountNumber,
+        accountType,
+        isSetAccountType,
+        institutionNumber,
+        isSetInstitutionNumber,
+        transitNumber,
+        isSetTransitNumber,
+        type,
+        isSetType);
   }
 
   @Override

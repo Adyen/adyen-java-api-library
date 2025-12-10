@@ -1217,38 +1217,67 @@ public class TransferInfo {
     }
     TransferInfo transferInfo = (TransferInfo) o;
     return Objects.equals(this.amount, transferInfo.amount)
+        && Objects.equals(this.isSetAmount, transferInfo.isSetAmount)
         && Objects.equals(this.balanceAccountId, transferInfo.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, transferInfo.isSetBalanceAccountId)
         && Objects.equals(this.category, transferInfo.category)
+        && Objects.equals(this.isSetCategory, transferInfo.isSetCategory)
         && Objects.equals(this.counterparty, transferInfo.counterparty)
+        && Objects.equals(this.isSetCounterparty, transferInfo.isSetCounterparty)
         && Objects.equals(this.description, transferInfo.description)
+        && Objects.equals(this.isSetDescription, transferInfo.isSetDescription)
         && Objects.equals(this.executionDate, transferInfo.executionDate)
+        && Objects.equals(this.isSetExecutionDate, transferInfo.isSetExecutionDate)
         && Objects.equals(this.paymentInstrumentId, transferInfo.paymentInstrumentId)
+        && Objects.equals(this.isSetPaymentInstrumentId, transferInfo.isSetPaymentInstrumentId)
         && Objects.equals(this.priorities, transferInfo.priorities)
+        && Objects.equals(this.isSetPriorities, transferInfo.isSetPriorities)
         && Objects.equals(this.priority, transferInfo.priority)
+        && Objects.equals(this.isSetPriority, transferInfo.isSetPriority)
         && Objects.equals(this.reference, transferInfo.reference)
+        && Objects.equals(this.isSetReference, transferInfo.isSetReference)
         && Objects.equals(this.referenceForBeneficiary, transferInfo.referenceForBeneficiary)
+        && Objects.equals(
+            this.isSetReferenceForBeneficiary, transferInfo.isSetReferenceForBeneficiary)
         && Objects.equals(this.review, transferInfo.review)
+        && Objects.equals(this.isSetReview, transferInfo.isSetReview)
         && Objects.equals(this.type, transferInfo.type)
-        && Objects.equals(this.ultimateParty, transferInfo.ultimateParty);
+        && Objects.equals(this.isSetType, transferInfo.isSetType)
+        && Objects.equals(this.ultimateParty, transferInfo.ultimateParty)
+        && Objects.equals(this.isSetUltimateParty, transferInfo.isSetUltimateParty);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         balanceAccountId,
+        isSetBalanceAccountId,
         category,
+        isSetCategory,
         counterparty,
+        isSetCounterparty,
         description,
+        isSetDescription,
         executionDate,
+        isSetExecutionDate,
         paymentInstrumentId,
+        isSetPaymentInstrumentId,
         priorities,
+        isSetPriorities,
         priority,
+        isSetPriority,
         reference,
+        isSetReference,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         review,
+        isSetReview,
         type,
-        ultimateParty);
+        isSetType,
+        ultimateParty,
+        isSetUltimateParty);
   }
 
   @Override

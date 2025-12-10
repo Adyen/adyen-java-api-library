@@ -278,14 +278,19 @@ public class ReturnTransferResponse {
     }
     ReturnTransferResponse returnTransferResponse = (ReturnTransferResponse) o;
     return Objects.equals(this.id, returnTransferResponse.id)
+        && Objects.equals(this.isSetId, returnTransferResponse.isSetId)
         && Objects.equals(this.reference, returnTransferResponse.reference)
+        && Objects.equals(this.isSetReference, returnTransferResponse.isSetReference)
         && Objects.equals(this.status, returnTransferResponse.status)
-        && Objects.equals(this.transferId, returnTransferResponse.transferId);
+        && Objects.equals(this.isSetStatus, returnTransferResponse.isSetStatus)
+        && Objects.equals(this.transferId, returnTransferResponse.transferId)
+        && Objects.equals(this.isSetTransferId, returnTransferResponse.isSetTransferId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, reference, status, transferId);
+    return Objects.hash(
+        id, isSetId, reference, isSetReference, status, isSetStatus, transferId, isSetTransferId);
   }
 
   @Override

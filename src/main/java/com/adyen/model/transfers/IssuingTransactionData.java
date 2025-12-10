@@ -198,12 +198,14 @@ public class IssuingTransactionData {
     }
     IssuingTransactionData issuingTransactionData = (IssuingTransactionData) o;
     return Objects.equals(this.captureCycleId, issuingTransactionData.captureCycleId)
-        && Objects.equals(this.type, issuingTransactionData.type);
+        && Objects.equals(this.isSetCaptureCycleId, issuingTransactionData.isSetCaptureCycleId)
+        && Objects.equals(this.type, issuingTransactionData.type)
+        && Objects.equals(this.isSetType, issuingTransactionData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(captureCycleId, type);
+    return Objects.hash(captureCycleId, isSetCaptureCycleId, type, isSetType);
   }
 
   @Override

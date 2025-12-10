@@ -156,12 +156,14 @@ public class FindTransfersResponse {
     }
     FindTransfersResponse findTransfersResponse = (FindTransfersResponse) o;
     return Objects.equals(this.links, findTransfersResponse.links)
-        && Objects.equals(this.data, findTransfersResponse.data);
+        && Objects.equals(this.isSetLinks, findTransfersResponse.isSetLinks)
+        && Objects.equals(this.data, findTransfersResponse.data)
+        && Objects.equals(this.isSetData, findTransfersResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data);
+    return Objects.hash(links, isSetLinks, data, isSetData);
   }
 
   @Override

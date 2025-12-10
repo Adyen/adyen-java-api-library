@@ -194,13 +194,16 @@ public class Repayment {
     }
     Repayment repayment = (Repayment) o;
     return Objects.equals(this.basisPoints, repayment.basisPoints)
+        && Objects.equals(this.isSetBasisPoints, repayment.isSetBasisPoints)
         && Objects.equals(this.term, repayment.term)
-        && Objects.equals(this.threshold, repayment.threshold);
+        && Objects.equals(this.isSetTerm, repayment.isSetTerm)
+        && Objects.equals(this.threshold, repayment.threshold)
+        && Objects.equals(this.isSetThreshold, repayment.isSetThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basisPoints, term, threshold);
+    return Objects.hash(basisPoints, isSetBasisPoints, term, isSetTerm, threshold, isSetThreshold);
   }
 
   @Override

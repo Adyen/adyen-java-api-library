@@ -290,16 +290,34 @@ public class TransferNotificationCounterParty {
     TransferNotificationCounterParty transferNotificationCounterParty =
         (TransferNotificationCounterParty) o;
     return Objects.equals(this.balanceAccountId, transferNotificationCounterParty.balanceAccountId)
-        && Objects.equals(this.bankAccount, transferNotificationCounterParty.bankAccount)
-        && Objects.equals(this.card, transferNotificationCounterParty.card)
-        && Objects.equals(this.merchant, transferNotificationCounterParty.merchant)
         && Objects.equals(
-            this.transferInstrumentId, transferNotificationCounterParty.transferInstrumentId);
+            this.isSetBalanceAccountId, transferNotificationCounterParty.isSetBalanceAccountId)
+        && Objects.equals(this.bankAccount, transferNotificationCounterParty.bankAccount)
+        && Objects.equals(this.isSetBankAccount, transferNotificationCounterParty.isSetBankAccount)
+        && Objects.equals(this.card, transferNotificationCounterParty.card)
+        && Objects.equals(this.isSetCard, transferNotificationCounterParty.isSetCard)
+        && Objects.equals(this.merchant, transferNotificationCounterParty.merchant)
+        && Objects.equals(this.isSetMerchant, transferNotificationCounterParty.isSetMerchant)
+        && Objects.equals(
+            this.transferInstrumentId, transferNotificationCounterParty.transferInstrumentId)
+        && Objects.equals(
+            this.isSetTransferInstrumentId,
+            transferNotificationCounterParty.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, bankAccount, card, merchant, transferInstrumentId);
+    return Objects.hash(
+        balanceAccountId,
+        isSetBalanceAccountId,
+        bankAccount,
+        isSetBankAccount,
+        card,
+        isSetCard,
+        merchant,
+        isSetMerchant,
+        transferInstrumentId,
+        isSetTransferInstrumentId);
   }
 
   @Override

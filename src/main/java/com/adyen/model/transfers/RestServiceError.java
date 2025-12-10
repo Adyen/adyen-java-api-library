@@ -459,20 +459,46 @@ public class RestServiceError {
     }
     RestServiceError restServiceError = (RestServiceError) o;
     return Objects.equals(this.detail, restServiceError.detail)
+        && Objects.equals(this.isSetDetail, restServiceError.isSetDetail)
         && Objects.equals(this.errorCode, restServiceError.errorCode)
+        && Objects.equals(this.isSetErrorCode, restServiceError.isSetErrorCode)
         && Objects.equals(this.instance, restServiceError.instance)
+        && Objects.equals(this.isSetInstance, restServiceError.isSetInstance)
         && Objects.equals(this.invalidFields, restServiceError.invalidFields)
+        && Objects.equals(this.isSetInvalidFields, restServiceError.isSetInvalidFields)
         && Objects.equals(this.requestId, restServiceError.requestId)
+        && Objects.equals(this.isSetRequestId, restServiceError.isSetRequestId)
         && Objects.equals(this.response, restServiceError.response)
+        && Objects.equals(this.isSetResponse, restServiceError.isSetResponse)
         && Objects.equals(this.status, restServiceError.status)
+        && Objects.equals(this.isSetStatus, restServiceError.isSetStatus)
         && Objects.equals(this.title, restServiceError.title)
-        && Objects.equals(this.type, restServiceError.type);
+        && Objects.equals(this.isSetTitle, restServiceError.isSetTitle)
+        && Objects.equals(this.type, restServiceError.type)
+        && Objects.equals(this.isSetType, restServiceError.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        detail, errorCode, instance, invalidFields, requestId, response, status, title, type);
+        detail,
+        isSetDetail,
+        errorCode,
+        isSetErrorCode,
+        instance,
+        isSetInstance,
+        invalidFields,
+        isSetInvalidFields,
+        requestId,
+        isSetRequestId,
+        response,
+        isSetResponse,
+        status,
+        isSetStatus,
+        title,
+        isSetTitle,
+        type,
+        isSetType);
   }
 
   @Override
