@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,20 +34,44 @@ public class ServiceError {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorCode = false;
 
   public static final String JSON_PROPERTY_ERROR_TYPE = "errorType";
   private String errorType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorType = false;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessage = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ServiceError() {}
 
@@ -60,6 +86,7 @@ public class ServiceError {
    */
   public ServiceError additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -97,6 +124,7 @@ public class ServiceError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -107,6 +135,7 @@ public class ServiceError {
    */
   public ServiceError errorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
     return this;
   }
 
@@ -130,6 +159,7 @@ public class ServiceError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
   }
 
   /**
@@ -140,6 +170,7 @@ public class ServiceError {
    */
   public ServiceError errorType(String errorType) {
     this.errorType = errorType;
+    isSetErrorType = true; // mark as set
     return this;
   }
 
@@ -163,6 +194,7 @@ public class ServiceError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
     this.errorType = errorType;
+    isSetErrorType = true; // mark as set
   }
 
   /**
@@ -173,6 +205,7 @@ public class ServiceError {
    */
   public ServiceError message(String message) {
     this.message = message;
+    isSetMessage = true; // mark as set
     return this;
   }
 
@@ -196,6 +229,7 @@ public class ServiceError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
+    isSetMessage = true; // mark as set
   }
 
   /**
@@ -206,6 +240,7 @@ public class ServiceError {
    */
   public ServiceError pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -229,6 +264,7 @@ public class ServiceError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -239,6 +275,7 @@ public class ServiceError {
    */
   public ServiceError status(Integer status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -262,6 +299,27 @@ public class ServiceError {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ServiceError includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ServiceError object is equal to o. */
@@ -275,16 +333,34 @@ public class ServiceError {
     }
     ServiceError serviceError = (ServiceError) o;
     return Objects.equals(this.additionalData, serviceError.additionalData)
+        && Objects.equals(this.isSetAdditionalData, serviceError.isSetAdditionalData)
         && Objects.equals(this.errorCode, serviceError.errorCode)
+        && Objects.equals(this.isSetErrorCode, serviceError.isSetErrorCode)
         && Objects.equals(this.errorType, serviceError.errorType)
+        && Objects.equals(this.isSetErrorType, serviceError.isSetErrorType)
         && Objects.equals(this.message, serviceError.message)
+        && Objects.equals(this.isSetMessage, serviceError.isSetMessage)
         && Objects.equals(this.pspReference, serviceError.pspReference)
-        && Objects.equals(this.status, serviceError.status);
+        && Objects.equals(this.isSetPspReference, serviceError.isSetPspReference)
+        && Objects.equals(this.status, serviceError.status)
+        && Objects.equals(this.isSetStatus, serviceError.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, errorCode, errorType, message, pspReference, status);
+    return Objects.hash(
+        additionalData,
+        isSetAdditionalData,
+        errorCode,
+        isSetErrorCode,
+        errorType,
+        isSetErrorType,
+        message,
+        isSetMessage,
+        pspReference,
+        isSetPspReference,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -309,6 +385,45 @@ public class ServiceError {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetErrorCode) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_CODE, this.errorCode);
+    }
+    if (isSetErrorType) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_TYPE, this.errorType);
+    }
+    if (isSetMessage) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE, this.message);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

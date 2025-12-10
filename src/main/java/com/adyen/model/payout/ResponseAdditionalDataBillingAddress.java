@@ -11,6 +11,8 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,23 +32,47 @@ public class ResponseAdditionalDataBillingAddress {
   public static final String JSON_PROPERTY_BILLING_ADDRESS_CITY = "billingAddress.city";
   private String billingAddressCity;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddressCity = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS_COUNTRY = "billingAddress.country";
   private String billingAddressCountry;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddressCountry = false;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS_HOUSE_NUMBER_OR_NAME =
       "billingAddress.houseNumberOrName";
   private String billingAddressHouseNumberOrName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddressHouseNumberOrName = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS_POSTAL_CODE =
       "billingAddress.postalCode";
   private String billingAddressPostalCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddressPostalCode = false;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS_STATE_OR_PROVINCE =
       "billingAddress.stateOrProvince";
   private String billingAddressStateOrProvince;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddressStateOrProvince = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS_STREET = "billingAddress.street";
   private String billingAddressStreet;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddressStreet = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ResponseAdditionalDataBillingAddress() {}
 
@@ -59,6 +85,7 @@ public class ResponseAdditionalDataBillingAddress {
    */
   public ResponseAdditionalDataBillingAddress billingAddressCity(String billingAddressCity) {
     this.billingAddressCity = billingAddressCity;
+    isSetBillingAddressCity = true; // mark as set
     return this;
   }
 
@@ -82,6 +109,7 @@ public class ResponseAdditionalDataBillingAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressCity(String billingAddressCity) {
     this.billingAddressCity = billingAddressCity;
+    isSetBillingAddressCity = true; // mark as set
   }
 
   /**
@@ -94,6 +122,7 @@ public class ResponseAdditionalDataBillingAddress {
    */
   public ResponseAdditionalDataBillingAddress billingAddressCountry(String billingAddressCountry) {
     this.billingAddressCountry = billingAddressCountry;
+    isSetBillingAddressCountry = true; // mark as set
     return this;
   }
 
@@ -119,6 +148,7 @@ public class ResponseAdditionalDataBillingAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressCountry(String billingAddressCountry) {
     this.billingAddressCountry = billingAddressCountry;
+    isSetBillingAddressCountry = true; // mark as set
   }
 
   /**
@@ -132,6 +162,7 @@ public class ResponseAdditionalDataBillingAddress {
   public ResponseAdditionalDataBillingAddress billingAddressHouseNumberOrName(
       String billingAddressHouseNumberOrName) {
     this.billingAddressHouseNumberOrName = billingAddressHouseNumberOrName;
+    isSetBillingAddressHouseNumberOrName = true; // mark as set
     return this;
   }
 
@@ -157,6 +188,7 @@ public class ResponseAdditionalDataBillingAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressHouseNumberOrName(String billingAddressHouseNumberOrName) {
     this.billingAddressHouseNumberOrName = billingAddressHouseNumberOrName;
+    isSetBillingAddressHouseNumberOrName = true; // mark as set
   }
 
   /**
@@ -170,6 +202,7 @@ public class ResponseAdditionalDataBillingAddress {
   public ResponseAdditionalDataBillingAddress billingAddressPostalCode(
       String billingAddressPostalCode) {
     this.billingAddressPostalCode = billingAddressPostalCode;
+    isSetBillingAddressPostalCode = true; // mark as set
     return this;
   }
 
@@ -195,6 +228,7 @@ public class ResponseAdditionalDataBillingAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressPostalCode(String billingAddressPostalCode) {
     this.billingAddressPostalCode = billingAddressPostalCode;
+    isSetBillingAddressPostalCode = true; // mark as set
   }
 
   /**
@@ -208,6 +242,7 @@ public class ResponseAdditionalDataBillingAddress {
   public ResponseAdditionalDataBillingAddress billingAddressStateOrProvince(
       String billingAddressStateOrProvince) {
     this.billingAddressStateOrProvince = billingAddressStateOrProvince;
+    isSetBillingAddressStateOrProvince = true; // mark as set
     return this;
   }
 
@@ -233,6 +268,7 @@ public class ResponseAdditionalDataBillingAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressStateOrProvince(String billingAddressStateOrProvince) {
     this.billingAddressStateOrProvince = billingAddressStateOrProvince;
+    isSetBillingAddressStateOrProvince = true; // mark as set
   }
 
   /**
@@ -244,6 +280,7 @@ public class ResponseAdditionalDataBillingAddress {
    */
   public ResponseAdditionalDataBillingAddress billingAddressStreet(String billingAddressStreet) {
     this.billingAddressStreet = billingAddressStreet;
+    isSetBillingAddressStreet = true; // mark as set
     return this;
   }
 
@@ -267,6 +304,27 @@ public class ResponseAdditionalDataBillingAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddressStreet(String billingAddressStreet) {
     this.billingAddressStreet = billingAddressStreet;
+    isSetBillingAddressStreet = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ResponseAdditionalDataBillingAddress includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ResponseAdditionalDataBillingAddress object is equal to o. */
@@ -283,29 +341,53 @@ public class ResponseAdditionalDataBillingAddress {
     return Objects.equals(
             this.billingAddressCity, responseAdditionalDataBillingAddress.billingAddressCity)
         && Objects.equals(
+            this.isSetBillingAddressCity,
+            responseAdditionalDataBillingAddress.isSetBillingAddressCity)
+        && Objects.equals(
             this.billingAddressCountry, responseAdditionalDataBillingAddress.billingAddressCountry)
+        && Objects.equals(
+            this.isSetBillingAddressCountry,
+            responseAdditionalDataBillingAddress.isSetBillingAddressCountry)
         && Objects.equals(
             this.billingAddressHouseNumberOrName,
             responseAdditionalDataBillingAddress.billingAddressHouseNumberOrName)
         && Objects.equals(
+            this.isSetBillingAddressHouseNumberOrName,
+            responseAdditionalDataBillingAddress.isSetBillingAddressHouseNumberOrName)
+        && Objects.equals(
             this.billingAddressPostalCode,
             responseAdditionalDataBillingAddress.billingAddressPostalCode)
+        && Objects.equals(
+            this.isSetBillingAddressPostalCode,
+            responseAdditionalDataBillingAddress.isSetBillingAddressPostalCode)
         && Objects.equals(
             this.billingAddressStateOrProvince,
             responseAdditionalDataBillingAddress.billingAddressStateOrProvince)
         && Objects.equals(
-            this.billingAddressStreet, responseAdditionalDataBillingAddress.billingAddressStreet);
+            this.isSetBillingAddressStateOrProvince,
+            responseAdditionalDataBillingAddress.isSetBillingAddressStateOrProvince)
+        && Objects.equals(
+            this.billingAddressStreet, responseAdditionalDataBillingAddress.billingAddressStreet)
+        && Objects.equals(
+            this.isSetBillingAddressStreet,
+            responseAdditionalDataBillingAddress.isSetBillingAddressStreet);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         billingAddressCity,
+        isSetBillingAddressCity,
         billingAddressCountry,
+        isSetBillingAddressCountry,
         billingAddressHouseNumberOrName,
+        isSetBillingAddressHouseNumberOrName,
         billingAddressPostalCode,
+        isSetBillingAddressPostalCode,
         billingAddressStateOrProvince,
-        billingAddressStreet);
+        isSetBillingAddressStateOrProvince,
+        billingAddressStreet,
+        isSetBillingAddressStreet);
   }
 
   @Override
@@ -340,6 +422,51 @@ public class ResponseAdditionalDataBillingAddress {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingAddressCity) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS_CITY, this.billingAddressCity);
+    }
+    if (isSetBillingAddressCountry) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS_COUNTRY, this.billingAddressCountry);
+    }
+    if (isSetBillingAddressHouseNumberOrName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_BILLING_ADDRESS_HOUSE_NUMBER_OR_NAME,
+          this.billingAddressHouseNumberOrName);
+    }
+    if (isSetBillingAddressPostalCode) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS_POSTAL_CODE, this.billingAddressPostalCode);
+    }
+    if (isSetBillingAddressStateOrProvince) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_BILLING_ADDRESS_STATE_OR_PROVINCE,
+          this.billingAddressStateOrProvince);
+    }
+    if (isSetBillingAddressStreet) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS_STREET, this.billingAddressStreet);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

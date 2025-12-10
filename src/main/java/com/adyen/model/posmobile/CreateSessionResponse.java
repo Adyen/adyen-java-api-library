@@ -11,6 +11,8 @@
 
 package com.adyen.model.posmobile;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,17 +31,38 @@ public class CreateSessionResponse {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_INSTALLATION_ID = "installationId";
   private String installationId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallationId = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
+
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateSessionResponse() {}
 
@@ -51,6 +74,7 @@ public class CreateSessionResponse {
    */
   public CreateSessionResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -74,6 +98,7 @@ public class CreateSessionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -90,6 +115,7 @@ public class CreateSessionResponse {
    */
   public CreateSessionResponse installationId(String installationId) {
     this.installationId = installationId;
+    isSetInstallationId = true; // mark as set
     return this;
   }
 
@@ -125,6 +151,7 @@ public class CreateSessionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
+    isSetInstallationId = true; // mark as set
   }
 
   /**
@@ -135,6 +162,7 @@ public class CreateSessionResponse {
    */
   public CreateSessionResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -158,6 +186,7 @@ public class CreateSessionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -170,6 +199,7 @@ public class CreateSessionResponse {
    */
   public CreateSessionResponse sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -197,6 +227,7 @@ public class CreateSessionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -207,6 +238,7 @@ public class CreateSessionResponse {
    */
   public CreateSessionResponse store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -230,6 +262,27 @@ public class CreateSessionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateSessionResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateSessionResponse object is equal to o. */
@@ -243,15 +296,30 @@ public class CreateSessionResponse {
     }
     CreateSessionResponse createSessionResponse = (CreateSessionResponse) o;
     return Objects.equals(this.id, createSessionResponse.id)
+        && Objects.equals(this.isSetId, createSessionResponse.isSetId)
         && Objects.equals(this.installationId, createSessionResponse.installationId)
+        && Objects.equals(this.isSetInstallationId, createSessionResponse.isSetInstallationId)
         && Objects.equals(this.merchantAccount, createSessionResponse.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, createSessionResponse.isSetMerchantAccount)
         && Objects.equals(this.sdkData, createSessionResponse.sdkData)
-        && Objects.equals(this.store, createSessionResponse.store);
+        && Objects.equals(this.isSetSdkData, createSessionResponse.isSetSdkData)
+        && Objects.equals(this.store, createSessionResponse.store)
+        && Objects.equals(this.isSetStore, createSessionResponse.isSetStore);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, installationId, merchantAccount, sdkData, store);
+    return Objects.hash(
+        id,
+        isSetId,
+        installationId,
+        isSetInstallationId,
+        merchantAccount,
+        isSetMerchantAccount,
+        sdkData,
+        isSetSdkData,
+        store,
+        isSetStore);
   }
 
   @Override
@@ -275,6 +343,42 @@ public class CreateSessionResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetInstallationId) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLATION_ID, this.installationId);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

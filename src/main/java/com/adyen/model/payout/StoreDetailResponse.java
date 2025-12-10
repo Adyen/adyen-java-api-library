@@ -11,6 +11,8 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,14 +32,32 @@ public class StoreDetailResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoreDetailResponse() {}
 
@@ -50,6 +70,7 @@ public class StoreDetailResponse {
    */
   public StoreDetailResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -83,6 +104,7 @@ public class StoreDetailResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -93,6 +115,7 @@ public class StoreDetailResponse {
    */
   public StoreDetailResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -116,6 +139,7 @@ public class StoreDetailResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -126,6 +150,7 @@ public class StoreDetailResponse {
    */
   public StoreDetailResponse recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -150,6 +175,7 @@ public class StoreDetailResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -162,6 +188,7 @@ public class StoreDetailResponse {
    */
   public StoreDetailResponse resultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -189,6 +216,27 @@ public class StoreDetailResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoreDetailResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoreDetailResponse object is equal to o. */
@@ -202,15 +250,28 @@ public class StoreDetailResponse {
     }
     StoreDetailResponse storeDetailResponse = (StoreDetailResponse) o;
     return Objects.equals(this.additionalData, storeDetailResponse.additionalData)
+        && Objects.equals(this.isSetAdditionalData, storeDetailResponse.isSetAdditionalData)
         && Objects.equals(this.pspReference, storeDetailResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, storeDetailResponse.isSetPspReference)
         && Objects.equals(
             this.recurringDetailReference, storeDetailResponse.recurringDetailReference)
-        && Objects.equals(this.resultCode, storeDetailResponse.resultCode);
+        && Objects.equals(
+            this.isSetRecurringDetailReference, storeDetailResponse.isSetRecurringDetailReference)
+        && Objects.equals(this.resultCode, storeDetailResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, storeDetailResponse.isSetResultCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, pspReference, recurringDetailReference, resultCode);
+    return Objects.hash(
+        additionalData,
+        isSetAdditionalData,
+        pspReference,
+        isSetPspReference,
+        recurringDetailReference,
+        isSetRecurringDetailReference,
+        resultCode,
+        isSetResultCode);
   }
 
   @Override
@@ -235,6 +296,39 @@ public class StoreDetailResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

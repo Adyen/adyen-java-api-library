@@ -11,6 +11,8 @@
 
 package com.adyen.model.disputes;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,11 +31,26 @@ public class DefenseReason {
   public static final String JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES = "defenseDocumentTypes";
   private List<DefenseDocumentType> defenseDocumentTypes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefenseDocumentTypes = false;
+
   public static final String JSON_PROPERTY_DEFENSE_REASON_CODE = "defenseReasonCode";
   private String defenseReasonCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefenseReasonCode = false;
+
   public static final String JSON_PROPERTY_SATISFIED = "satisfied";
   private Boolean satisfied;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSatisfied = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DefenseReason() {}
 
@@ -48,6 +65,7 @@ public class DefenseReason {
    */
   public DefenseReason defenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
     this.defenseDocumentTypes = defenseDocumentTypes;
+    isSetDefenseDocumentTypes = true; // mark as set
     return this;
   }
 
@@ -85,6 +103,7 @@ public class DefenseReason {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
     this.defenseDocumentTypes = defenseDocumentTypes;
+    isSetDefenseDocumentTypes = true; // mark as set
   }
 
   /**
@@ -95,6 +114,7 @@ public class DefenseReason {
    */
   public DefenseReason defenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
+    isSetDefenseReasonCode = true; // mark as set
     return this;
   }
 
@@ -118,6 +138,7 @@ public class DefenseReason {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
+    isSetDefenseReasonCode = true; // mark as set
   }
 
   /**
@@ -128,6 +149,7 @@ public class DefenseReason {
    */
   public DefenseReason satisfied(Boolean satisfied) {
     this.satisfied = satisfied;
+    isSetSatisfied = true; // mark as set
     return this;
   }
 
@@ -151,6 +173,27 @@ public class DefenseReason {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSatisfied(Boolean satisfied) {
     this.satisfied = satisfied;
+    isSetSatisfied = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DefenseReason includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DefenseReason object is equal to o. */
@@ -164,13 +207,22 @@ public class DefenseReason {
     }
     DefenseReason defenseReason = (DefenseReason) o;
     return Objects.equals(this.defenseDocumentTypes, defenseReason.defenseDocumentTypes)
+        && Objects.equals(this.isSetDefenseDocumentTypes, defenseReason.isSetDefenseDocumentTypes)
         && Objects.equals(this.defenseReasonCode, defenseReason.defenseReasonCode)
-        && Objects.equals(this.satisfied, defenseReason.satisfied);
+        && Objects.equals(this.isSetDefenseReasonCode, defenseReason.isSetDefenseReasonCode)
+        && Objects.equals(this.satisfied, defenseReason.satisfied)
+        && Objects.equals(this.isSetSatisfied, defenseReason.isSetSatisfied);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defenseDocumentTypes, defenseReasonCode, satisfied);
+    return Objects.hash(
+        defenseDocumentTypes,
+        isSetDefenseDocumentTypes,
+        defenseReasonCode,
+        isSetDefenseReasonCode,
+        satisfied,
+        isSetSatisfied);
   }
 
   @Override
@@ -194,6 +246,36 @@ public class DefenseReason {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDefenseDocumentTypes) {
+      addIfNull(nulls, JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES, this.defenseDocumentTypes);
+    }
+    if (isSetDefenseReasonCode) {
+      addIfNull(nulls, JSON_PROPERTY_DEFENSE_REASON_CODE, this.defenseReasonCode);
+    }
+    if (isSetSatisfied) {
+      addIfNull(nulls, JSON_PROPERTY_SATISFIED, this.satisfied);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -94,14 +96,26 @@ public class Recurring {
   public static final String JSON_PROPERTY_CONTRACT = "contract";
   private ContractEnum contract;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContract = false;
+
   public static final String JSON_PROPERTY_RECURRING_DETAIL_NAME = "recurringDetailName";
   private String recurringDetailName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailName = false;
 
   public static final String JSON_PROPERTY_RECURRING_EXPIRY = "recurringExpiry";
   private OffsetDateTime recurringExpiry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringExpiry = false;
+
   public static final String JSON_PROPERTY_RECURRING_FREQUENCY = "recurringFrequency";
   private String recurringFrequency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringFrequency = false;
 
   /** The name of the token service. */
   public enum TokenServiceEnum {
@@ -151,6 +165,15 @@ public class Recurring {
   public static final String JSON_PROPERTY_TOKEN_SERVICE = "tokenService";
   private TokenServiceEnum tokenService;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenService = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Recurring() {}
 
   /**
@@ -183,6 +206,7 @@ public class Recurring {
    */
   public Recurring contract(ContractEnum contract) {
     this.contract = contract;
+    isSetContract = true; // mark as set
     return this;
   }
 
@@ -250,6 +274,7 @@ public class Recurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContract(ContractEnum contract) {
     this.contract = contract;
+    isSetContract = true; // mark as set
   }
 
   /**
@@ -260,6 +285,7 @@ public class Recurring {
    */
   public Recurring recurringDetailName(String recurringDetailName) {
     this.recurringDetailName = recurringDetailName;
+    isSetRecurringDetailName = true; // mark as set
     return this;
   }
 
@@ -283,6 +309,7 @@ public class Recurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailName(String recurringDetailName) {
     this.recurringDetailName = recurringDetailName;
+    isSetRecurringDetailName = true; // mark as set
   }
 
   /**
@@ -294,6 +321,7 @@ public class Recurring {
    */
   public Recurring recurringExpiry(OffsetDateTime recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
+    isSetRecurringExpiry = true; // mark as set
     return this;
   }
 
@@ -319,6 +347,7 @@ public class Recurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(OffsetDateTime recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
+    isSetRecurringExpiry = true; // mark as set
   }
 
   /**
@@ -329,6 +358,7 @@ public class Recurring {
    */
   public Recurring recurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
+    isSetRecurringFrequency = true; // mark as set
     return this;
   }
 
@@ -352,6 +382,7 @@ public class Recurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
+    isSetRecurringFrequency = true; // mark as set
   }
 
   /**
@@ -362,6 +393,7 @@ public class Recurring {
    */
   public Recurring tokenService(TokenServiceEnum tokenService) {
     this.tokenService = tokenService;
+    isSetTokenService = true; // mark as set
     return this;
   }
 
@@ -385,6 +417,27 @@ public class Recurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenService(TokenServiceEnum tokenService) {
     this.tokenService = tokenService;
+    isSetTokenService = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Recurring includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Recurring object is equal to o. */
@@ -398,16 +451,30 @@ public class Recurring {
     }
     Recurring recurring = (Recurring) o;
     return Objects.equals(this.contract, recurring.contract)
+        && Objects.equals(this.isSetContract, recurring.isSetContract)
         && Objects.equals(this.recurringDetailName, recurring.recurringDetailName)
+        && Objects.equals(this.isSetRecurringDetailName, recurring.isSetRecurringDetailName)
         && Objects.equals(this.recurringExpiry, recurring.recurringExpiry)
+        && Objects.equals(this.isSetRecurringExpiry, recurring.isSetRecurringExpiry)
         && Objects.equals(this.recurringFrequency, recurring.recurringFrequency)
-        && Objects.equals(this.tokenService, recurring.tokenService);
+        && Objects.equals(this.isSetRecurringFrequency, recurring.isSetRecurringFrequency)
+        && Objects.equals(this.tokenService, recurring.tokenService)
+        && Objects.equals(this.isSetTokenService, recurring.isSetTokenService);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        contract, recurringDetailName, recurringExpiry, recurringFrequency, tokenService);
+        contract,
+        isSetContract,
+        recurringDetailName,
+        isSetRecurringDetailName,
+        recurringExpiry,
+        isSetRecurringExpiry,
+        recurringFrequency,
+        isSetRecurringFrequency,
+        tokenService,
+        isSetTokenService);
   }
 
   @Override
@@ -433,6 +500,42 @@ public class Recurring {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetContract) {
+      addIfNull(nulls, JSON_PROPERTY_CONTRACT, this.contract);
+    }
+    if (isSetRecurringDetailName) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_NAME, this.recurringDetailName);
+    }
+    if (isSetRecurringExpiry) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_EXPIRY, this.recurringExpiry);
+    }
+    if (isSetRecurringFrequency) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_FREQUENCY, this.recurringFrequency);
+    }
+    if (isSetTokenService) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_SERVICE, this.tokenService);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

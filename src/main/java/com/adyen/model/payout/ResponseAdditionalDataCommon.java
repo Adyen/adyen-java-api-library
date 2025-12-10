@@ -11,7 +11,9 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -91,69 +93,135 @@ public class ResponseAdditionalDataCommon {
   public static final String JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE = "acquirerAccountCode";
   private String acquirerAccountCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcquirerAccountCode = false;
+
   public static final String JSON_PROPERTY_ACQUIRER_CODE = "acquirerCode";
   private String acquirerCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcquirerCode = false;
 
   public static final String JSON_PROPERTY_ACQUIRER_REFERENCE = "acquirerReference";
   private String acquirerReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcquirerReference = false;
+
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlias = false;
 
   public static final String JSON_PROPERTY_ALIAS_TYPE = "aliasType";
   private String aliasType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAliasType = false;
+
   public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
   private String authCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthCode = false;
 
   public static final String JSON_PROPERTY_AUTHORISATION_MID = "authorisationMid";
   private String authorisationMid;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisationMid = false;
+
   public static final String JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY = "authorisedAmountCurrency";
   private String authorisedAmountCurrency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisedAmountCurrency = false;
 
   public static final String JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE = "authorisedAmountValue";
   private String authorisedAmountValue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisedAmountValue = false;
+
   public static final String JSON_PROPERTY_AVS_RESULT = "avsResult";
   private String avsResult;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAvsResult = false;
 
   public static final String JSON_PROPERTY_AVS_RESULT_RAW = "avsResultRaw";
   private String avsResultRaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAvsResultRaw = false;
+
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBic = false;
 
   public static final String JSON_PROPERTY_CO_BRANDED_WITH = "coBrandedWith";
   private String coBrandedWith;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCoBrandedWith = false;
+
   public static final String JSON_PROPERTY_CVC_RESULT = "cvcResult";
   private String cvcResult;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvcResult = false;
 
   public static final String JSON_PROPERTY_CVC_RESULT_RAW = "cvcResultRaw";
   private String cvcResultRaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvcResultRaw = false;
+
   public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsTransID = false;
 
   public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEci = false;
+
   public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
   private String expiryDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryDate = false;
 
   public static final String JSON_PROPERTY_EXTRA_COSTS_CURRENCY = "extraCostsCurrency";
   private String extraCostsCurrency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExtraCostsCurrency = false;
+
   public static final String JSON_PROPERTY_EXTRA_COSTS_VALUE = "extraCostsValue";
   private String extraCostsValue;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExtraCostsValue = false;
 
   public static final String JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME =
       "fraudCheck-[itemNr]-[FraudCheckname]";
   private String fraudCheckItemNrFraudCheckname;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudCheckItemNrFraudCheckname = false;
+
   public static final String JSON_PROPERTY_FRAUD_MANUAL_REVIEW = "fraudManualReview";
   private String fraudManualReview;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudManualReview = false;
 
   /** The fraud result properties of the payment. */
   public enum FraudResultTypeEnum {
@@ -198,6 +266,9 @@ public class ResponseAdditionalDataCommon {
 
   public static final String JSON_PROPERTY_FRAUD_RESULT_TYPE = "fraudResultType";
   private FraudResultTypeEnum fraudResultType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudResultType = false;
 
   /**
    * The risk level of the transaction as classified by the [machine
@@ -254,65 +325,125 @@ public class ResponseAdditionalDataCommon {
   public static final String JSON_PROPERTY_FRAUD_RISK_LEVEL = "fraudRiskLevel";
   private FraudRiskLevelEnum fraudRiskLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudRiskLevel = false;
+
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
 
   public static final String JSON_PROPERTY_FUNDS_AVAILABILITY = "fundsAvailability";
   private String fundsAvailability;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundsAvailability = false;
+
   public static final String JSON_PROPERTY_INFERRED_REFUSAL_REASON = "inferredRefusalReason";
   private String inferredRefusalReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInferredRefusalReason = false;
 
   public static final String JSON_PROPERTY_IS_CARD_COMMERCIAL = "isCardCommercial";
   private String isCardCommercial;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIsCardCommercial = false;
+
   public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
   private String issuerCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerCountry = false;
+
   public static final String JSON_PROPERTY_LIABILITY_SHIFT = "liabilityShift";
   private String liabilityShift;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLiabilityShift = false;
 
   public static final String JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER =
       "mcBankNetReferenceNumber";
   private String mcBankNetReferenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcBankNetReferenceNumber = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ADVICE_CODE = "merchantAdviceCode";
   private String merchantAdviceCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAdviceCode = false;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
+
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkTxReference = false;
 
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
+
   public static final String JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE = "paymentAccountReference";
   private String paymentAccountReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentAccountReference = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD_VARIANT = "paymentMethodVariant";
   private String paymentMethodVariant;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodVariant = false;
+
   public static final String JSON_PROPERTY_PAYOUT_ELIGIBLE = "payoutEligible";
   private String payoutEligible;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayoutEligible = false;
 
   public static final String JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS =
       "realtimeAccountUpdaterStatus";
   private String realtimeAccountUpdaterStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRealtimeAccountUpdaterStatus = false;
+
   public static final String JSON_PROPERTY_RECEIPT_FREE_TEXT = "receiptFreeText";
   private String receiptFreeText;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReceiptFreeText = false;
 
   public static final String JSON_PROPERTY_RECURRING_CONTRACT_TYPES = "recurring.contractTypes";
   private String recurringContractTypes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringContractTypes = false;
+
   public static final String JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE =
       "recurring.firstPspReference";
   private String recurringFirstPspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringFirstPspReference = false;
 
   public static final String JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE =
       "recurring.recurringDetailReference";
@@ -320,10 +451,16 @@ public class ResponseAdditionalDataCommon {
   // instead.
   private String recurringRecurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE =
       "recurring.shopperReference";
   @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead.
   private String recurringShopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringShopperReference = false;
 
   /** The processing model used for the recurring transaction. */
   public enum RecurringProcessingModelEnum {
@@ -372,46 +509,88 @@ public class ResponseAdditionalDataCommon {
   public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringProcessingModel = false;
+
   public static final String JSON_PROPERTY_REFERRED = "referred";
   private String referred;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReferred = false;
 
   public static final String JSON_PROPERTY_REFUSAL_REASON_RAW = "refusalReasonRaw";
   private String refusalReasonRaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReasonRaw = false;
+
   public static final String JSON_PROPERTY_REQUEST_AMOUNT = "requestAmount";
   private String requestAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestAmount = false;
 
   public static final String JSON_PROPERTY_REQUEST_CURRENCY_CODE = "requestCurrencyCode";
   private String requestCurrencyCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestCurrencyCode = false;
+
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private String shopperInteraction;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
   public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
   private String terminalId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalId = false;
+
   public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED = "threeDAuthenticated";
   private String threeDAuthenticated;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDAuthenticated = false;
 
   public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE =
       "threeDAuthenticatedResponse";
   private String threeDAuthenticatedResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDAuthenticatedResponse = false;
+
   public static final String JSON_PROPERTY_THREE_D_OFFERED = "threeDOffered";
   private String threeDOffered;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDOffered = false;
 
   public static final String JSON_PROPERTY_THREE_D_OFFERED_RESPONSE = "threeDOfferedResponse";
   private String threeDOfferedResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDOfferedResponse = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private String threeDSVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSVersion = false;
 
   public static final String JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE =
       "tokenization.shopperReference";
   private String tokenizationShopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenizationShopperReference = false;
 
   /**
    * The operation performed on the token. Possible values: * **created**: the token has been
@@ -465,15 +644,33 @@ public class ResponseAdditionalDataCommon {
       "tokenization.store.operationType";
   private TokenizationStoreOperationTypeEnum tokenizationStoreOperationType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenizationStoreOperationType = false;
+
   public static final String JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID =
       "tokenization.storedPaymentMethodId";
   private String tokenizationStoredPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenizationStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_VISA_TRANSACTION_ID = "visaTransactionId";
   private String visaTransactionId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVisaTransactionId = false;
+
   public static final String JSON_PROPERTY_XID = "xid";
   private String xid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetXid = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ResponseAdditionalDataCommon() {}
 
@@ -487,6 +684,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon acquirerAccountCode(String acquirerAccountCode) {
     this.acquirerAccountCode = acquirerAccountCode;
+    isSetAcquirerAccountCode = true; // mark as set
     return this;
   }
 
@@ -514,6 +712,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerAccountCode(String acquirerAccountCode) {
     this.acquirerAccountCode = acquirerAccountCode;
+    isSetAcquirerAccountCode = true; // mark as set
   }
 
   /**
@@ -525,6 +724,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon acquirerCode(String acquirerCode) {
     this.acquirerCode = acquirerCode;
+    isSetAcquirerCode = true; // mark as set
     return this;
   }
 
@@ -550,6 +750,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerCode(String acquirerCode) {
     this.acquirerCode = acquirerCode;
+    isSetAcquirerCode = true; // mark as set
   }
 
   /**
@@ -562,6 +763,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon acquirerReference(String acquirerReference) {
     this.acquirerReference = acquirerReference;
+    isSetAcquirerReference = true; // mark as set
     return this;
   }
 
@@ -589,6 +791,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerReference(String acquirerReference) {
     this.acquirerReference = acquirerReference;
+    isSetAcquirerReference = true; // mark as set
   }
 
   /**
@@ -599,6 +802,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon alias(String alias) {
     this.alias = alias;
+    isSetAlias = true; // mark as set
     return this;
   }
 
@@ -622,6 +826,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
     this.alias = alias;
+    isSetAlias = true; // mark as set
   }
 
   /**
@@ -632,6 +837,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon aliasType(String aliasType) {
     this.aliasType = aliasType;
+    isSetAliasType = true; // mark as set
     return this;
   }
 
@@ -655,6 +861,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
     this.aliasType = aliasType;
+    isSetAliasType = true; // mark as set
   }
 
   /**
@@ -669,6 +876,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon authCode(String authCode) {
     this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
     return this;
   }
 
@@ -700,6 +908,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
     this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
   }
 
   /**
@@ -710,6 +919,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon authorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
+    isSetAuthorisationMid = true; // mark as set
     return this;
   }
 
@@ -733,6 +943,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
+    isSetAuthorisationMid = true; // mark as set
   }
 
   /**
@@ -745,6 +956,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon authorisedAmountCurrency(String authorisedAmountCurrency) {
     this.authorisedAmountCurrency = authorisedAmountCurrency;
+    isSetAuthorisedAmountCurrency = true; // mark as set
     return this;
   }
 
@@ -772,6 +984,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountCurrency(String authorisedAmountCurrency) {
     this.authorisedAmountCurrency = authorisedAmountCurrency;
+    isSetAuthorisedAmountCurrency = true; // mark as set
   }
 
   /**
@@ -785,6 +998,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon authorisedAmountValue(String authorisedAmountValue) {
     this.authorisedAmountValue = authorisedAmountValue;
+    isSetAuthorisedAmountValue = true; // mark as set
     return this;
   }
 
@@ -814,6 +1028,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountValue(String authorisedAmountValue) {
     this.authorisedAmountValue = authorisedAmountValue;
+    isSetAuthorisedAmountValue = true; // mark as set
   }
 
   /**
@@ -828,6 +1043,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon avsResult(String avsResult) {
     this.avsResult = avsResult;
+    isSetAvsResult = true; // mark as set
     return this;
   }
 
@@ -859,6 +1075,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResult(String avsResult) {
     this.avsResult = avsResult;
+    isSetAvsResult = true; // mark as set
   }
 
   /**
@@ -869,6 +1086,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon avsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
+    isSetAvsResultRaw = true; // mark as set
     return this;
   }
 
@@ -892,6 +1110,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
+    isSetAvsResultRaw = true; // mark as set
   }
 
   /**
@@ -903,6 +1122,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon bic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
     return this;
   }
 
@@ -928,6 +1148,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
   }
 
   /**
@@ -938,6 +1159,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon coBrandedWith(String coBrandedWith) {
     this.coBrandedWith = coBrandedWith;
+    isSetCoBrandedWith = true; // mark as set
     return this;
   }
 
@@ -961,6 +1183,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoBrandedWith(String coBrandedWith) {
     this.coBrandedWith = coBrandedWith;
+    isSetCoBrandedWith = true; // mark as set
   }
 
   /**
@@ -971,6 +1194,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon cvcResult(String cvcResult) {
     this.cvcResult = cvcResult;
+    isSetCvcResult = true; // mark as set
     return this;
   }
 
@@ -994,6 +1218,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResult(String cvcResult) {
     this.cvcResult = cvcResult;
+    isSetCvcResult = true; // mark as set
   }
 
   /**
@@ -1004,6 +1229,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon cvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
+    isSetCvcResultRaw = true; // mark as set
     return this;
   }
 
@@ -1027,6 +1253,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
+    isSetCvcResultRaw = true; // mark as set
   }
 
   /**
@@ -1039,6 +1266,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
     return this;
   }
 
@@ -1066,6 +1294,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
   }
 
   /**
@@ -1078,6 +1307,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon eci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
     return this;
   }
 
@@ -1105,6 +1335,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
   }
 
   /**
@@ -1116,6 +1347,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
+    isSetExpiryDate = true; // mark as set
     return this;
   }
 
@@ -1141,6 +1373,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
+    isSetExpiryDate = true; // mark as set
   }
 
   /**
@@ -1153,6 +1386,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon extraCostsCurrency(String extraCostsCurrency) {
     this.extraCostsCurrency = extraCostsCurrency;
+    isSetExtraCostsCurrency = true; // mark as set
     return this;
   }
 
@@ -1180,6 +1414,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsCurrency(String extraCostsCurrency) {
     this.extraCostsCurrency = extraCostsCurrency;
+    isSetExtraCostsCurrency = true; // mark as set
   }
 
   /**
@@ -1192,6 +1427,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon extraCostsValue(String extraCostsValue) {
     this.extraCostsValue = extraCostsValue;
+    isSetExtraCostsValue = true; // mark as set
     return this;
   }
 
@@ -1219,6 +1455,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsValue(String extraCostsValue) {
     this.extraCostsValue = extraCostsValue;
+    isSetExtraCostsValue = true; // mark as set
   }
 
   /**
@@ -1232,6 +1469,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon fraudCheckItemNrFraudCheckname(
       String fraudCheckItemNrFraudCheckname) {
     this.fraudCheckItemNrFraudCheckname = fraudCheckItemNrFraudCheckname;
+    isSetFraudCheckItemNrFraudCheckname = true; // mark as set
     return this;
   }
 
@@ -1259,6 +1497,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckItemNrFraudCheckname(String fraudCheckItemNrFraudCheckname) {
     this.fraudCheckItemNrFraudCheckname = fraudCheckItemNrFraudCheckname;
+    isSetFraudCheckItemNrFraudCheckname = true; // mark as set
   }
 
   /**
@@ -1269,6 +1508,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon fraudManualReview(String fraudManualReview) {
     this.fraudManualReview = fraudManualReview;
+    isSetFraudManualReview = true; // mark as set
     return this;
   }
 
@@ -1292,6 +1532,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudManualReview(String fraudManualReview) {
     this.fraudManualReview = fraudManualReview;
+    isSetFraudManualReview = true; // mark as set
   }
 
   /**
@@ -1302,6 +1543,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon fraudResultType(FraudResultTypeEnum fraudResultType) {
     this.fraudResultType = fraudResultType;
+    isSetFraudResultType = true; // mark as set
     return this;
   }
 
@@ -1325,6 +1567,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResultType(FraudResultTypeEnum fraudResultType) {
     this.fraudResultType = fraudResultType;
+    isSetFraudResultType = true; // mark as set
   }
 
   /**
@@ -1342,6 +1585,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon fraudRiskLevel(FraudRiskLevelEnum fraudRiskLevel) {
     this.fraudRiskLevel = fraudRiskLevel;
+    isSetFraudRiskLevel = true; // mark as set
     return this;
   }
 
@@ -1379,6 +1623,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudRiskLevel(FraudRiskLevelEnum fraudRiskLevel) {
     this.fraudRiskLevel = fraudRiskLevel;
+    isSetFraudRiskLevel = true; // mark as set
   }
 
   /**
@@ -1398,6 +1643,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -1439,6 +1685,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -1457,6 +1704,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon fundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
+    isSetFundsAvailability = true; // mark as set
     return this;
   }
 
@@ -1496,6 +1744,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
+    isSetFundsAvailability = true; // mark as set
   }
 
   /**
@@ -1523,6 +1772,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon inferredRefusalReason(String inferredRefusalReason) {
     this.inferredRefusalReason = inferredRefusalReason;
+    isSetInferredRefusalReason = true; // mark as set
     return this;
   }
 
@@ -1580,6 +1830,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInferredRefusalReason(String inferredRefusalReason) {
     this.inferredRefusalReason = inferredRefusalReason;
+    isSetInferredRefusalReason = true; // mark as set
   }
 
   /**
@@ -1590,6 +1841,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon isCardCommercial(String isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
+    isSetIsCardCommercial = true; // mark as set
     return this;
   }
 
@@ -1613,6 +1865,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(String isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
+    isSetIsCardCommercial = true; // mark as set
   }
 
   /**
@@ -1624,6 +1877,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
+    isSetIssuerCountry = true; // mark as set
     return this;
   }
 
@@ -1649,6 +1903,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
+    isSetIssuerCountry = true; // mark as set
   }
 
   /**
@@ -1660,6 +1915,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon liabilityShift(String liabilityShift) {
     this.liabilityShift = liabilityShift;
+    isSetLiabilityShift = true; // mark as set
     return this;
   }
 
@@ -1685,6 +1941,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLiabilityShift(String liabilityShift) {
     this.liabilityShift = liabilityShift;
+    isSetLiabilityShift = true; // mark as set
   }
 
   /**
@@ -1698,6 +1955,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon mcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
     this.mcBankNetReferenceNumber = mcBankNetReferenceNumber;
+    isSetMcBankNetReferenceNumber = true; // mark as set
     return this;
   }
 
@@ -1727,6 +1985,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
     this.mcBankNetReferenceNumber = mcBankNetReferenceNumber;
+    isSetMcBankNetReferenceNumber = true; // mark as set
   }
 
   /**
@@ -1743,6 +2002,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon merchantAdviceCode(String merchantAdviceCode) {
     this.merchantAdviceCode = merchantAdviceCode;
+    isSetMerchantAdviceCode = true; // mark as set
     return this;
   }
 
@@ -1778,6 +2038,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAdviceCode(String merchantAdviceCode) {
     this.merchantAdviceCode = merchantAdviceCode;
+    isSetMerchantAdviceCode = true; // mark as set
   }
 
   /**
@@ -1788,6 +2049,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
     return this;
   }
 
@@ -1811,6 +2073,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
   }
 
   /**
@@ -1825,6 +2088,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
     return this;
   }
 
@@ -1856,6 +2120,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
   }
 
   /**
@@ -1867,6 +2132,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -1892,6 +2158,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -1905,6 +2172,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon paymentAccountReference(String paymentAccountReference) {
     this.paymentAccountReference = paymentAccountReference;
+    isSetPaymentAccountReference = true; // mark as set
     return this;
   }
 
@@ -1934,6 +2202,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountReference(String paymentAccountReference) {
     this.paymentAccountReference = paymentAccountReference;
+    isSetPaymentAccountReference = true; // mark as set
   }
 
   /**
@@ -1944,6 +2213,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -1967,6 +2237,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -1983,6 +2254,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon paymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
+    isSetPaymentMethodVariant = true; // mark as set
     return this;
   }
 
@@ -2018,6 +2290,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
+    isSetPaymentMethodVariant = true; // mark as set
   }
 
   /**
@@ -2033,6 +2306,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon payoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
+    isSetPayoutEligible = true; // mark as set
     return this;
   }
 
@@ -2066,6 +2340,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
+    isSetPayoutEligible = true; // mark as set
   }
 
   /**
@@ -2080,6 +2355,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon realtimeAccountUpdaterStatus(
       String realtimeAccountUpdaterStatus) {
     this.realtimeAccountUpdaterStatus = realtimeAccountUpdaterStatus;
+    isSetRealtimeAccountUpdaterStatus = true; // mark as set
     return this;
   }
 
@@ -2109,6 +2385,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRealtimeAccountUpdaterStatus(String realtimeAccountUpdaterStatus) {
     this.realtimeAccountUpdaterStatus = realtimeAccountUpdaterStatus;
+    isSetRealtimeAccountUpdaterStatus = true; // mark as set
   }
 
   /**
@@ -2119,6 +2396,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon receiptFreeText(String receiptFreeText) {
     this.receiptFreeText = receiptFreeText;
+    isSetReceiptFreeText = true; // mark as set
     return this;
   }
 
@@ -2142,6 +2420,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptFreeText(String receiptFreeText) {
     this.receiptFreeText = receiptFreeText;
+    isSetReceiptFreeText = true; // mark as set
   }
 
   /**
@@ -2152,6 +2431,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon recurringContractTypes(String recurringContractTypes) {
     this.recurringContractTypes = recurringContractTypes;
+    isSetRecurringContractTypes = true; // mark as set
     return this;
   }
 
@@ -2175,6 +2455,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringContractTypes(String recurringContractTypes) {
     this.recurringContractTypes = recurringContractTypes;
+    isSetRecurringContractTypes = true; // mark as set
   }
 
   /**
@@ -2190,6 +2471,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon recurringFirstPspReference(
       String recurringFirstPspReference) {
     this.recurringFirstPspReference = recurringFirstPspReference;
+    isSetRecurringFirstPspReference = true; // mark as set
     return this;
   }
 
@@ -2221,6 +2503,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFirstPspReference(String recurringFirstPspReference) {
     this.recurringFirstPspReference = recurringFirstPspReference;
+    isSetRecurringFirstPspReference = true; // mark as set
   }
 
   /**
@@ -2236,6 +2519,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon recurringRecurringDetailReference(
       String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
+    isSetRecurringRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -2268,6 +2552,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
+    isSetRecurringRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -2281,6 +2566,7 @@ public class ResponseAdditionalDataCommon {
   @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead.
   public ResponseAdditionalDataCommon recurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
+    isSetRecurringShopperReference = true; // mark as set
     return this;
   }
 
@@ -2311,6 +2597,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
+    isSetRecurringShopperReference = true; // mark as set
   }
 
   /**
@@ -2322,6 +2609,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon recurringProcessingModel(
       RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
     return this;
   }
 
@@ -2345,6 +2633,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
   }
 
   /**
@@ -2358,6 +2647,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon referred(String referred) {
     this.referred = referred;
+    isSetReferred = true; // mark as set
     return this;
   }
 
@@ -2387,6 +2677,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferred(String referred) {
     this.referred = referred;
+    isSetReferred = true; // mark as set
   }
 
   /**
@@ -2398,6 +2689,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon refusalReasonRaw(String refusalReasonRaw) {
     this.refusalReasonRaw = refusalReasonRaw;
+    isSetRefusalReasonRaw = true; // mark as set
     return this;
   }
 
@@ -2423,6 +2715,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReasonRaw(String refusalReasonRaw) {
     this.refusalReasonRaw = refusalReasonRaw;
+    isSetRefusalReasonRaw = true; // mark as set
   }
 
   /**
@@ -2433,6 +2726,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon requestAmount(String requestAmount) {
     this.requestAmount = requestAmount;
+    isSetRequestAmount = true; // mark as set
     return this;
   }
 
@@ -2456,6 +2750,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestAmount(String requestAmount) {
     this.requestAmount = requestAmount;
+    isSetRequestAmount = true; // mark as set
   }
 
   /**
@@ -2466,6 +2761,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon requestCurrencyCode(String requestCurrencyCode) {
     this.requestCurrencyCode = requestCurrencyCode;
+    isSetRequestCurrencyCode = true; // mark as set
     return this;
   }
 
@@ -2489,6 +2785,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestCurrencyCode(String requestCurrencyCode) {
     this.requestCurrencyCode = requestCurrencyCode;
+    isSetRequestCurrencyCode = true; // mark as set
   }
 
   /**
@@ -2500,6 +2797,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon shopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -2525,6 +2823,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -2536,6 +2835,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -2561,6 +2861,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -2571,6 +2872,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon terminalId(String terminalId) {
     this.terminalId = terminalId;
+    isSetTerminalId = true; // mark as set
     return this;
   }
 
@@ -2594,6 +2896,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
+    isSetTerminalId = true; // mark as set
   }
 
   /**
@@ -2606,6 +2909,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon threeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
+    isSetThreeDAuthenticated = true; // mark as set
     return this;
   }
 
@@ -2633,6 +2937,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
+    isSetThreeDAuthenticated = true; // mark as set
   }
 
   /**
@@ -2645,6 +2950,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon threeDAuthenticatedResponse(
       String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
+    isSetThreeDAuthenticatedResponse = true; // mark as set
     return this;
   }
 
@@ -2670,6 +2976,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
+    isSetThreeDAuthenticatedResponse = true; // mark as set
   }
 
   /**
@@ -2681,6 +2988,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon threeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
+    isSetThreeDOffered = true; // mark as set
     return this;
   }
 
@@ -2706,6 +3014,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
+    isSetThreeDOffered = true; // mark as set
   }
 
   /**
@@ -2717,6 +3026,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon threeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
+    isSetThreeDOfferedResponse = true; // mark as set
     return this;
   }
 
@@ -2742,6 +3052,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
+    isSetThreeDOfferedResponse = true; // mark as set
   }
 
   /**
@@ -2752,6 +3063,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon threeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
     return this;
   }
 
@@ -2775,6 +3087,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
   }
 
   /**
@@ -2787,6 +3100,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon tokenizationShopperReference(
       String tokenizationShopperReference) {
     this.tokenizationShopperReference = tokenizationShopperReference;
+    isSetTokenizationShopperReference = true; // mark as set
     return this;
   }
 
@@ -2812,6 +3126,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenizationShopperReference(String tokenizationShopperReference) {
     this.tokenizationShopperReference = tokenizationShopperReference;
+    isSetTokenizationShopperReference = true; // mark as set
   }
 
   /**
@@ -2827,6 +3142,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon tokenizationStoreOperationType(
       TokenizationStoreOperationTypeEnum tokenizationStoreOperationType) {
     this.tokenizationStoreOperationType = tokenizationStoreOperationType;
+    isSetTokenizationStoreOperationType = true; // mark as set
     return this;
   }
 
@@ -2859,6 +3175,7 @@ public class ResponseAdditionalDataCommon {
   public void setTokenizationStoreOperationType(
       TokenizationStoreOperationTypeEnum tokenizationStoreOperationType) {
     this.tokenizationStoreOperationType = tokenizationStoreOperationType;
+    isSetTokenizationStoreOperationType = true; // mark as set
   }
 
   /**
@@ -2871,6 +3188,7 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon tokenizationStoredPaymentMethodId(
       String tokenizationStoredPaymentMethodId) {
     this.tokenizationStoredPaymentMethodId = tokenizationStoredPaymentMethodId;
+    isSetTokenizationStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -2896,6 +3214,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenizationStoredPaymentMethodId(String tokenizationStoredPaymentMethodId) {
     this.tokenizationStoredPaymentMethodId = tokenizationStoredPaymentMethodId;
+    isSetTokenizationStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -2908,6 +3227,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon visaTransactionId(String visaTransactionId) {
     this.visaTransactionId = visaTransactionId;
+    isSetVisaTransactionId = true; // mark as set
     return this;
   }
 
@@ -2935,6 +3255,7 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaTransactionId(String visaTransactionId) {
     this.visaTransactionId = visaTransactionId;
+    isSetVisaTransactionId = true; // mark as set
   }
 
   /**
@@ -2949,6 +3270,7 @@ public class ResponseAdditionalDataCommon {
    */
   public ResponseAdditionalDataCommon xid(String xid) {
     this.xid = xid;
+    isSetXid = true; // mark as set
     return this;
   }
 
@@ -2980,6 +3302,27 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(String xid) {
     this.xid = xid;
+    isSetXid = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ResponseAdditionalDataCommon includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ResponseAdditionalDataCommon object is equal to o. */
@@ -2994,164 +3337,348 @@ public class ResponseAdditionalDataCommon {
     ResponseAdditionalDataCommon responseAdditionalDataCommon = (ResponseAdditionalDataCommon) o;
     return Objects.equals(
             this.acquirerAccountCode, responseAdditionalDataCommon.acquirerAccountCode)
+        && Objects.equals(
+            this.isSetAcquirerAccountCode, responseAdditionalDataCommon.isSetAcquirerAccountCode)
         && Objects.equals(this.acquirerCode, responseAdditionalDataCommon.acquirerCode)
+        && Objects.equals(this.isSetAcquirerCode, responseAdditionalDataCommon.isSetAcquirerCode)
         && Objects.equals(this.acquirerReference, responseAdditionalDataCommon.acquirerReference)
+        && Objects.equals(
+            this.isSetAcquirerReference, responseAdditionalDataCommon.isSetAcquirerReference)
         && Objects.equals(this.alias, responseAdditionalDataCommon.alias)
+        && Objects.equals(this.isSetAlias, responseAdditionalDataCommon.isSetAlias)
         && Objects.equals(this.aliasType, responseAdditionalDataCommon.aliasType)
+        && Objects.equals(this.isSetAliasType, responseAdditionalDataCommon.isSetAliasType)
         && Objects.equals(this.authCode, responseAdditionalDataCommon.authCode)
+        && Objects.equals(this.isSetAuthCode, responseAdditionalDataCommon.isSetAuthCode)
         && Objects.equals(this.authorisationMid, responseAdditionalDataCommon.authorisationMid)
+        && Objects.equals(
+            this.isSetAuthorisationMid, responseAdditionalDataCommon.isSetAuthorisationMid)
         && Objects.equals(
             this.authorisedAmountCurrency, responseAdditionalDataCommon.authorisedAmountCurrency)
         && Objects.equals(
+            this.isSetAuthorisedAmountCurrency,
+            responseAdditionalDataCommon.isSetAuthorisedAmountCurrency)
+        && Objects.equals(
             this.authorisedAmountValue, responseAdditionalDataCommon.authorisedAmountValue)
+        && Objects.equals(
+            this.isSetAuthorisedAmountValue,
+            responseAdditionalDataCommon.isSetAuthorisedAmountValue)
         && Objects.equals(this.avsResult, responseAdditionalDataCommon.avsResult)
+        && Objects.equals(this.isSetAvsResult, responseAdditionalDataCommon.isSetAvsResult)
         && Objects.equals(this.avsResultRaw, responseAdditionalDataCommon.avsResultRaw)
+        && Objects.equals(this.isSetAvsResultRaw, responseAdditionalDataCommon.isSetAvsResultRaw)
         && Objects.equals(this.bic, responseAdditionalDataCommon.bic)
+        && Objects.equals(this.isSetBic, responseAdditionalDataCommon.isSetBic)
         && Objects.equals(this.coBrandedWith, responseAdditionalDataCommon.coBrandedWith)
+        && Objects.equals(this.isSetCoBrandedWith, responseAdditionalDataCommon.isSetCoBrandedWith)
         && Objects.equals(this.cvcResult, responseAdditionalDataCommon.cvcResult)
+        && Objects.equals(this.isSetCvcResult, responseAdditionalDataCommon.isSetCvcResult)
         && Objects.equals(this.cvcResultRaw, responseAdditionalDataCommon.cvcResultRaw)
+        && Objects.equals(this.isSetCvcResultRaw, responseAdditionalDataCommon.isSetCvcResultRaw)
         && Objects.equals(this.dsTransID, responseAdditionalDataCommon.dsTransID)
+        && Objects.equals(this.isSetDsTransID, responseAdditionalDataCommon.isSetDsTransID)
         && Objects.equals(this.eci, responseAdditionalDataCommon.eci)
+        && Objects.equals(this.isSetEci, responseAdditionalDataCommon.isSetEci)
         && Objects.equals(this.expiryDate, responseAdditionalDataCommon.expiryDate)
+        && Objects.equals(this.isSetExpiryDate, responseAdditionalDataCommon.isSetExpiryDate)
         && Objects.equals(this.extraCostsCurrency, responseAdditionalDataCommon.extraCostsCurrency)
+        && Objects.equals(
+            this.isSetExtraCostsCurrency, responseAdditionalDataCommon.isSetExtraCostsCurrency)
         && Objects.equals(this.extraCostsValue, responseAdditionalDataCommon.extraCostsValue)
+        && Objects.equals(
+            this.isSetExtraCostsValue, responseAdditionalDataCommon.isSetExtraCostsValue)
         && Objects.equals(
             this.fraudCheckItemNrFraudCheckname,
             responseAdditionalDataCommon.fraudCheckItemNrFraudCheckname)
+        && Objects.equals(
+            this.isSetFraudCheckItemNrFraudCheckname,
+            responseAdditionalDataCommon.isSetFraudCheckItemNrFraudCheckname)
         && Objects.equals(this.fraudManualReview, responseAdditionalDataCommon.fraudManualReview)
+        && Objects.equals(
+            this.isSetFraudManualReview, responseAdditionalDataCommon.isSetFraudManualReview)
         && Objects.equals(this.fraudResultType, responseAdditionalDataCommon.fraudResultType)
+        && Objects.equals(
+            this.isSetFraudResultType, responseAdditionalDataCommon.isSetFraudResultType)
         && Objects.equals(this.fraudRiskLevel, responseAdditionalDataCommon.fraudRiskLevel)
+        && Objects.equals(
+            this.isSetFraudRiskLevel, responseAdditionalDataCommon.isSetFraudRiskLevel)
         && Objects.equals(this.fundingSource, responseAdditionalDataCommon.fundingSource)
+        && Objects.equals(this.isSetFundingSource, responseAdditionalDataCommon.isSetFundingSource)
         && Objects.equals(this.fundsAvailability, responseAdditionalDataCommon.fundsAvailability)
         && Objects.equals(
+            this.isSetFundsAvailability, responseAdditionalDataCommon.isSetFundsAvailability)
+        && Objects.equals(
             this.inferredRefusalReason, responseAdditionalDataCommon.inferredRefusalReason)
+        && Objects.equals(
+            this.isSetInferredRefusalReason,
+            responseAdditionalDataCommon.isSetInferredRefusalReason)
         && Objects.equals(this.isCardCommercial, responseAdditionalDataCommon.isCardCommercial)
+        && Objects.equals(
+            this.isSetIsCardCommercial, responseAdditionalDataCommon.isSetIsCardCommercial)
         && Objects.equals(this.issuerCountry, responseAdditionalDataCommon.issuerCountry)
+        && Objects.equals(this.isSetIssuerCountry, responseAdditionalDataCommon.isSetIssuerCountry)
         && Objects.equals(this.liabilityShift, responseAdditionalDataCommon.liabilityShift)
         && Objects.equals(
+            this.isSetLiabilityShift, responseAdditionalDataCommon.isSetLiabilityShift)
+        && Objects.equals(
             this.mcBankNetReferenceNumber, responseAdditionalDataCommon.mcBankNetReferenceNumber)
+        && Objects.equals(
+            this.isSetMcBankNetReferenceNumber,
+            responseAdditionalDataCommon.isSetMcBankNetReferenceNumber)
         && Objects.equals(this.merchantAdviceCode, responseAdditionalDataCommon.merchantAdviceCode)
+        && Objects.equals(
+            this.isSetMerchantAdviceCode, responseAdditionalDataCommon.isSetMerchantAdviceCode)
         && Objects.equals(this.merchantReference, responseAdditionalDataCommon.merchantReference)
+        && Objects.equals(
+            this.isSetMerchantReference, responseAdditionalDataCommon.isSetMerchantReference)
         && Objects.equals(this.networkTxReference, responseAdditionalDataCommon.networkTxReference)
+        && Objects.equals(
+            this.isSetNetworkTxReference, responseAdditionalDataCommon.isSetNetworkTxReference)
         && Objects.equals(this.ownerName, responseAdditionalDataCommon.ownerName)
+        && Objects.equals(this.isSetOwnerName, responseAdditionalDataCommon.isSetOwnerName)
         && Objects.equals(
             this.paymentAccountReference, responseAdditionalDataCommon.paymentAccountReference)
+        && Objects.equals(
+            this.isSetPaymentAccountReference,
+            responseAdditionalDataCommon.isSetPaymentAccountReference)
         && Objects.equals(this.paymentMethod, responseAdditionalDataCommon.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, responseAdditionalDataCommon.isSetPaymentMethod)
         && Objects.equals(
             this.paymentMethodVariant, responseAdditionalDataCommon.paymentMethodVariant)
+        && Objects.equals(
+            this.isSetPaymentMethodVariant, responseAdditionalDataCommon.isSetPaymentMethodVariant)
         && Objects.equals(this.payoutEligible, responseAdditionalDataCommon.payoutEligible)
+        && Objects.equals(
+            this.isSetPayoutEligible, responseAdditionalDataCommon.isSetPayoutEligible)
         && Objects.equals(
             this.realtimeAccountUpdaterStatus,
             responseAdditionalDataCommon.realtimeAccountUpdaterStatus)
+        && Objects.equals(
+            this.isSetRealtimeAccountUpdaterStatus,
+            responseAdditionalDataCommon.isSetRealtimeAccountUpdaterStatus)
         && Objects.equals(this.receiptFreeText, responseAdditionalDataCommon.receiptFreeText)
         && Objects.equals(
+            this.isSetReceiptFreeText, responseAdditionalDataCommon.isSetReceiptFreeText)
+        && Objects.equals(
             this.recurringContractTypes, responseAdditionalDataCommon.recurringContractTypes)
+        && Objects.equals(
+            this.isSetRecurringContractTypes,
+            responseAdditionalDataCommon.isSetRecurringContractTypes)
         && Objects.equals(
             this.recurringFirstPspReference,
             responseAdditionalDataCommon.recurringFirstPspReference)
         && Objects.equals(
+            this.isSetRecurringFirstPspReference,
+            responseAdditionalDataCommon.isSetRecurringFirstPspReference)
+        && Objects.equals(
             this.recurringRecurringDetailReference,
             responseAdditionalDataCommon.recurringRecurringDetailReference)
         && Objects.equals(
+            this.isSetRecurringRecurringDetailReference,
+            responseAdditionalDataCommon.isSetRecurringRecurringDetailReference)
+        && Objects.equals(
             this.recurringShopperReference, responseAdditionalDataCommon.recurringShopperReference)
         && Objects.equals(
+            this.isSetRecurringShopperReference,
+            responseAdditionalDataCommon.isSetRecurringShopperReference)
+        && Objects.equals(
             this.recurringProcessingModel, responseAdditionalDataCommon.recurringProcessingModel)
+        && Objects.equals(
+            this.isSetRecurringProcessingModel,
+            responseAdditionalDataCommon.isSetRecurringProcessingModel)
         && Objects.equals(this.referred, responseAdditionalDataCommon.referred)
+        && Objects.equals(this.isSetReferred, responseAdditionalDataCommon.isSetReferred)
         && Objects.equals(this.refusalReasonRaw, responseAdditionalDataCommon.refusalReasonRaw)
+        && Objects.equals(
+            this.isSetRefusalReasonRaw, responseAdditionalDataCommon.isSetRefusalReasonRaw)
         && Objects.equals(this.requestAmount, responseAdditionalDataCommon.requestAmount)
+        && Objects.equals(this.isSetRequestAmount, responseAdditionalDataCommon.isSetRequestAmount)
         && Objects.equals(
             this.requestCurrencyCode, responseAdditionalDataCommon.requestCurrencyCode)
+        && Objects.equals(
+            this.isSetRequestCurrencyCode, responseAdditionalDataCommon.isSetRequestCurrencyCode)
         && Objects.equals(this.shopperInteraction, responseAdditionalDataCommon.shopperInteraction)
+        && Objects.equals(
+            this.isSetShopperInteraction, responseAdditionalDataCommon.isSetShopperInteraction)
         && Objects.equals(this.shopperReference, responseAdditionalDataCommon.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, responseAdditionalDataCommon.isSetShopperReference)
         && Objects.equals(this.terminalId, responseAdditionalDataCommon.terminalId)
+        && Objects.equals(this.isSetTerminalId, responseAdditionalDataCommon.isSetTerminalId)
         && Objects.equals(
             this.threeDAuthenticated, responseAdditionalDataCommon.threeDAuthenticated)
         && Objects.equals(
+            this.isSetThreeDAuthenticated, responseAdditionalDataCommon.isSetThreeDAuthenticated)
+        && Objects.equals(
             this.threeDAuthenticatedResponse,
             responseAdditionalDataCommon.threeDAuthenticatedResponse)
+        && Objects.equals(
+            this.isSetThreeDAuthenticatedResponse,
+            responseAdditionalDataCommon.isSetThreeDAuthenticatedResponse)
         && Objects.equals(this.threeDOffered, responseAdditionalDataCommon.threeDOffered)
+        && Objects.equals(this.isSetThreeDOffered, responseAdditionalDataCommon.isSetThreeDOffered)
         && Objects.equals(
             this.threeDOfferedResponse, responseAdditionalDataCommon.threeDOfferedResponse)
+        && Objects.equals(
+            this.isSetThreeDOfferedResponse,
+            responseAdditionalDataCommon.isSetThreeDOfferedResponse)
         && Objects.equals(this.threeDSVersion, responseAdditionalDataCommon.threeDSVersion)
+        && Objects.equals(
+            this.isSetThreeDSVersion, responseAdditionalDataCommon.isSetThreeDSVersion)
         && Objects.equals(
             this.tokenizationShopperReference,
             responseAdditionalDataCommon.tokenizationShopperReference)
         && Objects.equals(
+            this.isSetTokenizationShopperReference,
+            responseAdditionalDataCommon.isSetTokenizationShopperReference)
+        && Objects.equals(
             this.tokenizationStoreOperationType,
             responseAdditionalDataCommon.tokenizationStoreOperationType)
         && Objects.equals(
+            this.isSetTokenizationStoreOperationType,
+            responseAdditionalDataCommon.isSetTokenizationStoreOperationType)
+        && Objects.equals(
             this.tokenizationStoredPaymentMethodId,
             responseAdditionalDataCommon.tokenizationStoredPaymentMethodId)
+        && Objects.equals(
+            this.isSetTokenizationStoredPaymentMethodId,
+            responseAdditionalDataCommon.isSetTokenizationStoredPaymentMethodId)
         && Objects.equals(this.visaTransactionId, responseAdditionalDataCommon.visaTransactionId)
-        && Objects.equals(this.xid, responseAdditionalDataCommon.xid);
+        && Objects.equals(
+            this.isSetVisaTransactionId, responseAdditionalDataCommon.isSetVisaTransactionId)
+        && Objects.equals(this.xid, responseAdditionalDataCommon.xid)
+        && Objects.equals(this.isSetXid, responseAdditionalDataCommon.isSetXid);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acquirerAccountCode,
+        isSetAcquirerAccountCode,
         acquirerCode,
+        isSetAcquirerCode,
         acquirerReference,
+        isSetAcquirerReference,
         alias,
+        isSetAlias,
         aliasType,
+        isSetAliasType,
         authCode,
+        isSetAuthCode,
         authorisationMid,
+        isSetAuthorisationMid,
         authorisedAmountCurrency,
+        isSetAuthorisedAmountCurrency,
         authorisedAmountValue,
+        isSetAuthorisedAmountValue,
         avsResult,
+        isSetAvsResult,
         avsResultRaw,
+        isSetAvsResultRaw,
         bic,
+        isSetBic,
         coBrandedWith,
+        isSetCoBrandedWith,
         cvcResult,
+        isSetCvcResult,
         cvcResultRaw,
+        isSetCvcResultRaw,
         dsTransID,
+        isSetDsTransID,
         eci,
+        isSetEci,
         expiryDate,
+        isSetExpiryDate,
         extraCostsCurrency,
+        isSetExtraCostsCurrency,
         extraCostsValue,
+        isSetExtraCostsValue,
         fraudCheckItemNrFraudCheckname,
+        isSetFraudCheckItemNrFraudCheckname,
         fraudManualReview,
+        isSetFraudManualReview,
         fraudResultType,
+        isSetFraudResultType,
         fraudRiskLevel,
+        isSetFraudRiskLevel,
         fundingSource,
+        isSetFundingSource,
         fundsAvailability,
+        isSetFundsAvailability,
         inferredRefusalReason,
+        isSetInferredRefusalReason,
         isCardCommercial,
+        isSetIsCardCommercial,
         issuerCountry,
+        isSetIssuerCountry,
         liabilityShift,
+        isSetLiabilityShift,
         mcBankNetReferenceNumber,
+        isSetMcBankNetReferenceNumber,
         merchantAdviceCode,
+        isSetMerchantAdviceCode,
         merchantReference,
+        isSetMerchantReference,
         networkTxReference,
+        isSetNetworkTxReference,
         ownerName,
+        isSetOwnerName,
         paymentAccountReference,
+        isSetPaymentAccountReference,
         paymentMethod,
+        isSetPaymentMethod,
         paymentMethodVariant,
+        isSetPaymentMethodVariant,
         payoutEligible,
+        isSetPayoutEligible,
         realtimeAccountUpdaterStatus,
+        isSetRealtimeAccountUpdaterStatus,
         receiptFreeText,
+        isSetReceiptFreeText,
         recurringContractTypes,
+        isSetRecurringContractTypes,
         recurringFirstPspReference,
+        isSetRecurringFirstPspReference,
         recurringRecurringDetailReference,
+        isSetRecurringRecurringDetailReference,
         recurringShopperReference,
+        isSetRecurringShopperReference,
         recurringProcessingModel,
+        isSetRecurringProcessingModel,
         referred,
+        isSetReferred,
         refusalReasonRaw,
+        isSetRefusalReasonRaw,
         requestAmount,
+        isSetRequestAmount,
         requestCurrencyCode,
+        isSetRequestCurrencyCode,
         shopperInteraction,
+        isSetShopperInteraction,
         shopperReference,
+        isSetShopperReference,
         terminalId,
+        isSetTerminalId,
         threeDAuthenticated,
+        isSetThreeDAuthenticated,
         threeDAuthenticatedResponse,
+        isSetThreeDAuthenticatedResponse,
         threeDOffered,
+        isSetThreeDOffered,
         threeDOfferedResponse,
+        isSetThreeDOfferedResponse,
         threeDSVersion,
+        isSetThreeDSVersion,
         tokenizationShopperReference,
+        isSetTokenizationShopperReference,
         tokenizationStoreOperationType,
+        isSetTokenizationStoreOperationType,
         tokenizationStoredPaymentMethodId,
+        isSetTokenizationStoredPaymentMethodId,
         visaTransactionId,
-        xid);
+        isSetVisaTransactionId,
+        xid,
+        isSetXid);
   }
 
   @Override
@@ -3275,6 +3802,232 @@ public class ResponseAdditionalDataCommon {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcquirerAccountCode) {
+      addIfNull(nulls, JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE, this.acquirerAccountCode);
+    }
+    if (isSetAcquirerCode) {
+      addIfNull(nulls, JSON_PROPERTY_ACQUIRER_CODE, this.acquirerCode);
+    }
+    if (isSetAcquirerReference) {
+      addIfNull(nulls, JSON_PROPERTY_ACQUIRER_REFERENCE, this.acquirerReference);
+    }
+    if (isSetAlias) {
+      addIfNull(nulls, JSON_PROPERTY_ALIAS, this.alias);
+    }
+    if (isSetAliasType) {
+      addIfNull(nulls, JSON_PROPERTY_ALIAS_TYPE, this.aliasType);
+    }
+    if (isSetAuthCode) {
+      addIfNull(nulls, JSON_PROPERTY_AUTH_CODE, this.authCode);
+    }
+    if (isSetAuthorisationMid) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_MID, this.authorisationMid);
+    }
+    if (isSetAuthorisedAmountCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY, this.authorisedAmountCurrency);
+    }
+    if (isSetAuthorisedAmountValue) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE, this.authorisedAmountValue);
+    }
+    if (isSetAvsResult) {
+      addIfNull(nulls, JSON_PROPERTY_AVS_RESULT, this.avsResult);
+    }
+    if (isSetAvsResultRaw) {
+      addIfNull(nulls, JSON_PROPERTY_AVS_RESULT_RAW, this.avsResultRaw);
+    }
+    if (isSetBic) {
+      addIfNull(nulls, JSON_PROPERTY_BIC, this.bic);
+    }
+    if (isSetCoBrandedWith) {
+      addIfNull(nulls, JSON_PROPERTY_CO_BRANDED_WITH, this.coBrandedWith);
+    }
+    if (isSetCvcResult) {
+      addIfNull(nulls, JSON_PROPERTY_CVC_RESULT, this.cvcResult);
+    }
+    if (isSetCvcResultRaw) {
+      addIfNull(nulls, JSON_PROPERTY_CVC_RESULT_RAW, this.cvcResultRaw);
+    }
+    if (isSetDsTransID) {
+      addIfNull(nulls, JSON_PROPERTY_DS_TRANS_I_D, this.dsTransID);
+    }
+    if (isSetEci) {
+      addIfNull(nulls, JSON_PROPERTY_ECI, this.eci);
+    }
+    if (isSetExpiryDate) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_DATE, this.expiryDate);
+    }
+    if (isSetExtraCostsCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_EXTRA_COSTS_CURRENCY, this.extraCostsCurrency);
+    }
+    if (isSetExtraCostsValue) {
+      addIfNull(nulls, JSON_PROPERTY_EXTRA_COSTS_VALUE, this.extraCostsValue);
+    }
+    if (isSetFraudCheckItemNrFraudCheckname) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME,
+          this.fraudCheckItemNrFraudCheckname);
+    }
+    if (isSetFraudManualReview) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_MANUAL_REVIEW, this.fraudManualReview);
+    }
+    if (isSetFraudResultType) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_RESULT_TYPE, this.fraudResultType);
+    }
+    if (isSetFraudRiskLevel) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_RISK_LEVEL, this.fraudRiskLevel);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetFundsAvailability) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDS_AVAILABILITY, this.fundsAvailability);
+    }
+    if (isSetInferredRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_INFERRED_REFUSAL_REASON, this.inferredRefusalReason);
+    }
+    if (isSetIsCardCommercial) {
+      addIfNull(nulls, JSON_PROPERTY_IS_CARD_COMMERCIAL, this.isCardCommercial);
+    }
+    if (isSetIssuerCountry) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_COUNTRY, this.issuerCountry);
+    }
+    if (isSetLiabilityShift) {
+      addIfNull(nulls, JSON_PROPERTY_LIABILITY_SHIFT, this.liabilityShift);
+    }
+    if (isSetMcBankNetReferenceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER, this.mcBankNetReferenceNumber);
+    }
+    if (isSetMerchantAdviceCode) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ADVICE_CODE, this.merchantAdviceCode);
+    }
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetNetworkTxReference) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetPaymentAccountReference) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE, this.paymentAccountReference);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetPaymentMethodVariant) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_VARIANT, this.paymentMethodVariant);
+    }
+    if (isSetPayoutEligible) {
+      addIfNull(nulls, JSON_PROPERTY_PAYOUT_ELIGIBLE, this.payoutEligible);
+    }
+    if (isSetRealtimeAccountUpdaterStatus) {
+      addIfNull(
+          nulls, JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS, this.realtimeAccountUpdaterStatus);
+    }
+    if (isSetReceiptFreeText) {
+      addIfNull(nulls, JSON_PROPERTY_RECEIPT_FREE_TEXT, this.receiptFreeText);
+    }
+    if (isSetRecurringContractTypes) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_CONTRACT_TYPES, this.recurringContractTypes);
+    }
+    if (isSetRecurringFirstPspReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE, this.recurringFirstPspReference);
+    }
+    if (isSetRecurringRecurringDetailReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE,
+          this.recurringRecurringDetailReference);
+    }
+    if (isSetRecurringShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE, this.recurringShopperReference);
+    }
+    if (isSetRecurringProcessingModel) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_PROCESSING_MODEL, this.recurringProcessingModel);
+    }
+    if (isSetReferred) {
+      addIfNull(nulls, JSON_PROPERTY_REFERRED, this.referred);
+    }
+    if (isSetRefusalReasonRaw) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON_RAW, this.refusalReasonRaw);
+    }
+    if (isSetRequestAmount) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_AMOUNT, this.requestAmount);
+    }
+    if (isSetRequestCurrencyCode) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_CURRENCY_CODE, this.requestCurrencyCode);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetTerminalId) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_ID, this.terminalId);
+    }
+    if (isSetThreeDAuthenticated) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_AUTHENTICATED, this.threeDAuthenticated);
+    }
+    if (isSetThreeDAuthenticatedResponse) {
+      addIfNull(
+          nulls, JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE, this.threeDAuthenticatedResponse);
+    }
+    if (isSetThreeDOffered) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_OFFERED, this.threeDOffered);
+    }
+    if (isSetThreeDOfferedResponse) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_OFFERED_RESPONSE, this.threeDOfferedResponse);
+    }
+    if (isSetThreeDSVersion) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_VERSION, this.threeDSVersion);
+    }
+    if (isSetTokenizationShopperReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE, this.tokenizationShopperReference);
+    }
+    if (isSetTokenizationStoreOperationType) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE,
+          this.tokenizationStoreOperationType);
+    }
+    if (isSetTokenizationStoredPaymentMethodId) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID,
+          this.tokenizationStoredPaymentMethodId);
+    }
+    if (isSetVisaTransactionId) {
+      addIfNull(nulls, JSON_PROPERTY_VISA_TRANSACTION_ID, this.visaTransactionId);
+    }
+    if (isSetXid) {
+      addIfNull(nulls, JSON_PROPERTY_XID, this.xid);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

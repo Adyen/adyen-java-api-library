@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class MerchantDetails {
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
+
   public static final String JSON_PROPERTY_ENROLLED_IN3_D_SECURE = "enrolledIn3DSecure";
   private Boolean enrolledIn3DSecure;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnrolledIn3DSecure = false;
+
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcc = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public MerchantDetails() {}
 
@@ -46,6 +63,7 @@ public class MerchantDetails {
    */
   public MerchantDetails countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -75,6 +93,7 @@ public class MerchantDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -86,6 +105,7 @@ public class MerchantDetails {
    */
   public MerchantDetails enrolledIn3DSecure(Boolean enrolledIn3DSecure) {
     this.enrolledIn3DSecure = enrolledIn3DSecure;
+    isSetEnrolledIn3DSecure = true; // mark as set
     return this;
   }
 
@@ -111,6 +131,7 @@ public class MerchantDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnrolledIn3DSecure(Boolean enrolledIn3DSecure) {
     this.enrolledIn3DSecure = enrolledIn3DSecure;
+    isSetEnrolledIn3DSecure = true; // mark as set
   }
 
   /**
@@ -126,6 +147,7 @@ public class MerchantDetails {
    */
   public MerchantDetails mcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -159,6 +181,27 @@ public class MerchantDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public MerchantDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this MerchantDetails object is equal to o. */
@@ -172,13 +215,17 @@ public class MerchantDetails {
     }
     MerchantDetails merchantDetails = (MerchantDetails) o;
     return Objects.equals(this.countryCode, merchantDetails.countryCode)
+        && Objects.equals(this.isSetCountryCode, merchantDetails.isSetCountryCode)
         && Objects.equals(this.enrolledIn3DSecure, merchantDetails.enrolledIn3DSecure)
-        && Objects.equals(this.mcc, merchantDetails.mcc);
+        && Objects.equals(this.isSetEnrolledIn3DSecure, merchantDetails.isSetEnrolledIn3DSecure)
+        && Objects.equals(this.mcc, merchantDetails.mcc)
+        && Objects.equals(this.isSetMcc, merchantDetails.isSetMcc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, enrolledIn3DSecure, mcc);
+    return Objects.hash(
+        countryCode, isSetCountryCode, enrolledIn3DSecure, isSetEnrolledIn3DSecure, mcc, isSetMcc);
   }
 
   @Override
@@ -200,6 +247,36 @@ public class MerchantDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetEnrolledIn3DSecure) {
+      addIfNull(nulls, JSON_PROPERTY_ENROLLED_IN3_D_SECURE, this.enrolledIn3DSecure);
+    }
+    if (isSetMcc) {
+      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

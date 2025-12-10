@@ -11,7 +11,9 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -50,20 +52,38 @@ public class StoreDetailAndSubmitRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_BANK = "bank";
   private BankAccount bank;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBank = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
 
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
+
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
 
   /** The type of the entity the payout is processed for. */
   public enum EntityTypeEnum {
@@ -109,41 +129,86 @@ public class StoreDetailAndSubmitRequest {
   public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
   private EntityTypeEnum entityType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityType = false;
+
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudOffset = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_NATIONALITY = "nationality";
   private String nationality;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNationality = false;
 
   public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurring = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SELECTED_BRAND = "selectedBrand";
   private String selectedBrand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelectedBrand = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
 
   public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperStatement = false;
+
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoreDetailAndSubmitRequest() {}
 
@@ -156,6 +221,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -189,6 +255,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -199,6 +266,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -222,6 +290,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -232,6 +301,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest bank(BankAccount bank) {
     this.bank = bank;
+    isSetBank = true; // mark as set
     return this;
   }
 
@@ -255,6 +325,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
     this.bank = bank;
+    isSetBank = true; // mark as set
   }
 
   /**
@@ -265,6 +336,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -288,6 +360,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -298,6 +371,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest card(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -321,6 +395,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -335,6 +410,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -366,6 +442,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -376,6 +453,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
+    isSetEntityType = true; // mark as set
     return this;
   }
 
@@ -399,6 +477,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
+    isSetEntityType = true; // mark as set
   }
 
   /**
@@ -411,6 +490,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
     return this;
   }
 
@@ -438,6 +518,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
   }
 
   /**
@@ -449,6 +530,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -474,6 +556,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -486,6 +569,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest nationality(String nationality) {
     this.nationality = nationality;
+    isSetNationality = true; // mark as set
     return this;
   }
 
@@ -513,6 +597,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
     this.nationality = nationality;
+    isSetNationality = true; // mark as set
   }
 
   /**
@@ -523,6 +608,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest recurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
     return this;
   }
 
@@ -546,6 +632,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
   }
 
   /**
@@ -560,6 +647,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -591,6 +679,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -603,6 +692,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest selectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
+    isSetSelectedBrand = true; // mark as set
     return this;
   }
 
@@ -630,6 +720,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedBrand(String selectedBrand) {
     this.selectedBrand = selectedBrand;
+    isSetSelectedBrand = true; // mark as set
   }
 
   /**
@@ -640,6 +731,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -663,6 +755,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -673,6 +766,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -696,6 +790,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -706,6 +801,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -729,6 +825,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -741,6 +838,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
     return this;
   }
 
@@ -768,6 +866,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
   }
 
   /**
@@ -778,6 +877,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -801,6 +901,7 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
   }
 
   /**
@@ -811,6 +912,7 @@ public class StoreDetailAndSubmitRequest {
    */
   public StoreDetailAndSubmitRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -834,6 +936,27 @@ public class StoreDetailAndSubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoreDetailAndSubmitRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoreDetailAndSubmitRequest object is equal to o. */
@@ -847,49 +970,92 @@ public class StoreDetailAndSubmitRequest {
     }
     StoreDetailAndSubmitRequest storeDetailAndSubmitRequest = (StoreDetailAndSubmitRequest) o;
     return Objects.equals(this.additionalData, storeDetailAndSubmitRequest.additionalData)
+        && Objects.equals(this.isSetAdditionalData, storeDetailAndSubmitRequest.isSetAdditionalData)
         && Objects.equals(this.amount, storeDetailAndSubmitRequest.amount)
+        && Objects.equals(this.isSetAmount, storeDetailAndSubmitRequest.isSetAmount)
         && Objects.equals(this.bank, storeDetailAndSubmitRequest.bank)
+        && Objects.equals(this.isSetBank, storeDetailAndSubmitRequest.isSetBank)
         && Objects.equals(this.billingAddress, storeDetailAndSubmitRequest.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, storeDetailAndSubmitRequest.isSetBillingAddress)
         && Objects.equals(this.card, storeDetailAndSubmitRequest.card)
+        && Objects.equals(this.isSetCard, storeDetailAndSubmitRequest.isSetCard)
         && Objects.equals(this.dateOfBirth, storeDetailAndSubmitRequest.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, storeDetailAndSubmitRequest.isSetDateOfBirth)
         && Objects.equals(this.entityType, storeDetailAndSubmitRequest.entityType)
+        && Objects.equals(this.isSetEntityType, storeDetailAndSubmitRequest.isSetEntityType)
         && Objects.equals(this.fraudOffset, storeDetailAndSubmitRequest.fraudOffset)
+        && Objects.equals(this.isSetFraudOffset, storeDetailAndSubmitRequest.isSetFraudOffset)
         && Objects.equals(this.merchantAccount, storeDetailAndSubmitRequest.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, storeDetailAndSubmitRequest.isSetMerchantAccount)
         && Objects.equals(this.nationality, storeDetailAndSubmitRequest.nationality)
+        && Objects.equals(this.isSetNationality, storeDetailAndSubmitRequest.isSetNationality)
         && Objects.equals(this.recurring, storeDetailAndSubmitRequest.recurring)
+        && Objects.equals(this.isSetRecurring, storeDetailAndSubmitRequest.isSetRecurring)
         && Objects.equals(this.reference, storeDetailAndSubmitRequest.reference)
+        && Objects.equals(this.isSetReference, storeDetailAndSubmitRequest.isSetReference)
         && Objects.equals(this.selectedBrand, storeDetailAndSubmitRequest.selectedBrand)
+        && Objects.equals(this.isSetSelectedBrand, storeDetailAndSubmitRequest.isSetSelectedBrand)
         && Objects.equals(this.shopperEmail, storeDetailAndSubmitRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, storeDetailAndSubmitRequest.isSetShopperEmail)
         && Objects.equals(this.shopperName, storeDetailAndSubmitRequest.shopperName)
+        && Objects.equals(this.isSetShopperName, storeDetailAndSubmitRequest.isSetShopperName)
         && Objects.equals(this.shopperReference, storeDetailAndSubmitRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, storeDetailAndSubmitRequest.isSetShopperReference)
         && Objects.equals(this.shopperStatement, storeDetailAndSubmitRequest.shopperStatement)
         && Objects.equals(
+            this.isSetShopperStatement, storeDetailAndSubmitRequest.isSetShopperStatement)
+        && Objects.equals(
             this.socialSecurityNumber, storeDetailAndSubmitRequest.socialSecurityNumber)
-        && Objects.equals(this.telephoneNumber, storeDetailAndSubmitRequest.telephoneNumber);
+        && Objects.equals(
+            this.isSetSocialSecurityNumber, storeDetailAndSubmitRequest.isSetSocialSecurityNumber)
+        && Objects.equals(this.telephoneNumber, storeDetailAndSubmitRequest.telephoneNumber)
+        && Objects.equals(
+            this.isSetTelephoneNumber, storeDetailAndSubmitRequest.isSetTelephoneNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         amount,
+        isSetAmount,
         bank,
+        isSetBank,
         billingAddress,
+        isSetBillingAddress,
         card,
+        isSetCard,
         dateOfBirth,
+        isSetDateOfBirth,
         entityType,
+        isSetEntityType,
         fraudOffset,
+        isSetFraudOffset,
         merchantAccount,
+        isSetMerchantAccount,
         nationality,
+        isSetNationality,
         recurring,
+        isSetRecurring,
         reference,
+        isSetReference,
         selectedBrand,
+        isSetSelectedBrand,
         shopperEmail,
+        isSetShopperEmail,
         shopperName,
+        isSetShopperName,
         shopperReference,
+        isSetShopperReference,
         shopperStatement,
+        isSetShopperStatement,
         socialSecurityNumber,
-        telephoneNumber);
+        isSetSocialSecurityNumber,
+        telephoneNumber,
+        isSetTelephoneNumber);
   }
 
   @Override
@@ -929,6 +1095,84 @@ public class StoreDetailAndSubmitRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBank) {
+      addIfNull(nulls, JSON_PROPERTY_BANK, this.bank);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetEntityType) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_TYPE, this.entityType);
+    }
+    if (isSetFraudOffset) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_OFFSET, this.fraudOffset);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetNationality) {
+      addIfNull(nulls, JSON_PROPERTY_NATIONALITY, this.nationality);
+    }
+    if (isSetRecurring) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING, this.recurring);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSelectedBrand) {
+      addIfNull(nulls, JSON_PROPERTY_SELECTED_BRAND, this.selectedBrand);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
