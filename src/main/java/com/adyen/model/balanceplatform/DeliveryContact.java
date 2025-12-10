@@ -368,17 +368,38 @@ public class DeliveryContact {
     }
     DeliveryContact deliveryContact = (DeliveryContact) o;
     return Objects.equals(this.address, deliveryContact.address)
+        && Objects.equals(this.isSetAddress, deliveryContact.isSetAddress)
         && Objects.equals(this.company, deliveryContact.company)
+        && Objects.equals(this.isSetCompany, deliveryContact.isSetCompany)
         && Objects.equals(this.email, deliveryContact.email)
+        && Objects.equals(this.isSetEmail, deliveryContact.isSetEmail)
         && Objects.equals(this.fullPhoneNumber, deliveryContact.fullPhoneNumber)
+        && Objects.equals(this.isSetFullPhoneNumber, deliveryContact.isSetFullPhoneNumber)
         && Objects.equals(this.name, deliveryContact.name)
+        && Objects.equals(this.isSetName, deliveryContact.isSetName)
         && Objects.equals(this.phoneNumber, deliveryContact.phoneNumber)
-        && Objects.equals(this.webAddress, deliveryContact.webAddress);
+        && Objects.equals(this.isSetPhoneNumber, deliveryContact.isSetPhoneNumber)
+        && Objects.equals(this.webAddress, deliveryContact.webAddress)
+        && Objects.equals(this.isSetWebAddress, deliveryContact.isSetWebAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, company, email, fullPhoneNumber, name, phoneNumber, webAddress);
+    return Objects.hash(
+        address,
+        isSetAddress,
+        company,
+        isSetCompany,
+        email,
+        isSetEmail,
+        fullPhoneNumber,
+        isSetFullPhoneNumber,
+        name,
+        isSetName,
+        phoneNumber,
+        isSetPhoneNumber,
+        webAddress,
+        isSetWebAddress);
   }
 
   @Override

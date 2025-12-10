@@ -240,14 +240,26 @@ public class ApproveAssociationRequest {
     }
     ApproveAssociationRequest approveAssociationRequest = (ApproveAssociationRequest) o;
     return Objects.equals(this.entityId, approveAssociationRequest.entityId)
+        && Objects.equals(this.isSetEntityId, approveAssociationRequest.isSetEntityId)
         && Objects.equals(this.entityType, approveAssociationRequest.entityType)
+        && Objects.equals(this.isSetEntityType, approveAssociationRequest.isSetEntityType)
         && Objects.equals(this.scaDeviceIds, approveAssociationRequest.scaDeviceIds)
-        && Objects.equals(this.status, approveAssociationRequest.status);
+        && Objects.equals(this.isSetScaDeviceIds, approveAssociationRequest.isSetScaDeviceIds)
+        && Objects.equals(this.status, approveAssociationRequest.status)
+        && Objects.equals(this.isSetStatus, approveAssociationRequest.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityId, entityType, scaDeviceIds, status);
+    return Objects.hash(
+        entityId,
+        isSetEntityId,
+        entityType,
+        isSetEntityType,
+        scaDeviceIds,
+        isSetScaDeviceIds,
+        status,
+        isSetStatus);
   }
 
   @Override

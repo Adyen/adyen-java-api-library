@@ -564,18 +564,38 @@ public class TransferRouteRequest {
     }
     TransferRouteRequest transferRouteRequest = (TransferRouteRequest) o;
     return Objects.equals(this.balanceAccountId, transferRouteRequest.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, transferRouteRequest.isSetBalanceAccountId)
         && Objects.equals(this.balancePlatform, transferRouteRequest.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, transferRouteRequest.isSetBalancePlatform)
         && Objects.equals(this.category, transferRouteRequest.category)
+        && Objects.equals(this.isSetCategory, transferRouteRequest.isSetCategory)
         && Objects.equals(this.counterparty, transferRouteRequest.counterparty)
+        && Objects.equals(this.isSetCounterparty, transferRouteRequest.isSetCounterparty)
         && Objects.equals(this.country, transferRouteRequest.country)
+        && Objects.equals(this.isSetCountry, transferRouteRequest.isSetCountry)
         && Objects.equals(this.currency, transferRouteRequest.currency)
-        && Objects.equals(this.priorities, transferRouteRequest.priorities);
+        && Objects.equals(this.isSetCurrency, transferRouteRequest.isSetCurrency)
+        && Objects.equals(this.priorities, transferRouteRequest.priorities)
+        && Objects.equals(this.isSetPriorities, transferRouteRequest.isSetPriorities);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        balanceAccountId, balancePlatform, category, counterparty, country, currency, priorities);
+        balanceAccountId,
+        isSetBalanceAccountId,
+        balancePlatform,
+        isSetBalancePlatform,
+        category,
+        isSetCategory,
+        counterparty,
+        isSetCounterparty,
+        country,
+        isSetCountry,
+        currency,
+        isSetCurrency,
+        priorities,
+        isSetPriorities);
   }
 
   @Override

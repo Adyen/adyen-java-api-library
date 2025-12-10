@@ -206,13 +206,16 @@ public class Authentication {
     }
     Authentication authentication = (Authentication) o;
     return Objects.equals(this.email, authentication.email)
+        && Objects.equals(this.isSetEmail, authentication.isSetEmail)
         && Objects.equals(this.password, authentication.password)
-        && Objects.equals(this.phone, authentication.phone);
+        && Objects.equals(this.isSetPassword, authentication.isSetPassword)
+        && Objects.equals(this.phone, authentication.phone)
+        && Objects.equals(this.isSetPhone, authentication.isSetPhone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, password, phone);
+    return Objects.hash(email, isSetEmail, password, isSetPassword, phone, isSetPhone);
   }
 
   @Override

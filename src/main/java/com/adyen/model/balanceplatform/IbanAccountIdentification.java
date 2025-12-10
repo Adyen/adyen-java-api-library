@@ -195,12 +195,14 @@ public class IbanAccountIdentification {
     }
     IbanAccountIdentification ibanAccountIdentification = (IbanAccountIdentification) o;
     return Objects.equals(this.iban, ibanAccountIdentification.iban)
-        && Objects.equals(this.type, ibanAccountIdentification.type);
+        && Objects.equals(this.isSetIban, ibanAccountIdentification.isSetIban)
+        && Objects.equals(this.type, ibanAccountIdentification.type)
+        && Objects.equals(this.isSetType, ibanAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iban, type);
+    return Objects.hash(iban, isSetIban, type, isSetType);
   }
 
   @Override

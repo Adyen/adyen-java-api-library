@@ -579,30 +579,53 @@ public class AccountHolderCapability {
     }
     AccountHolderCapability accountHolderCapability = (AccountHolderCapability) o;
     return Objects.equals(this.allowed, accountHolderCapability.allowed)
+        && Objects.equals(this.isSetAllowed, accountHolderCapability.isSetAllowed)
         && Objects.equals(this.allowedLevel, accountHolderCapability.allowedLevel)
+        && Objects.equals(this.isSetAllowedLevel, accountHolderCapability.isSetAllowedLevel)
         && Objects.equals(this.allowedSettings, accountHolderCapability.allowedSettings)
+        && Objects.equals(this.isSetAllowedSettings, accountHolderCapability.isSetAllowedSettings)
         && Objects.equals(this.enabled, accountHolderCapability.enabled)
+        && Objects.equals(this.isSetEnabled, accountHolderCapability.isSetEnabled)
         && Objects.equals(this.problems, accountHolderCapability.problems)
+        && Objects.equals(this.isSetProblems, accountHolderCapability.isSetProblems)
         && Objects.equals(this.requested, accountHolderCapability.requested)
+        && Objects.equals(this.isSetRequested, accountHolderCapability.isSetRequested)
         && Objects.equals(this.requestedLevel, accountHolderCapability.requestedLevel)
+        && Objects.equals(this.isSetRequestedLevel, accountHolderCapability.isSetRequestedLevel)
         && Objects.equals(this.requestedSettings, accountHolderCapability.requestedSettings)
+        && Objects.equals(
+            this.isSetRequestedSettings, accountHolderCapability.isSetRequestedSettings)
         && Objects.equals(this.transferInstruments, accountHolderCapability.transferInstruments)
-        && Objects.equals(this.verificationStatus, accountHolderCapability.verificationStatus);
+        && Objects.equals(
+            this.isSetTransferInstruments, accountHolderCapability.isSetTransferInstruments)
+        && Objects.equals(this.verificationStatus, accountHolderCapability.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus, accountHolderCapability.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         allowed,
+        isSetAllowed,
         allowedLevel,
+        isSetAllowedLevel,
         allowedSettings,
+        isSetAllowedSettings,
         enabled,
+        isSetEnabled,
         problems,
+        isSetProblems,
         requested,
+        isSetRequested,
         requestedLevel,
+        isSetRequestedLevel,
         requestedSettings,
+        isSetRequestedSettings,
         transferInstruments,
-        verificationStatus);
+        isSetTransferInstruments,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override

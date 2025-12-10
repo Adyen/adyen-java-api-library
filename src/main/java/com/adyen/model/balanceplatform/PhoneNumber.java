@@ -249,13 +249,22 @@ public class PhoneNumber {
     }
     PhoneNumber phoneNumber = (PhoneNumber) o;
     return Objects.equals(this.phoneCountryCode, phoneNumber.phoneCountryCode)
+        && Objects.equals(this.isSetPhoneCountryCode, phoneNumber.isSetPhoneCountryCode)
         && Objects.equals(this.phoneNumber, phoneNumber.phoneNumber)
-        && Objects.equals(this.phoneType, phoneNumber.phoneType);
+        && Objects.equals(this.isSetPhoneNumber, phoneNumber.isSetPhoneNumber)
+        && Objects.equals(this.phoneType, phoneNumber.phoneType)
+        && Objects.equals(this.isSetPhoneType, phoneNumber.isSetPhoneType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneCountryCode, phoneNumber, phoneType);
+    return Objects.hash(
+        phoneCountryCode,
+        isSetPhoneCountryCode,
+        phoneNumber,
+        isSetPhoneNumber,
+        phoneType,
+        isSetPhoneType);
   }
 
   @Override

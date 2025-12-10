@@ -111,12 +111,13 @@ public class WebhookSettings {
       return false;
     }
     WebhookSettings webhookSettings = (WebhookSettings) o;
-    return Objects.equals(this.webhookSettings, webhookSettings.webhookSettings);
+    return Objects.equals(this.webhookSettings, webhookSettings.webhookSettings)
+        && Objects.equals(this.isSetWebhookSettings, webhookSettings.isSetWebhookSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(webhookSettings);
+    return Objects.hash(webhookSettings, isSetWebhookSettings);
   }
 
   @Override

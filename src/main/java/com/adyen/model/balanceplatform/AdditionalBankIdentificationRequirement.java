@@ -352,13 +352,25 @@ public class AdditionalBankIdentificationRequirement {
     return Objects.equals(
             this.additionalBankIdentificationType,
             additionalBankIdentificationRequirement.additionalBankIdentificationType)
+        && Objects.equals(
+            this.isSetAdditionalBankIdentificationType,
+            additionalBankIdentificationRequirement.isSetAdditionalBankIdentificationType)
         && Objects.equals(this.description, additionalBankIdentificationRequirement.description)
-        && Objects.equals(this.type, additionalBankIdentificationRequirement.type);
+        && Objects.equals(
+            this.isSetDescription, additionalBankIdentificationRequirement.isSetDescription)
+        && Objects.equals(this.type, additionalBankIdentificationRequirement.type)
+        && Objects.equals(this.isSetType, additionalBankIdentificationRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalBankIdentificationType, description, type);
+    return Objects.hash(
+        additionalBankIdentificationType,
+        isSetAdditionalBankIdentificationType,
+        description,
+        isSetDescription,
+        type,
+        isSetType);
   }
 
   @Override

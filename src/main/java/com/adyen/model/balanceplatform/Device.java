@@ -286,14 +286,26 @@ public class Device {
     }
     Device device = (Device) o;
     return Objects.equals(this.id, device.id)
+        && Objects.equals(this.isSetId, device.isSetId)
         && Objects.equals(this.name, device.name)
+        && Objects.equals(this.isSetName, device.isSetName)
         && Objects.equals(this.paymentInstrumentId, device.paymentInstrumentId)
-        && Objects.equals(this.type, device.type);
+        && Objects.equals(this.isSetPaymentInstrumentId, device.isSetPaymentInstrumentId)
+        && Objects.equals(this.type, device.type)
+        && Objects.equals(this.isSetType, device.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, paymentInstrumentId, type);
+    return Objects.hash(
+        id,
+        isSetId,
+        name,
+        isSetName,
+        paymentInstrumentId,
+        isSetPaymentInstrumentId,
+        type,
+        isSetType);
   }
 
   @Override

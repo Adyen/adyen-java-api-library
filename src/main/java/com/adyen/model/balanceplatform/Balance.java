@@ -314,16 +314,34 @@ public class Balance {
     }
     Balance balance = (Balance) o;
     return Objects.equals(this.available, balance.available)
+        && Objects.equals(this.isSetAvailable, balance.isSetAvailable)
         && Objects.equals(this.balance, balance.balance)
+        && Objects.equals(this.isSetBalance, balance.isSetBalance)
         && Objects.equals(this.currency, balance.currency)
+        && Objects.equals(this.isSetCurrency, balance.isSetCurrency)
         && Objects.equals(this.pending, balance.pending)
+        && Objects.equals(this.isSetPending, balance.isSetPending)
         && Objects.equals(this.pendingAvailable, balance.pendingAvailable)
-        && Objects.equals(this.reserved, balance.reserved);
+        && Objects.equals(this.isSetPendingAvailable, balance.isSetPendingAvailable)
+        && Objects.equals(this.reserved, balance.reserved)
+        && Objects.equals(this.isSetReserved, balance.isSetReserved);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, balance, currency, pending, pendingAvailable, reserved);
+    return Objects.hash(
+        available,
+        isSetAvailable,
+        balance,
+        isSetBalance,
+        currency,
+        isSetCurrency,
+        pending,
+        isSetPending,
+        pendingAvailable,
+        isSetPendingAvailable,
+        reserved,
+        isSetReserved);
   }
 
   @Override

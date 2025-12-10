@@ -205,12 +205,14 @@ public class CounterpartyTypesRestriction {
     }
     CounterpartyTypesRestriction counterpartyTypesRestriction = (CounterpartyTypesRestriction) o;
     return Objects.equals(this.operation, counterpartyTypesRestriction.operation)
-        && Objects.equals(this.value, counterpartyTypesRestriction.value);
+        && Objects.equals(this.isSetOperation, counterpartyTypesRestriction.isSetOperation)
+        && Objects.equals(this.value, counterpartyTypesRestriction.value)
+        && Objects.equals(this.isSetValue, counterpartyTypesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

@@ -315,15 +315,30 @@ public class BRLocalAccountIdentification {
     }
     BRLocalAccountIdentification brLocalAccountIdentification = (BRLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, brLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, brLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.bankCode, brLocalAccountIdentification.bankCode)
+        && Objects.equals(this.isSetBankCode, brLocalAccountIdentification.isSetBankCode)
         && Objects.equals(this.branchNumber, brLocalAccountIdentification.branchNumber)
+        && Objects.equals(this.isSetBranchNumber, brLocalAccountIdentification.isSetBranchNumber)
         && Objects.equals(this.ispb, brLocalAccountIdentification.ispb)
-        && Objects.equals(this.type, brLocalAccountIdentification.type);
+        && Objects.equals(this.isSetIspb, brLocalAccountIdentification.isSetIspb)
+        && Objects.equals(this.type, brLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, brLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, branchNumber, ispb, type);
+    return Objects.hash(
+        accountNumber,
+        isSetAccountNumber,
+        bankCode,
+        isSetBankCode,
+        branchNumber,
+        isSetBranchNumber,
+        ispb,
+        isSetIspb,
+        type,
+        isSetType);
   }
 
   @Override

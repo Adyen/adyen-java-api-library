@@ -214,12 +214,14 @@ public class AssociationInitiateRequest {
     }
     AssociationInitiateRequest associationInitiateRequest = (AssociationInitiateRequest) o;
     return Objects.equals(this.ids, associationInitiateRequest.ids)
-        && Objects.equals(this.type, associationInitiateRequest.type);
+        && Objects.equals(this.isSetIds, associationInitiateRequest.isSetIds)
+        && Objects.equals(this.type, associationInitiateRequest.type)
+        && Objects.equals(this.isSetType, associationInitiateRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, type);
+    return Objects.hash(ids, isSetIds, type, isSetType);
   }
 
   @Override

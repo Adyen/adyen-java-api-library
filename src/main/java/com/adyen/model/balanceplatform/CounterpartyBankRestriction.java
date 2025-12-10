@@ -156,12 +156,14 @@ public class CounterpartyBankRestriction {
     }
     CounterpartyBankRestriction counterpartyBankRestriction = (CounterpartyBankRestriction) o;
     return Objects.equals(this.operation, counterpartyBankRestriction.operation)
-        && Objects.equals(this.value, counterpartyBankRestriction.value);
+        && Objects.equals(this.isSetOperation, counterpartyBankRestriction.isSetOperation)
+        && Objects.equals(this.value, counterpartyBankRestriction.value)
+        && Objects.equals(this.isSetValue, counterpartyBankRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

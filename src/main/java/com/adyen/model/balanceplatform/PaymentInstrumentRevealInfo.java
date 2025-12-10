@@ -188,13 +188,16 @@ public class PaymentInstrumentRevealInfo {
     }
     PaymentInstrumentRevealInfo paymentInstrumentRevealInfo = (PaymentInstrumentRevealInfo) o;
     return Objects.equals(this.cvc, paymentInstrumentRevealInfo.cvc)
+        && Objects.equals(this.isSetCvc, paymentInstrumentRevealInfo.isSetCvc)
         && Objects.equals(this.expiration, paymentInstrumentRevealInfo.expiration)
-        && Objects.equals(this.pan, paymentInstrumentRevealInfo.pan);
+        && Objects.equals(this.isSetExpiration, paymentInstrumentRevealInfo.isSetExpiration)
+        && Objects.equals(this.pan, paymentInstrumentRevealInfo.pan)
+        && Objects.equals(this.isSetPan, paymentInstrumentRevealInfo.isSetPan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cvc, expiration, pan);
+    return Objects.hash(cvc, isSetCvc, expiration, isSetExpiration, pan, isSetPan);
   }
 
   @Override

@@ -111,12 +111,13 @@ public class SubmitScaAssociationRequest {
       return false;
     }
     SubmitScaAssociationRequest submitScaAssociationRequest = (SubmitScaAssociationRequest) o;
-    return Objects.equals(this.entities, submitScaAssociationRequest.entities);
+    return Objects.equals(this.entities, submitScaAssociationRequest.entities)
+        && Objects.equals(this.isSetEntities, submitScaAssociationRequest.isSetEntities);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entities);
+    return Objects.hash(entities, isSetEntities);
   }
 
   @Override

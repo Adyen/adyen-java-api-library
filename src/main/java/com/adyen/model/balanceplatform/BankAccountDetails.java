@@ -449,19 +449,42 @@ public class BankAccountDetails {
     }
     BankAccountDetails bankAccountDetails = (BankAccountDetails) o;
     return Objects.equals(this.accountNumber, bankAccountDetails.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, bankAccountDetails.isSetAccountNumber)
         && Objects.equals(this.accountType, bankAccountDetails.accountType)
+        && Objects.equals(this.isSetAccountType, bankAccountDetails.isSetAccountType)
         && Objects.equals(this.branchNumber, bankAccountDetails.branchNumber)
+        && Objects.equals(this.isSetBranchNumber, bankAccountDetails.isSetBranchNumber)
         && Objects.equals(this.formFactor, bankAccountDetails.formFactor)
+        && Objects.equals(this.isSetFormFactor, bankAccountDetails.isSetFormFactor)
         && Objects.equals(this.iban, bankAccountDetails.iban)
+        && Objects.equals(this.isSetIban, bankAccountDetails.isSetIban)
         && Objects.equals(this.routingNumber, bankAccountDetails.routingNumber)
+        && Objects.equals(this.isSetRoutingNumber, bankAccountDetails.isSetRoutingNumber)
         && Objects.equals(this.sortCode, bankAccountDetails.sortCode)
-        && Objects.equals(this.type, bankAccountDetails.type);
+        && Objects.equals(this.isSetSortCode, bankAccountDetails.isSetSortCode)
+        && Objects.equals(this.type, bankAccountDetails.type)
+        && Objects.equals(this.isSetType, bankAccountDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        accountNumber, accountType, branchNumber, formFactor, iban, routingNumber, sortCode, type);
+        accountNumber,
+        isSetAccountNumber,
+        accountType,
+        isSetAccountType,
+        branchNumber,
+        isSetBranchNumber,
+        formFactor,
+        isSetFormFactor,
+        iban,
+        isSetIban,
+        routingNumber,
+        isSetRoutingNumber,
+        sortCode,
+        isSetSortCode,
+        type,
+        isSetType);
   }
 
   @Override

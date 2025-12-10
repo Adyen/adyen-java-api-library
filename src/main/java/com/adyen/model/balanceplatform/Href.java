@@ -101,12 +101,12 @@ public class Href {
       return false;
     }
     Href href = (Href) o;
-    return Objects.equals(this.href, href.href);
+    return Objects.equals(this.href, href.href) && Objects.equals(this.isSetHref, href.isSetHref);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(href, isSetHref);
   }
 
   @Override

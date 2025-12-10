@@ -152,12 +152,15 @@ public class Counterparty {
     }
     Counterparty counterparty = (Counterparty) o;
     return Objects.equals(this.bankAccount, counterparty.bankAccount)
-        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId);
+        && Objects.equals(this.isSetBankAccount, counterparty.isSetBankAccount)
+        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId)
+        && Objects.equals(this.isSetTransferInstrumentId, counterparty.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, transferInstrumentId);
+    return Objects.hash(
+        bankAccount, isSetBankAccount, transferInstrumentId, isSetTransferInstrumentId);
   }
 
   @Override

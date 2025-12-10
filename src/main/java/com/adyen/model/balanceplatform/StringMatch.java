@@ -201,12 +201,14 @@ public class StringMatch {
     }
     StringMatch stringMatch = (StringMatch) o;
     return Objects.equals(this.operation, stringMatch.operation)
-        && Objects.equals(this.value, stringMatch.value);
+        && Objects.equals(this.isSetOperation, stringMatch.isSetOperation)
+        && Objects.equals(this.value, stringMatch.value)
+        && Objects.equals(this.isSetValue, stringMatch.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

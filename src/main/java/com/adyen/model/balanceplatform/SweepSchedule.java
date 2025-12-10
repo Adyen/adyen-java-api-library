@@ -269,12 +269,14 @@ public class SweepSchedule {
     }
     SweepSchedule sweepSchedule = (SweepSchedule) o;
     return Objects.equals(this.cronExpression, sweepSchedule.cronExpression)
-        && Objects.equals(this.type, sweepSchedule.type);
+        && Objects.equals(this.isSetCronExpression, sweepSchedule.isSetCronExpression)
+        && Objects.equals(this.type, sweepSchedule.type)
+        && Objects.equals(this.isSetType, sweepSchedule.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cronExpression, type);
+    return Objects.hash(cronExpression, isSetCronExpression, type, isSetType);
   }
 
   @Override

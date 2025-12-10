@@ -629,36 +629,62 @@ public class BulkAddress {
     }
     BulkAddress bulkAddress = (BulkAddress) o;
     return Objects.equals(this.city, bulkAddress.city)
+        && Objects.equals(this.isSetCity, bulkAddress.isSetCity)
         && Objects.equals(this.company, bulkAddress.company)
+        && Objects.equals(this.isSetCompany, bulkAddress.isSetCompany)
         && Objects.equals(this.country, bulkAddress.country)
+        && Objects.equals(this.isSetCountry, bulkAddress.isSetCountry)
         && Objects.equals(this.email, bulkAddress.email)
+        && Objects.equals(this.isSetEmail, bulkAddress.isSetEmail)
         && Objects.equals(this.houseNumberOrName, bulkAddress.houseNumberOrName)
+        && Objects.equals(this.isSetHouseNumberOrName, bulkAddress.isSetHouseNumberOrName)
         && Objects.equals(this.line1, bulkAddress.line1)
+        && Objects.equals(this.isSetLine1, bulkAddress.isSetLine1)
         && Objects.equals(this.line2, bulkAddress.line2)
+        && Objects.equals(this.isSetLine2, bulkAddress.isSetLine2)
         && Objects.equals(this.line3, bulkAddress.line3)
+        && Objects.equals(this.isSetLine3, bulkAddress.isSetLine3)
         && Objects.equals(this.mobile, bulkAddress.mobile)
+        && Objects.equals(this.isSetMobile, bulkAddress.isSetMobile)
         && Objects.equals(this.name, bulkAddress.name)
+        && Objects.equals(this.isSetName, bulkAddress.isSetName)
         && Objects.equals(this.postalCode, bulkAddress.postalCode)
+        && Objects.equals(this.isSetPostalCode, bulkAddress.isSetPostalCode)
         && Objects.equals(this.stateOrProvince, bulkAddress.stateOrProvince)
-        && Objects.equals(this.street, bulkAddress.street);
+        && Objects.equals(this.isSetStateOrProvince, bulkAddress.isSetStateOrProvince)
+        && Objects.equals(this.street, bulkAddress.street)
+        && Objects.equals(this.isSetStreet, bulkAddress.isSetStreet);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         city,
+        isSetCity,
         company,
+        isSetCompany,
         country,
+        isSetCountry,
         email,
+        isSetEmail,
         houseNumberOrName,
+        isSetHouseNumberOrName,
         line1,
+        isSetLine1,
         line2,
+        isSetLine2,
         line3,
+        isSetLine3,
         mobile,
+        isSetMobile,
         name,
+        isSetName,
         postalCode,
+        isSetPostalCode,
         stateOrProvince,
-        street);
+        isSetStateOrProvince,
+        street,
+        isSetStreet);
   }
 
   @Override

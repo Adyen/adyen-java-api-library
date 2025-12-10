@@ -1189,43 +1189,77 @@ public class UpdateSweepConfigurationV2 {
     }
     UpdateSweepConfigurationV2 updateSweepConfigurationV2 = (UpdateSweepConfigurationV2) o;
     return Objects.equals(this.category, updateSweepConfigurationV2.category)
+        && Objects.equals(this.isSetCategory, updateSweepConfigurationV2.isSetCategory)
         && Objects.equals(this.counterparty, updateSweepConfigurationV2.counterparty)
+        && Objects.equals(this.isSetCounterparty, updateSweepConfigurationV2.isSetCounterparty)
         && Objects.equals(this.currency, updateSweepConfigurationV2.currency)
+        && Objects.equals(this.isSetCurrency, updateSweepConfigurationV2.isSetCurrency)
         && Objects.equals(this.description, updateSweepConfigurationV2.description)
+        && Objects.equals(this.isSetDescription, updateSweepConfigurationV2.isSetDescription)
         && Objects.equals(this.id, updateSweepConfigurationV2.id)
+        && Objects.equals(this.isSetId, updateSweepConfigurationV2.isSetId)
         && Objects.equals(this.priorities, updateSweepConfigurationV2.priorities)
+        && Objects.equals(this.isSetPriorities, updateSweepConfigurationV2.isSetPriorities)
         && Objects.equals(this.reason, updateSweepConfigurationV2.reason)
+        && Objects.equals(this.isSetReason, updateSweepConfigurationV2.isSetReason)
         && Objects.equals(this.reasonDetail, updateSweepConfigurationV2.reasonDetail)
+        && Objects.equals(this.isSetReasonDetail, updateSweepConfigurationV2.isSetReasonDetail)
         && Objects.equals(this.reference, updateSweepConfigurationV2.reference)
+        && Objects.equals(this.isSetReference, updateSweepConfigurationV2.isSetReference)
         && Objects.equals(
             this.referenceForBeneficiary, updateSweepConfigurationV2.referenceForBeneficiary)
+        && Objects.equals(
+            this.isSetReferenceForBeneficiary,
+            updateSweepConfigurationV2.isSetReferenceForBeneficiary)
         && Objects.equals(this.schedule, updateSweepConfigurationV2.schedule)
+        && Objects.equals(this.isSetSchedule, updateSweepConfigurationV2.isSetSchedule)
         && Objects.equals(this.status, updateSweepConfigurationV2.status)
+        && Objects.equals(this.isSetStatus, updateSweepConfigurationV2.isSetStatus)
         && Objects.equals(this.sweepAmount, updateSweepConfigurationV2.sweepAmount)
+        && Objects.equals(this.isSetSweepAmount, updateSweepConfigurationV2.isSetSweepAmount)
         && Objects.equals(this.targetAmount, updateSweepConfigurationV2.targetAmount)
+        && Objects.equals(this.isSetTargetAmount, updateSweepConfigurationV2.isSetTargetAmount)
         && Objects.equals(this.triggerAmount, updateSweepConfigurationV2.triggerAmount)
-        && Objects.equals(this.type, updateSweepConfigurationV2.type);
+        && Objects.equals(this.isSetTriggerAmount, updateSweepConfigurationV2.isSetTriggerAmount)
+        && Objects.equals(this.type, updateSweepConfigurationV2.type)
+        && Objects.equals(this.isSetType, updateSweepConfigurationV2.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         category,
+        isSetCategory,
         counterparty,
+        isSetCounterparty,
         currency,
+        isSetCurrency,
         description,
+        isSetDescription,
         id,
+        isSetId,
         priorities,
+        isSetPriorities,
         reason,
+        isSetReason,
         reasonDetail,
+        isSetReasonDetail,
         reference,
+        isSetReference,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         schedule,
+        isSetSchedule,
         status,
+        isSetStatus,
         sweepAmount,
+        isSetSweepAmount,
         targetAmount,
+        isSetTargetAmount,
         triggerAmount,
-        type);
+        isSetTriggerAmount,
+        type,
+        isSetType);
   }
 
   @Override

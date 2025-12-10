@@ -161,12 +161,14 @@ public class DifferentCurrenciesRestriction {
     DifferentCurrenciesRestriction differentCurrenciesRestriction =
         (DifferentCurrenciesRestriction) o;
     return Objects.equals(this.operation, differentCurrenciesRestriction.operation)
-        && Objects.equals(this.value, differentCurrenciesRestriction.value);
+        && Objects.equals(this.isSetOperation, differentCurrenciesRestriction.isSetOperation)
+        && Objects.equals(this.value, differentCurrenciesRestriction.value)
+        && Objects.equals(this.isSetValue, differentCurrenciesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

@@ -194,13 +194,16 @@ public class ScaDevice {
     }
     ScaDevice scaDevice = (ScaDevice) o;
     return Objects.equals(this.id, scaDevice.id)
+        && Objects.equals(this.isSetId, scaDevice.isSetId)
         && Objects.equals(this.name, scaDevice.name)
-        && Objects.equals(this.type, scaDevice.type);
+        && Objects.equals(this.isSetName, scaDevice.isSetName)
+        && Objects.equals(this.type, scaDevice.type)
+        && Objects.equals(this.isSetType, scaDevice.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type);
+    return Objects.hash(id, isSetId, name, isSetName, type, isSetType);
   }
 
   @Override

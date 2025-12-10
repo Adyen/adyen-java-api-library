@@ -164,12 +164,15 @@ public class RevealPinRequest {
     }
     RevealPinRequest revealPinRequest = (RevealPinRequest) o;
     return Objects.equals(this.encryptedKey, revealPinRequest.encryptedKey)
-        && Objects.equals(this.paymentInstrumentId, revealPinRequest.paymentInstrumentId);
+        && Objects.equals(this.isSetEncryptedKey, revealPinRequest.isSetEncryptedKey)
+        && Objects.equals(this.paymentInstrumentId, revealPinRequest.paymentInstrumentId)
+        && Objects.equals(this.isSetPaymentInstrumentId, revealPinRequest.isSetPaymentInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptedKey, paymentInstrumentId);
+    return Objects.hash(
+        encryptedKey, isSetEncryptedKey, paymentInstrumentId, isSetPaymentInstrumentId);
   }
 
   @Override

@@ -146,12 +146,14 @@ public class NetworkTokenRequestor {
     }
     NetworkTokenRequestor networkTokenRequestor = (NetworkTokenRequestor) o;
     return Objects.equals(this.id, networkTokenRequestor.id)
-        && Objects.equals(this.name, networkTokenRequestor.name);
+        && Objects.equals(this.isSetId, networkTokenRequestor.isSetId)
+        && Objects.equals(this.name, networkTokenRequestor.name)
+        && Objects.equals(this.isSetName, networkTokenRequestor.isSetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(id, isSetId, name, isSetName);
   }
 
   @Override

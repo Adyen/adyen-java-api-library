@@ -235,14 +235,19 @@ public class ContactDetails {
     }
     ContactDetails contactDetails = (ContactDetails) o;
     return Objects.equals(this.address, contactDetails.address)
+        && Objects.equals(this.isSetAddress, contactDetails.isSetAddress)
         && Objects.equals(this.email, contactDetails.email)
+        && Objects.equals(this.isSetEmail, contactDetails.isSetEmail)
         && Objects.equals(this.phone, contactDetails.phone)
-        && Objects.equals(this.webAddress, contactDetails.webAddress);
+        && Objects.equals(this.isSetPhone, contactDetails.isSetPhone)
+        && Objects.equals(this.webAddress, contactDetails.webAddress)
+        && Objects.equals(this.isSetWebAddress, contactDetails.isSetWebAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, email, phone, webAddress);
+    return Objects.hash(
+        address, isSetAddress, email, isSetEmail, phone, isSetPhone, webAddress, isSetWebAddress);
   }
 
   @Override

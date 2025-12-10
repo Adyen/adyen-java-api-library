@@ -155,12 +155,14 @@ public class TimeOfDay {
     }
     TimeOfDay timeOfDay = (TimeOfDay) o;
     return Objects.equals(this.endTime, timeOfDay.endTime)
-        && Objects.equals(this.startTime, timeOfDay.startTime);
+        && Objects.equals(this.isSetEndTime, timeOfDay.isSetEndTime)
+        && Objects.equals(this.startTime, timeOfDay.startTime)
+        && Objects.equals(this.isSetStartTime, timeOfDay.isSetStartTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, startTime);
+    return Objects.hash(endTime, isSetEndTime, startTime, isSetStartTime);
   }
 
   @Override

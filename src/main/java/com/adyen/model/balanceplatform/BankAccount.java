@@ -101,12 +101,13 @@ public class BankAccount {
       return false;
     }
     BankAccount bankAccount = (BankAccount) o;
-    return Objects.equals(this.accountIdentification, bankAccount.accountIdentification);
+    return Objects.equals(this.accountIdentification, bankAccount.accountIdentification)
+        && Objects.equals(this.isSetAccountIdentification, bankAccount.isSetAccountIdentification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentification);
+    return Objects.hash(accountIdentification, isSetAccountIdentification);
   }
 
   @Override

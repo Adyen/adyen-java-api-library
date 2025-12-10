@@ -133,12 +133,13 @@ public class NetworkTokenActivationDataResponse {
     }
     NetworkTokenActivationDataResponse networkTokenActivationDataResponse =
         (NetworkTokenActivationDataResponse) o;
-    return Objects.equals(this.sdkInput, networkTokenActivationDataResponse.sdkInput);
+    return Objects.equals(this.sdkInput, networkTokenActivationDataResponse.sdkInput)
+        && Objects.equals(this.isSetSdkInput, networkTokenActivationDataResponse.isSetSdkInput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sdkInput);
+    return Objects.hash(sdkInput, isSetSdkInput);
   }
 
   @Override

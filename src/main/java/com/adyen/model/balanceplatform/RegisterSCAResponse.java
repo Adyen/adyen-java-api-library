@@ -239,14 +239,27 @@ public class RegisterSCAResponse {
     }
     RegisterSCAResponse registerSCAResponse = (RegisterSCAResponse) o;
     return Objects.equals(this.id, registerSCAResponse.id)
+        && Objects.equals(this.isSetId, registerSCAResponse.isSetId)
         && Objects.equals(this.paymentInstrumentId, registerSCAResponse.paymentInstrumentId)
+        && Objects.equals(
+            this.isSetPaymentInstrumentId, registerSCAResponse.isSetPaymentInstrumentId)
         && Objects.equals(this.sdkInput, registerSCAResponse.sdkInput)
-        && Objects.equals(this.success, registerSCAResponse.success);
+        && Objects.equals(this.isSetSdkInput, registerSCAResponse.isSetSdkInput)
+        && Objects.equals(this.success, registerSCAResponse.success)
+        && Objects.equals(this.isSetSuccess, registerSCAResponse.isSetSuccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, paymentInstrumentId, sdkInput, success);
+    return Objects.hash(
+        id,
+        isSetId,
+        paymentInstrumentId,
+        isSetPaymentInstrumentId,
+        sdkInput,
+        isSetSdkInput,
+        success,
+        isSetSuccess);
   }
 
   @Override

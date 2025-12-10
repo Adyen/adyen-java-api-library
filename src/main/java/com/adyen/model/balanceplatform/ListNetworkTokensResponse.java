@@ -111,12 +111,13 @@ public class ListNetworkTokensResponse {
       return false;
     }
     ListNetworkTokensResponse listNetworkTokensResponse = (ListNetworkTokensResponse) o;
-    return Objects.equals(this.networkTokens, listNetworkTokensResponse.networkTokens);
+    return Objects.equals(this.networkTokens, listNetworkTokensResponse.networkTokens)
+        && Objects.equals(this.isSetNetworkTokens, listNetworkTokensResponse.isSetNetworkTokens);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkTokens);
+    return Objects.hash(networkTokens, isSetNetworkTokens);
   }
 
   @Override

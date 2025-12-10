@@ -117,12 +117,13 @@ public class TransferRouteResponse {
       return false;
     }
     TransferRouteResponse transferRouteResponse = (TransferRouteResponse) o;
-    return Objects.equals(this.transferRoutes, transferRouteResponse.transferRoutes);
+    return Objects.equals(this.transferRoutes, transferRouteResponse.transferRoutes)
+        && Objects.equals(this.isSetTransferRoutes, transferRouteResponse.isSetTransferRoutes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transferRoutes);
+    return Objects.hash(transferRoutes, isSetTransferRoutes);
   }
 
   @Override

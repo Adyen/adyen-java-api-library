@@ -101,12 +101,13 @@ public class Fee {
       return false;
     }
     Fee fee = (Fee) o;
-    return Objects.equals(this.amount, fee.amount);
+    return Objects.equals(this.amount, fee.amount)
+        && Objects.equals(this.isSetAmount, fee.isSetAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount);
+    return Objects.hash(amount, isSetAmount);
   }
 
   @Override

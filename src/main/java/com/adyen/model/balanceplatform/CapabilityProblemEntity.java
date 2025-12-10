@@ -293,14 +293,18 @@ public class CapabilityProblemEntity {
     }
     CapabilityProblemEntity capabilityProblemEntity = (CapabilityProblemEntity) o;
     return Objects.equals(this.documents, capabilityProblemEntity.documents)
+        && Objects.equals(this.isSetDocuments, capabilityProblemEntity.isSetDocuments)
         && Objects.equals(this.id, capabilityProblemEntity.id)
+        && Objects.equals(this.isSetId, capabilityProblemEntity.isSetId)
         && Objects.equals(this.owner, capabilityProblemEntity.owner)
-        && Objects.equals(this.type, capabilityProblemEntity.type);
+        && Objects.equals(this.isSetOwner, capabilityProblemEntity.isSetOwner)
+        && Objects.equals(this.type, capabilityProblemEntity.type)
+        && Objects.equals(this.isSetType, capabilityProblemEntity.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documents, id, owner, type);
+    return Objects.hash(documents, isSetDocuments, id, isSetId, owner, isSetOwner, type, isSetType);
   }
 
   @Override

@@ -146,12 +146,14 @@ public class MerchantAcquirerPair {
     }
     MerchantAcquirerPair merchantAcquirerPair = (MerchantAcquirerPair) o;
     return Objects.equals(this.acquirerId, merchantAcquirerPair.acquirerId)
-        && Objects.equals(this.merchantId, merchantAcquirerPair.merchantId);
+        && Objects.equals(this.isSetAcquirerId, merchantAcquirerPair.isSetAcquirerId)
+        && Objects.equals(this.merchantId, merchantAcquirerPair.merchantId)
+        && Objects.equals(this.isSetMerchantId, merchantAcquirerPair.isSetMerchantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquirerId, merchantId);
+    return Objects.hash(acquirerId, isSetAcquirerId, merchantId, isSetMerchantId);
   }
 
   @Override

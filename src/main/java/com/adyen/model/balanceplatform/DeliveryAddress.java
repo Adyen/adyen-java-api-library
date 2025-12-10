@@ -395,17 +395,38 @@ public class DeliveryAddress {
     }
     DeliveryAddress deliveryAddress = (DeliveryAddress) o;
     return Objects.equals(this.city, deliveryAddress.city)
+        && Objects.equals(this.isSetCity, deliveryAddress.isSetCity)
         && Objects.equals(this.country, deliveryAddress.country)
+        && Objects.equals(this.isSetCountry, deliveryAddress.isSetCountry)
         && Objects.equals(this.line1, deliveryAddress.line1)
+        && Objects.equals(this.isSetLine1, deliveryAddress.isSetLine1)
         && Objects.equals(this.line2, deliveryAddress.line2)
+        && Objects.equals(this.isSetLine2, deliveryAddress.isSetLine2)
         && Objects.equals(this.line3, deliveryAddress.line3)
+        && Objects.equals(this.isSetLine3, deliveryAddress.isSetLine3)
         && Objects.equals(this.postalCode, deliveryAddress.postalCode)
-        && Objects.equals(this.stateOrProvince, deliveryAddress.stateOrProvince);
+        && Objects.equals(this.isSetPostalCode, deliveryAddress.isSetPostalCode)
+        && Objects.equals(this.stateOrProvince, deliveryAddress.stateOrProvince)
+        && Objects.equals(this.isSetStateOrProvince, deliveryAddress.isSetStateOrProvince);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, line1, line2, line3, postalCode, stateOrProvince);
+    return Objects.hash(
+        city,
+        isSetCity,
+        country,
+        isSetCountry,
+        line1,
+        isSetLine1,
+        line2,
+        isSetLine2,
+        line3,
+        isSetLine3,
+        postalCode,
+        isSetPostalCode,
+        stateOrProvince,
+        isSetStateOrProvince);
   }
 
   @Override

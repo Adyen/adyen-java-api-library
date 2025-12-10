@@ -157,12 +157,13 @@ public class PinChangeResponse {
       return false;
     }
     PinChangeResponse pinChangeResponse = (PinChangeResponse) o;
-    return Objects.equals(this.status, pinChangeResponse.status);
+    return Objects.equals(this.status, pinChangeResponse.status)
+        && Objects.equals(this.isSetStatus, pinChangeResponse.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status);
+    return Objects.hash(status, isSetStatus);
   }
 
   @Override

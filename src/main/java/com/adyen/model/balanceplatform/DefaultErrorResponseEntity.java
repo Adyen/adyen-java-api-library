@@ -414,18 +414,42 @@ public class DefaultErrorResponseEntity {
     }
     DefaultErrorResponseEntity defaultErrorResponseEntity = (DefaultErrorResponseEntity) o;
     return Objects.equals(this.detail, defaultErrorResponseEntity.detail)
+        && Objects.equals(this.isSetDetail, defaultErrorResponseEntity.isSetDetail)
         && Objects.equals(this.errorCode, defaultErrorResponseEntity.errorCode)
+        && Objects.equals(this.isSetErrorCode, defaultErrorResponseEntity.isSetErrorCode)
         && Objects.equals(this.instance, defaultErrorResponseEntity.instance)
+        && Objects.equals(this.isSetInstance, defaultErrorResponseEntity.isSetInstance)
         && Objects.equals(this.invalidFields, defaultErrorResponseEntity.invalidFields)
+        && Objects.equals(this.isSetInvalidFields, defaultErrorResponseEntity.isSetInvalidFields)
         && Objects.equals(this.requestId, defaultErrorResponseEntity.requestId)
+        && Objects.equals(this.isSetRequestId, defaultErrorResponseEntity.isSetRequestId)
         && Objects.equals(this.status, defaultErrorResponseEntity.status)
+        && Objects.equals(this.isSetStatus, defaultErrorResponseEntity.isSetStatus)
         && Objects.equals(this.title, defaultErrorResponseEntity.title)
-        && Objects.equals(this.type, defaultErrorResponseEntity.type);
+        && Objects.equals(this.isSetTitle, defaultErrorResponseEntity.isSetTitle)
+        && Objects.equals(this.type, defaultErrorResponseEntity.type)
+        && Objects.equals(this.isSetType, defaultErrorResponseEntity.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, errorCode, instance, invalidFields, requestId, status, title, type);
+    return Objects.hash(
+        detail,
+        isSetDetail,
+        errorCode,
+        isSetErrorCode,
+        instance,
+        isSetInstance,
+        invalidFields,
+        isSetInvalidFields,
+        requestId,
+        isSetRequestId,
+        status,
+        isSetStatus,
+        title,
+        isSetTitle,
+        type,
+        isSetType);
   }
 
   @Override

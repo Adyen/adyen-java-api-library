@@ -328,14 +328,26 @@ public class USLocalAccountIdentification {
     }
     USLocalAccountIdentification usLocalAccountIdentification = (USLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, usLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, usLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.accountType, usLocalAccountIdentification.accountType)
+        && Objects.equals(this.isSetAccountType, usLocalAccountIdentification.isSetAccountType)
         && Objects.equals(this.routingNumber, usLocalAccountIdentification.routingNumber)
-        && Objects.equals(this.type, usLocalAccountIdentification.type);
+        && Objects.equals(this.isSetRoutingNumber, usLocalAccountIdentification.isSetRoutingNumber)
+        && Objects.equals(this.type, usLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, usLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, routingNumber, type);
+    return Objects.hash(
+        accountNumber,
+        isSetAccountNumber,
+        accountType,
+        isSetAccountType,
+        routingNumber,
+        isSetRoutingNumber,
+        type,
+        isSetType);
   }
 
   @Override

@@ -245,13 +245,18 @@ public class CardOrderItemDeliveryStatus {
     }
     CardOrderItemDeliveryStatus cardOrderItemDeliveryStatus = (CardOrderItemDeliveryStatus) o;
     return Objects.equals(this.errorMessage, cardOrderItemDeliveryStatus.errorMessage)
+        && Objects.equals(this.isSetErrorMessage, cardOrderItemDeliveryStatus.isSetErrorMessage)
         && Objects.equals(this.status, cardOrderItemDeliveryStatus.status)
-        && Objects.equals(this.trackingNumber, cardOrderItemDeliveryStatus.trackingNumber);
+        && Objects.equals(this.isSetStatus, cardOrderItemDeliveryStatus.isSetStatus)
+        && Objects.equals(this.trackingNumber, cardOrderItemDeliveryStatus.trackingNumber)
+        && Objects.equals(
+            this.isSetTrackingNumber, cardOrderItemDeliveryStatus.isSetTrackingNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, status, trackingNumber);
+    return Objects.hash(
+        errorMessage, isSetErrorMessage, status, isSetStatus, trackingNumber, isSetTrackingNumber);
   }
 
   @Override

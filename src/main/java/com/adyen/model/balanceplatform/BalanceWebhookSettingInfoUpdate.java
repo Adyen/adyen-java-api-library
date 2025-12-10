@@ -397,15 +397,30 @@ public class BalanceWebhookSettingInfoUpdate {
     BalanceWebhookSettingInfoUpdate balanceWebhookSettingInfoUpdate =
         (BalanceWebhookSettingInfoUpdate) o;
     return Objects.equals(this.conditions, balanceWebhookSettingInfoUpdate.conditions)
+        && Objects.equals(this.isSetConditions, balanceWebhookSettingInfoUpdate.isSetConditions)
         && Objects.equals(this.currency, balanceWebhookSettingInfoUpdate.currency)
+        && Objects.equals(this.isSetCurrency, balanceWebhookSettingInfoUpdate.isSetCurrency)
         && Objects.equals(this.status, balanceWebhookSettingInfoUpdate.status)
+        && Objects.equals(this.isSetStatus, balanceWebhookSettingInfoUpdate.isSetStatus)
         && Objects.equals(this.target, balanceWebhookSettingInfoUpdate.target)
-        && Objects.equals(this.type, balanceWebhookSettingInfoUpdate.type);
+        && Objects.equals(this.isSetTarget, balanceWebhookSettingInfoUpdate.isSetTarget)
+        && Objects.equals(this.type, balanceWebhookSettingInfoUpdate.type)
+        && Objects.equals(this.isSetType, balanceWebhookSettingInfoUpdate.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, currency, status, target, type);
+    return Objects.hash(
+        conditions,
+        isSetConditions,
+        currency,
+        isSetCurrency,
+        status,
+        isSetStatus,
+        target,
+        isSetTarget,
+        type,
+        isSetType);
   }
 
   @Override

@@ -535,16 +535,34 @@ public class TransactionRuleInterval {
     }
     TransactionRuleInterval transactionRuleInterval = (TransactionRuleInterval) o;
     return Objects.equals(this.dayOfMonth, transactionRuleInterval.dayOfMonth)
+        && Objects.equals(this.isSetDayOfMonth, transactionRuleInterval.isSetDayOfMonth)
         && Objects.equals(this.dayOfWeek, transactionRuleInterval.dayOfWeek)
+        && Objects.equals(this.isSetDayOfWeek, transactionRuleInterval.isSetDayOfWeek)
         && Objects.equals(this.duration, transactionRuleInterval.duration)
+        && Objects.equals(this.isSetDuration, transactionRuleInterval.isSetDuration)
         && Objects.equals(this.timeOfDay, transactionRuleInterval.timeOfDay)
+        && Objects.equals(this.isSetTimeOfDay, transactionRuleInterval.isSetTimeOfDay)
         && Objects.equals(this.timeZone, transactionRuleInterval.timeZone)
-        && Objects.equals(this.type, transactionRuleInterval.type);
+        && Objects.equals(this.isSetTimeZone, transactionRuleInterval.isSetTimeZone)
+        && Objects.equals(this.type, transactionRuleInterval.type)
+        && Objects.equals(this.isSetType, transactionRuleInterval.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dayOfMonth, dayOfWeek, duration, timeOfDay, timeZone, type);
+    return Objects.hash(
+        dayOfMonth,
+        isSetDayOfMonth,
+        dayOfWeek,
+        isSetDayOfWeek,
+        duration,
+        isSetDuration,
+        timeOfDay,
+        isSetTimeOfDay,
+        timeZone,
+        isSetTimeZone,
+        type,
+        isSetType);
   }
 
   @Override

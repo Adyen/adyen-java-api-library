@@ -101,12 +101,13 @@ public class GrantLimit {
       return false;
     }
     GrantLimit grantLimit = (GrantLimit) o;
-    return Objects.equals(this.amount, grantLimit.amount);
+    return Objects.equals(this.amount, grantLimit.amount)
+        && Objects.equals(this.isSetAmount, grantLimit.isSetAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount);
+    return Objects.hash(amount, isSetAmount);
   }
 
   @Override

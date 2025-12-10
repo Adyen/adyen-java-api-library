@@ -237,13 +237,17 @@ public class UKLocalAccountIdentification {
     }
     UKLocalAccountIdentification ukLocalAccountIdentification = (UKLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, ukLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, ukLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.sortCode, ukLocalAccountIdentification.sortCode)
-        && Objects.equals(this.type, ukLocalAccountIdentification.type);
+        && Objects.equals(this.isSetSortCode, ukLocalAccountIdentification.isSetSortCode)
+        && Objects.equals(this.type, ukLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, ukLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, sortCode, type);
+    return Objects.hash(
+        accountNumber, isSetAccountNumber, sortCode, isSetSortCode, type, isSetType);
   }
 
   @Override

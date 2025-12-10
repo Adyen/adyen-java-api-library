@@ -198,12 +198,15 @@ public class USInternationalAchAddressRequirement {
     USInternationalAchAddressRequirement usInternationalAchAddressRequirement =
         (USInternationalAchAddressRequirement) o;
     return Objects.equals(this.description, usInternationalAchAddressRequirement.description)
-        && Objects.equals(this.type, usInternationalAchAddressRequirement.type);
+        && Objects.equals(
+            this.isSetDescription, usInternationalAchAddressRequirement.isSetDescription)
+        && Objects.equals(this.type, usInternationalAchAddressRequirement.type)
+        && Objects.equals(this.isSetType, usInternationalAchAddressRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, type);
+    return Objects.hash(description, isSetDescription, type, isSetType);
   }
 
   @Override

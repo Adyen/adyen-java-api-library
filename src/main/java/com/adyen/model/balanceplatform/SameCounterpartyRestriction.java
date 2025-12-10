@@ -146,12 +146,14 @@ public class SameCounterpartyRestriction {
     }
     SameCounterpartyRestriction sameCounterpartyRestriction = (SameCounterpartyRestriction) o;
     return Objects.equals(this.operation, sameCounterpartyRestriction.operation)
-        && Objects.equals(this.value, sameCounterpartyRestriction.value);
+        && Objects.equals(this.isSetOperation, sameCounterpartyRestriction.isSetOperation)
+        && Objects.equals(this.value, sameCounterpartyRestriction.value)
+        && Objects.equals(this.isSetValue, sameCounterpartyRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

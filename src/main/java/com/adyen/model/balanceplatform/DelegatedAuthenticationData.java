@@ -107,12 +107,13 @@ public class DelegatedAuthenticationData {
       return false;
     }
     DelegatedAuthenticationData delegatedAuthenticationData = (DelegatedAuthenticationData) o;
-    return Objects.equals(this.sdkOutput, delegatedAuthenticationData.sdkOutput);
+    return Objects.equals(this.sdkOutput, delegatedAuthenticationData.sdkOutput)
+        && Objects.equals(this.isSetSdkOutput, delegatedAuthenticationData.isSetSdkOutput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sdkOutput);
+    return Objects.hash(sdkOutput, isSetSdkOutput);
   }
 
   @Override

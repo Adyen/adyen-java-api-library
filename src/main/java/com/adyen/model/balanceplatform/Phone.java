@@ -196,12 +196,15 @@ public class Phone {
       return false;
     }
     Phone phone = (Phone) o;
-    return Objects.equals(this.number, phone.number) && Objects.equals(this.type, phone.type);
+    return Objects.equals(this.number, phone.number)
+        && Objects.equals(this.isSetNumber, phone.isSetNumber)
+        && Objects.equals(this.type, phone.type)
+        && Objects.equals(this.isSetType, phone.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, type);
+    return Objects.hash(number, isSetNumber, type, isSetType);
   }
 
   @Override

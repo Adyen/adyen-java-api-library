@@ -101,12 +101,13 @@ public class ThresholdRepayment {
       return false;
     }
     ThresholdRepayment thresholdRepayment = (ThresholdRepayment) o;
-    return Objects.equals(this.amount, thresholdRepayment.amount);
+    return Objects.equals(this.amount, thresholdRepayment.amount)
+        && Objects.equals(this.isSetAmount, thresholdRepayment.isSetAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount);
+    return Objects.hash(amount, isSetAmount);
   }
 
   @Override

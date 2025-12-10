@@ -194,13 +194,16 @@ public class BalancePlatform {
     }
     BalancePlatform balancePlatform = (BalancePlatform) o;
     return Objects.equals(this.description, balancePlatform.description)
+        && Objects.equals(this.isSetDescription, balancePlatform.isSetDescription)
         && Objects.equals(this.id, balancePlatform.id)
-        && Objects.equals(this.status, balancePlatform.status);
+        && Objects.equals(this.isSetId, balancePlatform.isSetId)
+        && Objects.equals(this.status, balancePlatform.status)
+        && Objects.equals(this.isSetStatus, balancePlatform.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, status);
+    return Objects.hash(description, isSetDescription, id, isSetId, status, isSetStatus);
   }
 
   @Override

@@ -198,12 +198,15 @@ public class USInternationalAchPriorityRequirement {
     USInternationalAchPriorityRequirement usInternationalAchPriorityRequirement =
         (USInternationalAchPriorityRequirement) o;
     return Objects.equals(this.description, usInternationalAchPriorityRequirement.description)
-        && Objects.equals(this.type, usInternationalAchPriorityRequirement.type);
+        && Objects.equals(
+            this.isSetDescription, usInternationalAchPriorityRequirement.isSetDescription)
+        && Objects.equals(this.type, usInternationalAchPriorityRequirement.type)
+        && Objects.equals(this.isSetType, usInternationalAchPriorityRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, type);
+    return Objects.hash(description, isSetDescription, type, isSetType);
   }
 
   @Override

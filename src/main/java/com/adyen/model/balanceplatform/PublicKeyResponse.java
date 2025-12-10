@@ -146,12 +146,15 @@ public class PublicKeyResponse {
     }
     PublicKeyResponse publicKeyResponse = (PublicKeyResponse) o;
     return Objects.equals(this.publicKey, publicKeyResponse.publicKey)
-        && Objects.equals(this.publicKeyExpiryDate, publicKeyResponse.publicKeyExpiryDate);
+        && Objects.equals(this.isSetPublicKey, publicKeyResponse.isSetPublicKey)
+        && Objects.equals(this.publicKeyExpiryDate, publicKeyResponse.publicKeyExpiryDate)
+        && Objects.equals(
+            this.isSetPublicKeyExpiryDate, publicKeyResponse.isSetPublicKeyExpiryDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicKey, publicKeyExpiryDate);
+    return Objects.hash(publicKey, isSetPublicKey, publicKeyExpiryDate, isSetPublicKeyExpiryDate);
   }
 
   @Override

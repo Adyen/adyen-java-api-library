@@ -103,12 +103,14 @@ public class PaymentInstrumentRevealResponse {
     }
     PaymentInstrumentRevealResponse paymentInstrumentRevealResponse =
         (PaymentInstrumentRevealResponse) o;
-    return Objects.equals(this.encryptedData, paymentInstrumentRevealResponse.encryptedData);
+    return Objects.equals(this.encryptedData, paymentInstrumentRevealResponse.encryptedData)
+        && Objects.equals(
+            this.isSetEncryptedData, paymentInstrumentRevealResponse.isSetEncryptedData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptedData);
+    return Objects.hash(encryptedData, isSetEncryptedData);
   }
 
   @Override

@@ -157,12 +157,13 @@ public class UpdateNetworkTokenRequest {
       return false;
     }
     UpdateNetworkTokenRequest updateNetworkTokenRequest = (UpdateNetworkTokenRequest) o;
-    return Objects.equals(this.status, updateNetworkTokenRequest.status);
+    return Objects.equals(this.status, updateNetworkTokenRequest.status)
+        && Objects.equals(this.isSetStatus, updateNetworkTokenRequest.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status);
+    return Objects.hash(status, isSetStatus);
   }
 
   @Override

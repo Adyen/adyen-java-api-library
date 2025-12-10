@@ -169,12 +169,20 @@ public class PlatformPaymentConfiguration {
     return Objects.equals(
             this.salesDayClosingTime, platformPaymentConfiguration.salesDayClosingTime)
         && Objects.equals(
-            this.settlementDelayDays, platformPaymentConfiguration.settlementDelayDays);
+            this.isSetSalesDayClosingTime, platformPaymentConfiguration.isSetSalesDayClosingTime)
+        && Objects.equals(
+            this.settlementDelayDays, platformPaymentConfiguration.settlementDelayDays)
+        && Objects.equals(
+            this.isSetSettlementDelayDays, platformPaymentConfiguration.isSetSettlementDelayDays);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(salesDayClosingTime, settlementDelayDays);
+    return Objects.hash(
+        salesDayClosingTime,
+        isSetSalesDayClosingTime,
+        settlementDelayDays,
+        isSetSettlementDelayDays);
   }
 
   @Override

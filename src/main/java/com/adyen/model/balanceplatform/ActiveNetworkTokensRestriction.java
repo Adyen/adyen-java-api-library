@@ -149,12 +149,14 @@ public class ActiveNetworkTokensRestriction {
     ActiveNetworkTokensRestriction activeNetworkTokensRestriction =
         (ActiveNetworkTokensRestriction) o;
     return Objects.equals(this.operation, activeNetworkTokensRestriction.operation)
-        && Objects.equals(this.value, activeNetworkTokensRestriction.value);
+        && Objects.equals(this.isSetOperation, activeNetworkTokensRestriction.isSetOperation)
+        && Objects.equals(this.value, activeNetworkTokensRestriction.value)
+        && Objects.equals(this.isSetValue, activeNetworkTokensRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

@@ -457,26 +457,43 @@ public class CardOrder {
     }
     CardOrder cardOrder = (CardOrder) o;
     return Objects.equals(this.beginDate, cardOrder.beginDate)
+        && Objects.equals(this.isSetBeginDate, cardOrder.isSetBeginDate)
         && Objects.equals(this.cardManufacturingProfileId, cardOrder.cardManufacturingProfileId)
+        && Objects.equals(
+            this.isSetCardManufacturingProfileId, cardOrder.isSetCardManufacturingProfileId)
         && Objects.equals(this.closedDate, cardOrder.closedDate)
+        && Objects.equals(this.isSetClosedDate, cardOrder.isSetClosedDate)
         && Objects.equals(this.endDate, cardOrder.endDate)
+        && Objects.equals(this.isSetEndDate, cardOrder.isSetEndDate)
         && Objects.equals(this.id, cardOrder.id)
+        && Objects.equals(this.isSetId, cardOrder.isSetId)
         && Objects.equals(this.lockDate, cardOrder.lockDate)
+        && Objects.equals(this.isSetLockDate, cardOrder.isSetLockDate)
         && Objects.equals(this.serviceCenter, cardOrder.serviceCenter)
-        && Objects.equals(this.status, cardOrder.status);
+        && Objects.equals(this.isSetServiceCenter, cardOrder.isSetServiceCenter)
+        && Objects.equals(this.status, cardOrder.status)
+        && Objects.equals(this.isSetStatus, cardOrder.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         beginDate,
+        isSetBeginDate,
         cardManufacturingProfileId,
+        isSetCardManufacturingProfileId,
         closedDate,
+        isSetClosedDate,
         endDate,
+        isSetEndDate,
         id,
+        isSetId,
         lockDate,
+        isSetLockDate,
         serviceCenter,
-        status);
+        isSetServiceCenter,
+        status,
+        isSetStatus);
   }
 
   @Override

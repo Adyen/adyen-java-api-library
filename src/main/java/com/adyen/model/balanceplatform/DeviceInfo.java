@@ -143,12 +143,14 @@ public class DeviceInfo {
     }
     DeviceInfo deviceInfo = (DeviceInfo) o;
     return Objects.equals(this.formFactor, deviceInfo.formFactor)
-        && Objects.equals(this.osName, deviceInfo.osName);
+        && Objects.equals(this.isSetFormFactor, deviceInfo.isSetFormFactor)
+        && Objects.equals(this.osName, deviceInfo.osName)
+        && Objects.equals(this.isSetOsName, deviceInfo.isSetOsName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formFactor, osName);
+    return Objects.hash(formFactor, isSetFormFactor, osName, isSetOsName);
   }
 
   @Override

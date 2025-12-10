@@ -143,12 +143,14 @@ public class ScaInformation {
     }
     ScaInformation scaInformation = (ScaInformation) o;
     return Objects.equals(this.exemption, scaInformation.exemption)
-        && Objects.equals(this.status, scaInformation.status);
+        && Objects.equals(this.isSetExemption, scaInformation.isSetExemption)
+        && Objects.equals(this.status, scaInformation.status)
+        && Objects.equals(this.isSetStatus, scaInformation.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exemption, status);
+    return Objects.hash(exemption, isSetExemption, status, isSetStatus);
   }
 
   @Override

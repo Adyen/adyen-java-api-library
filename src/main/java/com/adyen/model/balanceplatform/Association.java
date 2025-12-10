@@ -230,14 +230,26 @@ public class Association {
     }
     Association association = (Association) o;
     return Objects.equals(this.entityId, association.entityId)
+        && Objects.equals(this.isSetEntityId, association.isSetEntityId)
         && Objects.equals(this.entityType, association.entityType)
+        && Objects.equals(this.isSetEntityType, association.isSetEntityType)
         && Objects.equals(this.scaDeviceId, association.scaDeviceId)
-        && Objects.equals(this.status, association.status);
+        && Objects.equals(this.isSetScaDeviceId, association.isSetScaDeviceId)
+        && Objects.equals(this.status, association.status)
+        && Objects.equals(this.isSetStatus, association.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityId, entityType, scaDeviceId, status);
+    return Objects.hash(
+        entityId,
+        isSetEntityId,
+        entityType,
+        isSetEntityType,
+        scaDeviceId,
+        isSetScaDeviceId,
+        status,
+        isSetStatus);
   }
 
   @Override

@@ -391,26 +391,42 @@ public class CardOrderItem {
     }
     CardOrderItem cardOrderItem = (CardOrderItem) o;
     return Objects.equals(this.balancePlatform, cardOrderItem.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, cardOrderItem.isSetBalancePlatform)
         && Objects.equals(this.card, cardOrderItem.card)
+        && Objects.equals(this.isSetCard, cardOrderItem.isSetCard)
         && Objects.equals(this.cardOrderItemId, cardOrderItem.cardOrderItemId)
+        && Objects.equals(this.isSetCardOrderItemId, cardOrderItem.isSetCardOrderItemId)
         && Objects.equals(this.creationDate, cardOrderItem.creationDate)
+        && Objects.equals(this.isSetCreationDate, cardOrderItem.isSetCreationDate)
         && Objects.equals(this.id, cardOrderItem.id)
+        && Objects.equals(this.isSetId, cardOrderItem.isSetId)
         && Objects.equals(this.paymentInstrumentId, cardOrderItem.paymentInstrumentId)
+        && Objects.equals(this.isSetPaymentInstrumentId, cardOrderItem.isSetPaymentInstrumentId)
         && Objects.equals(this.pin, cardOrderItem.pin)
-        && Objects.equals(this.shippingMethod, cardOrderItem.shippingMethod);
+        && Objects.equals(this.isSetPin, cardOrderItem.isSetPin)
+        && Objects.equals(this.shippingMethod, cardOrderItem.shippingMethod)
+        && Objects.equals(this.isSetShippingMethod, cardOrderItem.isSetShippingMethod);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         balancePlatform,
+        isSetBalancePlatform,
         card,
+        isSetCard,
         cardOrderItemId,
+        isSetCardOrderItemId,
         creationDate,
+        isSetCreationDate,
         id,
+        isSetId,
         paymentInstrumentId,
+        isSetPaymentInstrumentId,
         pin,
-        shippingMethod);
+        isSetPin,
+        shippingMethod,
+        isSetShippingMethod);
   }
 
   @Override

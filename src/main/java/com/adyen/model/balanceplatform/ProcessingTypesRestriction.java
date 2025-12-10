@@ -219,12 +219,14 @@ public class ProcessingTypesRestriction {
     }
     ProcessingTypesRestriction processingTypesRestriction = (ProcessingTypesRestriction) o;
     return Objects.equals(this.operation, processingTypesRestriction.operation)
-        && Objects.equals(this.value, processingTypesRestriction.value);
+        && Objects.equals(this.isSetOperation, processingTypesRestriction.isSetOperation)
+        && Objects.equals(this.value, processingTypesRestriction.value)
+        && Objects.equals(this.isSetValue, processingTypesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

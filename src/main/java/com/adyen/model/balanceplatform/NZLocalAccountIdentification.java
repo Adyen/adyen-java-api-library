@@ -201,12 +201,14 @@ public class NZLocalAccountIdentification {
     }
     NZLocalAccountIdentification nzLocalAccountIdentification = (NZLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, nzLocalAccountIdentification.accountNumber)
-        && Objects.equals(this.type, nzLocalAccountIdentification.type);
+        && Objects.equals(this.isSetAccountNumber, nzLocalAccountIdentification.isSetAccountNumber)
+        && Objects.equals(this.type, nzLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, nzLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, type, isSetType);
   }
 
   @Override

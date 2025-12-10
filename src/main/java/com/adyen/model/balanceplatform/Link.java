@@ -272,15 +272,30 @@ public class Link {
     }
     Link link = (Link) o;
     return Objects.equals(this.first, link.first)
+        && Objects.equals(this.isSetFirst, link.isSetFirst)
         && Objects.equals(this.last, link.last)
+        && Objects.equals(this.isSetLast, link.isSetLast)
         && Objects.equals(this.next, link.next)
+        && Objects.equals(this.isSetNext, link.isSetNext)
         && Objects.equals(this.previous, link.previous)
-        && Objects.equals(this.self, link.self);
+        && Objects.equals(this.isSetPrevious, link.isSetPrevious)
+        && Objects.equals(this.self, link.self)
+        && Objects.equals(this.isSetSelf, link.isSetSelf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(first, last, next, previous, self);
+    return Objects.hash(
+        first,
+        isSetFirst,
+        last,
+        isSetLast,
+        next,
+        isSetNext,
+        previous,
+        isSetPrevious,
+        self,
+        isSetSelf);
   }
 
   @Override

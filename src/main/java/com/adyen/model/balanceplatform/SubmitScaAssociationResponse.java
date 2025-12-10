@@ -111,12 +111,14 @@ public class SubmitScaAssociationResponse {
       return false;
     }
     SubmitScaAssociationResponse submitScaAssociationResponse = (SubmitScaAssociationResponse) o;
-    return Objects.equals(this.scaAssociations, submitScaAssociationResponse.scaAssociations);
+    return Objects.equals(this.scaAssociations, submitScaAssociationResponse.scaAssociations)
+        && Objects.equals(
+            this.isSetScaAssociations, submitScaAssociationResponse.isSetScaAssociations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scaAssociations);
+    return Objects.hash(scaAssociations, isSetScaAssociations);
   }
 
   @Override

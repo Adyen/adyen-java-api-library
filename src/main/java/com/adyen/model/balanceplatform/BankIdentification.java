@@ -252,13 +252,22 @@ public class BankIdentification {
     }
     BankIdentification bankIdentification = (BankIdentification) o;
     return Objects.equals(this.country, bankIdentification.country)
+        && Objects.equals(this.isSetCountry, bankIdentification.isSetCountry)
         && Objects.equals(this.identification, bankIdentification.identification)
-        && Objects.equals(this.identificationType, bankIdentification.identificationType);
+        && Objects.equals(this.isSetIdentification, bankIdentification.isSetIdentification)
+        && Objects.equals(this.identificationType, bankIdentification.identificationType)
+        && Objects.equals(this.isSetIdentificationType, bankIdentification.isSetIdentificationType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, identification, identificationType);
+    return Objects.hash(
+        country,
+        isSetCountry,
+        identification,
+        isSetIdentification,
+        identificationType,
+        isSetIdentificationType);
   }
 
   @Override

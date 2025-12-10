@@ -202,13 +202,17 @@ public class BalanceSweepConfigurationsResponse {
     BalanceSweepConfigurationsResponse balanceSweepConfigurationsResponse =
         (BalanceSweepConfigurationsResponse) o;
     return Objects.equals(this.hasNext, balanceSweepConfigurationsResponse.hasNext)
+        && Objects.equals(this.isSetHasNext, balanceSweepConfigurationsResponse.isSetHasNext)
         && Objects.equals(this.hasPrevious, balanceSweepConfigurationsResponse.hasPrevious)
-        && Objects.equals(this.sweeps, balanceSweepConfigurationsResponse.sweeps);
+        && Objects.equals(
+            this.isSetHasPrevious, balanceSweepConfigurationsResponse.isSetHasPrevious)
+        && Objects.equals(this.sweeps, balanceSweepConfigurationsResponse.sweeps)
+        && Objects.equals(this.isSetSweeps, balanceSweepConfigurationsResponse.isSetSweeps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasNext, hasPrevious, sweeps);
+    return Objects.hash(hasNext, isSetHasNext, hasPrevious, isSetHasPrevious, sweeps, isSetSweeps);
   }
 
   @Override

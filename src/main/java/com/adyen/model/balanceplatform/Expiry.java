@@ -142,12 +142,15 @@ public class Expiry {
       return false;
     }
     Expiry expiry = (Expiry) o;
-    return Objects.equals(this.month, expiry.month) && Objects.equals(this.year, expiry.year);
+    return Objects.equals(this.month, expiry.month)
+        && Objects.equals(this.isSetMonth, expiry.isSetMonth)
+        && Objects.equals(this.year, expiry.year)
+        && Objects.equals(this.isSetYear, expiry.isSetYear);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(month, year);
+    return Objects.hash(month, isSetMonth, year, isSetYear);
   }
 
   @Override

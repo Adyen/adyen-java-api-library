@@ -251,14 +251,26 @@ public class PinChangeRequest {
     }
     PinChangeRequest pinChangeRequest = (PinChangeRequest) o;
     return Objects.equals(this.encryptedKey, pinChangeRequest.encryptedKey)
+        && Objects.equals(this.isSetEncryptedKey, pinChangeRequest.isSetEncryptedKey)
         && Objects.equals(this.encryptedPinBlock, pinChangeRequest.encryptedPinBlock)
+        && Objects.equals(this.isSetEncryptedPinBlock, pinChangeRequest.isSetEncryptedPinBlock)
         && Objects.equals(this.paymentInstrumentId, pinChangeRequest.paymentInstrumentId)
-        && Objects.equals(this.token, pinChangeRequest.token);
+        && Objects.equals(this.isSetPaymentInstrumentId, pinChangeRequest.isSetPaymentInstrumentId)
+        && Objects.equals(this.token, pinChangeRequest.token)
+        && Objects.equals(this.isSetToken, pinChangeRequest.isSetToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptedKey, encryptedPinBlock, paymentInstrumentId, token);
+    return Objects.hash(
+        encryptedKey,
+        isSetEncryptedKey,
+        encryptedPinBlock,
+        isSetEncryptedPinBlock,
+        paymentInstrumentId,
+        isSetPaymentInstrumentId,
+        token,
+        isSetToken);
   }
 
   @Override

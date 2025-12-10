@@ -603,31 +603,55 @@ public class BalanceAccountBase {
     }
     BalanceAccountBase balanceAccountBase = (BalanceAccountBase) o;
     return Objects.equals(this.accountHolderId, balanceAccountBase.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, balanceAccountBase.isSetAccountHolderId)
         && Objects.equals(this.defaultCurrencyCode, balanceAccountBase.defaultCurrencyCode)
+        && Objects.equals(
+            this.isSetDefaultCurrencyCode, balanceAccountBase.isSetDefaultCurrencyCode)
         && Objects.equals(this.description, balanceAccountBase.description)
+        && Objects.equals(this.isSetDescription, balanceAccountBase.isSetDescription)
         && Objects.equals(this.id, balanceAccountBase.id)
+        && Objects.equals(this.isSetId, balanceAccountBase.isSetId)
         && Objects.equals(this.metadata, balanceAccountBase.metadata)
+        && Objects.equals(this.isSetMetadata, balanceAccountBase.isSetMetadata)
         && Objects.equals(this.migratedAccountCode, balanceAccountBase.migratedAccountCode)
         && Objects.equals(
+            this.isSetMigratedAccountCode, balanceAccountBase.isSetMigratedAccountCode)
+        && Objects.equals(
             this.platformPaymentConfiguration, balanceAccountBase.platformPaymentConfiguration)
+        && Objects.equals(
+            this.isSetPlatformPaymentConfiguration,
+            balanceAccountBase.isSetPlatformPaymentConfiguration)
         && Objects.equals(this.reference, balanceAccountBase.reference)
+        && Objects.equals(this.isSetReference, balanceAccountBase.isSetReference)
         && Objects.equals(this.status, balanceAccountBase.status)
-        && Objects.equals(this.timeZone, balanceAccountBase.timeZone);
+        && Objects.equals(this.isSetStatus, balanceAccountBase.isSetStatus)
+        && Objects.equals(this.timeZone, balanceAccountBase.timeZone)
+        && Objects.equals(this.isSetTimeZone, balanceAccountBase.isSetTimeZone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolderId,
+        isSetAccountHolderId,
         defaultCurrencyCode,
+        isSetDefaultCurrencyCode,
         description,
+        isSetDescription,
         id,
+        isSetId,
         metadata,
+        isSetMetadata,
         migratedAccountCode,
+        isSetMigratedAccountCode,
         platformPaymentConfiguration,
+        isSetPlatformPaymentConfiguration,
         reference,
+        isSetReference,
         status,
-        timeZone);
+        isSetStatus,
+        timeZone,
+        isSetTimeZone);
   }
 
   @Override

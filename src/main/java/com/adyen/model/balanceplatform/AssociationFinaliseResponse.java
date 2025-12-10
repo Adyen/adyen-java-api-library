@@ -244,13 +244,16 @@ public class AssociationFinaliseResponse {
     }
     AssociationFinaliseResponse associationFinaliseResponse = (AssociationFinaliseResponse) o;
     return Objects.equals(this.deviceId, associationFinaliseResponse.deviceId)
+        && Objects.equals(this.isSetDeviceId, associationFinaliseResponse.isSetDeviceId)
         && Objects.equals(this.ids, associationFinaliseResponse.ids)
-        && Objects.equals(this.type, associationFinaliseResponse.type);
+        && Objects.equals(this.isSetIds, associationFinaliseResponse.isSetIds)
+        && Objects.equals(this.type, associationFinaliseResponse.type)
+        && Objects.equals(this.isSetType, associationFinaliseResponse.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deviceId, ids, type);
+    return Objects.hash(deviceId, isSetDeviceId, ids, isSetIds, type, isSetType);
   }
 
   @Override

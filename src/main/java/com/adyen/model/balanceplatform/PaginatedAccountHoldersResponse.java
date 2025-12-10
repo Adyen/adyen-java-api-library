@@ -202,13 +202,18 @@ public class PaginatedAccountHoldersResponse {
     PaginatedAccountHoldersResponse paginatedAccountHoldersResponse =
         (PaginatedAccountHoldersResponse) o;
     return Objects.equals(this.accountHolders, paginatedAccountHoldersResponse.accountHolders)
+        && Objects.equals(
+            this.isSetAccountHolders, paginatedAccountHoldersResponse.isSetAccountHolders)
         && Objects.equals(this.hasNext, paginatedAccountHoldersResponse.hasNext)
-        && Objects.equals(this.hasPrevious, paginatedAccountHoldersResponse.hasPrevious);
+        && Objects.equals(this.isSetHasNext, paginatedAccountHoldersResponse.isSetHasNext)
+        && Objects.equals(this.hasPrevious, paginatedAccountHoldersResponse.hasPrevious)
+        && Objects.equals(this.isSetHasPrevious, paginatedAccountHoldersResponse.isSetHasPrevious);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolders, hasNext, hasPrevious);
+    return Objects.hash(
+        accountHolders, isSetAccountHolders, hasNext, isSetHasNext, hasPrevious, isSetHasPrevious);
   }
 
   @Override

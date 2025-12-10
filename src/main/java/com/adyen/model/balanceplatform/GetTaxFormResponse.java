@@ -189,12 +189,14 @@ public class GetTaxFormResponse {
     }
     GetTaxFormResponse getTaxFormResponse = (GetTaxFormResponse) o;
     return Arrays.equals(this.content, getTaxFormResponse.content)
-        && Objects.equals(this.contentType, getTaxFormResponse.contentType);
+        && Objects.equals(this.isSetContent, getTaxFormResponse.isSetContent)
+        && Objects.equals(this.contentType, getTaxFormResponse.contentType)
+        && Objects.equals(this.isSetContentType, getTaxFormResponse.isSetContentType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(content), contentType);
+    return Objects.hash(Arrays.hashCode(content), isSetContent, contentType, isSetContentType);
   }
 
   @Override

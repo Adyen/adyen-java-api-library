@@ -994,36 +994,62 @@ public class TransactionRuleInfo {
     }
     TransactionRuleInfo transactionRuleInfo = (TransactionRuleInfo) o;
     return Objects.equals(this.aggregationLevel, transactionRuleInfo.aggregationLevel)
+        && Objects.equals(this.isSetAggregationLevel, transactionRuleInfo.isSetAggregationLevel)
         && Objects.equals(this.description, transactionRuleInfo.description)
+        && Objects.equals(this.isSetDescription, transactionRuleInfo.isSetDescription)
         && Objects.equals(this.endDate, transactionRuleInfo.endDate)
+        && Objects.equals(this.isSetEndDate, transactionRuleInfo.isSetEndDate)
         && Objects.equals(this.entityKey, transactionRuleInfo.entityKey)
+        && Objects.equals(this.isSetEntityKey, transactionRuleInfo.isSetEntityKey)
         && Objects.equals(this.interval, transactionRuleInfo.interval)
+        && Objects.equals(this.isSetInterval, transactionRuleInfo.isSetInterval)
         && Objects.equals(this.outcomeType, transactionRuleInfo.outcomeType)
+        && Objects.equals(this.isSetOutcomeType, transactionRuleInfo.isSetOutcomeType)
         && Objects.equals(this.reference, transactionRuleInfo.reference)
+        && Objects.equals(this.isSetReference, transactionRuleInfo.isSetReference)
         && Objects.equals(this.requestType, transactionRuleInfo.requestType)
+        && Objects.equals(this.isSetRequestType, transactionRuleInfo.isSetRequestType)
         && Objects.equals(this.ruleRestrictions, transactionRuleInfo.ruleRestrictions)
+        && Objects.equals(this.isSetRuleRestrictions, transactionRuleInfo.isSetRuleRestrictions)
         && Objects.equals(this.score, transactionRuleInfo.score)
+        && Objects.equals(this.isSetScore, transactionRuleInfo.isSetScore)
         && Objects.equals(this.startDate, transactionRuleInfo.startDate)
+        && Objects.equals(this.isSetStartDate, transactionRuleInfo.isSetStartDate)
         && Objects.equals(this.status, transactionRuleInfo.status)
-        && Objects.equals(this.type, transactionRuleInfo.type);
+        && Objects.equals(this.isSetStatus, transactionRuleInfo.isSetStatus)
+        && Objects.equals(this.type, transactionRuleInfo.type)
+        && Objects.equals(this.isSetType, transactionRuleInfo.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         aggregationLevel,
+        isSetAggregationLevel,
         description,
+        isSetDescription,
         endDate,
+        isSetEndDate,
         entityKey,
+        isSetEntityKey,
         interval,
+        isSetInterval,
         outcomeType,
+        isSetOutcomeType,
         reference,
+        isSetReference,
         requestType,
+        isSetRequestType,
         ruleRestrictions,
+        isSetRuleRestrictions,
         score,
+        isSetScore,
         startDate,
+        isSetStartDate,
         status,
-        type);
+        isSetStatus,
+        type,
+        isSetType);
   }
 
   @Override

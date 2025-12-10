@@ -149,12 +149,14 @@ public class WalletProviderAccountScoreRestriction {
     WalletProviderAccountScoreRestriction walletProviderAccountScoreRestriction =
         (WalletProviderAccountScoreRestriction) o;
     return Objects.equals(this.operation, walletProviderAccountScoreRestriction.operation)
-        && Objects.equals(this.value, walletProviderAccountScoreRestriction.value);
+        && Objects.equals(this.isSetOperation, walletProviderAccountScoreRestriction.isSetOperation)
+        && Objects.equals(this.value, walletProviderAccountScoreRestriction.value)
+        && Objects.equals(this.isSetValue, walletProviderAccountScoreRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

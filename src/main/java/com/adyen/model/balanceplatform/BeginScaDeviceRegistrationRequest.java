@@ -161,12 +161,14 @@ public class BeginScaDeviceRegistrationRequest {
     BeginScaDeviceRegistrationRequest beginScaDeviceRegistrationRequest =
         (BeginScaDeviceRegistrationRequest) o;
     return Objects.equals(this.name, beginScaDeviceRegistrationRequest.name)
-        && Objects.equals(this.sdkOutput, beginScaDeviceRegistrationRequest.sdkOutput);
+        && Objects.equals(this.isSetName, beginScaDeviceRegistrationRequest.isSetName)
+        && Objects.equals(this.sdkOutput, beginScaDeviceRegistrationRequest.sdkOutput)
+        && Objects.equals(this.isSetSdkOutput, beginScaDeviceRegistrationRequest.isSetSdkOutput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, sdkOutput);
+    return Objects.hash(name, isSetName, sdkOutput, isSetSdkOutput);
   }
 
   @Override

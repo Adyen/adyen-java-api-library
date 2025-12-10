@@ -142,12 +142,15 @@ public class ScaEntity {
       return false;
     }
     ScaEntity scaEntity = (ScaEntity) o;
-    return Objects.equals(this.id, scaEntity.id) && Objects.equals(this.type, scaEntity.type);
+    return Objects.equals(this.id, scaEntity.id)
+        && Objects.equals(this.isSetId, scaEntity.isSetId)
+        && Objects.equals(this.type, scaEntity.type)
+        && Objects.equals(this.isSetType, scaEntity.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(id, isSetId, type, isSetType);
   }
 
   @Override

@@ -447,19 +447,42 @@ public class GrantOffer {
     }
     GrantOffer grantOffer = (GrantOffer) o;
     return Objects.equals(this.accountHolderId, grantOffer.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, grantOffer.isSetAccountHolderId)
         && Objects.equals(this.amount, grantOffer.amount)
+        && Objects.equals(this.isSetAmount, grantOffer.isSetAmount)
         && Objects.equals(this.contractType, grantOffer.contractType)
+        && Objects.equals(this.isSetContractType, grantOffer.isSetContractType)
         && Objects.equals(this.expiresAt, grantOffer.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, grantOffer.isSetExpiresAt)
         && Objects.equals(this.fee, grantOffer.fee)
+        && Objects.equals(this.isSetFee, grantOffer.isSetFee)
         && Objects.equals(this.id, grantOffer.id)
+        && Objects.equals(this.isSetId, grantOffer.isSetId)
         && Objects.equals(this.repayment, grantOffer.repayment)
-        && Objects.equals(this.startsAt, grantOffer.startsAt);
+        && Objects.equals(this.isSetRepayment, grantOffer.isSetRepayment)
+        && Objects.equals(this.startsAt, grantOffer.startsAt)
+        && Objects.equals(this.isSetStartsAt, grantOffer.isSetStartsAt);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        accountHolderId, amount, contractType, expiresAt, fee, id, repayment, startsAt);
+        accountHolderId,
+        isSetAccountHolderId,
+        amount,
+        isSetAmount,
+        contractType,
+        isSetContractType,
+        expiresAt,
+        isSetExpiresAt,
+        fee,
+        isSetFee,
+        id,
+        isSetId,
+        repayment,
+        isSetRepayment,
+        startsAt,
+        isSetStartsAt);
   }
 
   @Override

@@ -186,12 +186,14 @@ public class BrandVariantsRestriction {
     }
     BrandVariantsRestriction brandVariantsRestriction = (BrandVariantsRestriction) o;
     return Objects.equals(this.operation, brandVariantsRestriction.operation)
-        && Objects.equals(this.value, brandVariantsRestriction.value);
+        && Objects.equals(this.isSetOperation, brandVariantsRestriction.isSetOperation)
+        && Objects.equals(this.value, brandVariantsRestriction.value)
+        && Objects.equals(this.isSetValue, brandVariantsRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

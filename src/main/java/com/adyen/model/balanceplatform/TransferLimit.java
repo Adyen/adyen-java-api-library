@@ -465,20 +465,46 @@ public class TransferLimit {
     }
     TransferLimit transferLimit = (TransferLimit) o;
     return Objects.equals(this.amount, transferLimit.amount)
+        && Objects.equals(this.isSetAmount, transferLimit.isSetAmount)
         && Objects.equals(this.endsAt, transferLimit.endsAt)
+        && Objects.equals(this.isSetEndsAt, transferLimit.isSetEndsAt)
         && Objects.equals(this.id, transferLimit.id)
+        && Objects.equals(this.isSetId, transferLimit.isSetId)
         && Objects.equals(this.limitStatus, transferLimit.limitStatus)
+        && Objects.equals(this.isSetLimitStatus, transferLimit.isSetLimitStatus)
         && Objects.equals(this.reference, transferLimit.reference)
+        && Objects.equals(this.isSetReference, transferLimit.isSetReference)
         && Objects.equals(this.scaInformation, transferLimit.scaInformation)
+        && Objects.equals(this.isSetScaInformation, transferLimit.isSetScaInformation)
         && Objects.equals(this.scope, transferLimit.scope)
+        && Objects.equals(this.isSetScope, transferLimit.isSetScope)
         && Objects.equals(this.startsAt, transferLimit.startsAt)
-        && Objects.equals(this.transferType, transferLimit.transferType);
+        && Objects.equals(this.isSetStartsAt, transferLimit.isSetStartsAt)
+        && Objects.equals(this.transferType, transferLimit.transferType)
+        && Objects.equals(this.isSetTransferType, transferLimit.isSetTransferType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount, endsAt, id, limitStatus, reference, scaInformation, scope, startsAt, transferType);
+        amount,
+        isSetAmount,
+        endsAt,
+        isSetEndsAt,
+        id,
+        isSetId,
+        limitStatus,
+        isSetLimitStatus,
+        reference,
+        isSetReference,
+        scaInformation,
+        isSetScaInformation,
+        scope,
+        isSetScope,
+        startsAt,
+        isSetStartsAt,
+        transferType,
+        isSetTransferType);
   }
 
   @Override
