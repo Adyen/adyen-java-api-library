@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,23 +40,44 @@ public class PartyIdentification {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
+
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstName = false;
 
   public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private String fullName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFullName = false;
+
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastName = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * The type of entity that owns the bank account or card. Possible values: **individual**,
@@ -106,8 +129,20 @@ public class PartyIdentification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PartyIdentification() {}
 
@@ -119,6 +154,7 @@ public class PartyIdentification {
    */
   public PartyIdentification address(Address address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
@@ -142,6 +178,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -155,6 +192,7 @@ public class PartyIdentification {
    */
   public PartyIdentification dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -184,6 +222,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -195,6 +234,7 @@ public class PartyIdentification {
    */
   public PartyIdentification email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -220,6 +260,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -234,6 +275,7 @@ public class PartyIdentification {
    */
   public PartyIdentification firstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
     return this;
   }
 
@@ -265,6 +307,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
   }
 
   /**
@@ -279,6 +322,7 @@ public class PartyIdentification {
    */
   public PartyIdentification fullName(String fullName) {
     this.fullName = fullName;
+    isSetFullName = true; // mark as set
     return this;
   }
 
@@ -310,6 +354,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullName(String fullName) {
     this.fullName = fullName;
+    isSetFullName = true; // mark as set
   }
 
   /**
@@ -324,6 +369,7 @@ public class PartyIdentification {
    */
   public PartyIdentification lastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
     return this;
   }
 
@@ -355,6 +401,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
   }
 
   /**
@@ -369,6 +416,7 @@ public class PartyIdentification {
    */
   public PartyIdentification reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -400,6 +448,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -414,6 +463,7 @@ public class PartyIdentification {
    */
   public PartyIdentification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -445,6 +495,7 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -455,6 +506,7 @@ public class PartyIdentification {
    */
   public PartyIdentification url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -478,6 +530,27 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PartyIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PartyIdentification object is equal to o. */
@@ -491,20 +564,46 @@ public class PartyIdentification {
     }
     PartyIdentification partyIdentification = (PartyIdentification) o;
     return Objects.equals(this.address, partyIdentification.address)
+        && Objects.equals(this.isSetAddress, partyIdentification.isSetAddress)
         && Objects.equals(this.dateOfBirth, partyIdentification.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, partyIdentification.isSetDateOfBirth)
         && Objects.equals(this.email, partyIdentification.email)
+        && Objects.equals(this.isSetEmail, partyIdentification.isSetEmail)
         && Objects.equals(this.firstName, partyIdentification.firstName)
+        && Objects.equals(this.isSetFirstName, partyIdentification.isSetFirstName)
         && Objects.equals(this.fullName, partyIdentification.fullName)
+        && Objects.equals(this.isSetFullName, partyIdentification.isSetFullName)
         && Objects.equals(this.lastName, partyIdentification.lastName)
+        && Objects.equals(this.isSetLastName, partyIdentification.isSetLastName)
         && Objects.equals(this.reference, partyIdentification.reference)
+        && Objects.equals(this.isSetReference, partyIdentification.isSetReference)
         && Objects.equals(this.type, partyIdentification.type)
-        && Objects.equals(this.url, partyIdentification.url);
+        && Objects.equals(this.isSetType, partyIdentification.isSetType)
+        && Objects.equals(this.url, partyIdentification.url)
+        && Objects.equals(this.isSetUrl, partyIdentification.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        address, dateOfBirth, email, firstName, fullName, lastName, reference, type, url);
+        address,
+        isSetAddress,
+        dateOfBirth,
+        isSetDateOfBirth,
+        email,
+        isSetEmail,
+        firstName,
+        isSetFirstName,
+        fullName,
+        isSetFullName,
+        lastName,
+        isSetLastName,
+        reference,
+        isSetReference,
+        type,
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -532,6 +631,54 @@ public class PartyIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_NAME, this.firstName);
+    }
+    if (isSetFullName) {
+      addIfNull(nulls, JSON_PROPERTY_FULL_NAME, this.fullName);
+    }
+    if (isSetLastName) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_NAME, this.lastName);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

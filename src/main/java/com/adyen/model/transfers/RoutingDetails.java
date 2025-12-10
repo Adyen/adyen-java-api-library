@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,20 +34,26 @@ public class RoutingDetails {
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDetail = false;
+
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetErrorCode = false;
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    */
   public enum PriorityEnum {
@@ -99,8 +107,20 @@ public class RoutingDetails {
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private PriorityEnum priority;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPriority = false;
+
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTitle = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public RoutingDetails() {}
 
@@ -112,6 +132,7 @@ public class RoutingDetails {
    */
   public RoutingDetails detail(String detail) {
     this.detail = detail;
+    isSetDetail = true; // mark as set
     return this;
   }
 
@@ -135,6 +156,7 @@ public class RoutingDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
     this.detail = detail;
+    isSetDetail = true; // mark as set
   }
 
   /**
@@ -145,6 +167,7 @@ public class RoutingDetails {
    */
   public RoutingDetails errorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
     return this;
   }
 
@@ -168,62 +191,64 @@ public class RoutingDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+    isSetErrorCode = true; // mark as set
   }
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    * @return the current {@code RoutingDetails} instance, allowing for method chaining
    */
   public RoutingDetails priority(PriorityEnum priority) {
     this.priority = priority;
+    isSetPriority = true; // mark as set
     return this;
   }
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @return priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
@@ -235,32 +260,33 @@ public class RoutingDetails {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
     this.priority = priority;
+    isSetPriority = true; // mark as set
   }
 
   /**
@@ -271,6 +297,7 @@ public class RoutingDetails {
    */
   public RoutingDetails title(String title) {
     this.title = title;
+    isSetTitle = true; // mark as set
     return this;
   }
 
@@ -294,6 +321,27 @@ public class RoutingDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
+    isSetTitle = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RoutingDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RoutingDetails object is equal to o. */
@@ -307,14 +355,19 @@ public class RoutingDetails {
     }
     RoutingDetails routingDetails = (RoutingDetails) o;
     return Objects.equals(this.detail, routingDetails.detail)
+        && Objects.equals(this.isSetDetail, routingDetails.isSetDetail)
         && Objects.equals(this.errorCode, routingDetails.errorCode)
+        && Objects.equals(this.isSetErrorCode, routingDetails.isSetErrorCode)
         && Objects.equals(this.priority, routingDetails.priority)
-        && Objects.equals(this.title, routingDetails.title);
+        && Objects.equals(this.isSetPriority, routingDetails.isSetPriority)
+        && Objects.equals(this.title, routingDetails.title)
+        && Objects.equals(this.isSetTitle, routingDetails.isSetTitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, errorCode, priority, title);
+    return Objects.hash(
+        detail, isSetDetail, errorCode, isSetErrorCode, priority, isSetPriority, title, isSetTitle);
   }
 
   @Override
@@ -337,6 +390,39 @@ public class RoutingDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDetail) {
+      addIfNull(nulls, JSON_PROPERTY_DETAIL, this.detail);
+    }
+    if (isSetErrorCode) {
+      addIfNull(nulls, JSON_PROPERTY_ERROR_CODE, this.errorCode);
+    }
+    if (isSetPriority) {
+      addIfNull(nulls, JSON_PROPERTY_PRIORITY, this.priority);
+    }
+    if (isSetTitle) {
+      addIfNull(nulls, JSON_PROPERTY_TITLE, this.title);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

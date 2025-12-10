@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class AULocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountNumber = false;
+
   public static final String JSON_PROPERTY_BSB_CODE = "bsbCode";
   private String bsbCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBsbCode = false;
 
   /** **auLocal** */
   public enum TypeEnum {
@@ -76,6 +84,15 @@ public class AULocalAccountIdentification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AULocalAccountIdentification() {}
 
   /**
@@ -86,6 +103,7 @@ public class AULocalAccountIdentification {
    */
   public AULocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
     return this;
   }
 
@@ -109,6 +127,7 @@ public class AULocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
   }
 
   /**
@@ -121,6 +140,7 @@ public class AULocalAccountIdentification {
    */
   public AULocalAccountIdentification bsbCode(String bsbCode) {
     this.bsbCode = bsbCode;
+    isSetBsbCode = true; // mark as set
     return this;
   }
 
@@ -148,6 +168,7 @@ public class AULocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBsbCode(String bsbCode) {
     this.bsbCode = bsbCode;
+    isSetBsbCode = true; // mark as set
   }
 
   /**
@@ -158,6 +179,7 @@ public class AULocalAccountIdentification {
    */
   public AULocalAccountIdentification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -181,6 +203,27 @@ public class AULocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AULocalAccountIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AULocalAccountIdentification object is equal to o. */
@@ -194,13 +237,16 @@ public class AULocalAccountIdentification {
     }
     AULocalAccountIdentification auLocalAccountIdentification = (AULocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, auLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, auLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.bsbCode, auLocalAccountIdentification.bsbCode)
-        && Objects.equals(this.type, auLocalAccountIdentification.type);
+        && Objects.equals(this.isSetBsbCode, auLocalAccountIdentification.isSetBsbCode)
+        && Objects.equals(this.type, auLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, auLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bsbCode, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, bsbCode, isSetBsbCode, type, isSetType);
   }
 
   @Override
@@ -222,6 +268,36 @@ public class AULocalAccountIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_NUMBER, this.accountNumber);
+    }
+    if (isSetBsbCode) {
+      addIfNull(nulls, JSON_PROPERTY_BSB_CODE, this.bsbCode);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

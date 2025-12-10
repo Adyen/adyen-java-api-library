@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +31,7 @@ import java.util.logging.Logger;
   UltimatePartyIdentification.JSON_PROPERTY_EMAIL,
   UltimatePartyIdentification.JSON_PROPERTY_FIRST_NAME,
   UltimatePartyIdentification.JSON_PROPERTY_FULL_NAME,
+  UltimatePartyIdentification.JSON_PROPERTY_FUNDING_INSTRUMENT,
   UltimatePartyIdentification.JSON_PROPERTY_LAST_NAME,
   UltimatePartyIdentification.JSON_PROPERTY_REFERENCE,
   UltimatePartyIdentification.JSON_PROPERTY_TYPE,
@@ -38,23 +41,50 @@ public class UltimatePartyIdentification {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
+
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstName = false;
 
   public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private String fullName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFullName = false;
+
+  public static final String JSON_PROPERTY_FUNDING_INSTRUMENT = "fundingInstrument";
+  private FundingInstrument fundingInstrument;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingInstrument = false;
+
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastName = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * The type of entity that owns the bank account or card. Possible values: **individual**,
@@ -106,8 +136,20 @@ public class UltimatePartyIdentification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public UltimatePartyIdentification() {}
 
@@ -119,6 +161,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification address(Address address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
@@ -142,6 +185,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -155,6 +199,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -184,6 +229,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -195,6 +241,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -220,6 +267,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -234,6 +282,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification firstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
     return this;
   }
 
@@ -265,6 +314,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
   }
 
   /**
@@ -279,6 +329,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification fullName(String fullName) {
     this.fullName = fullName;
+    isSetFullName = true; // mark as set
     return this;
   }
 
@@ -310,6 +361,42 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullName(String fullName) {
     this.fullName = fullName;
+    isSetFullName = true; // mark as set
+  }
+
+  /**
+   * fundingInstrument
+   *
+   * @param fundingInstrument
+   * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
+   */
+  public UltimatePartyIdentification fundingInstrument(FundingInstrument fundingInstrument) {
+    this.fundingInstrument = fundingInstrument;
+    isSetFundingInstrument = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get fundingInstrument
+   *
+   * @return fundingInstrument
+   */
+  @JsonProperty(JSON_PROPERTY_FUNDING_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FundingInstrument getFundingInstrument() {
+    return fundingInstrument;
+  }
+
+  /**
+   * fundingInstrument
+   *
+   * @param fundingInstrument
+   */
+  @JsonProperty(JSON_PROPERTY_FUNDING_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFundingInstrument(FundingInstrument fundingInstrument) {
+    this.fundingInstrument = fundingInstrument;
+    isSetFundingInstrument = true; // mark as set
   }
 
   /**
@@ -324,6 +411,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification lastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
     return this;
   }
 
@@ -355,6 +443,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
   }
 
   /**
@@ -369,6 +458,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -400,6 +490,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -414,6 +505,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -445,6 +537,7 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -455,6 +548,7 @@ public class UltimatePartyIdentification {
    */
   public UltimatePartyIdentification url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -478,6 +572,27 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public UltimatePartyIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this UltimatePartyIdentification object is equal to o. */
@@ -491,20 +606,51 @@ public class UltimatePartyIdentification {
     }
     UltimatePartyIdentification ultimatePartyIdentification = (UltimatePartyIdentification) o;
     return Objects.equals(this.address, ultimatePartyIdentification.address)
+        && Objects.equals(this.isSetAddress, ultimatePartyIdentification.isSetAddress)
         && Objects.equals(this.dateOfBirth, ultimatePartyIdentification.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, ultimatePartyIdentification.isSetDateOfBirth)
         && Objects.equals(this.email, ultimatePartyIdentification.email)
+        && Objects.equals(this.isSetEmail, ultimatePartyIdentification.isSetEmail)
         && Objects.equals(this.firstName, ultimatePartyIdentification.firstName)
+        && Objects.equals(this.isSetFirstName, ultimatePartyIdentification.isSetFirstName)
         && Objects.equals(this.fullName, ultimatePartyIdentification.fullName)
+        && Objects.equals(this.isSetFullName, ultimatePartyIdentification.isSetFullName)
+        && Objects.equals(this.fundingInstrument, ultimatePartyIdentification.fundingInstrument)
+        && Objects.equals(
+            this.isSetFundingInstrument, ultimatePartyIdentification.isSetFundingInstrument)
         && Objects.equals(this.lastName, ultimatePartyIdentification.lastName)
+        && Objects.equals(this.isSetLastName, ultimatePartyIdentification.isSetLastName)
         && Objects.equals(this.reference, ultimatePartyIdentification.reference)
+        && Objects.equals(this.isSetReference, ultimatePartyIdentification.isSetReference)
         && Objects.equals(this.type, ultimatePartyIdentification.type)
-        && Objects.equals(this.url, ultimatePartyIdentification.url);
+        && Objects.equals(this.isSetType, ultimatePartyIdentification.isSetType)
+        && Objects.equals(this.url, ultimatePartyIdentification.url)
+        && Objects.equals(this.isSetUrl, ultimatePartyIdentification.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        address, dateOfBirth, email, firstName, fullName, lastName, reference, type, url);
+        address,
+        isSetAddress,
+        dateOfBirth,
+        isSetDateOfBirth,
+        email,
+        isSetEmail,
+        firstName,
+        isSetFirstName,
+        fullName,
+        isSetFullName,
+        fundingInstrument,
+        isSetFundingInstrument,
+        lastName,
+        isSetLastName,
+        reference,
+        isSetReference,
+        type,
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -516,6 +662,7 @@ public class UltimatePartyIdentification {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
+    sb.append("    fundingInstrument: ").append(toIndentedString(fundingInstrument)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -532,6 +679,57 @@ public class UltimatePartyIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_NAME, this.firstName);
+    }
+    if (isSetFullName) {
+      addIfNull(nulls, JSON_PROPERTY_FULL_NAME, this.fullName);
+    }
+    if (isSetFundingInstrument) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_INSTRUMENT, this.fundingInstrument);
+    }
+    if (isSetLastName) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_NAME, this.lastName);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

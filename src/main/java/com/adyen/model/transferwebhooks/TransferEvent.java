@@ -128,6 +128,8 @@ public class TransferEvent {
 
     SCAFAILED(String.valueOf("scaFailed")),
 
+    SCHEMEADVICE(String.valueOf("schemeAdvice")),
+
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
     UNKNOWN(String.valueOf("unknown"));

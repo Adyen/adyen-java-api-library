@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class TransferView {
   public static final String JSON_PROPERTY_CATEGORY_DATA = "categoryData";
   private TransferCategoryData categoryData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCategoryData = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TransferView() {}
 
@@ -43,6 +60,7 @@ public class TransferView {
    */
   public TransferView categoryData(TransferCategoryData categoryData) {
     this.categoryData = categoryData;
+    isSetCategoryData = true; // mark as set
     return this;
   }
 
@@ -66,6 +84,7 @@ public class TransferView {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategoryData(TransferCategoryData categoryData) {
     this.categoryData = categoryData;
+    isSetCategoryData = true; // mark as set
   }
 
   /**
@@ -76,6 +95,7 @@ public class TransferView {
    */
   public TransferView id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -99,6 +119,7 @@ public class TransferView {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -115,6 +136,7 @@ public class TransferView {
    */
   public TransferView reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -150,6 +172,27 @@ public class TransferView {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransferView includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransferView object is equal to o. */
@@ -163,13 +206,16 @@ public class TransferView {
     }
     TransferView transferView = (TransferView) o;
     return Objects.equals(this.categoryData, transferView.categoryData)
+        && Objects.equals(this.isSetCategoryData, transferView.isSetCategoryData)
         && Objects.equals(this.id, transferView.id)
-        && Objects.equals(this.reference, transferView.reference);
+        && Objects.equals(this.isSetId, transferView.isSetId)
+        && Objects.equals(this.reference, transferView.reference)
+        && Objects.equals(this.isSetReference, transferView.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categoryData, id, reference);
+    return Objects.hash(categoryData, isSetCategoryData, id, isSetId, reference, isSetReference);
   }
 
   @Override
@@ -191,6 +237,36 @@ public class TransferView {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCategoryData) {
+      addIfNull(nulls, JSON_PROPERTY_CATEGORY_DATA, this.categoryData);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

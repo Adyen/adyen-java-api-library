@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class SGLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountNumber = false;
+
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBic = false;
 
   /** **sgLocal** */
   public enum TypeEnum {
@@ -76,6 +84,15 @@ public class SGLocalAccountIdentification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public SGLocalAccountIdentification() {}
 
   /**
@@ -86,6 +103,7 @@ public class SGLocalAccountIdentification {
    */
   public SGLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
     return this;
   }
 
@@ -109,6 +127,7 @@ public class SGLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
   }
 
   /**
@@ -119,6 +138,7 @@ public class SGLocalAccountIdentification {
    */
   public SGLocalAccountIdentification bic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
     return this;
   }
 
@@ -142,6 +162,7 @@ public class SGLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
   }
 
   /**
@@ -152,6 +173,7 @@ public class SGLocalAccountIdentification {
    */
   public SGLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -175,6 +197,27 @@ public class SGLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SGLocalAccountIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SGLocalAccountIdentification object is equal to o. */
@@ -188,13 +231,16 @@ public class SGLocalAccountIdentification {
     }
     SGLocalAccountIdentification sgLocalAccountIdentification = (SGLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, sgLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, sgLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.bic, sgLocalAccountIdentification.bic)
-        && Objects.equals(this.type, sgLocalAccountIdentification.type);
+        && Objects.equals(this.isSetBic, sgLocalAccountIdentification.isSetBic)
+        && Objects.equals(this.type, sgLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, sgLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bic, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, bic, isSetBic, type, isSetType);
   }
 
   @Override
@@ -216,6 +262,36 @@ public class SGLocalAccountIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_NUMBER, this.accountNumber);
+    }
+    if (isSetBic) {
+      addIfNull(nulls, JSON_PROPERTY_BIC, this.bic);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

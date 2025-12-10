@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,18 +46,24 @@ public class TransferInfo {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccountId = false;
+
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   public enum CategoryEnum {
     BANK(String.valueOf("bank")),
@@ -108,17 +116,32 @@ public class TransferInfo {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCategory = false;
+
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private CounterpartyInfoV3 counterparty;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCounterparty = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_EXECUTION_DATE = "executionDate";
   private ExecutionDate executionDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExecutionDate = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentId = false;
 
   /** Gets or Sets priorities */
   public enum PrioritiesEnum {
@@ -172,17 +195,20 @@ public class TransferInfo {
   public static final String JSON_PROPERTY_PRIORITIES = "priorities";
   private List<PrioritiesEnum> priorities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPriorities = false;
+
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    */
   public enum PriorityEnum {
@@ -236,14 +262,26 @@ public class TransferInfo {
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private PriorityEnum priority;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPriority = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReferenceForBeneficiary = false;
+
   public static final String JSON_PROPERTY_REVIEW = "review";
   private TransferRequestReview review;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReview = false;
 
   /**
    * The type of transfer. Possible values: - **bankTransfer**: for push transfers to a transfer
@@ -297,8 +335,20 @@ public class TransferInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_ULTIMATE_PARTY = "ultimateParty";
   private UltimatePartyIdentification ultimateParty;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUltimateParty = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TransferInfo() {}
 
@@ -310,6 +360,7 @@ public class TransferInfo {
    */
   public TransferInfo amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -333,6 +384,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -356,6 +408,7 @@ public class TransferInfo {
    */
   public TransferInfo balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -405,53 +458,55 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code TransferInfo} instance, allowing for method chaining
    */
   public TransferInfo category(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
     return this;
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @return category The category of the transfer. Possible values: - **bank**: a transfer
+   * @return category The category of the transfer. Possible values: - **bank**: A transfer
    *     involving a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,29 +515,30 @@ public class TransferInfo {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
   }
 
   /**
@@ -493,6 +549,7 @@ public class TransferInfo {
    */
   public TransferInfo counterparty(CounterpartyInfoV3 counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
     return this;
   }
 
@@ -516,6 +573,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(CounterpartyInfoV3 counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
   }
 
   /**
@@ -534,6 +592,7 @@ public class TransferInfo {
    */
   public TransferInfo description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -573,6 +632,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -583,6 +643,7 @@ public class TransferInfo {
    */
   public TransferInfo executionDate(ExecutionDate executionDate) {
     this.executionDate = executionDate;
+    isSetExecutionDate = true; // mark as set
     return this;
   }
 
@@ -606,6 +667,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExecutionDate(ExecutionDate executionDate) {
     this.executionDate = executionDate;
+    isSetExecutionDate = true; // mark as set
   }
 
   /**
@@ -626,6 +688,7 @@ public class TransferInfo {
    */
   public TransferInfo paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
     return this;
   }
 
@@ -669,20 +732,21 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
   }
 
   /**
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
    * and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay
    * out using the priority you list first. If that&#39;s not possible, it moves on to the next
-   * option in the order of your provided priorities. Possible values: * **regular**: for normal,
-   * low-value transactions. * **fast**: a faster way to transfer funds, but the fees are higher.
-   * Recommended for high-priority, low-value transactions. * **wire**: the fastest way to transfer
+   * option in the order of your provided priorities. Possible values: * **regular**: For normal,
+   * low-value transactions. * **fast**: A faster way to transfer funds, but the fees are higher.
+   * Recommended for high-priority, low-value transactions. * **wire**: The fastest way to transfer
    * funds, but this has the highest fees. Recommended for high-priority, high-value transactions. *
-   * **instant**: for instant funds transfers within the United States and in [SEPA
+   * **instant**: For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details, see
    * [fallback
    * priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -691,14 +755,14 @@ public class TransferInfo {
    *     the transfer is sent and the fees that you have to pay. You can provide multiple
    *     priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not
    *     possible, it moves on to the next option in the order of your provided priorities. Possible
-   *     values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   *     values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    *     transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details,
    *     see [fallback
    *     priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -706,6 +770,7 @@ public class TransferInfo {
    */
   public TransferInfo priorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
+    isSetPriorities = true; // mark as set
     return this;
   }
 
@@ -721,14 +786,14 @@ public class TransferInfo {
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
    * and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay
    * out using the priority you list first. If that&#39;s not possible, it moves on to the next
-   * option in the order of your provided priorities. Possible values: * **regular**: for normal,
-   * low-value transactions. * **fast**: a faster way to transfer funds, but the fees are higher.
-   * Recommended for high-priority, low-value transactions. * **wire**: the fastest way to transfer
+   * option in the order of your provided priorities. Possible values: * **regular**: For normal,
+   * low-value transactions. * **fast**: A faster way to transfer funds, but the fees are higher.
+   * Recommended for high-priority, low-value transactions. * **wire**: The fastest way to transfer
    * funds, but this has the highest fees. Recommended for high-priority, high-value transactions. *
-   * **instant**: for instant funds transfers within the United States and in [SEPA
+   * **instant**: For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details, see
    * [fallback
    * priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -737,14 +802,14 @@ public class TransferInfo {
    *     the transfer is sent and the fees that you have to pay. You can provide multiple
    *     priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not
    *     possible, it moves on to the next option in the order of your provided priorities. Possible
-   *     values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   *     values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    *     transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details,
    *     see [fallback
    *     priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -759,14 +824,14 @@ public class TransferInfo {
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
    * and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay
    * out using the priority you list first. If that&#39;s not possible, it moves on to the next
-   * option in the order of your provided priorities. Possible values: * **regular**: for normal,
-   * low-value transactions. * **fast**: a faster way to transfer funds, but the fees are higher.
-   * Recommended for high-priority, low-value transactions. * **wire**: the fastest way to transfer
+   * option in the order of your provided priorities. Possible values: * **regular**: For normal,
+   * low-value transactions. * **fast**: A faster way to transfer funds, but the fees are higher.
+   * Recommended for high-priority, low-value transactions. * **wire**: The fastest way to transfer
    * funds, but this has the highest fees. Recommended for high-priority, high-value transactions. *
-   * **instant**: for instant funds transfers within the United States and in [SEPA
+   * **instant**: For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details, see
    * [fallback
    * priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -775,14 +840,14 @@ public class TransferInfo {
    *     the transfer is sent and the fees that you have to pay. You can provide multiple
    *     priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not
    *     possible, it moves on to the next option in the order of your provided priorities. Possible
-   *     values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   *     values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    *     transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details,
    *     see [fallback
    *     priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -791,62 +856,64 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriorities(List<PrioritiesEnum> priorities) {
     this.priorities = priorities;
+    isSetPriorities = true; // mark as set
   }
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    * @return the current {@code TransferInfo} instance, allowing for method chaining
    */
   public TransferInfo priority(PriorityEnum priority) {
     this.priority = priority;
+    isSetPriority = true; // mark as set
     return this;
   }
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @return priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
@@ -858,32 +925,33 @@ public class TransferInfo {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
     this.priority = priority;
+    isSetPriority = true; // mark as set
   }
 
   /**
@@ -896,6 +964,7 @@ public class TransferInfo {
    */
   public TransferInfo reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -923,6 +992,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -942,6 +1012,7 @@ public class TransferInfo {
    */
   public TransferInfo referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
     return this;
   }
 
@@ -983,6 +1054,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
   }
 
   /**
@@ -993,6 +1065,7 @@ public class TransferInfo {
    */
   public TransferInfo review(TransferRequestReview review) {
     this.review = review;
+    isSetReview = true; // mark as set
     return this;
   }
 
@@ -1016,6 +1089,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReview(TransferRequestReview review) {
     this.review = review;
+    isSetReview = true; // mark as set
   }
 
   /**
@@ -1034,6 +1108,7 @@ public class TransferInfo {
    */
   public TransferInfo type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1073,6 +1148,7 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -1083,6 +1159,7 @@ public class TransferInfo {
    */
   public TransferInfo ultimateParty(UltimatePartyIdentification ultimateParty) {
     this.ultimateParty = ultimateParty;
+    isSetUltimateParty = true; // mark as set
     return this;
   }
 
@@ -1106,6 +1183,27 @@ public class TransferInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUltimateParty(UltimatePartyIdentification ultimateParty) {
     this.ultimateParty = ultimateParty;
+    isSetUltimateParty = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransferInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransferInfo object is equal to o. */
@@ -1119,38 +1217,67 @@ public class TransferInfo {
     }
     TransferInfo transferInfo = (TransferInfo) o;
     return Objects.equals(this.amount, transferInfo.amount)
+        && Objects.equals(this.isSetAmount, transferInfo.isSetAmount)
         && Objects.equals(this.balanceAccountId, transferInfo.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, transferInfo.isSetBalanceAccountId)
         && Objects.equals(this.category, transferInfo.category)
+        && Objects.equals(this.isSetCategory, transferInfo.isSetCategory)
         && Objects.equals(this.counterparty, transferInfo.counterparty)
+        && Objects.equals(this.isSetCounterparty, transferInfo.isSetCounterparty)
         && Objects.equals(this.description, transferInfo.description)
+        && Objects.equals(this.isSetDescription, transferInfo.isSetDescription)
         && Objects.equals(this.executionDate, transferInfo.executionDate)
+        && Objects.equals(this.isSetExecutionDate, transferInfo.isSetExecutionDate)
         && Objects.equals(this.paymentInstrumentId, transferInfo.paymentInstrumentId)
+        && Objects.equals(this.isSetPaymentInstrumentId, transferInfo.isSetPaymentInstrumentId)
         && Objects.equals(this.priorities, transferInfo.priorities)
+        && Objects.equals(this.isSetPriorities, transferInfo.isSetPriorities)
         && Objects.equals(this.priority, transferInfo.priority)
+        && Objects.equals(this.isSetPriority, transferInfo.isSetPriority)
         && Objects.equals(this.reference, transferInfo.reference)
+        && Objects.equals(this.isSetReference, transferInfo.isSetReference)
         && Objects.equals(this.referenceForBeneficiary, transferInfo.referenceForBeneficiary)
+        && Objects.equals(
+            this.isSetReferenceForBeneficiary, transferInfo.isSetReferenceForBeneficiary)
         && Objects.equals(this.review, transferInfo.review)
+        && Objects.equals(this.isSetReview, transferInfo.isSetReview)
         && Objects.equals(this.type, transferInfo.type)
-        && Objects.equals(this.ultimateParty, transferInfo.ultimateParty);
+        && Objects.equals(this.isSetType, transferInfo.isSetType)
+        && Objects.equals(this.ultimateParty, transferInfo.ultimateParty)
+        && Objects.equals(this.isSetUltimateParty, transferInfo.isSetUltimateParty);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         balanceAccountId,
+        isSetBalanceAccountId,
         category,
+        isSetCategory,
         counterparty,
+        isSetCounterparty,
         description,
+        isSetDescription,
         executionDate,
+        isSetExecutionDate,
         paymentInstrumentId,
+        isSetPaymentInstrumentId,
         priorities,
+        isSetPriorities,
         priority,
+        isSetPriority,
         reference,
+        isSetReference,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         review,
+        isSetReview,
         type,
-        ultimateParty);
+        isSetType,
+        ultimateParty,
+        isSetUltimateParty);
   }
 
   @Override
@@ -1187,6 +1314,69 @@ public class TransferInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT_ID, this.balanceAccountId);
+    }
+    if (isSetCategory) {
+      addIfNull(nulls, JSON_PROPERTY_CATEGORY, this.category);
+    }
+    if (isSetCounterparty) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY, this.counterparty);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetExecutionDate) {
+      addIfNull(nulls, JSON_PROPERTY_EXECUTION_DATE, this.executionDate);
+    }
+    if (isSetPaymentInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_ID, this.paymentInstrumentId);
+    }
+    if (isSetPriorities) {
+      addIfNull(nulls, JSON_PROPERTY_PRIORITIES, this.priorities);
+    }
+    if (isSetPriority) {
+      addIfNull(nulls, JSON_PROPERTY_PRIORITY, this.priority);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetReferenceForBeneficiary) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY, this.referenceForBeneficiary);
+    }
+    if (isSetReview) {
+      addIfNull(nulls, JSON_PROPERTY_REVIEW, this.review);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUltimateParty) {
+      addIfNull(nulls, JSON_PROPERTY_ULTIMATE_PARTY, this.ultimateParty);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

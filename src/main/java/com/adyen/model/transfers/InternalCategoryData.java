@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,8 +34,14 @@ public class InternalCategoryData {
       "modificationMerchantReference";
   private String modificationMerchantReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModificationMerchantReference = false;
+
   public static final String JSON_PROPERTY_MODIFICATION_PSP_REFERENCE = "modificationPspReference";
   private String modificationPspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModificationPspReference = false;
 
   /** **internal** */
   public enum TypeEnum {
@@ -77,6 +85,15 @@ public class InternalCategoryData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public InternalCategoryData() {}
 
   /**
@@ -88,6 +105,7 @@ public class InternalCategoryData {
    */
   public InternalCategoryData modificationMerchantReference(String modificationMerchantReference) {
     this.modificationMerchantReference = modificationMerchantReference;
+    isSetModificationMerchantReference = true; // mark as set
     return this;
   }
 
@@ -113,6 +131,7 @@ public class InternalCategoryData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationMerchantReference(String modificationMerchantReference) {
     this.modificationMerchantReference = modificationMerchantReference;
+    isSetModificationMerchantReference = true; // mark as set
   }
 
   /**
@@ -123,6 +142,7 @@ public class InternalCategoryData {
    */
   public InternalCategoryData modificationPspReference(String modificationPspReference) {
     this.modificationPspReference = modificationPspReference;
+    isSetModificationPspReference = true; // mark as set
     return this;
   }
 
@@ -146,6 +166,7 @@ public class InternalCategoryData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationPspReference(String modificationPspReference) {
     this.modificationPspReference = modificationPspReference;
+    isSetModificationPspReference = true; // mark as set
   }
 
   /**
@@ -156,6 +177,7 @@ public class InternalCategoryData {
    */
   public InternalCategoryData type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -179,6 +201,27 @@ public class InternalCategoryData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public InternalCategoryData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this InternalCategoryData object is equal to o. */
@@ -194,13 +237,25 @@ public class InternalCategoryData {
     return Objects.equals(
             this.modificationMerchantReference, internalCategoryData.modificationMerchantReference)
         && Objects.equals(
+            this.isSetModificationMerchantReference,
+            internalCategoryData.isSetModificationMerchantReference)
+        && Objects.equals(
             this.modificationPspReference, internalCategoryData.modificationPspReference)
-        && Objects.equals(this.type, internalCategoryData.type);
+        && Objects.equals(
+            this.isSetModificationPspReference, internalCategoryData.isSetModificationPspReference)
+        && Objects.equals(this.type, internalCategoryData.type)
+        && Objects.equals(this.isSetType, internalCategoryData.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(modificationMerchantReference, modificationPspReference, type);
+    return Objects.hash(
+        modificationMerchantReference,
+        isSetModificationMerchantReference,
+        modificationPspReference,
+        isSetModificationPspReference,
+        type,
+        isSetType);
   }
 
   @Override
@@ -226,6 +281,37 @@ public class InternalCategoryData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetModificationMerchantReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE, this.modificationMerchantReference);
+    }
+    if (isSetModificationPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_MODIFICATION_PSP_REFERENCE, this.modificationPspReference);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
