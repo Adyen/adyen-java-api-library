@@ -11,6 +11,8 @@
 
 package com.adyen.model.storedvalue;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class StoredValueVoidRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_ORIGINAL_REFERENCE = "originalReference";
   private String originalReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOriginalReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
 
   public static final String JSON_PROPERTY_TENDER_REFERENCE = "tenderReference";
   private String tenderReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTenderReference = false;
+
   public static final String JSON_PROPERTY_UNIQUE_TERMINAL_ID = "uniqueTerminalId";
   private String uniqueTerminalId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUniqueTerminalId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoredValueVoidRequest() {}
 
@@ -56,6 +82,7 @@ public class StoredValueVoidRequest {
    */
   public StoredValueVoidRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -81,6 +108,7 @@ public class StoredValueVoidRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -91,6 +119,7 @@ public class StoredValueVoidRequest {
    */
   public StoredValueVoidRequest originalReference(String originalReference) {
     this.originalReference = originalReference;
+    isSetOriginalReference = true; // mark as set
     return this;
   }
 
@@ -114,6 +143,7 @@ public class StoredValueVoidRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
+    isSetOriginalReference = true; // mark as set
   }
 
   /**
@@ -126,6 +156,7 @@ public class StoredValueVoidRequest {
    */
   public StoredValueVoidRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -153,6 +184,7 @@ public class StoredValueVoidRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -163,6 +195,7 @@ public class StoredValueVoidRequest {
    */
   public StoredValueVoidRequest store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -186,6 +219,7 @@ public class StoredValueVoidRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
   }
 
   /**
@@ -196,6 +230,7 @@ public class StoredValueVoidRequest {
    */
   public StoredValueVoidRequest tenderReference(String tenderReference) {
     this.tenderReference = tenderReference;
+    isSetTenderReference = true; // mark as set
     return this;
   }
 
@@ -219,6 +254,7 @@ public class StoredValueVoidRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenderReference(String tenderReference) {
     this.tenderReference = tenderReference;
+    isSetTenderReference = true; // mark as set
   }
 
   /**
@@ -229,6 +265,7 @@ public class StoredValueVoidRequest {
    */
   public StoredValueVoidRequest uniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
+    isSetUniqueTerminalId = true; // mark as set
     return this;
   }
 
@@ -252,6 +289,27 @@ public class StoredValueVoidRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
+    isSetUniqueTerminalId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoredValueVoidRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoredValueVoidRequest object is equal to o. */
@@ -265,17 +323,35 @@ public class StoredValueVoidRequest {
     }
     StoredValueVoidRequest storedValueVoidRequest = (StoredValueVoidRequest) o;
     return Objects.equals(this.merchantAccount, storedValueVoidRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, storedValueVoidRequest.isSetMerchantAccount)
         && Objects.equals(this.originalReference, storedValueVoidRequest.originalReference)
+        && Objects.equals(
+            this.isSetOriginalReference, storedValueVoidRequest.isSetOriginalReference)
         && Objects.equals(this.reference, storedValueVoidRequest.reference)
+        && Objects.equals(this.isSetReference, storedValueVoidRequest.isSetReference)
         && Objects.equals(this.store, storedValueVoidRequest.store)
+        && Objects.equals(this.isSetStore, storedValueVoidRequest.isSetStore)
         && Objects.equals(this.tenderReference, storedValueVoidRequest.tenderReference)
-        && Objects.equals(this.uniqueTerminalId, storedValueVoidRequest.uniqueTerminalId);
+        && Objects.equals(this.isSetTenderReference, storedValueVoidRequest.isSetTenderReference)
+        && Objects.equals(this.uniqueTerminalId, storedValueVoidRequest.uniqueTerminalId)
+        && Objects.equals(this.isSetUniqueTerminalId, storedValueVoidRequest.isSetUniqueTerminalId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        merchantAccount, originalReference, reference, store, tenderReference, uniqueTerminalId);
+        merchantAccount,
+        isSetMerchantAccount,
+        originalReference,
+        isSetOriginalReference,
+        reference,
+        isSetReference,
+        store,
+        isSetStore,
+        tenderReference,
+        isSetTenderReference,
+        uniqueTerminalId,
+        isSetUniqueTerminalId);
   }
 
   @Override
@@ -300,6 +376,45 @@ public class StoredValueVoidRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetOriginalReference) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGINAL_REFERENCE, this.originalReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+    if (isSetTenderReference) {
+      addIfNull(nulls, JSON_PROPERTY_TENDER_REFERENCE, this.tenderReference);
+    }
+    if (isSetUniqueTerminalId) {
+      addIfNull(nulls, JSON_PROPERTY_UNIQUE_TERMINAL_ID, this.uniqueTerminalId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

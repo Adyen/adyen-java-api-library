@@ -11,7 +11,9 @@
 
 package com.adyen.model.storedvalue;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,11 +35,20 @@ public class StoredValueBalanceCheckResponse {
   public static final String JSON_PROPERTY_CURRENT_BALANCE = "currentBalance";
   private Amount currentBalance;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrentBalance = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReason = false;
 
   /**
    * The result of the payment. Possible values: * **Success** – The operation has been completed
@@ -94,8 +105,20 @@ public class StoredValueBalanceCheckResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
   public static final String JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON = "thirdPartyRefusalReason";
   private String thirdPartyRefusalReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThirdPartyRefusalReason = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoredValueBalanceCheckResponse() {}
 
@@ -108,6 +131,7 @@ public class StoredValueBalanceCheckResponse {
    */
   public StoredValueBalanceCheckResponse currentBalance(Amount currentBalance) {
     this.currentBalance = currentBalance;
+    isSetCurrentBalance = true; // mark as set
     return this;
   }
 
@@ -131,6 +155,7 @@ public class StoredValueBalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrentBalance(Amount currentBalance) {
     this.currentBalance = currentBalance;
+    isSetCurrentBalance = true; // mark as set
   }
 
   /**
@@ -145,6 +170,7 @@ public class StoredValueBalanceCheckResponse {
    */
   public StoredValueBalanceCheckResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -174,6 +200,7 @@ public class StoredValueBalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -190,6 +217,7 @@ public class StoredValueBalanceCheckResponse {
    */
   public StoredValueBalanceCheckResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
     return this;
   }
 
@@ -223,6 +251,7 @@ public class StoredValueBalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
   }
 
   /**
@@ -244,6 +273,7 @@ public class StoredValueBalanceCheckResponse {
    */
   public StoredValueBalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -287,6 +317,7 @@ public class StoredValueBalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
   }
 
   /**
@@ -299,6 +330,7 @@ public class StoredValueBalanceCheckResponse {
    */
   public StoredValueBalanceCheckResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
+    isSetThirdPartyRefusalReason = true; // mark as set
     return this;
   }
 
@@ -324,6 +356,27 @@ public class StoredValueBalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThirdPartyRefusalReason(String thirdPartyRefusalReason) {
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
+    isSetThirdPartyRefusalReason = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoredValueBalanceCheckResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoredValueBalanceCheckResponse object is equal to o. */
@@ -338,17 +391,35 @@ public class StoredValueBalanceCheckResponse {
     StoredValueBalanceCheckResponse storedValueBalanceCheckResponse =
         (StoredValueBalanceCheckResponse) o;
     return Objects.equals(this.currentBalance, storedValueBalanceCheckResponse.currentBalance)
-        && Objects.equals(this.pspReference, storedValueBalanceCheckResponse.pspReference)
-        && Objects.equals(this.refusalReason, storedValueBalanceCheckResponse.refusalReason)
-        && Objects.equals(this.resultCode, storedValueBalanceCheckResponse.resultCode)
         && Objects.equals(
-            this.thirdPartyRefusalReason, storedValueBalanceCheckResponse.thirdPartyRefusalReason);
+            this.isSetCurrentBalance, storedValueBalanceCheckResponse.isSetCurrentBalance)
+        && Objects.equals(this.pspReference, storedValueBalanceCheckResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, storedValueBalanceCheckResponse.isSetPspReference)
+        && Objects.equals(this.refusalReason, storedValueBalanceCheckResponse.refusalReason)
+        && Objects.equals(
+            this.isSetRefusalReason, storedValueBalanceCheckResponse.isSetRefusalReason)
+        && Objects.equals(this.resultCode, storedValueBalanceCheckResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, storedValueBalanceCheckResponse.isSetResultCode)
+        && Objects.equals(
+            this.thirdPartyRefusalReason, storedValueBalanceCheckResponse.thirdPartyRefusalReason)
+        && Objects.equals(
+            this.isSetThirdPartyRefusalReason,
+            storedValueBalanceCheckResponse.isSetThirdPartyRefusalReason);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        currentBalance, pspReference, refusalReason, resultCode, thirdPartyRefusalReason);
+        currentBalance,
+        isSetCurrentBalance,
+        pspReference,
+        isSetPspReference,
+        refusalReason,
+        isSetRefusalReason,
+        resultCode,
+        isSetResultCode,
+        thirdPartyRefusalReason,
+        isSetThirdPartyRefusalReason);
   }
 
   @Override
@@ -374,6 +445,42 @@ public class StoredValueBalanceCheckResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCurrentBalance) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENT_BALANCE, this.currentBalance);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON, this.refusalReason);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+    if (isSetThirdPartyRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON, this.thirdPartyRefusalReason);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

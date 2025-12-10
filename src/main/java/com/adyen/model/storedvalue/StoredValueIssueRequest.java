@@ -11,7 +11,9 @@
 
 package com.adyen.model.storedvalue;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,17 +40,32 @@ public class StoredValueIssueRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private Map<String, String> paymentMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
+
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether
@@ -110,11 +127,26 @@ public class StoredValueIssueRequest {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoredValueIssueRequest() {}
 
@@ -126,6 +158,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -149,6 +182,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -160,6 +194,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -185,6 +220,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -197,6 +233,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest paymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -232,6 +269,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -242,6 +280,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -265,6 +304,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -281,6 +321,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -316,6 +357,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -347,6 +389,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -412,6 +455,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -422,6 +466,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -445,6 +490,7 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -455,6 +501,7 @@ public class StoredValueIssueRequest {
    */
   public StoredValueIssueRequest store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -478,6 +525,27 @@ public class StoredValueIssueRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoredValueIssueRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoredValueIssueRequest object is equal to o. */
@@ -491,27 +559,46 @@ public class StoredValueIssueRequest {
     }
     StoredValueIssueRequest storedValueIssueRequest = (StoredValueIssueRequest) o;
     return Objects.equals(this.amount, storedValueIssueRequest.amount)
+        && Objects.equals(this.isSetAmount, storedValueIssueRequest.isSetAmount)
         && Objects.equals(this.merchantAccount, storedValueIssueRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, storedValueIssueRequest.isSetMerchantAccount)
         && Objects.equals(this.paymentMethod, storedValueIssueRequest.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, storedValueIssueRequest.isSetPaymentMethod)
         && Objects.equals(
             this.recurringDetailReference, storedValueIssueRequest.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference,
+            storedValueIssueRequest.isSetRecurringDetailReference)
         && Objects.equals(this.reference, storedValueIssueRequest.reference)
+        && Objects.equals(this.isSetReference, storedValueIssueRequest.isSetReference)
         && Objects.equals(this.shopperInteraction, storedValueIssueRequest.shopperInteraction)
+        && Objects.equals(
+            this.isSetShopperInteraction, storedValueIssueRequest.isSetShopperInteraction)
         && Objects.equals(this.shopperReference, storedValueIssueRequest.shopperReference)
-        && Objects.equals(this.store, storedValueIssueRequest.store);
+        && Objects.equals(this.isSetShopperReference, storedValueIssueRequest.isSetShopperReference)
+        && Objects.equals(this.store, storedValueIssueRequest.store)
+        && Objects.equals(this.isSetStore, storedValueIssueRequest.isSetStore);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         merchantAccount,
+        isSetMerchantAccount,
         paymentMethod,
+        isSetPaymentMethod,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         reference,
+        isSetReference,
         shopperInteraction,
+        isSetShopperInteraction,
         shopperReference,
-        store);
+        isSetShopperReference,
+        store,
+        isSetStore);
   }
 
   @Override
@@ -540,6 +627,51 @@ public class StoredValueIssueRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
