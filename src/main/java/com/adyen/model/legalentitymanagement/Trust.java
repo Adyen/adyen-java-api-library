@@ -841,38 +841,66 @@ public class Trust {
     }
     Trust trust = (Trust) o;
     return Objects.equals(this.countryOfGoverningLaw, trust.countryOfGoverningLaw)
+        && Objects.equals(this.isSetCountryOfGoverningLaw, trust.isSetCountryOfGoverningLaw)
         && Objects.equals(this.dateOfIncorporation, trust.dateOfIncorporation)
+        && Objects.equals(this.isSetDateOfIncorporation, trust.isSetDateOfIncorporation)
         && Objects.equals(this.description, trust.description)
+        && Objects.equals(this.isSetDescription, trust.isSetDescription)
         && Objects.equals(this.doingBusinessAs, trust.doingBusinessAs)
+        && Objects.equals(this.isSetDoingBusinessAs, trust.isSetDoingBusinessAs)
         && Objects.equals(this.doingBusinessAsAbsent, trust.doingBusinessAsAbsent)
+        && Objects.equals(this.isSetDoingBusinessAsAbsent, trust.isSetDoingBusinessAsAbsent)
         && Objects.equals(this.name, trust.name)
+        && Objects.equals(this.isSetName, trust.isSetName)
         && Objects.equals(this.principalPlaceOfBusiness, trust.principalPlaceOfBusiness)
+        && Objects.equals(this.isSetPrincipalPlaceOfBusiness, trust.isSetPrincipalPlaceOfBusiness)
         && Objects.equals(this.registeredAddress, trust.registeredAddress)
+        && Objects.equals(this.isSetRegisteredAddress, trust.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, trust.registrationNumber)
+        && Objects.equals(this.isSetRegistrationNumber, trust.isSetRegistrationNumber)
         && Objects.equals(this.taxInformation, trust.taxInformation)
+        && Objects.equals(this.isSetTaxInformation, trust.isSetTaxInformation)
         && Objects.equals(this.type, trust.type)
+        && Objects.equals(this.isSetType, trust.isSetType)
         && Objects.equals(this.undefinedBeneficiaryInfo, trust.undefinedBeneficiaryInfo)
+        && Objects.equals(this.isSetUndefinedBeneficiaryInfo, trust.isSetUndefinedBeneficiaryInfo)
         && Objects.equals(this.vatAbsenceReason, trust.vatAbsenceReason)
-        && Objects.equals(this.vatNumber, trust.vatNumber);
+        && Objects.equals(this.isSetVatAbsenceReason, trust.isSetVatAbsenceReason)
+        && Objects.equals(this.vatNumber, trust.vatNumber)
+        && Objects.equals(this.isSetVatNumber, trust.isSetVatNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         countryOfGoverningLaw,
+        isSetCountryOfGoverningLaw,
         dateOfIncorporation,
+        isSetDateOfIncorporation,
         description,
+        isSetDescription,
         doingBusinessAs,
+        isSetDoingBusinessAs,
         doingBusinessAsAbsent,
+        isSetDoingBusinessAsAbsent,
         name,
+        isSetName,
         principalPlaceOfBusiness,
+        isSetPrincipalPlaceOfBusiness,
         registeredAddress,
+        isSetRegisteredAddress,
         registrationNumber,
+        isSetRegistrationNumber,
         taxInformation,
+        isSetTaxInformation,
         type,
+        isSetType,
         undefinedBeneficiaryInfo,
+        isSetUndefinedBeneficiaryInfo,
         vatAbsenceReason,
-        vatNumber);
+        isSetVatAbsenceReason,
+        vatNumber,
+        isSetVatNumber);
   }
 
   @Override

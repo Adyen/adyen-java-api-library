@@ -219,14 +219,25 @@ public class GeneratePciDescriptionResponse {
     GeneratePciDescriptionResponse generatePciDescriptionResponse =
         (GeneratePciDescriptionResponse) o;
     return Arrays.equals(this.content, generatePciDescriptionResponse.content)
+        && Objects.equals(this.isSetContent, generatePciDescriptionResponse.isSetContent)
         && Objects.equals(this.language, generatePciDescriptionResponse.language)
+        && Objects.equals(this.isSetLanguage, generatePciDescriptionResponse.isSetLanguage)
         && Objects.equals(
-            this.pciTemplateReferences, generatePciDescriptionResponse.pciTemplateReferences);
+            this.pciTemplateReferences, generatePciDescriptionResponse.pciTemplateReferences)
+        && Objects.equals(
+            this.isSetPciTemplateReferences,
+            generatePciDescriptionResponse.isSetPciTemplateReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(content), language, pciTemplateReferences);
+    return Objects.hash(
+        Arrays.hashCode(content),
+        isSetContent,
+        language,
+        isSetLanguage,
+        pciTemplateReferences,
+        isSetPciTemplateReferences);
   }
 
   @Override

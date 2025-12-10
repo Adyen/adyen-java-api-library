@@ -295,13 +295,17 @@ public class VerificationDeadline {
     }
     VerificationDeadline verificationDeadline = (VerificationDeadline) o;
     return Objects.equals(this.capabilities, verificationDeadline.capabilities)
+        && Objects.equals(this.isSetCapabilities, verificationDeadline.isSetCapabilities)
         && Objects.equals(this.entityIds, verificationDeadline.entityIds)
-        && Objects.equals(this.expiresAt, verificationDeadline.expiresAt);
+        && Objects.equals(this.isSetEntityIds, verificationDeadline.isSetEntityIds)
+        && Objects.equals(this.expiresAt, verificationDeadline.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, verificationDeadline.isSetExpiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, entityIds, expiresAt);
+    return Objects.hash(
+        capabilities, isSetCapabilities, entityIds, isSetEntityIds, expiresAt, isSetExpiresAt);
   }
 
   @Override

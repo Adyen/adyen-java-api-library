@@ -203,13 +203,22 @@ public class StockData {
     }
     StockData stockData = (StockData) o;
     return Objects.equals(this.marketIdentifier, stockData.marketIdentifier)
+        && Objects.equals(this.isSetMarketIdentifier, stockData.isSetMarketIdentifier)
         && Objects.equals(this.stockNumber, stockData.stockNumber)
-        && Objects.equals(this.tickerSymbol, stockData.tickerSymbol);
+        && Objects.equals(this.isSetStockNumber, stockData.isSetStockNumber)
+        && Objects.equals(this.tickerSymbol, stockData.tickerSymbol)
+        && Objects.equals(this.isSetTickerSymbol, stockData.isSetTickerSymbol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(marketIdentifier, stockNumber, tickerSymbol);
+    return Objects.hash(
+        marketIdentifier,
+        isSetMarketIdentifier,
+        stockNumber,
+        isSetStockNumber,
+        tickerSymbol,
+        isSetTickerSymbol);
   }
 
   @Override

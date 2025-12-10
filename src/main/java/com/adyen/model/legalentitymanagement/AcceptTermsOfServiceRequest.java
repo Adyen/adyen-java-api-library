@@ -167,12 +167,14 @@ public class AcceptTermsOfServiceRequest {
     }
     AcceptTermsOfServiceRequest acceptTermsOfServiceRequest = (AcceptTermsOfServiceRequest) o;
     return Objects.equals(this.acceptedBy, acceptTermsOfServiceRequest.acceptedBy)
-        && Objects.equals(this.ipAddress, acceptTermsOfServiceRequest.ipAddress);
+        && Objects.equals(this.isSetAcceptedBy, acceptTermsOfServiceRequest.isSetAcceptedBy)
+        && Objects.equals(this.ipAddress, acceptTermsOfServiceRequest.ipAddress)
+        && Objects.equals(this.isSetIpAddress, acceptTermsOfServiceRequest.isSetIpAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedBy, ipAddress);
+    return Objects.hash(acceptedBy, isSetAcceptedBy, ipAddress, isSetIpAddress);
   }
 
   @Override

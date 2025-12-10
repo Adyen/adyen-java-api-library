@@ -113,12 +113,13 @@ public class OnboardingLink {
       return false;
     }
     OnboardingLink onboardingLink = (OnboardingLink) o;
-    return Objects.equals(this.url, onboardingLink.url);
+    return Objects.equals(this.url, onboardingLink.url)
+        && Objects.equals(this.isSetUrl, onboardingLink.isSetUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url);
+    return Objects.hash(url, isSetUrl);
   }
 
   @Override

@@ -527,15 +527,31 @@ public class VerificationErrorRecursive {
     }
     VerificationErrorRecursive verificationErrorRecursive = (VerificationErrorRecursive) o;
     return Objects.equals(this.capabilities, verificationErrorRecursive.capabilities)
+        && Objects.equals(this.isSetCapabilities, verificationErrorRecursive.isSetCapabilities)
         && Objects.equals(this.code, verificationErrorRecursive.code)
+        && Objects.equals(this.isSetCode, verificationErrorRecursive.isSetCode)
         && Objects.equals(this.message, verificationErrorRecursive.message)
+        && Objects.equals(this.isSetMessage, verificationErrorRecursive.isSetMessage)
         && Objects.equals(this.type, verificationErrorRecursive.type)
-        && Objects.equals(this.remediatingActions, verificationErrorRecursive.remediatingActions);
+        && Objects.equals(this.isSetType, verificationErrorRecursive.isSetType)
+        && Objects.equals(this.remediatingActions, verificationErrorRecursive.remediatingActions)
+        && Objects.equals(
+            this.isSetRemediatingActions, verificationErrorRecursive.isSetRemediatingActions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, code, message, type, remediatingActions);
+    return Objects.hash(
+        capabilities,
+        isSetCapabilities,
+        code,
+        isSetCode,
+        message,
+        isSetMessage,
+        type,
+        isSetType,
+        remediatingActions,
+        isSetRemediatingActions);
   }
 
   @Override

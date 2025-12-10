@@ -416,17 +416,37 @@ public class AcceptTermsOfServiceResponse {
     }
     AcceptTermsOfServiceResponse acceptTermsOfServiceResponse = (AcceptTermsOfServiceResponse) o;
     return Objects.equals(this.acceptedBy, acceptTermsOfServiceResponse.acceptedBy)
+        && Objects.equals(this.isSetAcceptedBy, acceptTermsOfServiceResponse.isSetAcceptedBy)
         && Objects.equals(this.id, acceptTermsOfServiceResponse.id)
+        && Objects.equals(this.isSetId, acceptTermsOfServiceResponse.isSetId)
         && Objects.equals(this.ipAddress, acceptTermsOfServiceResponse.ipAddress)
+        && Objects.equals(this.isSetIpAddress, acceptTermsOfServiceResponse.isSetIpAddress)
         && Objects.equals(this.language, acceptTermsOfServiceResponse.language)
+        && Objects.equals(this.isSetLanguage, acceptTermsOfServiceResponse.isSetLanguage)
         && Objects.equals(
             this.termsOfServiceDocumentId, acceptTermsOfServiceResponse.termsOfServiceDocumentId)
-        && Objects.equals(this.type, acceptTermsOfServiceResponse.type);
+        && Objects.equals(
+            this.isSetTermsOfServiceDocumentId,
+            acceptTermsOfServiceResponse.isSetTermsOfServiceDocumentId)
+        && Objects.equals(this.type, acceptTermsOfServiceResponse.type)
+        && Objects.equals(this.isSetType, acceptTermsOfServiceResponse.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedBy, id, ipAddress, language, termsOfServiceDocumentId, type);
+    return Objects.hash(
+        acceptedBy,
+        isSetAcceptedBy,
+        id,
+        isSetId,
+        ipAddress,
+        isSetIpAddress,
+        language,
+        isSetLanguage,
+        termsOfServiceDocumentId,
+        isSetTermsOfServiceDocumentId,
+        type,
+        isSetType);
   }
 
   @Override

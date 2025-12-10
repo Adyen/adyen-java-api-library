@@ -274,15 +274,31 @@ public class BankAccountInfo {
     }
     BankAccountInfo bankAccountInfo = (BankAccountInfo) o;
     return Objects.equals(this.accountIdentification, bankAccountInfo.accountIdentification)
+        && Objects.equals(
+            this.isSetAccountIdentification, bankAccountInfo.isSetAccountIdentification)
         && Objects.equals(this.accountType, bankAccountInfo.accountType)
+        && Objects.equals(this.isSetAccountType, bankAccountInfo.isSetAccountType)
         && Objects.equals(this.bankName, bankAccountInfo.bankName)
+        && Objects.equals(this.isSetBankName, bankAccountInfo.isSetBankName)
         && Objects.equals(this.countryCode, bankAccountInfo.countryCode)
-        && Objects.equals(this.trustedSource, bankAccountInfo.trustedSource);
+        && Objects.equals(this.isSetCountryCode, bankAccountInfo.isSetCountryCode)
+        && Objects.equals(this.trustedSource, bankAccountInfo.trustedSource)
+        && Objects.equals(this.isSetTrustedSource, bankAccountInfo.isSetTrustedSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentification, accountType, bankName, countryCode, trustedSource);
+    return Objects.hash(
+        accountIdentification,
+        isSetAccountIdentification,
+        accountType,
+        isSetAccountType,
+        bankName,
+        isSetBankName,
+        countryCode,
+        isSetCountryCode,
+        trustedSource,
+        isSetTrustedSource);
   }
 
   @Override

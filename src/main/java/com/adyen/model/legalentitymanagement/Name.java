@@ -188,13 +188,16 @@ public class Name {
     }
     Name name = (Name) o;
     return Objects.equals(this.firstName, name.firstName)
+        && Objects.equals(this.isSetFirstName, name.isSetFirstName)
         && Objects.equals(this.infix, name.infix)
-        && Objects.equals(this.lastName, name.lastName);
+        && Objects.equals(this.isSetInfix, name.isSetInfix)
+        && Objects.equals(this.lastName, name.lastName)
+        && Objects.equals(this.isSetLastName, name.isSetLastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, infix, lastName);
+    return Objects.hash(firstName, isSetFirstName, infix, isSetInfix, lastName, isSetLastName);
   }
 
   @Override

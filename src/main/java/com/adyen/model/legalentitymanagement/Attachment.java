@@ -311,15 +311,30 @@ public class Attachment {
     }
     Attachment attachment = (Attachment) o;
     return Arrays.equals(this.content, attachment.content)
+        && Objects.equals(this.isSetContent, attachment.isSetContent)
         && Objects.equals(this.contentType, attachment.contentType)
+        && Objects.equals(this.isSetContentType, attachment.isSetContentType)
         && Objects.equals(this.filename, attachment.filename)
+        && Objects.equals(this.isSetFilename, attachment.isSetFilename)
         && Objects.equals(this.pageName, attachment.pageName)
-        && Objects.equals(this.pageType, attachment.pageType);
+        && Objects.equals(this.isSetPageName, attachment.isSetPageName)
+        && Objects.equals(this.pageType, attachment.pageType)
+        && Objects.equals(this.isSetPageType, attachment.isSetPageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(content), contentType, filename, pageName, pageType);
+    return Objects.hash(
+        Arrays.hashCode(content),
+        isSetContent,
+        contentType,
+        isSetContentType,
+        filename,
+        isSetFilename,
+        pageName,
+        isSetPageName,
+        pageType,
+        isSetPageType);
   }
 
   @Override

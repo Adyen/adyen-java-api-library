@@ -835,42 +835,75 @@ public class LegalEntity {
     }
     LegalEntity legalEntity = (LegalEntity) o;
     return Objects.equals(this.capabilities, legalEntity.capabilities)
+        && Objects.equals(this.isSetCapabilities, legalEntity.isSetCapabilities)
         && Objects.equals(this.documentDetails, legalEntity.documentDetails)
+        && Objects.equals(this.isSetDocumentDetails, legalEntity.isSetDocumentDetails)
         && Objects.equals(this.documents, legalEntity.documents)
+        && Objects.equals(this.isSetDocuments, legalEntity.isSetDocuments)
         && Objects.equals(this.entityAssociations, legalEntity.entityAssociations)
+        && Objects.equals(this.isSetEntityAssociations, legalEntity.isSetEntityAssociations)
         && Objects.equals(this.id, legalEntity.id)
+        && Objects.equals(this.isSetId, legalEntity.isSetId)
         && Objects.equals(this.individual, legalEntity.individual)
+        && Objects.equals(this.isSetIndividual, legalEntity.isSetIndividual)
         && Objects.equals(this.organization, legalEntity.organization)
+        && Objects.equals(this.isSetOrganization, legalEntity.isSetOrganization)
         && Objects.equals(this.problems, legalEntity.problems)
+        && Objects.equals(this.isSetProblems, legalEntity.isSetProblems)
         && Objects.equals(this.reference, legalEntity.reference)
+        && Objects.equals(this.isSetReference, legalEntity.isSetReference)
         && Objects.equals(this.soleProprietorship, legalEntity.soleProprietorship)
+        && Objects.equals(this.isSetSoleProprietorship, legalEntity.isSetSoleProprietorship)
         && Objects.equals(this.transferInstruments, legalEntity.transferInstruments)
+        && Objects.equals(this.isSetTransferInstruments, legalEntity.isSetTransferInstruments)
         && Objects.equals(this.trust, legalEntity.trust)
+        && Objects.equals(this.isSetTrust, legalEntity.isSetTrust)
         && Objects.equals(this.type, legalEntity.type)
+        && Objects.equals(this.isSetType, legalEntity.isSetType)
         && Objects.equals(this.unincorporatedPartnership, legalEntity.unincorporatedPartnership)
+        && Objects.equals(
+            this.isSetUnincorporatedPartnership, legalEntity.isSetUnincorporatedPartnership)
         && Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines)
-        && Objects.equals(this.verificationPlan, legalEntity.verificationPlan);
+        && Objects.equals(this.isSetVerificationDeadlines, legalEntity.isSetVerificationDeadlines)
+        && Objects.equals(this.verificationPlan, legalEntity.verificationPlan)
+        && Objects.equals(this.isSetVerificationPlan, legalEntity.isSetVerificationPlan);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         capabilities,
+        isSetCapabilities,
         documentDetails,
+        isSetDocumentDetails,
         documents,
+        isSetDocuments,
         entityAssociations,
+        isSetEntityAssociations,
         id,
+        isSetId,
         individual,
+        isSetIndividual,
         organization,
+        isSetOrganization,
         problems,
+        isSetProblems,
         reference,
+        isSetReference,
         soleProprietorship,
+        isSetSoleProprietorship,
         transferInstruments,
+        isSetTransferInstruments,
         trust,
+        isSetTrust,
         type,
+        isSetType,
         unincorporatedPartnership,
+        isSetUnincorporatedPartnership,
         verificationDeadlines,
-        verificationPlan);
+        isSetVerificationDeadlines,
+        verificationPlan,
+        isSetVerificationPlan);
   }
 
   @Override

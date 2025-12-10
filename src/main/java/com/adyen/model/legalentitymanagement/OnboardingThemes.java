@@ -198,13 +198,16 @@ public class OnboardingThemes {
     }
     OnboardingThemes onboardingThemes = (OnboardingThemes) o;
     return Objects.equals(this.next, onboardingThemes.next)
+        && Objects.equals(this.isSetNext, onboardingThemes.isSetNext)
         && Objects.equals(this.previous, onboardingThemes.previous)
-        && Objects.equals(this.themes, onboardingThemes.themes);
+        && Objects.equals(this.isSetPrevious, onboardingThemes.isSetPrevious)
+        && Objects.equals(this.themes, onboardingThemes.themes)
+        && Objects.equals(this.isSetThemes, onboardingThemes.isSetThemes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(next, previous, themes);
+    return Objects.hash(next, isSetNext, previous, isSetPrevious, themes, isSetThemes);
   }
 
   @Override

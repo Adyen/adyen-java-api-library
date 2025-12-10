@@ -832,36 +832,64 @@ public class SourceOfFunds {
     }
     SourceOfFunds sourceOfFunds = (SourceOfFunds) o;
     return Objects.equals(this.adyenProcessedFunds, sourceOfFunds.adyenProcessedFunds)
+        && Objects.equals(this.isSetAdyenProcessedFunds, sourceOfFunds.isSetAdyenProcessedFunds)
         && Objects.equals(this.amount, sourceOfFunds.amount)
+        && Objects.equals(this.isSetAmount, sourceOfFunds.isSetAmount)
         && Objects.equals(this.assetMonthsHeld, sourceOfFunds.assetMonthsHeld)
+        && Objects.equals(this.isSetAssetMonthsHeld, sourceOfFunds.isSetAssetMonthsHeld)
         && Objects.equals(this.cryptocurrencyExchange, sourceOfFunds.cryptocurrencyExchange)
+        && Objects.equals(
+            this.isSetCryptocurrencyExchange, sourceOfFunds.isSetCryptocurrencyExchange)
         && Objects.equals(this.dateOfFundsReceived, sourceOfFunds.dateOfFundsReceived)
+        && Objects.equals(this.isSetDateOfFundsReceived, sourceOfFunds.isSetDateOfFundsReceived)
         && Objects.equals(this.dateOfSourceEvent, sourceOfFunds.dateOfSourceEvent)
+        && Objects.equals(this.isSetDateOfSourceEvent, sourceOfFunds.isSetDateOfSourceEvent)
         && Objects.equals(this.description, sourceOfFunds.description)
+        && Objects.equals(this.isSetDescription, sourceOfFunds.isSetDescription)
         && Objects.equals(this.financiers, sourceOfFunds.financiers)
+        && Objects.equals(this.isSetFinanciers, sourceOfFunds.isSetFinanciers)
         && Objects.equals(this.originatorLegalEntityId, sourceOfFunds.originatorLegalEntityId)
+        && Objects.equals(
+            this.isSetOriginatorLegalEntityId, sourceOfFunds.isSetOriginatorLegalEntityId)
         && Objects.equals(this.purpose, sourceOfFunds.purpose)
+        && Objects.equals(this.isSetPurpose, sourceOfFunds.isSetPurpose)
         && Objects.equals(this.relationship, sourceOfFunds.relationship)
+        && Objects.equals(this.isSetRelationship, sourceOfFunds.isSetRelationship)
         && Objects.equals(this.type, sourceOfFunds.type)
-        && Objects.equals(this.website, sourceOfFunds.website);
+        && Objects.equals(this.isSetType, sourceOfFunds.isSetType)
+        && Objects.equals(this.website, sourceOfFunds.website)
+        && Objects.equals(this.isSetWebsite, sourceOfFunds.isSetWebsite);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         adyenProcessedFunds,
+        isSetAdyenProcessedFunds,
         amount,
+        isSetAmount,
         assetMonthsHeld,
+        isSetAssetMonthsHeld,
         cryptocurrencyExchange,
+        isSetCryptocurrencyExchange,
         dateOfFundsReceived,
+        isSetDateOfFundsReceived,
         dateOfSourceEvent,
+        isSetDateOfSourceEvent,
         description,
+        isSetDescription,
         financiers,
+        isSetFinanciers,
         originatorLegalEntityId,
+        isSetOriginatorLegalEntityId,
         purpose,
+        isSetPurpose,
         relationship,
+        isSetRelationship,
         type,
-        website);
+        isSetType,
+        website,
+        isSetWebsite);
   }
 
   @Override

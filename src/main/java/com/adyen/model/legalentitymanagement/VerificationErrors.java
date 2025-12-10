@@ -111,12 +111,13 @@ public class VerificationErrors {
       return false;
     }
     VerificationErrors verificationErrors = (VerificationErrors) o;
-    return Objects.equals(this.problems, verificationErrors.problems);
+    return Objects.equals(this.problems, verificationErrors.problems)
+        && Objects.equals(this.isSetProblems, verificationErrors.isSetProblems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(problems);
+    return Objects.hash(problems, isSetProblems);
   }
 
   @Override

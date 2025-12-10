@@ -283,15 +283,30 @@ public class OnboardingTheme {
     }
     OnboardingTheme onboardingTheme = (OnboardingTheme) o;
     return Objects.equals(this.createdAt, onboardingTheme.createdAt)
+        && Objects.equals(this.isSetCreatedAt, onboardingTheme.isSetCreatedAt)
         && Objects.equals(this.description, onboardingTheme.description)
+        && Objects.equals(this.isSetDescription, onboardingTheme.isSetDescription)
         && Objects.equals(this.id, onboardingTheme.id)
+        && Objects.equals(this.isSetId, onboardingTheme.isSetId)
         && Objects.equals(this.properties, onboardingTheme.properties)
-        && Objects.equals(this.updatedAt, onboardingTheme.updatedAt);
+        && Objects.equals(this.isSetProperties, onboardingTheme.isSetProperties)
+        && Objects.equals(this.updatedAt, onboardingTheme.updatedAt)
+        && Objects.equals(this.isSetUpdatedAt, onboardingTheme.isSetUpdatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, id, properties, updatedAt);
+    return Objects.hash(
+        createdAt,
+        isSetCreatedAt,
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        properties,
+        isSetProperties,
+        updatedAt,
+        isSetUpdatedAt);
   }
 
   @Override

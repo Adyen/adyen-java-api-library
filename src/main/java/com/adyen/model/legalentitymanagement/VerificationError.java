@@ -577,16 +577,34 @@ public class VerificationError {
     }
     VerificationError verificationError = (VerificationError) o;
     return Objects.equals(this.capabilities, verificationError.capabilities)
+        && Objects.equals(this.isSetCapabilities, verificationError.isSetCapabilities)
         && Objects.equals(this.code, verificationError.code)
+        && Objects.equals(this.isSetCode, verificationError.isSetCode)
         && Objects.equals(this.message, verificationError.message)
+        && Objects.equals(this.isSetMessage, verificationError.isSetMessage)
         && Objects.equals(this.remediatingActions, verificationError.remediatingActions)
+        && Objects.equals(this.isSetRemediatingActions, verificationError.isSetRemediatingActions)
         && Objects.equals(this.subErrors, verificationError.subErrors)
-        && Objects.equals(this.type, verificationError.type);
+        && Objects.equals(this.isSetSubErrors, verificationError.isSetSubErrors)
+        && Objects.equals(this.type, verificationError.type)
+        && Objects.equals(this.isSetType, verificationError.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, code, message, remediatingActions, subErrors, type);
+    return Objects.hash(
+        capabilities,
+        isSetCapabilities,
+        code,
+        isSetCode,
+        message,
+        isSetMessage,
+        remediatingActions,
+        isSetRemediatingActions,
+        subErrors,
+        isSetSubErrors,
+        type,
+        isSetType);
   }
 
   @Override

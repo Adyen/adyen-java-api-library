@@ -289,15 +289,26 @@ public class GetTermsOfServiceDocumentRequest {
     GetTermsOfServiceDocumentRequest getTermsOfServiceDocumentRequest =
         (GetTermsOfServiceDocumentRequest) o;
     return Objects.equals(this.language, getTermsOfServiceDocumentRequest.language)
+        && Objects.equals(this.isSetLanguage, getTermsOfServiceDocumentRequest.isSetLanguage)
         && Objects.equals(
             this.termsOfServiceDocumentFormat,
             getTermsOfServiceDocumentRequest.termsOfServiceDocumentFormat)
-        && Objects.equals(this.type, getTermsOfServiceDocumentRequest.type);
+        && Objects.equals(
+            this.isSetTermsOfServiceDocumentFormat,
+            getTermsOfServiceDocumentRequest.isSetTermsOfServiceDocumentFormat)
+        && Objects.equals(this.type, getTermsOfServiceDocumentRequest.type)
+        && Objects.equals(this.isSetType, getTermsOfServiceDocumentRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, termsOfServiceDocumentFormat, type);
+    return Objects.hash(
+        language,
+        isSetLanguage,
+        termsOfServiceDocumentFormat,
+        isSetTermsOfServiceDocumentFormat,
+        type,
+        isSetType);
   }
 
   @Override

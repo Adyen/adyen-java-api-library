@@ -180,13 +180,17 @@ public class PhoneNumber {
     }
     PhoneNumber phoneNumber = (PhoneNumber) o;
     return Objects.equals(this.number, phoneNumber.number)
+        && Objects.equals(this.isSetNumber, phoneNumber.isSetNumber)
         && Objects.equals(this.phoneCountryCode, phoneNumber.phoneCountryCode)
-        && Objects.equals(this.type, phoneNumber.type);
+        && Objects.equals(this.isSetPhoneCountryCode, phoneNumber.isSetPhoneCountryCode)
+        && Objects.equals(this.type, phoneNumber.type)
+        && Objects.equals(this.isSetType, phoneNumber.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, phoneCountryCode, type);
+    return Objects.hash(
+        number, isSetNumber, phoneCountryCode, isSetPhoneCountryCode, type, isSetType);
   }
 
   @Override

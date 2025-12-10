@@ -241,12 +241,17 @@ public class GeneratePciDescriptionRequest {
     GeneratePciDescriptionRequest generatePciDescriptionRequest = (GeneratePciDescriptionRequest) o;
     return Objects.equals(
             this.additionalSalesChannels, generatePciDescriptionRequest.additionalSalesChannels)
-        && Objects.equals(this.language, generatePciDescriptionRequest.language);
+        && Objects.equals(
+            this.isSetAdditionalSalesChannels,
+            generatePciDescriptionRequest.isSetAdditionalSalesChannels)
+        && Objects.equals(this.language, generatePciDescriptionRequest.language)
+        && Objects.equals(this.isSetLanguage, generatePciDescriptionRequest.isSetLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalSalesChannels, language);
+    return Objects.hash(
+        additionalSalesChannels, isSetAdditionalSalesChannels, language, isSetLanguage);
   }
 
   @Override

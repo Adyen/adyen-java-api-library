@@ -103,12 +103,14 @@ public class DataReviewConfirmationResponse {
     }
     DataReviewConfirmationResponse dataReviewConfirmationResponse =
         (DataReviewConfirmationResponse) o;
-    return Objects.equals(this.dataReviewedAt, dataReviewConfirmationResponse.dataReviewedAt);
+    return Objects.equals(this.dataReviewedAt, dataReviewConfirmationResponse.dataReviewedAt)
+        && Objects.equals(
+            this.isSetDataReviewedAt, dataReviewConfirmationResponse.isSetDataReviewedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataReviewedAt);
+    return Objects.hash(dataReviewedAt, isSetDataReviewedAt);
   }
 
   @Override

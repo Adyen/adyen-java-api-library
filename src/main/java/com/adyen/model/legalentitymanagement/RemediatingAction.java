@@ -143,12 +143,14 @@ public class RemediatingAction {
     }
     RemediatingAction remediatingAction = (RemediatingAction) o;
     return Objects.equals(this.code, remediatingAction.code)
-        && Objects.equals(this.message, remediatingAction.message);
+        && Objects.equals(this.isSetCode, remediatingAction.isSetCode)
+        && Objects.equals(this.message, remediatingAction.message)
+        && Objects.equals(this.isSetMessage, remediatingAction.isSetMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(code, isSetCode, message, isSetMessage);
   }
 
   @Override

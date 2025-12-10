@@ -156,12 +156,14 @@ public class CapabilityProblem {
     }
     CapabilityProblem capabilityProblem = (CapabilityProblem) o;
     return Objects.equals(this.entity, capabilityProblem.entity)
-        && Objects.equals(this.verificationErrors, capabilityProblem.verificationErrors);
+        && Objects.equals(this.isSetEntity, capabilityProblem.isSetEntity)
+        && Objects.equals(this.verificationErrors, capabilityProblem.verificationErrors)
+        && Objects.equals(this.isSetVerificationErrors, capabilityProblem.isSetVerificationErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entity, verificationErrors);
+    return Objects.hash(entity, isSetEntity, verificationErrors, isSetVerificationErrors);
   }
 
   @Override

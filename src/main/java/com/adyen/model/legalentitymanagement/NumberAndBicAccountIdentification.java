@@ -288,15 +288,30 @@ public class NumberAndBicAccountIdentification {
         (NumberAndBicAccountIdentification) o;
     return Objects.equals(this.accountNumber, numberAndBicAccountIdentification.accountNumber)
         && Objects.equals(
+            this.isSetAccountNumber, numberAndBicAccountIdentification.isSetAccountNumber)
+        && Objects.equals(
             this.additionalBankIdentification,
             numberAndBicAccountIdentification.additionalBankIdentification)
+        && Objects.equals(
+            this.isSetAdditionalBankIdentification,
+            numberAndBicAccountIdentification.isSetAdditionalBankIdentification)
         && Objects.equals(this.bic, numberAndBicAccountIdentification.bic)
-        && Objects.equals(this.type, numberAndBicAccountIdentification.type);
+        && Objects.equals(this.isSetBic, numberAndBicAccountIdentification.isSetBic)
+        && Objects.equals(this.type, numberAndBicAccountIdentification.type)
+        && Objects.equals(this.isSetType, numberAndBicAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, additionalBankIdentification, bic, type);
+    return Objects.hash(
+        accountNumber,
+        isSetAccountNumber,
+        additionalBankIdentification,
+        isSetAdditionalBankIdentification,
+        bic,
+        isSetBic,
+        type,
+        isSetType);
   }
 
   @Override

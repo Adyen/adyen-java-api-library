@@ -188,12 +188,15 @@ public class CalculatePciStatusRequest {
     }
     CalculatePciStatusRequest calculatePciStatusRequest = (CalculatePciStatusRequest) o;
     return Objects.equals(
-        this.additionalSalesChannels, calculatePciStatusRequest.additionalSalesChannels);
+            this.additionalSalesChannels, calculatePciStatusRequest.additionalSalesChannels)
+        && Objects.equals(
+            this.isSetAdditionalSalesChannels,
+            calculatePciStatusRequest.isSetAdditionalSalesChannels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalSalesChannels);
+    return Objects.hash(additionalSalesChannels, isSetAdditionalSalesChannels);
   }
 
   @Override

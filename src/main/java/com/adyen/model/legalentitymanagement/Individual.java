@@ -492,30 +492,50 @@ public class Individual {
     }
     Individual individual = (Individual) o;
     return Objects.equals(this.birthData, individual.birthData)
+        && Objects.equals(this.isSetBirthData, individual.isSetBirthData)
         && Objects.equals(this.email, individual.email)
+        && Objects.equals(this.isSetEmail, individual.isSetEmail)
         && Objects.equals(this.identificationData, individual.identificationData)
+        && Objects.equals(this.isSetIdentificationData, individual.isSetIdentificationData)
         && Objects.equals(this.name, individual.name)
+        && Objects.equals(this.isSetName, individual.isSetName)
         && Objects.equals(this.nationality, individual.nationality)
+        && Objects.equals(this.isSetNationality, individual.isSetNationality)
         && Objects.equals(this.phone, individual.phone)
+        && Objects.equals(this.isSetPhone, individual.isSetPhone)
         && Objects.equals(this.residentialAddress, individual.residentialAddress)
+        && Objects.equals(this.isSetResidentialAddress, individual.isSetResidentialAddress)
         && Objects.equals(this.support, individual.support)
+        && Objects.equals(this.isSetSupport, individual.isSetSupport)
         && Objects.equals(this.taxInformation, individual.taxInformation)
-        && Objects.equals(this.webData, individual.webData);
+        && Objects.equals(this.isSetTaxInformation, individual.isSetTaxInformation)
+        && Objects.equals(this.webData, individual.webData)
+        && Objects.equals(this.isSetWebData, individual.isSetWebData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         birthData,
+        isSetBirthData,
         email,
+        isSetEmail,
         identificationData,
+        isSetIdentificationData,
         name,
+        isSetName,
         nationality,
+        isSetNationality,
         phone,
+        isSetPhone,
         residentialAddress,
+        isSetResidentialAddress,
         support,
+        isSetSupport,
         taxInformation,
-        webData);
+        isSetTaxInformation,
+        webData,
+        isSetWebData);
   }
 
   @Override

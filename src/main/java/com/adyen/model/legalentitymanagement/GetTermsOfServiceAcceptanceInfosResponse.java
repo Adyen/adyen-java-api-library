@@ -114,12 +114,13 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
     }
     GetTermsOfServiceAcceptanceInfosResponse getTermsOfServiceAcceptanceInfosResponse =
         (GetTermsOfServiceAcceptanceInfosResponse) o;
-    return Objects.equals(this.data, getTermsOfServiceAcceptanceInfosResponse.data);
+    return Objects.equals(this.data, getTermsOfServiceAcceptanceInfosResponse.data)
+        && Objects.equals(this.isSetData, getTermsOfServiceAcceptanceInfosResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

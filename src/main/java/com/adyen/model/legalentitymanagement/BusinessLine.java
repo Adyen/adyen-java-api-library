@@ -564,28 +564,46 @@ public class BusinessLine {
     }
     BusinessLine businessLine = (BusinessLine) o;
     return Objects.equals(this.id, businessLine.id)
+        && Objects.equals(this.isSetId, businessLine.isSetId)
         && Objects.equals(this.industryCode, businessLine.industryCode)
+        && Objects.equals(this.isSetIndustryCode, businessLine.isSetIndustryCode)
         && Objects.equals(this.legalEntityId, businessLine.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, businessLine.isSetLegalEntityId)
         && Objects.equals(this.problems, businessLine.problems)
+        && Objects.equals(this.isSetProblems, businessLine.isSetProblems)
         && Objects.equals(this.salesChannels, businessLine.salesChannels)
+        && Objects.equals(this.isSetSalesChannels, businessLine.isSetSalesChannels)
         && Objects.equals(this.service, businessLine.service)
+        && Objects.equals(this.isSetService, businessLine.isSetService)
         && Objects.equals(this.sourceOfFunds, businessLine.sourceOfFunds)
+        && Objects.equals(this.isSetSourceOfFunds, businessLine.isSetSourceOfFunds)
         && Objects.equals(this.webData, businessLine.webData)
-        && Objects.equals(this.webDataExemption, businessLine.webDataExemption);
+        && Objects.equals(this.isSetWebData, businessLine.isSetWebData)
+        && Objects.equals(this.webDataExemption, businessLine.webDataExemption)
+        && Objects.equals(this.isSetWebDataExemption, businessLine.isSetWebDataExemption);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         id,
+        isSetId,
         industryCode,
+        isSetIndustryCode,
         legalEntityId,
+        isSetLegalEntityId,
         problems,
+        isSetProblems,
         salesChannels,
+        isSetSalesChannels,
         service,
+        isSetService,
         sourceOfFunds,
+        isSetSourceOfFunds,
         webData,
-        webDataExemption);
+        isSetWebData,
+        webDataExemption,
+        isSetWebDataExemption);
   }
 
   @Override

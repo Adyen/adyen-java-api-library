@@ -256,13 +256,16 @@ public class CapabilityProblemEntityRecursive {
     CapabilityProblemEntityRecursive capabilityProblemEntityRecursive =
         (CapabilityProblemEntityRecursive) o;
     return Objects.equals(this.documents, capabilityProblemEntityRecursive.documents)
+        && Objects.equals(this.isSetDocuments, capabilityProblemEntityRecursive.isSetDocuments)
         && Objects.equals(this.id, capabilityProblemEntityRecursive.id)
-        && Objects.equals(this.type, capabilityProblemEntityRecursive.type);
+        && Objects.equals(this.isSetId, capabilityProblemEntityRecursive.isSetId)
+        && Objects.equals(this.type, capabilityProblemEntityRecursive.type)
+        && Objects.equals(this.isSetType, capabilityProblemEntityRecursive.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documents, id, type);
+    return Objects.hash(documents, isSetDocuments, id, isSetId, type, isSetType);
   }
 
   @Override

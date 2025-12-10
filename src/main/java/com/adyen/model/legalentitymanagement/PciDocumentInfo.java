@@ -201,13 +201,16 @@ public class PciDocumentInfo {
     }
     PciDocumentInfo pciDocumentInfo = (PciDocumentInfo) o;
     return Objects.equals(this.createdAt, pciDocumentInfo.createdAt)
+        && Objects.equals(this.isSetCreatedAt, pciDocumentInfo.isSetCreatedAt)
         && Objects.equals(this.id, pciDocumentInfo.id)
-        && Objects.equals(this.validUntil, pciDocumentInfo.validUntil);
+        && Objects.equals(this.isSetId, pciDocumentInfo.isSetId)
+        && Objects.equals(this.validUntil, pciDocumentInfo.validUntil)
+        && Objects.equals(this.isSetValidUntil, pciDocumentInfo.isSetValidUntil);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, id, validUntil);
+    return Objects.hash(createdAt, isSetCreatedAt, id, isSetId, validUntil, isSetValidUntil);
   }
 
   @Override

@@ -320,15 +320,30 @@ public class BusinessLineInfoUpdate {
     }
     BusinessLineInfoUpdate businessLineInfoUpdate = (BusinessLineInfoUpdate) o;
     return Objects.equals(this.industryCode, businessLineInfoUpdate.industryCode)
+        && Objects.equals(this.isSetIndustryCode, businessLineInfoUpdate.isSetIndustryCode)
         && Objects.equals(this.salesChannels, businessLineInfoUpdate.salesChannels)
+        && Objects.equals(this.isSetSalesChannels, businessLineInfoUpdate.isSetSalesChannels)
         && Objects.equals(this.sourceOfFunds, businessLineInfoUpdate.sourceOfFunds)
+        && Objects.equals(this.isSetSourceOfFunds, businessLineInfoUpdate.isSetSourceOfFunds)
         && Objects.equals(this.webData, businessLineInfoUpdate.webData)
-        && Objects.equals(this.webDataExemption, businessLineInfoUpdate.webDataExemption);
+        && Objects.equals(this.isSetWebData, businessLineInfoUpdate.isSetWebData)
+        && Objects.equals(this.webDataExemption, businessLineInfoUpdate.webDataExemption)
+        && Objects.equals(this.isSetWebDataExemption, businessLineInfoUpdate.isSetWebDataExemption);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(industryCode, salesChannels, sourceOfFunds, webData, webDataExemption);
+    return Objects.hash(
+        industryCode,
+        isSetIndustryCode,
+        salesChannels,
+        isSetSalesChannels,
+        sourceOfFunds,
+        isSetSourceOfFunds,
+        webData,
+        isSetWebData,
+        webDataExemption,
+        isSetWebDataExemption);
   }
 
   @Override

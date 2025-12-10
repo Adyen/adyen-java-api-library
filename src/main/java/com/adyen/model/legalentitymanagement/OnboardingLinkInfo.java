@@ -275,14 +275,26 @@ public class OnboardingLinkInfo {
     }
     OnboardingLinkInfo onboardingLinkInfo = (OnboardingLinkInfo) o;
     return Objects.equals(this.locale, onboardingLinkInfo.locale)
+        && Objects.equals(this.isSetLocale, onboardingLinkInfo.isSetLocale)
         && Objects.equals(this.redirectUrl, onboardingLinkInfo.redirectUrl)
+        && Objects.equals(this.isSetRedirectUrl, onboardingLinkInfo.isSetRedirectUrl)
         && Objects.equals(this.settings, onboardingLinkInfo.settings)
-        && Objects.equals(this.themeId, onboardingLinkInfo.themeId);
+        && Objects.equals(this.isSetSettings, onboardingLinkInfo.isSetSettings)
+        && Objects.equals(this.themeId, onboardingLinkInfo.themeId)
+        && Objects.equals(this.isSetThemeId, onboardingLinkInfo.isSetThemeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locale, redirectUrl, settings, themeId);
+    return Objects.hash(
+        locale,
+        isSetLocale,
+        redirectUrl,
+        isSetRedirectUrl,
+        settings,
+        isSetSettings,
+        themeId,
+        isSetThemeId);
   }
 
   @Override

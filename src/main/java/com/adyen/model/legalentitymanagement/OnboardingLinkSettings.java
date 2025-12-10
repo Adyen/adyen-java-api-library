@@ -958,59 +958,114 @@ public class OnboardingLinkSettings {
     OnboardingLinkSettings onboardingLinkSettings = (OnboardingLinkSettings) o;
     return Objects.equals(this.acceptedCountries, onboardingLinkSettings.acceptedCountries)
         && Objects.equals(
+            this.isSetAcceptedCountries, onboardingLinkSettings.isSetAcceptedCountries)
+        && Objects.equals(
             this.allowBankAccountFormatSelection,
             onboardingLinkSettings.allowBankAccountFormatSelection)
+        && Objects.equals(
+            this.isSetAllowBankAccountFormatSelection,
+            onboardingLinkSettings.isSetAllowBankAccountFormatSelection)
         && Objects.equals(this.allowDebugUi, onboardingLinkSettings.allowDebugUi)
+        && Objects.equals(this.isSetAllowDebugUi, onboardingLinkSettings.isSetAllowDebugUi)
         && Objects.equals(
             this.allowIntraRegionCrossBorderPayout,
             onboardingLinkSettings.allowIntraRegionCrossBorderPayout)
+        && Objects.equals(
+            this.isSetAllowIntraRegionCrossBorderPayout,
+            onboardingLinkSettings.isSetAllowIntraRegionCrossBorderPayout)
         && Objects.equals(this.changeLegalEntityType, onboardingLinkSettings.changeLegalEntityType)
+        && Objects.equals(
+            this.isSetChangeLegalEntityType, onboardingLinkSettings.isSetChangeLegalEntityType)
         && Objects.equals(this.editPrefilledCountry, onboardingLinkSettings.editPrefilledCountry)
+        && Objects.equals(
+            this.isSetEditPrefilledCountry, onboardingLinkSettings.isSetEditPrefilledCountry)
         && Objects.equals(this.enforceLegalAge, onboardingLinkSettings.enforceLegalAge)
+        && Objects.equals(this.isSetEnforceLegalAge, onboardingLinkSettings.isSetEnforceLegalAge)
         && Objects.equals(
             this.hideOnboardingIntroductionIndividual,
             onboardingLinkSettings.hideOnboardingIntroductionIndividual)
         && Objects.equals(
+            this.isSetHideOnboardingIntroductionIndividual,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionIndividual)
+        && Objects.equals(
             this.hideOnboardingIntroductionOrganization,
             onboardingLinkSettings.hideOnboardingIntroductionOrganization)
+        && Objects.equals(
+            this.isSetHideOnboardingIntroductionOrganization,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionOrganization)
         && Objects.equals(
             this.hideOnboardingIntroductionSoleProprietor,
             onboardingLinkSettings.hideOnboardingIntroductionSoleProprietor)
         && Objects.equals(
+            this.isSetHideOnboardingIntroductionSoleProprietor,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionSoleProprietor)
+        && Objects.equals(
             this.hideOnboardingIntroductionTrust,
             onboardingLinkSettings.hideOnboardingIntroductionTrust)
         && Objects.equals(
+            this.isSetHideOnboardingIntroductionTrust,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionTrust)
+        && Objects.equals(
             this.instantBankVerification, onboardingLinkSettings.instantBankVerification)
+        && Objects.equals(
+            this.isSetInstantBankVerification, onboardingLinkSettings.isSetInstantBankVerification)
         && Objects.equals(
             this.requirePciSignEcomMoto, onboardingLinkSettings.requirePciSignEcomMoto)
         && Objects.equals(
+            this.isSetRequirePciSignEcomMoto, onboardingLinkSettings.isSetRequirePciSignEcomMoto)
+        && Objects.equals(
             this.requirePciSignEcommerce, onboardingLinkSettings.requirePciSignEcommerce)
+        && Objects.equals(
+            this.isSetRequirePciSignEcommerce, onboardingLinkSettings.isSetRequirePciSignEcommerce)
         && Objects.equals(this.requirePciSignPos, onboardingLinkSettings.requirePciSignPos)
+        && Objects.equals(
+            this.isSetRequirePciSignPos, onboardingLinkSettings.isSetRequirePciSignPos)
         && Objects.equals(this.requirePciSignPosMoto, onboardingLinkSettings.requirePciSignPosMoto)
         && Objects.equals(
-            this.transferInstrumentLimit, onboardingLinkSettings.transferInstrumentLimit);
+            this.isSetRequirePciSignPosMoto, onboardingLinkSettings.isSetRequirePciSignPosMoto)
+        && Objects.equals(
+            this.transferInstrumentLimit, onboardingLinkSettings.transferInstrumentLimit)
+        && Objects.equals(
+            this.isSetTransferInstrumentLimit, onboardingLinkSettings.isSetTransferInstrumentLimit);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acceptedCountries,
+        isSetAcceptedCountries,
         allowBankAccountFormatSelection,
+        isSetAllowBankAccountFormatSelection,
         allowDebugUi,
+        isSetAllowDebugUi,
         allowIntraRegionCrossBorderPayout,
+        isSetAllowIntraRegionCrossBorderPayout,
         changeLegalEntityType,
+        isSetChangeLegalEntityType,
         editPrefilledCountry,
+        isSetEditPrefilledCountry,
         enforceLegalAge,
+        isSetEnforceLegalAge,
         hideOnboardingIntroductionIndividual,
+        isSetHideOnboardingIntroductionIndividual,
         hideOnboardingIntroductionOrganization,
+        isSetHideOnboardingIntroductionOrganization,
         hideOnboardingIntroductionSoleProprietor,
+        isSetHideOnboardingIntroductionSoleProprietor,
         hideOnboardingIntroductionTrust,
+        isSetHideOnboardingIntroductionTrust,
         instantBankVerification,
+        isSetInstantBankVerification,
         requirePciSignEcomMoto,
+        isSetRequirePciSignEcomMoto,
         requirePciSignEcommerce,
+        isSetRequirePciSignEcommerce,
         requirePciSignPos,
+        isSetRequirePciSignPos,
         requirePciSignPosMoto,
-        transferInstrumentLimit);
+        isSetRequirePciSignPosMoto,
+        transferInstrumentLimit,
+        isSetTransferInstrumentLimit);
   }
 
   @Override
