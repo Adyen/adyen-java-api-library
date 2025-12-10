@@ -204,14 +204,26 @@ public class PaginatedPaymentInstrumentsResponse {
     PaginatedPaymentInstrumentsResponse paginatedPaymentInstrumentsResponse =
         (PaginatedPaymentInstrumentsResponse) o;
     return Objects.equals(this.hasNext, paginatedPaymentInstrumentsResponse.hasNext)
+        && Objects.equals(this.isSetHasNext, paginatedPaymentInstrumentsResponse.isSetHasNext)
         && Objects.equals(this.hasPrevious, paginatedPaymentInstrumentsResponse.hasPrevious)
         && Objects.equals(
-            this.paymentInstruments, paginatedPaymentInstrumentsResponse.paymentInstruments);
+            this.isSetHasPrevious, paginatedPaymentInstrumentsResponse.isSetHasPrevious)
+        && Objects.equals(
+            this.paymentInstruments, paginatedPaymentInstrumentsResponse.paymentInstruments)
+        && Objects.equals(
+            this.isSetPaymentInstruments,
+            paginatedPaymentInstrumentsResponse.isSetPaymentInstruments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasNext, hasPrevious, paymentInstruments);
+    return Objects.hash(
+        hasNext,
+        isSetHasNext,
+        hasPrevious,
+        isSetHasPrevious,
+        paymentInstruments,
+        isSetPaymentInstruments);
   }
 
   @Override

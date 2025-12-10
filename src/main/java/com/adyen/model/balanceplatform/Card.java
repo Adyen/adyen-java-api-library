@@ -720,38 +720,66 @@ public class Card {
     }
     Card card = (Card) o;
     return Objects.equals(this.authentication, card.authentication)
+        && Objects.equals(this.isSetAuthentication, card.isSetAuthentication)
         && Objects.equals(this.bin, card.bin)
+        && Objects.equals(this.isSetBin, card.isSetBin)
         && Objects.equals(this.brand, card.brand)
+        && Objects.equals(this.isSetBrand, card.isSetBrand)
         && Objects.equals(this.brandVariant, card.brandVariant)
+        && Objects.equals(this.isSetBrandVariant, card.isSetBrandVariant)
         && Objects.equals(this.cardholderName, card.cardholderName)
+        && Objects.equals(this.isSetCardholderName, card.isSetCardholderName)
         && Objects.equals(this.configuration, card.configuration)
+        && Objects.equals(this.isSetConfiguration, card.isSetConfiguration)
         && Objects.equals(this.cvc, card.cvc)
+        && Objects.equals(this.isSetCvc, card.isSetCvc)
         && Objects.equals(this.deliveryContact, card.deliveryContact)
+        && Objects.equals(this.isSetDeliveryContact, card.isSetDeliveryContact)
         && Objects.equals(this.expiration, card.expiration)
+        && Objects.equals(this.isSetExpiration, card.isSetExpiration)
         && Objects.equals(this.formFactor, card.formFactor)
+        && Objects.equals(this.isSetFormFactor, card.isSetFormFactor)
         && Objects.equals(this.lastFour, card.lastFour)
+        && Objects.equals(this.isSetLastFour, card.isSetLastFour)
         && Objects.equals(this.number, card.number)
+        && Objects.equals(this.isSetNumber, card.isSetNumber)
         && Objects.equals(this.threeDSecure, card.threeDSecure)
-        && Objects.equals(this.usage, card.usage);
+        && Objects.equals(this.isSetThreeDSecure, card.isSetThreeDSecure)
+        && Objects.equals(this.usage, card.usage)
+        && Objects.equals(this.isSetUsage, card.isSetUsage);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         authentication,
+        isSetAuthentication,
         bin,
+        isSetBin,
         brand,
+        isSetBrand,
         brandVariant,
+        isSetBrandVariant,
         cardholderName,
+        isSetCardholderName,
         configuration,
+        isSetConfiguration,
         cvc,
+        isSetCvc,
         deliveryContact,
+        isSetDeliveryContact,
         expiration,
+        isSetExpiration,
         formFactor,
+        isSetFormFactor,
         lastFour,
+        isSetLastFour,
         number,
+        isSetNumber,
         threeDSecure,
-        usage);
+        isSetThreeDSecure,
+        usage,
+        isSetUsage);
   }
 
   @Override

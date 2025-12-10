@@ -156,12 +156,14 @@ public class TokenRequestorsRestriction {
     }
     TokenRequestorsRestriction tokenRequestorsRestriction = (TokenRequestorsRestriction) o;
     return Objects.equals(this.operation, tokenRequestorsRestriction.operation)
-        && Objects.equals(this.value, tokenRequestorsRestriction.value);
+        && Objects.equals(this.isSetOperation, tokenRequestorsRestriction.isSetOperation)
+        && Objects.equals(this.value, tokenRequestorsRestriction.value)
+        && Objects.equals(this.isSetValue, tokenRequestorsRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

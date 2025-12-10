@@ -503,15 +503,30 @@ public class TransferRoute {
     }
     TransferRoute transferRoute = (TransferRoute) o;
     return Objects.equals(this.category, transferRoute.category)
+        && Objects.equals(this.isSetCategory, transferRoute.isSetCategory)
         && Objects.equals(this.country, transferRoute.country)
+        && Objects.equals(this.isSetCountry, transferRoute.isSetCountry)
         && Objects.equals(this.currency, transferRoute.currency)
+        && Objects.equals(this.isSetCurrency, transferRoute.isSetCurrency)
         && Objects.equals(this.priority, transferRoute.priority)
-        && Objects.equals(this.requirements, transferRoute.requirements);
+        && Objects.equals(this.isSetPriority, transferRoute.isSetPriority)
+        && Objects.equals(this.requirements, transferRoute.requirements)
+        && Objects.equals(this.isSetRequirements, transferRoute.isSetRequirements);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, country, currency, priority, requirements);
+    return Objects.hash(
+        category,
+        isSetCategory,
+        country,
+        isSetCountry,
+        currency,
+        isSetCurrency,
+        priority,
+        isSetPriority,
+        requirements,
+        isSetRequirements);
   }
 
   @Override

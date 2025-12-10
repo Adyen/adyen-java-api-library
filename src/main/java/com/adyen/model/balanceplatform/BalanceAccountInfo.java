@@ -471,27 +471,47 @@ public class BalanceAccountInfo {
     }
     BalanceAccountInfo balanceAccountInfo = (BalanceAccountInfo) o;
     return Objects.equals(this.accountHolderId, balanceAccountInfo.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, balanceAccountInfo.isSetAccountHolderId)
         && Objects.equals(this.defaultCurrencyCode, balanceAccountInfo.defaultCurrencyCode)
+        && Objects.equals(
+            this.isSetDefaultCurrencyCode, balanceAccountInfo.isSetDefaultCurrencyCode)
         && Objects.equals(this.description, balanceAccountInfo.description)
+        && Objects.equals(this.isSetDescription, balanceAccountInfo.isSetDescription)
         && Objects.equals(this.metadata, balanceAccountInfo.metadata)
+        && Objects.equals(this.isSetMetadata, balanceAccountInfo.isSetMetadata)
         && Objects.equals(this.migratedAccountCode, balanceAccountInfo.migratedAccountCode)
         && Objects.equals(
+            this.isSetMigratedAccountCode, balanceAccountInfo.isSetMigratedAccountCode)
+        && Objects.equals(
             this.platformPaymentConfiguration, balanceAccountInfo.platformPaymentConfiguration)
+        && Objects.equals(
+            this.isSetPlatformPaymentConfiguration,
+            balanceAccountInfo.isSetPlatformPaymentConfiguration)
         && Objects.equals(this.reference, balanceAccountInfo.reference)
-        && Objects.equals(this.timeZone, balanceAccountInfo.timeZone);
+        && Objects.equals(this.isSetReference, balanceAccountInfo.isSetReference)
+        && Objects.equals(this.timeZone, balanceAccountInfo.timeZone)
+        && Objects.equals(this.isSetTimeZone, balanceAccountInfo.isSetTimeZone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolderId,
+        isSetAccountHolderId,
         defaultCurrencyCode,
+        isSetDefaultCurrencyCode,
         description,
+        isSetDescription,
         metadata,
+        isSetMetadata,
         migratedAccountCode,
+        isSetMigratedAccountCode,
         platformPaymentConfiguration,
+        isSetPlatformPaymentConfiguration,
         reference,
-        timeZone);
+        isSetReference,
+        timeZone,
+        isSetTimeZone);
   }
 
   @Override

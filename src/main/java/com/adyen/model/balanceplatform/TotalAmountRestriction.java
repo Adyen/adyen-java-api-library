@@ -146,12 +146,14 @@ public class TotalAmountRestriction {
     }
     TotalAmountRestriction totalAmountRestriction = (TotalAmountRestriction) o;
     return Objects.equals(this.operation, totalAmountRestriction.operation)
-        && Objects.equals(this.value, totalAmountRestriction.value);
+        && Objects.equals(this.isSetOperation, totalAmountRestriction.isSetOperation)
+        && Objects.equals(this.value, totalAmountRestriction.value)
+        && Objects.equals(this.isSetValue, totalAmountRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

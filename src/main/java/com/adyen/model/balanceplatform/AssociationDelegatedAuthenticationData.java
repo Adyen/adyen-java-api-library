@@ -109,12 +109,14 @@ public class AssociationDelegatedAuthenticationData {
     }
     AssociationDelegatedAuthenticationData associationDelegatedAuthenticationData =
         (AssociationDelegatedAuthenticationData) o;
-    return Objects.equals(this.sdkOutput, associationDelegatedAuthenticationData.sdkOutput);
+    return Objects.equals(this.sdkOutput, associationDelegatedAuthenticationData.sdkOutput)
+        && Objects.equals(
+            this.isSetSdkOutput, associationDelegatedAuthenticationData.isSetSdkOutput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sdkOutput);
+    return Objects.hash(sdkOutput, isSetSdkOutput);
   }
 
   @Override

@@ -273,14 +273,19 @@ public class AmountMinMaxRequirement {
     }
     AmountMinMaxRequirement amountMinMaxRequirement = (AmountMinMaxRequirement) o;
     return Objects.equals(this.description, amountMinMaxRequirement.description)
+        && Objects.equals(this.isSetDescription, amountMinMaxRequirement.isSetDescription)
         && Objects.equals(this.max, amountMinMaxRequirement.max)
+        && Objects.equals(this.isSetMax, amountMinMaxRequirement.isSetMax)
         && Objects.equals(this.min, amountMinMaxRequirement.min)
-        && Objects.equals(this.type, amountMinMaxRequirement.type);
+        && Objects.equals(this.isSetMin, amountMinMaxRequirement.isSetMin)
+        && Objects.equals(this.type, amountMinMaxRequirement.type)
+        && Objects.equals(this.isSetType, amountMinMaxRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, max, min, type);
+    return Objects.hash(
+        description, isSetDescription, max, isSetMax, min, isSetMin, type, isSetType);
   }
 
   @Override

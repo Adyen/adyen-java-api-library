@@ -188,13 +188,16 @@ public class InvalidField {
     }
     InvalidField invalidField = (InvalidField) o;
     return Objects.equals(this.name, invalidField.name)
+        && Objects.equals(this.isSetName, invalidField.isSetName)
         && Objects.equals(this.value, invalidField.value)
-        && Objects.equals(this.message, invalidField.message);
+        && Objects.equals(this.isSetValue, invalidField.isSetValue)
+        && Objects.equals(this.message, invalidField.message)
+        && Objects.equals(this.isSetMessage, invalidField.isSetMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, message);
+    return Objects.hash(name, isSetName, value, isSetValue, message, isSetMessage);
   }
 
   @Override

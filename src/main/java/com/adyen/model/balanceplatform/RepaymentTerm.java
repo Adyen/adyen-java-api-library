@@ -152,12 +152,14 @@ public class RepaymentTerm {
     }
     RepaymentTerm repaymentTerm = (RepaymentTerm) o;
     return Objects.equals(this.estimatedDays, repaymentTerm.estimatedDays)
-        && Objects.equals(this.maximumDays, repaymentTerm.maximumDays);
+        && Objects.equals(this.isSetEstimatedDays, repaymentTerm.isSetEstimatedDays)
+        && Objects.equals(this.maximumDays, repaymentTerm.maximumDays)
+        && Objects.equals(this.isSetMaximumDays, repaymentTerm.isSetMaximumDays);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(estimatedDays, maximumDays);
+    return Objects.hash(estimatedDays, isSetEstimatedDays, maximumDays, isSetMaximumDays);
   }
 
   @Override

@@ -146,12 +146,14 @@ public class RiskScoresRestriction {
     }
     RiskScoresRestriction riskScoresRestriction = (RiskScoresRestriction) o;
     return Objects.equals(this.operation, riskScoresRestriction.operation)
-        && Objects.equals(this.value, riskScoresRestriction.value);
+        && Objects.equals(this.isSetOperation, riskScoresRestriction.isSetOperation)
+        && Objects.equals(this.value, riskScoresRestriction.value)
+        && Objects.equals(this.isSetValue, riskScoresRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

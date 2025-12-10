@@ -111,12 +111,13 @@ public class GrantOffers {
       return false;
     }
     GrantOffers grantOffers = (GrantOffers) o;
-    return Objects.equals(this.grantOffers, grantOffers.grantOffers);
+    return Objects.equals(this.grantOffers, grantOffers.grantOffers)
+        && Objects.equals(this.isSetGrantOffers, grantOffers.isSetGrantOffers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grantOffers);
+    return Objects.hash(grantOffers, isSetGrantOffers);
   }
 
   @Override

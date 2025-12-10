@@ -381,17 +381,38 @@ public class CreateTransferLimitRequest {
     }
     CreateTransferLimitRequest createTransferLimitRequest = (CreateTransferLimitRequest) o;
     return Objects.equals(this.amount, createTransferLimitRequest.amount)
+        && Objects.equals(this.isSetAmount, createTransferLimitRequest.isSetAmount)
         && Objects.equals(this.endsAt, createTransferLimitRequest.endsAt)
+        && Objects.equals(this.isSetEndsAt, createTransferLimitRequest.isSetEndsAt)
         && Objects.equals(this.reference, createTransferLimitRequest.reference)
+        && Objects.equals(this.isSetReference, createTransferLimitRequest.isSetReference)
         && Objects.equals(this.scaInformation, createTransferLimitRequest.scaInformation)
+        && Objects.equals(this.isSetScaInformation, createTransferLimitRequest.isSetScaInformation)
         && Objects.equals(this.scope, createTransferLimitRequest.scope)
+        && Objects.equals(this.isSetScope, createTransferLimitRequest.isSetScope)
         && Objects.equals(this.startsAt, createTransferLimitRequest.startsAt)
-        && Objects.equals(this.transferType, createTransferLimitRequest.transferType);
+        && Objects.equals(this.isSetStartsAt, createTransferLimitRequest.isSetStartsAt)
+        && Objects.equals(this.transferType, createTransferLimitRequest.transferType)
+        && Objects.equals(this.isSetTransferType, createTransferLimitRequest.isSetTransferType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, endsAt, reference, scaInformation, scope, startsAt, transferType);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        endsAt,
+        isSetEndsAt,
+        reference,
+        isSetReference,
+        scaInformation,
+        isSetScaInformation,
+        scope,
+        isSetScope,
+        startsAt,
+        isSetStartsAt,
+        transferType,
+        isSetTransferType);
   }
 
   @Override

@@ -155,12 +155,14 @@ public class TransactionRuleEntityKey {
     }
     TransactionRuleEntityKey transactionRuleEntityKey = (TransactionRuleEntityKey) o;
     return Objects.equals(this.entityReference, transactionRuleEntityKey.entityReference)
-        && Objects.equals(this.entityType, transactionRuleEntityKey.entityType);
+        && Objects.equals(this.isSetEntityReference, transactionRuleEntityKey.isSetEntityReference)
+        && Objects.equals(this.entityType, transactionRuleEntityKey.entityType)
+        && Objects.equals(this.isSetEntityType, transactionRuleEntityKey.isSetEntityType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityReference, entityType);
+    return Objects.hash(entityReference, isSetEntityReference, entityType, isSetEntityType);
   }
 
   @Override

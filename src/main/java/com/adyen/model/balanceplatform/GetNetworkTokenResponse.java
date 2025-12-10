@@ -101,12 +101,13 @@ public class GetNetworkTokenResponse {
       return false;
     }
     GetNetworkTokenResponse getNetworkTokenResponse = (GetNetworkTokenResponse) o;
-    return Objects.equals(this.token, getNetworkTokenResponse.token);
+    return Objects.equals(this.token, getNetworkTokenResponse.token)
+        && Objects.equals(this.isSetToken, getNetworkTokenResponse.isSetToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(token, isSetToken);
   }
 
   @Override

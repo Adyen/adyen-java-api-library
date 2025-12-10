@@ -441,26 +441,44 @@ public class PaymentInstrumentRequirement {
     }
     PaymentInstrumentRequirement paymentInstrumentRequirement = (PaymentInstrumentRequirement) o;
     return Objects.equals(this.description, paymentInstrumentRequirement.description)
+        && Objects.equals(this.isSetDescription, paymentInstrumentRequirement.isSetDescription)
         && Objects.equals(this.issuingCountryCode, paymentInstrumentRequirement.issuingCountryCode)
         && Objects.equals(
+            this.isSetIssuingCountryCode, paymentInstrumentRequirement.isSetIssuingCountryCode)
+        && Objects.equals(
             this.issuingCountryCodes, paymentInstrumentRequirement.issuingCountryCodes)
+        && Objects.equals(
+            this.isSetIssuingCountryCodes, paymentInstrumentRequirement.isSetIssuingCountryCodes)
         && Objects.equals(
             this.onlyForCrossBalancePlatform,
             paymentInstrumentRequirement.onlyForCrossBalancePlatform)
         && Objects.equals(
+            this.isSetOnlyForCrossBalancePlatform,
+            paymentInstrumentRequirement.isSetOnlyForCrossBalancePlatform)
+        && Objects.equals(
             this.paymentInstrumentType, paymentInstrumentRequirement.paymentInstrumentType)
-        && Objects.equals(this.type, paymentInstrumentRequirement.type);
+        && Objects.equals(
+            this.isSetPaymentInstrumentType,
+            paymentInstrumentRequirement.isSetPaymentInstrumentType)
+        && Objects.equals(this.type, paymentInstrumentRequirement.type)
+        && Objects.equals(this.isSetType, paymentInstrumentRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         description,
+        isSetDescription,
         issuingCountryCode,
+        isSetIssuingCountryCode,
         issuingCountryCodes,
+        isSetIssuingCountryCodes,
         onlyForCrossBalancePlatform,
+        isSetOnlyForCrossBalancePlatform,
         paymentInstrumentType,
-        type);
+        isSetPaymentInstrumentType,
+        type,
+        isSetType);
   }
 
   @Override

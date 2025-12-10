@@ -221,12 +221,14 @@ public class EntryModesRestriction {
     }
     EntryModesRestriction entryModesRestriction = (EntryModesRestriction) o;
     return Objects.equals(this.operation, entryModesRestriction.operation)
-        && Objects.equals(this.value, entryModesRestriction.value);
+        && Objects.equals(this.isSetOperation, entryModesRestriction.isSetOperation)
+        && Objects.equals(this.value, entryModesRestriction.value)
+        && Objects.equals(this.isSetValue, entryModesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

@@ -111,12 +111,14 @@ public class TransactionRulesResponse {
       return false;
     }
     TransactionRulesResponse transactionRulesResponse = (TransactionRulesResponse) o;
-    return Objects.equals(this.transactionRules, transactionRulesResponse.transactionRules);
+    return Objects.equals(this.transactionRules, transactionRulesResponse.transactionRules)
+        && Objects.equals(
+            this.isSetTransactionRules, transactionRulesResponse.isSetTransactionRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionRules);
+    return Objects.hash(transactionRules, isSetTransactionRules);
   }
 
   @Override

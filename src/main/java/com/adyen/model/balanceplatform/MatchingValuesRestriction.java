@@ -207,12 +207,14 @@ public class MatchingValuesRestriction {
     }
     MatchingValuesRestriction matchingValuesRestriction = (MatchingValuesRestriction) o;
     return Objects.equals(this.operation, matchingValuesRestriction.operation)
-        && Objects.equals(this.value, matchingValuesRestriction.value);
+        && Objects.equals(this.isSetOperation, matchingValuesRestriction.isSetOperation)
+        && Objects.equals(this.value, matchingValuesRestriction.value)
+        && Objects.equals(this.isSetValue, matchingValuesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

@@ -162,12 +162,14 @@ public class CountriesRestriction {
     }
     CountriesRestriction countriesRestriction = (CountriesRestriction) o;
     return Objects.equals(this.operation, countriesRestriction.operation)
-        && Objects.equals(this.value, countriesRestriction.value);
+        && Objects.equals(this.isSetOperation, countriesRestriction.isSetOperation)
+        && Objects.equals(this.value, countriesRestriction.value)
+        && Objects.equals(this.isSetValue, countriesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

@@ -213,12 +213,14 @@ public class WalletProviderDeviceType {
     }
     WalletProviderDeviceType walletProviderDeviceType = (WalletProviderDeviceType) o;
     return Objects.equals(this.operation, walletProviderDeviceType.operation)
-        && Objects.equals(this.value, walletProviderDeviceType.value);
+        && Objects.equals(this.isSetOperation, walletProviderDeviceType.isSetOperation)
+        && Objects.equals(this.value, walletProviderDeviceType.value)
+        && Objects.equals(this.isSetValue, walletProviderDeviceType.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

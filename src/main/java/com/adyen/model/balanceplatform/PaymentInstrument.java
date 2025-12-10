@@ -996,40 +996,73 @@ public class PaymentInstrument {
     return Objects.equals(
             this.additionalBankAccountIdentifications,
             paymentInstrument.additionalBankAccountIdentifications)
+        && Objects.equals(
+            this.isSetAdditionalBankAccountIdentifications,
+            paymentInstrument.isSetAdditionalBankAccountIdentifications)
         && Objects.equals(this.balanceAccountId, paymentInstrument.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, paymentInstrument.isSetBalanceAccountId)
         && Objects.equals(this.bankAccount, paymentInstrument.bankAccount)
+        && Objects.equals(this.isSetBankAccount, paymentInstrument.isSetBankAccount)
         && Objects.equals(this.card, paymentInstrument.card)
+        && Objects.equals(this.isSetCard, paymentInstrument.isSetCard)
         && Objects.equals(this.description, paymentInstrument.description)
+        && Objects.equals(this.isSetDescription, paymentInstrument.isSetDescription)
         && Objects.equals(this.id, paymentInstrument.id)
+        && Objects.equals(this.isSetId, paymentInstrument.isSetId)
         && Objects.equals(this.issuingCountryCode, paymentInstrument.issuingCountryCode)
+        && Objects.equals(this.isSetIssuingCountryCode, paymentInstrument.isSetIssuingCountryCode)
         && Objects.equals(this.paymentInstrumentGroupId, paymentInstrument.paymentInstrumentGroupId)
+        && Objects.equals(
+            this.isSetPaymentInstrumentGroupId, paymentInstrument.isSetPaymentInstrumentGroupId)
         && Objects.equals(this.reference, paymentInstrument.reference)
+        && Objects.equals(this.isSetReference, paymentInstrument.isSetReference)
         && Objects.equals(this.replacedById, paymentInstrument.replacedById)
+        && Objects.equals(this.isSetReplacedById, paymentInstrument.isSetReplacedById)
         && Objects.equals(this.replacementOfId, paymentInstrument.replacementOfId)
+        && Objects.equals(this.isSetReplacementOfId, paymentInstrument.isSetReplacementOfId)
         && Objects.equals(this.status, paymentInstrument.status)
+        && Objects.equals(this.isSetStatus, paymentInstrument.isSetStatus)
         && Objects.equals(this.statusComment, paymentInstrument.statusComment)
+        && Objects.equals(this.isSetStatusComment, paymentInstrument.isSetStatusComment)
         && Objects.equals(this.statusReason, paymentInstrument.statusReason)
-        && Objects.equals(this.type, paymentInstrument.type);
+        && Objects.equals(this.isSetStatusReason, paymentInstrument.isSetStatusReason)
+        && Objects.equals(this.type, paymentInstrument.type)
+        && Objects.equals(this.isSetType, paymentInstrument.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalBankAccountIdentifications,
+        isSetAdditionalBankAccountIdentifications,
         balanceAccountId,
+        isSetBalanceAccountId,
         bankAccount,
+        isSetBankAccount,
         card,
+        isSetCard,
         description,
+        isSetDescription,
         id,
+        isSetId,
         issuingCountryCode,
+        isSetIssuingCountryCode,
         paymentInstrumentGroupId,
+        isSetPaymentInstrumentGroupId,
         reference,
+        isSetReference,
         replacedById,
+        isSetReplacedById,
         replacementOfId,
+        isSetReplacementOfId,
         status,
+        isSetStatus,
         statusComment,
+        isSetStatusComment,
         statusReason,
-        type);
+        isSetStatusReason,
+        type,
+        isSetType);
   }
 
   @Override

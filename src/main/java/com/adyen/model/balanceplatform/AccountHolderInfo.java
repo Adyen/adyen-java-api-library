@@ -533,29 +533,48 @@ public class AccountHolderInfo {
     }
     AccountHolderInfo accountHolderInfo = (AccountHolderInfo) o;
     return Objects.equals(this.balancePlatform, accountHolderInfo.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, accountHolderInfo.isSetBalancePlatform)
         && Objects.equals(this.capabilities, accountHolderInfo.capabilities)
+        && Objects.equals(this.isSetCapabilities, accountHolderInfo.isSetCapabilities)
         && Objects.equals(this.contactDetails, accountHolderInfo.contactDetails)
+        && Objects.equals(this.isSetContactDetails, accountHolderInfo.isSetContactDetails)
         && Objects.equals(this.description, accountHolderInfo.description)
+        && Objects.equals(this.isSetDescription, accountHolderInfo.isSetDescription)
         && Objects.equals(this.legalEntityId, accountHolderInfo.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, accountHolderInfo.isSetLegalEntityId)
         && Objects.equals(this.metadata, accountHolderInfo.metadata)
+        && Objects.equals(this.isSetMetadata, accountHolderInfo.isSetMetadata)
         && Objects.equals(
             this.migratedAccountHolderCode, accountHolderInfo.migratedAccountHolderCode)
+        && Objects.equals(
+            this.isSetMigratedAccountHolderCode, accountHolderInfo.isSetMigratedAccountHolderCode)
         && Objects.equals(this.reference, accountHolderInfo.reference)
-        && Objects.equals(this.timeZone, accountHolderInfo.timeZone);
+        && Objects.equals(this.isSetReference, accountHolderInfo.isSetReference)
+        && Objects.equals(this.timeZone, accountHolderInfo.timeZone)
+        && Objects.equals(this.isSetTimeZone, accountHolderInfo.isSetTimeZone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         balancePlatform,
+        isSetBalancePlatform,
         capabilities,
+        isSetCapabilities,
         contactDetails,
+        isSetContactDetails,
         description,
+        isSetDescription,
         legalEntityId,
+        isSetLegalEntityId,
         metadata,
+        isSetMetadata,
         migratedAccountHolderCode,
+        isSetMigratedAccountHolderCode,
         reference,
-        timeZone);
+        isSetReference,
+        timeZone,
+        isSetTimeZone);
   }
 
   @Override

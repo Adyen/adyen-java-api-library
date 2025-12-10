@@ -474,15 +474,32 @@ public class PaymentInstrumentUpdateRequest {
     PaymentInstrumentUpdateRequest paymentInstrumentUpdateRequest =
         (PaymentInstrumentUpdateRequest) o;
     return Objects.equals(this.balanceAccountId, paymentInstrumentUpdateRequest.balanceAccountId)
+        && Objects.equals(
+            this.isSetBalanceAccountId, paymentInstrumentUpdateRequest.isSetBalanceAccountId)
         && Objects.equals(this.card, paymentInstrumentUpdateRequest.card)
+        && Objects.equals(this.isSetCard, paymentInstrumentUpdateRequest.isSetCard)
         && Objects.equals(this.status, paymentInstrumentUpdateRequest.status)
+        && Objects.equals(this.isSetStatus, paymentInstrumentUpdateRequest.isSetStatus)
         && Objects.equals(this.statusComment, paymentInstrumentUpdateRequest.statusComment)
-        && Objects.equals(this.statusReason, paymentInstrumentUpdateRequest.statusReason);
+        && Objects.equals(
+            this.isSetStatusComment, paymentInstrumentUpdateRequest.isSetStatusComment)
+        && Objects.equals(this.statusReason, paymentInstrumentUpdateRequest.statusReason)
+        && Objects.equals(this.isSetStatusReason, paymentInstrumentUpdateRequest.isSetStatusReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, card, status, statusComment, statusReason);
+    return Objects.hash(
+        balanceAccountId,
+        isSetBalanceAccountId,
+        card,
+        isSetCard,
+        status,
+        isSetStatus,
+        statusComment,
+        isSetStatusComment,
+        statusReason,
+        isSetStatusReason);
   }
 
   @Override

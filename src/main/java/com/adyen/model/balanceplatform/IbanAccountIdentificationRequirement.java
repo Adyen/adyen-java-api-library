@@ -254,13 +254,19 @@ public class IbanAccountIdentificationRequirement {
     IbanAccountIdentificationRequirement ibanAccountIdentificationRequirement =
         (IbanAccountIdentificationRequirement) o;
     return Objects.equals(this.description, ibanAccountIdentificationRequirement.description)
+        && Objects.equals(
+            this.isSetDescription, ibanAccountIdentificationRequirement.isSetDescription)
         && Objects.equals(this.ibanPrefixes, ibanAccountIdentificationRequirement.ibanPrefixes)
-        && Objects.equals(this.type, ibanAccountIdentificationRequirement.type);
+        && Objects.equals(
+            this.isSetIbanPrefixes, ibanAccountIdentificationRequirement.isSetIbanPrefixes)
+        && Objects.equals(this.type, ibanAccountIdentificationRequirement.type)
+        && Objects.equals(this.isSetType, ibanAccountIdentificationRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ibanPrefixes, type);
+    return Objects.hash(
+        description, isSetDescription, ibanPrefixes, isSetIbanPrefixes, type, isSetType);
   }
 
   @Override

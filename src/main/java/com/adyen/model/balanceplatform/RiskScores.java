@@ -155,12 +155,14 @@ public class RiskScores {
     }
     RiskScores riskScores = (RiskScores) o;
     return Objects.equals(this.mastercard, riskScores.mastercard)
-        && Objects.equals(this.visa, riskScores.visa);
+        && Objects.equals(this.isSetMastercard, riskScores.isSetMastercard)
+        && Objects.equals(this.visa, riskScores.visa)
+        && Objects.equals(this.isSetVisa, riskScores.isSetVisa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mastercard, visa);
+    return Objects.hash(mastercard, isSetMastercard, visa, isSetVisa);
   }
 
   @Override

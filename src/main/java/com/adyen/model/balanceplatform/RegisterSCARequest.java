@@ -203,14 +203,26 @@ public class RegisterSCARequest {
     }
     RegisterSCARequest registerSCARequest = (RegisterSCARequest) o;
     return Objects.equals(this.name, registerSCARequest.name)
+        && Objects.equals(this.isSetName, registerSCARequest.isSetName)
         && Objects.equals(this.paymentInstrumentId, registerSCARequest.paymentInstrumentId)
         && Objects.equals(
-            this.strongCustomerAuthentication, registerSCARequest.strongCustomerAuthentication);
+            this.isSetPaymentInstrumentId, registerSCARequest.isSetPaymentInstrumentId)
+        && Objects.equals(
+            this.strongCustomerAuthentication, registerSCARequest.strongCustomerAuthentication)
+        && Objects.equals(
+            this.isSetStrongCustomerAuthentication,
+            registerSCARequest.isSetStrongCustomerAuthentication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, paymentInstrumentId, strongCustomerAuthentication);
+    return Objects.hash(
+        name,
+        isSetName,
+        paymentInstrumentId,
+        isSetPaymentInstrumentId,
+        strongCustomerAuthentication,
+        isSetStrongCustomerAuthentication);
   }
 
   @Override

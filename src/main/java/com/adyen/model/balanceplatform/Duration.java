@@ -211,12 +211,15 @@ public class Duration {
       return false;
     }
     Duration duration = (Duration) o;
-    return Objects.equals(this.unit, duration.unit) && Objects.equals(this.value, duration.value);
+    return Objects.equals(this.unit, duration.unit)
+        && Objects.equals(this.isSetUnit, duration.isSetUnit)
+        && Objects.equals(this.value, duration.value)
+        && Objects.equals(this.isSetValue, duration.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(unit, value);
+    return Objects.hash(unit, isSetUnit, value, isSetValue);
   }
 
   @Override

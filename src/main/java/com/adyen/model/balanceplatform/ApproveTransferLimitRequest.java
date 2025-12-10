@@ -117,12 +117,14 @@ public class ApproveTransferLimitRequest {
       return false;
     }
     ApproveTransferLimitRequest approveTransferLimitRequest = (ApproveTransferLimitRequest) o;
-    return Objects.equals(this.transferLimitIds, approveTransferLimitRequest.transferLimitIds);
+    return Objects.equals(this.transferLimitIds, approveTransferLimitRequest.transferLimitIds)
+        && Objects.equals(
+            this.isSetTransferLimitIds, approveTransferLimitRequest.isSetTransferLimitIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transferLimitIds);
+    return Objects.hash(transferLimitIds, isSetTransferLimitIds);
   }
 
   @Override

@@ -149,12 +149,14 @@ public class MatchingTransactionsRestriction {
     MatchingTransactionsRestriction matchingTransactionsRestriction =
         (MatchingTransactionsRestriction) o;
     return Objects.equals(this.operation, matchingTransactionsRestriction.operation)
-        && Objects.equals(this.value, matchingTransactionsRestriction.value);
+        && Objects.equals(this.isSetOperation, matchingTransactionsRestriction.isSetOperation)
+        && Objects.equals(this.value, matchingTransactionsRestriction.value)
+        && Objects.equals(this.isSetValue, matchingTransactionsRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

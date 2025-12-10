@@ -101,12 +101,13 @@ public class RegisterSCAFinalResponse {
       return false;
     }
     RegisterSCAFinalResponse registerSCAFinalResponse = (RegisterSCAFinalResponse) o;
-    return Objects.equals(this.success, registerSCAFinalResponse.success);
+    return Objects.equals(this.success, registerSCAFinalResponse.success)
+        && Objects.equals(this.isSetSuccess, registerSCAFinalResponse.isSetSuccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success);
+    return Objects.hash(success, isSetSuccess);
   }
 
   @Override

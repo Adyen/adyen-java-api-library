@@ -198,13 +198,17 @@ public class RemoveAssociationRequest {
     }
     RemoveAssociationRequest removeAssociationRequest = (RemoveAssociationRequest) o;
     return Objects.equals(this.entityId, removeAssociationRequest.entityId)
+        && Objects.equals(this.isSetEntityId, removeAssociationRequest.isSetEntityId)
         && Objects.equals(this.entityType, removeAssociationRequest.entityType)
-        && Objects.equals(this.scaDeviceIds, removeAssociationRequest.scaDeviceIds);
+        && Objects.equals(this.isSetEntityType, removeAssociationRequest.isSetEntityType)
+        && Objects.equals(this.scaDeviceIds, removeAssociationRequest.scaDeviceIds)
+        && Objects.equals(this.isSetScaDeviceIds, removeAssociationRequest.isSetScaDeviceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityId, entityType, scaDeviceIds);
+    return Objects.hash(
+        entityId, isSetEntityId, entityType, isSetEntityType, scaDeviceIds, isSetScaDeviceIds);
   }
 
   @Override

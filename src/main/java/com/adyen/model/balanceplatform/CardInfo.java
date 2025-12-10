@@ -520,28 +520,46 @@ public class CardInfo {
     }
     CardInfo cardInfo = (CardInfo) o;
     return Objects.equals(this.authentication, cardInfo.authentication)
+        && Objects.equals(this.isSetAuthentication, cardInfo.isSetAuthentication)
         && Objects.equals(this.brand, cardInfo.brand)
+        && Objects.equals(this.isSetBrand, cardInfo.isSetBrand)
         && Objects.equals(this.brandVariant, cardInfo.brandVariant)
+        && Objects.equals(this.isSetBrandVariant, cardInfo.isSetBrandVariant)
         && Objects.equals(this.cardholderName, cardInfo.cardholderName)
+        && Objects.equals(this.isSetCardholderName, cardInfo.isSetCardholderName)
         && Objects.equals(this.configuration, cardInfo.configuration)
+        && Objects.equals(this.isSetConfiguration, cardInfo.isSetConfiguration)
         && Objects.equals(this.deliveryContact, cardInfo.deliveryContact)
+        && Objects.equals(this.isSetDeliveryContact, cardInfo.isSetDeliveryContact)
         && Objects.equals(this.formFactor, cardInfo.formFactor)
+        && Objects.equals(this.isSetFormFactor, cardInfo.isSetFormFactor)
         && Objects.equals(this.threeDSecure, cardInfo.threeDSecure)
-        && Objects.equals(this.usage, cardInfo.usage);
+        && Objects.equals(this.isSetThreeDSecure, cardInfo.isSetThreeDSecure)
+        && Objects.equals(this.usage, cardInfo.usage)
+        && Objects.equals(this.isSetUsage, cardInfo.isSetUsage);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         authentication,
+        isSetAuthentication,
         brand,
+        isSetBrand,
         brandVariant,
+        isSetBrandVariant,
         cardholderName,
+        isSetCardholderName,
         configuration,
+        isSetConfiguration,
         deliveryContact,
+        isSetDeliveryContact,
         formFactor,
+        isSetFormFactor,
         threeDSecure,
-        usage);
+        isSetThreeDSecure,
+        usage,
+        isSetUsage);
   }
 
   @Override

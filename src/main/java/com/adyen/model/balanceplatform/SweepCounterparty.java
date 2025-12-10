@@ -272,13 +272,23 @@ public class SweepCounterparty {
     }
     SweepCounterparty sweepCounterparty = (SweepCounterparty) o;
     return Objects.equals(this.balanceAccountId, sweepCounterparty.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, sweepCounterparty.isSetBalanceAccountId)
         && Objects.equals(this.merchantAccount, sweepCounterparty.merchantAccount)
-        && Objects.equals(this.transferInstrumentId, sweepCounterparty.transferInstrumentId);
+        && Objects.equals(this.isSetMerchantAccount, sweepCounterparty.isSetMerchantAccount)
+        && Objects.equals(this.transferInstrumentId, sweepCounterparty.transferInstrumentId)
+        && Objects.equals(
+            this.isSetTransferInstrumentId, sweepCounterparty.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, merchantAccount, transferInstrumentId);
+    return Objects.hash(
+        balanceAccountId,
+        isSetBalanceAccountId,
+        merchantAccount,
+        isSetMerchantAccount,
+        transferInstrumentId,
+        isSetTransferInstrumentId);
   }
 
   @Override

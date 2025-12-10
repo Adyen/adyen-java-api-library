@@ -167,13 +167,17 @@ public class PaymentInstrumentRevealRequest {
     PaymentInstrumentRevealRequest paymentInstrumentRevealRequest =
         (PaymentInstrumentRevealRequest) o;
     return Objects.equals(this.encryptedKey, paymentInstrumentRevealRequest.encryptedKey)
+        && Objects.equals(this.isSetEncryptedKey, paymentInstrumentRevealRequest.isSetEncryptedKey)
         && Objects.equals(
-            this.paymentInstrumentId, paymentInstrumentRevealRequest.paymentInstrumentId);
+            this.paymentInstrumentId, paymentInstrumentRevealRequest.paymentInstrumentId)
+        && Objects.equals(
+            this.isSetPaymentInstrumentId, paymentInstrumentRevealRequest.isSetPaymentInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptedKey, paymentInstrumentId);
+    return Objects.hash(
+        encryptedKey, isSetEncryptedKey, paymentInstrumentId, isSetPaymentInstrumentId);
   }
 
   @Override

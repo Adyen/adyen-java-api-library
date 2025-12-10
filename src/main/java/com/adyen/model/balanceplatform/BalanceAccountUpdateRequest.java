@@ -482,26 +482,43 @@ public class BalanceAccountUpdateRequest {
     }
     BalanceAccountUpdateRequest balanceAccountUpdateRequest = (BalanceAccountUpdateRequest) o;
     return Objects.equals(this.accountHolderId, balanceAccountUpdateRequest.accountHolderId)
+        && Objects.equals(
+            this.isSetAccountHolderId, balanceAccountUpdateRequest.isSetAccountHolderId)
         && Objects.equals(this.description, balanceAccountUpdateRequest.description)
+        && Objects.equals(this.isSetDescription, balanceAccountUpdateRequest.isSetDescription)
         && Objects.equals(this.metadata, balanceAccountUpdateRequest.metadata)
+        && Objects.equals(this.isSetMetadata, balanceAccountUpdateRequest.isSetMetadata)
         && Objects.equals(
             this.platformPaymentConfiguration,
             balanceAccountUpdateRequest.platformPaymentConfiguration)
+        && Objects.equals(
+            this.isSetPlatformPaymentConfiguration,
+            balanceAccountUpdateRequest.isSetPlatformPaymentConfiguration)
         && Objects.equals(this.reference, balanceAccountUpdateRequest.reference)
+        && Objects.equals(this.isSetReference, balanceAccountUpdateRequest.isSetReference)
         && Objects.equals(this.status, balanceAccountUpdateRequest.status)
-        && Objects.equals(this.timeZone, balanceAccountUpdateRequest.timeZone);
+        && Objects.equals(this.isSetStatus, balanceAccountUpdateRequest.isSetStatus)
+        && Objects.equals(this.timeZone, balanceAccountUpdateRequest.timeZone)
+        && Objects.equals(this.isSetTimeZone, balanceAccountUpdateRequest.isSetTimeZone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolderId,
+        isSetAccountHolderId,
         description,
+        isSetDescription,
         metadata,
+        isSetMetadata,
         platformPaymentConfiguration,
+        isSetPlatformPaymentConfiguration,
         reference,
+        isSetReference,
         status,
-        timeZone);
+        isSetStatus,
+        timeZone,
+        isSetTimeZone);
   }
 
   @Override

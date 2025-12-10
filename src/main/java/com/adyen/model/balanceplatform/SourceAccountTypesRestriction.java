@@ -203,12 +203,14 @@ public class SourceAccountTypesRestriction {
     }
     SourceAccountTypesRestriction sourceAccountTypesRestriction = (SourceAccountTypesRestriction) o;
     return Objects.equals(this.operation, sourceAccountTypesRestriction.operation)
-        && Objects.equals(this.value, sourceAccountTypesRestriction.value);
+        && Objects.equals(this.isSetOperation, sourceAccountTypesRestriction.isSetOperation)
+        && Objects.equals(this.value, sourceAccountTypesRestriction.value)
+        && Objects.equals(this.isSetValue, sourceAccountTypesRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

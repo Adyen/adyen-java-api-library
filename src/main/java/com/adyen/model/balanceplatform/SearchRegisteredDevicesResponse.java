@@ -245,14 +245,19 @@ public class SearchRegisteredDevicesResponse {
     SearchRegisteredDevicesResponse searchRegisteredDevicesResponse =
         (SearchRegisteredDevicesResponse) o;
     return Objects.equals(this.data, searchRegisteredDevicesResponse.data)
+        && Objects.equals(this.isSetData, searchRegisteredDevicesResponse.isSetData)
         && Objects.equals(this.itemsTotal, searchRegisteredDevicesResponse.itemsTotal)
+        && Objects.equals(this.isSetItemsTotal, searchRegisteredDevicesResponse.isSetItemsTotal)
         && Objects.equals(this.link, searchRegisteredDevicesResponse.link)
-        && Objects.equals(this.pagesTotal, searchRegisteredDevicesResponse.pagesTotal);
+        && Objects.equals(this.isSetLink, searchRegisteredDevicesResponse.isSetLink)
+        && Objects.equals(this.pagesTotal, searchRegisteredDevicesResponse.pagesTotal)
+        && Objects.equals(this.isSetPagesTotal, searchRegisteredDevicesResponse.isSetPagesTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, itemsTotal, link, pagesTotal);
+    return Objects.hash(
+        data, isSetData, itemsTotal, isSetItemsTotal, link, isSetLink, pagesTotal, isSetPagesTotal);
   }
 
   @Override

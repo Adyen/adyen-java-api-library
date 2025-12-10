@@ -185,12 +185,13 @@ public class BankAccountModel {
       return false;
     }
     BankAccountModel bankAccountModel = (BankAccountModel) o;
-    return Objects.equals(this.formFactor, bankAccountModel.formFactor);
+    return Objects.equals(this.formFactor, bankAccountModel.formFactor)
+        && Objects.equals(this.isSetFormFactor, bankAccountModel.isSetFormFactor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formFactor);
+    return Objects.hash(formFactor, isSetFormFactor);
   }
 
   @Override

@@ -251,14 +251,27 @@ public class CapitalGrantAccount {
     }
     CapitalGrantAccount capitalGrantAccount = (CapitalGrantAccount) o;
     return Objects.equals(this.balances, capitalGrantAccount.balances)
+        && Objects.equals(this.isSetBalances, capitalGrantAccount.isSetBalances)
         && Objects.equals(this.fundingBalanceAccountId, capitalGrantAccount.fundingBalanceAccountId)
+        && Objects.equals(
+            this.isSetFundingBalanceAccountId, capitalGrantAccount.isSetFundingBalanceAccountId)
         && Objects.equals(this.id, capitalGrantAccount.id)
-        && Objects.equals(this.limits, capitalGrantAccount.limits);
+        && Objects.equals(this.isSetId, capitalGrantAccount.isSetId)
+        && Objects.equals(this.limits, capitalGrantAccount.limits)
+        && Objects.equals(this.isSetLimits, capitalGrantAccount.isSetLimits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balances, fundingBalanceAccountId, id, limits);
+    return Objects.hash(
+        balances,
+        isSetBalances,
+        fundingBalanceAccountId,
+        isSetFundingBalanceAccountId,
+        id,
+        isSetId,
+        limits,
+        isSetLimits);
   }
 
   @Override

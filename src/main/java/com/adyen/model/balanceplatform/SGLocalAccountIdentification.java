@@ -231,13 +231,16 @@ public class SGLocalAccountIdentification {
     }
     SGLocalAccountIdentification sgLocalAccountIdentification = (SGLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, sgLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, sgLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.bic, sgLocalAccountIdentification.bic)
-        && Objects.equals(this.type, sgLocalAccountIdentification.type);
+        && Objects.equals(this.isSetBic, sgLocalAccountIdentification.isSetBic)
+        && Objects.equals(this.type, sgLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, sgLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bic, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, bic, isSetBic, type, isSetType);
   }
 
   @Override

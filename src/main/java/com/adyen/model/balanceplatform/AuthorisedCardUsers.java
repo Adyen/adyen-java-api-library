@@ -114,12 +114,13 @@ public class AuthorisedCardUsers {
       return false;
     }
     AuthorisedCardUsers authorisedCardUsers = (AuthorisedCardUsers) o;
-    return Objects.equals(this.legalEntityIds, authorisedCardUsers.legalEntityIds);
+    return Objects.equals(this.legalEntityIds, authorisedCardUsers.legalEntityIds)
+        && Objects.equals(this.isSetLegalEntityIds, authorisedCardUsers.isSetLegalEntityIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(legalEntityIds);
+    return Objects.hash(legalEntityIds, isSetLegalEntityIds);
   }
 
   @Override

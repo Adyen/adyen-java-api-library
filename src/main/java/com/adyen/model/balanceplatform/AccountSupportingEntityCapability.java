@@ -476,19 +476,43 @@ public class AccountSupportingEntityCapability {
     AccountSupportingEntityCapability accountSupportingEntityCapability =
         (AccountSupportingEntityCapability) o;
     return Objects.equals(this.allowed, accountSupportingEntityCapability.allowed)
+        && Objects.equals(this.isSetAllowed, accountSupportingEntityCapability.isSetAllowed)
         && Objects.equals(this.allowedLevel, accountSupportingEntityCapability.allowedLevel)
+        && Objects.equals(
+            this.isSetAllowedLevel, accountSupportingEntityCapability.isSetAllowedLevel)
         && Objects.equals(this.enabled, accountSupportingEntityCapability.enabled)
+        && Objects.equals(this.isSetEnabled, accountSupportingEntityCapability.isSetEnabled)
         && Objects.equals(this.id, accountSupportingEntityCapability.id)
+        && Objects.equals(this.isSetId, accountSupportingEntityCapability.isSetId)
         && Objects.equals(this.requested, accountSupportingEntityCapability.requested)
+        && Objects.equals(this.isSetRequested, accountSupportingEntityCapability.isSetRequested)
         && Objects.equals(this.requestedLevel, accountSupportingEntityCapability.requestedLevel)
         && Objects.equals(
-            this.verificationStatus, accountSupportingEntityCapability.verificationStatus);
+            this.isSetRequestedLevel, accountSupportingEntityCapability.isSetRequestedLevel)
+        && Objects.equals(
+            this.verificationStatus, accountSupportingEntityCapability.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus,
+            accountSupportingEntityCapability.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        allowed, allowedLevel, enabled, id, requested, requestedLevel, verificationStatus);
+        allowed,
+        isSetAllowed,
+        allowedLevel,
+        isSetAllowedLevel,
+        enabled,
+        isSetEnabled,
+        id,
+        isSetId,
+        requested,
+        isSetRequested,
+        requestedLevel,
+        isSetRequestedLevel,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override

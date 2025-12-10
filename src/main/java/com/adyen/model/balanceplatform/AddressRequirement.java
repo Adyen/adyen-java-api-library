@@ -290,13 +290,23 @@ public class AddressRequirement {
     }
     AddressRequirement addressRequirement = (AddressRequirement) o;
     return Objects.equals(this.description, addressRequirement.description)
+        && Objects.equals(this.isSetDescription, addressRequirement.isSetDescription)
         && Objects.equals(this.requiredAddressFields, addressRequirement.requiredAddressFields)
-        && Objects.equals(this.type, addressRequirement.type);
+        && Objects.equals(
+            this.isSetRequiredAddressFields, addressRequirement.isSetRequiredAddressFields)
+        && Objects.equals(this.type, addressRequirement.type)
+        && Objects.equals(this.isSetType, addressRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, requiredAddressFields, type);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        requiredAddressFields,
+        isSetRequiredAddressFields,
+        type,
+        isSetType);
   }
 
   @Override

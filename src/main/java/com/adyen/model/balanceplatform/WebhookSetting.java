@@ -295,15 +295,30 @@ public class WebhookSetting {
     }
     WebhookSetting webhookSetting = (WebhookSetting) o;
     return Objects.equals(this.currency, webhookSetting.currency)
+        && Objects.equals(this.isSetCurrency, webhookSetting.isSetCurrency)
         && Objects.equals(this.id, webhookSetting.id)
+        && Objects.equals(this.isSetId, webhookSetting.isSetId)
         && Objects.equals(this.status, webhookSetting.status)
+        && Objects.equals(this.isSetStatus, webhookSetting.isSetStatus)
         && Objects.equals(this.target, webhookSetting.target)
-        && Objects.equals(this.type, webhookSetting.type);
+        && Objects.equals(this.isSetTarget, webhookSetting.isSetTarget)
+        && Objects.equals(this.type, webhookSetting.type)
+        && Objects.equals(this.isSetType, webhookSetting.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, id, status, target, type);
+    return Objects.hash(
+        currency,
+        isSetCurrency,
+        id,
+        isSetId,
+        status,
+        isSetStatus,
+        target,
+        isSetTarget,
+        type,
+        isSetType);
   }
 
   @Override

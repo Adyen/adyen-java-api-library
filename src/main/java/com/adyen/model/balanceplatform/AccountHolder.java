@@ -758,36 +758,64 @@ public class AccountHolder {
     }
     AccountHolder accountHolder = (AccountHolder) o;
     return Objects.equals(this.balancePlatform, accountHolder.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, accountHolder.isSetBalancePlatform)
         && Objects.equals(this.capabilities, accountHolder.capabilities)
+        && Objects.equals(this.isSetCapabilities, accountHolder.isSetCapabilities)
         && Objects.equals(this.contactDetails, accountHolder.contactDetails)
+        && Objects.equals(this.isSetContactDetails, accountHolder.isSetContactDetails)
         && Objects.equals(this.description, accountHolder.description)
+        && Objects.equals(this.isSetDescription, accountHolder.isSetDescription)
         && Objects.equals(this.id, accountHolder.id)
+        && Objects.equals(this.isSetId, accountHolder.isSetId)
         && Objects.equals(this.legalEntityId, accountHolder.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, accountHolder.isSetLegalEntityId)
         && Objects.equals(this.metadata, accountHolder.metadata)
+        && Objects.equals(this.isSetMetadata, accountHolder.isSetMetadata)
         && Objects.equals(this.migratedAccountHolderCode, accountHolder.migratedAccountHolderCode)
+        && Objects.equals(
+            this.isSetMigratedAccountHolderCode, accountHolder.isSetMigratedAccountHolderCode)
         && Objects.equals(this.primaryBalanceAccount, accountHolder.primaryBalanceAccount)
+        && Objects.equals(this.isSetPrimaryBalanceAccount, accountHolder.isSetPrimaryBalanceAccount)
         && Objects.equals(this.reference, accountHolder.reference)
+        && Objects.equals(this.isSetReference, accountHolder.isSetReference)
         && Objects.equals(this.status, accountHolder.status)
+        && Objects.equals(this.isSetStatus, accountHolder.isSetStatus)
         && Objects.equals(this.timeZone, accountHolder.timeZone)
-        && Objects.equals(this.verificationDeadlines, accountHolder.verificationDeadlines);
+        && Objects.equals(this.isSetTimeZone, accountHolder.isSetTimeZone)
+        && Objects.equals(this.verificationDeadlines, accountHolder.verificationDeadlines)
+        && Objects.equals(
+            this.isSetVerificationDeadlines, accountHolder.isSetVerificationDeadlines);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         balancePlatform,
+        isSetBalancePlatform,
         capabilities,
+        isSetCapabilities,
         contactDetails,
+        isSetContactDetails,
         description,
+        isSetDescription,
         id,
+        isSetId,
         legalEntityId,
+        isSetLegalEntityId,
         metadata,
+        isSetMetadata,
         migratedAccountHolderCode,
+        isSetMigratedAccountHolderCode,
         primaryBalanceAccount,
+        isSetPrimaryBalanceAccount,
         reference,
+        isSetReference,
         status,
+        isSetStatus,
         timeZone,
-        verificationDeadlines);
+        isSetTimeZone,
+        verificationDeadlines,
+        isSetVerificationDeadlines);
   }
 
   @Override

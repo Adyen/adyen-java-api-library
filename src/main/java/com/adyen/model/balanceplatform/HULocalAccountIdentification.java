@@ -189,12 +189,14 @@ public class HULocalAccountIdentification {
     }
     HULocalAccountIdentification huLocalAccountIdentification = (HULocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, huLocalAccountIdentification.accountNumber)
-        && Objects.equals(this.type, huLocalAccountIdentification.type);
+        && Objects.equals(this.isSetAccountNumber, huLocalAccountIdentification.isSetAccountNumber)
+        && Objects.equals(this.type, huLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, huLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, type);
+    return Objects.hash(accountNumber, isSetAccountNumber, type, isSetType);
   }
 
   @Override

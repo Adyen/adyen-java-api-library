@@ -156,12 +156,14 @@ public class MerchantsRestriction {
     }
     MerchantsRestriction merchantsRestriction = (MerchantsRestriction) o;
     return Objects.equals(this.operation, merchantsRestriction.operation)
-        && Objects.equals(this.value, merchantsRestriction.value);
+        && Objects.equals(this.isSetOperation, merchantsRestriction.isSetOperation)
+        && Objects.equals(this.value, merchantsRestriction.value)
+        && Objects.equals(this.isSetValue, merchantsRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

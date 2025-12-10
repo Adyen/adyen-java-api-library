@@ -201,12 +201,14 @@ public class AmountNonZeroDecimalsRequirement {
     AmountNonZeroDecimalsRequirement amountNonZeroDecimalsRequirement =
         (AmountNonZeroDecimalsRequirement) o;
     return Objects.equals(this.description, amountNonZeroDecimalsRequirement.description)
-        && Objects.equals(this.type, amountNonZeroDecimalsRequirement.type);
+        && Objects.equals(this.isSetDescription, amountNonZeroDecimalsRequirement.isSetDescription)
+        && Objects.equals(this.type, amountNonZeroDecimalsRequirement.type)
+        && Objects.equals(this.isSetType, amountNonZeroDecimalsRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, type);
+    return Objects.hash(description, isSetDescription, type, isSetType);
   }
 
   @Override

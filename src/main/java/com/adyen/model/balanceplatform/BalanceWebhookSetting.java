@@ -130,12 +130,14 @@ public class BalanceWebhookSetting extends WebhookSetting {
       return false;
     }
     BalanceWebhookSetting balanceWebhookSetting = (BalanceWebhookSetting) o;
-    return Objects.equals(this.conditions, balanceWebhookSetting.conditions) && super.equals(o);
+    return Objects.equals(this.conditions, balanceWebhookSetting.conditions)
+        && Objects.equals(this.isSetConditions, balanceWebhookSetting.isSetConditions)
+        && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, super.hashCode());
+    return Objects.hash(conditions, isSetConditions, super.hashCode());
   }
 
   @Override

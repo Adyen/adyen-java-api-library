@@ -109,13 +109,16 @@ public class BankAccountIdentificationValidationRequest {
     BankAccountIdentificationValidationRequest bankAccountIdentificationValidationRequest =
         (BankAccountIdentificationValidationRequest) o;
     return Objects.equals(
-        this.accountIdentification,
-        bankAccountIdentificationValidationRequest.accountIdentification);
+            this.accountIdentification,
+            bankAccountIdentificationValidationRequest.accountIdentification)
+        && Objects.equals(
+            this.isSetAccountIdentification,
+            bankAccountIdentificationValidationRequest.isSetAccountIdentification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentification);
+    return Objects.hash(accountIdentification, isSetAccountIdentification);
   }
 
   @Override

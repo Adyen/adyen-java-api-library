@@ -225,12 +225,15 @@ public class Target {
       return false;
     }
     Target target = (Target) o;
-    return Objects.equals(this.id, target.id) && Objects.equals(this.type, target.type);
+    return Objects.equals(this.id, target.id)
+        && Objects.equals(this.isSetId, target.isSetId)
+        && Objects.equals(this.type, target.type)
+        && Objects.equals(this.isSetType, target.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(id, isSetId, type, isSetType);
   }
 
   @Override

@@ -146,12 +146,14 @@ public class SameAmountRestriction {
     }
     SameAmountRestriction sameAmountRestriction = (SameAmountRestriction) o;
     return Objects.equals(this.operation, sameAmountRestriction.operation)
-        && Objects.equals(this.value, sameAmountRestriction.value);
+        && Objects.equals(this.isSetOperation, sameAmountRestriction.isSetOperation)
+        && Objects.equals(this.value, sameAmountRestriction.value)
+        && Objects.equals(this.isSetValue, sameAmountRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

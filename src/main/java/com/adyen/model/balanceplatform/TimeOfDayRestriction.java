@@ -146,12 +146,14 @@ public class TimeOfDayRestriction {
     }
     TimeOfDayRestriction timeOfDayRestriction = (TimeOfDayRestriction) o;
     return Objects.equals(this.operation, timeOfDayRestriction.operation)
-        && Objects.equals(this.value, timeOfDayRestriction.value);
+        && Objects.equals(this.isSetOperation, timeOfDayRestriction.isSetOperation)
+        && Objects.equals(this.value, timeOfDayRestriction.value)
+        && Objects.equals(this.isSetValue, timeOfDayRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

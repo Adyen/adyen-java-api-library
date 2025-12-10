@@ -153,12 +153,14 @@ public class MccsRestriction {
     }
     MccsRestriction mccsRestriction = (MccsRestriction) o;
     return Objects.equals(this.operation, mccsRestriction.operation)
-        && Objects.equals(this.value, mccsRestriction.value);
+        && Objects.equals(this.isSetOperation, mccsRestriction.isSetOperation)
+        && Objects.equals(this.value, mccsRestriction.value)
+        && Objects.equals(this.isSetValue, mccsRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

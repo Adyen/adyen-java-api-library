@@ -357,18 +357,38 @@ public class AssociationListing {
     }
     AssociationListing associationListing = (AssociationListing) o;
     return Objects.equals(this.createdAt, associationListing.createdAt)
+        && Objects.equals(this.isSetCreatedAt, associationListing.isSetCreatedAt)
         && Objects.equals(this.entityId, associationListing.entityId)
+        && Objects.equals(this.isSetEntityId, associationListing.isSetEntityId)
         && Objects.equals(this.entityType, associationListing.entityType)
+        && Objects.equals(this.isSetEntityType, associationListing.isSetEntityType)
         && Objects.equals(this.scaDeviceId, associationListing.scaDeviceId)
+        && Objects.equals(this.isSetScaDeviceId, associationListing.isSetScaDeviceId)
         && Objects.equals(this.scaDeviceName, associationListing.scaDeviceName)
+        && Objects.equals(this.isSetScaDeviceName, associationListing.isSetScaDeviceName)
         && Objects.equals(this.scaDeviceType, associationListing.scaDeviceType)
-        && Objects.equals(this.status, associationListing.status);
+        && Objects.equals(this.isSetScaDeviceType, associationListing.isSetScaDeviceType)
+        && Objects.equals(this.status, associationListing.status)
+        && Objects.equals(this.isSetStatus, associationListing.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        createdAt, entityId, entityType, scaDeviceId, scaDeviceName, scaDeviceType, status);
+        createdAt,
+        isSetCreatedAt,
+        entityId,
+        isSetEntityId,
+        entityType,
+        isSetEntityType,
+        scaDeviceId,
+        isSetScaDeviceId,
+        scaDeviceName,
+        isSetScaDeviceName,
+        scaDeviceType,
+        isSetScaDeviceType,
+        status,
+        isSetStatus);
   }
 
   @Override

@@ -161,12 +161,14 @@ public class InternationalTransactionRestriction {
     InternationalTransactionRestriction internationalTransactionRestriction =
         (InternationalTransactionRestriction) o;
     return Objects.equals(this.operation, internationalTransactionRestriction.operation)
-        && Objects.equals(this.value, internationalTransactionRestriction.value);
+        && Objects.equals(this.isSetOperation, internationalTransactionRestriction.isSetOperation)
+        && Objects.equals(this.value, internationalTransactionRestriction.value)
+        && Objects.equals(this.isSetValue, internationalTransactionRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

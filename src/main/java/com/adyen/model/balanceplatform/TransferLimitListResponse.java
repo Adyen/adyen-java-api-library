@@ -111,12 +111,13 @@ public class TransferLimitListResponse {
       return false;
     }
     TransferLimitListResponse transferLimitListResponse = (TransferLimitListResponse) o;
-    return Objects.equals(this.transferLimits, transferLimitListResponse.transferLimits);
+    return Objects.equals(this.transferLimits, transferLimitListResponse.transferLimits)
+        && Objects.equals(this.isSetTransferLimits, transferLimitListResponse.isSetTransferLimits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transferLimits);
+    return Objects.hash(transferLimits, isSetTransferLimits);
   }
 
   @Override

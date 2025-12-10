@@ -217,12 +217,14 @@ public class DayOfWeekRestriction {
     }
     DayOfWeekRestriction dayOfWeekRestriction = (DayOfWeekRestriction) o;
     return Objects.equals(this.operation, dayOfWeekRestriction.operation)
-        && Objects.equals(this.value, dayOfWeekRestriction.value);
+        && Objects.equals(this.isSetOperation, dayOfWeekRestriction.isSetOperation)
+        && Objects.equals(this.value, dayOfWeekRestriction.value)
+        && Objects.equals(this.isSetValue, dayOfWeekRestriction.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, value);
+    return Objects.hash(operation, isSetOperation, value, isSetValue);
   }
 
   @Override

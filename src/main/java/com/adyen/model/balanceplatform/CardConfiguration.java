@@ -770,38 +770,67 @@ public class CardConfiguration {
     }
     CardConfiguration cardConfiguration = (CardConfiguration) o;
     return Objects.equals(this.activation, cardConfiguration.activation)
+        && Objects.equals(this.isSetActivation, cardConfiguration.isSetActivation)
         && Objects.equals(this.activationUrl, cardConfiguration.activationUrl)
+        && Objects.equals(this.isSetActivationUrl, cardConfiguration.isSetActivationUrl)
         && Objects.equals(this.bulkAddress, cardConfiguration.bulkAddress)
+        && Objects.equals(this.isSetBulkAddress, cardConfiguration.isSetBulkAddress)
         && Objects.equals(this.cardImageId, cardConfiguration.cardImageId)
+        && Objects.equals(this.isSetCardImageId, cardConfiguration.isSetCardImageId)
         && Objects.equals(this.carrier, cardConfiguration.carrier)
+        && Objects.equals(this.isSetCarrier, cardConfiguration.isSetCarrier)
         && Objects.equals(this.carrierImageId, cardConfiguration.carrierImageId)
+        && Objects.equals(this.isSetCarrierImageId, cardConfiguration.isSetCarrierImageId)
         && Objects.equals(this.configurationProfileId, cardConfiguration.configurationProfileId)
+        && Objects.equals(
+            this.isSetConfigurationProfileId, cardConfiguration.isSetConfigurationProfileId)
         && Objects.equals(this.currency, cardConfiguration.currency)
+        && Objects.equals(this.isSetCurrency, cardConfiguration.isSetCurrency)
         && Objects.equals(this.envelope, cardConfiguration.envelope)
+        && Objects.equals(this.isSetEnvelope, cardConfiguration.isSetEnvelope)
         && Objects.equals(this.insert, cardConfiguration.insert)
+        && Objects.equals(this.isSetInsert, cardConfiguration.isSetInsert)
         && Objects.equals(this.language, cardConfiguration.language)
+        && Objects.equals(this.isSetLanguage, cardConfiguration.isSetLanguage)
         && Objects.equals(this.logoImageId, cardConfiguration.logoImageId)
+        && Objects.equals(this.isSetLogoImageId, cardConfiguration.isSetLogoImageId)
         && Objects.equals(this.pinMailer, cardConfiguration.pinMailer)
-        && Objects.equals(this.shipmentMethod, cardConfiguration.shipmentMethod);
+        && Objects.equals(this.isSetPinMailer, cardConfiguration.isSetPinMailer)
+        && Objects.equals(this.shipmentMethod, cardConfiguration.shipmentMethod)
+        && Objects.equals(this.isSetShipmentMethod, cardConfiguration.isSetShipmentMethod);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         activation,
+        isSetActivation,
         activationUrl,
+        isSetActivationUrl,
         bulkAddress,
+        isSetBulkAddress,
         cardImageId,
+        isSetCardImageId,
         carrier,
+        isSetCarrier,
         carrierImageId,
+        isSetCarrierImageId,
         configurationProfileId,
+        isSetConfigurationProfileId,
         currency,
+        isSetCurrency,
         envelope,
+        isSetEnvelope,
         insert,
+        isSetInsert,
         language,
+        isSetLanguage,
         logoImageId,
+        isSetLogoImageId,
         pinMailer,
-        shipmentMethod);
+        isSetPinMailer,
+        shipmentMethod,
+        isSetShipmentMethod);
   }
 
   @Override

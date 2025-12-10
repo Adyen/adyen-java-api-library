@@ -104,12 +104,13 @@ public class AssociationInitiateResponse {
       return false;
     }
     AssociationInitiateResponse associationInitiateResponse = (AssociationInitiateResponse) o;
-    return Objects.equals(this.sdkInput, associationInitiateResponse.sdkInput);
+    return Objects.equals(this.sdkInput, associationInitiateResponse.sdkInput)
+        && Objects.equals(this.isSetSdkInput, associationInitiateResponse.isSetSdkInput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sdkInput);
+    return Objects.hash(sdkInput, isSetSdkInput);
   }
 
   @Override

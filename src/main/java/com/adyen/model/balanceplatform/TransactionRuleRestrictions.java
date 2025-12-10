@@ -1130,68 +1130,137 @@ public class TransactionRuleRestrictions {
     }
     TransactionRuleRestrictions transactionRuleRestrictions = (TransactionRuleRestrictions) o;
     return Objects.equals(this.activeNetworkTokens, transactionRuleRestrictions.activeNetworkTokens)
+        && Objects.equals(
+            this.isSetActiveNetworkTokens, transactionRuleRestrictions.isSetActiveNetworkTokens)
         && Objects.equals(this.brandVariants, transactionRuleRestrictions.brandVariants)
+        && Objects.equals(this.isSetBrandVariants, transactionRuleRestrictions.isSetBrandVariants)
         && Objects.equals(this.counterpartyBank, transactionRuleRestrictions.counterpartyBank)
+        && Objects.equals(
+            this.isSetCounterpartyBank, transactionRuleRestrictions.isSetCounterpartyBank)
         && Objects.equals(this.counterpartyTypes, transactionRuleRestrictions.counterpartyTypes)
+        && Objects.equals(
+            this.isSetCounterpartyTypes, transactionRuleRestrictions.isSetCounterpartyTypes)
         && Objects.equals(this.countries, transactionRuleRestrictions.countries)
+        && Objects.equals(this.isSetCountries, transactionRuleRestrictions.isSetCountries)
         && Objects.equals(this.dayOfWeek, transactionRuleRestrictions.dayOfWeek)
+        && Objects.equals(this.isSetDayOfWeek, transactionRuleRestrictions.isSetDayOfWeek)
         && Objects.equals(this.differentCurrencies, transactionRuleRestrictions.differentCurrencies)
+        && Objects.equals(
+            this.isSetDifferentCurrencies, transactionRuleRestrictions.isSetDifferentCurrencies)
         && Objects.equals(this.entryModes, transactionRuleRestrictions.entryModes)
+        && Objects.equals(this.isSetEntryModes, transactionRuleRestrictions.isSetEntryModes)
         && Objects.equals(
             this.internationalTransaction, transactionRuleRestrictions.internationalTransaction)
         && Objects.equals(
+            this.isSetInternationalTransaction,
+            transactionRuleRestrictions.isSetInternationalTransaction)
+        && Objects.equals(
             this.matchingTransactions, transactionRuleRestrictions.matchingTransactions)
+        && Objects.equals(
+            this.isSetMatchingTransactions, transactionRuleRestrictions.isSetMatchingTransactions)
         && Objects.equals(this.matchingValues, transactionRuleRestrictions.matchingValues)
+        && Objects.equals(this.isSetMatchingValues, transactionRuleRestrictions.isSetMatchingValues)
         && Objects.equals(this.mccs, transactionRuleRestrictions.mccs)
+        && Objects.equals(this.isSetMccs, transactionRuleRestrictions.isSetMccs)
         && Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames)
+        && Objects.equals(this.isSetMerchantNames, transactionRuleRestrictions.isSetMerchantNames)
         && Objects.equals(this.merchants, transactionRuleRestrictions.merchants)
+        && Objects.equals(this.isSetMerchants, transactionRuleRestrictions.isSetMerchants)
         && Objects.equals(this.processingTypes, transactionRuleRestrictions.processingTypes)
+        && Objects.equals(
+            this.isSetProcessingTypes, transactionRuleRestrictions.isSetProcessingTypes)
         && Objects.equals(this.riskScores, transactionRuleRestrictions.riskScores)
+        && Objects.equals(this.isSetRiskScores, transactionRuleRestrictions.isSetRiskScores)
         && Objects.equals(
             this.sameAmountRestriction, transactionRuleRestrictions.sameAmountRestriction)
         && Objects.equals(
+            this.isSetSameAmountRestriction, transactionRuleRestrictions.isSetSameAmountRestriction)
+        && Objects.equals(
             this.sameCounterpartyRestriction,
             transactionRuleRestrictions.sameCounterpartyRestriction)
+        && Objects.equals(
+            this.isSetSameCounterpartyRestriction,
+            transactionRuleRestrictions.isSetSameCounterpartyRestriction)
         && Objects.equals(this.sourceAccountTypes, transactionRuleRestrictions.sourceAccountTypes)
+        && Objects.equals(
+            this.isSetSourceAccountTypes, transactionRuleRestrictions.isSetSourceAccountTypes)
         && Objects.equals(this.timeOfDay, transactionRuleRestrictions.timeOfDay)
+        && Objects.equals(this.isSetTimeOfDay, transactionRuleRestrictions.isSetTimeOfDay)
         && Objects.equals(this.tokenRequestors, transactionRuleRestrictions.tokenRequestors)
+        && Objects.equals(
+            this.isSetTokenRequestors, transactionRuleRestrictions.isSetTokenRequestors)
         && Objects.equals(this.totalAmount, transactionRuleRestrictions.totalAmount)
+        && Objects.equals(this.isSetTotalAmount, transactionRuleRestrictions.isSetTotalAmount)
         && Objects.equals(
             this.walletProviderAccountScore, transactionRuleRestrictions.walletProviderAccountScore)
         && Objects.equals(
+            this.isSetWalletProviderAccountScore,
+            transactionRuleRestrictions.isSetWalletProviderAccountScore)
+        && Objects.equals(
             this.walletProviderDeviceScore, transactionRuleRestrictions.walletProviderDeviceScore)
         && Objects.equals(
-            this.walletProviderDeviceType, transactionRuleRestrictions.walletProviderDeviceType);
+            this.isSetWalletProviderDeviceScore,
+            transactionRuleRestrictions.isSetWalletProviderDeviceScore)
+        && Objects.equals(
+            this.walletProviderDeviceType, transactionRuleRestrictions.walletProviderDeviceType)
+        && Objects.equals(
+            this.isSetWalletProviderDeviceType,
+            transactionRuleRestrictions.isSetWalletProviderDeviceType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         activeNetworkTokens,
+        isSetActiveNetworkTokens,
         brandVariants,
+        isSetBrandVariants,
         counterpartyBank,
+        isSetCounterpartyBank,
         counterpartyTypes,
+        isSetCounterpartyTypes,
         countries,
+        isSetCountries,
         dayOfWeek,
+        isSetDayOfWeek,
         differentCurrencies,
+        isSetDifferentCurrencies,
         entryModes,
+        isSetEntryModes,
         internationalTransaction,
+        isSetInternationalTransaction,
         matchingTransactions,
+        isSetMatchingTransactions,
         matchingValues,
+        isSetMatchingValues,
         mccs,
+        isSetMccs,
         merchantNames,
+        isSetMerchantNames,
         merchants,
+        isSetMerchants,
         processingTypes,
+        isSetProcessingTypes,
         riskScores,
+        isSetRiskScores,
         sameAmountRestriction,
+        isSetSameAmountRestriction,
         sameCounterpartyRestriction,
+        isSetSameCounterpartyRestriction,
         sourceAccountTypes,
+        isSetSourceAccountTypes,
         timeOfDay,
+        isSetTimeOfDay,
         tokenRequestors,
+        isSetTokenRequestors,
         totalAmount,
+        isSetTotalAmount,
         walletProviderAccountScore,
+        isSetWalletProviderAccountScore,
         walletProviderDeviceScore,
-        walletProviderDeviceType);
+        isSetWalletProviderDeviceScore,
+        walletProviderDeviceType,
+        isSetWalletProviderDeviceType);
   }
 
   @Override

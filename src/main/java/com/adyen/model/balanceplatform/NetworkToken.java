@@ -520,28 +520,46 @@ public class NetworkToken {
     }
     NetworkToken networkToken = (NetworkToken) o;
     return Objects.equals(this.brandVariant, networkToken.brandVariant)
+        && Objects.equals(this.isSetBrandVariant, networkToken.isSetBrandVariant)
         && Objects.equals(this.creationDate, networkToken.creationDate)
+        && Objects.equals(this.isSetCreationDate, networkToken.isSetCreationDate)
         && Objects.equals(this.device, networkToken.device)
+        && Objects.equals(this.isSetDevice, networkToken.isSetDevice)
         && Objects.equals(this.id, networkToken.id)
+        && Objects.equals(this.isSetId, networkToken.isSetId)
         && Objects.equals(this.paymentInstrumentId, networkToken.paymentInstrumentId)
+        && Objects.equals(this.isSetPaymentInstrumentId, networkToken.isSetPaymentInstrumentId)
         && Objects.equals(this.status, networkToken.status)
+        && Objects.equals(this.isSetStatus, networkToken.isSetStatus)
         && Objects.equals(this.tokenLastFour, networkToken.tokenLastFour)
+        && Objects.equals(this.isSetTokenLastFour, networkToken.isSetTokenLastFour)
         && Objects.equals(this.tokenRequestor, networkToken.tokenRequestor)
-        && Objects.equals(this.type, networkToken.type);
+        && Objects.equals(this.isSetTokenRequestor, networkToken.isSetTokenRequestor)
+        && Objects.equals(this.type, networkToken.type)
+        && Objects.equals(this.isSetType, networkToken.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         brandVariant,
+        isSetBrandVariant,
         creationDate,
+        isSetCreationDate,
         device,
+        isSetDevice,
         id,
+        isSetId,
         paymentInstrumentId,
+        isSetPaymentInstrumentId,
         status,
+        isSetStatus,
         tokenLastFour,
+        isSetTokenLastFour,
         tokenRequestor,
-        type);
+        isSetTokenRequestor,
+        type,
+        isSetType);
   }
 
   @Override

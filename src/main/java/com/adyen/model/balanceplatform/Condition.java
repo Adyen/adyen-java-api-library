@@ -342,13 +342,17 @@ public class Condition {
     }
     Condition condition = (Condition) o;
     return Objects.equals(this.balanceType, condition.balanceType)
+        && Objects.equals(this.isSetBalanceType, condition.isSetBalanceType)
         && Objects.equals(this.conditionType, condition.conditionType)
-        && Objects.equals(this.value, condition.value);
+        && Objects.equals(this.isSetConditionType, condition.isSetConditionType)
+        && Objects.equals(this.value, condition.value)
+        && Objects.equals(this.isSetValue, condition.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceType, conditionType, value);
+    return Objects.hash(
+        balanceType, isSetBalanceType, conditionType, isSetConditionType, value, isSetValue);
   }
 
   @Override

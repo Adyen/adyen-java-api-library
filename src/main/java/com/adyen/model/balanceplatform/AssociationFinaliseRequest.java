@@ -259,15 +259,26 @@ public class AssociationFinaliseRequest {
     }
     AssociationFinaliseRequest associationFinaliseRequest = (AssociationFinaliseRequest) o;
     return Objects.equals(this.ids, associationFinaliseRequest.ids)
+        && Objects.equals(this.isSetIds, associationFinaliseRequest.isSetIds)
         && Objects.equals(
             this.strongCustomerAuthentication,
             associationFinaliseRequest.strongCustomerAuthentication)
-        && Objects.equals(this.type, associationFinaliseRequest.type);
+        && Objects.equals(
+            this.isSetStrongCustomerAuthentication,
+            associationFinaliseRequest.isSetStrongCustomerAuthentication)
+        && Objects.equals(this.type, associationFinaliseRequest.type)
+        && Objects.equals(this.isSetType, associationFinaliseRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, strongCustomerAuthentication, type);
+    return Objects.hash(
+        ids,
+        isSetIds,
+        strongCustomerAuthentication,
+        isSetStrongCustomerAuthentication,
+        type,
+        isSetType);
   }
 
   @Override

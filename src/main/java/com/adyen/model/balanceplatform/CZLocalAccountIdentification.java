@@ -255,13 +255,17 @@ public class CZLocalAccountIdentification {
     }
     CZLocalAccountIdentification czLocalAccountIdentification = (CZLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, czLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, czLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.bankCode, czLocalAccountIdentification.bankCode)
-        && Objects.equals(this.type, czLocalAccountIdentification.type);
+        && Objects.equals(this.isSetBankCode, czLocalAccountIdentification.isSetBankCode)
+        && Objects.equals(this.type, czLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, czLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, bankCode, type);
+    return Objects.hash(
+        accountNumber, isSetAccountNumber, bankCode, isSetBankCode, type, isSetType);
   }
 
   @Override

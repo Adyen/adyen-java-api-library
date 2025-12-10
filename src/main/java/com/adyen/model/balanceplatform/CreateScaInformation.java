@@ -164,12 +164,14 @@ public class CreateScaInformation {
     }
     CreateScaInformation createScaInformation = (CreateScaInformation) o;
     return Objects.equals(this.exemption, createScaInformation.exemption)
-        && Objects.equals(this.scaOnApproval, createScaInformation.scaOnApproval);
+        && Objects.equals(this.isSetExemption, createScaInformation.isSetExemption)
+        && Objects.equals(this.scaOnApproval, createScaInformation.scaOnApproval)
+        && Objects.equals(this.isSetScaOnApproval, createScaInformation.isSetScaOnApproval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exemption, scaOnApproval);
+    return Objects.hash(exemption, isSetExemption, scaOnApproval, isSetScaOnApproval);
   }
 
   @Override

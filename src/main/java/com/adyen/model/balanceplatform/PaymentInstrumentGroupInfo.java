@@ -294,15 +294,31 @@ public class PaymentInstrumentGroupInfo {
     }
     PaymentInstrumentGroupInfo paymentInstrumentGroupInfo = (PaymentInstrumentGroupInfo) o;
     return Objects.equals(this.balancePlatform, paymentInstrumentGroupInfo.balancePlatform)
+        && Objects.equals(
+            this.isSetBalancePlatform, paymentInstrumentGroupInfo.isSetBalancePlatform)
         && Objects.equals(this.description, paymentInstrumentGroupInfo.description)
+        && Objects.equals(this.isSetDescription, paymentInstrumentGroupInfo.isSetDescription)
         && Objects.equals(this.properties, paymentInstrumentGroupInfo.properties)
+        && Objects.equals(this.isSetProperties, paymentInstrumentGroupInfo.isSetProperties)
         && Objects.equals(this.reference, paymentInstrumentGroupInfo.reference)
-        && Objects.equals(this.txVariant, paymentInstrumentGroupInfo.txVariant);
+        && Objects.equals(this.isSetReference, paymentInstrumentGroupInfo.isSetReference)
+        && Objects.equals(this.txVariant, paymentInstrumentGroupInfo.txVariant)
+        && Objects.equals(this.isSetTxVariant, paymentInstrumentGroupInfo.isSetTxVariant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, description, properties, reference, txVariant);
+    return Objects.hash(
+        balancePlatform,
+        isSetBalancePlatform,
+        description,
+        isSetDescription,
+        properties,
+        isSetProperties,
+        reference,
+        isSetReference,
+        txVariant,
+        isSetTxVariant);
   }
 
   @Override

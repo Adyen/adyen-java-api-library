@@ -198,12 +198,14 @@ public class USInstantPayoutAddressRequirement {
     USInstantPayoutAddressRequirement usInstantPayoutAddressRequirement =
         (USInstantPayoutAddressRequirement) o;
     return Objects.equals(this.description, usInstantPayoutAddressRequirement.description)
-        && Objects.equals(this.type, usInstantPayoutAddressRequirement.type);
+        && Objects.equals(this.isSetDescription, usInstantPayoutAddressRequirement.isSetDescription)
+        && Objects.equals(this.type, usInstantPayoutAddressRequirement.type)
+        && Objects.equals(this.isSetType, usInstantPayoutAddressRequirement.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, type);
+    return Objects.hash(description, isSetDescription, type, isSetType);
   }
 
   @Override

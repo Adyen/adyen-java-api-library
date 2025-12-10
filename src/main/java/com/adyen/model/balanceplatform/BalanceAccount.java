@@ -655,33 +655,57 @@ public class BalanceAccount {
     }
     BalanceAccount balanceAccount = (BalanceAccount) o;
     return Objects.equals(this.accountHolderId, balanceAccount.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, balanceAccount.isSetAccountHolderId)
         && Objects.equals(this.balances, balanceAccount.balances)
+        && Objects.equals(this.isSetBalances, balanceAccount.isSetBalances)
         && Objects.equals(this.defaultCurrencyCode, balanceAccount.defaultCurrencyCode)
+        && Objects.equals(this.isSetDefaultCurrencyCode, balanceAccount.isSetDefaultCurrencyCode)
         && Objects.equals(this.description, balanceAccount.description)
+        && Objects.equals(this.isSetDescription, balanceAccount.isSetDescription)
         && Objects.equals(this.id, balanceAccount.id)
+        && Objects.equals(this.isSetId, balanceAccount.isSetId)
         && Objects.equals(this.metadata, balanceAccount.metadata)
+        && Objects.equals(this.isSetMetadata, balanceAccount.isSetMetadata)
         && Objects.equals(this.migratedAccountCode, balanceAccount.migratedAccountCode)
+        && Objects.equals(this.isSetMigratedAccountCode, balanceAccount.isSetMigratedAccountCode)
         && Objects.equals(
             this.platformPaymentConfiguration, balanceAccount.platformPaymentConfiguration)
+        && Objects.equals(
+            this.isSetPlatformPaymentConfiguration,
+            balanceAccount.isSetPlatformPaymentConfiguration)
         && Objects.equals(this.reference, balanceAccount.reference)
+        && Objects.equals(this.isSetReference, balanceAccount.isSetReference)
         && Objects.equals(this.status, balanceAccount.status)
-        && Objects.equals(this.timeZone, balanceAccount.timeZone);
+        && Objects.equals(this.isSetStatus, balanceAccount.isSetStatus)
+        && Objects.equals(this.timeZone, balanceAccount.timeZone)
+        && Objects.equals(this.isSetTimeZone, balanceAccount.isSetTimeZone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolderId,
+        isSetAccountHolderId,
         balances,
+        isSetBalances,
         defaultCurrencyCode,
+        isSetDefaultCurrencyCode,
         description,
+        isSetDescription,
         id,
+        isSetId,
         metadata,
+        isSetMetadata,
         migratedAccountCode,
+        isSetMigratedAccountCode,
         platformPaymentConfiguration,
+        isSetPlatformPaymentConfiguration,
         reference,
+        isSetReference,
         status,
-        timeZone);
+        isSetStatus,
+        timeZone,
+        isSetTimeZone);
   }
 
   @Override
