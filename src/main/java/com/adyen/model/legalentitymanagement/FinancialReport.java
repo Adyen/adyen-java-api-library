@@ -317,22 +317,35 @@ public class FinancialReport {
     }
     FinancialReport financialReport = (FinancialReport) o;
     return Objects.equals(this.annualTurnover, financialReport.annualTurnover)
+        && Objects.equals(this.isSetAnnualTurnover, financialReport.isSetAnnualTurnover)
         && Objects.equals(this.balanceSheetTotal, financialReport.balanceSheetTotal)
+        && Objects.equals(this.isSetBalanceSheetTotal, financialReport.isSetBalanceSheetTotal)
         && Objects.equals(this.currencyOfFinancialData, financialReport.currencyOfFinancialData)
+        && Objects.equals(
+            this.isSetCurrencyOfFinancialData, financialReport.isSetCurrencyOfFinancialData)
         && Objects.equals(this.dateOfFinancialData, financialReport.dateOfFinancialData)
+        && Objects.equals(this.isSetDateOfFinancialData, financialReport.isSetDateOfFinancialData)
         && Objects.equals(this.employeeCount, financialReport.employeeCount)
-        && Objects.equals(this.netAssets, financialReport.netAssets);
+        && Objects.equals(this.isSetEmployeeCount, financialReport.isSetEmployeeCount)
+        && Objects.equals(this.netAssets, financialReport.netAssets)
+        && Objects.equals(this.isSetNetAssets, financialReport.isSetNetAssets);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         annualTurnover,
+        isSetAnnualTurnover,
         balanceSheetTotal,
+        isSetBalanceSheetTotal,
         currencyOfFinancialData,
+        isSetCurrencyOfFinancialData,
         dateOfFinancialData,
+        isSetDateOfFinancialData,
         employeeCount,
-        netAssets);
+        isSetEmployeeCount,
+        netAssets,
+        isSetNetAssets);
   }
 
   @Override

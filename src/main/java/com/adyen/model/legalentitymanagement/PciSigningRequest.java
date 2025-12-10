@@ -171,12 +171,15 @@ public class PciSigningRequest {
     }
     PciSigningRequest pciSigningRequest = (PciSigningRequest) o;
     return Objects.equals(this.pciTemplateReferences, pciSigningRequest.pciTemplateReferences)
-        && Objects.equals(this.signedBy, pciSigningRequest.signedBy);
+        && Objects.equals(
+            this.isSetPciTemplateReferences, pciSigningRequest.isSetPciTemplateReferences)
+        && Objects.equals(this.signedBy, pciSigningRequest.signedBy)
+        && Objects.equals(this.isSetSignedBy, pciSigningRequest.isSetSignedBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pciTemplateReferences, signedBy);
+    return Objects.hash(pciTemplateReferences, isSetPciTemplateReferences, signedBy, isSetSignedBy);
   }
 
   @Override

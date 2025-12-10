@@ -101,12 +101,13 @@ public class EntityReference {
       return false;
     }
     EntityReference entityReference = (EntityReference) o;
-    return Objects.equals(this.id, entityReference.id);
+    return Objects.equals(this.id, entityReference.id)
+        && Objects.equals(this.isSetId, entityReference.isSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, isSetId);
   }
 
   @Override

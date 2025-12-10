@@ -111,12 +111,13 @@ public class BusinessLines {
       return false;
     }
     BusinessLines businessLines = (BusinessLines) o;
-    return Objects.equals(this.businessLines, businessLines.businessLines);
+    return Objects.equals(this.businessLines, businessLines.businessLines)
+        && Objects.equals(this.isSetBusinessLines, businessLines.isSetBusinessLines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessLines);
+    return Objects.hash(businessLines, isSetBusinessLines);
   }
 
   @Override

@@ -235,13 +235,16 @@ public class DocumentPage {
     }
     DocumentPage documentPage = (DocumentPage) o;
     return Objects.equals(this.pageName, documentPage.pageName)
+        && Objects.equals(this.isSetPageName, documentPage.isSetPageName)
         && Objects.equals(this.pageNumber, documentPage.pageNumber)
-        && Objects.equals(this.type, documentPage.type);
+        && Objects.equals(this.isSetPageNumber, documentPage.isSetPageNumber)
+        && Objects.equals(this.type, documentPage.type)
+        && Objects.equals(this.isSetType, documentPage.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageName, pageNumber, type);
+    return Objects.hash(pageName, isSetPageName, pageNumber, isSetPageNumber, type, isSetType);
   }
 
   @Override

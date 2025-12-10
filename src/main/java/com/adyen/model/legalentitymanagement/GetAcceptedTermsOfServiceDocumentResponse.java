@@ -297,22 +297,35 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
     GetAcceptedTermsOfServiceDocumentResponse getAcceptedTermsOfServiceDocumentResponse =
         (GetAcceptedTermsOfServiceDocumentResponse) o;
     return Arrays.equals(this.document, getAcceptedTermsOfServiceDocumentResponse.document)
+        && Objects.equals(
+            this.isSetDocument, getAcceptedTermsOfServiceDocumentResponse.isSetDocument)
         && Objects.equals(this.id, getAcceptedTermsOfServiceDocumentResponse.id)
+        && Objects.equals(this.isSetId, getAcceptedTermsOfServiceDocumentResponse.isSetId)
         && Objects.equals(
             this.termsOfServiceAcceptanceReference,
             getAcceptedTermsOfServiceDocumentResponse.termsOfServiceAcceptanceReference)
         && Objects.equals(
+            this.isSetTermsOfServiceAcceptanceReference,
+            getAcceptedTermsOfServiceDocumentResponse.isSetTermsOfServiceAcceptanceReference)
+        && Objects.equals(
             this.termsOfServiceDocumentFormat,
-            getAcceptedTermsOfServiceDocumentResponse.termsOfServiceDocumentFormat);
+            getAcceptedTermsOfServiceDocumentResponse.termsOfServiceDocumentFormat)
+        && Objects.equals(
+            this.isSetTermsOfServiceDocumentFormat,
+            getAcceptedTermsOfServiceDocumentResponse.isSetTermsOfServiceDocumentFormat);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         Arrays.hashCode(document),
+        isSetDocument,
         id,
+        isSetId,
         termsOfServiceAcceptanceReference,
-        termsOfServiceDocumentFormat);
+        isSetTermsOfServiceAcceptanceReference,
+        termsOfServiceDocumentFormat,
+        isSetTermsOfServiceDocumentFormat);
   }
 
   @Override

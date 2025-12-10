@@ -244,14 +244,26 @@ public class GetPciQuestionnaireResponse {
     }
     GetPciQuestionnaireResponse getPciQuestionnaireResponse = (GetPciQuestionnaireResponse) o;
     return Arrays.equals(this.content, getPciQuestionnaireResponse.content)
+        && Objects.equals(this.isSetContent, getPciQuestionnaireResponse.isSetContent)
         && Objects.equals(this.createdAt, getPciQuestionnaireResponse.createdAt)
+        && Objects.equals(this.isSetCreatedAt, getPciQuestionnaireResponse.isSetCreatedAt)
         && Objects.equals(this.id, getPciQuestionnaireResponse.id)
-        && Objects.equals(this.validUntil, getPciQuestionnaireResponse.validUntil);
+        && Objects.equals(this.isSetId, getPciQuestionnaireResponse.isSetId)
+        && Objects.equals(this.validUntil, getPciQuestionnaireResponse.validUntil)
+        && Objects.equals(this.isSetValidUntil, getPciQuestionnaireResponse.isSetValidUntil);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(content), createdAt, id, validUntil);
+    return Objects.hash(
+        Arrays.hashCode(content),
+        isSetContent,
+        createdAt,
+        isSetCreatedAt,
+        id,
+        isSetId,
+        validUntil,
+        isSetValidUntil);
   }
 
   @Override

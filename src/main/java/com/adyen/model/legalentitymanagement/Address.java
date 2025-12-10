@@ -356,16 +356,34 @@ public class Address {
     }
     Address address = (Address) o;
     return Objects.equals(this.city, address.city)
+        && Objects.equals(this.isSetCity, address.isSetCity)
         && Objects.equals(this.country, address.country)
+        && Objects.equals(this.isSetCountry, address.isSetCountry)
         && Objects.equals(this.postalCode, address.postalCode)
+        && Objects.equals(this.isSetPostalCode, address.isSetPostalCode)
         && Objects.equals(this.stateOrProvince, address.stateOrProvince)
+        && Objects.equals(this.isSetStateOrProvince, address.isSetStateOrProvince)
         && Objects.equals(this.street, address.street)
-        && Objects.equals(this.street2, address.street2);
+        && Objects.equals(this.isSetStreet, address.isSetStreet)
+        && Objects.equals(this.street2, address.street2)
+        && Objects.equals(this.isSetStreet2, address.isSetStreet2);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, postalCode, stateOrProvince, street, street2);
+    return Objects.hash(
+        city,
+        isSetCity,
+        country,
+        isSetCountry,
+        postalCode,
+        isSetPostalCode,
+        stateOrProvince,
+        isSetStateOrProvince,
+        street,
+        isSetStreet,
+        street2,
+        isSetStreet2);
   }
 
   @Override

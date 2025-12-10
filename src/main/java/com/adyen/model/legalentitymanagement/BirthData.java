@@ -101,12 +101,13 @@ public class BirthData {
       return false;
     }
     BirthData birthData = (BirthData) o;
-    return Objects.equals(this.dateOfBirth, birthData.dateOfBirth);
+    return Objects.equals(this.dateOfBirth, birthData.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, birthData.isSetDateOfBirth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateOfBirth);
+    return Objects.hash(dateOfBirth, isSetDateOfBirth);
   }
 
   @Override

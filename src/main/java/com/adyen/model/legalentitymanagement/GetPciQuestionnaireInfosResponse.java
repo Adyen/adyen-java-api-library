@@ -113,12 +113,13 @@ public class GetPciQuestionnaireInfosResponse {
     }
     GetPciQuestionnaireInfosResponse getPciQuestionnaireInfosResponse =
         (GetPciQuestionnaireInfosResponse) o;
-    return Objects.equals(this.data, getPciQuestionnaireInfosResponse.data);
+    return Objects.equals(this.data, getPciQuestionnaireInfosResponse.data)
+        && Objects.equals(this.isSetData, getPciQuestionnaireInfosResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

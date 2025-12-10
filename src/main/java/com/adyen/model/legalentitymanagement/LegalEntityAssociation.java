@@ -581,29 +581,48 @@ public class LegalEntityAssociation {
     }
     LegalEntityAssociation legalEntityAssociation = (LegalEntityAssociation) o;
     return Objects.equals(this.associatorId, legalEntityAssociation.associatorId)
+        && Objects.equals(this.isSetAssociatorId, legalEntityAssociation.isSetAssociatorId)
         && Objects.equals(this.entityType, legalEntityAssociation.entityType)
+        && Objects.equals(this.isSetEntityType, legalEntityAssociation.isSetEntityType)
         && Objects.equals(this.jobTitle, legalEntityAssociation.jobTitle)
+        && Objects.equals(this.isSetJobTitle, legalEntityAssociation.isSetJobTitle)
         && Objects.equals(this.legalEntityId, legalEntityAssociation.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, legalEntityAssociation.isSetLegalEntityId)
         && Objects.equals(this.name, legalEntityAssociation.name)
+        && Objects.equals(this.isSetName, legalEntityAssociation.isSetName)
         && Objects.equals(this.nominee, legalEntityAssociation.nominee)
+        && Objects.equals(this.isSetNominee, legalEntityAssociation.isSetNominee)
         && Objects.equals(this.relationship, legalEntityAssociation.relationship)
+        && Objects.equals(this.isSetRelationship, legalEntityAssociation.isSetRelationship)
         && Objects.equals(
             this.settlorExemptionReason, legalEntityAssociation.settlorExemptionReason)
-        && Objects.equals(this.type, legalEntityAssociation.type);
+        && Objects.equals(
+            this.isSetSettlorExemptionReason, legalEntityAssociation.isSetSettlorExemptionReason)
+        && Objects.equals(this.type, legalEntityAssociation.type)
+        && Objects.equals(this.isSetType, legalEntityAssociation.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         associatorId,
+        isSetAssociatorId,
         entityType,
+        isSetEntityType,
         jobTitle,
+        isSetJobTitle,
         legalEntityId,
+        isSetLegalEntityId,
         name,
+        isSetName,
         nominee,
+        isSetNominee,
         relationship,
+        isSetRelationship,
         settlorExemptionReason,
-        type);
+        isSetSettlorExemptionReason,
+        type,
+        isSetType);
   }
 
   @Override

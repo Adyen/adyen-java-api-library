@@ -367,17 +367,38 @@ public class DocumentReference {
     }
     DocumentReference documentReference = (DocumentReference) o;
     return Objects.equals(this.active, documentReference.active)
+        && Objects.equals(this.isSetActive, documentReference.isSetActive)
         && Objects.equals(this.description, documentReference.description)
+        && Objects.equals(this.isSetDescription, documentReference.isSetDescription)
         && Objects.equals(this.fileName, documentReference.fileName)
+        && Objects.equals(this.isSetFileName, documentReference.isSetFileName)
         && Objects.equals(this.id, documentReference.id)
+        && Objects.equals(this.isSetId, documentReference.isSetId)
         && Objects.equals(this.modificationDate, documentReference.modificationDate)
+        && Objects.equals(this.isSetModificationDate, documentReference.isSetModificationDate)
         && Objects.equals(this.pages, documentReference.pages)
-        && Objects.equals(this.type, documentReference.type);
+        && Objects.equals(this.isSetPages, documentReference.isSetPages)
+        && Objects.equals(this.type, documentReference.type)
+        && Objects.equals(this.isSetType, documentReference.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, description, fileName, id, modificationDate, pages, type);
+    return Objects.hash(
+        active,
+        isSetActive,
+        description,
+        isSetDescription,
+        fileName,
+        isSetFileName,
+        id,
+        isSetId,
+        modificationDate,
+        isSetModificationDate,
+        pages,
+        isSetPages,
+        type,
+        isSetType);
   }
 
   @Override

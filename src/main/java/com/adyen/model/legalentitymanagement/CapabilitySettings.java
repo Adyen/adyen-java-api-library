@@ -382,15 +382,31 @@ public class CapabilitySettings {
     }
     CapabilitySettings capabilitySettings = (CapabilitySettings) o;
     return Objects.equals(this.amountPerIndustry, capabilitySettings.amountPerIndustry)
+        && Objects.equals(this.isSetAmountPerIndustry, capabilitySettings.isSetAmountPerIndustry)
         && Objects.equals(this.authorizedCardUsers, capabilitySettings.authorizedCardUsers)
+        && Objects.equals(
+            this.isSetAuthorizedCardUsers, capabilitySettings.isSetAuthorizedCardUsers)
         && Objects.equals(this.fundingSource, capabilitySettings.fundingSource)
+        && Objects.equals(this.isSetFundingSource, capabilitySettings.isSetFundingSource)
         && Objects.equals(this.interval, capabilitySettings.interval)
-        && Objects.equals(this.maxAmount, capabilitySettings.maxAmount);
+        && Objects.equals(this.isSetInterval, capabilitySettings.isSetInterval)
+        && Objects.equals(this.maxAmount, capabilitySettings.maxAmount)
+        && Objects.equals(this.isSetMaxAmount, capabilitySettings.isSetMaxAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountPerIndustry, authorizedCardUsers, fundingSource, interval, maxAmount);
+    return Objects.hash(
+        amountPerIndustry,
+        isSetAmountPerIndustry,
+        authorizedCardUsers,
+        isSetAuthorizedCardUsers,
+        fundingSource,
+        isSetFundingSource,
+        interval,
+        isSetInterval,
+        maxAmount,
+        isSetMaxAmount);
   }
 
   @Override

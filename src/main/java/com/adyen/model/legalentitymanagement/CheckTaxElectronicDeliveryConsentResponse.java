@@ -103,12 +103,14 @@ public class CheckTaxElectronicDeliveryConsentResponse {
     }
     CheckTaxElectronicDeliveryConsentResponse checkTaxElectronicDeliveryConsentResponse =
         (CheckTaxElectronicDeliveryConsentResponse) o;
-    return Objects.equals(this.us1099k, checkTaxElectronicDeliveryConsentResponse.us1099k);
+    return Objects.equals(this.us1099k, checkTaxElectronicDeliveryConsentResponse.us1099k)
+        && Objects.equals(
+            this.isSetUs1099k, checkTaxElectronicDeliveryConsentResponse.isSetUs1099k);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(us1099k);
+    return Objects.hash(us1099k, isSetUs1099k);
   }
 
   @Override

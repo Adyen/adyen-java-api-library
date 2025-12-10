@@ -240,14 +240,27 @@ public class TransferInstrumentReference {
     }
     TransferInstrumentReference transferInstrumentReference = (TransferInstrumentReference) o;
     return Objects.equals(this.accountIdentifier, transferInstrumentReference.accountIdentifier)
+        && Objects.equals(
+            this.isSetAccountIdentifier, transferInstrumentReference.isSetAccountIdentifier)
         && Objects.equals(this.id, transferInstrumentReference.id)
+        && Objects.equals(this.isSetId, transferInstrumentReference.isSetId)
         && Objects.equals(this.realLastFour, transferInstrumentReference.realLastFour)
-        && Objects.equals(this.trustedSource, transferInstrumentReference.trustedSource);
+        && Objects.equals(this.isSetRealLastFour, transferInstrumentReference.isSetRealLastFour)
+        && Objects.equals(this.trustedSource, transferInstrumentReference.trustedSource)
+        && Objects.equals(this.isSetTrustedSource, transferInstrumentReference.isSetTrustedSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentifier, id, realLastFour, trustedSource);
+    return Objects.hash(
+        accountIdentifier,
+        isSetAccountIdentifier,
+        id,
+        isSetId,
+        realLastFour,
+        isSetRealLastFour,
+        trustedSource,
+        isSetTrustedSource);
   }
 
   @Override

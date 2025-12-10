@@ -168,12 +168,15 @@ public class PciSigningResponse {
     }
     PciSigningResponse pciSigningResponse = (PciSigningResponse) o;
     return Objects.equals(this.pciQuestionnaireIds, pciSigningResponse.pciQuestionnaireIds)
-        && Objects.equals(this.signedBy, pciSigningResponse.signedBy);
+        && Objects.equals(
+            this.isSetPciQuestionnaireIds, pciSigningResponse.isSetPciQuestionnaireIds)
+        && Objects.equals(this.signedBy, pciSigningResponse.signedBy)
+        && Objects.equals(this.isSetSignedBy, pciSigningResponse.isSetSignedBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pciQuestionnaireIds, signedBy);
+    return Objects.hash(pciQuestionnaireIds, isSetPciQuestionnaireIds, signedBy, isSetSignedBy);
   }
 
   @Override

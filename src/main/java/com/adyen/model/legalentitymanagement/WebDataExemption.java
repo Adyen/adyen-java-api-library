@@ -149,12 +149,13 @@ public class WebDataExemption {
       return false;
     }
     WebDataExemption webDataExemption = (WebDataExemption) o;
-    return Objects.equals(this.reason, webDataExemption.reason);
+    return Objects.equals(this.reason, webDataExemption.reason)
+        && Objects.equals(this.isSetReason, webDataExemption.isSetReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason);
+    return Objects.hash(reason, isSetReason);
   }
 
   @Override

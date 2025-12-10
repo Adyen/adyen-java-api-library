@@ -698,37 +698,67 @@ public class SoleProprietorship {
     }
     SoleProprietorship soleProprietorship = (SoleProprietorship) o;
     return Objects.equals(this.countryOfGoverningLaw, soleProprietorship.countryOfGoverningLaw)
+        && Objects.equals(
+            this.isSetCountryOfGoverningLaw, soleProprietorship.isSetCountryOfGoverningLaw)
         && Objects.equals(this.dateOfIncorporation, soleProprietorship.dateOfIncorporation)
+        && Objects.equals(
+            this.isSetDateOfIncorporation, soleProprietorship.isSetDateOfIncorporation)
         && Objects.equals(this.doingBusinessAs, soleProprietorship.doingBusinessAs)
+        && Objects.equals(this.isSetDoingBusinessAs, soleProprietorship.isSetDoingBusinessAs)
         && Objects.equals(this.doingBusinessAsAbsent, soleProprietorship.doingBusinessAsAbsent)
+        && Objects.equals(
+            this.isSetDoingBusinessAsAbsent, soleProprietorship.isSetDoingBusinessAsAbsent)
         && Objects.equals(this.financialReports, soleProprietorship.financialReports)
+        && Objects.equals(this.isSetFinancialReports, soleProprietorship.isSetFinancialReports)
         && Objects.equals(this.name, soleProprietorship.name)
+        && Objects.equals(this.isSetName, soleProprietorship.isSetName)
         && Objects.equals(
             this.principalPlaceOfBusiness, soleProprietorship.principalPlaceOfBusiness)
+        && Objects.equals(
+            this.isSetPrincipalPlaceOfBusiness, soleProprietorship.isSetPrincipalPlaceOfBusiness)
         && Objects.equals(this.registeredAddress, soleProprietorship.registeredAddress)
+        && Objects.equals(this.isSetRegisteredAddress, soleProprietorship.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, soleProprietorship.registrationNumber)
+        && Objects.equals(this.isSetRegistrationNumber, soleProprietorship.isSetRegistrationNumber)
         && Objects.equals(this.taxAbsent, soleProprietorship.taxAbsent)
+        && Objects.equals(this.isSetTaxAbsent, soleProprietorship.isSetTaxAbsent)
         && Objects.equals(this.taxInformation, soleProprietorship.taxInformation)
+        && Objects.equals(this.isSetTaxInformation, soleProprietorship.isSetTaxInformation)
         && Objects.equals(this.vatAbsenceReason, soleProprietorship.vatAbsenceReason)
-        && Objects.equals(this.vatNumber, soleProprietorship.vatNumber);
+        && Objects.equals(this.isSetVatAbsenceReason, soleProprietorship.isSetVatAbsenceReason)
+        && Objects.equals(this.vatNumber, soleProprietorship.vatNumber)
+        && Objects.equals(this.isSetVatNumber, soleProprietorship.isSetVatNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         countryOfGoverningLaw,
+        isSetCountryOfGoverningLaw,
         dateOfIncorporation,
+        isSetDateOfIncorporation,
         doingBusinessAs,
+        isSetDoingBusinessAs,
         doingBusinessAsAbsent,
+        isSetDoingBusinessAsAbsent,
         financialReports,
+        isSetFinancialReports,
         name,
+        isSetName,
         principalPlaceOfBusiness,
+        isSetPrincipalPlaceOfBusiness,
         registeredAddress,
+        isSetRegisteredAddress,
         registrationNumber,
+        isSetRegistrationNumber,
         taxAbsent,
+        isSetTaxAbsent,
         taxInformation,
+        isSetTaxInformation,
         vatAbsenceReason,
-        vatNumber);
+        isSetVatAbsenceReason,
+        vatNumber,
+        isSetVatNumber);
   }
 
   @Override

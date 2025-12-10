@@ -107,12 +107,14 @@ public class CalculatePciStatusResponse {
       return false;
     }
     CalculatePciStatusResponse calculatePciStatusResponse = (CalculatePciStatusResponse) o;
-    return Objects.equals(this.signingRequired, calculatePciStatusResponse.signingRequired);
+    return Objects.equals(this.signingRequired, calculatePciStatusResponse.signingRequired)
+        && Objects.equals(
+            this.isSetSigningRequired, calculatePciStatusResponse.isSetSigningRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signingRequired);
+    return Objects.hash(signingRequired, isSetSigningRequired);
   }
 
   @Override

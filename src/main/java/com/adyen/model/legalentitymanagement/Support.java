@@ -142,12 +142,15 @@ public class Support {
       return false;
     }
     Support support = (Support) o;
-    return Objects.equals(this.email, support.email) && Objects.equals(this.phone, support.phone);
+    return Objects.equals(this.email, support.email)
+        && Objects.equals(this.isSetEmail, support.isSetEmail)
+        && Objects.equals(this.phone, support.phone)
+        && Objects.equals(this.isSetPhone, support.isSetPhone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, phone);
+    return Objects.hash(email, isSetEmail, phone, isSetPhone);
   }
 
   @Override

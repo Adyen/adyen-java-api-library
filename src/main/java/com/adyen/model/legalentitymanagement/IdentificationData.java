@@ -470,18 +470,38 @@ public class IdentificationData {
     }
     IdentificationData identificationData = (IdentificationData) o;
     return Objects.equals(this.cardNumber, identificationData.cardNumber)
+        && Objects.equals(this.isSetCardNumber, identificationData.isSetCardNumber)
         && Objects.equals(this.expiryDate, identificationData.expiryDate)
+        && Objects.equals(this.isSetExpiryDate, identificationData.isSetExpiryDate)
         && Objects.equals(this.issuerCountry, identificationData.issuerCountry)
+        && Objects.equals(this.isSetIssuerCountry, identificationData.isSetIssuerCountry)
         && Objects.equals(this.issuerState, identificationData.issuerState)
+        && Objects.equals(this.isSetIssuerState, identificationData.isSetIssuerState)
         && Objects.equals(this.nationalIdExempt, identificationData.nationalIdExempt)
+        && Objects.equals(this.isSetNationalIdExempt, identificationData.isSetNationalIdExempt)
         && Objects.equals(this.number, identificationData.number)
-        && Objects.equals(this.type, identificationData.type);
+        && Objects.equals(this.isSetNumber, identificationData.isSetNumber)
+        && Objects.equals(this.type, identificationData.type)
+        && Objects.equals(this.isSetType, identificationData.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cardNumber, expiryDate, issuerCountry, issuerState, nationalIdExempt, number, type);
+        cardNumber,
+        isSetCardNumber,
+        expiryDate,
+        isSetExpiryDate,
+        issuerCountry,
+        isSetIssuerCountry,
+        issuerState,
+        isSetIssuerState,
+        nationalIdExempt,
+        isSetNationalIdExempt,
+        number,
+        isSetNumber,
+        type,
+        isSetType);
   }
 
   @Override

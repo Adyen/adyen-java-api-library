@@ -245,13 +245,17 @@ public class TransferInstrumentInfo {
     }
     TransferInstrumentInfo transferInstrumentInfo = (TransferInstrumentInfo) o;
     return Objects.equals(this.bankAccount, transferInstrumentInfo.bankAccount)
+        && Objects.equals(this.isSetBankAccount, transferInstrumentInfo.isSetBankAccount)
         && Objects.equals(this.legalEntityId, transferInstrumentInfo.legalEntityId)
-        && Objects.equals(this.type, transferInstrumentInfo.type);
+        && Objects.equals(this.isSetLegalEntityId, transferInstrumentInfo.isSetLegalEntityId)
+        && Objects.equals(this.type, transferInstrumentInfo.type)
+        && Objects.equals(this.isSetType, transferInstrumentInfo.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, legalEntityId, type);
+    return Objects.hash(
+        bankAccount, isSetBankAccount, legalEntityId, isSetLegalEntityId, type, isSetType);
   }
 
   @Override

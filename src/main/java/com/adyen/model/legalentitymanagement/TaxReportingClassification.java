@@ -432,15 +432,30 @@ public class TaxReportingClassification {
     }
     TaxReportingClassification taxReportingClassification = (TaxReportingClassification) o;
     return Objects.equals(this.businessType, taxReportingClassification.businessType)
+        && Objects.equals(this.isSetBusinessType, taxReportingClassification.isSetBusinessType)
         && Objects.equals(
             this.financialInstitutionNumber, taxReportingClassification.financialInstitutionNumber)
+        && Objects.equals(
+            this.isSetFinancialInstitutionNumber,
+            taxReportingClassification.isSetFinancialInstitutionNumber)
         && Objects.equals(this.mainSourceOfIncome, taxReportingClassification.mainSourceOfIncome)
-        && Objects.equals(this.type, taxReportingClassification.type);
+        && Objects.equals(
+            this.isSetMainSourceOfIncome, taxReportingClassification.isSetMainSourceOfIncome)
+        && Objects.equals(this.type, taxReportingClassification.type)
+        && Objects.equals(this.isSetType, taxReportingClassification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessType, financialInstitutionNumber, mainSourceOfIncome, type);
+    return Objects.hash(
+        businessType,
+        isSetBusinessType,
+        financialInstitutionNumber,
+        isSetFinancialInstitutionNumber,
+        mainSourceOfIncome,
+        isSetMainSourceOfIncome,
+        type,
+        isSetType);
   }
 
   @Override

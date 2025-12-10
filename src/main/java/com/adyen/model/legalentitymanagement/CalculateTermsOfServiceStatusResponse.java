@@ -183,12 +183,15 @@ public class CalculateTermsOfServiceStatusResponse {
     CalculateTermsOfServiceStatusResponse calculateTermsOfServiceStatusResponse =
         (CalculateTermsOfServiceStatusResponse) o;
     return Objects.equals(
-        this.termsOfServiceTypes, calculateTermsOfServiceStatusResponse.termsOfServiceTypes);
+            this.termsOfServiceTypes, calculateTermsOfServiceStatusResponse.termsOfServiceTypes)
+        && Objects.equals(
+            this.isSetTermsOfServiceTypes,
+            calculateTermsOfServiceStatusResponse.isSetTermsOfServiceTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(termsOfServiceTypes);
+    return Objects.hash(termsOfServiceTypes, isSetTermsOfServiceTypes);
   }
 
   @Override

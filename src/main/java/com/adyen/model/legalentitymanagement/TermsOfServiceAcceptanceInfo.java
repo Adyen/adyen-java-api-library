@@ -407,16 +407,34 @@ public class TermsOfServiceAcceptanceInfo {
     }
     TermsOfServiceAcceptanceInfo termsOfServiceAcceptanceInfo = (TermsOfServiceAcceptanceInfo) o;
     return Objects.equals(this.acceptedBy, termsOfServiceAcceptanceInfo.acceptedBy)
+        && Objects.equals(this.isSetAcceptedBy, termsOfServiceAcceptanceInfo.isSetAcceptedBy)
         && Objects.equals(this.acceptedFor, termsOfServiceAcceptanceInfo.acceptedFor)
+        && Objects.equals(this.isSetAcceptedFor, termsOfServiceAcceptanceInfo.isSetAcceptedFor)
         && Objects.equals(this.createdAt, termsOfServiceAcceptanceInfo.createdAt)
+        && Objects.equals(this.isSetCreatedAt, termsOfServiceAcceptanceInfo.isSetCreatedAt)
         && Objects.equals(this.id, termsOfServiceAcceptanceInfo.id)
+        && Objects.equals(this.isSetId, termsOfServiceAcceptanceInfo.isSetId)
         && Objects.equals(this.type, termsOfServiceAcceptanceInfo.type)
-        && Objects.equals(this.validTo, termsOfServiceAcceptanceInfo.validTo);
+        && Objects.equals(this.isSetType, termsOfServiceAcceptanceInfo.isSetType)
+        && Objects.equals(this.validTo, termsOfServiceAcceptanceInfo.validTo)
+        && Objects.equals(this.isSetValidTo, termsOfServiceAcceptanceInfo.isSetValidTo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedBy, acceptedFor, createdAt, id, type, validTo);
+    return Objects.hash(
+        acceptedBy,
+        isSetAcceptedBy,
+        acceptedFor,
+        isSetAcceptedFor,
+        createdAt,
+        isSetCreatedAt,
+        id,
+        isSetId,
+        type,
+        isSetType,
+        validTo,
+        isSetValidTo);
   }
 
   @Override

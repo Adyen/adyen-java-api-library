@@ -129,12 +129,14 @@ public class UndefinedBeneficiary {
     }
     UndefinedBeneficiary undefinedBeneficiary = (UndefinedBeneficiary) o;
     return Objects.equals(this.description, undefinedBeneficiary.description)
-        && Objects.equals(this.reference, undefinedBeneficiary.reference);
+        && Objects.equals(this.isSetDescription, undefinedBeneficiary.isSetDescription)
+        && Objects.equals(this.reference, undefinedBeneficiary.reference)
+        && Objects.equals(this.isSetReference, undefinedBeneficiary.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, reference);
+    return Objects.hash(description, isSetDescription, reference, isSetReference);
   }
 
   @Override

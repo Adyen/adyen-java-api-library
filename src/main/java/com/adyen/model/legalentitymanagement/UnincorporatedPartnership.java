@@ -786,38 +786,72 @@ public class UnincorporatedPartnership {
     UnincorporatedPartnership unincorporatedPartnership = (UnincorporatedPartnership) o;
     return Objects.equals(
             this.countryOfGoverningLaw, unincorporatedPartnership.countryOfGoverningLaw)
+        && Objects.equals(
+            this.isSetCountryOfGoverningLaw, unincorporatedPartnership.isSetCountryOfGoverningLaw)
         && Objects.equals(this.dateOfIncorporation, unincorporatedPartnership.dateOfIncorporation)
+        && Objects.equals(
+            this.isSetDateOfIncorporation, unincorporatedPartnership.isSetDateOfIncorporation)
         && Objects.equals(this.description, unincorporatedPartnership.description)
+        && Objects.equals(this.isSetDescription, unincorporatedPartnership.isSetDescription)
         && Objects.equals(this.doingBusinessAs, unincorporatedPartnership.doingBusinessAs)
+        && Objects.equals(this.isSetDoingBusinessAs, unincorporatedPartnership.isSetDoingBusinessAs)
         && Objects.equals(
             this.doingBusinessAsAbsent, unincorporatedPartnership.doingBusinessAsAbsent)
+        && Objects.equals(
+            this.isSetDoingBusinessAsAbsent, unincorporatedPartnership.isSetDoingBusinessAsAbsent)
         && Objects.equals(this.name, unincorporatedPartnership.name)
+        && Objects.equals(this.isSetName, unincorporatedPartnership.isSetName)
         && Objects.equals(
             this.principalPlaceOfBusiness, unincorporatedPartnership.principalPlaceOfBusiness)
+        && Objects.equals(
+            this.isSetPrincipalPlaceOfBusiness,
+            unincorporatedPartnership.isSetPrincipalPlaceOfBusiness)
         && Objects.equals(this.registeredAddress, unincorporatedPartnership.registeredAddress)
+        && Objects.equals(
+            this.isSetRegisteredAddress, unincorporatedPartnership.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, unincorporatedPartnership.registrationNumber)
+        && Objects.equals(
+            this.isSetRegistrationNumber, unincorporatedPartnership.isSetRegistrationNumber)
         && Objects.equals(this.taxInformation, unincorporatedPartnership.taxInformation)
+        && Objects.equals(this.isSetTaxInformation, unincorporatedPartnership.isSetTaxInformation)
         && Objects.equals(this.type, unincorporatedPartnership.type)
+        && Objects.equals(this.isSetType, unincorporatedPartnership.isSetType)
         && Objects.equals(this.vatAbsenceReason, unincorporatedPartnership.vatAbsenceReason)
-        && Objects.equals(this.vatNumber, unincorporatedPartnership.vatNumber);
+        && Objects.equals(
+            this.isSetVatAbsenceReason, unincorporatedPartnership.isSetVatAbsenceReason)
+        && Objects.equals(this.vatNumber, unincorporatedPartnership.vatNumber)
+        && Objects.equals(this.isSetVatNumber, unincorporatedPartnership.isSetVatNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         countryOfGoverningLaw,
+        isSetCountryOfGoverningLaw,
         dateOfIncorporation,
+        isSetDateOfIncorporation,
         description,
+        isSetDescription,
         doingBusinessAs,
+        isSetDoingBusinessAs,
         doingBusinessAsAbsent,
+        isSetDoingBusinessAsAbsent,
         name,
+        isSetName,
         principalPlaceOfBusiness,
+        isSetPrincipalPlaceOfBusiness,
         registeredAddress,
+        isSetRegisteredAddress,
         registrationNumber,
+        isSetRegistrationNumber,
         taxInformation,
+        isSetTaxInformation,
         type,
+        isSetType,
         vatAbsenceReason,
-        vatNumber);
+        isSetVatAbsenceReason,
+        vatNumber,
+        isSetVatNumber);
   }
 
   @Override

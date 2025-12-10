@@ -143,12 +143,14 @@ public class Amount {
     }
     Amount amount = (Amount) o;
     return Objects.equals(this.currency, amount.currency)
-        && Objects.equals(this.value, amount.value);
+        && Objects.equals(this.isSetCurrency, amount.isSetCurrency)
+        && Objects.equals(this.value, amount.value)
+        && Objects.equals(this.isSetValue, amount.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, value);
+    return Objects.hash(currency, isSetCurrency, value, isSetValue);
   }
 
   @Override

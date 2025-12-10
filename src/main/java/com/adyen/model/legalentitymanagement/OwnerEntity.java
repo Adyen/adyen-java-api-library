@@ -169,12 +169,15 @@ public class OwnerEntity {
       return false;
     }
     OwnerEntity ownerEntity = (OwnerEntity) o;
-    return Objects.equals(this.id, ownerEntity.id) && Objects.equals(this.type, ownerEntity.type);
+    return Objects.equals(this.id, ownerEntity.id)
+        && Objects.equals(this.isSetId, ownerEntity.isSetId)
+        && Objects.equals(this.type, ownerEntity.type)
+        && Objects.equals(this.isSetType, ownerEntity.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(id, isSetId, type, isSetType);
   }
 
   @Override

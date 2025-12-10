@@ -254,14 +254,26 @@ public class TaxInformation {
     }
     TaxInformation taxInformation = (TaxInformation) o;
     return Objects.equals(this.country, taxInformation.country)
+        && Objects.equals(this.isSetCountry, taxInformation.isSetCountry)
         && Objects.equals(this.number, taxInformation.number)
+        && Objects.equals(this.isSetNumber, taxInformation.isSetNumber)
         && Objects.equals(this.numberAbsent, taxInformation.numberAbsent)
-        && Objects.equals(this.type, taxInformation.type);
+        && Objects.equals(this.isSetNumberAbsent, taxInformation.isSetNumberAbsent)
+        && Objects.equals(this.type, taxInformation.type)
+        && Objects.equals(this.isSetType, taxInformation.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, number, numberAbsent, type);
+    return Objects.hash(
+        country,
+        isSetCountry,
+        number,
+        isSetNumber,
+        numberAbsent,
+        isSetNumberAbsent,
+        type,
+        isSetType);
   }
 
   @Override

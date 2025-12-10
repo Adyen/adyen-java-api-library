@@ -233,14 +233,26 @@ public class Financier {
     }
     Financier financier = (Financier) o;
     return Objects.equals(this.amount, financier.amount)
+        && Objects.equals(this.isSetAmount, financier.isSetAmount)
         && Objects.equals(this.firstName, financier.firstName)
+        && Objects.equals(this.isSetFirstName, financier.isSetFirstName)
         && Objects.equals(this.lastName, financier.lastName)
-        && Objects.equals(this.location, financier.location);
+        && Objects.equals(this.isSetLastName, financier.isSetLastName)
+        && Objects.equals(this.location, financier.location)
+        && Objects.equals(this.isSetLocation, financier.isSetLocation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, firstName, lastName, location);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        firstName,
+        isSetFirstName,
+        lastName,
+        isSetLastName,
+        location,
+        isSetLocation);
   }
 
   @Override

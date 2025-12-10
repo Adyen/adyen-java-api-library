@@ -424,18 +424,38 @@ public class TransferInstrument {
     }
     TransferInstrument transferInstrument = (TransferInstrument) o;
     return Objects.equals(this.bankAccount, transferInstrument.bankAccount)
+        && Objects.equals(this.isSetBankAccount, transferInstrument.isSetBankAccount)
         && Objects.equals(this.capabilities, transferInstrument.capabilities)
+        && Objects.equals(this.isSetCapabilities, transferInstrument.isSetCapabilities)
         && Objects.equals(this.documentDetails, transferInstrument.documentDetails)
+        && Objects.equals(this.isSetDocumentDetails, transferInstrument.isSetDocumentDetails)
         && Objects.equals(this.id, transferInstrument.id)
+        && Objects.equals(this.isSetId, transferInstrument.isSetId)
         && Objects.equals(this.legalEntityId, transferInstrument.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, transferInstrument.isSetLegalEntityId)
         && Objects.equals(this.problems, transferInstrument.problems)
-        && Objects.equals(this.type, transferInstrument.type);
+        && Objects.equals(this.isSetProblems, transferInstrument.isSetProblems)
+        && Objects.equals(this.type, transferInstrument.type)
+        && Objects.equals(this.isSetType, transferInstrument.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        bankAccount, capabilities, documentDetails, id, legalEntityId, problems, type);
+        bankAccount,
+        isSetBankAccount,
+        capabilities,
+        isSetCapabilities,
+        documentDetails,
+        isSetDocumentDetails,
+        id,
+        isSetId,
+        legalEntityId,
+        isSetLegalEntityId,
+        problems,
+        isSetProblems,
+        type,
+        isSetType);
   }
 
   @Override

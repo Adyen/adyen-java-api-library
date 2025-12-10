@@ -490,24 +490,38 @@ public class BusinessLineInfo {
     }
     BusinessLineInfo businessLineInfo = (BusinessLineInfo) o;
     return Objects.equals(this.industryCode, businessLineInfo.industryCode)
+        && Objects.equals(this.isSetIndustryCode, businessLineInfo.isSetIndustryCode)
         && Objects.equals(this.legalEntityId, businessLineInfo.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, businessLineInfo.isSetLegalEntityId)
         && Objects.equals(this.salesChannels, businessLineInfo.salesChannels)
+        && Objects.equals(this.isSetSalesChannels, businessLineInfo.isSetSalesChannels)
         && Objects.equals(this.service, businessLineInfo.service)
+        && Objects.equals(this.isSetService, businessLineInfo.isSetService)
         && Objects.equals(this.sourceOfFunds, businessLineInfo.sourceOfFunds)
+        && Objects.equals(this.isSetSourceOfFunds, businessLineInfo.isSetSourceOfFunds)
         && Objects.equals(this.webData, businessLineInfo.webData)
-        && Objects.equals(this.webDataExemption, businessLineInfo.webDataExemption);
+        && Objects.equals(this.isSetWebData, businessLineInfo.isSetWebData)
+        && Objects.equals(this.webDataExemption, businessLineInfo.webDataExemption)
+        && Objects.equals(this.isSetWebDataExemption, businessLineInfo.isSetWebDataExemption);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         industryCode,
+        isSetIndustryCode,
         legalEntityId,
+        isSetLegalEntityId,
         salesChannels,
+        isSetSalesChannels,
         service,
+        isSetService,
         sourceOfFunds,
+        isSetSourceOfFunds,
         webData,
-        webDataExemption);
+        isSetWebData,
+        webDataExemption,
+        isSetWebDataExemption);
   }
 
   @Override

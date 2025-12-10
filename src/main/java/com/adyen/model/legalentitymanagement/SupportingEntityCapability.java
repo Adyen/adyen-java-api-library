@@ -163,14 +163,27 @@ public class SupportingEntityCapability {
     }
     SupportingEntityCapability supportingEntityCapability = (SupportingEntityCapability) o;
     return Objects.equals(this.allowed, supportingEntityCapability.allowed)
+        && Objects.equals(this.isSetAllowed, supportingEntityCapability.isSetAllowed)
         && Objects.equals(this.id, supportingEntityCapability.id)
+        && Objects.equals(this.isSetId, supportingEntityCapability.isSetId)
         && Objects.equals(this.requested, supportingEntityCapability.requested)
-        && Objects.equals(this.verificationStatus, supportingEntityCapability.verificationStatus);
+        && Objects.equals(this.isSetRequested, supportingEntityCapability.isSetRequested)
+        && Objects.equals(this.verificationStatus, supportingEntityCapability.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus, supportingEntityCapability.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, id, requested, verificationStatus);
+    return Objects.hash(
+        allowed,
+        isSetAllowed,
+        id,
+        isSetId,
+        requested,
+        isSetRequested,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override

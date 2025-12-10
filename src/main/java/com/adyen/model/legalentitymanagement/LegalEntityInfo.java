@@ -602,30 +602,51 @@ public class LegalEntityInfo {
     }
     LegalEntityInfo legalEntityInfo = (LegalEntityInfo) o;
     return Objects.equals(this.capabilities, legalEntityInfo.capabilities)
+        && Objects.equals(this.isSetCapabilities, legalEntityInfo.isSetCapabilities)
         && Objects.equals(this.entityAssociations, legalEntityInfo.entityAssociations)
+        && Objects.equals(this.isSetEntityAssociations, legalEntityInfo.isSetEntityAssociations)
         && Objects.equals(this.individual, legalEntityInfo.individual)
+        && Objects.equals(this.isSetIndividual, legalEntityInfo.isSetIndividual)
         && Objects.equals(this.organization, legalEntityInfo.organization)
+        && Objects.equals(this.isSetOrganization, legalEntityInfo.isSetOrganization)
         && Objects.equals(this.reference, legalEntityInfo.reference)
+        && Objects.equals(this.isSetReference, legalEntityInfo.isSetReference)
         && Objects.equals(this.soleProprietorship, legalEntityInfo.soleProprietorship)
+        && Objects.equals(this.isSetSoleProprietorship, legalEntityInfo.isSetSoleProprietorship)
         && Objects.equals(this.trust, legalEntityInfo.trust)
+        && Objects.equals(this.isSetTrust, legalEntityInfo.isSetTrust)
         && Objects.equals(this.type, legalEntityInfo.type)
+        && Objects.equals(this.isSetType, legalEntityInfo.isSetType)
         && Objects.equals(this.unincorporatedPartnership, legalEntityInfo.unincorporatedPartnership)
-        && Objects.equals(this.verificationPlan, legalEntityInfo.verificationPlan);
+        && Objects.equals(
+            this.isSetUnincorporatedPartnership, legalEntityInfo.isSetUnincorporatedPartnership)
+        && Objects.equals(this.verificationPlan, legalEntityInfo.verificationPlan)
+        && Objects.equals(this.isSetVerificationPlan, legalEntityInfo.isSetVerificationPlan);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         capabilities,
+        isSetCapabilities,
         entityAssociations,
+        isSetEntityAssociations,
         individual,
+        isSetIndividual,
         organization,
+        isSetOrganization,
         reference,
+        isSetReference,
         soleProprietorship,
+        isSetSoleProprietorship,
         trust,
+        isSetTrust,
         type,
+        isSetType,
         unincorporatedPartnership,
-        verificationPlan);
+        isSetUnincorporatedPartnership,
+        verificationPlan,
+        isSetVerificationPlan);
   }
 
   @Override

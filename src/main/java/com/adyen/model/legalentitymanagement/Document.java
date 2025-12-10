@@ -764,36 +764,62 @@ public class Document {
     }
     Document document = (Document) o;
     return Objects.equals(this.attachment, document.attachment)
+        && Objects.equals(this.isSetAttachment, document.isSetAttachment)
         && Objects.equals(this.attachments, document.attachments)
+        && Objects.equals(this.isSetAttachments, document.isSetAttachments)
         && Objects.equals(this.creationDate, document.creationDate)
+        && Objects.equals(this.isSetCreationDate, document.isSetCreationDate)
         && Objects.equals(this.description, document.description)
+        && Objects.equals(this.isSetDescription, document.isSetDescription)
         && Objects.equals(this.expiryDate, document.expiryDate)
+        && Objects.equals(this.isSetExpiryDate, document.isSetExpiryDate)
         && Objects.equals(this.fileName, document.fileName)
+        && Objects.equals(this.isSetFileName, document.isSetFileName)
         && Objects.equals(this.id, document.id)
+        && Objects.equals(this.isSetId, document.isSetId)
         && Objects.equals(this.issuerCountry, document.issuerCountry)
+        && Objects.equals(this.isSetIssuerCountry, document.isSetIssuerCountry)
         && Objects.equals(this.issuerState, document.issuerState)
+        && Objects.equals(this.isSetIssuerState, document.isSetIssuerState)
         && Objects.equals(this.modificationDate, document.modificationDate)
+        && Objects.equals(this.isSetModificationDate, document.isSetModificationDate)
         && Objects.equals(this.number, document.number)
+        && Objects.equals(this.isSetNumber, document.isSetNumber)
         && Objects.equals(this.owner, document.owner)
-        && Objects.equals(this.type, document.type);
+        && Objects.equals(this.isSetOwner, document.isSetOwner)
+        && Objects.equals(this.type, document.type)
+        && Objects.equals(this.isSetType, document.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         attachment,
+        isSetAttachment,
         attachments,
+        isSetAttachments,
         creationDate,
+        isSetCreationDate,
         description,
+        isSetDescription,
         expiryDate,
+        isSetExpiryDate,
         fileName,
+        isSetFileName,
         id,
+        isSetId,
         issuerCountry,
+        isSetIssuerCountry,
         issuerState,
+        isSetIssuerState,
         modificationDate,
+        isSetModificationDate,
         number,
+        isSetNumber,
         owner,
-        type);
+        isSetOwner,
+        type,
+        isSetType);
   }
 
   @Override

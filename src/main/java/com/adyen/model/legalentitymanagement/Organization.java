@@ -1601,68 +1601,131 @@ public class Organization {
     }
     Organization organization = (Organization) o;
     return Objects.equals(this.countryOfGoverningLaw, organization.countryOfGoverningLaw)
+        && Objects.equals(this.isSetCountryOfGoverningLaw, organization.isSetCountryOfGoverningLaw)
         && Objects.equals(this.dateOfIncorporation, organization.dateOfIncorporation)
+        && Objects.equals(this.isSetDateOfIncorporation, organization.isSetDateOfIncorporation)
         && Objects.equals(
             this.dateOfInitiationOfLegalProceeding, organization.dateOfInitiationOfLegalProceeding)
+        && Objects.equals(
+            this.isSetDateOfInitiationOfLegalProceeding,
+            organization.isSetDateOfInitiationOfLegalProceeding)
         && Objects.equals(this.description, organization.description)
+        && Objects.equals(this.isSetDescription, organization.isSetDescription)
         && Objects.equals(this.doingBusinessAs, organization.doingBusinessAs)
+        && Objects.equals(this.isSetDoingBusinessAs, organization.isSetDoingBusinessAs)
         && Objects.equals(this.doingBusinessAsAbsent, organization.doingBusinessAsAbsent)
+        && Objects.equals(this.isSetDoingBusinessAsAbsent, organization.isSetDoingBusinessAsAbsent)
         && Objects.equals(this.economicSector, organization.economicSector)
+        && Objects.equals(this.isSetEconomicSector, organization.isSetEconomicSector)
         && Objects.equals(this.email, organization.email)
+        && Objects.equals(this.isSetEmail, organization.isSetEmail)
         && Objects.equals(this.financialReports, organization.financialReports)
+        && Objects.equals(this.isSetFinancialReports, organization.isSetFinancialReports)
         && Objects.equals(
             this.globalLegalEntityIdentifier, organization.globalLegalEntityIdentifier)
+        && Objects.equals(
+            this.isSetGlobalLegalEntityIdentifier, organization.isSetGlobalLegalEntityIdentifier)
         && Objects.equals(this.headOfficeIndicator, organization.headOfficeIndicator)
+        && Objects.equals(this.isSetHeadOfficeIndicator, organization.isSetHeadOfficeIndicator)
         && Objects.equals(this.institutionalSector, organization.institutionalSector)
+        && Objects.equals(this.isSetInstitutionalSector, organization.isSetInstitutionalSector)
         && Objects.equals(this.legalForm, organization.legalForm)
+        && Objects.equals(this.isSetLegalForm, organization.isSetLegalForm)
         && Objects.equals(this.legalName, organization.legalName)
+        && Objects.equals(this.isSetLegalName, organization.isSetLegalName)
         && Objects.equals(this.phone, organization.phone)
+        && Objects.equals(this.isSetPhone, organization.isSetPhone)
         && Objects.equals(this.principalPlaceOfBusiness, organization.principalPlaceOfBusiness)
+        && Objects.equals(
+            this.isSetPrincipalPlaceOfBusiness, organization.isSetPrincipalPlaceOfBusiness)
         && Objects.equals(this.registeredAddress, organization.registeredAddress)
+        && Objects.equals(this.isSetRegisteredAddress, organization.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, organization.registrationNumber)
+        && Objects.equals(this.isSetRegistrationNumber, organization.isSetRegistrationNumber)
         && Objects.equals(this.registrationNumberAbsent, organization.registrationNumberAbsent)
+        && Objects.equals(
+            this.isSetRegistrationNumberAbsent, organization.isSetRegistrationNumberAbsent)
         && Objects.equals(this.statusOfLegalProceeding, organization.statusOfLegalProceeding)
+        && Objects.equals(
+            this.isSetStatusOfLegalProceeding, organization.isSetStatusOfLegalProceeding)
         && Objects.equals(this.stockData, organization.stockData)
+        && Objects.equals(this.isSetStockData, organization.isSetStockData)
         && Objects.equals(this.support, organization.support)
+        && Objects.equals(this.isSetSupport, organization.isSetSupport)
         && Objects.equals(this.taxInformation, organization.taxInformation)
+        && Objects.equals(this.isSetTaxInformation, organization.isSetTaxInformation)
         && Objects.equals(this.taxReportingClassification, organization.taxReportingClassification)
+        && Objects.equals(
+            this.isSetTaxReportingClassification, organization.isSetTaxReportingClassification)
         && Objects.equals(this.type, organization.type)
+        && Objects.equals(this.isSetType, organization.isSetType)
         && Objects.equals(this.vatAbsenceReason, organization.vatAbsenceReason)
+        && Objects.equals(this.isSetVatAbsenceReason, organization.isSetVatAbsenceReason)
         && Objects.equals(this.vatNumber, organization.vatNumber)
-        && Objects.equals(this.webData, organization.webData);
+        && Objects.equals(this.isSetVatNumber, organization.isSetVatNumber)
+        && Objects.equals(this.webData, organization.webData)
+        && Objects.equals(this.isSetWebData, organization.isSetWebData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         countryOfGoverningLaw,
+        isSetCountryOfGoverningLaw,
         dateOfIncorporation,
+        isSetDateOfIncorporation,
         dateOfInitiationOfLegalProceeding,
+        isSetDateOfInitiationOfLegalProceeding,
         description,
+        isSetDescription,
         doingBusinessAs,
+        isSetDoingBusinessAs,
         doingBusinessAsAbsent,
+        isSetDoingBusinessAsAbsent,
         economicSector,
+        isSetEconomicSector,
         email,
+        isSetEmail,
         financialReports,
+        isSetFinancialReports,
         globalLegalEntityIdentifier,
+        isSetGlobalLegalEntityIdentifier,
         headOfficeIndicator,
+        isSetHeadOfficeIndicator,
         institutionalSector,
+        isSetInstitutionalSector,
         legalForm,
+        isSetLegalForm,
         legalName,
+        isSetLegalName,
         phone,
+        isSetPhone,
         principalPlaceOfBusiness,
+        isSetPrincipalPlaceOfBusiness,
         registeredAddress,
+        isSetRegisteredAddress,
         registrationNumber,
+        isSetRegistrationNumber,
         registrationNumberAbsent,
+        isSetRegistrationNumberAbsent,
         statusOfLegalProceeding,
+        isSetStatusOfLegalProceeding,
         stockData,
+        isSetStockData,
         support,
+        isSetSupport,
         taxInformation,
+        isSetTaxInformation,
         taxReportingClassification,
+        isSetTaxReportingClassification,
         type,
+        isSetType,
         vatAbsenceReason,
+        isSetVatAbsenceReason,
         vatNumber,
-        webData);
+        isSetVatNumber,
+        webData,
+        isSetWebData);
   }
 
   @Override

@@ -426,26 +426,42 @@ public class GetTermsOfServiceDocumentResponse {
     GetTermsOfServiceDocumentResponse getTermsOfServiceDocumentResponse =
         (GetTermsOfServiceDocumentResponse) o;
     return Arrays.equals(this.document, getTermsOfServiceDocumentResponse.document)
+        && Objects.equals(this.isSetDocument, getTermsOfServiceDocumentResponse.isSetDocument)
         && Objects.equals(this.id, getTermsOfServiceDocumentResponse.id)
+        && Objects.equals(this.isSetId, getTermsOfServiceDocumentResponse.isSetId)
         && Objects.equals(this.language, getTermsOfServiceDocumentResponse.language)
+        && Objects.equals(this.isSetLanguage, getTermsOfServiceDocumentResponse.isSetLanguage)
         && Objects.equals(
             this.termsOfServiceDocumentFormat,
             getTermsOfServiceDocumentResponse.termsOfServiceDocumentFormat)
         && Objects.equals(
+            this.isSetTermsOfServiceDocumentFormat,
+            getTermsOfServiceDocumentResponse.isSetTermsOfServiceDocumentFormat)
+        && Objects.equals(
             this.termsOfServiceDocumentId,
             getTermsOfServiceDocumentResponse.termsOfServiceDocumentId)
-        && Objects.equals(this.type, getTermsOfServiceDocumentResponse.type);
+        && Objects.equals(
+            this.isSetTermsOfServiceDocumentId,
+            getTermsOfServiceDocumentResponse.isSetTermsOfServiceDocumentId)
+        && Objects.equals(this.type, getTermsOfServiceDocumentResponse.type)
+        && Objects.equals(this.isSetType, getTermsOfServiceDocumentResponse.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         Arrays.hashCode(document),
+        isSetDocument,
         id,
+        isSetId,
         language,
+        isSetLanguage,
         termsOfServiceDocumentFormat,
+        isSetTermsOfServiceDocumentFormat,
         termsOfServiceDocumentId,
-        type);
+        isSetTermsOfServiceDocumentId,
+        type,
+        isSetType);
   }
 
   @Override

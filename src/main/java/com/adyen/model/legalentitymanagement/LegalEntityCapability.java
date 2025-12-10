@@ -397,26 +397,44 @@ public class LegalEntityCapability {
     }
     LegalEntityCapability legalEntityCapability = (LegalEntityCapability) o;
     return Objects.equals(this.allowed, legalEntityCapability.allowed)
+        && Objects.equals(this.isSetAllowed, legalEntityCapability.isSetAllowed)
         && Objects.equals(this.allowedLevel, legalEntityCapability.allowedLevel)
+        && Objects.equals(this.isSetAllowedLevel, legalEntityCapability.isSetAllowedLevel)
         && Objects.equals(this.allowedSettings, legalEntityCapability.allowedSettings)
+        && Objects.equals(this.isSetAllowedSettings, legalEntityCapability.isSetAllowedSettings)
         && Objects.equals(this.requested, legalEntityCapability.requested)
+        && Objects.equals(this.isSetRequested, legalEntityCapability.isSetRequested)
         && Objects.equals(this.requestedLevel, legalEntityCapability.requestedLevel)
+        && Objects.equals(this.isSetRequestedLevel, legalEntityCapability.isSetRequestedLevel)
         && Objects.equals(this.requestedSettings, legalEntityCapability.requestedSettings)
+        && Objects.equals(this.isSetRequestedSettings, legalEntityCapability.isSetRequestedSettings)
         && Objects.equals(this.transferInstruments, legalEntityCapability.transferInstruments)
-        && Objects.equals(this.verificationStatus, legalEntityCapability.verificationStatus);
+        && Objects.equals(
+            this.isSetTransferInstruments, legalEntityCapability.isSetTransferInstruments)
+        && Objects.equals(this.verificationStatus, legalEntityCapability.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus, legalEntityCapability.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         allowed,
+        isSetAllowed,
         allowedLevel,
+        isSetAllowedLevel,
         allowedSettings,
+        isSetAllowedSettings,
         requested,
+        isSetRequested,
         requestedLevel,
+        isSetRequestedLevel,
         requestedSettings,
+        isSetRequestedSettings,
         transferInstruments,
-        verificationStatus);
+        isSetTransferInstruments,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override

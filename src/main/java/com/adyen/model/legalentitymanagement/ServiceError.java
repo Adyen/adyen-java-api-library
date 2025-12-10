@@ -272,15 +272,30 @@ public class ServiceError {
     }
     ServiceError serviceError = (ServiceError) o;
     return Objects.equals(this.errorCode, serviceError.errorCode)
+        && Objects.equals(this.isSetErrorCode, serviceError.isSetErrorCode)
         && Objects.equals(this.errorType, serviceError.errorType)
+        && Objects.equals(this.isSetErrorType, serviceError.isSetErrorType)
         && Objects.equals(this.message, serviceError.message)
+        && Objects.equals(this.isSetMessage, serviceError.isSetMessage)
         && Objects.equals(this.pspReference, serviceError.pspReference)
-        && Objects.equals(this.status, serviceError.status);
+        && Objects.equals(this.isSetPspReference, serviceError.isSetPspReference)
+        && Objects.equals(this.status, serviceError.status)
+        && Objects.equals(this.isSetStatus, serviceError.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorCode, errorType, message, pspReference, status);
+    return Objects.hash(
+        errorCode,
+        isSetErrorCode,
+        errorType,
+        isSetErrorType,
+        message,
+        isSetMessage,
+        pspReference,
+        isSetPspReference,
+        status,
+        isSetStatus);
   }
 
   @Override

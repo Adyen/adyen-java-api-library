@@ -126,12 +126,14 @@ public class WebData {
     }
     WebData webData = (WebData) o;
     return Objects.equals(this.webAddress, webData.webAddress)
-        && Objects.equals(this.webAddressId, webData.webAddressId);
+        && Objects.equals(this.isSetWebAddress, webData.isSetWebAddress)
+        && Objects.equals(this.webAddressId, webData.webAddressId)
+        && Objects.equals(this.isSetWebAddressId, webData.isSetWebAddressId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(webAddress, webAddressId);
+    return Objects.hash(webAddress, isSetWebAddress, webAddressId, isSetWebAddressId);
   }
 
   @Override
