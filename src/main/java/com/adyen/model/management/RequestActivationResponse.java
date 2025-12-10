@@ -146,12 +146,14 @@ public class RequestActivationResponse {
     }
     RequestActivationResponse requestActivationResponse = (RequestActivationResponse) o;
     return Objects.equals(this.companyId, requestActivationResponse.companyId)
-        && Objects.equals(this.merchantId, requestActivationResponse.merchantId);
+        && Objects.equals(this.isSetCompanyId, requestActivationResponse.isSetCompanyId)
+        && Objects.equals(this.merchantId, requestActivationResponse.merchantId)
+        && Objects.equals(this.isSetMerchantId, requestActivationResponse.isSetMerchantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyId, merchantId);
+    return Objects.hash(companyId, isSetCompanyId, merchantId, isSetMerchantId);
   }
 
   @Override

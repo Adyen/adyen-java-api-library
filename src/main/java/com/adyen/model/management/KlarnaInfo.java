@@ -291,14 +291,26 @@ public class KlarnaInfo {
     }
     KlarnaInfo klarnaInfo = (KlarnaInfo) o;
     return Objects.equals(this.autoCapture, klarnaInfo.autoCapture)
+        && Objects.equals(this.isSetAutoCapture, klarnaInfo.isSetAutoCapture)
         && Objects.equals(this.disputeEmail, klarnaInfo.disputeEmail)
+        && Objects.equals(this.isSetDisputeEmail, klarnaInfo.isSetDisputeEmail)
         && Objects.equals(this.region, klarnaInfo.region)
-        && Objects.equals(this.supportEmail, klarnaInfo.supportEmail);
+        && Objects.equals(this.isSetRegion, klarnaInfo.isSetRegion)
+        && Objects.equals(this.supportEmail, klarnaInfo.supportEmail)
+        && Objects.equals(this.isSetSupportEmail, klarnaInfo.isSetSupportEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoCapture, disputeEmail, region, supportEmail);
+    return Objects.hash(
+        autoCapture,
+        isSetAutoCapture,
+        disputeEmail,
+        isSetDisputeEmail,
+        region,
+        isSetRegion,
+        supportEmail,
+        isSetSupportEmail);
   }
 
   @Override

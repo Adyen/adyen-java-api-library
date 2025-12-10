@@ -207,13 +207,22 @@ public class StoreAndForward {
     }
     StoreAndForward storeAndForward = (StoreAndForward) o;
     return Objects.equals(this.maxAmount, storeAndForward.maxAmount)
+        && Objects.equals(this.isSetMaxAmount, storeAndForward.isSetMaxAmount)
         && Objects.equals(this.maxPayments, storeAndForward.maxPayments)
-        && Objects.equals(this.supportedCardTypes, storeAndForward.supportedCardTypes);
+        && Objects.equals(this.isSetMaxPayments, storeAndForward.isSetMaxPayments)
+        && Objects.equals(this.supportedCardTypes, storeAndForward.supportedCardTypes)
+        && Objects.equals(this.isSetSupportedCardTypes, storeAndForward.isSetSupportedCardTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxAmount, maxPayments, supportedCardTypes);
+    return Objects.hash(
+        maxAmount,
+        isSetMaxAmount,
+        maxPayments,
+        isSetMaxPayments,
+        supportedCardTypes,
+        isSetSupportedCardTypes);
   }
 
   @Override

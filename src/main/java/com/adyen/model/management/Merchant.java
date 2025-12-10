@@ -773,38 +773,68 @@ public class Merchant {
     }
     Merchant merchant = (Merchant) o;
     return Objects.equals(this.links, merchant.links)
+        && Objects.equals(this.isSetLinks, merchant.isSetLinks)
         && Objects.equals(this.captureDelay, merchant.captureDelay)
+        && Objects.equals(this.isSetCaptureDelay, merchant.isSetCaptureDelay)
         && Objects.equals(this.companyId, merchant.companyId)
+        && Objects.equals(this.isSetCompanyId, merchant.isSetCompanyId)
         && Objects.equals(this.dataCenters, merchant.dataCenters)
+        && Objects.equals(this.isSetDataCenters, merchant.isSetDataCenters)
         && Objects.equals(this.defaultShopperInteraction, merchant.defaultShopperInteraction)
+        && Objects.equals(
+            this.isSetDefaultShopperInteraction, merchant.isSetDefaultShopperInteraction)
         && Objects.equals(this.description, merchant.description)
+        && Objects.equals(this.isSetDescription, merchant.isSetDescription)
         && Objects.equals(this.id, merchant.id)
+        && Objects.equals(this.isSetId, merchant.isSetId)
         && Objects.equals(this.merchantCity, merchant.merchantCity)
+        && Objects.equals(this.isSetMerchantCity, merchant.isSetMerchantCity)
         && Objects.equals(this.name, merchant.name)
+        && Objects.equals(this.isSetName, merchant.isSetName)
         && Objects.equals(this.pricingPlan, merchant.pricingPlan)
+        && Objects.equals(this.isSetPricingPlan, merchant.isSetPricingPlan)
         && Objects.equals(this.primarySettlementCurrency, merchant.primarySettlementCurrency)
+        && Objects.equals(
+            this.isSetPrimarySettlementCurrency, merchant.isSetPrimarySettlementCurrency)
         && Objects.equals(this.reference, merchant.reference)
+        && Objects.equals(this.isSetReference, merchant.isSetReference)
         && Objects.equals(this.shopWebAddress, merchant.shopWebAddress)
-        && Objects.equals(this.status, merchant.status);
+        && Objects.equals(this.isSetShopWebAddress, merchant.isSetShopWebAddress)
+        && Objects.equals(this.status, merchant.status)
+        && Objects.equals(this.isSetStatus, merchant.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         captureDelay,
+        isSetCaptureDelay,
         companyId,
+        isSetCompanyId,
         dataCenters,
+        isSetDataCenters,
         defaultShopperInteraction,
+        isSetDefaultShopperInteraction,
         description,
+        isSetDescription,
         id,
+        isSetId,
         merchantCity,
+        isSetMerchantCity,
         name,
+        isSetName,
         pricingPlan,
+        isSetPricingPlan,
         primarySettlementCurrency,
+        isSetPrimarySettlementCurrency,
         reference,
+        isSetReference,
         shopWebAddress,
-        status);
+        isSetShopWebAddress,
+        status,
+        isSetStatus);
   }
 
   @Override

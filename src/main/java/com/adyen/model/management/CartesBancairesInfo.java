@@ -147,12 +147,15 @@ public class CartesBancairesInfo {
     }
     CartesBancairesInfo cartesBancairesInfo = (CartesBancairesInfo) o;
     return Objects.equals(this.siret, cartesBancairesInfo.siret)
-        && Objects.equals(this.transactionDescription, cartesBancairesInfo.transactionDescription);
+        && Objects.equals(this.isSetSiret, cartesBancairesInfo.isSetSiret)
+        && Objects.equals(this.transactionDescription, cartesBancairesInfo.transactionDescription)
+        && Objects.equals(
+            this.isSetTransactionDescription, cartesBancairesInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(siret, transactionDescription);
+    return Objects.hash(siret, isSetSiret, transactionDescription, isSetTransactionDescription);
   }
 
   @Override

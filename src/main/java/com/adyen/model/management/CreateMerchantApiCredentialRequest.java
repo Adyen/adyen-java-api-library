@@ -237,13 +237,19 @@ public class CreateMerchantApiCredentialRequest {
     CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest =
         (CreateMerchantApiCredentialRequest) o;
     return Objects.equals(this.allowedOrigins, createMerchantApiCredentialRequest.allowedOrigins)
+        && Objects.equals(
+            this.isSetAllowedOrigins, createMerchantApiCredentialRequest.isSetAllowedOrigins)
         && Objects.equals(this.description, createMerchantApiCredentialRequest.description)
-        && Objects.equals(this.roles, createMerchantApiCredentialRequest.roles);
+        && Objects.equals(
+            this.isSetDescription, createMerchantApiCredentialRequest.isSetDescription)
+        && Objects.equals(this.roles, createMerchantApiCredentialRequest.roles)
+        && Objects.equals(this.isSetRoles, createMerchantApiCredentialRequest.isSetRoles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedOrigins, description, roles);
+    return Objects.hash(
+        allowedOrigins, isSetAllowedOrigins, description, isSetDescription, roles, isSetRoles);
   }
 
   @Override

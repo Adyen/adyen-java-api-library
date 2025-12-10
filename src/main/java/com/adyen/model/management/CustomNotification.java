@@ -405,18 +405,38 @@ public class CustomNotification {
     }
     CustomNotification customNotification = (CustomNotification) o;
     return Objects.equals(this.amount, customNotification.amount)
+        && Objects.equals(this.isSetAmount, customNotification.isSetAmount)
         && Objects.equals(this.eventCode, customNotification.eventCode)
+        && Objects.equals(this.isSetEventCode, customNotification.isSetEventCode)
         && Objects.equals(this.eventDate, customNotification.eventDate)
+        && Objects.equals(this.isSetEventDate, customNotification.isSetEventDate)
         && Objects.equals(this.merchantReference, customNotification.merchantReference)
+        && Objects.equals(this.isSetMerchantReference, customNotification.isSetMerchantReference)
         && Objects.equals(this.paymentMethod, customNotification.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, customNotification.isSetPaymentMethod)
         && Objects.equals(this.reason, customNotification.reason)
-        && Objects.equals(this.success, customNotification.success);
+        && Objects.equals(this.isSetReason, customNotification.isSetReason)
+        && Objects.equals(this.success, customNotification.success)
+        && Objects.equals(this.isSetSuccess, customNotification.isSetSuccess);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount, eventCode, eventDate, merchantReference, paymentMethod, reason, success);
+        amount,
+        isSetAmount,
+        eventCode,
+        isSetEventCode,
+        eventDate,
+        isSetEventDate,
+        merchantReference,
+        isSetMerchantReference,
+        paymentMethod,
+        isSetPaymentMethod,
+        reason,
+        isSetReason,
+        success,
+        isSetSuccess);
   }
 
   @Override

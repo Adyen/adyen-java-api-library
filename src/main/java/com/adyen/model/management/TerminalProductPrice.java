@@ -152,12 +152,14 @@ public class TerminalProductPrice {
     }
     TerminalProductPrice terminalProductPrice = (TerminalProductPrice) o;
     return Objects.equals(this.currency, terminalProductPrice.currency)
-        && Objects.equals(this.value, terminalProductPrice.value);
+        && Objects.equals(this.isSetCurrency, terminalProductPrice.isSetCurrency)
+        && Objects.equals(this.value, terminalProductPrice.value)
+        && Objects.equals(this.isSetValue, terminalProductPrice.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, value);
+    return Objects.hash(currency, isSetCurrency, value, isSetValue);
   }
 
   @Override

@@ -450,25 +450,42 @@ public class ScheduleTerminalActionsResponse {
     ScheduleTerminalActionsResponse scheduleTerminalActionsResponse =
         (ScheduleTerminalActionsResponse) o;
     return Objects.equals(this.actionDetails, scheduleTerminalActionsResponse.actionDetails)
+        && Objects.equals(
+            this.isSetActionDetails, scheduleTerminalActionsResponse.isSetActionDetails)
         && Objects.equals(this.items, scheduleTerminalActionsResponse.items)
+        && Objects.equals(this.isSetItems, scheduleTerminalActionsResponse.isSetItems)
         && Objects.equals(this.scheduledAt, scheduleTerminalActionsResponse.scheduledAt)
+        && Objects.equals(this.isSetScheduledAt, scheduleTerminalActionsResponse.isSetScheduledAt)
         && Objects.equals(this.storeId, scheduleTerminalActionsResponse.storeId)
+        && Objects.equals(this.isSetStoreId, scheduleTerminalActionsResponse.isSetStoreId)
         && Objects.equals(
             this.terminalsWithErrors, scheduleTerminalActionsResponse.terminalsWithErrors)
+        && Objects.equals(
+            this.isSetTerminalsWithErrors, scheduleTerminalActionsResponse.isSetTerminalsWithErrors)
         && Objects.equals(this.totalErrors, scheduleTerminalActionsResponse.totalErrors)
-        && Objects.equals(this.totalScheduled, scheduleTerminalActionsResponse.totalScheduled);
+        && Objects.equals(this.isSetTotalErrors, scheduleTerminalActionsResponse.isSetTotalErrors)
+        && Objects.equals(this.totalScheduled, scheduleTerminalActionsResponse.totalScheduled)
+        && Objects.equals(
+            this.isSetTotalScheduled, scheduleTerminalActionsResponse.isSetTotalScheduled);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         actionDetails,
+        isSetActionDetails,
         items,
+        isSetItems,
         scheduledAt,
+        isSetScheduledAt,
         storeId,
+        isSetStoreId,
         terminalsWithErrors,
+        isSetTerminalsWithErrors,
         totalErrors,
-        totalScheduled);
+        isSetTotalErrors,
+        totalScheduled,
+        isSetTotalScheduled);
   }
 
   @Override

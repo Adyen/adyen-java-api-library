@@ -254,14 +254,26 @@ public class Currency {
     }
     Currency currency = (Currency) o;
     return Objects.equals(this.amount, currency.amount)
+        && Objects.equals(this.isSetAmount, currency.isSetAmount)
         && Objects.equals(this.currencyCode, currency.currencyCode)
+        && Objects.equals(this.isSetCurrencyCode, currency.isSetCurrencyCode)
         && Objects.equals(this.maxAmount, currency.maxAmount)
-        && Objects.equals(this.percentage, currency.percentage);
+        && Objects.equals(this.isSetMaxAmount, currency.isSetMaxAmount)
+        && Objects.equals(this.percentage, currency.percentage)
+        && Objects.equals(this.isSetPercentage, currency.isSetPercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, currencyCode, maxAmount, percentage);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        currencyCode,
+        isSetCurrencyCode,
+        maxAmount,
+        isSetMaxAmount,
+        percentage,
+        isSetPercentage);
   }
 
   @Override

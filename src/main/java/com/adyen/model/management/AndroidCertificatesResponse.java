@@ -111,12 +111,13 @@ public class AndroidCertificatesResponse {
       return false;
     }
     AndroidCertificatesResponse androidCertificatesResponse = (AndroidCertificatesResponse) o;
-    return Objects.equals(this.data, androidCertificatesResponse.data);
+    return Objects.equals(this.data, androidCertificatesResponse.data)
+        && Objects.equals(this.isSetData, androidCertificatesResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

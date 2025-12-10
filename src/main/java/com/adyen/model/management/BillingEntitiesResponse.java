@@ -111,12 +111,13 @@ public class BillingEntitiesResponse {
       return false;
     }
     BillingEntitiesResponse billingEntitiesResponse = (BillingEntitiesResponse) o;
-    return Objects.equals(this.data, billingEntitiesResponse.data);
+    return Objects.equals(this.data, billingEntitiesResponse.data)
+        && Objects.equals(this.isSetData, billingEntitiesResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

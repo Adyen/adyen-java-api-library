@@ -309,14 +309,27 @@ public class ScheduleTerminalActionsRequest {
     ScheduleTerminalActionsRequest scheduleTerminalActionsRequest =
         (ScheduleTerminalActionsRequest) o;
     return Objects.equals(this.actionDetails, scheduleTerminalActionsRequest.actionDetails)
+        && Objects.equals(
+            this.isSetActionDetails, scheduleTerminalActionsRequest.isSetActionDetails)
         && Objects.equals(this.scheduledAt, scheduleTerminalActionsRequest.scheduledAt)
+        && Objects.equals(this.isSetScheduledAt, scheduleTerminalActionsRequest.isSetScheduledAt)
         && Objects.equals(this.storeId, scheduleTerminalActionsRequest.storeId)
-        && Objects.equals(this.terminalIds, scheduleTerminalActionsRequest.terminalIds);
+        && Objects.equals(this.isSetStoreId, scheduleTerminalActionsRequest.isSetStoreId)
+        && Objects.equals(this.terminalIds, scheduleTerminalActionsRequest.terminalIds)
+        && Objects.equals(this.isSetTerminalIds, scheduleTerminalActionsRequest.isSetTerminalIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionDetails, scheduledAt, storeId, terminalIds);
+    return Objects.hash(
+        actionDetails,
+        isSetActionDetails,
+        scheduledAt,
+        isSetScheduledAt,
+        storeId,
+        isSetStoreId,
+        terminalIds,
+        isSetTerminalIds);
   }
 
   @Override

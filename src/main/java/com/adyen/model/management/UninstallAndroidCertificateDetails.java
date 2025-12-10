@@ -192,12 +192,15 @@ public class UninstallAndroidCertificateDetails {
     UninstallAndroidCertificateDetails uninstallAndroidCertificateDetails =
         (UninstallAndroidCertificateDetails) o;
     return Objects.equals(this.certificateId, uninstallAndroidCertificateDetails.certificateId)
-        && Objects.equals(this.type, uninstallAndroidCertificateDetails.type);
+        && Objects.equals(
+            this.isSetCertificateId, uninstallAndroidCertificateDetails.isSetCertificateId)
+        && Objects.equals(this.type, uninstallAndroidCertificateDetails.type)
+        && Objects.equals(this.isSetType, uninstallAndroidCertificateDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, type);
+    return Objects.hash(certificateId, isSetCertificateId, type, isSetType);
   }
 
   @Override

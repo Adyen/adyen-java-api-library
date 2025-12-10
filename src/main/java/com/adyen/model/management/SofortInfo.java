@@ -143,12 +143,14 @@ public class SofortInfo {
     }
     SofortInfo sofortInfo = (SofortInfo) o;
     return Objects.equals(this.currencyCode, sofortInfo.currencyCode)
-        && Objects.equals(this.logo, sofortInfo.logo);
+        && Objects.equals(this.isSetCurrencyCode, sofortInfo.isSetCurrencyCode)
+        && Objects.equals(this.logo, sofortInfo.logo)
+        && Objects.equals(this.isSetLogo, sofortInfo.isSetLogo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, logo);
+    return Objects.hash(currencyCode, isSetCurrencyCode, logo, isSetLogo);
   }
 
   @Override

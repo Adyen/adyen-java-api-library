@@ -149,12 +149,14 @@ public class VippsInfo {
     }
     VippsInfo vippsInfo = (VippsInfo) o;
     return Objects.equals(this.logo, vippsInfo.logo)
-        && Objects.equals(this.subscriptionCancelUrl, vippsInfo.subscriptionCancelUrl);
+        && Objects.equals(this.isSetLogo, vippsInfo.isSetLogo)
+        && Objects.equals(this.subscriptionCancelUrl, vippsInfo.subscriptionCancelUrl)
+        && Objects.equals(this.isSetSubscriptionCancelUrl, vippsInfo.isSetSubscriptionCancelUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo, subscriptionCancelUrl);
+    return Objects.hash(logo, isSetLogo, subscriptionCancelUrl, isSetSubscriptionCancelUrl);
   }
 
   @Override

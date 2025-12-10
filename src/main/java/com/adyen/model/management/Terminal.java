@@ -456,28 +456,46 @@ public class Terminal {
     }
     Terminal terminal = (Terminal) o;
     return Objects.equals(this.assignment, terminal.assignment)
+        && Objects.equals(this.isSetAssignment, terminal.isSetAssignment)
         && Objects.equals(this.connectivity, terminal.connectivity)
+        && Objects.equals(this.isSetConnectivity, terminal.isSetConnectivity)
         && Objects.equals(this.firmwareVersion, terminal.firmwareVersion)
+        && Objects.equals(this.isSetFirmwareVersion, terminal.isSetFirmwareVersion)
         && Objects.equals(this.id, terminal.id)
+        && Objects.equals(this.isSetId, terminal.isSetId)
         && Objects.equals(this.lastActivityAt, terminal.lastActivityAt)
+        && Objects.equals(this.isSetLastActivityAt, terminal.isSetLastActivityAt)
         && Objects.equals(this.lastTransactionAt, terminal.lastTransactionAt)
+        && Objects.equals(this.isSetLastTransactionAt, terminal.isSetLastTransactionAt)
         && Objects.equals(this.model, terminal.model)
+        && Objects.equals(this.isSetModel, terminal.isSetModel)
         && Objects.equals(this.restartLocalTime, terminal.restartLocalTime)
-        && Objects.equals(this.serialNumber, terminal.serialNumber);
+        && Objects.equals(this.isSetRestartLocalTime, terminal.isSetRestartLocalTime)
+        && Objects.equals(this.serialNumber, terminal.serialNumber)
+        && Objects.equals(this.isSetSerialNumber, terminal.isSetSerialNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         assignment,
+        isSetAssignment,
         connectivity,
+        isSetConnectivity,
         firmwareVersion,
+        isSetFirmwareVersion,
         id,
+        isSetId,
         lastActivityAt,
+        isSetLastActivityAt,
         lastTransactionAt,
+        isSetLastTransactionAt,
         model,
+        isSetModel,
         restartLocalTime,
-        serialNumber);
+        isSetRestartLocalTime,
+        serialNumber,
+        isSetSerialNumber);
   }
 
   @Override

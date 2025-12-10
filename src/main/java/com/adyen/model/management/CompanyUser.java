@@ -589,32 +589,55 @@ public class CompanyUser {
     }
     CompanyUser companyUser = (CompanyUser) o;
     return Objects.equals(this.links, companyUser.links)
+        && Objects.equals(this.isSetLinks, companyUser.isSetLinks)
         && Objects.equals(this.accountGroups, companyUser.accountGroups)
+        && Objects.equals(this.isSetAccountGroups, companyUser.isSetAccountGroups)
         && Objects.equals(this.active, companyUser.active)
+        && Objects.equals(this.isSetActive, companyUser.isSetActive)
         && Objects.equals(this.apps, companyUser.apps)
+        && Objects.equals(this.isSetApps, companyUser.isSetApps)
         && Objects.equals(this.associatedMerchantAccounts, companyUser.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts, companyUser.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.email, companyUser.email)
+        && Objects.equals(this.isSetEmail, companyUser.isSetEmail)
         && Objects.equals(this.id, companyUser.id)
+        && Objects.equals(this.isSetId, companyUser.isSetId)
         && Objects.equals(this.name, companyUser.name)
+        && Objects.equals(this.isSetName, companyUser.isSetName)
         && Objects.equals(this.roles, companyUser.roles)
+        && Objects.equals(this.isSetRoles, companyUser.isSetRoles)
         && Objects.equals(this.timeZoneCode, companyUser.timeZoneCode)
-        && Objects.equals(this.username, companyUser.username);
+        && Objects.equals(this.isSetTimeZoneCode, companyUser.isSetTimeZoneCode)
+        && Objects.equals(this.username, companyUser.username)
+        && Objects.equals(this.isSetUsername, companyUser.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         accountGroups,
+        isSetAccountGroups,
         active,
+        isSetActive,
         apps,
+        isSetApps,
         associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
         email,
+        isSetEmail,
         id,
+        isSetId,
         name,
+        isSetName,
         roles,
+        isSetRoles,
         timeZoneCode,
-        username);
+        isSetTimeZoneCode,
+        username,
+        isSetUsername);
   }
 
   @Override

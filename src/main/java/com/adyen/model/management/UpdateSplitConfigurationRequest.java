@@ -103,12 +103,13 @@ public class UpdateSplitConfigurationRequest {
     }
     UpdateSplitConfigurationRequest updateSplitConfigurationRequest =
         (UpdateSplitConfigurationRequest) o;
-    return Objects.equals(this.description, updateSplitConfigurationRequest.description);
+    return Objects.equals(this.description, updateSplitConfigurationRequest.description)
+        && Objects.equals(this.isSetDescription, updateSplitConfigurationRequest.isSetDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description);
+    return Objects.hash(description, isSetDescription);
   }
 
   @Override

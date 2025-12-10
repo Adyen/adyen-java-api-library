@@ -101,12 +101,12 @@ public class Links {
       return false;
     }
     Links links = (Links) o;
-    return Objects.equals(this.self, links.self);
+    return Objects.equals(this.self, links.self) && Objects.equals(this.isSetSelf, links.isSetSelf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self);
+    return Objects.hash(self, isSetSelf);
   }
 
   @Override

@@ -285,14 +285,26 @@ public class Gratuity {
     }
     Gratuity gratuity = (Gratuity) o;
     return Objects.equals(this.allowCustomAmount, gratuity.allowCustomAmount)
+        && Objects.equals(this.isSetAllowCustomAmount, gratuity.isSetAllowCustomAmount)
         && Objects.equals(this.currency, gratuity.currency)
+        && Objects.equals(this.isSetCurrency, gratuity.isSetCurrency)
         && Objects.equals(this.predefinedTipEntries, gratuity.predefinedTipEntries)
-        && Objects.equals(this.usePredefinedTipEntries, gratuity.usePredefinedTipEntries);
+        && Objects.equals(this.isSetPredefinedTipEntries, gratuity.isSetPredefinedTipEntries)
+        && Objects.equals(this.usePredefinedTipEntries, gratuity.usePredefinedTipEntries)
+        && Objects.equals(this.isSetUsePredefinedTipEntries, gratuity.isSetUsePredefinedTipEntries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowCustomAmount, currency, predefinedTipEntries, usePredefinedTipEntries);
+    return Objects.hash(
+        allowCustomAmount,
+        isSetAllowCustomAmount,
+        currency,
+        isSetCurrency,
+        predefinedTipEntries,
+        isSetPredefinedTipEntries,
+        usePredefinedTipEntries,
+        isSetUsePredefinedTipEntries);
   }
 
   @Override

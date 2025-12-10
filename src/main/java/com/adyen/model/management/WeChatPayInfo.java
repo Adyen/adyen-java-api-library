@@ -146,12 +146,14 @@ public class WeChatPayInfo {
     }
     WeChatPayInfo weChatPayInfo = (WeChatPayInfo) o;
     return Objects.equals(this.contactPersonName, weChatPayInfo.contactPersonName)
-        && Objects.equals(this.email, weChatPayInfo.email);
+        && Objects.equals(this.isSetContactPersonName, weChatPayInfo.isSetContactPersonName)
+        && Objects.equals(this.email, weChatPayInfo.email)
+        && Objects.equals(this.isSetEmail, weChatPayInfo.isSetEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactPersonName, email);
+    return Objects.hash(contactPersonName, isSetContactPersonName, email, isSetEmail);
   }
 
   @Override

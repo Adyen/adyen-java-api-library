@@ -230,12 +230,15 @@ public class NyceInfo {
     }
     NyceInfo nyceInfo = (NyceInfo) o;
     return Objects.equals(this.processingType, nyceInfo.processingType)
-        && Objects.equals(this.transactionDescription, nyceInfo.transactionDescription);
+        && Objects.equals(this.isSetProcessingType, nyceInfo.isSetProcessingType)
+        && Objects.equals(this.transactionDescription, nyceInfo.transactionDescription)
+        && Objects.equals(this.isSetTransactionDescription, nyceInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(processingType, transactionDescription);
+    return Objects.hash(
+        processingType, isSetProcessingType, transactionDescription, isSetTransactionDescription);
   }
 
   @Override

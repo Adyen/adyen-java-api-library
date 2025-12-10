@@ -143,12 +143,14 @@ public class Refunds {
     }
     Refunds refunds = (Refunds) o;
     return Objects.equals(this.referenced, refunds.referenced)
-        && Objects.equals(this.unreferenced, refunds.unreferenced);
+        && Objects.equals(this.isSetReferenced, refunds.isSetReferenced)
+        && Objects.equals(this.unreferenced, refunds.unreferenced)
+        && Objects.equals(this.isSetUnreferenced, refunds.isSetUnreferenced);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(referenced, unreferenced);
+    return Objects.hash(referenced, isSetReferenced, unreferenced, isSetUnreferenced);
   }
 
   @Override

@@ -110,12 +110,13 @@ public class UpdatePayoutSettingsRequest {
       return false;
     }
     UpdatePayoutSettingsRequest updatePayoutSettingsRequest = (UpdatePayoutSettingsRequest) o;
-    return Objects.equals(this.enabled, updatePayoutSettingsRequest.enabled);
+    return Objects.equals(this.enabled, updatePayoutSettingsRequest.enabled)
+        && Objects.equals(this.isSetEnabled, updatePayoutSettingsRequest.isSetEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled);
+    return Objects.hash(enabled, isSetEnabled);
   }
 
   @Override

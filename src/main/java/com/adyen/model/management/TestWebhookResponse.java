@@ -114,12 +114,13 @@ public class TestWebhookResponse {
       return false;
     }
     TestWebhookResponse testWebhookResponse = (TestWebhookResponse) o;
-    return Objects.equals(this.data, testWebhookResponse.data);
+    return Objects.equals(this.data, testWebhookResponse.data)
+        && Objects.equals(this.isSetData, testWebhookResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

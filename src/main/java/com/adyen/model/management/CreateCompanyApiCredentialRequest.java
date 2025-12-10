@@ -295,15 +295,30 @@ public class CreateCompanyApiCredentialRequest {
         (CreateCompanyApiCredentialRequest) o;
     return Objects.equals(this.allowedOrigins, createCompanyApiCredentialRequest.allowedOrigins)
         && Objects.equals(
+            this.isSetAllowedOrigins, createCompanyApiCredentialRequest.isSetAllowedOrigins)
+        && Objects.equals(
             this.associatedMerchantAccounts,
             createCompanyApiCredentialRequest.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts,
+            createCompanyApiCredentialRequest.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.description, createCompanyApiCredentialRequest.description)
-        && Objects.equals(this.roles, createCompanyApiCredentialRequest.roles);
+        && Objects.equals(this.isSetDescription, createCompanyApiCredentialRequest.isSetDescription)
+        && Objects.equals(this.roles, createCompanyApiCredentialRequest.roles)
+        && Objects.equals(this.isSetRoles, createCompanyApiCredentialRequest.isSetRoles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedOrigins, associatedMerchantAccounts, description, roles);
+    return Objects.hash(
+        allowedOrigins,
+        isSetAllowedOrigins,
+        associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
+        description,
+        isSetDescription,
+        roles,
+        isSetRoles);
   }
 
   @Override

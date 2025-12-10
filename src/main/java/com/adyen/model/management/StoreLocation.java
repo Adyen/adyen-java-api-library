@@ -377,17 +377,38 @@ public class StoreLocation {
     }
     StoreLocation storeLocation = (StoreLocation) o;
     return Objects.equals(this.city, storeLocation.city)
+        && Objects.equals(this.isSetCity, storeLocation.isSetCity)
         && Objects.equals(this.country, storeLocation.country)
+        && Objects.equals(this.isSetCountry, storeLocation.isSetCountry)
         && Objects.equals(this.line1, storeLocation.line1)
+        && Objects.equals(this.isSetLine1, storeLocation.isSetLine1)
         && Objects.equals(this.line2, storeLocation.line2)
+        && Objects.equals(this.isSetLine2, storeLocation.isSetLine2)
         && Objects.equals(this.line3, storeLocation.line3)
+        && Objects.equals(this.isSetLine3, storeLocation.isSetLine3)
         && Objects.equals(this.postalCode, storeLocation.postalCode)
-        && Objects.equals(this.stateOrProvince, storeLocation.stateOrProvince);
+        && Objects.equals(this.isSetPostalCode, storeLocation.isSetPostalCode)
+        && Objects.equals(this.stateOrProvince, storeLocation.stateOrProvince)
+        && Objects.equals(this.isSetStateOrProvince, storeLocation.isSetStateOrProvince);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, line1, line2, line3, postalCode, stateOrProvince);
+    return Objects.hash(
+        city,
+        isSetCity,
+        country,
+        isSetCountry,
+        line1,
+        isSetLine1,
+        line2,
+        isSetLine2,
+        line3,
+        isSetLine3,
+        postalCode,
+        isSetPostalCode,
+        stateOrProvince,
+        isSetStateOrProvince);
   }
 
   @Override

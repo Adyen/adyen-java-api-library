@@ -357,14 +357,26 @@ public class JCBInfo {
     }
     JCBInfo jcBInfo = (JCBInfo) o;
     return Objects.equals(this.midNumber, jcBInfo.midNumber)
+        && Objects.equals(this.isSetMidNumber, jcBInfo.isSetMidNumber)
         && Objects.equals(this.reuseMidNumber, jcBInfo.reuseMidNumber)
+        && Objects.equals(this.isSetReuseMidNumber, jcBInfo.isSetReuseMidNumber)
         && Objects.equals(this.serviceLevel, jcBInfo.serviceLevel)
-        && Objects.equals(this.transactionDescription, jcBInfo.transactionDescription);
+        && Objects.equals(this.isSetServiceLevel, jcBInfo.isSetServiceLevel)
+        && Objects.equals(this.transactionDescription, jcBInfo.transactionDescription)
+        && Objects.equals(this.isSetTransactionDescription, jcBInfo.isSetTransactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(midNumber, reuseMidNumber, serviceLevel, transactionDescription);
+    return Objects.hash(
+        midNumber,
+        isSetMidNumber,
+        reuseMidNumber,
+        isSetReuseMidNumber,
+        serviceLevel,
+        isSetServiceLevel,
+        transactionDescription,
+        isSetTransactionDescription);
   }
 
   @Override

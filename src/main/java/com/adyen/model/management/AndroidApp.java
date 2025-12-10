@@ -564,20 +564,46 @@ public class AndroidApp {
     }
     AndroidApp androidApp = (AndroidApp) o;
     return Objects.equals(this.description, androidApp.description)
+        && Objects.equals(this.isSetDescription, androidApp.isSetDescription)
         && Objects.equals(this.errorCode, androidApp.errorCode)
+        && Objects.equals(this.isSetErrorCode, androidApp.isSetErrorCode)
         && Objects.equals(this.errors, androidApp.errors)
+        && Objects.equals(this.isSetErrors, androidApp.isSetErrors)
         && Objects.equals(this.id, androidApp.id)
+        && Objects.equals(this.isSetId, androidApp.isSetId)
         && Objects.equals(this.label, androidApp.label)
+        && Objects.equals(this.isSetLabel, androidApp.isSetLabel)
         && Objects.equals(this.packageName, androidApp.packageName)
+        && Objects.equals(this.isSetPackageName, androidApp.isSetPackageName)
         && Objects.equals(this.status, androidApp.status)
+        && Objects.equals(this.isSetStatus, androidApp.isSetStatus)
         && Objects.equals(this.versionCode, androidApp.versionCode)
-        && Objects.equals(this.versionName, androidApp.versionName);
+        && Objects.equals(this.isSetVersionCode, androidApp.isSetVersionCode)
+        && Objects.equals(this.versionName, androidApp.versionName)
+        && Objects.equals(this.isSetVersionName, androidApp.isSetVersionName);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        description, errorCode, errors, id, label, packageName, status, versionCode, versionName);
+        description,
+        isSetDescription,
+        errorCode,
+        isSetErrorCode,
+        errors,
+        isSetErrors,
+        id,
+        isSetId,
+        label,
+        isSetLabel,
+        packageName,
+        isSetPackageName,
+        status,
+        isSetStatus,
+        versionCode,
+        isSetVersionCode,
+        versionName,
+        isSetVersionName);
   }
 
   @Override

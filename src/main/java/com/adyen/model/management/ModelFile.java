@@ -144,12 +144,15 @@ public class ModelFile {
       return false;
     }
     ModelFile _file = (ModelFile) o;
-    return Objects.equals(this.data, _file.data) && Objects.equals(this.name, _file.name);
+    return Objects.equals(this.data, _file.data)
+        && Objects.equals(this.isSetData, _file.isSetData)
+        && Objects.equals(this.name, _file.name)
+        && Objects.equals(this.isSetName, _file.isSetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, name);
+    return Objects.hash(data, isSetData, name, isSetName);
   }
 
   @Override

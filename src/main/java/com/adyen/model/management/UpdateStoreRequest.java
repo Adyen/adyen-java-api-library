@@ -551,26 +551,43 @@ public class UpdateStoreRequest {
     }
     UpdateStoreRequest updateStoreRequest = (UpdateStoreRequest) o;
     return Objects.equals(this.address, updateStoreRequest.address)
+        && Objects.equals(this.isSetAddress, updateStoreRequest.isSetAddress)
         && Objects.equals(this.businessLineIds, updateStoreRequest.businessLineIds)
+        && Objects.equals(this.isSetBusinessLineIds, updateStoreRequest.isSetBusinessLineIds)
         && Objects.equals(this.description, updateStoreRequest.description)
+        && Objects.equals(this.isSetDescription, updateStoreRequest.isSetDescription)
         && Objects.equals(this.externalReferenceId, updateStoreRequest.externalReferenceId)
+        && Objects.equals(
+            this.isSetExternalReferenceId, updateStoreRequest.isSetExternalReferenceId)
         && Objects.equals(this.phoneNumber, updateStoreRequest.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, updateStoreRequest.isSetPhoneNumber)
         && Objects.equals(this.splitConfiguration, updateStoreRequest.splitConfiguration)
+        && Objects.equals(this.isSetSplitConfiguration, updateStoreRequest.isSetSplitConfiguration)
         && Objects.equals(this.status, updateStoreRequest.status)
-        && Objects.equals(this.subMerchantData, updateStoreRequest.subMerchantData);
+        && Objects.equals(this.isSetStatus, updateStoreRequest.isSetStatus)
+        && Objects.equals(this.subMerchantData, updateStoreRequest.subMerchantData)
+        && Objects.equals(this.isSetSubMerchantData, updateStoreRequest.isSetSubMerchantData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         address,
+        isSetAddress,
         businessLineIds,
+        isSetBusinessLineIds,
         description,
+        isSetDescription,
         externalReferenceId,
+        isSetExternalReferenceId,
         phoneNumber,
+        isSetPhoneNumber,
         splitConfiguration,
+        isSetSplitConfiguration,
         status,
-        subMerchantData);
+        isSetStatus,
+        subMerchantData,
+        isSetSubMerchantData);
   }
 
   @Override

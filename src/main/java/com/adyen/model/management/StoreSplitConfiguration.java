@@ -170,12 +170,16 @@ public class StoreSplitConfiguration {
     }
     StoreSplitConfiguration storeSplitConfiguration = (StoreSplitConfiguration) o;
     return Objects.equals(this.balanceAccountId, storeSplitConfiguration.balanceAccountId)
-        && Objects.equals(this.splitConfigurationId, storeSplitConfiguration.splitConfigurationId);
+        && Objects.equals(this.isSetBalanceAccountId, storeSplitConfiguration.isSetBalanceAccountId)
+        && Objects.equals(this.splitConfigurationId, storeSplitConfiguration.splitConfigurationId)
+        && Objects.equals(
+            this.isSetSplitConfigurationId, storeSplitConfiguration.isSetSplitConfigurationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, splitConfigurationId);
+    return Objects.hash(
+        balanceAccountId, isSetBalanceAccountId, splitConfigurationId, isSetSplitConfigurationId);
   }
 
   @Override

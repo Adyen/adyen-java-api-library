@@ -148,12 +148,14 @@ public class TerminalConnectivityBluetooth {
     }
     TerminalConnectivityBluetooth terminalConnectivityBluetooth = (TerminalConnectivityBluetooth) o;
     return Objects.equals(this.ipAddress, terminalConnectivityBluetooth.ipAddress)
-        && Objects.equals(this.macAddress, terminalConnectivityBluetooth.macAddress);
+        && Objects.equals(this.isSetIpAddress, terminalConnectivityBluetooth.isSetIpAddress)
+        && Objects.equals(this.macAddress, terminalConnectivityBluetooth.macAddress)
+        && Objects.equals(this.isSetMacAddress, terminalConnectivityBluetooth.isSetMacAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, macAddress);
+    return Objects.hash(ipAddress, isSetIpAddress, macAddress, isSetMacAddress);
   }
 
   @Override

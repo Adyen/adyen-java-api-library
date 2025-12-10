@@ -230,14 +230,26 @@ public class MerchantLinks {
     }
     MerchantLinks merchantLinks = (MerchantLinks) o;
     return Objects.equals(this.apiCredentials, merchantLinks.apiCredentials)
+        && Objects.equals(this.isSetApiCredentials, merchantLinks.isSetApiCredentials)
         && Objects.equals(this.self, merchantLinks.self)
+        && Objects.equals(this.isSetSelf, merchantLinks.isSetSelf)
         && Objects.equals(this.users, merchantLinks.users)
-        && Objects.equals(this.webhooks, merchantLinks.webhooks);
+        && Objects.equals(this.isSetUsers, merchantLinks.isSetUsers)
+        && Objects.equals(this.webhooks, merchantLinks.webhooks)
+        && Objects.equals(this.isSetWebhooks, merchantLinks.isSetWebhooks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiCredentials, self, users, webhooks);
+    return Objects.hash(
+        apiCredentials,
+        isSetApiCredentials,
+        self,
+        isSetSelf,
+        users,
+        isSetUsers,
+        webhooks,
+        isSetWebhooks);
   }
 
   @Override

@@ -111,12 +111,13 @@ public class AllowedOriginsResponse {
       return false;
     }
     AllowedOriginsResponse allowedOriginsResponse = (AllowedOriginsResponse) o;
-    return Objects.equals(this.data, allowedOriginsResponse.data);
+    return Objects.equals(this.data, allowedOriginsResponse.data)
+        && Objects.equals(this.isSetData, allowedOriginsResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

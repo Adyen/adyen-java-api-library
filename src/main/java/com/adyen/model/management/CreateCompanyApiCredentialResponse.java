@@ -681,37 +681,67 @@ public class CreateCompanyApiCredentialResponse {
     CreateCompanyApiCredentialResponse createCompanyApiCredentialResponse =
         (CreateCompanyApiCredentialResponse) o;
     return Objects.equals(this.links, createCompanyApiCredentialResponse.links)
+        && Objects.equals(this.isSetLinks, createCompanyApiCredentialResponse.isSetLinks)
         && Objects.equals(this.active, createCompanyApiCredentialResponse.active)
+        && Objects.equals(this.isSetActive, createCompanyApiCredentialResponse.isSetActive)
         && Objects.equals(
             this.allowedIpAddresses, createCompanyApiCredentialResponse.allowedIpAddresses)
+        && Objects.equals(
+            this.isSetAllowedIpAddresses,
+            createCompanyApiCredentialResponse.isSetAllowedIpAddresses)
         && Objects.equals(this.allowedOrigins, createCompanyApiCredentialResponse.allowedOrigins)
+        && Objects.equals(
+            this.isSetAllowedOrigins, createCompanyApiCredentialResponse.isSetAllowedOrigins)
         && Objects.equals(this.apiKey, createCompanyApiCredentialResponse.apiKey)
+        && Objects.equals(this.isSetApiKey, createCompanyApiCredentialResponse.isSetApiKey)
         && Objects.equals(
             this.associatedMerchantAccounts,
             createCompanyApiCredentialResponse.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts,
+            createCompanyApiCredentialResponse.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.clientKey, createCompanyApiCredentialResponse.clientKey)
+        && Objects.equals(this.isSetClientKey, createCompanyApiCredentialResponse.isSetClientKey)
         && Objects.equals(this.description, createCompanyApiCredentialResponse.description)
+        && Objects.equals(
+            this.isSetDescription, createCompanyApiCredentialResponse.isSetDescription)
         && Objects.equals(this.id, createCompanyApiCredentialResponse.id)
+        && Objects.equals(this.isSetId, createCompanyApiCredentialResponse.isSetId)
         && Objects.equals(this.password, createCompanyApiCredentialResponse.password)
+        && Objects.equals(this.isSetPassword, createCompanyApiCredentialResponse.isSetPassword)
         && Objects.equals(this.roles, createCompanyApiCredentialResponse.roles)
-        && Objects.equals(this.username, createCompanyApiCredentialResponse.username);
+        && Objects.equals(this.isSetRoles, createCompanyApiCredentialResponse.isSetRoles)
+        && Objects.equals(this.username, createCompanyApiCredentialResponse.username)
+        && Objects.equals(this.isSetUsername, createCompanyApiCredentialResponse.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         active,
+        isSetActive,
         allowedIpAddresses,
+        isSetAllowedIpAddresses,
         allowedOrigins,
+        isSetAllowedOrigins,
         apiKey,
+        isSetApiKey,
         associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
         clientKey,
+        isSetClientKey,
         description,
+        isSetDescription,
         id,
+        isSetId,
         password,
+        isSetPassword,
         roles,
-        username);
+        isSetRoles,
+        username,
+        isSetUsername);
   }
 
   @Override

@@ -155,12 +155,14 @@ public class PayToInfo {
     }
     PayToInfo payToInfo = (PayToInfo) o;
     return Objects.equals(this.merchantName, payToInfo.merchantName)
-        && Objects.equals(this.payToPurpose, payToInfo.payToPurpose);
+        && Objects.equals(this.isSetMerchantName, payToInfo.isSetMerchantName)
+        && Objects.equals(this.payToPurpose, payToInfo.payToPurpose)
+        && Objects.equals(this.isSetPayToPurpose, payToInfo.isSetPayToPurpose);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantName, payToPurpose);
+    return Objects.hash(merchantName, isSetMerchantName, payToPurpose, isSetPayToPurpose);
   }
 
   @Override

@@ -230,14 +230,26 @@ public class CompanyLinks {
     }
     CompanyLinks companyLinks = (CompanyLinks) o;
     return Objects.equals(this.apiCredentials, companyLinks.apiCredentials)
+        && Objects.equals(this.isSetApiCredentials, companyLinks.isSetApiCredentials)
         && Objects.equals(this.self, companyLinks.self)
+        && Objects.equals(this.isSetSelf, companyLinks.isSetSelf)
         && Objects.equals(this.users, companyLinks.users)
-        && Objects.equals(this.webhooks, companyLinks.webhooks);
+        && Objects.equals(this.isSetUsers, companyLinks.isSetUsers)
+        && Objects.equals(this.webhooks, companyLinks.webhooks)
+        && Objects.equals(this.isSetWebhooks, companyLinks.isSetWebhooks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiCredentials, self, users, webhooks);
+    return Objects.hash(
+        apiCredentials,
+        isSetApiCredentials,
+        self,
+        isSetSelf,
+        users,
+        isSetUsers,
+        webhooks,
+        isSetWebhooks);
   }
 
   @Override

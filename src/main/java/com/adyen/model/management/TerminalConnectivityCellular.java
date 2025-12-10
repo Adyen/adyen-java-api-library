@@ -263,13 +263,16 @@ public class TerminalConnectivityCellular {
     }
     TerminalConnectivityCellular terminalConnectivityCellular = (TerminalConnectivityCellular) o;
     return Objects.equals(this.iccid, terminalConnectivityCellular.iccid)
+        && Objects.equals(this.isSetIccid, terminalConnectivityCellular.isSetIccid)
         && Objects.equals(this.iccid2, terminalConnectivityCellular.iccid2)
-        && Objects.equals(this.status, terminalConnectivityCellular.status);
+        && Objects.equals(this.isSetIccid2, terminalConnectivityCellular.isSetIccid2)
+        && Objects.equals(this.status, terminalConnectivityCellular.status)
+        && Objects.equals(this.isSetStatus, terminalConnectivityCellular.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iccid, iccid2, status);
+    return Objects.hash(iccid, isSetIccid, iccid2, isSetIccid2, status, isSetStatus);
   }
 
   @Override

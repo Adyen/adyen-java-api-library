@@ -196,12 +196,14 @@ public class AdditionalSettings {
     }
     AdditionalSettings additionalSettings = (AdditionalSettings) o;
     return Objects.equals(this.includeEventCodes, additionalSettings.includeEventCodes)
-        && Objects.equals(this.properties, additionalSettings.properties);
+        && Objects.equals(this.isSetIncludeEventCodes, additionalSettings.isSetIncludeEventCodes)
+        && Objects.equals(this.properties, additionalSettings.properties)
+        && Objects.equals(this.isSetProperties, additionalSettings.isSetProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeEventCodes, properties);
+    return Objects.hash(includeEventCodes, isSetIncludeEventCodes, properties, isSetProperties);
   }
 
   @Override

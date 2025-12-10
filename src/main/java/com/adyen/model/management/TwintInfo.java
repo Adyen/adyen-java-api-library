@@ -101,12 +101,13 @@ public class TwintInfo {
       return false;
     }
     TwintInfo twintInfo = (TwintInfo) o;
-    return Objects.equals(this.logo, twintInfo.logo);
+    return Objects.equals(this.logo, twintInfo.logo)
+        && Objects.equals(this.isSetLogo, twintInfo.isSetLogo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo);
+    return Objects.hash(logo, isSetLogo);
   }
 
   @Override

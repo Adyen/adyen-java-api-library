@@ -1669,45 +1669,83 @@ public class SplitConfigurationLogic {
     }
     SplitConfigurationLogic splitConfigurationLogic = (SplitConfigurationLogic) o;
     return Objects.equals(this.acquiringFees, splitConfigurationLogic.acquiringFees)
+        && Objects.equals(this.isSetAcquiringFees, splitConfigurationLogic.isSetAcquiringFees)
         && Objects.equals(this.additionalCommission, splitConfigurationLogic.additionalCommission)
+        && Objects.equals(
+            this.isSetAdditionalCommission, splitConfigurationLogic.isSetAdditionalCommission)
         && Objects.equals(this.adyenCommission, splitConfigurationLogic.adyenCommission)
+        && Objects.equals(this.isSetAdyenCommission, splitConfigurationLogic.isSetAdyenCommission)
         && Objects.equals(this.adyenFees, splitConfigurationLogic.adyenFees)
+        && Objects.equals(this.isSetAdyenFees, splitConfigurationLogic.isSetAdyenFees)
         && Objects.equals(this.adyenMarkup, splitConfigurationLogic.adyenMarkup)
+        && Objects.equals(this.isSetAdyenMarkup, splitConfigurationLogic.isSetAdyenMarkup)
         && Objects.equals(this.chargeback, splitConfigurationLogic.chargeback)
+        && Objects.equals(this.isSetChargeback, splitConfigurationLogic.isSetChargeback)
         && Objects.equals(
             this.chargebackCostAllocation, splitConfigurationLogic.chargebackCostAllocation)
+        && Objects.equals(
+            this.isSetChargebackCostAllocation,
+            splitConfigurationLogic.isSetChargebackCostAllocation)
         && Objects.equals(this.commission, splitConfigurationLogic.commission)
+        && Objects.equals(this.isSetCommission, splitConfigurationLogic.isSetCommission)
         && Objects.equals(this.interchange, splitConfigurationLogic.interchange)
+        && Objects.equals(this.isSetInterchange, splitConfigurationLogic.isSetInterchange)
         && Objects.equals(this.paymentFee, splitConfigurationLogic.paymentFee)
+        && Objects.equals(this.isSetPaymentFee, splitConfigurationLogic.isSetPaymentFee)
         && Objects.equals(this.refund, splitConfigurationLogic.refund)
+        && Objects.equals(this.isSetRefund, splitConfigurationLogic.isSetRefund)
         && Objects.equals(this.refundCostAllocation, splitConfigurationLogic.refundCostAllocation)
+        && Objects.equals(
+            this.isSetRefundCostAllocation, splitConfigurationLogic.isSetRefundCostAllocation)
         && Objects.equals(this.remainder, splitConfigurationLogic.remainder)
+        && Objects.equals(this.isSetRemainder, splitConfigurationLogic.isSetRemainder)
         && Objects.equals(this.schemeFee, splitConfigurationLogic.schemeFee)
+        && Objects.equals(this.isSetSchemeFee, splitConfigurationLogic.isSetSchemeFee)
         && Objects.equals(this.splitLogicId, splitConfigurationLogic.splitLogicId)
+        && Objects.equals(this.isSetSplitLogicId, splitConfigurationLogic.isSetSplitLogicId)
         && Objects.equals(this.surcharge, splitConfigurationLogic.surcharge)
-        && Objects.equals(this.tip, splitConfigurationLogic.tip);
+        && Objects.equals(this.isSetSurcharge, splitConfigurationLogic.isSetSurcharge)
+        && Objects.equals(this.tip, splitConfigurationLogic.tip)
+        && Objects.equals(this.isSetTip, splitConfigurationLogic.isSetTip);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acquiringFees,
+        isSetAcquiringFees,
         additionalCommission,
+        isSetAdditionalCommission,
         adyenCommission,
+        isSetAdyenCommission,
         adyenFees,
+        isSetAdyenFees,
         adyenMarkup,
+        isSetAdyenMarkup,
         chargeback,
+        isSetChargeback,
         chargebackCostAllocation,
+        isSetChargebackCostAllocation,
         commission,
+        isSetCommission,
         interchange,
+        isSetInterchange,
         paymentFee,
+        isSetPaymentFee,
         refund,
+        isSetRefund,
         refundCostAllocation,
+        isSetRefundCostAllocation,
         remainder,
+        isSetRemainder,
         schemeFee,
+        isSetSchemeFee,
         splitLogicId,
+        isSetSplitLogicId,
         surcharge,
-        tip);
+        isSetSurcharge,
+        tip,
+        isSetTip);
   }
 
   @Override

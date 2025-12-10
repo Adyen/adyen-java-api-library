@@ -107,12 +107,13 @@ public class TerminalInstructions {
       return false;
     }
     TerminalInstructions terminalInstructions = (TerminalInstructions) o;
-    return Objects.equals(this.adyenAppRestart, terminalInstructions.adyenAppRestart);
+    return Objects.equals(this.adyenAppRestart, terminalInstructions.adyenAppRestart)
+        && Objects.equals(this.isSetAdyenAppRestart, terminalInstructions.isSetAdyenAppRestart);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adyenAppRestart);
+    return Objects.hash(adyenAppRestart, isSetAdyenAppRestart);
   }
 
   @Override

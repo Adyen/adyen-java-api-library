@@ -933,48 +933,86 @@ public class Profile {
     }
     Profile profile = (Profile) o;
     return Objects.equals(this.authType, profile.authType)
+        && Objects.equals(this.isSetAuthType, profile.isSetAuthType)
         && Objects.equals(this.autoWifi, profile.autoWifi)
+        && Objects.equals(this.isSetAutoWifi, profile.isSetAutoWifi)
         && Objects.equals(this.bssType, profile.bssType)
+        && Objects.equals(this.isSetBssType, profile.isSetBssType)
         && Objects.equals(this.channel, profile.channel)
+        && Objects.equals(this.isSetChannel, profile.isSetChannel)
         && Objects.equals(this.defaultProfile, profile.defaultProfile)
+        && Objects.equals(this.isSetDefaultProfile, profile.isSetDefaultProfile)
         && Objects.equals(this.domainSuffix, profile.domainSuffix)
+        && Objects.equals(this.isSetDomainSuffix, profile.isSetDomainSuffix)
         && Objects.equals(this.eap, profile.eap)
+        && Objects.equals(this.isSetEap, profile.isSetEap)
         && Objects.equals(this.eapCaCert, profile.eapCaCert)
+        && Objects.equals(this.isSetEapCaCert, profile.isSetEapCaCert)
         && Objects.equals(this.eapClientCert, profile.eapClientCert)
+        && Objects.equals(this.isSetEapClientCert, profile.isSetEapClientCert)
         && Objects.equals(this.eapClientKey, profile.eapClientKey)
+        && Objects.equals(this.isSetEapClientKey, profile.isSetEapClientKey)
         && Objects.equals(this.eapClientPwd, profile.eapClientPwd)
+        && Objects.equals(this.isSetEapClientPwd, profile.isSetEapClientPwd)
         && Objects.equals(this.eapIdentity, profile.eapIdentity)
+        && Objects.equals(this.isSetEapIdentity, profile.isSetEapIdentity)
         && Objects.equals(this.eapIntermediateCert, profile.eapIntermediateCert)
+        && Objects.equals(this.isSetEapIntermediateCert, profile.isSetEapIntermediateCert)
         && Objects.equals(this.eapPwd, profile.eapPwd)
+        && Objects.equals(this.isSetEapPwd, profile.isSetEapPwd)
         && Objects.equals(this.hiddenSsid, profile.hiddenSsid)
+        && Objects.equals(this.isSetHiddenSsid, profile.isSetHiddenSsid)
         && Objects.equals(this.name, profile.name)
+        && Objects.equals(this.isSetName, profile.isSetName)
         && Objects.equals(this.psk, profile.psk)
+        && Objects.equals(this.isSetPsk, profile.isSetPsk)
         && Objects.equals(this.ssid, profile.ssid)
-        && Objects.equals(this.wsec, profile.wsec);
+        && Objects.equals(this.isSetSsid, profile.isSetSsid)
+        && Objects.equals(this.wsec, profile.wsec)
+        && Objects.equals(this.isSetWsec, profile.isSetWsec);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         authType,
+        isSetAuthType,
         autoWifi,
+        isSetAutoWifi,
         bssType,
+        isSetBssType,
         channel,
+        isSetChannel,
         defaultProfile,
+        isSetDefaultProfile,
         domainSuffix,
+        isSetDomainSuffix,
         eap,
+        isSetEap,
         eapCaCert,
+        isSetEapCaCert,
         eapClientCert,
+        isSetEapClientCert,
         eapClientKey,
+        isSetEapClientKey,
         eapClientPwd,
+        isSetEapClientPwd,
         eapIdentity,
+        isSetEapIdentity,
         eapIntermediateCert,
+        isSetEapIntermediateCert,
         eapPwd,
+        isSetEapPwd,
         hiddenSsid,
+        isSetHiddenSsid,
         name,
+        isSetName,
         psk,
+        isSetPsk,
         ssid,
-        wsec);
+        isSetSsid,
+        wsec,
+        isSetWsec);
   }
 
   @Override

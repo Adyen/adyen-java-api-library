@@ -101,12 +101,13 @@ public class TicketInfo {
       return false;
     }
     TicketInfo ticketInfo = (TicketInfo) o;
-    return Objects.equals(this.requestorId, ticketInfo.requestorId);
+    return Objects.equals(this.requestorId, ticketInfo.requestorId)
+        && Objects.equals(this.isSetRequestorId, ticketInfo.isSetRequestorId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestorId);
+    return Objects.hash(requestorId, isSetRequestorId);
   }
 
   @Override

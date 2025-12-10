@@ -610,32 +610,55 @@ public class CreateApiCredentialResponse {
     }
     CreateApiCredentialResponse createApiCredentialResponse = (CreateApiCredentialResponse) o;
     return Objects.equals(this.links, createApiCredentialResponse.links)
+        && Objects.equals(this.isSetLinks, createApiCredentialResponse.isSetLinks)
         && Objects.equals(this.active, createApiCredentialResponse.active)
+        && Objects.equals(this.isSetActive, createApiCredentialResponse.isSetActive)
         && Objects.equals(this.allowedIpAddresses, createApiCredentialResponse.allowedIpAddresses)
+        && Objects.equals(
+            this.isSetAllowedIpAddresses, createApiCredentialResponse.isSetAllowedIpAddresses)
         && Objects.equals(this.allowedOrigins, createApiCredentialResponse.allowedOrigins)
+        && Objects.equals(this.isSetAllowedOrigins, createApiCredentialResponse.isSetAllowedOrigins)
         && Objects.equals(this.apiKey, createApiCredentialResponse.apiKey)
+        && Objects.equals(this.isSetApiKey, createApiCredentialResponse.isSetApiKey)
         && Objects.equals(this.clientKey, createApiCredentialResponse.clientKey)
+        && Objects.equals(this.isSetClientKey, createApiCredentialResponse.isSetClientKey)
         && Objects.equals(this.description, createApiCredentialResponse.description)
+        && Objects.equals(this.isSetDescription, createApiCredentialResponse.isSetDescription)
         && Objects.equals(this.id, createApiCredentialResponse.id)
+        && Objects.equals(this.isSetId, createApiCredentialResponse.isSetId)
         && Objects.equals(this.password, createApiCredentialResponse.password)
+        && Objects.equals(this.isSetPassword, createApiCredentialResponse.isSetPassword)
         && Objects.equals(this.roles, createApiCredentialResponse.roles)
-        && Objects.equals(this.username, createApiCredentialResponse.username);
+        && Objects.equals(this.isSetRoles, createApiCredentialResponse.isSetRoles)
+        && Objects.equals(this.username, createApiCredentialResponse.username)
+        && Objects.equals(this.isSetUsername, createApiCredentialResponse.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         active,
+        isSetActive,
         allowedIpAddresses,
+        isSetAllowedIpAddresses,
         allowedOrigins,
+        isSetAllowedOrigins,
         apiKey,
+        isSetApiKey,
         clientKey,
+        isSetClientKey,
         description,
+        isSetDescription,
         id,
+        isSetId,
         password,
+        isSetPassword,
         roles,
-        username);
+        isSetRoles,
+        username,
+        isSetUsername);
   }
 
   @Override

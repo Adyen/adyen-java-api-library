@@ -101,12 +101,13 @@ public class TapToPay {
       return false;
     }
     TapToPay tapToPay = (TapToPay) o;
-    return Objects.equals(this.merchantDisplayName, tapToPay.merchantDisplayName);
+    return Objects.equals(this.merchantDisplayName, tapToPay.merchantDisplayName)
+        && Objects.equals(this.isSetMerchantDisplayName, tapToPay.isSetMerchantDisplayName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantDisplayName);
+    return Objects.hash(merchantDisplayName, isSetMerchantDisplayName);
   }
 
   @Override

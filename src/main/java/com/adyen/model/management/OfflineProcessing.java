@@ -169,12 +169,15 @@ public class OfflineProcessing {
     }
     OfflineProcessing offlineProcessing = (OfflineProcessing) o;
     return Objects.equals(this.chipFloorLimit, offlineProcessing.chipFloorLimit)
-        && Objects.equals(this.offlineSwipeLimits, offlineProcessing.offlineSwipeLimits);
+        && Objects.equals(this.isSetChipFloorLimit, offlineProcessing.isSetChipFloorLimit)
+        && Objects.equals(this.offlineSwipeLimits, offlineProcessing.offlineSwipeLimits)
+        && Objects.equals(this.isSetOfflineSwipeLimits, offlineProcessing.isSetOfflineSwipeLimits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chipFloorLimit, offlineSwipeLimits);
+    return Objects.hash(
+        chipFloorLimit, isSetChipFloorLimit, offlineSwipeLimits, isSetOfflineSwipeLimits);
   }
 
   @Override

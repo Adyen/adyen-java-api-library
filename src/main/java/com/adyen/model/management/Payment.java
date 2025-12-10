@@ -172,12 +172,19 @@ public class Payment {
     }
     Payment payment = (Payment) o;
     return Objects.equals(this.contactlessCurrency, payment.contactlessCurrency)
-        && Objects.equals(this.hideMinorUnitsInCurrencies, payment.hideMinorUnitsInCurrencies);
+        && Objects.equals(this.isSetContactlessCurrency, payment.isSetContactlessCurrency)
+        && Objects.equals(this.hideMinorUnitsInCurrencies, payment.hideMinorUnitsInCurrencies)
+        && Objects.equals(
+            this.isSetHideMinorUnitsInCurrencies, payment.isSetHideMinorUnitsInCurrencies);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactlessCurrency, hideMinorUnitsInCurrencies);
+    return Objects.hash(
+        contactlessCurrency,
+        isSetContactlessCurrency,
+        hideMinorUnitsInCurrencies,
+        isSetHideMinorUnitsInCurrencies);
   }
 
   @Override

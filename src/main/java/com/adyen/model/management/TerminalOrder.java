@@ -418,26 +418,43 @@ public class TerminalOrder {
     }
     TerminalOrder terminalOrder = (TerminalOrder) o;
     return Objects.equals(this.billingEntity, terminalOrder.billingEntity)
+        && Objects.equals(this.isSetBillingEntity, terminalOrder.isSetBillingEntity)
         && Objects.equals(this.customerOrderReference, terminalOrder.customerOrderReference)
+        && Objects.equals(
+            this.isSetCustomerOrderReference, terminalOrder.isSetCustomerOrderReference)
         && Objects.equals(this.id, terminalOrder.id)
+        && Objects.equals(this.isSetId, terminalOrder.isSetId)
         && Objects.equals(this.items, terminalOrder.items)
+        && Objects.equals(this.isSetItems, terminalOrder.isSetItems)
         && Objects.equals(this.orderDate, terminalOrder.orderDate)
+        && Objects.equals(this.isSetOrderDate, terminalOrder.isSetOrderDate)
         && Objects.equals(this.shippingLocation, terminalOrder.shippingLocation)
+        && Objects.equals(this.isSetShippingLocation, terminalOrder.isSetShippingLocation)
         && Objects.equals(this.status, terminalOrder.status)
-        && Objects.equals(this.trackingUrl, terminalOrder.trackingUrl);
+        && Objects.equals(this.isSetStatus, terminalOrder.isSetStatus)
+        && Objects.equals(this.trackingUrl, terminalOrder.trackingUrl)
+        && Objects.equals(this.isSetTrackingUrl, terminalOrder.isSetTrackingUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         billingEntity,
+        isSetBillingEntity,
         customerOrderReference,
+        isSetCustomerOrderReference,
         id,
+        isSetId,
         items,
+        isSetItems,
         orderDate,
+        isSetOrderDate,
         shippingLocation,
+        isSetShippingLocation,
         status,
-        trackingUrl);
+        isSetStatus,
+        trackingUrl,
+        isSetTrackingUrl);
   }
 
   @Override

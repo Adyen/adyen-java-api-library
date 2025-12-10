@@ -189,12 +189,14 @@ public class UninstallAndroidAppDetails {
     }
     UninstallAndroidAppDetails uninstallAndroidAppDetails = (UninstallAndroidAppDetails) o;
     return Objects.equals(this.appId, uninstallAndroidAppDetails.appId)
-        && Objects.equals(this.type, uninstallAndroidAppDetails.type);
+        && Objects.equals(this.isSetAppId, uninstallAndroidAppDetails.isSetAppId)
+        && Objects.equals(this.type, uninstallAndroidAppDetails.type)
+        && Objects.equals(this.isSetType, uninstallAndroidAppDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, type);
+    return Objects.hash(appId, isSetAppId, type, isSetType);
   }
 
   @Override

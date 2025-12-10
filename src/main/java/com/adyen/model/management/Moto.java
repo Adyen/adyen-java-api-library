@@ -206,13 +206,17 @@ public class Moto {
     }
     Moto moto = (Moto) o;
     return Objects.equals(this.enableMoto, moto.enableMoto)
+        && Objects.equals(this.isSetEnableMoto, moto.isSetEnableMoto)
         && Objects.equals(this.enableRefunds, moto.enableRefunds)
-        && Objects.equals(this.maxAmount, moto.maxAmount);
+        && Objects.equals(this.isSetEnableRefunds, moto.isSetEnableRefunds)
+        && Objects.equals(this.maxAmount, moto.maxAmount)
+        && Objects.equals(this.isSetMaxAmount, moto.isSetMaxAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableMoto, enableRefunds, maxAmount);
+    return Objects.hash(
+        enableMoto, isSetEnableMoto, enableRefunds, isSetEnableRefunds, maxAmount, isSetMaxAmount);
   }
 
   @Override

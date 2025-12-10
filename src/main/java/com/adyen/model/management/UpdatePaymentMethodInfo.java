@@ -1259,64 +1259,119 @@ public class UpdatePaymentMethodInfo {
     }
     UpdatePaymentMethodInfo updatePaymentMethodInfo = (UpdatePaymentMethodInfo) o;
     return Objects.equals(this.accel, updatePaymentMethodInfo.accel)
+        && Objects.equals(this.isSetAccel, updatePaymentMethodInfo.isSetAccel)
         && Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc)
+        && Objects.equals(this.isSetBcmc, updatePaymentMethodInfo.isSetBcmc)
         && Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires)
+        && Objects.equals(this.isSetCartesBancaires, updatePaymentMethodInfo.isSetCartesBancaires)
         && Objects.equals(this.countries, updatePaymentMethodInfo.countries)
+        && Objects.equals(this.isSetCountries, updatePaymentMethodInfo.isSetCountries)
         && Objects.equals(this.cup, updatePaymentMethodInfo.cup)
+        && Objects.equals(this.isSetCup, updatePaymentMethodInfo.isSetCup)
         && Objects.equals(this.currencies, updatePaymentMethodInfo.currencies)
+        && Objects.equals(this.isSetCurrencies, updatePaymentMethodInfo.isSetCurrencies)
         && Objects.equals(this.customRoutingFlags, updatePaymentMethodInfo.customRoutingFlags)
+        && Objects.equals(
+            this.isSetCustomRoutingFlags, updatePaymentMethodInfo.isSetCustomRoutingFlags)
         && Objects.equals(this.diners, updatePaymentMethodInfo.diners)
+        && Objects.equals(this.isSetDiners, updatePaymentMethodInfo.isSetDiners)
         && Objects.equals(this.discover, updatePaymentMethodInfo.discover)
+        && Objects.equals(this.isSetDiscover, updatePaymentMethodInfo.isSetDiscover)
         && Objects.equals(this.eftDirectdebitCA, updatePaymentMethodInfo.eftDirectdebitCA)
+        && Objects.equals(this.isSetEftDirectdebitCA, updatePaymentMethodInfo.isSetEftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, updatePaymentMethodInfo.eftposAustralia)
+        && Objects.equals(this.isSetEftposAustralia, updatePaymentMethodInfo.isSetEftposAustralia)
         && Objects.equals(this.enabled, updatePaymentMethodInfo.enabled)
+        && Objects.equals(this.isSetEnabled, updatePaymentMethodInfo.isSetEnabled)
         && Objects.equals(this.girocard, updatePaymentMethodInfo.girocard)
+        && Objects.equals(this.isSetGirocard, updatePaymentMethodInfo.isSetGirocard)
         && Objects.equals(this.ideal, updatePaymentMethodInfo.ideal)
+        && Objects.equals(this.isSetIdeal, updatePaymentMethodInfo.isSetIdeal)
         && Objects.equals(this.interacCard, updatePaymentMethodInfo.interacCard)
+        && Objects.equals(this.isSetInteracCard, updatePaymentMethodInfo.isSetInteracCard)
         && Objects.equals(this.jcb, updatePaymentMethodInfo.jcb)
+        && Objects.equals(this.isSetJcb, updatePaymentMethodInfo.isSetJcb)
         && Objects.equals(this.maestro, updatePaymentMethodInfo.maestro)
+        && Objects.equals(this.isSetMaestro, updatePaymentMethodInfo.isSetMaestro)
         && Objects.equals(this.maestroUsa, updatePaymentMethodInfo.maestroUsa)
+        && Objects.equals(this.isSetMaestroUsa, updatePaymentMethodInfo.isSetMaestroUsa)
         && Objects.equals(this.mc, updatePaymentMethodInfo.mc)
+        && Objects.equals(this.isSetMc, updatePaymentMethodInfo.isSetMc)
         && Objects.equals(this.nyce, updatePaymentMethodInfo.nyce)
+        && Objects.equals(this.isSetNyce, updatePaymentMethodInfo.isSetNyce)
         && Objects.equals(this.paybybankPlaid, updatePaymentMethodInfo.paybybankPlaid)
+        && Objects.equals(this.isSetPaybybankPlaid, updatePaymentMethodInfo.isSetPaybybankPlaid)
         && Objects.equals(this.pulse, updatePaymentMethodInfo.pulse)
+        && Objects.equals(this.isSetPulse, updatePaymentMethodInfo.isSetPulse)
         && Objects.equals(this.sepadirectdebit, updatePaymentMethodInfo.sepadirectdebit)
+        && Objects.equals(this.isSetSepadirectdebit, updatePaymentMethodInfo.isSetSepadirectdebit)
         && Objects.equals(this.star, updatePaymentMethodInfo.star)
+        && Objects.equals(this.isSetStar, updatePaymentMethodInfo.isSetStar)
         && Objects.equals(this.storeId, updatePaymentMethodInfo.storeId)
+        && Objects.equals(this.isSetStoreId, updatePaymentMethodInfo.isSetStoreId)
         && Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds)
-        && Objects.equals(this.visa, updatePaymentMethodInfo.visa);
+        && Objects.equals(this.isSetStoreIds, updatePaymentMethodInfo.isSetStoreIds)
+        && Objects.equals(this.visa, updatePaymentMethodInfo.visa)
+        && Objects.equals(this.isSetVisa, updatePaymentMethodInfo.isSetVisa);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accel,
+        isSetAccel,
         bcmc,
+        isSetBcmc,
         cartesBancaires,
+        isSetCartesBancaires,
         countries,
+        isSetCountries,
         cup,
+        isSetCup,
         currencies,
+        isSetCurrencies,
         customRoutingFlags,
+        isSetCustomRoutingFlags,
         diners,
+        isSetDiners,
         discover,
+        isSetDiscover,
         eftDirectdebitCA,
+        isSetEftDirectdebitCA,
         eftposAustralia,
+        isSetEftposAustralia,
         enabled,
+        isSetEnabled,
         girocard,
+        isSetGirocard,
         ideal,
+        isSetIdeal,
         interacCard,
+        isSetInteracCard,
         jcb,
+        isSetJcb,
         maestro,
+        isSetMaestro,
         maestroUsa,
+        isSetMaestroUsa,
         mc,
+        isSetMc,
         nyce,
+        isSetNyce,
         paybybankPlaid,
+        isSetPaybybankPlaid,
         pulse,
+        isSetPulse,
         sepadirectdebit,
+        isSetSepadirectdebit,
         star,
+        isSetStar,
         storeId,
+        isSetStoreId,
         storeIds,
-        visa);
+        isSetStoreIds,
+        visa,
+        isSetVisa);
   }
 
   @Override

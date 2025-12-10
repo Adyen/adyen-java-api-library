@@ -411,19 +411,42 @@ public class ExternalTerminalAction {
     }
     ExternalTerminalAction externalTerminalAction = (ExternalTerminalAction) o;
     return Objects.equals(this.actionType, externalTerminalAction.actionType)
+        && Objects.equals(this.isSetActionType, externalTerminalAction.isSetActionType)
         && Objects.equals(this.config, externalTerminalAction.config)
+        && Objects.equals(this.isSetConfig, externalTerminalAction.isSetConfig)
         && Objects.equals(this.confirmedAt, externalTerminalAction.confirmedAt)
+        && Objects.equals(this.isSetConfirmedAt, externalTerminalAction.isSetConfirmedAt)
         && Objects.equals(this.id, externalTerminalAction.id)
+        && Objects.equals(this.isSetId, externalTerminalAction.isSetId)
         && Objects.equals(this.result, externalTerminalAction.result)
+        && Objects.equals(this.isSetResult, externalTerminalAction.isSetResult)
         && Objects.equals(this.scheduledAt, externalTerminalAction.scheduledAt)
+        && Objects.equals(this.isSetScheduledAt, externalTerminalAction.isSetScheduledAt)
         && Objects.equals(this.status, externalTerminalAction.status)
-        && Objects.equals(this.terminalId, externalTerminalAction.terminalId);
+        && Objects.equals(this.isSetStatus, externalTerminalAction.isSetStatus)
+        && Objects.equals(this.terminalId, externalTerminalAction.terminalId)
+        && Objects.equals(this.isSetTerminalId, externalTerminalAction.isSetTerminalId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        actionType, config, confirmedAt, id, result, scheduledAt, status, terminalId);
+        actionType,
+        isSetActionType,
+        config,
+        isSetConfig,
+        confirmedAt,
+        isSetConfirmedAt,
+        id,
+        isSetId,
+        result,
+        isSetResult,
+        scheduledAt,
+        isSetScheduledAt,
+        status,
+        isSetStatus,
+        terminalId,
+        isSetTerminalId);
   }
 
   @Override

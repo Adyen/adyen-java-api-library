@@ -286,13 +286,22 @@ public class AmexInfo {
     }
     AmexInfo amexInfo = (AmexInfo) o;
     return Objects.equals(this.midNumber, amexInfo.midNumber)
+        && Objects.equals(this.isSetMidNumber, amexInfo.isSetMidNumber)
         && Objects.equals(this.reuseMidNumber, amexInfo.reuseMidNumber)
-        && Objects.equals(this.serviceLevel, amexInfo.serviceLevel);
+        && Objects.equals(this.isSetReuseMidNumber, amexInfo.isSetReuseMidNumber)
+        && Objects.equals(this.serviceLevel, amexInfo.serviceLevel)
+        && Objects.equals(this.isSetServiceLevel, amexInfo.isSetServiceLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(midNumber, reuseMidNumber, serviceLevel);
+    return Objects.hash(
+        midNumber,
+        isSetMidNumber,
+        reuseMidNumber,
+        isSetReuseMidNumber,
+        serviceLevel,
+        isSetServiceLevel);
   }
 
   @Override

@@ -469,27 +469,45 @@ public class UpdateCompanyUserRequest {
     }
     UpdateCompanyUserRequest updateCompanyUserRequest = (UpdateCompanyUserRequest) o;
     return Objects.equals(this.accountGroups, updateCompanyUserRequest.accountGroups)
+        && Objects.equals(this.isSetAccountGroups, updateCompanyUserRequest.isSetAccountGroups)
         && Objects.equals(this.active, updateCompanyUserRequest.active)
+        && Objects.equals(this.isSetActive, updateCompanyUserRequest.isSetActive)
         && Objects.equals(
             this.associatedMerchantAccounts, updateCompanyUserRequest.associatedMerchantAccounts)
+        && Objects.equals(
+            this.isSetAssociatedMerchantAccounts,
+            updateCompanyUserRequest.isSetAssociatedMerchantAccounts)
         && Objects.equals(this.email, updateCompanyUserRequest.email)
+        && Objects.equals(this.isSetEmail, updateCompanyUserRequest.isSetEmail)
         && Objects.equals(this.loginMethod, updateCompanyUserRequest.loginMethod)
+        && Objects.equals(this.isSetLoginMethod, updateCompanyUserRequest.isSetLoginMethod)
         && Objects.equals(this.name, updateCompanyUserRequest.name)
+        && Objects.equals(this.isSetName, updateCompanyUserRequest.isSetName)
         && Objects.equals(this.roles, updateCompanyUserRequest.roles)
-        && Objects.equals(this.timeZoneCode, updateCompanyUserRequest.timeZoneCode);
+        && Objects.equals(this.isSetRoles, updateCompanyUserRequest.isSetRoles)
+        && Objects.equals(this.timeZoneCode, updateCompanyUserRequest.timeZoneCode)
+        && Objects.equals(this.isSetTimeZoneCode, updateCompanyUserRequest.isSetTimeZoneCode);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountGroups,
+        isSetAccountGroups,
         active,
+        isSetActive,
         associatedMerchantAccounts,
+        isSetAssociatedMerchantAccounts,
         email,
+        isSetEmail,
         loginMethod,
+        isSetLoginMethod,
         name,
+        isSetName,
         roles,
-        timeZoneCode);
+        isSetRoles,
+        timeZoneCode,
+        isSetTimeZoneCode);
   }
 
   @Override

@@ -1352,55 +1352,103 @@ public class Webhook {
     }
     Webhook webhook = (Webhook) o;
     return Objects.equals(this.links, webhook.links)
+        && Objects.equals(this.isSetLinks, webhook.isSetLinks)
         && Objects.equals(this.acceptsExpiredCertificate, webhook.acceptsExpiredCertificate)
+        && Objects.equals(
+            this.isSetAcceptsExpiredCertificate, webhook.isSetAcceptsExpiredCertificate)
         && Objects.equals(this.acceptsSelfSignedCertificate, webhook.acceptsSelfSignedCertificate)
         && Objects.equals(
+            this.isSetAcceptsSelfSignedCertificate, webhook.isSetAcceptsSelfSignedCertificate)
+        && Objects.equals(
             this.acceptsUntrustedRootCertificate, webhook.acceptsUntrustedRootCertificate)
+        && Objects.equals(
+            this.isSetAcceptsUntrustedRootCertificate, webhook.isSetAcceptsUntrustedRootCertificate)
         && Objects.equals(this.accountReference, webhook.accountReference)
+        && Objects.equals(this.isSetAccountReference, webhook.isSetAccountReference)
         && Objects.equals(this.active, webhook.active)
+        && Objects.equals(this.isSetActive, webhook.isSetActive)
         && Objects.equals(this.additionalSettings, webhook.additionalSettings)
+        && Objects.equals(this.isSetAdditionalSettings, webhook.isSetAdditionalSettings)
         && Objects.equals(this.certificateAlias, webhook.certificateAlias)
+        && Objects.equals(this.isSetCertificateAlias, webhook.isSetCertificateAlias)
         && Objects.equals(this.communicationFormat, webhook.communicationFormat)
+        && Objects.equals(this.isSetCommunicationFormat, webhook.isSetCommunicationFormat)
         && Objects.equals(this.description, webhook.description)
+        && Objects.equals(this.isSetDescription, webhook.isSetDescription)
         && Objects.equals(this.encryptionProtocol, webhook.encryptionProtocol)
+        && Objects.equals(this.isSetEncryptionProtocol, webhook.isSetEncryptionProtocol)
         && Objects.equals(this.filterMerchantAccountType, webhook.filterMerchantAccountType)
+        && Objects.equals(
+            this.isSetFilterMerchantAccountType, webhook.isSetFilterMerchantAccountType)
         && Objects.equals(this.filterMerchantAccounts, webhook.filterMerchantAccounts)
+        && Objects.equals(this.isSetFilterMerchantAccounts, webhook.isSetFilterMerchantAccounts)
         && Objects.equals(this.hasError, webhook.hasError)
+        && Objects.equals(this.isSetHasError, webhook.isSetHasError)
         && Objects.equals(this.hasPassword, webhook.hasPassword)
+        && Objects.equals(this.isSetHasPassword, webhook.isSetHasPassword)
         && Objects.equals(this.hmacKeyCheckValue, webhook.hmacKeyCheckValue)
+        && Objects.equals(this.isSetHmacKeyCheckValue, webhook.isSetHmacKeyCheckValue)
         && Objects.equals(this.id, webhook.id)
+        && Objects.equals(this.isSetId, webhook.isSetId)
         && Objects.equals(this.networkType, webhook.networkType)
+        && Objects.equals(this.isSetNetworkType, webhook.isSetNetworkType)
         && Objects.equals(this.populateSoapActionHeader, webhook.populateSoapActionHeader)
+        && Objects.equals(this.isSetPopulateSoapActionHeader, webhook.isSetPopulateSoapActionHeader)
         && Objects.equals(this.type, webhook.type)
+        && Objects.equals(this.isSetType, webhook.isSetType)
         && Objects.equals(this.url, webhook.url)
-        && Objects.equals(this.username, webhook.username);
+        && Objects.equals(this.isSetUrl, webhook.isSetUrl)
+        && Objects.equals(this.username, webhook.username)
+        && Objects.equals(this.isSetUsername, webhook.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         links,
+        isSetLinks,
         acceptsExpiredCertificate,
+        isSetAcceptsExpiredCertificate,
         acceptsSelfSignedCertificate,
+        isSetAcceptsSelfSignedCertificate,
         acceptsUntrustedRootCertificate,
+        isSetAcceptsUntrustedRootCertificate,
         accountReference,
+        isSetAccountReference,
         active,
+        isSetActive,
         additionalSettings,
+        isSetAdditionalSettings,
         certificateAlias,
+        isSetCertificateAlias,
         communicationFormat,
+        isSetCommunicationFormat,
         description,
+        isSetDescription,
         encryptionProtocol,
+        isSetEncryptionProtocol,
         filterMerchantAccountType,
+        isSetFilterMerchantAccountType,
         filterMerchantAccounts,
+        isSetFilterMerchantAccounts,
         hasError,
+        isSetHasError,
         hasPassword,
+        isSetHasPassword,
         hmacKeyCheckValue,
+        isSetHmacKeyCheckValue,
         id,
+        isSetId,
         networkType,
+        isSetNetworkType,
         populateSoapActionHeader,
+        isSetPopulateSoapActionHeader,
         type,
+        isSetType,
         url,
-        username);
+        isSetUrl,
+        username,
+        isSetUsername);
   }
 
   @Override

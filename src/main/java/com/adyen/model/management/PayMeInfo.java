@@ -188,13 +188,17 @@ public class PayMeInfo {
     }
     PayMeInfo payMeInfo = (PayMeInfo) o;
     return Objects.equals(this.displayName, payMeInfo.displayName)
+        && Objects.equals(this.isSetDisplayName, payMeInfo.isSetDisplayName)
         && Objects.equals(this.logo, payMeInfo.logo)
-        && Objects.equals(this.supportEmail, payMeInfo.supportEmail);
+        && Objects.equals(this.isSetLogo, payMeInfo.isSetLogo)
+        && Objects.equals(this.supportEmail, payMeInfo.supportEmail)
+        && Objects.equals(this.isSetSupportEmail, payMeInfo.isSetSupportEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, logo, supportEmail);
+    return Objects.hash(
+        displayName, isSetDisplayName, logo, isSetLogo, supportEmail, isSetSupportEmail);
   }
 
   @Override

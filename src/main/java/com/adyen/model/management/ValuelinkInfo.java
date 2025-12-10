@@ -275,14 +275,26 @@ public class ValuelinkInfo {
     }
     ValuelinkInfo valuelinkInfo = (ValuelinkInfo) o;
     return Objects.equals(this.authorisationMid, valuelinkInfo.authorisationMid)
+        && Objects.equals(this.isSetAuthorisationMid, valuelinkInfo.isSetAuthorisationMid)
         && Objects.equals(this.pinSupport, valuelinkInfo.pinSupport)
+        && Objects.equals(this.isSetPinSupport, valuelinkInfo.isSetPinSupport)
         && Objects.equals(this.submitterId, valuelinkInfo.submitterId)
-        && Objects.equals(this.terminalId, valuelinkInfo.terminalId);
+        && Objects.equals(this.isSetSubmitterId, valuelinkInfo.isSetSubmitterId)
+        && Objects.equals(this.terminalId, valuelinkInfo.terminalId)
+        && Objects.equals(this.isSetTerminalId, valuelinkInfo.isSetTerminalId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorisationMid, pinSupport, submitterId, terminalId);
+    return Objects.hash(
+        authorisationMid,
+        isSetAuthorisationMid,
+        pinSupport,
+        isSetPinSupport,
+        submitterId,
+        isSetSubmitterId,
+        terminalId,
+        isSetTerminalId);
   }
 
   @Override

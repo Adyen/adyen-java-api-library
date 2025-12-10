@@ -254,14 +254,18 @@ public class SubMerchantData {
     }
     SubMerchantData subMerchantData = (SubMerchantData) o;
     return Objects.equals(this.email, subMerchantData.email)
+        && Objects.equals(this.isSetEmail, subMerchantData.isSetEmail)
         && Objects.equals(this.id, subMerchantData.id)
+        && Objects.equals(this.isSetId, subMerchantData.isSetId)
         && Objects.equals(this.mcc, subMerchantData.mcc)
-        && Objects.equals(this.name, subMerchantData.name);
+        && Objects.equals(this.isSetMcc, subMerchantData.isSetMcc)
+        && Objects.equals(this.name, subMerchantData.name)
+        && Objects.equals(this.isSetName, subMerchantData.isSetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, id, mcc, name);
+    return Objects.hash(email, isSetEmail, id, isSetId, mcc, isSetMcc, name, isSetName);
   }
 
   @Override

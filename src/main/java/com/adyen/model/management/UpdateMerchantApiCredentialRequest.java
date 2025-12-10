@@ -280,14 +280,28 @@ public class UpdateMerchantApiCredentialRequest {
     UpdateMerchantApiCredentialRequest updateMerchantApiCredentialRequest =
         (UpdateMerchantApiCredentialRequest) o;
     return Objects.equals(this.active, updateMerchantApiCredentialRequest.active)
+        && Objects.equals(this.isSetActive, updateMerchantApiCredentialRequest.isSetActive)
         && Objects.equals(this.allowedOrigins, updateMerchantApiCredentialRequest.allowedOrigins)
+        && Objects.equals(
+            this.isSetAllowedOrigins, updateMerchantApiCredentialRequest.isSetAllowedOrigins)
         && Objects.equals(this.description, updateMerchantApiCredentialRequest.description)
-        && Objects.equals(this.roles, updateMerchantApiCredentialRequest.roles);
+        && Objects.equals(
+            this.isSetDescription, updateMerchantApiCredentialRequest.isSetDescription)
+        && Objects.equals(this.roles, updateMerchantApiCredentialRequest.roles)
+        && Objects.equals(this.isSetRoles, updateMerchantApiCredentialRequest.isSetRoles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, allowedOrigins, description, roles);
+    return Objects.hash(
+        active,
+        isSetActive,
+        allowedOrigins,
+        isSetAllowedOrigins,
+        description,
+        isSetDescription,
+        roles,
+        isSetRoles);
   }
 
   @Override

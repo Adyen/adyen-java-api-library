@@ -361,15 +361,30 @@ public class TerminalAssignment {
     }
     TerminalAssignment terminalAssignment = (TerminalAssignment) o;
     return Objects.equals(this.companyId, terminalAssignment.companyId)
+        && Objects.equals(this.isSetCompanyId, terminalAssignment.isSetCompanyId)
         && Objects.equals(this.merchantId, terminalAssignment.merchantId)
+        && Objects.equals(this.isSetMerchantId, terminalAssignment.isSetMerchantId)
         && Objects.equals(this.reassignmentTarget, terminalAssignment.reassignmentTarget)
+        && Objects.equals(this.isSetReassignmentTarget, terminalAssignment.isSetReassignmentTarget)
         && Objects.equals(this.status, terminalAssignment.status)
-        && Objects.equals(this.storeId, terminalAssignment.storeId);
+        && Objects.equals(this.isSetStatus, terminalAssignment.isSetStatus)
+        && Objects.equals(this.storeId, terminalAssignment.storeId)
+        && Objects.equals(this.isSetStoreId, terminalAssignment.isSetStoreId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyId, merchantId, reassignmentTarget, status, storeId);
+    return Objects.hash(
+        companyId,
+        isSetCompanyId,
+        merchantId,
+        isSetMerchantId,
+        reassignmentTarget,
+        isSetReassignmentTarget,
+        status,
+        isSetStatus,
+        storeId,
+        isSetStoreId);
   }
 
   @Override

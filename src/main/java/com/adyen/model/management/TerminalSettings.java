@@ -1047,56 +1047,103 @@ public class TerminalSettings {
     }
     TerminalSettings terminalSettings = (TerminalSettings) o;
     return Objects.equals(this.cardholderReceipt, terminalSettings.cardholderReceipt)
+        && Objects.equals(this.isSetCardholderReceipt, terminalSettings.isSetCardholderReceipt)
         && Objects.equals(this.connectivity, terminalSettings.connectivity)
+        && Objects.equals(this.isSetConnectivity, terminalSettings.isSetConnectivity)
         && Objects.equals(this.gratuities, terminalSettings.gratuities)
+        && Objects.equals(this.isSetGratuities, terminalSettings.isSetGratuities)
         && Objects.equals(this.hardware, terminalSettings.hardware)
+        && Objects.equals(this.isSetHardware, terminalSettings.isSetHardware)
         && Objects.equals(this.localization, terminalSettings.localization)
+        && Objects.equals(this.isSetLocalization, terminalSettings.isSetLocalization)
         && Objects.equals(this.moto, terminalSettings.moto)
+        && Objects.equals(this.isSetMoto, terminalSettings.isSetMoto)
         && Objects.equals(this.nexo, terminalSettings.nexo)
+        && Objects.equals(this.isSetNexo, terminalSettings.isSetNexo)
         && Objects.equals(this.offlineProcessing, terminalSettings.offlineProcessing)
+        && Objects.equals(this.isSetOfflineProcessing, terminalSettings.isSetOfflineProcessing)
         && Objects.equals(this.opi, terminalSettings.opi)
+        && Objects.equals(this.isSetOpi, terminalSettings.isSetOpi)
         && Objects.equals(this.passcodes, terminalSettings.passcodes)
+        && Objects.equals(this.isSetPasscodes, terminalSettings.isSetPasscodes)
         && Objects.equals(this.payAtTable, terminalSettings.payAtTable)
+        && Objects.equals(this.isSetPayAtTable, terminalSettings.isSetPayAtTable)
         && Objects.equals(this.payment, terminalSettings.payment)
+        && Objects.equals(this.isSetPayment, terminalSettings.isSetPayment)
         && Objects.equals(this.receiptOptions, terminalSettings.receiptOptions)
+        && Objects.equals(this.isSetReceiptOptions, terminalSettings.isSetReceiptOptions)
         && Objects.equals(this.receiptPrinting, terminalSettings.receiptPrinting)
+        && Objects.equals(this.isSetReceiptPrinting, terminalSettings.isSetReceiptPrinting)
         && Objects.equals(this.refunds, terminalSettings.refunds)
+        && Objects.equals(this.isSetRefunds, terminalSettings.isSetRefunds)
         && Objects.equals(this.signature, terminalSettings.signature)
+        && Objects.equals(this.isSetSignature, terminalSettings.isSetSignature)
         && Objects.equals(this.standalone, terminalSettings.standalone)
+        && Objects.equals(this.isSetStandalone, terminalSettings.isSetStandalone)
         && Objects.equals(this.storeAndForward, terminalSettings.storeAndForward)
+        && Objects.equals(this.isSetStoreAndForward, terminalSettings.isSetStoreAndForward)
         && Objects.equals(this.surcharge, terminalSettings.surcharge)
+        && Objects.equals(this.isSetSurcharge, terminalSettings.isSetSurcharge)
         && Objects.equals(this.tapToPay, terminalSettings.tapToPay)
+        && Objects.equals(this.isSetTapToPay, terminalSettings.isSetTapToPay)
         && Objects.equals(this.terminalInstructions, terminalSettings.terminalInstructions)
+        && Objects.equals(
+            this.isSetTerminalInstructions, terminalSettings.isSetTerminalInstructions)
         && Objects.equals(this.timeouts, terminalSettings.timeouts)
-        && Objects.equals(this.wifiProfiles, terminalSettings.wifiProfiles);
+        && Objects.equals(this.isSetTimeouts, terminalSettings.isSetTimeouts)
+        && Objects.equals(this.wifiProfiles, terminalSettings.wifiProfiles)
+        && Objects.equals(this.isSetWifiProfiles, terminalSettings.isSetWifiProfiles);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         cardholderReceipt,
+        isSetCardholderReceipt,
         connectivity,
+        isSetConnectivity,
         gratuities,
+        isSetGratuities,
         hardware,
+        isSetHardware,
         localization,
+        isSetLocalization,
         moto,
+        isSetMoto,
         nexo,
+        isSetNexo,
         offlineProcessing,
+        isSetOfflineProcessing,
         opi,
+        isSetOpi,
         passcodes,
+        isSetPasscodes,
         payAtTable,
+        isSetPayAtTable,
         payment,
+        isSetPayment,
         receiptOptions,
+        isSetReceiptOptions,
         receiptPrinting,
+        isSetReceiptPrinting,
         refunds,
+        isSetRefunds,
         signature,
+        isSetSignature,
         standalone,
+        isSetStandalone,
         storeAndForward,
+        isSetStoreAndForward,
         surcharge,
+        isSetSurcharge,
         tapToPay,
+        isSetTapToPay,
         terminalInstructions,
+        isSetTerminalInstructions,
         timeouts,
-        wifiProfiles);
+        isSetTimeouts,
+        wifiProfiles,
+        isSetWifiProfiles);
   }
 
   @Override

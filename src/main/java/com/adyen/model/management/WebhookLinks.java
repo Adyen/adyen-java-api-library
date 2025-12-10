@@ -272,15 +272,30 @@ public class WebhookLinks {
     }
     WebhookLinks webhookLinks = (WebhookLinks) o;
     return Objects.equals(this.company, webhookLinks.company)
+        && Objects.equals(this.isSetCompany, webhookLinks.isSetCompany)
         && Objects.equals(this.generateHmac, webhookLinks.generateHmac)
+        && Objects.equals(this.isSetGenerateHmac, webhookLinks.isSetGenerateHmac)
         && Objects.equals(this.merchant, webhookLinks.merchant)
+        && Objects.equals(this.isSetMerchant, webhookLinks.isSetMerchant)
         && Objects.equals(this.self, webhookLinks.self)
-        && Objects.equals(this.testWebhook, webhookLinks.testWebhook);
+        && Objects.equals(this.isSetSelf, webhookLinks.isSetSelf)
+        && Objects.equals(this.testWebhook, webhookLinks.testWebhook)
+        && Objects.equals(this.isSetTestWebhook, webhookLinks.isSetTestWebhook);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(company, generateHmac, merchant, self, testWebhook);
+    return Objects.hash(
+        company,
+        isSetCompany,
+        generateHmac,
+        isSetGenerateHmac,
+        merchant,
+        isSetMerchant,
+        self,
+        isSetSelf,
+        testWebhook,
+        isSetTestWebhook);
   }
 
   @Override

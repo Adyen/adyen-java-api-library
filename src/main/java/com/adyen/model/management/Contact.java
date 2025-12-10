@@ -278,15 +278,30 @@ public class Contact {
     }
     Contact contact = (Contact) o;
     return Objects.equals(this.email, contact.email)
+        && Objects.equals(this.isSetEmail, contact.isSetEmail)
         && Objects.equals(this.firstName, contact.firstName)
+        && Objects.equals(this.isSetFirstName, contact.isSetFirstName)
         && Objects.equals(this.infix, contact.infix)
+        && Objects.equals(this.isSetInfix, contact.isSetInfix)
         && Objects.equals(this.lastName, contact.lastName)
-        && Objects.equals(this.phoneNumber, contact.phoneNumber);
+        && Objects.equals(this.isSetLastName, contact.isSetLastName)
+        && Objects.equals(this.phoneNumber, contact.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, contact.isSetPhoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, firstName, infix, lastName, phoneNumber);
+    return Objects.hash(
+        email,
+        isSetEmail,
+        firstName,
+        isSetFirstName,
+        infix,
+        isSetInfix,
+        lastName,
+        isSetLastName,
+        phoneNumber,
+        isSetPhoneNumber);
   }
 
   @Override

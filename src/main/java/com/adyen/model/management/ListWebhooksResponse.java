@@ -282,15 +282,30 @@ public class ListWebhooksResponse {
     }
     ListWebhooksResponse listWebhooksResponse = (ListWebhooksResponse) o;
     return Objects.equals(this.links, listWebhooksResponse.links)
+        && Objects.equals(this.isSetLinks, listWebhooksResponse.isSetLinks)
         && Objects.equals(this.accountReference, listWebhooksResponse.accountReference)
+        && Objects.equals(this.isSetAccountReference, listWebhooksResponse.isSetAccountReference)
         && Objects.equals(this.data, listWebhooksResponse.data)
+        && Objects.equals(this.isSetData, listWebhooksResponse.isSetData)
         && Objects.equals(this.itemsTotal, listWebhooksResponse.itemsTotal)
-        && Objects.equals(this.pagesTotal, listWebhooksResponse.pagesTotal);
+        && Objects.equals(this.isSetItemsTotal, listWebhooksResponse.isSetItemsTotal)
+        && Objects.equals(this.pagesTotal, listWebhooksResponse.pagesTotal)
+        && Objects.equals(this.isSetPagesTotal, listWebhooksResponse.isSetPagesTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, accountReference, data, itemsTotal, pagesTotal);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        accountReference,
+        isSetAccountReference,
+        data,
+        isSetData,
+        itemsTotal,
+        isSetItemsTotal,
+        pagesTotal,
+        isSetPagesTotal);
   }
 
   @Override

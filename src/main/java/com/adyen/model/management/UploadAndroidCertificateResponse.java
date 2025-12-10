@@ -103,12 +103,13 @@ public class UploadAndroidCertificateResponse {
     }
     UploadAndroidCertificateResponse uploadAndroidCertificateResponse =
         (UploadAndroidCertificateResponse) o;
-    return Objects.equals(this.id, uploadAndroidCertificateResponse.id);
+    return Objects.equals(this.id, uploadAndroidCertificateResponse.id)
+        && Objects.equals(this.isSetId, uploadAndroidCertificateResponse.isSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, isSetId);
   }
 
   @Override

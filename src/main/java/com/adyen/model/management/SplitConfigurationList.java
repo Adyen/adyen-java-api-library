@@ -111,12 +111,13 @@ public class SplitConfigurationList {
       return false;
     }
     SplitConfigurationList splitConfigurationList = (SplitConfigurationList) o;
-    return Objects.equals(this.data, splitConfigurationList.data);
+    return Objects.equals(this.data, splitConfigurationList.data)
+        && Objects.equals(this.isSetData, splitConfigurationList.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

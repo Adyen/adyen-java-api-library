@@ -236,14 +236,18 @@ public class ShippingLocation {
     }
     ShippingLocation shippingLocation = (ShippingLocation) o;
     return Objects.equals(this.address, shippingLocation.address)
+        && Objects.equals(this.isSetAddress, shippingLocation.isSetAddress)
         && Objects.equals(this.contact, shippingLocation.contact)
+        && Objects.equals(this.isSetContact, shippingLocation.isSetContact)
         && Objects.equals(this.id, shippingLocation.id)
-        && Objects.equals(this.name, shippingLocation.name);
+        && Objects.equals(this.isSetId, shippingLocation.isSetId)
+        && Objects.equals(this.name, shippingLocation.name)
+        && Objects.equals(this.isSetName, shippingLocation.isSetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, contact, id, name);
+    return Objects.hash(address, isSetAddress, contact, isSetContact, id, isSetId, name, isSetName);
   }
 
   @Override

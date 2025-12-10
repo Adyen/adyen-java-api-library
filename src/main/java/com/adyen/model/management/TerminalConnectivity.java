@@ -230,14 +230,26 @@ public class TerminalConnectivity {
     }
     TerminalConnectivity terminalConnectivity = (TerminalConnectivity) o;
     return Objects.equals(this.bluetooth, terminalConnectivity.bluetooth)
+        && Objects.equals(this.isSetBluetooth, terminalConnectivity.isSetBluetooth)
         && Objects.equals(this.cellular, terminalConnectivity.cellular)
+        && Objects.equals(this.isSetCellular, terminalConnectivity.isSetCellular)
         && Objects.equals(this.ethernet, terminalConnectivity.ethernet)
-        && Objects.equals(this.wifi, terminalConnectivity.wifi);
+        && Objects.equals(this.isSetEthernet, terminalConnectivity.isSetEthernet)
+        && Objects.equals(this.wifi, terminalConnectivity.wifi)
+        && Objects.equals(this.isSetWifi, terminalConnectivity.isSetWifi);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bluetooth, cellular, ethernet, wifi);
+    return Objects.hash(
+        bluetooth,
+        isSetBluetooth,
+        cellular,
+        isSetCellular,
+        ethernet,
+        isSetEthernet,
+        wifi,
+        isSetWifi);
   }
 
   @Override

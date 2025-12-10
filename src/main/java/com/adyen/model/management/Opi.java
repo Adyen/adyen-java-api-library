@@ -188,13 +188,22 @@ public class Opi {
     }
     Opi opi = (Opi) o;
     return Objects.equals(this.enablePayAtTable, opi.enablePayAtTable)
+        && Objects.equals(this.isSetEnablePayAtTable, opi.isSetEnablePayAtTable)
         && Objects.equals(this.payAtTableStoreNumber, opi.payAtTableStoreNumber)
-        && Objects.equals(this.payAtTableURL, opi.payAtTableURL);
+        && Objects.equals(this.isSetPayAtTableStoreNumber, opi.isSetPayAtTableStoreNumber)
+        && Objects.equals(this.payAtTableURL, opi.payAtTableURL)
+        && Objects.equals(this.isSetPayAtTableURL, opi.isSetPayAtTableURL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePayAtTable, payAtTableStoreNumber, payAtTableURL);
+    return Objects.hash(
+        enablePayAtTable,
+        isSetEnablePayAtTable,
+        payAtTableStoreNumber,
+        isSetPayAtTableStoreNumber,
+        payAtTableURL,
+        isSetPayAtTableURL);
   }
 
   @Override

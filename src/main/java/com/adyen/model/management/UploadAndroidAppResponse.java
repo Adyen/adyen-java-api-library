@@ -101,12 +101,13 @@ public class UploadAndroidAppResponse {
       return false;
     }
     UploadAndroidAppResponse uploadAndroidAppResponse = (UploadAndroidAppResponse) o;
-    return Objects.equals(this.id, uploadAndroidAppResponse.id);
+    return Objects.equals(this.id, uploadAndroidAppResponse.id)
+        && Objects.equals(this.isSetId, uploadAndroidAppResponse.isSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, isSetId);
   }
 
   @Override

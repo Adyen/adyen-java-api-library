@@ -111,12 +111,13 @@ public class PayoutSettingsResponse {
       return false;
     }
     PayoutSettingsResponse payoutSettingsResponse = (PayoutSettingsResponse) o;
-    return Objects.equals(this.data, payoutSettingsResponse.data);
+    return Objects.equals(this.data, payoutSettingsResponse.data)
+        && Objects.equals(this.isSetData, payoutSettingsResponse.isSetData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, isSetData);
   }
 
   @Override

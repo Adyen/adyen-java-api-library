@@ -161,12 +161,14 @@ public class GooglePayInfo {
     }
     GooglePayInfo googlePayInfo = (GooglePayInfo) o;
     return Objects.equals(this.merchantId, googlePayInfo.merchantId)
-        && Objects.equals(this.reuseMerchantId, googlePayInfo.reuseMerchantId);
+        && Objects.equals(this.isSetMerchantId, googlePayInfo.isSetMerchantId)
+        && Objects.equals(this.reuseMerchantId, googlePayInfo.reuseMerchantId)
+        && Objects.equals(this.isSetReuseMerchantId, googlePayInfo.isSetReuseMerchantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, reuseMerchantId);
+    return Objects.hash(merchantId, isSetMerchantId, reuseMerchantId, isSetReuseMerchantId);
   }
 
   @Override

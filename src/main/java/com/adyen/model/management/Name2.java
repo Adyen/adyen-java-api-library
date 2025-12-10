@@ -143,12 +143,14 @@ public class Name2 {
     }
     Name2 name2 = (Name2) o;
     return Objects.equals(this.firstName, name2.firstName)
-        && Objects.equals(this.lastName, name2.lastName);
+        && Objects.equals(this.isSetFirstName, name2.isSetFirstName)
+        && Objects.equals(this.lastName, name2.lastName)
+        && Objects.equals(this.isSetLastName, name2.isSetLastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName);
+    return Objects.hash(firstName, isSetFirstName, lastName, isSetLastName);
   }
 
   @Override

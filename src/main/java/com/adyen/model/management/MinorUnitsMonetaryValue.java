@@ -158,12 +158,14 @@ public class MinorUnitsMonetaryValue {
     }
     MinorUnitsMonetaryValue minorUnitsMonetaryValue = (MinorUnitsMonetaryValue) o;
     return Objects.equals(this.amount, minorUnitsMonetaryValue.amount)
-        && Objects.equals(this.currencyCode, minorUnitsMonetaryValue.currencyCode);
+        && Objects.equals(this.isSetAmount, minorUnitsMonetaryValue.isSetAmount)
+        && Objects.equals(this.currencyCode, minorUnitsMonetaryValue.currencyCode)
+        && Objects.equals(this.isSetCurrencyCode, minorUnitsMonetaryValue.isSetCurrencyCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, currencyCode);
+    return Objects.hash(amount, isSetAmount, currencyCode, isSetCurrencyCode);
   }
 
   @Override

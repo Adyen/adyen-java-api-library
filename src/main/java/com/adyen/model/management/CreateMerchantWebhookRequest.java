@@ -907,43 +907,82 @@ public class CreateMerchantWebhookRequest {
     return Objects.equals(
             this.acceptsExpiredCertificate, createMerchantWebhookRequest.acceptsExpiredCertificate)
         && Objects.equals(
+            this.isSetAcceptsExpiredCertificate,
+            createMerchantWebhookRequest.isSetAcceptsExpiredCertificate)
+        && Objects.equals(
             this.acceptsSelfSignedCertificate,
             createMerchantWebhookRequest.acceptsSelfSignedCertificate)
         && Objects.equals(
+            this.isSetAcceptsSelfSignedCertificate,
+            createMerchantWebhookRequest.isSetAcceptsSelfSignedCertificate)
+        && Objects.equals(
             this.acceptsUntrustedRootCertificate,
             createMerchantWebhookRequest.acceptsUntrustedRootCertificate)
+        && Objects.equals(
+            this.isSetAcceptsUntrustedRootCertificate,
+            createMerchantWebhookRequest.isSetAcceptsUntrustedRootCertificate)
         && Objects.equals(this.active, createMerchantWebhookRequest.active)
+        && Objects.equals(this.isSetActive, createMerchantWebhookRequest.isSetActive)
         && Objects.equals(this.additionalSettings, createMerchantWebhookRequest.additionalSettings)
         && Objects.equals(
+            this.isSetAdditionalSettings, createMerchantWebhookRequest.isSetAdditionalSettings)
+        && Objects.equals(
             this.communicationFormat, createMerchantWebhookRequest.communicationFormat)
+        && Objects.equals(
+            this.isSetCommunicationFormat, createMerchantWebhookRequest.isSetCommunicationFormat)
         && Objects.equals(this.description, createMerchantWebhookRequest.description)
+        && Objects.equals(this.isSetDescription, createMerchantWebhookRequest.isSetDescription)
         && Objects.equals(this.encryptionProtocol, createMerchantWebhookRequest.encryptionProtocol)
+        && Objects.equals(
+            this.isSetEncryptionProtocol, createMerchantWebhookRequest.isSetEncryptionProtocol)
         && Objects.equals(this.networkType, createMerchantWebhookRequest.networkType)
+        && Objects.equals(this.isSetNetworkType, createMerchantWebhookRequest.isSetNetworkType)
         && Objects.equals(this.password, createMerchantWebhookRequest.password)
+        && Objects.equals(this.isSetPassword, createMerchantWebhookRequest.isSetPassword)
         && Objects.equals(
             this.populateSoapActionHeader, createMerchantWebhookRequest.populateSoapActionHeader)
+        && Objects.equals(
+            this.isSetPopulateSoapActionHeader,
+            createMerchantWebhookRequest.isSetPopulateSoapActionHeader)
         && Objects.equals(this.type, createMerchantWebhookRequest.type)
+        && Objects.equals(this.isSetType, createMerchantWebhookRequest.isSetType)
         && Objects.equals(this.url, createMerchantWebhookRequest.url)
-        && Objects.equals(this.username, createMerchantWebhookRequest.username);
+        && Objects.equals(this.isSetUrl, createMerchantWebhookRequest.isSetUrl)
+        && Objects.equals(this.username, createMerchantWebhookRequest.username)
+        && Objects.equals(this.isSetUsername, createMerchantWebhookRequest.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acceptsExpiredCertificate,
+        isSetAcceptsExpiredCertificate,
         acceptsSelfSignedCertificate,
+        isSetAcceptsSelfSignedCertificate,
         acceptsUntrustedRootCertificate,
+        isSetAcceptsUntrustedRootCertificate,
         active,
+        isSetActive,
         additionalSettings,
+        isSetAdditionalSettings,
         communicationFormat,
+        isSetCommunicationFormat,
         description,
+        isSetDescription,
         encryptionProtocol,
+        isSetEncryptionProtocol,
         networkType,
+        isSetNetworkType,
         password,
+        isSetPassword,
         populateSoapActionHeader,
+        isSetPopulateSoapActionHeader,
         type,
+        isSetType,
         url,
-        username);
+        isSetUrl,
+        username,
+        isSetUsername);
   }
 
   @Override

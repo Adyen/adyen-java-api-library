@@ -146,12 +146,14 @@ public class TerminalActionScheduleDetail {
     }
     TerminalActionScheduleDetail terminalActionScheduleDetail = (TerminalActionScheduleDetail) o;
     return Objects.equals(this.id, terminalActionScheduleDetail.id)
-        && Objects.equals(this.terminalId, terminalActionScheduleDetail.terminalId);
+        && Objects.equals(this.isSetId, terminalActionScheduleDetail.isSetId)
+        && Objects.equals(this.terminalId, terminalActionScheduleDetail.terminalId)
+        && Objects.equals(this.isSetTerminalId, terminalActionScheduleDetail.isSetTerminalId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, terminalId);
+    return Objects.hash(id, isSetId, terminalId, isSetTerminalId);
   }
 
   @Override

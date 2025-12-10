@@ -312,15 +312,30 @@ public class ModelConfiguration {
     }
     ModelConfiguration configuration = (ModelConfiguration) o;
     return Objects.equals(this.brand, configuration.brand)
+        && Objects.equals(this.isSetBrand, configuration.isSetBrand)
         && Objects.equals(this.commercial, configuration.commercial)
+        && Objects.equals(this.isSetCommercial, configuration.isSetCommercial)
         && Objects.equals(this.country, configuration.country)
+        && Objects.equals(this.isSetCountry, configuration.isSetCountry)
         && Objects.equals(this.currencies, configuration.currencies)
-        && Objects.equals(this.sources, configuration.sources);
+        && Objects.equals(this.isSetCurrencies, configuration.isSetCurrencies)
+        && Objects.equals(this.sources, configuration.sources)
+        && Objects.equals(this.isSetSources, configuration.isSetSources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, commercial, country, currencies, sources);
+    return Objects.hash(
+        brand,
+        isSetBrand,
+        commercial,
+        isSetCommercial,
+        country,
+        isSetCountry,
+        currencies,
+        isSetCurrencies,
+        sources,
+        isSetSources);
   }
 
   @Override

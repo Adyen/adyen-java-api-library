@@ -101,12 +101,13 @@ public class GenerateClientKeyResponse {
       return false;
     }
     GenerateClientKeyResponse generateClientKeyResponse = (GenerateClientKeyResponse) o;
-    return Objects.equals(this.clientKey, generateClientKeyResponse.clientKey);
+    return Objects.equals(this.clientKey, generateClientKeyResponse.clientKey)
+        && Objects.equals(this.isSetClientKey, generateClientKeyResponse.isSetClientKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientKey);
+    return Objects.hash(clientKey, isSetClientKey);
   }
 
   @Override

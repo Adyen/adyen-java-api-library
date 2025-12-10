@@ -101,12 +101,14 @@ public class AlipayPlusInfo {
       return false;
     }
     AlipayPlusInfo alipayPlusInfo = (AlipayPlusInfo) o;
-    return Objects.equals(this.settlementCurrencyCode, alipayPlusInfo.settlementCurrencyCode);
+    return Objects.equals(this.settlementCurrencyCode, alipayPlusInfo.settlementCurrencyCode)
+        && Objects.equals(
+            this.isSetSettlementCurrencyCode, alipayPlusInfo.isSetSettlementCurrencyCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settlementCurrencyCode);
+    return Objects.hash(settlementCurrencyCode, isSetSettlementCurrencyCode);
   }
 
   @Override

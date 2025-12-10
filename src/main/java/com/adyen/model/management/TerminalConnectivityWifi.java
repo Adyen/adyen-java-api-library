@@ -188,13 +188,16 @@ public class TerminalConnectivityWifi {
     }
     TerminalConnectivityWifi terminalConnectivityWifi = (TerminalConnectivityWifi) o;
     return Objects.equals(this.ipAddress, terminalConnectivityWifi.ipAddress)
+        && Objects.equals(this.isSetIpAddress, terminalConnectivityWifi.isSetIpAddress)
         && Objects.equals(this.macAddress, terminalConnectivityWifi.macAddress)
-        && Objects.equals(this.ssid, terminalConnectivityWifi.ssid);
+        && Objects.equals(this.isSetMacAddress, terminalConnectivityWifi.isSetMacAddress)
+        && Objects.equals(this.ssid, terminalConnectivityWifi.ssid)
+        && Objects.equals(this.isSetSsid, terminalConnectivityWifi.isSetSsid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, macAddress, ssid);
+    return Objects.hash(ipAddress, isSetIpAddress, macAddress, isSetMacAddress, ssid, isSetSsid);
   }
 
   @Override

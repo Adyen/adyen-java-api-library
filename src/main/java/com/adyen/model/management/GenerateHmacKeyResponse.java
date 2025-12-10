@@ -101,12 +101,13 @@ public class GenerateHmacKeyResponse {
       return false;
     }
     GenerateHmacKeyResponse generateHmacKeyResponse = (GenerateHmacKeyResponse) o;
-    return Objects.equals(this.hmacKey, generateHmacKeyResponse.hmacKey);
+    return Objects.equals(this.hmacKey, generateHmacKeyResponse.hmacKey)
+        && Objects.equals(this.isSetHmacKey, generateHmacKeyResponse.isSetHmacKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hmacKey);
+    return Objects.hash(hmacKey, isSetHmacKey);
   }
 
   @Override

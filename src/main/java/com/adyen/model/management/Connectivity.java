@@ -224,12 +224,15 @@ public class Connectivity {
     }
     Connectivity connectivity = (Connectivity) o;
     return Objects.equals(this.simcardStatus, connectivity.simcardStatus)
-        && Objects.equals(this.terminalIPAddressURL, connectivity.terminalIPAddressURL);
+        && Objects.equals(this.isSetSimcardStatus, connectivity.isSetSimcardStatus)
+        && Objects.equals(this.terminalIPAddressURL, connectivity.terminalIPAddressURL)
+        && Objects.equals(this.isSetTerminalIPAddressURL, connectivity.isSetTerminalIPAddressURL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(simcardStatus, terminalIPAddressURL);
+    return Objects.hash(
+        simcardStatus, isSetSimcardStatus, terminalIPAddressURL, isSetTerminalIPAddressURL);
   }
 
   @Override
