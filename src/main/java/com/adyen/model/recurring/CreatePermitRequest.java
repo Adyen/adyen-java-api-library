@@ -11,6 +11,8 @@
 
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,14 +32,32 @@ public class CreatePermitRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_PERMITS = "permits";
   private List<Permit> permits;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPermits = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreatePermitRequest() {}
 
@@ -50,6 +70,7 @@ public class CreatePermitRequest {
    */
   public CreatePermitRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -75,6 +96,7 @@ public class CreatePermitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -85,6 +107,7 @@ public class CreatePermitRequest {
    */
   public CreatePermitRequest permits(List<Permit> permits) {
     this.permits = permits;
+    isSetPermits = true; // mark as set
     return this;
   }
 
@@ -116,6 +139,7 @@ public class CreatePermitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermits(List<Permit> permits) {
     this.permits = permits;
+    isSetPermits = true; // mark as set
   }
 
   /**
@@ -126,6 +150,7 @@ public class CreatePermitRequest {
    */
   public CreatePermitRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -149,6 +174,7 @@ public class CreatePermitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -160,6 +186,7 @@ public class CreatePermitRequest {
    */
   public CreatePermitRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -185,6 +212,27 @@ public class CreatePermitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreatePermitRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreatePermitRequest object is equal to o. */
@@ -198,15 +246,28 @@ public class CreatePermitRequest {
     }
     CreatePermitRequest createPermitRequest = (CreatePermitRequest) o;
     return Objects.equals(this.merchantAccount, createPermitRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, createPermitRequest.isSetMerchantAccount)
         && Objects.equals(this.permits, createPermitRequest.permits)
+        && Objects.equals(this.isSetPermits, createPermitRequest.isSetPermits)
         && Objects.equals(
             this.recurringDetailReference, createPermitRequest.recurringDetailReference)
-        && Objects.equals(this.shopperReference, createPermitRequest.shopperReference);
+        && Objects.equals(
+            this.isSetRecurringDetailReference, createPermitRequest.isSetRecurringDetailReference)
+        && Objects.equals(this.shopperReference, createPermitRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, createPermitRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, permits, recurringDetailReference, shopperReference);
+    return Objects.hash(
+        merchantAccount,
+        isSetMerchantAccount,
+        permits,
+        isSetPermits,
+        recurringDetailReference,
+        isSetRecurringDetailReference,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override
@@ -231,6 +292,39 @@ public class CreatePermitRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetPermits) {
+      addIfNull(nulls, JSON_PROPERTY_PERMITS, this.permits);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

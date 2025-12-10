@@ -11,6 +11,8 @@
 
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class PermitRestriction {
   public static final String JSON_PROPERTY_MAX_AMOUNT = "maxAmount";
   private Amount maxAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaxAmount = false;
+
   public static final String JSON_PROPERTY_SINGLE_TRANSACTION_LIMIT = "singleTransactionLimit";
   private Amount singleTransactionLimit;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSingleTransactionLimit = false;
+
   public static final String JSON_PROPERTY_SINGLE_USE = "singleUse";
   private Boolean singleUse;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSingleUse = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PermitRestriction() {}
 
@@ -43,6 +60,7 @@ public class PermitRestriction {
    */
   public PermitRestriction maxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
+    isSetMaxAmount = true; // mark as set
     return this;
   }
 
@@ -66,6 +84,7 @@ public class PermitRestriction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
+    isSetMaxAmount = true; // mark as set
   }
 
   /**
@@ -76,6 +95,7 @@ public class PermitRestriction {
    */
   public PermitRestriction singleTransactionLimit(Amount singleTransactionLimit) {
     this.singleTransactionLimit = singleTransactionLimit;
+    isSetSingleTransactionLimit = true; // mark as set
     return this;
   }
 
@@ -99,6 +119,7 @@ public class PermitRestriction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSingleTransactionLimit(Amount singleTransactionLimit) {
     this.singleTransactionLimit = singleTransactionLimit;
+    isSetSingleTransactionLimit = true; // mark as set
   }
 
   /**
@@ -111,6 +132,7 @@ public class PermitRestriction {
    */
   public PermitRestriction singleUse(Boolean singleUse) {
     this.singleUse = singleUse;
+    isSetSingleUse = true; // mark as set
     return this;
   }
 
@@ -138,6 +160,27 @@ public class PermitRestriction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSingleUse(Boolean singleUse) {
     this.singleUse = singleUse;
+    isSetSingleUse = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PermitRestriction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PermitRestriction object is equal to o. */
@@ -151,13 +194,23 @@ public class PermitRestriction {
     }
     PermitRestriction permitRestriction = (PermitRestriction) o;
     return Objects.equals(this.maxAmount, permitRestriction.maxAmount)
+        && Objects.equals(this.isSetMaxAmount, permitRestriction.isSetMaxAmount)
         && Objects.equals(this.singleTransactionLimit, permitRestriction.singleTransactionLimit)
-        && Objects.equals(this.singleUse, permitRestriction.singleUse);
+        && Objects.equals(
+            this.isSetSingleTransactionLimit, permitRestriction.isSetSingleTransactionLimit)
+        && Objects.equals(this.singleUse, permitRestriction.singleUse)
+        && Objects.equals(this.isSetSingleUse, permitRestriction.isSetSingleUse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxAmount, singleTransactionLimit, singleUse);
+    return Objects.hash(
+        maxAmount,
+        isSetMaxAmount,
+        singleTransactionLimit,
+        isSetSingleTransactionLimit,
+        singleUse,
+        isSetSingleUse);
   }
 
   @Override
@@ -181,6 +234,36 @@ public class PermitRestriction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMaxAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MAX_AMOUNT, this.maxAmount);
+    }
+    if (isSetSingleTransactionLimit) {
+      addIfNull(nulls, JSON_PROPERTY_SINGLE_TRANSACTION_LIMIT, this.singleTransactionLimit);
+    }
+    if (isSetSingleUse) {
+      addIfNull(nulls, JSON_PROPERTY_SINGLE_USE, this.singleUse);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

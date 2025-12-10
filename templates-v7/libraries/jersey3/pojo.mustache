@@ -83,14 +83,16 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
   private {{{datatypeWithEnum}}} {{name}};
+  {{#handleNullableProperties}}
+  {{! when 'handleNullableProperties' additionalData is found, include code to handle Nullable Properties }}
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSet{{nameInPascalCase}} = false;
+  private boolean isSet{{nameInPascalCase}} = false;{{/handleNullableProperties}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
-  {{/vars}}
+  {{/vars}} {{#handleNullableProperties}}
   /** Sets whether attributes with null values should be explicitly included in the JSON payload. Default is false. */
   @JsonIgnore
-  private boolean includeNullValues = false;
+  private boolean includeNullValues = false;{{/handleNullableProperties}}
 
   public {{classname}}() { {{#parent}}{{#parcelableModel}}
     super();{{/parcelableModel}}{{/parent}}{{#gson}}{{#discriminator}}
@@ -142,9 +144,8 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
-    this.{{name}} = {{name}};
-    {{/vendorExtensions.x-is-jackson-optional-nullable}}
-    isSet{{nameInPascalCase}} = true; // mark as set
+    this.{{name}} = {{name}};{{/vendorExtensions.x-is-jackson-optional-nullable}}{{#handleNullableProperties}}
+    isSet{{nameInPascalCase}} = true; // mark as set{{/handleNullableProperties}}
     return this;
   }
   {{#isArray}}
@@ -287,10 +288,11 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
-    isSet{{nameInPascalCase}} = true; // mark as set
+      {{#handleNullableProperties}}
+    isSet{{nameInPascalCase}} = true; // mark as set{{/handleNullableProperties}}
   }
   {{/isReadOnly}}
-  {{/vars}}
+  {{/vars}}{{#handleNullableProperties}}
 
   /** Configures whether null values are explicitly serialized in the JSON payload. Default is false. */
   public {{classname}} includeNullValues(boolean includeNullValues) {
@@ -306,7 +308,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   /** Sets whether null values should be explicitly serialized in the JSON payload. Default is false. */
   public void setIncludeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
-  }
+  }{{/handleNullableProperties}}
 
 {{>libraries/jersey2/additional_properties}}
   /**
@@ -325,8 +327,16 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       return false;
     }{{#hasVars}}
     {{classname}} {{classVarName}} = ({{classname}}) o;
+    {{^handleNullableProperties}}
     return {{#vars}}{{#vendorExtensions.x-is-jackson-optional-nullable}}equalsNullable(this.{{name}}, {{classVarName}}.{{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{#isByteArray}}Arrays{{/isByteArray}}{{^isByteArray}}Objects{{/isByteArray}}.equals(this.{{name}}, {{classVarName}}.{{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^-last}} &&
-        {{/-last}}{{/vars}}{{#additionalPropertiesType}}&&
+        {{/-last}}{{/vars}}
+    {{/handleNullableProperties}}
+    {{#handleNullableProperties}}
+    return {{#vars}}{{#vendorExtensions.x-is-jackson-optional-nullable}}equalsNullable(this.{{name}}, {{classVarName}}.{{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{#isByteArray}}Arrays{{/isByteArray}}{{^isByteArray}}Objects{{/isByteArray}}.equals(this.{{name}}, {{classVarName}}.{{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}} &&
+        Objects.equals(this.isSet{{nameInPascalCase}}, {{classVarName}}.isSet{{nameInPascalCase}}){{^-last}} &&
+        {{/-last}}{{/vars}}
+    {{/handleNullableProperties}}
+    {{#additionalPropertiesType}}&&
         Objects.equals(this.additionalProperties, {{classVarName}}.additionalProperties){{/additionalPropertiesType}}{{#parent}} &&
         super.equals(o){{/parent}};{{/hasVars}}{{^hasVars}}
     return {{#parent}}super.equals(o){{/parent}}{{^parent}}true{{/parent}};{{/hasVars}}
@@ -343,7 +353,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return HashCodeBuilder.reflectionHashCode(this);
   {{/useReflectionEqualsHashCode}}
   {{^useReflectionEqualsHashCode}}
-    return Objects.hash({{#vars}}{{#vendorExtensions.x-is-jackson-optional-nullable}}hashCodeNullable({{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{^isByteArray}}{{name}}{{/isByteArray}}{{#isByteArray}}Arrays.hashCode({{name}}){{/isByteArray}}{{/vendorExtensions.x-is-jackson-optional-nullable}}{{^-last}}, {{/-last}}{{/vars}}{{#parent}}{{#hasVars}}, {{/hasVars}}super.hashCode(){{/parent}}{{#additionalPropertiesType}}{{#hasVars}}, {{/hasVars}}{{^hasVars}}{{#parent}}, {{/parent}}{{/hasVars}}additionalProperties{{/additionalPropertiesType}});
+    return Objects.hash({{#vars}}{{#vendorExtensions.x-is-jackson-optional-nullable}}hashCodeNullable({{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{^isByteArray}}{{name}}{{/isByteArray}}{{#isByteArray}}Arrays.hashCode({{name}}){{/isByteArray}}{{/vendorExtensions.x-is-jackson-optional-nullable}}{{#handleNullableProperties}}, isSet{{nameInPascalCase}}{{/handleNullableProperties}}{{^-last}}, {{/-last}}{{/vars}}{{#parent}}{{#hasVars}}, {{/hasVars}}super.hashCode(){{/parent}}{{#additionalPropertiesType}}{{#hasVars}}, {{/hasVars}}{{^hasVars}}{{#parent}}, {{/parent}}{{/hasVars}}additionalProperties{{/additionalPropertiesType}});
   {{/useReflectionEqualsHashCode}}
   }{{#vendorExtensions.x-jackson-optional-nullable-helpers}}
 
@@ -451,7 +461,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     mappings.put("{{name}}", {{classname}}.class);
     JSON.registerDiscriminator({{classname}}.class, "{{propertyBaseName}}", mappings);
   }
-{{/discriminator}}
+{{/discriminator}}{{#handleNullableProperties}}
   /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
   @JsonInclude(JsonInclude.Include.ALWAYS)
   @JsonAnyGetter
@@ -476,7 +486,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     if (value == null) {
       map.put(key, null);
     }
-  }
+  }{{/handleNullableProperties}}
 
 /**
    * Create an instance of {{classname}} given an JSON string
