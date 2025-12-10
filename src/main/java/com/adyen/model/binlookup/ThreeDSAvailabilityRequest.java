@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,20 +36,44 @@ public class ThreeDSAvailabilityRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_BRANDS = "brands";
   private List<String> brands;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrands = false;
 
   public static final String JSON_PROPERTY_CARD_NUMBER = "cardNumber";
   private String cardNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardNumber = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDSAvailabilityRequest() {}
 
@@ -63,6 +89,7 @@ public class ThreeDSAvailabilityRequest {
    */
   public ThreeDSAvailabilityRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -102,6 +129,7 @@ public class ThreeDSAvailabilityRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -112,6 +140,7 @@ public class ThreeDSAvailabilityRequest {
    */
   public ThreeDSAvailabilityRequest brands(List<String> brands) {
     this.brands = brands;
+    isSetBrands = true; // mark as set
     return this;
   }
 
@@ -143,6 +172,7 @@ public class ThreeDSAvailabilityRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
     this.brands = brands;
+    isSetBrands = true; // mark as set
   }
 
   /**
@@ -153,6 +183,7 @@ public class ThreeDSAvailabilityRequest {
    */
   public ThreeDSAvailabilityRequest cardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
+    isSetCardNumber = true; // mark as set
     return this;
   }
 
@@ -176,6 +207,7 @@ public class ThreeDSAvailabilityRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
+    isSetCardNumber = true; // mark as set
   }
 
   /**
@@ -186,6 +218,7 @@ public class ThreeDSAvailabilityRequest {
    */
   public ThreeDSAvailabilityRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -209,6 +242,7 @@ public class ThreeDSAvailabilityRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -219,6 +253,7 @@ public class ThreeDSAvailabilityRequest {
    */
   public ThreeDSAvailabilityRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -242,6 +277,7 @@ public class ThreeDSAvailabilityRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -253,6 +289,7 @@ public class ThreeDSAvailabilityRequest {
    */
   public ThreeDSAvailabilityRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -278,6 +315,27 @@ public class ThreeDSAvailabilityRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDSAvailabilityRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDSAvailabilityRequest object is equal to o. */
@@ -291,23 +349,39 @@ public class ThreeDSAvailabilityRequest {
     }
     ThreeDSAvailabilityRequest threeDSAvailabilityRequest = (ThreeDSAvailabilityRequest) o;
     return Objects.equals(this.additionalData, threeDSAvailabilityRequest.additionalData)
+        && Objects.equals(this.isSetAdditionalData, threeDSAvailabilityRequest.isSetAdditionalData)
         && Objects.equals(this.brands, threeDSAvailabilityRequest.brands)
+        && Objects.equals(this.isSetBrands, threeDSAvailabilityRequest.isSetBrands)
         && Objects.equals(this.cardNumber, threeDSAvailabilityRequest.cardNumber)
+        && Objects.equals(this.isSetCardNumber, threeDSAvailabilityRequest.isSetCardNumber)
         && Objects.equals(this.merchantAccount, threeDSAvailabilityRequest.merchantAccount)
         && Objects.equals(
+            this.isSetMerchantAccount, threeDSAvailabilityRequest.isSetMerchantAccount)
+        && Objects.equals(
             this.recurringDetailReference, threeDSAvailabilityRequest.recurringDetailReference)
-        && Objects.equals(this.shopperReference, threeDSAvailabilityRequest.shopperReference);
+        && Objects.equals(
+            this.isSetRecurringDetailReference,
+            threeDSAvailabilityRequest.isSetRecurringDetailReference)
+        && Objects.equals(this.shopperReference, threeDSAvailabilityRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, threeDSAvailabilityRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         brands,
+        isSetBrands,
         cardNumber,
+        isSetCardNumber,
         merchantAccount,
+        isSetMerchantAccount,
         recurringDetailReference,
-        shopperReference);
+        isSetRecurringDetailReference,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override
@@ -334,6 +408,45 @@ public class ThreeDSAvailabilityRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetBrands) {
+      addIfNull(nulls, JSON_PROPERTY_BRANDS, this.brands);
+    }
+    if (isSetCardNumber) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_NUMBER, this.cardNumber);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

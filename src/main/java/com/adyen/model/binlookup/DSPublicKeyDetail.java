@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,17 +32,38 @@ public class DSPublicKeyDetail {
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_DIRECTORY_SERVER_ID = "directoryServerId";
   private String directoryServerId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDirectoryServerId = false;
 
   public static final String JSON_PROPERTY_FROM_S_D_K_VERSION = "fromSDKVersion";
   private String fromSDKVersion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFromSDKVersion = false;
+
   public static final String JSON_PROPERTY_PUBLIC_KEY = "publicKey";
   private byte[] publicKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPublicKey = false;
+
   public static final String JSON_PROPERTY_ROOT_CERTIFICATES = "rootCertificates";
   private String rootCertificates;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRootCertificates = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DSPublicKeyDetail() {}
 
@@ -52,6 +75,7 @@ public class DSPublicKeyDetail {
    */
   public DSPublicKeyDetail brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -75,6 +99,7 @@ public class DSPublicKeyDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -85,6 +110,7 @@ public class DSPublicKeyDetail {
    */
   public DSPublicKeyDetail directoryServerId(String directoryServerId) {
     this.directoryServerId = directoryServerId;
+    isSetDirectoryServerId = true; // mark as set
     return this;
   }
 
@@ -108,6 +134,7 @@ public class DSPublicKeyDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryServerId(String directoryServerId) {
     this.directoryServerId = directoryServerId;
+    isSetDirectoryServerId = true; // mark as set
   }
 
   /**
@@ -123,6 +150,7 @@ public class DSPublicKeyDetail {
    */
   public DSPublicKeyDetail fromSDKVersion(String fromSDKVersion) {
     this.fromSDKVersion = fromSDKVersion;
+    isSetFromSDKVersion = true; // mark as set
     return this;
   }
 
@@ -156,6 +184,7 @@ public class DSPublicKeyDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromSDKVersion(String fromSDKVersion) {
     this.fromSDKVersion = fromSDKVersion;
+    isSetFromSDKVersion = true; // mark as set
   }
 
   /**
@@ -167,6 +196,7 @@ public class DSPublicKeyDetail {
    */
   public DSPublicKeyDetail publicKey(byte[] publicKey) {
     this.publicKey = publicKey;
+    isSetPublicKey = true; // mark as set
     return this;
   }
 
@@ -192,6 +222,7 @@ public class DSPublicKeyDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKey(byte[] publicKey) {
     this.publicKey = publicKey;
+    isSetPublicKey = true; // mark as set
   }
 
   /**
@@ -204,6 +235,7 @@ public class DSPublicKeyDetail {
    */
   public DSPublicKeyDetail rootCertificates(String rootCertificates) {
     this.rootCertificates = rootCertificates;
+    isSetRootCertificates = true; // mark as set
     return this;
   }
 
@@ -231,6 +263,27 @@ public class DSPublicKeyDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRootCertificates(String rootCertificates) {
     this.rootCertificates = rootCertificates;
+    isSetRootCertificates = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DSPublicKeyDetail includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DSPublicKeyDetail object is equal to o. */
@@ -244,16 +297,30 @@ public class DSPublicKeyDetail {
     }
     DSPublicKeyDetail dsPublicKeyDetail = (DSPublicKeyDetail) o;
     return Objects.equals(this.brand, dsPublicKeyDetail.brand)
+        && Objects.equals(this.isSetBrand, dsPublicKeyDetail.isSetBrand)
         && Objects.equals(this.directoryServerId, dsPublicKeyDetail.directoryServerId)
+        && Objects.equals(this.isSetDirectoryServerId, dsPublicKeyDetail.isSetDirectoryServerId)
         && Objects.equals(this.fromSDKVersion, dsPublicKeyDetail.fromSDKVersion)
+        && Objects.equals(this.isSetFromSDKVersion, dsPublicKeyDetail.isSetFromSDKVersion)
         && Arrays.equals(this.publicKey, dsPublicKeyDetail.publicKey)
-        && Objects.equals(this.rootCertificates, dsPublicKeyDetail.rootCertificates);
+        && Objects.equals(this.isSetPublicKey, dsPublicKeyDetail.isSetPublicKey)
+        && Objects.equals(this.rootCertificates, dsPublicKeyDetail.rootCertificates)
+        && Objects.equals(this.isSetRootCertificates, dsPublicKeyDetail.isSetRootCertificates);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        brand, directoryServerId, fromSDKVersion, Arrays.hashCode(publicKey), rootCertificates);
+        brand,
+        isSetBrand,
+        directoryServerId,
+        isSetDirectoryServerId,
+        fromSDKVersion,
+        isSetFromSDKVersion,
+        Arrays.hashCode(publicKey),
+        isSetPublicKey,
+        rootCertificates,
+        isSetRootCertificates);
   }
 
   @Override
@@ -277,6 +344,42 @@ public class DSPublicKeyDetail {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetDirectoryServerId) {
+      addIfNull(nulls, JSON_PROPERTY_DIRECTORY_SERVER_ID, this.directoryServerId);
+    }
+    if (isSetFromSDKVersion) {
+      addIfNull(nulls, JSON_PROPERTY_FROM_S_D_K_VERSION, this.fromSDKVersion);
+    }
+    if (isSetPublicKey) {
+      addIfNull(nulls, JSON_PROPERTY_PUBLIC_KEY, this.publicKey);
+    }
+    if (isSetRootCertificates) {
+      addIfNull(nulls, JSON_PROPERTY_ROOT_CERTIFICATES, this.rootCertificates);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
