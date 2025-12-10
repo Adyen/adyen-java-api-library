@@ -11,6 +11,8 @@
 
 package com.adyen.model.paymentsapp;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class PaymentsAppDto {
   public static final String JSON_PROPERTY_INSTALLATION_ID = "installationId";
   private String installationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallationId = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT_CODE = "merchantAccountCode";
   private String merchantAccountCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccountCode = false;
 
   public static final String JSON_PROPERTY_MERCHANT_STORE_CODE = "merchantStoreCode";
   private String merchantStoreCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantStoreCode = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentsAppDto() {}
 
@@ -47,6 +67,7 @@ public class PaymentsAppDto {
    */
   public PaymentsAppDto installationId(String installationId) {
     this.installationId = installationId;
+    isSetInstallationId = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class PaymentsAppDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
+    isSetInstallationId = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class PaymentsAppDto {
    */
   public PaymentsAppDto merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
+    isSetMerchantAccountCode = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class PaymentsAppDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
+    isSetMerchantAccountCode = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class PaymentsAppDto {
    */
   public PaymentsAppDto merchantStoreCode(String merchantStoreCode) {
     this.merchantStoreCode = merchantStoreCode;
+    isSetMerchantStoreCode = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class PaymentsAppDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantStoreCode(String merchantStoreCode) {
     this.merchantStoreCode = merchantStoreCode;
+    isSetMerchantStoreCode = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class PaymentsAppDto {
    */
   public PaymentsAppDto status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class PaymentsAppDto {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentsAppDto includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentsAppDto object is equal to o. */
@@ -182,14 +230,26 @@ public class PaymentsAppDto {
     }
     PaymentsAppDto paymentsAppDto = (PaymentsAppDto) o;
     return Objects.equals(this.installationId, paymentsAppDto.installationId)
+        && Objects.equals(this.isSetInstallationId, paymentsAppDto.isSetInstallationId)
         && Objects.equals(this.merchantAccountCode, paymentsAppDto.merchantAccountCode)
+        && Objects.equals(this.isSetMerchantAccountCode, paymentsAppDto.isSetMerchantAccountCode)
         && Objects.equals(this.merchantStoreCode, paymentsAppDto.merchantStoreCode)
-        && Objects.equals(this.status, paymentsAppDto.status);
+        && Objects.equals(this.isSetMerchantStoreCode, paymentsAppDto.isSetMerchantStoreCode)
+        && Objects.equals(this.status, paymentsAppDto.status)
+        && Objects.equals(this.isSetStatus, paymentsAppDto.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(installationId, merchantAccountCode, merchantStoreCode, status);
+    return Objects.hash(
+        installationId,
+        isSetInstallationId,
+        merchantAccountCode,
+        isSetMerchantAccountCode,
+        merchantStoreCode,
+        isSetMerchantStoreCode,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -214,6 +274,39 @@ public class PaymentsAppDto {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetInstallationId) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLATION_ID, this.installationId);
+    }
+    if (isSetMerchantAccountCode) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT_CODE, this.merchantAccountCode);
+    }
+    if (isSetMerchantStoreCode) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_STORE_CODE, this.merchantStoreCode);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
