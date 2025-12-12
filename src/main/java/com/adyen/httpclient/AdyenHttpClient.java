@@ -254,7 +254,7 @@ public class AdyenHttpClient implements ClientInterface {
     }
     HostnameVerifier hostnameVerifier = config.getHostnameVerifier();
 
-    // Create ConnectionConfig with connect timeout and keep-alive settings
+    // Create ConnectionConfig with connect timeout
     ConnectionConfig connectionConfig =
         ConnectionConfig.custom()
             .setConnectTimeout(Timeout.ofMilliseconds(config.getConnectionTimeoutMillis()))
@@ -280,8 +280,10 @@ public class AdyenHttpClient implements ClientInterface {
     // Set proxy if configured
     if (proxy != null && proxy.address() instanceof InetSocketAddress) {
       InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
+      String scheme =
+          proxy.type() == Proxy.Type.SOCKS ? "socks" : "http"; // Map proxy type to scheme
       HttpHost proxyHost =
-          new HttpHost("http", inetSocketAddress.getHostName(), inetSocketAddress.getPort());
+          new HttpHost(scheme, inetSocketAddress.getHostName(), inetSocketAddress.getPort());
       DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxyHost);
       httpClientBuilder.setRoutePlanner(routePlanner);
     }
