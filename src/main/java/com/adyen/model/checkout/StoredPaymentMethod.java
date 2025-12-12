@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,55 +45,112 @@ public class StoredPaymentMethod {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountNumber = false;
+
   public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankLocationId = false;
 
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryMonth = false;
 
   public static final String JSON_PROPERTY_EXPIRY_YEAR = "expiryYear";
   private String expiryYear;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryYear = false;
+
   public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
   private String holderName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLabel = false;
+
   public static final String JSON_PROPERTY_LAST_FOUR = "lastFour";
   private String lastFour;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastFour = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkTxReference = false;
 
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS =
       "supportedRecurringProcessingModels";
   private List<String> supportedRecurringProcessingModels;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupportedRecurringProcessingModels = false;
+
   public static final String JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS =
       "supportedShopperInteractions";
   private List<String> supportedShopperInteractions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupportedShopperInteractions = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoredPaymentMethod() {}
 
@@ -103,6 +162,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
     return this;
   }
 
@@ -126,6 +186,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
   }
 
   /**
@@ -137,6 +198,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
     return this;
   }
 
@@ -162,6 +224,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
   }
 
   /**
@@ -172,6 +235,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -195,6 +259,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -205,6 +270,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
     return this;
   }
 
@@ -228,6 +294,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
   }
 
   /**
@@ -239,6 +306,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod expiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
     return this;
   }
 
@@ -264,6 +332,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
   }
 
   /**
@@ -274,6 +343,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod holderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
     return this;
   }
 
@@ -297,6 +367,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
   }
 
   /**
@@ -307,6 +378,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -330,6 +402,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -340,6 +413,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -363,6 +437,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -373,6 +448,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod label(String label) {
     this.label = label;
+    isSetLabel = true; // mark as set
     return this;
   }
 
@@ -396,6 +472,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabel(String label) {
     this.label = label;
+    isSetLabel = true; // mark as set
   }
 
   /**
@@ -406,6 +483,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod lastFour(String lastFour) {
     this.lastFour = lastFour;
+    isSetLastFour = true; // mark as set
     return this;
   }
 
@@ -429,6 +507,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastFour(String lastFour) {
     this.lastFour = lastFour;
+    isSetLastFour = true; // mark as set
   }
 
   /**
@@ -439,6 +518,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -462,6 +542,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -476,6 +557,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
     return this;
   }
 
@@ -507,6 +589,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
   }
 
   /**
@@ -517,6 +600,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -540,6 +624,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -550,6 +635,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -573,6 +659,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -585,6 +672,7 @@ public class StoredPaymentMethod {
   public StoredPaymentMethod supportedRecurringProcessingModels(
       List<String> supportedRecurringProcessingModels) {
     this.supportedRecurringProcessingModels = supportedRecurringProcessingModels;
+    isSetSupportedRecurringProcessingModels = true; // mark as set
     return this;
   }
 
@@ -620,6 +708,7 @@ public class StoredPaymentMethod {
   public void setSupportedRecurringProcessingModels(
       List<String> supportedRecurringProcessingModels) {
     this.supportedRecurringProcessingModels = supportedRecurringProcessingModels;
+    isSetSupportedRecurringProcessingModels = true; // mark as set
   }
 
   /**
@@ -632,6 +721,7 @@ public class StoredPaymentMethod {
   public StoredPaymentMethod supportedShopperInteractions(
       List<String> supportedShopperInteractions) {
     this.supportedShopperInteractions = supportedShopperInteractions;
+    isSetSupportedShopperInteractions = true; // mark as set
     return this;
   }
 
@@ -666,6 +756,7 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedShopperInteractions(List<String> supportedShopperInteractions) {
     this.supportedShopperInteractions = supportedShopperInteractions;
+    isSetSupportedShopperInteractions = true; // mark as set
   }
 
   /**
@@ -676,6 +767,7 @@ public class StoredPaymentMethod {
    */
   public StoredPaymentMethod type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -699,6 +791,27 @@ public class StoredPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoredPaymentMethod includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoredPaymentMethod object is equal to o. */
@@ -712,47 +825,85 @@ public class StoredPaymentMethod {
     }
     StoredPaymentMethod storedPaymentMethod = (StoredPaymentMethod) o;
     return Objects.equals(this.bankAccountNumber, storedPaymentMethod.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, storedPaymentMethod.isSetBankAccountNumber)
         && Objects.equals(this.bankLocationId, storedPaymentMethod.bankLocationId)
+        && Objects.equals(this.isSetBankLocationId, storedPaymentMethod.isSetBankLocationId)
         && Objects.equals(this.brand, storedPaymentMethod.brand)
+        && Objects.equals(this.isSetBrand, storedPaymentMethod.isSetBrand)
         && Objects.equals(this.expiryMonth, storedPaymentMethod.expiryMonth)
+        && Objects.equals(this.isSetExpiryMonth, storedPaymentMethod.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, storedPaymentMethod.expiryYear)
+        && Objects.equals(this.isSetExpiryYear, storedPaymentMethod.isSetExpiryYear)
         && Objects.equals(this.holderName, storedPaymentMethod.holderName)
+        && Objects.equals(this.isSetHolderName, storedPaymentMethod.isSetHolderName)
         && Objects.equals(this.iban, storedPaymentMethod.iban)
+        && Objects.equals(this.isSetIban, storedPaymentMethod.isSetIban)
         && Objects.equals(this.id, storedPaymentMethod.id)
+        && Objects.equals(this.isSetId, storedPaymentMethod.isSetId)
         && Objects.equals(this.label, storedPaymentMethod.label)
+        && Objects.equals(this.isSetLabel, storedPaymentMethod.isSetLabel)
         && Objects.equals(this.lastFour, storedPaymentMethod.lastFour)
+        && Objects.equals(this.isSetLastFour, storedPaymentMethod.isSetLastFour)
         && Objects.equals(this.name, storedPaymentMethod.name)
+        && Objects.equals(this.isSetName, storedPaymentMethod.isSetName)
         && Objects.equals(this.networkTxReference, storedPaymentMethod.networkTxReference)
+        && Objects.equals(this.isSetNetworkTxReference, storedPaymentMethod.isSetNetworkTxReference)
         && Objects.equals(this.ownerName, storedPaymentMethod.ownerName)
+        && Objects.equals(this.isSetOwnerName, storedPaymentMethod.isSetOwnerName)
         && Objects.equals(this.shopperEmail, storedPaymentMethod.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, storedPaymentMethod.isSetShopperEmail)
         && Objects.equals(
             this.supportedRecurringProcessingModels,
             storedPaymentMethod.supportedRecurringProcessingModels)
         && Objects.equals(
+            this.isSetSupportedRecurringProcessingModels,
+            storedPaymentMethod.isSetSupportedRecurringProcessingModels)
+        && Objects.equals(
             this.supportedShopperInteractions, storedPaymentMethod.supportedShopperInteractions)
-        && Objects.equals(this.type, storedPaymentMethod.type);
+        && Objects.equals(
+            this.isSetSupportedShopperInteractions,
+            storedPaymentMethod.isSetSupportedShopperInteractions)
+        && Objects.equals(this.type, storedPaymentMethod.type)
+        && Objects.equals(this.isSetType, storedPaymentMethod.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         bankAccountNumber,
+        isSetBankAccountNumber,
         bankLocationId,
+        isSetBankLocationId,
         brand,
+        isSetBrand,
         expiryMonth,
+        isSetExpiryMonth,
         expiryYear,
+        isSetExpiryYear,
         holderName,
+        isSetHolderName,
         iban,
+        isSetIban,
         id,
+        isSetId,
         label,
+        isSetLabel,
         lastFour,
+        isSetLastFour,
         name,
+        isSetName,
         networkTxReference,
+        isSetNetworkTxReference,
         ownerName,
+        isSetOwnerName,
         shopperEmail,
+        isSetShopperEmail,
         supportedRecurringProcessingModels,
+        isSetSupportedRecurringProcessingModels,
         supportedShopperInteractions,
-        type);
+        isSetSupportedShopperInteractions,
+        type,
+        isSetType);
   }
 
   @Override
@@ -792,6 +943,82 @@ public class StoredPaymentMethod {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBankAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
+    }
+    if (isSetBankLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_LOCATION_ID, this.bankLocationId);
+    }
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetExpiryMonth) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_MONTH, this.expiryMonth);
+    }
+    if (isSetExpiryYear) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_YEAR, this.expiryYear);
+    }
+    if (isSetHolderName) {
+      addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLabel) {
+      addIfNull(nulls, JSON_PROPERTY_LABEL, this.label);
+    }
+    if (isSetLastFour) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_FOUR, this.lastFour);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetNetworkTxReference) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetSupportedRecurringProcessingModels) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS,
+          this.supportedRecurringProcessingModels);
+    }
+    if (isSetSupportedShopperInteractions) {
+      addIfNull(
+          nulls, JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS, this.supportedShopperInteractions);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

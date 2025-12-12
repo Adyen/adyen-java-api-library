@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,14 +35,26 @@ public class DeliveryMethod {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SELECTED = "selected";
   private Boolean selected;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelected = false;
 
   /** The type of the delivery method. */
   public enum TypeEnum {
@@ -84,6 +98,15 @@ public class DeliveryMethod {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public DeliveryMethod() {}
 
   /**
@@ -94,6 +117,7 @@ public class DeliveryMethod {
    */
   public DeliveryMethod amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -117,6 +141,7 @@ public class DeliveryMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -127,6 +152,7 @@ public class DeliveryMethod {
    */
   public DeliveryMethod description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -150,6 +176,7 @@ public class DeliveryMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -160,6 +187,7 @@ public class DeliveryMethod {
    */
   public DeliveryMethod reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -183,6 +211,7 @@ public class DeliveryMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -195,6 +224,7 @@ public class DeliveryMethod {
    */
   public DeliveryMethod selected(Boolean selected) {
     this.selected = selected;
+    isSetSelected = true; // mark as set
     return this;
   }
 
@@ -222,6 +252,7 @@ public class DeliveryMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelected(Boolean selected) {
     this.selected = selected;
+    isSetSelected = true; // mark as set
   }
 
   /**
@@ -232,6 +263,7 @@ public class DeliveryMethod {
    */
   public DeliveryMethod type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -255,6 +287,27 @@ public class DeliveryMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DeliveryMethod includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DeliveryMethod object is equal to o. */
@@ -268,15 +321,30 @@ public class DeliveryMethod {
     }
     DeliveryMethod deliveryMethod = (DeliveryMethod) o;
     return Objects.equals(this.amount, deliveryMethod.amount)
+        && Objects.equals(this.isSetAmount, deliveryMethod.isSetAmount)
         && Objects.equals(this.description, deliveryMethod.description)
+        && Objects.equals(this.isSetDescription, deliveryMethod.isSetDescription)
         && Objects.equals(this.reference, deliveryMethod.reference)
+        && Objects.equals(this.isSetReference, deliveryMethod.isSetReference)
         && Objects.equals(this.selected, deliveryMethod.selected)
-        && Objects.equals(this.type, deliveryMethod.type);
+        && Objects.equals(this.isSetSelected, deliveryMethod.isSetSelected)
+        && Objects.equals(this.type, deliveryMethod.type)
+        && Objects.equals(this.isSetType, deliveryMethod.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, description, reference, selected, type);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        description,
+        isSetDescription,
+        reference,
+        isSetReference,
+        selected,
+        isSetSelected,
+        type,
+        isSetType);
   }
 
   @Override
@@ -300,6 +368,42 @@ public class DeliveryMethod {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSelected) {
+      addIfNull(nulls, JSON_PROPERTY_SELECTED, this.selected);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

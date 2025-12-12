@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,18 +36,33 @@ public class TwintDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
+
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private String subtype;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubtype = false;
 
   /** The payment method type. */
   public enum TypeEnum {
@@ -89,6 +106,15 @@ public class TwintDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TwintDetails() {}
 
   /**
@@ -99,6 +125,7 @@ public class TwintDetails {
    */
   public TwintDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -122,6 +149,7 @@ public class TwintDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -136,6 +164,7 @@ public class TwintDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public TwintDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -167,6 +196,7 @@ public class TwintDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -177,6 +207,7 @@ public class TwintDetails {
    */
   public TwintDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -201,6 +232,7 @@ public class TwintDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -213,6 +245,7 @@ public class TwintDetails {
    */
   public TwintDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -240,6 +273,7 @@ public class TwintDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -250,6 +284,7 @@ public class TwintDetails {
    */
   public TwintDetails subtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
     return this;
   }
 
@@ -273,6 +308,7 @@ public class TwintDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
   }
 
   /**
@@ -283,6 +319,7 @@ public class TwintDetails {
    */
   public TwintDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -306,6 +343,27 @@ public class TwintDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TwintDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TwintDetails object is equal to o. */
@@ -319,17 +377,35 @@ public class TwintDetails {
     }
     TwintDetails twintDetails = (TwintDetails) o;
     return Objects.equals(this.checkoutAttemptId, twintDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, twintDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.recurringDetailReference, twintDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, twintDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, twintDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, twintDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, twintDetails.storedPaymentMethodId)
+        && Objects.equals(this.isSetStoredPaymentMethodId, twintDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.subtype, twintDetails.subtype)
-        && Objects.equals(this.type, twintDetails.type);
+        && Objects.equals(this.isSetSubtype, twintDetails.isSetSubtype)
+        && Objects.equals(this.type, twintDetails.type)
+        && Objects.equals(this.isSetType, twintDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, recurringDetailReference, sdkData, storedPaymentMethodId, subtype, type);
+        checkoutAttemptId,
+        isSetCheckoutAttemptId,
+        recurringDetailReference,
+        isSetRecurringDetailReference,
+        sdkData,
+        isSetSdkData,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
+        subtype,
+        isSetSubtype,
+        type,
+        isSetType);
   }
 
   @Override
@@ -358,6 +434,45 @@ public class TwintDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetSubtype) {
+      addIfNull(nulls, JSON_PROPERTY_SUBTYPE, this.subtype);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,17 +32,38 @@ public class Passenger {
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
+
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstName = false;
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastName = false;
+
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
+
   public static final String JSON_PROPERTY_TRAVELLER_TYPE = "travellerType";
   private String travellerType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTravellerType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Passenger() {}
 
@@ -54,6 +77,7 @@ public class Passenger {
    */
   public Passenger dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -81,6 +105,7 @@ public class Passenger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -93,6 +118,7 @@ public class Passenger {
    */
   public Passenger firstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
     return this;
   }
 
@@ -120,6 +146,7 @@ public class Passenger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
   }
 
   /**
@@ -132,6 +159,7 @@ public class Passenger {
    */
   public Passenger lastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
     return this;
   }
 
@@ -159,6 +187,7 @@ public class Passenger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
   }
 
   /**
@@ -173,6 +202,7 @@ public class Passenger {
    */
   public Passenger phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -204,6 +234,7 @@ public class Passenger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -216,6 +247,7 @@ public class Passenger {
    */
   public Passenger travellerType(String travellerType) {
     this.travellerType = travellerType;
+    isSetTravellerType = true; // mark as set
     return this;
   }
 
@@ -243,6 +275,27 @@ public class Passenger {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravellerType(String travellerType) {
     this.travellerType = travellerType;
+    isSetTravellerType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Passenger includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Passenger object is equal to o. */
@@ -256,15 +309,30 @@ public class Passenger {
     }
     Passenger passenger = (Passenger) o;
     return Objects.equals(this.dateOfBirth, passenger.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, passenger.isSetDateOfBirth)
         && Objects.equals(this.firstName, passenger.firstName)
+        && Objects.equals(this.isSetFirstName, passenger.isSetFirstName)
         && Objects.equals(this.lastName, passenger.lastName)
+        && Objects.equals(this.isSetLastName, passenger.isSetLastName)
         && Objects.equals(this.phoneNumber, passenger.phoneNumber)
-        && Objects.equals(this.travellerType, passenger.travellerType);
+        && Objects.equals(this.isSetPhoneNumber, passenger.isSetPhoneNumber)
+        && Objects.equals(this.travellerType, passenger.travellerType)
+        && Objects.equals(this.isSetTravellerType, passenger.isSetTravellerType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateOfBirth, firstName, lastName, phoneNumber, travellerType);
+    return Objects.hash(
+        dateOfBirth,
+        isSetDateOfBirth,
+        firstName,
+        isSetFirstName,
+        lastName,
+        isSetLastName,
+        phoneNumber,
+        isSetPhoneNumber,
+        travellerType,
+        isSetTravellerType);
   }
 
   @Override
@@ -288,6 +356,42 @@ public class Passenger {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_NAME, this.firstName);
+    }
+    if (isSetLastName) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_NAME, this.lastName);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetTravellerType) {
+      addIfNull(nulls, JSON_PROPERTY_TRAVELLER_TYPE, this.travellerType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

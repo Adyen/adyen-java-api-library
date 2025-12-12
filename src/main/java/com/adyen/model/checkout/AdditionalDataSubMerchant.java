@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,49 +39,91 @@ public class AdditionalDataSubMerchant {
       "subMerchant.numberOfSubSellers";
   private String subMerchantNumberOfSubSellers;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantNumberOfSubSellers = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY =
       "subMerchant.subSeller[subSellerNr].city";
   private String subMerchantSubSellerSubSellerNrCity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrCity = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY =
       "subMerchant.subSeller[subSellerNr].country";
   private String subMerchantSubSellerSubSellerNrCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrCountry = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_EMAIL =
       "subMerchant.subSeller[subSellerNr].email";
   private String subMerchantSubSellerSubSellerNrEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrEmail = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID =
       "subMerchant.subSeller[subSellerNr].id";
   private String subMerchantSubSellerSubSellerNrId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrId = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC =
       "subMerchant.subSeller[subSellerNr].mcc";
   private String subMerchantSubSellerSubSellerNrMcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrMcc = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME =
       "subMerchant.subSeller[subSellerNr].name";
   private String subMerchantSubSellerSubSellerNrName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrName = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER =
       "subMerchant.subSeller[subSellerNr].phoneNumber";
   private String subMerchantSubSellerSubSellerNrPhoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrPhoneNumber = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE =
       "subMerchant.subSeller[subSellerNr].postalCode";
   private String subMerchantSubSellerSubSellerNrPostalCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrPostalCode = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE =
       "subMerchant.subSeller[subSellerNr].state";
   private String subMerchantSubSellerSubSellerNrState;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrState = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET =
       "subMerchant.subSeller[subSellerNr].street";
   private String subMerchantSubSellerSubSellerNrStreet;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrStreet = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID =
       "subMerchant.subSeller[subSellerNr].taxId";
   private String subMerchantSubSellerSubSellerNrTaxId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantSubSellerSubSellerNrTaxId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataSubMerchant() {}
 
@@ -95,6 +139,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantNumberOfSubSellers(
       String subMerchantNumberOfSubSellers) {
     this.subMerchantNumberOfSubSellers = subMerchantNumberOfSubSellers;
+    isSetSubMerchantNumberOfSubSellers = true; // mark as set
     return this;
   }
 
@@ -124,6 +169,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantNumberOfSubSellers(String subMerchantNumberOfSubSellers) {
     this.subMerchantNumberOfSubSellers = subMerchantNumberOfSubSellers;
+    isSetSubMerchantNumberOfSubSellers = true; // mark as set
   }
 
   /**
@@ -138,6 +184,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrCity(
       String subMerchantSubSellerSubSellerNrCity) {
     this.subMerchantSubSellerSubSellerNrCity = subMerchantSubSellerSubSellerNrCity;
+    isSetSubMerchantSubSellerSubSellerNrCity = true; // mark as set
     return this;
   }
 
@@ -167,6 +214,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrCity(String subMerchantSubSellerSubSellerNrCity) {
     this.subMerchantSubSellerSubSellerNrCity = subMerchantSubSellerSubSellerNrCity;
+    isSetSubMerchantSubSellerSubSellerNrCity = true; // mark as set
   }
 
   /**
@@ -183,6 +231,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrCountry(
       String subMerchantSubSellerSubSellerNrCountry) {
     this.subMerchantSubSellerSubSellerNrCountry = subMerchantSubSellerSubSellerNrCountry;
+    isSetSubMerchantSubSellerSubSellerNrCountry = true; // mark as set
     return this;
   }
 
@@ -217,6 +266,7 @@ public class AdditionalDataSubMerchant {
   public void setSubMerchantSubSellerSubSellerNrCountry(
       String subMerchantSubSellerSubSellerNrCountry) {
     this.subMerchantSubSellerSubSellerNrCountry = subMerchantSubSellerSubSellerNrCountry;
+    isSetSubMerchantSubSellerSubSellerNrCountry = true; // mark as set
   }
 
   /**
@@ -231,6 +281,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrEmail(
       String subMerchantSubSellerSubSellerNrEmail) {
     this.subMerchantSubSellerSubSellerNrEmail = subMerchantSubSellerSubSellerNrEmail;
+    isSetSubMerchantSubSellerSubSellerNrEmail = true; // mark as set
     return this;
   }
 
@@ -260,6 +311,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrEmail(String subMerchantSubSellerSubSellerNrEmail) {
     this.subMerchantSubSellerSubSellerNrEmail = subMerchantSubSellerSubSellerNrEmail;
+    isSetSubMerchantSubSellerSubSellerNrEmail = true; // mark as set
   }
 
   /**
@@ -276,6 +328,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrId(
       String subMerchantSubSellerSubSellerNrId) {
     this.subMerchantSubSellerSubSellerNrId = subMerchantSubSellerSubSellerNrId;
+    isSetSubMerchantSubSellerSubSellerNrId = true; // mark as set
     return this;
   }
 
@@ -309,6 +362,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrId(String subMerchantSubSellerSubSellerNrId) {
     this.subMerchantSubSellerSubSellerNrId = subMerchantSubSellerSubSellerNrId;
+    isSetSubMerchantSubSellerSubSellerNrId = true; // mark as set
   }
 
   /**
@@ -323,6 +377,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrMcc(
       String subMerchantSubSellerSubSellerNrMcc) {
     this.subMerchantSubSellerSubSellerNrMcc = subMerchantSubSellerSubSellerNrMcc;
+    isSetSubMerchantSubSellerSubSellerNrMcc = true; // mark as set
     return this;
   }
 
@@ -352,6 +407,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrMcc(String subMerchantSubSellerSubSellerNrMcc) {
     this.subMerchantSubSellerSubSellerNrMcc = subMerchantSubSellerSubSellerNrMcc;
+    isSetSubMerchantSubSellerSubSellerNrMcc = true; // mark as set
   }
 
   /**
@@ -370,6 +426,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrName(
       String subMerchantSubSellerSubSellerNrName) {
     this.subMerchantSubSellerSubSellerNrName = subMerchantSubSellerSubSellerNrName;
+    isSetSubMerchantSubSellerSubSellerNrName = true; // mark as set
     return this;
   }
 
@@ -407,6 +464,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrName(String subMerchantSubSellerSubSellerNrName) {
     this.subMerchantSubSellerSubSellerNrName = subMerchantSubSellerSubSellerNrName;
+    isSetSubMerchantSubSellerSubSellerNrName = true; // mark as set
   }
 
   /**
@@ -421,6 +479,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrPhoneNumber(
       String subMerchantSubSellerSubSellerNrPhoneNumber) {
     this.subMerchantSubSellerSubSellerNrPhoneNumber = subMerchantSubSellerSubSellerNrPhoneNumber;
+    isSetSubMerchantSubSellerSubSellerNrPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -451,6 +510,7 @@ public class AdditionalDataSubMerchant {
   public void setSubMerchantSubSellerSubSellerNrPhoneNumber(
       String subMerchantSubSellerSubSellerNrPhoneNumber) {
     this.subMerchantSubSellerSubSellerNrPhoneNumber = subMerchantSubSellerSubSellerNrPhoneNumber;
+    isSetSubMerchantSubSellerSubSellerNrPhoneNumber = true; // mark as set
   }
 
   /**
@@ -465,6 +525,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrPostalCode(
       String subMerchantSubSellerSubSellerNrPostalCode) {
     this.subMerchantSubSellerSubSellerNrPostalCode = subMerchantSubSellerSubSellerNrPostalCode;
+    isSetSubMerchantSubSellerSubSellerNrPostalCode = true; // mark as set
     return this;
   }
 
@@ -495,6 +556,7 @@ public class AdditionalDataSubMerchant {
   public void setSubMerchantSubSellerSubSellerNrPostalCode(
       String subMerchantSubSellerSubSellerNrPostalCode) {
     this.subMerchantSubSellerSubSellerNrPostalCode = subMerchantSubSellerSubSellerNrPostalCode;
+    isSetSubMerchantSubSellerSubSellerNrPostalCode = true; // mark as set
   }
 
   /**
@@ -510,6 +572,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrState(
       String subMerchantSubSellerSubSellerNrState) {
     this.subMerchantSubSellerSubSellerNrState = subMerchantSubSellerSubSellerNrState;
+    isSetSubMerchantSubSellerSubSellerNrState = true; // mark as set
     return this;
   }
 
@@ -541,6 +604,7 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrState(String subMerchantSubSellerSubSellerNrState) {
     this.subMerchantSubSellerSubSellerNrState = subMerchantSubSellerSubSellerNrState;
+    isSetSubMerchantSubSellerSubSellerNrState = true; // mark as set
   }
 
   /**
@@ -556,6 +620,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrStreet(
       String subMerchantSubSellerSubSellerNrStreet) {
     this.subMerchantSubSellerSubSellerNrStreet = subMerchantSubSellerSubSellerNrStreet;
+    isSetSubMerchantSubSellerSubSellerNrStreet = true; // mark as set
     return this;
   }
 
@@ -588,6 +653,7 @@ public class AdditionalDataSubMerchant {
   public void setSubMerchantSubSellerSubSellerNrStreet(
       String subMerchantSubSellerSubSellerNrStreet) {
     this.subMerchantSubSellerSubSellerNrStreet = subMerchantSubSellerSubSellerNrStreet;
+    isSetSubMerchantSubSellerSubSellerNrStreet = true; // mark as set
   }
 
   /**
@@ -602,6 +668,7 @@ public class AdditionalDataSubMerchant {
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrTaxId(
       String subMerchantSubSellerSubSellerNrTaxId) {
     this.subMerchantSubSellerSubSellerNrTaxId = subMerchantSubSellerSubSellerNrTaxId;
+    isSetSubMerchantSubSellerSubSellerNrTaxId = true; // mark as set
     return this;
   }
 
@@ -631,6 +698,27 @@ public class AdditionalDataSubMerchant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrTaxId(String subMerchantSubSellerSubSellerNrTaxId) {
     this.subMerchantSubSellerSubSellerNrTaxId = subMerchantSubSellerSubSellerNrTaxId;
+    isSetSubMerchantSubSellerSubSellerNrTaxId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataSubMerchant includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataSubMerchant object is equal to o. */
@@ -647,55 +735,103 @@ public class AdditionalDataSubMerchant {
             this.subMerchantNumberOfSubSellers,
             additionalDataSubMerchant.subMerchantNumberOfSubSellers)
         && Objects.equals(
+            this.isSetSubMerchantNumberOfSubSellers,
+            additionalDataSubMerchant.isSetSubMerchantNumberOfSubSellers)
+        && Objects.equals(
             this.subMerchantSubSellerSubSellerNrCity,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrCity)
+        && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrCity,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrCity)
         && Objects.equals(
             this.subMerchantSubSellerSubSellerNrCountry,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrCountry)
         && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrCountry,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrCountry)
+        && Objects.equals(
             this.subMerchantSubSellerSubSellerNrEmail,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrEmail)
+        && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrEmail,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrEmail)
         && Objects.equals(
             this.subMerchantSubSellerSubSellerNrId,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrId)
         && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrId,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrId)
+        && Objects.equals(
             this.subMerchantSubSellerSubSellerNrMcc,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrMcc)
+        && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrMcc,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrMcc)
         && Objects.equals(
             this.subMerchantSubSellerSubSellerNrName,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrName)
         && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrName,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrName)
+        && Objects.equals(
             this.subMerchantSubSellerSubSellerNrPhoneNumber,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrPhoneNumber)
+        && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrPhoneNumber,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrPhoneNumber)
         && Objects.equals(
             this.subMerchantSubSellerSubSellerNrPostalCode,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrPostalCode)
         && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrPostalCode,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrPostalCode)
+        && Objects.equals(
             this.subMerchantSubSellerSubSellerNrState,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrState)
+        && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrState,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrState)
         && Objects.equals(
             this.subMerchantSubSellerSubSellerNrStreet,
             additionalDataSubMerchant.subMerchantSubSellerSubSellerNrStreet)
         && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrStreet,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrStreet)
+        && Objects.equals(
             this.subMerchantSubSellerSubSellerNrTaxId,
-            additionalDataSubMerchant.subMerchantSubSellerSubSellerNrTaxId);
+            additionalDataSubMerchant.subMerchantSubSellerSubSellerNrTaxId)
+        && Objects.equals(
+            this.isSetSubMerchantSubSellerSubSellerNrTaxId,
+            additionalDataSubMerchant.isSetSubMerchantSubSellerSubSellerNrTaxId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         subMerchantNumberOfSubSellers,
+        isSetSubMerchantNumberOfSubSellers,
         subMerchantSubSellerSubSellerNrCity,
+        isSetSubMerchantSubSellerSubSellerNrCity,
         subMerchantSubSellerSubSellerNrCountry,
+        isSetSubMerchantSubSellerSubSellerNrCountry,
         subMerchantSubSellerSubSellerNrEmail,
+        isSetSubMerchantSubSellerSubSellerNrEmail,
         subMerchantSubSellerSubSellerNrId,
+        isSetSubMerchantSubSellerSubSellerNrId,
         subMerchantSubSellerSubSellerNrMcc,
+        isSetSubMerchantSubSellerSubSellerNrMcc,
         subMerchantSubSellerSubSellerNrName,
+        isSetSubMerchantSubSellerSubSellerNrName,
         subMerchantSubSellerSubSellerNrPhoneNumber,
+        isSetSubMerchantSubSellerSubSellerNrPhoneNumber,
         subMerchantSubSellerSubSellerNrPostalCode,
+        isSetSubMerchantSubSellerSubSellerNrPostalCode,
         subMerchantSubSellerSubSellerNrState,
+        isSetSubMerchantSubSellerSubSellerNrState,
         subMerchantSubSellerSubSellerNrStreet,
-        subMerchantSubSellerSubSellerNrTaxId);
+        isSetSubMerchantSubSellerSubSellerNrStreet,
+        subMerchantSubSellerSubSellerNrTaxId,
+        isSetSubMerchantSubSellerSubSellerNrTaxId);
   }
 
   @Override
@@ -750,6 +886,99 @@ public class AdditionalDataSubMerchant {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetSubMerchantNumberOfSubSellers) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS,
+          this.subMerchantNumberOfSubSellers);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrCity) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY,
+          this.subMerchantSubSellerSubSellerNrCity);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrCountry) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY,
+          this.subMerchantSubSellerSubSellerNrCountry);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrEmail) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_EMAIL,
+          this.subMerchantSubSellerSubSellerNrEmail);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrId) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID,
+          this.subMerchantSubSellerSubSellerNrId);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrMcc) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC,
+          this.subMerchantSubSellerSubSellerNrMcc);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME,
+          this.subMerchantSubSellerSubSellerNrName);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrPhoneNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER,
+          this.subMerchantSubSellerSubSellerNrPhoneNumber);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrPostalCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE,
+          this.subMerchantSubSellerSubSellerNrPostalCode);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrState) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE,
+          this.subMerchantSubSellerSubSellerNrState);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrStreet) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET,
+          this.subMerchantSubSellerSubSellerNrStreet);
+    }
+    if (isSetSubMerchantSubSellerSubSellerNrTaxId) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID,
+          this.subMerchantSubSellerSubSellerNrTaxId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

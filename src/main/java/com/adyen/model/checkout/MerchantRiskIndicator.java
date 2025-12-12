@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +44,9 @@ import java.util.logging.Logger;
 public class MerchantRiskIndicator {
   public static final String JSON_PROPERTY_ADDRESS_MATCH = "addressMatch";
   private Boolean addressMatch;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddressMatch = false;
 
   /**
    * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; *
@@ -102,12 +107,21 @@ public class MerchantRiskIndicator {
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR = "deliveryAddressIndicator";
   private DeliveryAddressIndicatorEnum deliveryAddressIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddressIndicator = false;
+
   public static final String JSON_PROPERTY_DELIVERY_EMAIL = "deliveryEmail";
   @Deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
   private String deliveryEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryEmail = false;
+
   public static final String JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS = "deliveryEmailAddress";
   private String deliveryEmailAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryEmailAddress = false;
 
   /**
    * The estimated delivery time for the shopper to receive the goods. Allowed values: *
@@ -161,32 +175,68 @@ public class MerchantRiskIndicator {
   public static final String JSON_PROPERTY_DELIVERY_TIMEFRAME = "deliveryTimeframe";
   private DeliveryTimeframeEnum deliveryTimeframe;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryTimeframe = false;
+
   public static final String JSON_PROPERTY_GIFT_CARD_AMOUNT = "giftCardAmount";
   private Amount giftCardAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGiftCardAmount = false;
 
   public static final String JSON_PROPERTY_GIFT_CARD_COUNT = "giftCardCount";
   private Integer giftCardCount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGiftCardCount = false;
+
   public static final String JSON_PROPERTY_GIFT_CARD_CURR = "giftCardCurr";
   private String giftCardCurr;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGiftCardCurr = false;
 
   public static final String JSON_PROPERTY_PRE_ORDER_DATE = "preOrderDate";
   private OffsetDateTime preOrderDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPreOrderDate = false;
+
   public static final String JSON_PROPERTY_PRE_ORDER_PURCHASE = "preOrderPurchase";
   private Boolean preOrderPurchase;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPreOrderPurchase = false;
 
   public static final String JSON_PROPERTY_PRE_ORDER_PURCHASE_IND = "preOrderPurchaseInd";
   private String preOrderPurchaseInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPreOrderPurchaseInd = false;
+
   public static final String JSON_PROPERTY_REORDER_ITEMS = "reorderItems";
   private Boolean reorderItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReorderItems = false;
 
   public static final String JSON_PROPERTY_REORDER_ITEMS_IND = "reorderItemsInd";
   private String reorderItemsInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReorderItemsInd = false;
+
   public static final String JSON_PROPERTY_SHIP_INDICATOR = "shipIndicator";
   private String shipIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShipIndicator = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public MerchantRiskIndicator() {}
 
@@ -198,6 +248,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator addressMatch(Boolean addressMatch) {
     this.addressMatch = addressMatch;
+    isSetAddressMatch = true; // mark as set
     return this;
   }
 
@@ -221,6 +272,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddressMatch(Boolean addressMatch) {
     this.addressMatch = addressMatch;
+    isSetAddressMatch = true; // mark as set
   }
 
   /**
@@ -237,6 +289,7 @@ public class MerchantRiskIndicator {
   public MerchantRiskIndicator deliveryAddressIndicator(
       DeliveryAddressIndicatorEnum deliveryAddressIndicator) {
     this.deliveryAddressIndicator = deliveryAddressIndicator;
+    isSetDeliveryAddressIndicator = true; // mark as set
     return this;
   }
 
@@ -270,6 +323,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressIndicator(DeliveryAddressIndicatorEnum deliveryAddressIndicator) {
     this.deliveryAddressIndicator = deliveryAddressIndicator;
+    isSetDeliveryAddressIndicator = true; // mark as set
   }
 
   /**
@@ -282,6 +336,7 @@ public class MerchantRiskIndicator {
   @Deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
   public MerchantRiskIndicator deliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
+    isSetDeliveryEmail = true; // mark as set
     return this;
   }
 
@@ -309,6 +364,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
+    isSetDeliveryEmail = true; // mark as set
   }
 
   /**
@@ -321,6 +377,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator deliveryEmailAddress(String deliveryEmailAddress) {
     this.deliveryEmailAddress = deliveryEmailAddress;
+    isSetDeliveryEmailAddress = true; // mark as set
     return this;
   }
 
@@ -348,6 +405,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmailAddress(String deliveryEmailAddress) {
     this.deliveryEmailAddress = deliveryEmailAddress;
+    isSetDeliveryEmailAddress = true; // mark as set
   }
 
   /**
@@ -362,6 +420,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator deliveryTimeframe(DeliveryTimeframeEnum deliveryTimeframe) {
     this.deliveryTimeframe = deliveryTimeframe;
+    isSetDeliveryTimeframe = true; // mark as set
     return this;
   }
 
@@ -393,6 +452,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryTimeframe(DeliveryTimeframeEnum deliveryTimeframe) {
     this.deliveryTimeframe = deliveryTimeframe;
+    isSetDeliveryTimeframe = true; // mark as set
   }
 
   /**
@@ -403,6 +463,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator giftCardAmount(Amount giftCardAmount) {
     this.giftCardAmount = giftCardAmount;
+    isSetGiftCardAmount = true; // mark as set
     return this;
   }
 
@@ -426,6 +487,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardAmount(Amount giftCardAmount) {
     this.giftCardAmount = giftCardAmount;
+    isSetGiftCardAmount = true; // mark as set
   }
 
   /**
@@ -438,6 +500,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator giftCardCount(Integer giftCardCount) {
     this.giftCardCount = giftCardCount;
+    isSetGiftCardCount = true; // mark as set
     return this;
   }
 
@@ -465,6 +528,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCount(Integer giftCardCount) {
     this.giftCardCount = giftCardCount;
+    isSetGiftCardCount = true; // mark as set
   }
 
   /**
@@ -480,6 +544,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator giftCardCurr(String giftCardCurr) {
     this.giftCardCurr = giftCardCurr;
+    isSetGiftCardCurr = true; // mark as set
     return this;
   }
 
@@ -513,6 +578,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCurr(String giftCardCurr) {
     this.giftCardCurr = giftCardCurr;
+    isSetGiftCardCurr = true; // mark as set
   }
 
   /**
@@ -524,6 +590,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator preOrderDate(OffsetDateTime preOrderDate) {
     this.preOrderDate = preOrderDate;
+    isSetPreOrderDate = true; // mark as set
     return this;
   }
 
@@ -549,6 +616,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderDate(OffsetDateTime preOrderDate) {
     this.preOrderDate = preOrderDate;
+    isSetPreOrderDate = true; // mark as set
   }
 
   /**
@@ -559,6 +627,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator preOrderPurchase(Boolean preOrderPurchase) {
     this.preOrderPurchase = preOrderPurchase;
+    isSetPreOrderPurchase = true; // mark as set
     return this;
   }
 
@@ -582,6 +651,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchase(Boolean preOrderPurchase) {
     this.preOrderPurchase = preOrderPurchase;
+    isSetPreOrderPurchase = true; // mark as set
   }
 
   /**
@@ -594,6 +664,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator preOrderPurchaseInd(String preOrderPurchaseInd) {
     this.preOrderPurchaseInd = preOrderPurchaseInd;
+    isSetPreOrderPurchaseInd = true; // mark as set
     return this;
   }
 
@@ -621,6 +692,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchaseInd(String preOrderPurchaseInd) {
     this.preOrderPurchaseInd = preOrderPurchaseInd;
+    isSetPreOrderPurchaseInd = true; // mark as set
   }
 
   /**
@@ -632,6 +704,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator reorderItems(Boolean reorderItems) {
     this.reorderItems = reorderItems;
+    isSetReorderItems = true; // mark as set
     return this;
   }
 
@@ -657,6 +730,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItems(Boolean reorderItems) {
     this.reorderItems = reorderItems;
+    isSetReorderItems = true; // mark as set
   }
 
   /**
@@ -668,6 +742,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator reorderItemsInd(String reorderItemsInd) {
     this.reorderItemsInd = reorderItemsInd;
+    isSetReorderItemsInd = true; // mark as set
     return this;
   }
 
@@ -693,6 +768,7 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItemsInd(String reorderItemsInd) {
     this.reorderItemsInd = reorderItemsInd;
+    isSetReorderItemsInd = true; // mark as set
   }
 
   /**
@@ -703,6 +779,7 @@ public class MerchantRiskIndicator {
    */
   public MerchantRiskIndicator shipIndicator(String shipIndicator) {
     this.shipIndicator = shipIndicator;
+    isSetShipIndicator = true; // mark as set
     return this;
   }
 
@@ -726,6 +803,27 @@ public class MerchantRiskIndicator {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipIndicator(String shipIndicator) {
     this.shipIndicator = shipIndicator;
+    isSetShipIndicator = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public MerchantRiskIndicator includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this MerchantRiskIndicator object is equal to o. */
@@ -739,39 +837,70 @@ public class MerchantRiskIndicator {
     }
     MerchantRiskIndicator merchantRiskIndicator = (MerchantRiskIndicator) o;
     return Objects.equals(this.addressMatch, merchantRiskIndicator.addressMatch)
+        && Objects.equals(this.isSetAddressMatch, merchantRiskIndicator.isSetAddressMatch)
         && Objects.equals(
             this.deliveryAddressIndicator, merchantRiskIndicator.deliveryAddressIndicator)
+        && Objects.equals(
+            this.isSetDeliveryAddressIndicator, merchantRiskIndicator.isSetDeliveryAddressIndicator)
         && Objects.equals(this.deliveryEmail, merchantRiskIndicator.deliveryEmail)
+        && Objects.equals(this.isSetDeliveryEmail, merchantRiskIndicator.isSetDeliveryEmail)
         && Objects.equals(this.deliveryEmailAddress, merchantRiskIndicator.deliveryEmailAddress)
+        && Objects.equals(
+            this.isSetDeliveryEmailAddress, merchantRiskIndicator.isSetDeliveryEmailAddress)
         && Objects.equals(this.deliveryTimeframe, merchantRiskIndicator.deliveryTimeframe)
+        && Objects.equals(this.isSetDeliveryTimeframe, merchantRiskIndicator.isSetDeliveryTimeframe)
         && Objects.equals(this.giftCardAmount, merchantRiskIndicator.giftCardAmount)
+        && Objects.equals(this.isSetGiftCardAmount, merchantRiskIndicator.isSetGiftCardAmount)
         && Objects.equals(this.giftCardCount, merchantRiskIndicator.giftCardCount)
+        && Objects.equals(this.isSetGiftCardCount, merchantRiskIndicator.isSetGiftCardCount)
         && Objects.equals(this.giftCardCurr, merchantRiskIndicator.giftCardCurr)
+        && Objects.equals(this.isSetGiftCardCurr, merchantRiskIndicator.isSetGiftCardCurr)
         && Objects.equals(this.preOrderDate, merchantRiskIndicator.preOrderDate)
+        && Objects.equals(this.isSetPreOrderDate, merchantRiskIndicator.isSetPreOrderDate)
         && Objects.equals(this.preOrderPurchase, merchantRiskIndicator.preOrderPurchase)
+        && Objects.equals(this.isSetPreOrderPurchase, merchantRiskIndicator.isSetPreOrderPurchase)
         && Objects.equals(this.preOrderPurchaseInd, merchantRiskIndicator.preOrderPurchaseInd)
+        && Objects.equals(
+            this.isSetPreOrderPurchaseInd, merchantRiskIndicator.isSetPreOrderPurchaseInd)
         && Objects.equals(this.reorderItems, merchantRiskIndicator.reorderItems)
+        && Objects.equals(this.isSetReorderItems, merchantRiskIndicator.isSetReorderItems)
         && Objects.equals(this.reorderItemsInd, merchantRiskIndicator.reorderItemsInd)
-        && Objects.equals(this.shipIndicator, merchantRiskIndicator.shipIndicator);
+        && Objects.equals(this.isSetReorderItemsInd, merchantRiskIndicator.isSetReorderItemsInd)
+        && Objects.equals(this.shipIndicator, merchantRiskIndicator.shipIndicator)
+        && Objects.equals(this.isSetShipIndicator, merchantRiskIndicator.isSetShipIndicator);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         addressMatch,
+        isSetAddressMatch,
         deliveryAddressIndicator,
+        isSetDeliveryAddressIndicator,
         deliveryEmail,
+        isSetDeliveryEmail,
         deliveryEmailAddress,
+        isSetDeliveryEmailAddress,
         deliveryTimeframe,
+        isSetDeliveryTimeframe,
         giftCardAmount,
+        isSetGiftCardAmount,
         giftCardCount,
+        isSetGiftCardCount,
         giftCardCurr,
+        isSetGiftCardCurr,
         preOrderDate,
+        isSetPreOrderDate,
         preOrderPurchase,
+        isSetPreOrderPurchase,
         preOrderPurchaseInd,
+        isSetPreOrderPurchaseInd,
         reorderItems,
+        isSetReorderItems,
         reorderItemsInd,
-        shipIndicator);
+        isSetReorderItemsInd,
+        shipIndicator,
+        isSetShipIndicator);
   }
 
   @Override
@@ -810,6 +939,69 @@ public class MerchantRiskIndicator {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddressMatch) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS_MATCH, this.addressMatch);
+    }
+    if (isSetDeliveryAddressIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR, this.deliveryAddressIndicator);
+    }
+    if (isSetDeliveryEmail) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_EMAIL, this.deliveryEmail);
+    }
+    if (isSetDeliveryEmailAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS, this.deliveryEmailAddress);
+    }
+    if (isSetDeliveryTimeframe) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_TIMEFRAME, this.deliveryTimeframe);
+    }
+    if (isSetGiftCardAmount) {
+      addIfNull(nulls, JSON_PROPERTY_GIFT_CARD_AMOUNT, this.giftCardAmount);
+    }
+    if (isSetGiftCardCount) {
+      addIfNull(nulls, JSON_PROPERTY_GIFT_CARD_COUNT, this.giftCardCount);
+    }
+    if (isSetGiftCardCurr) {
+      addIfNull(nulls, JSON_PROPERTY_GIFT_CARD_CURR, this.giftCardCurr);
+    }
+    if (isSetPreOrderDate) {
+      addIfNull(nulls, JSON_PROPERTY_PRE_ORDER_DATE, this.preOrderDate);
+    }
+    if (isSetPreOrderPurchase) {
+      addIfNull(nulls, JSON_PROPERTY_PRE_ORDER_PURCHASE, this.preOrderPurchase);
+    }
+    if (isSetPreOrderPurchaseInd) {
+      addIfNull(nulls, JSON_PROPERTY_PRE_ORDER_PURCHASE_IND, this.preOrderPurchaseInd);
+    }
+    if (isSetReorderItems) {
+      addIfNull(nulls, JSON_PROPERTY_REORDER_ITEMS, this.reorderItems);
+    }
+    if (isSetReorderItemsInd) {
+      addIfNull(nulls, JSON_PROPERTY_REORDER_ITEMS_IND, this.reorderItemsInd);
+    }
+    if (isSetShipIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_SHIP_INDICATOR, this.shipIndicator);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

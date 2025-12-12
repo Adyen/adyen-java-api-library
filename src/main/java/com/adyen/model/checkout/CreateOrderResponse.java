@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,29 +42,56 @@ public class CreateOrderResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private String expiresAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
+
   public static final String JSON_PROPERTY_FRAUD_RESULT = "fraudResult";
   private FraudResult fraudResult;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudResult = false;
 
   public static final String JSON_PROPERTY_ORDER_DATA = "orderData";
   private String orderData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderData = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReason = false;
+
   public static final String JSON_PROPERTY_REMAINING_AMOUNT = "remainingAmount";
   private Amount remainingAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRemainingAmount = false;
 
   /** The result of the order creation request. The value is always **Success**. */
   public enum ResultCodeEnum {
@@ -106,6 +135,15 @@ public class CreateOrderResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CreateOrderResponse() {}
 
   /**
@@ -119,6 +157,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -156,6 +195,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -166,6 +206,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -189,6 +230,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -199,6 +241,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
     return this;
   }
 
@@ -222,6 +265,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
   }
 
   /**
@@ -232,6 +276,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
     return this;
   }
 
@@ -255,6 +300,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
   }
 
   /**
@@ -266,6 +312,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse orderData(String orderData) {
     this.orderData = orderData;
+    isSetOrderData = true; // mark as set
     return this;
   }
 
@@ -291,6 +338,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
+    isSetOrderData = true; // mark as set
   }
 
   /**
@@ -303,6 +351,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -331,6 +380,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -341,6 +391,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -364,6 +415,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -382,6 +434,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
     return this;
   }
 
@@ -421,6 +474,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
   }
 
   /**
@@ -431,6 +485,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse remainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
+    isSetRemainingAmount = true; // mark as set
     return this;
   }
 
@@ -454,6 +509,7 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
+    isSetRemainingAmount = true; // mark as set
   }
 
   /**
@@ -464,6 +520,7 @@ public class CreateOrderResponse {
    */
   public CreateOrderResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -487,6 +544,27 @@ public class CreateOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateOrderResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateOrderResponse object is equal to o. */
@@ -500,30 +578,50 @@ public class CreateOrderResponse {
     }
     CreateOrderResponse createOrderResponse = (CreateOrderResponse) o;
     return Objects.equals(this.additionalData, createOrderResponse.additionalData)
+        && Objects.equals(this.isSetAdditionalData, createOrderResponse.isSetAdditionalData)
         && Objects.equals(this.amount, createOrderResponse.amount)
+        && Objects.equals(this.isSetAmount, createOrderResponse.isSetAmount)
         && Objects.equals(this.expiresAt, createOrderResponse.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, createOrderResponse.isSetExpiresAt)
         && Objects.equals(this.fraudResult, createOrderResponse.fraudResult)
+        && Objects.equals(this.isSetFraudResult, createOrderResponse.isSetFraudResult)
         && Objects.equals(this.orderData, createOrderResponse.orderData)
+        && Objects.equals(this.isSetOrderData, createOrderResponse.isSetOrderData)
         && Objects.equals(this.pspReference, createOrderResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, createOrderResponse.isSetPspReference)
         && Objects.equals(this.reference, createOrderResponse.reference)
+        && Objects.equals(this.isSetReference, createOrderResponse.isSetReference)
         && Objects.equals(this.refusalReason, createOrderResponse.refusalReason)
+        && Objects.equals(this.isSetRefusalReason, createOrderResponse.isSetRefusalReason)
         && Objects.equals(this.remainingAmount, createOrderResponse.remainingAmount)
-        && Objects.equals(this.resultCode, createOrderResponse.resultCode);
+        && Objects.equals(this.isSetRemainingAmount, createOrderResponse.isSetRemainingAmount)
+        && Objects.equals(this.resultCode, createOrderResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, createOrderResponse.isSetResultCode);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         amount,
+        isSetAmount,
         expiresAt,
+        isSetExpiresAt,
         fraudResult,
+        isSetFraudResult,
         orderData,
+        isSetOrderData,
         pspReference,
+        isSetPspReference,
         reference,
+        isSetReference,
         refusalReason,
+        isSetRefusalReason,
         remainingAmount,
-        resultCode);
+        isSetRemainingAmount,
+        resultCode,
+        isSetResultCode);
   }
 
   @Override
@@ -552,6 +650,57 @@ public class CreateOrderResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+    if (isSetFraudResult) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_RESULT, this.fraudResult);
+    }
+    if (isSetOrderData) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_DATA, this.orderData);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON, this.refusalReason);
+    }
+    if (isSetRemainingAmount) {
+      addIfNull(nulls, JSON_PROPERTY_REMAINING_AMOUNT, this.remainingAmount);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

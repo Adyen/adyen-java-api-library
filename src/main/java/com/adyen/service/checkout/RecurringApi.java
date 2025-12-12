@@ -15,6 +15,8 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.checkout.CheckoutForwardRequest;
+import com.adyen.model.checkout.CheckoutForwardResponse;
 import com.adyen.model.checkout.ListStoredPaymentMethodsResponse;
 import com.adyen.model.checkout.StoredPaymentMethodRequest;
 import com.adyen.model.checkout.StoredPaymentMethodResource;
@@ -111,6 +113,37 @@ public class RecurringApi extends Service {
         new Resource(this, this.baseURL + "/storedPaymentMethods/{storedPaymentMethodId}", null);
     resource.request(
         requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
+  }
+
+  /**
+   * Forward stored payment details
+   *
+   * @param checkoutForwardRequest {@link CheckoutForwardRequest } (required)
+   * @return {@link CheckoutForwardResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public CheckoutForwardResponse forward(CheckoutForwardRequest checkoutForwardRequest)
+      throws ApiException, IOException {
+    return forward(checkoutForwardRequest, null);
+  }
+
+  /**
+   * Forward stored payment details
+   *
+   * @param checkoutForwardRequest {@link CheckoutForwardRequest } (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @return {@link CheckoutForwardResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public CheckoutForwardResponse forward(
+      CheckoutForwardRequest checkoutForwardRequest, RequestOptions requestOptions)
+      throws ApiException, IOException {
+    String requestBody = checkoutForwardRequest.toJson();
+    Resource resource = new Resource(this, this.baseURL + "/forward", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+    return CheckoutForwardResponse.fromJson(jsonResult);
   }
 
   /**

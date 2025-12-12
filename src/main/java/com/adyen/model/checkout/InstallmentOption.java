@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +35,9 @@ import java.util.logging.Logger;
 public class InstallmentOption {
   public static final String JSON_PROPERTY_MAX_VALUE = "maxValue";
   private Integer maxValue;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaxValue = false;
 
   /** Gets or Sets plans */
   public enum PlansEnum {
@@ -94,11 +99,26 @@ public class InstallmentOption {
   public static final String JSON_PROPERTY_PLANS = "plans";
   private List<PlansEnum> plans;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlans = false;
+
   public static final String JSON_PROPERTY_PRESELECTED_VALUE = "preselectedValue";
   private Integer preselectedValue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPreselectedValue = false;
+
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<Integer> values;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValues = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public InstallmentOption() {}
 
@@ -110,6 +130,7 @@ public class InstallmentOption {
    */
   public InstallmentOption maxValue(Integer maxValue) {
     this.maxValue = maxValue;
+    isSetMaxValue = true; // mark as set
     return this;
   }
 
@@ -133,6 +154,7 @@ public class InstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxValue(Integer maxValue) {
     this.maxValue = maxValue;
+    isSetMaxValue = true; // mark as set
   }
 
   /**
@@ -145,6 +167,7 @@ public class InstallmentOption {
    */
   public InstallmentOption plans(List<PlansEnum> plans) {
     this.plans = plans;
+    isSetPlans = true; // mark as set
     return this;
   }
 
@@ -180,6 +203,7 @@ public class InstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlans(List<PlansEnum> plans) {
     this.plans = plans;
+    isSetPlans = true; // mark as set
   }
 
   /**
@@ -190,6 +214,7 @@ public class InstallmentOption {
    */
   public InstallmentOption preselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
+    isSetPreselectedValue = true; // mark as set
     return this;
   }
 
@@ -213,6 +238,7 @@ public class InstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
+    isSetPreselectedValue = true; // mark as set
   }
 
   /**
@@ -225,6 +251,7 @@ public class InstallmentOption {
    */
   public InstallmentOption values(List<Integer> values) {
     this.values = values;
+    isSetValues = true; // mark as set
     return this;
   }
 
@@ -260,6 +287,27 @@ public class InstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Integer> values) {
     this.values = values;
+    isSetValues = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public InstallmentOption includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this InstallmentOption object is equal to o. */
@@ -273,14 +321,26 @@ public class InstallmentOption {
     }
     InstallmentOption installmentOption = (InstallmentOption) o;
     return Objects.equals(this.maxValue, installmentOption.maxValue)
+        && Objects.equals(this.isSetMaxValue, installmentOption.isSetMaxValue)
         && Objects.equals(this.plans, installmentOption.plans)
+        && Objects.equals(this.isSetPlans, installmentOption.isSetPlans)
         && Objects.equals(this.preselectedValue, installmentOption.preselectedValue)
-        && Objects.equals(this.values, installmentOption.values);
+        && Objects.equals(this.isSetPreselectedValue, installmentOption.isSetPreselectedValue)
+        && Objects.equals(this.values, installmentOption.values)
+        && Objects.equals(this.isSetValues, installmentOption.isSetValues);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxValue, plans, preselectedValue, values);
+    return Objects.hash(
+        maxValue,
+        isSetMaxValue,
+        plans,
+        isSetPlans,
+        preselectedValue,
+        isSetPreselectedValue,
+        values,
+        isSetValues);
   }
 
   @Override
@@ -303,6 +363,39 @@ public class InstallmentOption {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMaxValue) {
+      addIfNull(nulls, JSON_PROPERTY_MAX_VALUE, this.maxValue);
+    }
+    if (isSetPlans) {
+      addIfNull(nulls, JSON_PROPERTY_PLANS, this.plans);
+    }
+    if (isSetPreselectedValue) {
+      addIfNull(nulls, JSON_PROPERTY_PRESELECTED_VALUE, this.preselectedValue);
+    }
+    if (isSetValues) {
+      addIfNull(nulls, JSON_PROPERTY_VALUES, this.values);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

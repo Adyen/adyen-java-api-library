@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,17 +30,35 @@ public class PaymentDetailsRequest {
   public static final String JSON_PROPERTY_AUTHENTICATION_DATA = "authenticationData";
   private DetailsRequestAuthenticationData authenticationData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationData = false;
+
   public static final String JSON_PROPERTY_DETAILS = "details";
   private PaymentCompletionDetails details;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDetails = false;
+
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentData = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY =
       "threeDSAuthenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v69: Use
   // `authenticationData.authenticationOnly` instead.
   private Boolean threeDSAuthenticationOnly;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSAuthenticationOnly = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentDetailsRequest() {}
 
@@ -51,6 +71,7 @@ public class PaymentDetailsRequest {
   public PaymentDetailsRequest authenticationData(
       DetailsRequestAuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+    isSetAuthenticationData = true; // mark as set
     return this;
   }
 
@@ -74,6 +95,7 @@ public class PaymentDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationData(DetailsRequestAuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+    isSetAuthenticationData = true; // mark as set
   }
 
   /**
@@ -84,6 +106,7 @@ public class PaymentDetailsRequest {
    */
   public PaymentDetailsRequest details(PaymentCompletionDetails details) {
     this.details = details;
+    isSetDetails = true; // mark as set
     return this;
   }
 
@@ -107,6 +130,7 @@ public class PaymentDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(PaymentCompletionDetails details) {
     this.details = details;
+    isSetDetails = true; // mark as set
   }
 
   /**
@@ -128,6 +152,7 @@ public class PaymentDetailsRequest {
    */
   public PaymentDetailsRequest paymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
     return this;
   }
 
@@ -173,6 +198,7 @@ public class PaymentDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
   }
 
   /**
@@ -190,6 +216,7 @@ public class PaymentDetailsRequest {
   // `authenticationData.authenticationOnly` instead.
   public PaymentDetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
     return this;
   }
 
@@ -227,6 +254,27 @@ public class PaymentDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentDetailsRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentDetailsRequest object is equal to o. */
@@ -240,15 +288,30 @@ public class PaymentDetailsRequest {
     }
     PaymentDetailsRequest paymentDetailsRequest = (PaymentDetailsRequest) o;
     return Objects.equals(this.authenticationData, paymentDetailsRequest.authenticationData)
-        && Objects.equals(this.details, paymentDetailsRequest.details)
-        && Objects.equals(this.paymentData, paymentDetailsRequest.paymentData)
         && Objects.equals(
-            this.threeDSAuthenticationOnly, paymentDetailsRequest.threeDSAuthenticationOnly);
+            this.isSetAuthenticationData, paymentDetailsRequest.isSetAuthenticationData)
+        && Objects.equals(this.details, paymentDetailsRequest.details)
+        && Objects.equals(this.isSetDetails, paymentDetailsRequest.isSetDetails)
+        && Objects.equals(this.paymentData, paymentDetailsRequest.paymentData)
+        && Objects.equals(this.isSetPaymentData, paymentDetailsRequest.isSetPaymentData)
+        && Objects.equals(
+            this.threeDSAuthenticationOnly, paymentDetailsRequest.threeDSAuthenticationOnly)
+        && Objects.equals(
+            this.isSetThreeDSAuthenticationOnly,
+            paymentDetailsRequest.isSetThreeDSAuthenticationOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationData, details, paymentData, threeDSAuthenticationOnly);
+    return Objects.hash(
+        authenticationData,
+        isSetAuthenticationData,
+        details,
+        isSetDetails,
+        paymentData,
+        isSetPaymentData,
+        threeDSAuthenticationOnly,
+        isSetThreeDSAuthenticationOnly);
   }
 
   @Override
@@ -273,6 +336,39 @@ public class PaymentDetailsRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthenticationData) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_DATA, this.authenticationData);
+    }
+    if (isSetDetails) {
+      addIfNull(nulls, JSON_PROPERTY_DETAILS, this.details);
+    }
+    if (isSetPaymentData) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_DATA, this.paymentData);
+    }
+    if (isSetThreeDSAuthenticationOnly) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY, this.threeDSAuthenticationOnly);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

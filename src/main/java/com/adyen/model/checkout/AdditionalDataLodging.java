@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,61 +44,118 @@ public class AdditionalDataLodging {
       "lodging.SpecialProgramCode";
   private String lodgingSpecialProgramCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingSpecialProgramCode = false;
+
   public static final String JSON_PROPERTY_LODGING_CHECK_IN_DATE = "lodging.checkInDate";
   private String lodgingCheckInDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingCheckInDate = false;
+
   public static final String JSON_PROPERTY_LODGING_CHECK_OUT_DATE = "lodging.checkOutDate";
   private String lodgingCheckOutDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingCheckOutDate = false;
 
   public static final String JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER =
       "lodging.customerServiceTollFreeNumber";
   private String lodgingCustomerServiceTollFreeNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingCustomerServiceTollFreeNumber = false;
+
   public static final String JSON_PROPERTY_LODGING_FIRE_SAFETY_ACT_INDICATOR =
       "lodging.fireSafetyActIndicator";
   private String lodgingFireSafetyActIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingFireSafetyActIndicator = false;
 
   public static final String JSON_PROPERTY_LODGING_FOLIO_CASH_ADVANCES =
       "lodging.folioCashAdvances";
   private String lodgingFolioCashAdvances;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingFolioCashAdvances = false;
+
   public static final String JSON_PROPERTY_LODGING_FOLIO_NUMBER = "lodging.folioNumber";
   private String lodgingFolioNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingFolioNumber = false;
 
   public static final String JSON_PROPERTY_LODGING_FOOD_BEVERAGE_CHARGES =
       "lodging.foodBeverageCharges";
   private String lodgingFoodBeverageCharges;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingFoodBeverageCharges = false;
+
   public static final String JSON_PROPERTY_LODGING_NO_SHOW_INDICATOR = "lodging.noShowIndicator";
   private String lodgingNoShowIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingNoShowIndicator = false;
+
   public static final String JSON_PROPERTY_LODGING_PREPAID_EXPENSES = "lodging.prepaidExpenses";
   private String lodgingPrepaidExpenses;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingPrepaidExpenses = false;
 
   public static final String JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER =
       "lodging.propertyPhoneNumber";
   private String lodgingPropertyPhoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingPropertyPhoneNumber = false;
+
   public static final String JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS =
       "lodging.room1.numberOfNights";
   private String lodgingRoom1NumberOfNights;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingRoom1NumberOfNights = false;
+
   public static final String JSON_PROPERTY_LODGING_ROOM1_RATE = "lodging.room1.rate";
   private String lodgingRoom1Rate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingRoom1Rate = false;
 
   public static final String JSON_PROPERTY_LODGING_TOTAL_ROOM_TAX = "lodging.totalRoomTax";
   private String lodgingTotalRoomTax;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingTotalRoomTax = false;
+
   public static final String JSON_PROPERTY_LODGING_TOTAL_TAX = "lodging.totalTax";
   private String lodgingTotalTax;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodgingTotalTax = false;
 
   public static final String JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION =
       "travelEntertainmentAuthData.duration";
   private String travelEntertainmentAuthDataDuration;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTravelEntertainmentAuthDataDuration = false;
+
   public static final String JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET =
       "travelEntertainmentAuthData.market";
   private String travelEntertainmentAuthDataMarket;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTravelEntertainmentAuthDataMarket = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataLodging() {}
 
@@ -110,6 +169,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
     this.lodgingSpecialProgramCode = lodgingSpecialProgramCode;
+    isSetLodgingSpecialProgramCode = true; // mark as set
     return this;
   }
 
@@ -138,6 +198,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
     this.lodgingSpecialProgramCode = lodgingSpecialProgramCode;
+    isSetLodgingSpecialProgramCode = true; // mark as set
   }
 
   /**
@@ -149,6 +210,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingCheckInDate(String lodgingCheckInDate) {
     this.lodgingCheckInDate = lodgingCheckInDate;
+    isSetLodgingCheckInDate = true; // mark as set
     return this;
   }
 
@@ -174,6 +236,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingCheckInDate(String lodgingCheckInDate) {
     this.lodgingCheckInDate = lodgingCheckInDate;
+    isSetLodgingCheckInDate = true; // mark as set
   }
 
   /**
@@ -185,6 +248,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingCheckOutDate(String lodgingCheckOutDate) {
     this.lodgingCheckOutDate = lodgingCheckOutDate;
+    isSetLodgingCheckOutDate = true; // mark as set
     return this;
   }
 
@@ -210,6 +274,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingCheckOutDate(String lodgingCheckOutDate) {
     this.lodgingCheckOutDate = lodgingCheckOutDate;
+    isSetLodgingCheckOutDate = true; // mark as set
   }
 
   /**
@@ -226,6 +291,7 @@ public class AdditionalDataLodging {
   public AdditionalDataLodging lodgingCustomerServiceTollFreeNumber(
       String lodgingCustomerServiceTollFreeNumber) {
     this.lodgingCustomerServiceTollFreeNumber = lodgingCustomerServiceTollFreeNumber;
+    isSetLodgingCustomerServiceTollFreeNumber = true; // mark as set
     return this;
   }
 
@@ -259,6 +325,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingCustomerServiceTollFreeNumber(String lodgingCustomerServiceTollFreeNumber) {
     this.lodgingCustomerServiceTollFreeNumber = lodgingCustomerServiceTollFreeNumber;
+    isSetLodgingCustomerServiceTollFreeNumber = true; // mark as set
   }
 
   /**
@@ -272,6 +339,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingFireSafetyActIndicator(String lodgingFireSafetyActIndicator) {
     this.lodgingFireSafetyActIndicator = lodgingFireSafetyActIndicator;
+    isSetLodgingFireSafetyActIndicator = true; // mark as set
     return this;
   }
 
@@ -301,6 +369,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFireSafetyActIndicator(String lodgingFireSafetyActIndicator) {
     this.lodgingFireSafetyActIndicator = lodgingFireSafetyActIndicator;
+    isSetLodgingFireSafetyActIndicator = true; // mark as set
   }
 
   /**
@@ -315,6 +384,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingFolioCashAdvances(String lodgingFolioCashAdvances) {
     this.lodgingFolioCashAdvances = lodgingFolioCashAdvances;
+    isSetLodgingFolioCashAdvances = true; // mark as set
     return this;
   }
 
@@ -346,6 +416,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFolioCashAdvances(String lodgingFolioCashAdvances) {
     this.lodgingFolioCashAdvances = lodgingFolioCashAdvances;
+    isSetLodgingFolioCashAdvances = true; // mark as set
   }
 
   /**
@@ -360,6 +431,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingFolioNumber(String lodgingFolioNumber) {
     this.lodgingFolioNumber = lodgingFolioNumber;
+    isSetLodgingFolioNumber = true; // mark as set
     return this;
   }
 
@@ -391,6 +463,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFolioNumber(String lodgingFolioNumber) {
     this.lodgingFolioNumber = lodgingFolioNumber;
+    isSetLodgingFolioNumber = true; // mark as set
   }
 
   /**
@@ -405,6 +478,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingFoodBeverageCharges(String lodgingFoodBeverageCharges) {
     this.lodgingFoodBeverageCharges = lodgingFoodBeverageCharges;
+    isSetLodgingFoodBeverageCharges = true; // mark as set
     return this;
   }
 
@@ -436,6 +510,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingFoodBeverageCharges(String lodgingFoodBeverageCharges) {
     this.lodgingFoodBeverageCharges = lodgingFoodBeverageCharges;
+    isSetLodgingFoodBeverageCharges = true; // mark as set
   }
 
   /**
@@ -448,6 +523,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingNoShowIndicator(String lodgingNoShowIndicator) {
     this.lodgingNoShowIndicator = lodgingNoShowIndicator;
+    isSetLodgingNoShowIndicator = true; // mark as set
     return this;
   }
 
@@ -475,6 +551,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingNoShowIndicator(String lodgingNoShowIndicator) {
     this.lodgingNoShowIndicator = lodgingNoShowIndicator;
+    isSetLodgingNoShowIndicator = true; // mark as set
   }
 
   /**
@@ -486,6 +563,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingPrepaidExpenses(String lodgingPrepaidExpenses) {
     this.lodgingPrepaidExpenses = lodgingPrepaidExpenses;
+    isSetLodgingPrepaidExpenses = true; // mark as set
     return this;
   }
 
@@ -511,6 +589,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingPrepaidExpenses(String lodgingPrepaidExpenses) {
     this.lodgingPrepaidExpenses = lodgingPrepaidExpenses;
+    isSetLodgingPrepaidExpenses = true; // mark as set
   }
 
   /**
@@ -527,6 +606,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingPropertyPhoneNumber(String lodgingPropertyPhoneNumber) {
     this.lodgingPropertyPhoneNumber = lodgingPropertyPhoneNumber;
+    isSetLodgingPropertyPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -562,6 +642,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingPropertyPhoneNumber(String lodgingPropertyPhoneNumber) {
     this.lodgingPropertyPhoneNumber = lodgingPropertyPhoneNumber;
+    isSetLodgingPropertyPhoneNumber = true; // mark as set
   }
 
   /**
@@ -574,6 +655,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingRoom1NumberOfNights(String lodgingRoom1NumberOfNights) {
     this.lodgingRoom1NumberOfNights = lodgingRoom1NumberOfNights;
+    isSetLodgingRoom1NumberOfNights = true; // mark as set
     return this;
   }
 
@@ -601,6 +683,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingRoom1NumberOfNights(String lodgingRoom1NumberOfNights) {
     this.lodgingRoom1NumberOfNights = lodgingRoom1NumberOfNights;
+    isSetLodgingRoom1NumberOfNights = true; // mark as set
   }
 
   /**
@@ -615,6 +698,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingRoom1Rate(String lodgingRoom1Rate) {
     this.lodgingRoom1Rate = lodgingRoom1Rate;
+    isSetLodgingRoom1Rate = true; // mark as set
     return this;
   }
 
@@ -646,6 +730,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingRoom1Rate(String lodgingRoom1Rate) {
     this.lodgingRoom1Rate = lodgingRoom1Rate;
+    isSetLodgingRoom1Rate = true; // mark as set
   }
 
   /**
@@ -660,6 +745,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingTotalRoomTax(String lodgingTotalRoomTax) {
     this.lodgingTotalRoomTax = lodgingTotalRoomTax;
+    isSetLodgingTotalRoomTax = true; // mark as set
     return this;
   }
 
@@ -691,6 +777,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingTotalRoomTax(String lodgingTotalRoomTax) {
     this.lodgingTotalRoomTax = lodgingTotalRoomTax;
+    isSetLodgingTotalRoomTax = true; // mark as set
   }
 
   /**
@@ -705,6 +792,7 @@ public class AdditionalDataLodging {
    */
   public AdditionalDataLodging lodgingTotalTax(String lodgingTotalTax) {
     this.lodgingTotalTax = lodgingTotalTax;
+    isSetLodgingTotalTax = true; // mark as set
     return this;
   }
 
@@ -736,6 +824,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodgingTotalTax(String lodgingTotalTax) {
     this.lodgingTotalTax = lodgingTotalTax;
+    isSetLodgingTotalTax = true; // mark as set
   }
 
   /**
@@ -749,6 +838,7 @@ public class AdditionalDataLodging {
   public AdditionalDataLodging travelEntertainmentAuthDataDuration(
       String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
+    isSetTravelEntertainmentAuthDataDuration = true; // mark as set
     return this;
   }
 
@@ -776,6 +866,7 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
+    isSetTravelEntertainmentAuthDataDuration = true; // mark as set
   }
 
   /**
@@ -790,6 +881,7 @@ public class AdditionalDataLodging {
   public AdditionalDataLodging travelEntertainmentAuthDataMarket(
       String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
+    isSetTravelEntertainmentAuthDataMarket = true; // mark as set
     return this;
   }
 
@@ -819,6 +911,27 @@ public class AdditionalDataLodging {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
+    isSetTravelEntertainmentAuthDataMarket = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataLodging includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataLodging object is equal to o. */
@@ -833,55 +946,112 @@ public class AdditionalDataLodging {
     AdditionalDataLodging additionalDataLodging = (AdditionalDataLodging) o;
     return Objects.equals(
             this.lodgingSpecialProgramCode, additionalDataLodging.lodgingSpecialProgramCode)
+        && Objects.equals(
+            this.isSetLodgingSpecialProgramCode,
+            additionalDataLodging.isSetLodgingSpecialProgramCode)
         && Objects.equals(this.lodgingCheckInDate, additionalDataLodging.lodgingCheckInDate)
+        && Objects.equals(
+            this.isSetLodgingCheckInDate, additionalDataLodging.isSetLodgingCheckInDate)
         && Objects.equals(this.lodgingCheckOutDate, additionalDataLodging.lodgingCheckOutDate)
+        && Objects.equals(
+            this.isSetLodgingCheckOutDate, additionalDataLodging.isSetLodgingCheckOutDate)
         && Objects.equals(
             this.lodgingCustomerServiceTollFreeNumber,
             additionalDataLodging.lodgingCustomerServiceTollFreeNumber)
         && Objects.equals(
+            this.isSetLodgingCustomerServiceTollFreeNumber,
+            additionalDataLodging.isSetLodgingCustomerServiceTollFreeNumber)
+        && Objects.equals(
             this.lodgingFireSafetyActIndicator, additionalDataLodging.lodgingFireSafetyActIndicator)
         && Objects.equals(
+            this.isSetLodgingFireSafetyActIndicator,
+            additionalDataLodging.isSetLodgingFireSafetyActIndicator)
+        && Objects.equals(
             this.lodgingFolioCashAdvances, additionalDataLodging.lodgingFolioCashAdvances)
+        && Objects.equals(
+            this.isSetLodgingFolioCashAdvances, additionalDataLodging.isSetLodgingFolioCashAdvances)
         && Objects.equals(this.lodgingFolioNumber, additionalDataLodging.lodgingFolioNumber)
         && Objects.equals(
+            this.isSetLodgingFolioNumber, additionalDataLodging.isSetLodgingFolioNumber)
+        && Objects.equals(
             this.lodgingFoodBeverageCharges, additionalDataLodging.lodgingFoodBeverageCharges)
+        && Objects.equals(
+            this.isSetLodgingFoodBeverageCharges,
+            additionalDataLodging.isSetLodgingFoodBeverageCharges)
         && Objects.equals(this.lodgingNoShowIndicator, additionalDataLodging.lodgingNoShowIndicator)
+        && Objects.equals(
+            this.isSetLodgingNoShowIndicator, additionalDataLodging.isSetLodgingNoShowIndicator)
         && Objects.equals(this.lodgingPrepaidExpenses, additionalDataLodging.lodgingPrepaidExpenses)
+        && Objects.equals(
+            this.isSetLodgingPrepaidExpenses, additionalDataLodging.isSetLodgingPrepaidExpenses)
         && Objects.equals(
             this.lodgingPropertyPhoneNumber, additionalDataLodging.lodgingPropertyPhoneNumber)
         && Objects.equals(
+            this.isSetLodgingPropertyPhoneNumber,
+            additionalDataLodging.isSetLodgingPropertyPhoneNumber)
+        && Objects.equals(
             this.lodgingRoom1NumberOfNights, additionalDataLodging.lodgingRoom1NumberOfNights)
+        && Objects.equals(
+            this.isSetLodgingRoom1NumberOfNights,
+            additionalDataLodging.isSetLodgingRoom1NumberOfNights)
         && Objects.equals(this.lodgingRoom1Rate, additionalDataLodging.lodgingRoom1Rate)
+        && Objects.equals(this.isSetLodgingRoom1Rate, additionalDataLodging.isSetLodgingRoom1Rate)
         && Objects.equals(this.lodgingTotalRoomTax, additionalDataLodging.lodgingTotalRoomTax)
+        && Objects.equals(
+            this.isSetLodgingTotalRoomTax, additionalDataLodging.isSetLodgingTotalRoomTax)
         && Objects.equals(this.lodgingTotalTax, additionalDataLodging.lodgingTotalTax)
+        && Objects.equals(this.isSetLodgingTotalTax, additionalDataLodging.isSetLodgingTotalTax)
         && Objects.equals(
             this.travelEntertainmentAuthDataDuration,
             additionalDataLodging.travelEntertainmentAuthDataDuration)
         && Objects.equals(
+            this.isSetTravelEntertainmentAuthDataDuration,
+            additionalDataLodging.isSetTravelEntertainmentAuthDataDuration)
+        && Objects.equals(
             this.travelEntertainmentAuthDataMarket,
-            additionalDataLodging.travelEntertainmentAuthDataMarket);
+            additionalDataLodging.travelEntertainmentAuthDataMarket)
+        && Objects.equals(
+            this.isSetTravelEntertainmentAuthDataMarket,
+            additionalDataLodging.isSetTravelEntertainmentAuthDataMarket);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         lodgingSpecialProgramCode,
+        isSetLodgingSpecialProgramCode,
         lodgingCheckInDate,
+        isSetLodgingCheckInDate,
         lodgingCheckOutDate,
+        isSetLodgingCheckOutDate,
         lodgingCustomerServiceTollFreeNumber,
+        isSetLodgingCustomerServiceTollFreeNumber,
         lodgingFireSafetyActIndicator,
+        isSetLodgingFireSafetyActIndicator,
         lodgingFolioCashAdvances,
+        isSetLodgingFolioCashAdvances,
         lodgingFolioNumber,
+        isSetLodgingFolioNumber,
         lodgingFoodBeverageCharges,
+        isSetLodgingFoodBeverageCharges,
         lodgingNoShowIndicator,
+        isSetLodgingNoShowIndicator,
         lodgingPrepaidExpenses,
+        isSetLodgingPrepaidExpenses,
         lodgingPropertyPhoneNumber,
+        isSetLodgingPropertyPhoneNumber,
         lodgingRoom1NumberOfNights,
+        isSetLodgingRoom1NumberOfNights,
         lodgingRoom1Rate,
+        isSetLodgingRoom1Rate,
         lodgingTotalRoomTax,
+        isSetLodgingTotalRoomTax,
         lodgingTotalTax,
+        isSetLodgingTotalTax,
         travelEntertainmentAuthDataDuration,
-        travelEntertainmentAuthDataMarket);
+        isSetTravelEntertainmentAuthDataDuration,
+        travelEntertainmentAuthDataMarket,
+        isSetTravelEntertainmentAuthDataMarket);
   }
 
   @Override
@@ -943,6 +1113,93 @@ public class AdditionalDataLodging {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLodgingSpecialProgramCode) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE, this.lodgingSpecialProgramCode);
+    }
+    if (isSetLodgingCheckInDate) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_CHECK_IN_DATE, this.lodgingCheckInDate);
+    }
+    if (isSetLodgingCheckOutDate) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_CHECK_OUT_DATE, this.lodgingCheckOutDate);
+    }
+    if (isSetLodgingCustomerServiceTollFreeNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER,
+          this.lodgingCustomerServiceTollFreeNumber);
+    }
+    if (isSetLodgingFireSafetyActIndicator) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_LODGING_FIRE_SAFETY_ACT_INDICATOR,
+          this.lodgingFireSafetyActIndicator);
+    }
+    if (isSetLodgingFolioCashAdvances) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_FOLIO_CASH_ADVANCES, this.lodgingFolioCashAdvances);
+    }
+    if (isSetLodgingFolioNumber) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_FOLIO_NUMBER, this.lodgingFolioNumber);
+    }
+    if (isSetLodgingFoodBeverageCharges) {
+      addIfNull(
+          nulls, JSON_PROPERTY_LODGING_FOOD_BEVERAGE_CHARGES, this.lodgingFoodBeverageCharges);
+    }
+    if (isSetLodgingNoShowIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_NO_SHOW_INDICATOR, this.lodgingNoShowIndicator);
+    }
+    if (isSetLodgingPrepaidExpenses) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_PREPAID_EXPENSES, this.lodgingPrepaidExpenses);
+    }
+    if (isSetLodgingPropertyPhoneNumber) {
+      addIfNull(
+          nulls, JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER, this.lodgingPropertyPhoneNumber);
+    }
+    if (isSetLodgingRoom1NumberOfNights) {
+      addIfNull(
+          nulls, JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS, this.lodgingRoom1NumberOfNights);
+    }
+    if (isSetLodgingRoom1Rate) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_ROOM1_RATE, this.lodgingRoom1Rate);
+    }
+    if (isSetLodgingTotalRoomTax) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_TOTAL_ROOM_TAX, this.lodgingTotalRoomTax);
+    }
+    if (isSetLodgingTotalTax) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING_TOTAL_TAX, this.lodgingTotalTax);
+    }
+    if (isSetTravelEntertainmentAuthDataDuration) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION,
+          this.travelEntertainmentAuthDataDuration);
+    }
+    if (isSetTravelEntertainmentAuthDataMarket) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET,
+          this.travelEntertainmentAuthDataMarket);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

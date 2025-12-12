@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class PaymentMethodGroup {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD_DATA = "paymentMethodData";
   private String paymentMethodData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodData = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethodGroup() {}
 
@@ -43,6 +60,7 @@ public class PaymentMethodGroup {
    */
   public PaymentMethodGroup name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -66,6 +84,7 @@ public class PaymentMethodGroup {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -77,6 +96,7 @@ public class PaymentMethodGroup {
    */
   public PaymentMethodGroup paymentMethodData(String paymentMethodData) {
     this.paymentMethodData = paymentMethodData;
+    isSetPaymentMethodData = true; // mark as set
     return this;
   }
 
@@ -102,6 +122,7 @@ public class PaymentMethodGroup {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodData(String paymentMethodData) {
     this.paymentMethodData = paymentMethodData;
+    isSetPaymentMethodData = true; // mark as set
   }
 
   /**
@@ -112,6 +133,7 @@ public class PaymentMethodGroup {
    */
   public PaymentMethodGroup type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -135,6 +157,27 @@ public class PaymentMethodGroup {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodGroup includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethodGroup object is equal to o. */
@@ -148,13 +191,17 @@ public class PaymentMethodGroup {
     }
     PaymentMethodGroup paymentMethodGroup = (PaymentMethodGroup) o;
     return Objects.equals(this.name, paymentMethodGroup.name)
+        && Objects.equals(this.isSetName, paymentMethodGroup.isSetName)
         && Objects.equals(this.paymentMethodData, paymentMethodGroup.paymentMethodData)
-        && Objects.equals(this.type, paymentMethodGroup.type);
+        && Objects.equals(this.isSetPaymentMethodData, paymentMethodGroup.isSetPaymentMethodData)
+        && Objects.equals(this.type, paymentMethodGroup.type)
+        && Objects.equals(this.isSetType, paymentMethodGroup.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, paymentMethodData, type);
+    return Objects.hash(
+        name, isSetName, paymentMethodData, isSetPaymentMethodData, type, isSetType);
   }
 
   @Override
@@ -176,6 +223,36 @@ public class PaymentMethodGroup {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPaymentMethodData) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_DATA, this.paymentMethodData);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
