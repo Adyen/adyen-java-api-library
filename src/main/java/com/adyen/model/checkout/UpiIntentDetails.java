@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,25 +38,46 @@ public class UpiIntentDetails {
   public static final String JSON_PROPERTY_APP_ID = "appId";
   private String appId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAppId = false;
+
   public static final String JSON_PROPERTY_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
   private String billingSequenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingSequenceNumber = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE =
       "shopperNotificationReference";
   private String shopperNotificationReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperNotificationReference = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
 
   /** **upi_intent** */
   public enum TypeEnum {
@@ -98,6 +121,15 @@ public class UpiIntentDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public UpiIntentDetails() {}
 
   /**
@@ -108,6 +140,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails appId(String appId) {
     this.appId = appId;
+    isSetAppId = true; // mark as set
     return this;
   }
 
@@ -131,6 +164,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
     this.appId = appId;
+    isSetAppId = true; // mark as set
   }
 
   /**
@@ -144,6 +178,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails billingSequenceNumber(String billingSequenceNumber) {
     this.billingSequenceNumber = billingSequenceNumber;
+    isSetBillingSequenceNumber = true; // mark as set
     return this;
   }
 
@@ -173,6 +208,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingSequenceNumber(String billingSequenceNumber) {
     this.billingSequenceNumber = billingSequenceNumber;
+    isSetBillingSequenceNumber = true; // mark as set
   }
 
   /**
@@ -183,6 +219,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -206,6 +243,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -220,6 +258,7 @@ public class UpiIntentDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public UpiIntentDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -251,6 +290,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -261,6 +301,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -285,6 +326,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -297,6 +339,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
     return this;
   }
 
@@ -324,6 +367,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
   }
 
   /**
@@ -336,6 +380,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -363,6 +408,7 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -373,6 +419,7 @@ public class UpiIntentDetails {
    */
   public UpiIntentDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -396,6 +443,27 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public UpiIntentDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this UpiIntentDetails object is equal to o. */
@@ -409,27 +477,48 @@ public class UpiIntentDetails {
     }
     UpiIntentDetails upiIntentDetails = (UpiIntentDetails) o;
     return Objects.equals(this.appId, upiIntentDetails.appId)
+        && Objects.equals(this.isSetAppId, upiIntentDetails.isSetAppId)
         && Objects.equals(this.billingSequenceNumber, upiIntentDetails.billingSequenceNumber)
+        && Objects.equals(
+            this.isSetBillingSequenceNumber, upiIntentDetails.isSetBillingSequenceNumber)
         && Objects.equals(this.checkoutAttemptId, upiIntentDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, upiIntentDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.recurringDetailReference, upiIntentDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, upiIntentDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, upiIntentDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, upiIntentDetails.isSetSdkData)
         && Objects.equals(
             this.shopperNotificationReference, upiIntentDetails.shopperNotificationReference)
+        && Objects.equals(
+            this.isSetShopperNotificationReference,
+            upiIntentDetails.isSetShopperNotificationReference)
         && Objects.equals(this.storedPaymentMethodId, upiIntentDetails.storedPaymentMethodId)
-        && Objects.equals(this.type, upiIntentDetails.type);
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, upiIntentDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, upiIntentDetails.type)
+        && Objects.equals(this.isSetType, upiIntentDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         appId,
+        isSetAppId,
         billingSequenceNumber,
+        isSetBillingSequenceNumber,
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         shopperNotificationReference,
+        isSetShopperNotificationReference,
         storedPaymentMethodId,
-        type);
+        isSetStoredPaymentMethodId,
+        type,
+        isSetType);
   }
 
   @Override
@@ -464,6 +553,52 @@ public class UpiIntentDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAppId) {
+      addIfNull(nulls, JSON_PROPERTY_APP_ID, this.appId);
+    }
+    if (isSetBillingSequenceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_SEQUENCE_NUMBER, this.billingSequenceNumber);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetShopperNotificationReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE, this.shopperNotificationReference);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class ExternalPlatform {
   public static final String JSON_PROPERTY_INTEGRATOR = "integrator";
   private String integrator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIntegrator = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ExternalPlatform() {}
 
@@ -43,6 +60,7 @@ public class ExternalPlatform {
    */
   public ExternalPlatform integrator(String integrator) {
     this.integrator = integrator;
+    isSetIntegrator = true; // mark as set
     return this;
   }
 
@@ -66,6 +84,7 @@ public class ExternalPlatform {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIntegrator(String integrator) {
     this.integrator = integrator;
+    isSetIntegrator = true; // mark as set
   }
 
   /**
@@ -76,6 +95,7 @@ public class ExternalPlatform {
    */
   public ExternalPlatform name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -99,6 +119,7 @@ public class ExternalPlatform {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -109,6 +130,7 @@ public class ExternalPlatform {
    */
   public ExternalPlatform version(String version) {
     this.version = version;
+    isSetVersion = true; // mark as set
     return this;
   }
 
@@ -132,6 +154,27 @@ public class ExternalPlatform {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {
     this.version = version;
+    isSetVersion = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ExternalPlatform includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ExternalPlatform object is equal to o. */
@@ -145,13 +188,16 @@ public class ExternalPlatform {
     }
     ExternalPlatform externalPlatform = (ExternalPlatform) o;
     return Objects.equals(this.integrator, externalPlatform.integrator)
+        && Objects.equals(this.isSetIntegrator, externalPlatform.isSetIntegrator)
         && Objects.equals(this.name, externalPlatform.name)
-        && Objects.equals(this.version, externalPlatform.version);
+        && Objects.equals(this.isSetName, externalPlatform.isSetName)
+        && Objects.equals(this.version, externalPlatform.version)
+        && Objects.equals(this.isSetVersion, externalPlatform.isSetVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(integrator, name, version);
+    return Objects.hash(integrator, isSetIntegrator, name, isSetName, version, isSetVersion);
   }
 
   @Override
@@ -173,6 +219,36 @@ public class ExternalPlatform {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetIntegrator) {
+      addIfNull(nulls, JSON_PROPERTY_INTEGRATOR, this.integrator);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetVersion) {
+      addIfNull(nulls, JSON_PROPERTY_VERSION, this.version);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

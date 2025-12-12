@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,27 +39,51 @@ public class EftDetails {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountNumber = false;
+
   public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankCode = false;
 
   public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankLocationId = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
+
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
 
   /** **eft** */
   public enum TypeEnum {
@@ -101,6 +127,15 @@ public class EftDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public EftDetails() {}
 
   /**
@@ -111,6 +146,7 @@ public class EftDetails {
    */
   public EftDetails bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
     return this;
   }
 
@@ -134,6 +170,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
   }
 
   /**
@@ -144,6 +181,7 @@ public class EftDetails {
    */
   public EftDetails bankCode(String bankCode) {
     this.bankCode = bankCode;
+    isSetBankCode = true; // mark as set
     return this;
   }
 
@@ -167,6 +205,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
+    isSetBankCode = true; // mark as set
   }
 
   /**
@@ -177,6 +216,7 @@ public class EftDetails {
    */
   public EftDetails bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
     return this;
   }
 
@@ -200,6 +240,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
   }
 
   /**
@@ -210,6 +251,7 @@ public class EftDetails {
    */
   public EftDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -233,6 +275,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -259,6 +302,7 @@ public class EftDetails {
    */
   public EftDetails ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -314,6 +358,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -328,6 +373,7 @@ public class EftDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public EftDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -359,6 +405,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -369,6 +416,7 @@ public class EftDetails {
    */
   public EftDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -393,6 +441,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -405,6 +454,7 @@ public class EftDetails {
    */
   public EftDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -432,6 +482,7 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -442,6 +493,7 @@ public class EftDetails {
    */
   public EftDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -465,6 +517,27 @@ public class EftDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public EftDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this EftDetails object is equal to o. */
@@ -478,28 +551,47 @@ public class EftDetails {
     }
     EftDetails eftDetails = (EftDetails) o;
     return Objects.equals(this.bankAccountNumber, eftDetails.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, eftDetails.isSetBankAccountNumber)
         && Objects.equals(this.bankCode, eftDetails.bankCode)
+        && Objects.equals(this.isSetBankCode, eftDetails.isSetBankCode)
         && Objects.equals(this.bankLocationId, eftDetails.bankLocationId)
+        && Objects.equals(this.isSetBankLocationId, eftDetails.isSetBankLocationId)
         && Objects.equals(this.checkoutAttemptId, eftDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, eftDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.ownerName, eftDetails.ownerName)
+        && Objects.equals(this.isSetOwnerName, eftDetails.isSetOwnerName)
         && Objects.equals(this.recurringDetailReference, eftDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, eftDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, eftDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, eftDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, eftDetails.storedPaymentMethodId)
-        && Objects.equals(this.type, eftDetails.type);
+        && Objects.equals(this.isSetStoredPaymentMethodId, eftDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, eftDetails.type)
+        && Objects.equals(this.isSetType, eftDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         bankAccountNumber,
+        isSetBankAccountNumber,
         bankCode,
+        isSetBankCode,
         bankLocationId,
+        isSetBankLocationId,
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         ownerName,
+        isSetOwnerName,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         storedPaymentMethodId,
-        type);
+        isSetStoredPaymentMethodId,
+        type,
+        isSetType);
   }
 
   @Override
@@ -531,6 +623,54 @@ public class EftDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBankAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
+    }
+    if (isSetBankCode) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_CODE, this.bankCode);
+    }
+    if (isSetBankLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_LOCATION_ID, this.bankLocationId);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

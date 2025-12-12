@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,76 +44,133 @@ public class AdditionalDataLevel23 {
       "enhancedSchemeData.customerReference";
   private String enhancedSchemeDataCustomerReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataCustomerReference = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE =
       "enhancedSchemeData.destinationCountryCode";
   private String enhancedSchemeDataDestinationCountryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataDestinationCountryCode = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE =
       "enhancedSchemeData.destinationPostalCode";
   private String enhancedSchemeDataDestinationPostalCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataDestinationPostalCode = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE =
       "enhancedSchemeData.destinationStateProvinceCode";
   private String enhancedSchemeDataDestinationStateProvinceCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataDestinationStateProvinceCode = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT =
       "enhancedSchemeData.dutyAmount";
   private String enhancedSchemeDataDutyAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataDutyAmount = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT =
       "enhancedSchemeData.freightAmount";
   private String enhancedSchemeDataFreightAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataFreightAmount = false;
 
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE =
           "enhancedSchemeData.itemDetailLine[itemNr].commodityCode";
   private String enhancedSchemeDataItemDetailLineItemNrCommodityCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode = false;
+
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION =
           "enhancedSchemeData.itemDetailLine[itemNr].description";
   private String enhancedSchemeDataItemDetailLineItemNrDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrDescription = false;
 
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT =
           "enhancedSchemeData.itemDetailLine[itemNr].discountAmount";
   private String enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount = false;
+
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE =
           "enhancedSchemeData.itemDetailLine[itemNr].productCode";
   private String enhancedSchemeDataItemDetailLineItemNrProductCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrProductCode = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY =
       "enhancedSchemeData.itemDetailLine[itemNr].quantity";
   private String enhancedSchemeDataItemDetailLineItemNrQuantity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrQuantity = false;
 
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT =
           "enhancedSchemeData.itemDetailLine[itemNr].totalAmount";
   private String enhancedSchemeDataItemDetailLineItemNrTotalAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount = false;
+
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE =
           "enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure";
   private String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure = false;
 
   public static final String
       JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE =
           "enhancedSchemeData.itemDetailLine[itemNr].unitPrice";
   private String enhancedSchemeDataItemDetailLineItemNrUnitPrice;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE =
       "enhancedSchemeData.orderDate";
   private String enhancedSchemeDataOrderDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataOrderDate = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE =
       "enhancedSchemeData.shipFromPostalCode";
   private String enhancedSchemeDataShipFromPostalCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataShipFromPostalCode = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT =
       "enhancedSchemeData.totalTaxAmount";
   private String enhancedSchemeDataTotalTaxAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataTotalTaxAmount = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataLevel23() {}
 
@@ -127,6 +186,7 @@ public class AdditionalDataLevel23 {
   public AdditionalDataLevel23 enhancedSchemeDataCustomerReference(
       String enhancedSchemeDataCustomerReference) {
     this.enhancedSchemeDataCustomerReference = enhancedSchemeDataCustomerReference;
+    isSetEnhancedSchemeDataCustomerReference = true; // mark as set
     return this;
   }
 
@@ -156,6 +216,7 @@ public class AdditionalDataLevel23 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
     this.enhancedSchemeDataCustomerReference = enhancedSchemeDataCustomerReference;
+    isSetEnhancedSchemeDataCustomerReference = true; // mark as set
   }
 
   /**
@@ -171,6 +232,7 @@ public class AdditionalDataLevel23 {
   public AdditionalDataLevel23 enhancedSchemeDataDestinationCountryCode(
       String enhancedSchemeDataDestinationCountryCode) {
     this.enhancedSchemeDataDestinationCountryCode = enhancedSchemeDataDestinationCountryCode;
+    isSetEnhancedSchemeDataDestinationCountryCode = true; // mark as set
     return this;
   }
 
@@ -203,6 +265,7 @@ public class AdditionalDataLevel23 {
   public void setEnhancedSchemeDataDestinationCountryCode(
       String enhancedSchemeDataDestinationCountryCode) {
     this.enhancedSchemeDataDestinationCountryCode = enhancedSchemeDataDestinationCountryCode;
+    isSetEnhancedSchemeDataDestinationCountryCode = true; // mark as set
   }
 
   /**
@@ -220,6 +283,7 @@ public class AdditionalDataLevel23 {
   public AdditionalDataLevel23 enhancedSchemeDataDestinationPostalCode(
       String enhancedSchemeDataDestinationPostalCode) {
     this.enhancedSchemeDataDestinationPostalCode = enhancedSchemeDataDestinationPostalCode;
+    isSetEnhancedSchemeDataDestinationPostalCode = true; // mark as set
     return this;
   }
 
@@ -256,6 +320,7 @@ public class AdditionalDataLevel23 {
   public void setEnhancedSchemeDataDestinationPostalCode(
       String enhancedSchemeDataDestinationPostalCode) {
     this.enhancedSchemeDataDestinationPostalCode = enhancedSchemeDataDestinationPostalCode;
+    isSetEnhancedSchemeDataDestinationPostalCode = true; // mark as set
   }
 
   /**
@@ -271,6 +336,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataDestinationStateProvinceCode) {
     this.enhancedSchemeDataDestinationStateProvinceCode =
         enhancedSchemeDataDestinationStateProvinceCode;
+    isSetEnhancedSchemeDataDestinationStateProvinceCode = true; // mark as set
     return this;
   }
 
@@ -302,6 +368,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataDestinationStateProvinceCode) {
     this.enhancedSchemeDataDestinationStateProvinceCode =
         enhancedSchemeDataDestinationStateProvinceCode;
+    isSetEnhancedSchemeDataDestinationStateProvinceCode = true; // mark as set
   }
 
   /**
@@ -316,6 +383,7 @@ public class AdditionalDataLevel23 {
    */
   public AdditionalDataLevel23 enhancedSchemeDataDutyAmount(String enhancedSchemeDataDutyAmount) {
     this.enhancedSchemeDataDutyAmount = enhancedSchemeDataDutyAmount;
+    isSetEnhancedSchemeDataDutyAmount = true; // mark as set
     return this;
   }
 
@@ -347,6 +415,7 @@ public class AdditionalDataLevel23 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataDutyAmount(String enhancedSchemeDataDutyAmount) {
     this.enhancedSchemeDataDutyAmount = enhancedSchemeDataDutyAmount;
+    isSetEnhancedSchemeDataDutyAmount = true; // mark as set
   }
 
   /**
@@ -362,6 +431,7 @@ public class AdditionalDataLevel23 {
   public AdditionalDataLevel23 enhancedSchemeDataFreightAmount(
       String enhancedSchemeDataFreightAmount) {
     this.enhancedSchemeDataFreightAmount = enhancedSchemeDataFreightAmount;
+    isSetEnhancedSchemeDataFreightAmount = true; // mark as set
     return this;
   }
 
@@ -393,6 +463,7 @@ public class AdditionalDataLevel23 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataFreightAmount(String enhancedSchemeDataFreightAmount) {
     this.enhancedSchemeDataFreightAmount = enhancedSchemeDataFreightAmount;
+    isSetEnhancedSchemeDataFreightAmount = true; // mark as set
   }
 
   /**
@@ -417,6 +488,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrCommodityCode) {
     this.enhancedSchemeDataItemDetailLineItemNrCommodityCode =
         enhancedSchemeDataItemDetailLineItemNrCommodityCode;
+    isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode = true; // mark as set
     return this;
   }
 
@@ -466,6 +538,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrCommodityCode) {
     this.enhancedSchemeDataItemDetailLineItemNrCommodityCode =
         enhancedSchemeDataItemDetailLineItemNrCommodityCode;
+    isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode = true; // mark as set
   }
 
   /**
@@ -489,6 +562,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrDescription) {
     this.enhancedSchemeDataItemDetailLineItemNrDescription =
         enhancedSchemeDataItemDetailLineItemNrDescription;
+    isSetEnhancedSchemeDataItemDetailLineItemNrDescription = true; // mark as set
     return this;
   }
 
@@ -536,6 +610,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrDescription) {
     this.enhancedSchemeDataItemDetailLineItemNrDescription =
         enhancedSchemeDataItemDetailLineItemNrDescription;
+    isSetEnhancedSchemeDataItemDetailLineItemNrDescription = true; // mark as set
   }
 
   /**
@@ -552,6 +627,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrDiscountAmount) {
     this.enhancedSchemeDataItemDetailLineItemNrDiscountAmount =
         enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
+    isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount = true; // mark as set
     return this;
   }
 
@@ -585,6 +661,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrDiscountAmount) {
     this.enhancedSchemeDataItemDetailLineItemNrDiscountAmount =
         enhancedSchemeDataItemDetailLineItemNrDiscountAmount;
+    isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount = true; // mark as set
   }
 
   /**
@@ -603,6 +680,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrProductCode) {
     this.enhancedSchemeDataItemDetailLineItemNrProductCode =
         enhancedSchemeDataItemDetailLineItemNrProductCode;
+    isSetEnhancedSchemeDataItemDetailLineItemNrProductCode = true; // mark as set
     return this;
   }
 
@@ -640,6 +718,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrProductCode) {
     this.enhancedSchemeDataItemDetailLineItemNrProductCode =
         enhancedSchemeDataItemDetailLineItemNrProductCode;
+    isSetEnhancedSchemeDataItemDetailLineItemNrProductCode = true; // mark as set
   }
 
   /**
@@ -655,6 +734,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrQuantity) {
     this.enhancedSchemeDataItemDetailLineItemNrQuantity =
         enhancedSchemeDataItemDetailLineItemNrQuantity;
+    isSetEnhancedSchemeDataItemDetailLineItemNrQuantity = true; // mark as set
     return this;
   }
 
@@ -686,6 +766,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrQuantity) {
     this.enhancedSchemeDataItemDetailLineItemNrQuantity =
         enhancedSchemeDataItemDetailLineItemNrQuantity;
+    isSetEnhancedSchemeDataItemDetailLineItemNrQuantity = true; // mark as set
   }
 
   /**
@@ -710,6 +791,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrTotalAmount) {
     this.enhancedSchemeDataItemDetailLineItemNrTotalAmount =
         enhancedSchemeDataItemDetailLineItemNrTotalAmount;
+    isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount = true; // mark as set
     return this;
   }
 
@@ -759,6 +841,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrTotalAmount) {
     this.enhancedSchemeDataItemDetailLineItemNrTotalAmount =
         enhancedSchemeDataItemDetailLineItemNrTotalAmount;
+    isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount = true; // mark as set
   }
 
   /**
@@ -774,6 +857,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) {
     this.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure =
         enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
+    isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure = true; // mark as set
     return this;
   }
 
@@ -805,6 +889,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) {
     this.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure =
         enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure;
+    isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure = true; // mark as set
   }
 
   /**
@@ -821,6 +906,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrUnitPrice) {
     this.enhancedSchemeDataItemDetailLineItemNrUnitPrice =
         enhancedSchemeDataItemDetailLineItemNrUnitPrice;
+    isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice = true; // mark as set
     return this;
   }
 
@@ -854,6 +940,7 @@ public class AdditionalDataLevel23 {
       String enhancedSchemeDataItemDetailLineItemNrUnitPrice) {
     this.enhancedSchemeDataItemDetailLineItemNrUnitPrice =
         enhancedSchemeDataItemDetailLineItemNrUnitPrice;
+    isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice = true; // mark as set
   }
 
   /**
@@ -865,6 +952,7 @@ public class AdditionalDataLevel23 {
    */
   public AdditionalDataLevel23 enhancedSchemeDataOrderDate(String enhancedSchemeDataOrderDate) {
     this.enhancedSchemeDataOrderDate = enhancedSchemeDataOrderDate;
+    isSetEnhancedSchemeDataOrderDate = true; // mark as set
     return this;
   }
 
@@ -890,6 +978,7 @@ public class AdditionalDataLevel23 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataOrderDate(String enhancedSchemeDataOrderDate) {
     this.enhancedSchemeDataOrderDate = enhancedSchemeDataOrderDate;
+    isSetEnhancedSchemeDataOrderDate = true; // mark as set
   }
 
   /**
@@ -908,6 +997,7 @@ public class AdditionalDataLevel23 {
   public AdditionalDataLevel23 enhancedSchemeDataShipFromPostalCode(
       String enhancedSchemeDataShipFromPostalCode) {
     this.enhancedSchemeDataShipFromPostalCode = enhancedSchemeDataShipFromPostalCode;
+    isSetEnhancedSchemeDataShipFromPostalCode = true; // mark as set
     return this;
   }
 
@@ -945,6 +1035,7 @@ public class AdditionalDataLevel23 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataShipFromPostalCode(String enhancedSchemeDataShipFromPostalCode) {
     this.enhancedSchemeDataShipFromPostalCode = enhancedSchemeDataShipFromPostalCode;
+    isSetEnhancedSchemeDataShipFromPostalCode = true; // mark as set
   }
 
   /**
@@ -965,6 +1056,7 @@ public class AdditionalDataLevel23 {
   public AdditionalDataLevel23 enhancedSchemeDataTotalTaxAmount(
       String enhancedSchemeDataTotalTaxAmount) {
     this.enhancedSchemeDataTotalTaxAmount = enhancedSchemeDataTotalTaxAmount;
+    isSetEnhancedSchemeDataTotalTaxAmount = true; // mark as set
     return this;
   }
 
@@ -1006,6 +1098,27 @@ public class AdditionalDataLevel23 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {
     this.enhancedSchemeDataTotalTaxAmount = enhancedSchemeDataTotalTaxAmount;
+    isSetEnhancedSchemeDataTotalTaxAmount = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataLevel23 includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataLevel23 object is equal to o. */
@@ -1022,73 +1135,141 @@ public class AdditionalDataLevel23 {
             this.enhancedSchemeDataCustomerReference,
             additionalDataLevel23.enhancedSchemeDataCustomerReference)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataCustomerReference,
+            additionalDataLevel23.isSetEnhancedSchemeDataCustomerReference)
+        && Objects.equals(
             this.enhancedSchemeDataDestinationCountryCode,
             additionalDataLevel23.enhancedSchemeDataDestinationCountryCode)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataDestinationCountryCode,
+            additionalDataLevel23.isSetEnhancedSchemeDataDestinationCountryCode)
         && Objects.equals(
             this.enhancedSchemeDataDestinationPostalCode,
             additionalDataLevel23.enhancedSchemeDataDestinationPostalCode)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataDestinationPostalCode,
+            additionalDataLevel23.isSetEnhancedSchemeDataDestinationPostalCode)
+        && Objects.equals(
             this.enhancedSchemeDataDestinationStateProvinceCode,
             additionalDataLevel23.enhancedSchemeDataDestinationStateProvinceCode)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataDestinationStateProvinceCode,
+            additionalDataLevel23.isSetEnhancedSchemeDataDestinationStateProvinceCode)
+        && Objects.equals(
             this.enhancedSchemeDataDutyAmount, additionalDataLevel23.enhancedSchemeDataDutyAmount)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataDutyAmount,
+            additionalDataLevel23.isSetEnhancedSchemeDataDutyAmount)
         && Objects.equals(
             this.enhancedSchemeDataFreightAmount,
             additionalDataLevel23.enhancedSchemeDataFreightAmount)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataFreightAmount,
+            additionalDataLevel23.isSetEnhancedSchemeDataFreightAmount)
+        && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrCommodityCode,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrCommodityCode)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode)
         && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrDescription,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrDescription)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrDescription,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrDescription)
+        && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrDiscountAmount,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrDiscountAmount)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount)
         && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrProductCode,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrProductCode)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrProductCode,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrProductCode)
+        && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrQuantity,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrQuantity)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrQuantity,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrQuantity)
         && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrTotalAmount,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrTotalAmount)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount)
+        && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure)
         && Objects.equals(
             this.enhancedSchemeDataItemDetailLineItemNrUnitPrice,
             additionalDataLevel23.enhancedSchemeDataItemDetailLineItemNrUnitPrice)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice,
+            additionalDataLevel23.isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice)
+        && Objects.equals(
             this.enhancedSchemeDataOrderDate, additionalDataLevel23.enhancedSchemeDataOrderDate)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataOrderDate,
+            additionalDataLevel23.isSetEnhancedSchemeDataOrderDate)
         && Objects.equals(
             this.enhancedSchemeDataShipFromPostalCode,
             additionalDataLevel23.enhancedSchemeDataShipFromPostalCode)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataShipFromPostalCode,
+            additionalDataLevel23.isSetEnhancedSchemeDataShipFromPostalCode)
+        && Objects.equals(
             this.enhancedSchemeDataTotalTaxAmount,
-            additionalDataLevel23.enhancedSchemeDataTotalTaxAmount);
+            additionalDataLevel23.enhancedSchemeDataTotalTaxAmount)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataTotalTaxAmount,
+            additionalDataLevel23.isSetEnhancedSchemeDataTotalTaxAmount);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         enhancedSchemeDataCustomerReference,
+        isSetEnhancedSchemeDataCustomerReference,
         enhancedSchemeDataDestinationCountryCode,
+        isSetEnhancedSchemeDataDestinationCountryCode,
         enhancedSchemeDataDestinationPostalCode,
+        isSetEnhancedSchemeDataDestinationPostalCode,
         enhancedSchemeDataDestinationStateProvinceCode,
+        isSetEnhancedSchemeDataDestinationStateProvinceCode,
         enhancedSchemeDataDutyAmount,
+        isSetEnhancedSchemeDataDutyAmount,
         enhancedSchemeDataFreightAmount,
+        isSetEnhancedSchemeDataFreightAmount,
         enhancedSchemeDataItemDetailLineItemNrCommodityCode,
+        isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode,
         enhancedSchemeDataItemDetailLineItemNrDescription,
+        isSetEnhancedSchemeDataItemDetailLineItemNrDescription,
         enhancedSchemeDataItemDetailLineItemNrDiscountAmount,
+        isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount,
         enhancedSchemeDataItemDetailLineItemNrProductCode,
+        isSetEnhancedSchemeDataItemDetailLineItemNrProductCode,
         enhancedSchemeDataItemDetailLineItemNrQuantity,
+        isSetEnhancedSchemeDataItemDetailLineItemNrQuantity,
         enhancedSchemeDataItemDetailLineItemNrTotalAmount,
+        isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount,
         enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure,
+        isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure,
         enhancedSchemeDataItemDetailLineItemNrUnitPrice,
+        isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice,
         enhancedSchemeDataOrderDate,
+        isSetEnhancedSchemeDataOrderDate,
         enhancedSchemeDataShipFromPostalCode,
-        enhancedSchemeDataTotalTaxAmount);
+        isSetEnhancedSchemeDataShipFromPostalCode,
+        enhancedSchemeDataTotalTaxAmount,
+        isSetEnhancedSchemeDataTotalTaxAmount);
   }
 
   @Override
@@ -1158,6 +1339,125 @@ public class AdditionalDataLevel23 {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetEnhancedSchemeDataCustomerReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE,
+          this.enhancedSchemeDataCustomerReference);
+    }
+    if (isSetEnhancedSchemeDataDestinationCountryCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_COUNTRY_CODE,
+          this.enhancedSchemeDataDestinationCountryCode);
+    }
+    if (isSetEnhancedSchemeDataDestinationPostalCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_POSTAL_CODE,
+          this.enhancedSchemeDataDestinationPostalCode);
+    }
+    if (isSetEnhancedSchemeDataDestinationStateProvinceCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_DESTINATION_STATE_PROVINCE_CODE,
+          this.enhancedSchemeDataDestinationStateProvinceCode);
+    }
+    if (isSetEnhancedSchemeDataDutyAmount) {
+      addIfNull(
+          nulls, JSON_PROPERTY_ENHANCED_SCHEME_DATA_DUTY_AMOUNT, this.enhancedSchemeDataDutyAmount);
+    }
+    if (isSetEnhancedSchemeDataFreightAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_FREIGHT_AMOUNT,
+          this.enhancedSchemeDataFreightAmount);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrCommodityCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_COMMODITY_CODE,
+          this.enhancedSchemeDataItemDetailLineItemNrCommodityCode);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrDescription) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION,
+          this.enhancedSchemeDataItemDetailLineItemNrDescription);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrDiscountAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DISCOUNT_AMOUNT,
+          this.enhancedSchemeDataItemDetailLineItemNrDiscountAmount);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrProductCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_PRODUCT_CODE,
+          this.enhancedSchemeDataItemDetailLineItemNrProductCode);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrQuantity) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_QUANTITY,
+          this.enhancedSchemeDataItemDetailLineItemNrQuantity);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrTotalAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_TOTAL_AMOUNT,
+          this.enhancedSchemeDataItemDetailLineItemNrTotalAmount);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_OF_MEASURE,
+          this.enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure);
+    }
+    if (isSetEnhancedSchemeDataItemDetailLineItemNrUnitPrice) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_UNIT_PRICE,
+          this.enhancedSchemeDataItemDetailLineItemNrUnitPrice);
+    }
+    if (isSetEnhancedSchemeDataOrderDate) {
+      addIfNull(
+          nulls, JSON_PROPERTY_ENHANCED_SCHEME_DATA_ORDER_DATE, this.enhancedSchemeDataOrderDate);
+    }
+    if (isSetEnhancedSchemeDataShipFromPostalCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_SHIP_FROM_POSTAL_CODE,
+          this.enhancedSchemeDataShipFromPostalCode);
+    }
+    if (isSetEnhancedSchemeDataTotalTaxAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT,
+          this.enhancedSchemeDataTotalTaxAmount);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

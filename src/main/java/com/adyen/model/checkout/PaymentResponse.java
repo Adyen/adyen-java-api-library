@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,38 +48,74 @@ public class PaymentResponse {
   public static final String JSON_PROPERTY_ACTION = "action";
   private PaymentResponseAction action;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAction = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_DONATION_TOKEN = "donationToken";
   private String donationToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonationToken = false;
 
   public static final String JSON_PROPERTY_FRAUD_RESULT = "fraudResult";
   private FraudResult fraudResult;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudResult = false;
+
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private CheckoutOrderResponse order;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrder = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private ResponsePaymentMethod paymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
 
   public static final String JSON_PROPERTY_PAYMENT_VALIDATIONS = "paymentValidations";
   private PaymentValidationsResponse paymentValidations;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentValidations = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
 
   public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReason = false;
+
   public static final String JSON_PROPERTY_REFUSAL_REASON_CODE = "refusalReasonCode";
   private String refusalReasonCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReasonCode = false;
 
   /**
    * The result of the payment. For more information, see [Result
@@ -175,14 +213,32 @@ public class PaymentResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_RESPONSE_DATA = "threeDS2ResponseData";
   private ThreeDS2ResponseData threeDS2ResponseData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2ResponseData = false;
 
   public static final String JSON_PROPERTY_THREE_D_S2_RESULT = "threeDS2Result";
   private ThreeDS2Result threeDS2Result;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2Result = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_PAYMENT_DATA = "threeDSPaymentData";
   private String threeDSPaymentData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSPaymentData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentResponse() {}
 
@@ -194,6 +250,7 @@ public class PaymentResponse {
    */
   public PaymentResponse action(PaymentResponseAction action) {
     this.action = action;
+    isSetAction = true; // mark as set
     return this;
   }
 
@@ -217,6 +274,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAction(PaymentResponseAction action) {
     this.action = action;
+    isSetAction = true; // mark as set
   }
 
   /**
@@ -230,6 +288,7 @@ public class PaymentResponse {
    */
   public PaymentResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -267,6 +326,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -277,6 +337,7 @@ public class PaymentResponse {
    */
   public PaymentResponse amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -300,6 +361,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -310,6 +372,7 @@ public class PaymentResponse {
    */
   public PaymentResponse donationToken(String donationToken) {
     this.donationToken = donationToken;
+    isSetDonationToken = true; // mark as set
     return this;
   }
 
@@ -333,6 +396,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationToken(String donationToken) {
     this.donationToken = donationToken;
+    isSetDonationToken = true; // mark as set
   }
 
   /**
@@ -343,6 +407,7 @@ public class PaymentResponse {
    */
   public PaymentResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
     return this;
   }
 
@@ -366,6 +431,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
   }
 
   /**
@@ -383,6 +449,7 @@ public class PaymentResponse {
    */
   public PaymentResponse merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
     return this;
   }
 
@@ -420,6 +487,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
   }
 
   /**
@@ -430,6 +498,7 @@ public class PaymentResponse {
    */
   public PaymentResponse order(CheckoutOrderResponse order) {
     this.order = order;
+    isSetOrder = true; // mark as set
     return this;
   }
 
@@ -453,6 +522,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(CheckoutOrderResponse order) {
     this.order = order;
+    isSetOrder = true; // mark as set
   }
 
   /**
@@ -463,6 +533,7 @@ public class PaymentResponse {
    */
   public PaymentResponse paymentMethod(ResponsePaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -486,6 +557,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(ResponsePaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -496,6 +568,7 @@ public class PaymentResponse {
    */
   public PaymentResponse paymentValidations(PaymentValidationsResponse paymentValidations) {
     this.paymentValidations = paymentValidations;
+    isSetPaymentValidations = true; // mark as set
     return this;
   }
 
@@ -519,6 +592,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentValidations(PaymentValidationsResponse paymentValidations) {
     this.paymentValidations = paymentValidations;
+    isSetPaymentValidations = true; // mark as set
   }
 
   /**
@@ -535,6 +609,7 @@ public class PaymentResponse {
    */
   public PaymentResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -570,6 +645,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -588,6 +664,7 @@ public class PaymentResponse {
    */
   public PaymentResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
     return this;
   }
 
@@ -627,6 +704,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
   }
 
   /**
@@ -640,6 +718,7 @@ public class PaymentResponse {
    */
   public PaymentResponse refusalReasonCode(String refusalReasonCode) {
     this.refusalReasonCode = refusalReasonCode;
+    isSetRefusalReasonCode = true; // mark as set
     return this;
   }
 
@@ -669,6 +748,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReasonCode(String refusalReasonCode) {
     this.refusalReasonCode = refusalReasonCode;
+    isSetRefusalReasonCode = true; // mark as set
   }
 
   /**
@@ -732,6 +812,7 @@ public class PaymentResponse {
    */
   public PaymentResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -861,6 +942,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
   }
 
   /**
@@ -871,6 +953,7 @@ public class PaymentResponse {
    */
   public PaymentResponse threeDS2ResponseData(ThreeDS2ResponseData threeDS2ResponseData) {
     this.threeDS2ResponseData = threeDS2ResponseData;
+    isSetThreeDS2ResponseData = true; // mark as set
     return this;
   }
 
@@ -894,6 +977,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2ResponseData(ThreeDS2ResponseData threeDS2ResponseData) {
     this.threeDS2ResponseData = threeDS2ResponseData;
+    isSetThreeDS2ResponseData = true; // mark as set
   }
 
   /**
@@ -904,6 +988,7 @@ public class PaymentResponse {
    */
   public PaymentResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
+    isSetThreeDS2Result = true; // mark as set
     return this;
   }
 
@@ -927,6 +1012,7 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
+    isSetThreeDS2Result = true; // mark as set
   }
 
   /**
@@ -939,6 +1025,7 @@ public class PaymentResponse {
    */
   public PaymentResponse threeDSPaymentData(String threeDSPaymentData) {
     this.threeDSPaymentData = threeDSPaymentData;
+    isSetThreeDSPaymentData = true; // mark as set
     return this;
   }
 
@@ -966,6 +1053,27 @@ public class PaymentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSPaymentData(String threeDSPaymentData) {
     this.threeDSPaymentData = threeDSPaymentData;
+    isSetThreeDSPaymentData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentResponse object is equal to o. */
@@ -979,42 +1087,74 @@ public class PaymentResponse {
     }
     PaymentResponse paymentResponse = (PaymentResponse) o;
     return Objects.equals(this.action, paymentResponse.action)
+        && Objects.equals(this.isSetAction, paymentResponse.isSetAction)
         && Objects.equals(this.additionalData, paymentResponse.additionalData)
+        && Objects.equals(this.isSetAdditionalData, paymentResponse.isSetAdditionalData)
         && Objects.equals(this.amount, paymentResponse.amount)
+        && Objects.equals(this.isSetAmount, paymentResponse.isSetAmount)
         && Objects.equals(this.donationToken, paymentResponse.donationToken)
+        && Objects.equals(this.isSetDonationToken, paymentResponse.isSetDonationToken)
         && Objects.equals(this.fraudResult, paymentResponse.fraudResult)
+        && Objects.equals(this.isSetFraudResult, paymentResponse.isSetFraudResult)
         && Objects.equals(this.merchantReference, paymentResponse.merchantReference)
+        && Objects.equals(this.isSetMerchantReference, paymentResponse.isSetMerchantReference)
         && Objects.equals(this.order, paymentResponse.order)
+        && Objects.equals(this.isSetOrder, paymentResponse.isSetOrder)
         && Objects.equals(this.paymentMethod, paymentResponse.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, paymentResponse.isSetPaymentMethod)
         && Objects.equals(this.paymentValidations, paymentResponse.paymentValidations)
+        && Objects.equals(this.isSetPaymentValidations, paymentResponse.isSetPaymentValidations)
         && Objects.equals(this.pspReference, paymentResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, paymentResponse.isSetPspReference)
         && Objects.equals(this.refusalReason, paymentResponse.refusalReason)
+        && Objects.equals(this.isSetRefusalReason, paymentResponse.isSetRefusalReason)
         && Objects.equals(this.refusalReasonCode, paymentResponse.refusalReasonCode)
+        && Objects.equals(this.isSetRefusalReasonCode, paymentResponse.isSetRefusalReasonCode)
         && Objects.equals(this.resultCode, paymentResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, paymentResponse.isSetResultCode)
         && Objects.equals(this.threeDS2ResponseData, paymentResponse.threeDS2ResponseData)
+        && Objects.equals(this.isSetThreeDS2ResponseData, paymentResponse.isSetThreeDS2ResponseData)
         && Objects.equals(this.threeDS2Result, paymentResponse.threeDS2Result)
-        && Objects.equals(this.threeDSPaymentData, paymentResponse.threeDSPaymentData);
+        && Objects.equals(this.isSetThreeDS2Result, paymentResponse.isSetThreeDS2Result)
+        && Objects.equals(this.threeDSPaymentData, paymentResponse.threeDSPaymentData)
+        && Objects.equals(this.isSetThreeDSPaymentData, paymentResponse.isSetThreeDSPaymentData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         action,
+        isSetAction,
         additionalData,
+        isSetAdditionalData,
         amount,
+        isSetAmount,
         donationToken,
+        isSetDonationToken,
         fraudResult,
+        isSetFraudResult,
         merchantReference,
+        isSetMerchantReference,
         order,
+        isSetOrder,
         paymentMethod,
+        isSetPaymentMethod,
         paymentValidations,
+        isSetPaymentValidations,
         pspReference,
+        isSetPspReference,
         refusalReason,
+        isSetRefusalReason,
         refusalReasonCode,
+        isSetRefusalReasonCode,
         resultCode,
+        isSetResultCode,
         threeDS2ResponseData,
+        isSetThreeDS2ResponseData,
         threeDS2Result,
-        threeDSPaymentData);
+        isSetThreeDS2Result,
+        threeDSPaymentData,
+        isSetThreeDSPaymentData);
   }
 
   @Override
@@ -1051,6 +1191,75 @@ public class PaymentResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAction) {
+      addIfNull(nulls, JSON_PROPERTY_ACTION, this.action);
+    }
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetDonationToken) {
+      addIfNull(nulls, JSON_PROPERTY_DONATION_TOKEN, this.donationToken);
+    }
+    if (isSetFraudResult) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_RESULT, this.fraudResult);
+    }
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetOrder) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER, this.order);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetPaymentValidations) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_VALIDATIONS, this.paymentValidations);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON, this.refusalReason);
+    }
+    if (isSetRefusalReasonCode) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON_CODE, this.refusalReasonCode);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+    if (isSetThreeDS2ResponseData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_RESPONSE_DATA, this.threeDS2ResponseData);
+    }
+    if (isSetThreeDS2Result) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_RESULT, this.threeDS2Result);
+    }
+    if (isSetThreeDSPaymentData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_PAYMENT_DATA, this.threeDSPaymentData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

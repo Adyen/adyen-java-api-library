@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,33 +41,63 @@ public class RivertyDetails {
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private String billingAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private String deliveryAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddress = false;
+
   public static final String JSON_PROPERTY_DEVICE_FINGERPRINT = "deviceFingerprint";
   private String deviceFingerprint;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceFingerprint = false;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
+
   public static final String JSON_PROPERTY_PERSONAL_DETAILS = "personalDetails";
   private String personalDetails;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPersonalDetails = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private String subtype;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubtype = false;
 
   /** **riverty** */
   public enum TypeEnum {
@@ -115,6 +147,15 @@ public class RivertyDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public RivertyDetails() {}
 
   /**
@@ -125,6 +166,7 @@ public class RivertyDetails {
    */
   public RivertyDetails billingAddress(String billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -148,6 +190,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(String billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -158,6 +201,7 @@ public class RivertyDetails {
    */
   public RivertyDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -181,6 +225,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -191,6 +236,7 @@ public class RivertyDetails {
    */
   public RivertyDetails deliveryAddress(String deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
     return this;
   }
 
@@ -214,6 +260,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(String deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
   }
 
   /**
@@ -227,6 +274,7 @@ public class RivertyDetails {
    */
   public RivertyDetails deviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
+    isSetDeviceFingerprint = true; // mark as set
     return this;
   }
 
@@ -256,6 +304,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
+    isSetDeviceFingerprint = true; // mark as set
   }
 
   /**
@@ -266,6 +315,7 @@ public class RivertyDetails {
    */
   public RivertyDetails iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -289,6 +339,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -299,6 +350,7 @@ public class RivertyDetails {
    */
   public RivertyDetails personalDetails(String personalDetails) {
     this.personalDetails = personalDetails;
+    isSetPersonalDetails = true; // mark as set
     return this;
   }
 
@@ -322,6 +374,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalDetails(String personalDetails) {
     this.personalDetails = personalDetails;
+    isSetPersonalDetails = true; // mark as set
   }
 
   /**
@@ -336,6 +389,7 @@ public class RivertyDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public RivertyDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -367,6 +421,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -377,6 +432,7 @@ public class RivertyDetails {
    */
   public RivertyDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -401,6 +457,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -413,6 +470,7 @@ public class RivertyDetails {
    */
   public RivertyDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -440,6 +498,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -450,6 +509,7 @@ public class RivertyDetails {
    */
   public RivertyDetails subtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
     return this;
   }
 
@@ -473,6 +533,7 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
   }
 
   /**
@@ -483,6 +544,7 @@ public class RivertyDetails {
    */
   public RivertyDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -506,6 +568,27 @@ public class RivertyDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RivertyDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RivertyDetails object is equal to o. */
@@ -519,32 +602,56 @@ public class RivertyDetails {
     }
     RivertyDetails rivertyDetails = (RivertyDetails) o;
     return Objects.equals(this.billingAddress, rivertyDetails.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, rivertyDetails.isSetBillingAddress)
         && Objects.equals(this.checkoutAttemptId, rivertyDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, rivertyDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.deliveryAddress, rivertyDetails.deliveryAddress)
+        && Objects.equals(this.isSetDeliveryAddress, rivertyDetails.isSetDeliveryAddress)
         && Objects.equals(this.deviceFingerprint, rivertyDetails.deviceFingerprint)
+        && Objects.equals(this.isSetDeviceFingerprint, rivertyDetails.isSetDeviceFingerprint)
         && Objects.equals(this.iban, rivertyDetails.iban)
+        && Objects.equals(this.isSetIban, rivertyDetails.isSetIban)
         && Objects.equals(this.personalDetails, rivertyDetails.personalDetails)
+        && Objects.equals(this.isSetPersonalDetails, rivertyDetails.isSetPersonalDetails)
         && Objects.equals(this.recurringDetailReference, rivertyDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, rivertyDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, rivertyDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, rivertyDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, rivertyDetails.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, rivertyDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.subtype, rivertyDetails.subtype)
-        && Objects.equals(this.type, rivertyDetails.type);
+        && Objects.equals(this.isSetSubtype, rivertyDetails.isSetSubtype)
+        && Objects.equals(this.type, rivertyDetails.type)
+        && Objects.equals(this.isSetType, rivertyDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         billingAddress,
+        isSetBillingAddress,
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         deliveryAddress,
+        isSetDeliveryAddress,
         deviceFingerprint,
+        isSetDeviceFingerprint,
         iban,
+        isSetIban,
         personalDetails,
+        isSetPersonalDetails,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         subtype,
-        type);
+        isSetSubtype,
+        type,
+        isSetType);
   }
 
   @Override
@@ -578,6 +685,60 @@ public class RivertyDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetDeliveryAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
+    if (isSetDeviceFingerprint) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_FINGERPRINT, this.deviceFingerprint);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetPersonalDetails) {
+      addIfNull(nulls, JSON_PROPERTY_PERSONAL_DETAILS, this.personalDetails);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetSubtype) {
+      addIfNull(nulls, JSON_PROPERTY_SUBTYPE, this.subtype);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

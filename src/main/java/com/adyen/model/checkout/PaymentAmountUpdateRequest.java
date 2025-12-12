@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,11 +40,20 @@ public class PaymentAmountUpdateRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
   private EnhancedSchemeData enhancedSchemeData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeData = false;
 
   /**
    * The reason for the amount update. Possible values: * **delayedCharge** * **noShow** *
@@ -93,17 +104,38 @@ public class PaymentAmountUpdateRequest {
   public static final String JSON_PROPERTY_INDUSTRY_USAGE = "industryUsage";
   private IndustryUsageEnum industryUsage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndustryUsage = false;
+
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentAmountUpdateRequest() {}
 
@@ -115,6 +147,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -138,6 +171,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -148,6 +182,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -171,6 +206,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -181,6 +217,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
     this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
     return this;
   }
 
@@ -204,6 +241,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
     this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
   }
 
   /**
@@ -216,6 +254,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+    isSetIndustryUsage = true; // mark as set
     return this;
   }
 
@@ -243,6 +282,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+    isSetIndustryUsage = true; // mark as set
   }
 
   /**
@@ -259,6 +299,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -302,6 +343,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -312,6 +354,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -335,6 +378,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -345,6 +389,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -368,6 +413,7 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -384,6 +430,7 @@ public class PaymentAmountUpdateRequest {
    */
   public PaymentAmountUpdateRequest splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -427,6 +474,27 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentAmountUpdateRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentAmountUpdateRequest object is equal to o. */
@@ -440,26 +508,45 @@ public class PaymentAmountUpdateRequest {
     }
     PaymentAmountUpdateRequest paymentAmountUpdateRequest = (PaymentAmountUpdateRequest) o;
     return Objects.equals(this.amount, paymentAmountUpdateRequest.amount)
+        && Objects.equals(this.isSetAmount, paymentAmountUpdateRequest.isSetAmount)
         && Objects.equals(this.applicationInfo, paymentAmountUpdateRequest.applicationInfo)
+        && Objects.equals(
+            this.isSetApplicationInfo, paymentAmountUpdateRequest.isSetApplicationInfo)
         && Objects.equals(this.enhancedSchemeData, paymentAmountUpdateRequest.enhancedSchemeData)
+        && Objects.equals(
+            this.isSetEnhancedSchemeData, paymentAmountUpdateRequest.isSetEnhancedSchemeData)
         && Objects.equals(this.industryUsage, paymentAmountUpdateRequest.industryUsage)
+        && Objects.equals(this.isSetIndustryUsage, paymentAmountUpdateRequest.isSetIndustryUsage)
         && Objects.equals(this.lineItems, paymentAmountUpdateRequest.lineItems)
+        && Objects.equals(this.isSetLineItems, paymentAmountUpdateRequest.isSetLineItems)
         && Objects.equals(this.merchantAccount, paymentAmountUpdateRequest.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, paymentAmountUpdateRequest.isSetMerchantAccount)
         && Objects.equals(this.reference, paymentAmountUpdateRequest.reference)
-        && Objects.equals(this.splits, paymentAmountUpdateRequest.splits);
+        && Objects.equals(this.isSetReference, paymentAmountUpdateRequest.isSetReference)
+        && Objects.equals(this.splits, paymentAmountUpdateRequest.splits)
+        && Objects.equals(this.isSetSplits, paymentAmountUpdateRequest.isSetSplits);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         applicationInfo,
+        isSetApplicationInfo,
         enhancedSchemeData,
+        isSetEnhancedSchemeData,
         industryUsage,
+        isSetIndustryUsage,
         lineItems,
+        isSetLineItems,
         merchantAccount,
+        isSetMerchantAccount,
         reference,
-        splits);
+        isSetReference,
+        splits,
+        isSetSplits);
   }
 
   @Override
@@ -486,6 +573,51 @@ public class PaymentAmountUpdateRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetEnhancedSchemeData) {
+      addIfNull(nulls, JSON_PROPERTY_ENHANCED_SCHEME_DATA, this.enhancedSchemeData);
+    }
+    if (isSetIndustryUsage) {
+      addIfNull(nulls, JSON_PROPERTY_INDUSTRY_USAGE, this.industryUsage);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

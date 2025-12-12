@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,27 +39,51 @@ public class SepaDirectDebitDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
+
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
   private String dueDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDueDate = false;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
+
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstrumentId = false;
 
   /** **sepadirectdebit** */
   public enum TypeEnum {
@@ -103,6 +129,15 @@ public class SepaDirectDebitDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public SepaDirectDebitDetails() {}
 
   /**
@@ -113,6 +148,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -136,6 +172,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -146,6 +183,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails dueDate(String dueDate) {
     this.dueDate = dueDate;
+    isSetDueDate = true; // mark as set
     return this;
   }
 
@@ -169,6 +207,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDueDate(String dueDate) {
     this.dueDate = dueDate;
+    isSetDueDate = true; // mark as set
   }
 
   /**
@@ -179,6 +218,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -202,6 +242,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -212,6 +253,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -235,6 +277,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -249,6 +292,7 @@ public class SepaDirectDebitDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public SepaDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -280,6 +324,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -290,6 +335,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -314,6 +360,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -326,6 +373,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -353,6 +401,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -365,6 +414,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
     return this;
   }
 
@@ -392,6 +442,7 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
   }
 
   /**
@@ -402,6 +453,7 @@ public class SepaDirectDebitDetails {
    */
   public SepaDirectDebitDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -425,6 +477,27 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SepaDirectDebitDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SepaDirectDebitDetails object is equal to o. */
@@ -438,29 +511,52 @@ public class SepaDirectDebitDetails {
     }
     SepaDirectDebitDetails sepaDirectDebitDetails = (SepaDirectDebitDetails) o;
     return Objects.equals(this.checkoutAttemptId, sepaDirectDebitDetails.checkoutAttemptId)
+        && Objects.equals(
+            this.isSetCheckoutAttemptId, sepaDirectDebitDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.dueDate, sepaDirectDebitDetails.dueDate)
+        && Objects.equals(this.isSetDueDate, sepaDirectDebitDetails.isSetDueDate)
         && Objects.equals(this.iban, sepaDirectDebitDetails.iban)
+        && Objects.equals(this.isSetIban, sepaDirectDebitDetails.isSetIban)
         && Objects.equals(this.ownerName, sepaDirectDebitDetails.ownerName)
+        && Objects.equals(this.isSetOwnerName, sepaDirectDebitDetails.isSetOwnerName)
         && Objects.equals(
             this.recurringDetailReference, sepaDirectDebitDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference,
+            sepaDirectDebitDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, sepaDirectDebitDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, sepaDirectDebitDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, sepaDirectDebitDetails.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, sepaDirectDebitDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.transferInstrumentId, sepaDirectDebitDetails.transferInstrumentId)
-        && Objects.equals(this.type, sepaDirectDebitDetails.type);
+        && Objects.equals(
+            this.isSetTransferInstrumentId, sepaDirectDebitDetails.isSetTransferInstrumentId)
+        && Objects.equals(this.type, sepaDirectDebitDetails.type)
+        && Objects.equals(this.isSetType, sepaDirectDebitDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         dueDate,
+        isSetDueDate,
         iban,
+        isSetIban,
         ownerName,
+        isSetOwnerName,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         transferInstrumentId,
-        type);
+        isSetTransferInstrumentId,
+        type,
+        isSetType);
   }
 
   @Override
@@ -494,6 +590,54 @@ public class SepaDirectDebitDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetDueDate) {
+      addIfNull(nulls, JSON_PROPERTY_DUE_DATE, this.dueDate);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetTransferInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENT_ID, this.transferInstrumentId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

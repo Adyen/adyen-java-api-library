@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,38 +39,80 @@ public class ForexQuote {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private String account;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccount = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private String accountType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountType = false;
 
   public static final String JSON_PROPERTY_BASE_AMOUNT = "baseAmount";
   private Amount baseAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBaseAmount = false;
+
   public static final String JSON_PROPERTY_BASE_POINTS = "basePoints";
   private Integer basePoints;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBasePoints = false;
 
   public static final String JSON_PROPERTY_BUY = "buy";
   private Amount buy;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBuy = false;
+
   public static final String JSON_PROPERTY_INTERBANK = "interbank";
   private Amount interbank;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInterbank = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SELL = "sell";
   private Amount sell;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSell = false;
 
   public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private String signature;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSignature = false;
+
   public static final String JSON_PROPERTY_SOURCE = "source";
   private String source;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSource = false;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_VALID_TILL = "validTill";
   private OffsetDateTime validTill;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValidTill = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ForexQuote() {}
 
@@ -80,6 +124,7 @@ public class ForexQuote {
    */
   public ForexQuote account(String account) {
     this.account = account;
+    isSetAccount = true; // mark as set
     return this;
   }
 
@@ -103,6 +148,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(String account) {
     this.account = account;
+    isSetAccount = true; // mark as set
   }
 
   /**
@@ -113,6 +159,7 @@ public class ForexQuote {
    */
   public ForexQuote accountType(String accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
     return this;
   }
 
@@ -136,6 +183,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
   }
 
   /**
@@ -146,6 +194,7 @@ public class ForexQuote {
    */
   public ForexQuote baseAmount(Amount baseAmount) {
     this.baseAmount = baseAmount;
+    isSetBaseAmount = true; // mark as set
     return this;
   }
 
@@ -169,6 +218,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBaseAmount(Amount baseAmount) {
     this.baseAmount = baseAmount;
+    isSetBaseAmount = true; // mark as set
   }
 
   /**
@@ -179,6 +229,7 @@ public class ForexQuote {
    */
   public ForexQuote basePoints(Integer basePoints) {
     this.basePoints = basePoints;
+    isSetBasePoints = true; // mark as set
     return this;
   }
 
@@ -202,6 +253,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasePoints(Integer basePoints) {
     this.basePoints = basePoints;
+    isSetBasePoints = true; // mark as set
   }
 
   /**
@@ -212,6 +264,7 @@ public class ForexQuote {
    */
   public ForexQuote buy(Amount buy) {
     this.buy = buy;
+    isSetBuy = true; // mark as set
     return this;
   }
 
@@ -235,6 +288,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBuy(Amount buy) {
     this.buy = buy;
+    isSetBuy = true; // mark as set
   }
 
   /**
@@ -245,6 +299,7 @@ public class ForexQuote {
    */
   public ForexQuote interbank(Amount interbank) {
     this.interbank = interbank;
+    isSetInterbank = true; // mark as set
     return this;
   }
 
@@ -268,6 +323,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterbank(Amount interbank) {
     this.interbank = interbank;
+    isSetInterbank = true; // mark as set
   }
 
   /**
@@ -278,6 +334,7 @@ public class ForexQuote {
    */
   public ForexQuote reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -301,6 +358,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -311,6 +369,7 @@ public class ForexQuote {
    */
   public ForexQuote sell(Amount sell) {
     this.sell = sell;
+    isSetSell = true; // mark as set
     return this;
   }
 
@@ -334,6 +393,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSell(Amount sell) {
     this.sell = sell;
+    isSetSell = true; // mark as set
   }
 
   /**
@@ -344,6 +404,7 @@ public class ForexQuote {
    */
   public ForexQuote signature(String signature) {
     this.signature = signature;
+    isSetSignature = true; // mark as set
     return this;
   }
 
@@ -367,6 +428,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(String signature) {
     this.signature = signature;
+    isSetSignature = true; // mark as set
   }
 
   /**
@@ -377,6 +439,7 @@ public class ForexQuote {
    */
   public ForexQuote source(String source) {
     this.source = source;
+    isSetSource = true; // mark as set
     return this;
   }
 
@@ -400,6 +463,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(String source) {
     this.source = source;
+    isSetSource = true; // mark as set
   }
 
   /**
@@ -410,6 +474,7 @@ public class ForexQuote {
    */
   public ForexQuote type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -433,6 +498,7 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -443,6 +509,7 @@ public class ForexQuote {
    */
   public ForexQuote validTill(OffsetDateTime validTill) {
     this.validTill = validTill;
+    isSetValidTill = true; // mark as set
     return this;
   }
 
@@ -466,6 +533,27 @@ public class ForexQuote {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTill(OffsetDateTime validTill) {
     this.validTill = validTill;
+    isSetValidTill = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ForexQuote includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ForexQuote object is equal to o. */
@@ -479,34 +567,58 @@ public class ForexQuote {
     }
     ForexQuote forexQuote = (ForexQuote) o;
     return Objects.equals(this.account, forexQuote.account)
+        && Objects.equals(this.isSetAccount, forexQuote.isSetAccount)
         && Objects.equals(this.accountType, forexQuote.accountType)
+        && Objects.equals(this.isSetAccountType, forexQuote.isSetAccountType)
         && Objects.equals(this.baseAmount, forexQuote.baseAmount)
+        && Objects.equals(this.isSetBaseAmount, forexQuote.isSetBaseAmount)
         && Objects.equals(this.basePoints, forexQuote.basePoints)
+        && Objects.equals(this.isSetBasePoints, forexQuote.isSetBasePoints)
         && Objects.equals(this.buy, forexQuote.buy)
+        && Objects.equals(this.isSetBuy, forexQuote.isSetBuy)
         && Objects.equals(this.interbank, forexQuote.interbank)
+        && Objects.equals(this.isSetInterbank, forexQuote.isSetInterbank)
         && Objects.equals(this.reference, forexQuote.reference)
+        && Objects.equals(this.isSetReference, forexQuote.isSetReference)
         && Objects.equals(this.sell, forexQuote.sell)
+        && Objects.equals(this.isSetSell, forexQuote.isSetSell)
         && Objects.equals(this.signature, forexQuote.signature)
+        && Objects.equals(this.isSetSignature, forexQuote.isSetSignature)
         && Objects.equals(this.source, forexQuote.source)
+        && Objects.equals(this.isSetSource, forexQuote.isSetSource)
         && Objects.equals(this.type, forexQuote.type)
-        && Objects.equals(this.validTill, forexQuote.validTill);
+        && Objects.equals(this.isSetType, forexQuote.isSetType)
+        && Objects.equals(this.validTill, forexQuote.validTill)
+        && Objects.equals(this.isSetValidTill, forexQuote.isSetValidTill);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         account,
+        isSetAccount,
         accountType,
+        isSetAccountType,
         baseAmount,
+        isSetBaseAmount,
         basePoints,
+        isSetBasePoints,
         buy,
+        isSetBuy,
         interbank,
+        isSetInterbank,
         reference,
+        isSetReference,
         sell,
+        isSetSell,
         signature,
+        isSetSignature,
         source,
+        isSetSource,
         type,
-        validTill);
+        isSetType,
+        validTill,
+        isSetValidTill);
   }
 
   @Override
@@ -537,6 +649,63 @@ public class ForexQuote {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccount) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT, this.account);
+    }
+    if (isSetAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_TYPE, this.accountType);
+    }
+    if (isSetBaseAmount) {
+      addIfNull(nulls, JSON_PROPERTY_BASE_AMOUNT, this.baseAmount);
+    }
+    if (isSetBasePoints) {
+      addIfNull(nulls, JSON_PROPERTY_BASE_POINTS, this.basePoints);
+    }
+    if (isSetBuy) {
+      addIfNull(nulls, JSON_PROPERTY_BUY, this.buy);
+    }
+    if (isSetInterbank) {
+      addIfNull(nulls, JSON_PROPERTY_INTERBANK, this.interbank);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSell) {
+      addIfNull(nulls, JSON_PROPERTY_SELL, this.sell);
+    }
+    if (isSetSignature) {
+      addIfNull(nulls, JSON_PROPERTY_SIGNATURE, this.signature);
+    }
+    if (isSetSource) {
+      addIfNull(nulls, JSON_PROPERTY_SOURCE, this.source);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetValidTill) {
+      addIfNull(nulls, JSON_PROPERTY_VALID_TILL, this.validTill);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -50,21 +52,39 @@ public class AdditionalDataCommon {
       "RequestedTestAcquirerResponseCode";
   private String requestedTestAcquirerResponseCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedTestAcquirerResponseCode = false;
+
   public static final String JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE =
       "RequestedTestErrorResponseCode";
   private String requestedTestErrorResponseCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedTestErrorResponseCode = false;
+
   public static final String JSON_PROPERTY_ALLOW_PARTIAL_AUTH = "allowPartialAuth";
   private String allowPartialAuth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowPartialAuth = false;
 
   public static final String JSON_PROPERTY_AUTHORISATION_TYPE = "authorisationType";
   private String authorisationType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisationType = false;
+
   public static final String JSON_PROPERTY_AUTO_RESCUE = "autoRescue";
   private String autoRescue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAutoRescue = false;
+
   public static final String JSON_PROPERTY_CUSTOM_ROUTING_FLAG = "customRoutingFlag";
   private String customRoutingFlag;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCustomRoutingFlag = false;
 
   /**
    * In case of [asynchronous authorisation
@@ -117,47 +137,98 @@ public class AdditionalDataCommon {
   public static final String JSON_PROPERTY_INDUSTRY_USAGE = "industryUsage";
   private IndustryUsageEnum industryUsage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndustryUsage = false;
+
   public static final String JSON_PROPERTY_MANUAL_CAPTURE = "manualCapture";
   private String manualCapture;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetManualCapture = false;
 
   public static final String JSON_PROPERTY_MAX_DAYS_TO_RESCUE = "maxDaysToRescue";
   private String maxDaysToRescue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaxDaysToRescue = false;
+
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkTxReference = false;
 
   public static final String JSON_PROPERTY_OVERWRITE_BRAND = "overwriteBrand";
   private String overwriteBrand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOverwriteBrand = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_CITY = "subMerchantCity";
   private String subMerchantCity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantCity = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_COUNTRY = "subMerchantCountry";
   private String subMerchantCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantCountry = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_EMAIL = "subMerchantEmail";
   private String subMerchantEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantEmail = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_I_D = "subMerchantID";
   private String subMerchantID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantID = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_NAME = "subMerchantName";
   private String subMerchantName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantName = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_PHONE_NUMBER = "subMerchantPhoneNumber";
   private String subMerchantPhoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantPhoneNumber = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE = "subMerchantPostalCode";
   private String subMerchantPostalCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantPostalCode = false;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_STATE = "subMerchantState";
   private String subMerchantState;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantState = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_STREET = "subMerchantStreet";
   private String subMerchantStreet;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantStreet = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_TAX_ID = "subMerchantTaxId";
   private String subMerchantTaxId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantTaxId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataCommon() {}
 
@@ -176,6 +247,7 @@ public class AdditionalDataCommon {
   public AdditionalDataCommon requestedTestAcquirerResponseCode(
       String requestedTestAcquirerResponseCode) {
     this.requestedTestAcquirerResponseCode = requestedTestAcquirerResponseCode;
+    isSetRequestedTestAcquirerResponseCode = true; // mark as set
     return this;
   }
 
@@ -211,6 +283,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedTestAcquirerResponseCode(String requestedTestAcquirerResponseCode) {
     this.requestedTestAcquirerResponseCode = requestedTestAcquirerResponseCode;
+    isSetRequestedTestAcquirerResponseCode = true; // mark as set
   }
 
   /**
@@ -243,6 +316,7 @@ public class AdditionalDataCommon {
   public AdditionalDataCommon requestedTestErrorResponseCode(
       String requestedTestErrorResponseCode) {
     this.requestedTestErrorResponseCode = requestedTestErrorResponseCode;
+    isSetRequestedTestErrorResponseCode = true; // mark as set
     return this;
   }
 
@@ -308,6 +382,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedTestErrorResponseCode(String requestedTestErrorResponseCode) {
     this.requestedTestErrorResponseCode = requestedTestErrorResponseCode;
+    isSetRequestedTestErrorResponseCode = true; // mark as set
   }
 
   /**
@@ -325,6 +400,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon allowPartialAuth(String allowPartialAuth) {
     this.allowPartialAuth = allowPartialAuth;
+    isSetAllowPartialAuth = true; // mark as set
     return this;
   }
 
@@ -362,6 +438,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowPartialAuth(String allowPartialAuth) {
     this.allowPartialAuth = allowPartialAuth;
+    isSetAllowPartialAuth = true; // mark as set
   }
 
   /**
@@ -381,6 +458,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon authorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
+    isSetAuthorisationType = true; // mark as set
     return this;
   }
 
@@ -422,6 +500,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
+    isSetAuthorisationType = true; // mark as set
   }
 
   /**
@@ -435,6 +514,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon autoRescue(String autoRescue) {
     this.autoRescue = autoRescue;
+    isSetAutoRescue = true; // mark as set
     return this;
   }
 
@@ -464,6 +544,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoRescue(String autoRescue) {
     this.autoRescue = autoRescue;
+    isSetAutoRescue = true; // mark as set
   }
 
   /**
@@ -483,6 +564,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon customRoutingFlag(String customRoutingFlag) {
     this.customRoutingFlag = customRoutingFlag;
+    isSetCustomRoutingFlag = true; // mark as set
     return this;
   }
 
@@ -524,6 +606,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlag(String customRoutingFlag) {
     this.customRoutingFlag = customRoutingFlag;
+    isSetCustomRoutingFlag = true; // mark as set
   }
 
   /**
@@ -545,6 +628,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+    isSetIndustryUsage = true; // mark as set
     return this;
   }
 
@@ -590,6 +674,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+    isSetIndustryUsage = true; // mark as set
   }
 
   /**
@@ -602,6 +687,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon manualCapture(String manualCapture) {
     this.manualCapture = manualCapture;
+    isSetManualCapture = true; // mark as set
     return this;
   }
 
@@ -629,6 +715,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManualCapture(String manualCapture) {
     this.manualCapture = manualCapture;
+    isSetManualCapture = true; // mark as set
   }
 
   /**
@@ -647,6 +734,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon maxDaysToRescue(String maxDaysToRescue) {
     this.maxDaysToRescue = maxDaysToRescue;
+    isSetMaxDaysToRescue = true; // mark as set
     return this;
   }
 
@@ -686,6 +774,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxDaysToRescue(String maxDaysToRescue) {
     this.maxDaysToRescue = maxDaysToRescue;
+    isSetMaxDaysToRescue = true; // mark as set
   }
 
   /**
@@ -712,6 +801,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
     return this;
   }
 
@@ -767,6 +857,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
   }
 
   /**
@@ -783,6 +874,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon overwriteBrand(String overwriteBrand) {
     this.overwriteBrand = overwriteBrand;
+    isSetOverwriteBrand = true; // mark as set
     return this;
   }
 
@@ -818,6 +910,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOverwriteBrand(String overwriteBrand) {
     this.overwriteBrand = overwriteBrand;
+    isSetOverwriteBrand = true; // mark as set
   }
 
   /**
@@ -832,6 +925,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantCity(String subMerchantCity) {
     this.subMerchantCity = subMerchantCity;
+    isSetSubMerchantCity = true; // mark as set
     return this;
   }
 
@@ -863,6 +957,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantCity(String subMerchantCity) {
     this.subMerchantCity = subMerchantCity;
+    isSetSubMerchantCity = true; // mark as set
   }
 
   /**
@@ -877,6 +972,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantCountry(String subMerchantCountry) {
     this.subMerchantCountry = subMerchantCountry;
+    isSetSubMerchantCountry = true; // mark as set
     return this;
   }
 
@@ -908,6 +1004,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantCountry(String subMerchantCountry) {
     this.subMerchantCountry = subMerchantCountry;
+    isSetSubMerchantCountry = true; // mark as set
   }
 
   /**
@@ -922,6 +1019,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantEmail(String subMerchantEmail) {
     this.subMerchantEmail = subMerchantEmail;
+    isSetSubMerchantEmail = true; // mark as set
     return this;
   }
 
@@ -953,6 +1051,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantEmail(String subMerchantEmail) {
     this.subMerchantEmail = subMerchantEmail;
+    isSetSubMerchantEmail = true; // mark as set
   }
 
   /**
@@ -970,6 +1069,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantID(String subMerchantID) {
     this.subMerchantID = subMerchantID;
+    isSetSubMerchantID = true; // mark as set
     return this;
   }
 
@@ -1007,6 +1107,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantID(String subMerchantID) {
     this.subMerchantID = subMerchantID;
+    isSetSubMerchantID = true; // mark as set
   }
 
   /**
@@ -1021,6 +1122,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantName(String subMerchantName) {
     this.subMerchantName = subMerchantName;
+    isSetSubMerchantName = true; // mark as set
     return this;
   }
 
@@ -1052,6 +1154,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantName(String subMerchantName) {
     this.subMerchantName = subMerchantName;
+    isSetSubMerchantName = true; // mark as set
   }
 
   /**
@@ -1066,6 +1169,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantPhoneNumber(String subMerchantPhoneNumber) {
     this.subMerchantPhoneNumber = subMerchantPhoneNumber;
+    isSetSubMerchantPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -1097,6 +1201,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantPhoneNumber(String subMerchantPhoneNumber) {
     this.subMerchantPhoneNumber = subMerchantPhoneNumber;
+    isSetSubMerchantPhoneNumber = true; // mark as set
   }
 
   /**
@@ -1111,6 +1216,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantPostalCode(String subMerchantPostalCode) {
     this.subMerchantPostalCode = subMerchantPostalCode;
+    isSetSubMerchantPostalCode = true; // mark as set
     return this;
   }
 
@@ -1142,6 +1248,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantPostalCode(String subMerchantPostalCode) {
     this.subMerchantPostalCode = subMerchantPostalCode;
+    isSetSubMerchantPostalCode = true; // mark as set
   }
 
   /**
@@ -1157,6 +1264,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantState(String subMerchantState) {
     this.subMerchantState = subMerchantState;
+    isSetSubMerchantState = true; // mark as set
     return this;
   }
 
@@ -1190,6 +1298,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantState(String subMerchantState) {
     this.subMerchantState = subMerchantState;
+    isSetSubMerchantState = true; // mark as set
   }
 
   /**
@@ -1204,6 +1313,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantStreet(String subMerchantStreet) {
     this.subMerchantStreet = subMerchantStreet;
+    isSetSubMerchantStreet = true; // mark as set
     return this;
   }
 
@@ -1235,6 +1345,7 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantStreet(String subMerchantStreet) {
     this.subMerchantStreet = subMerchantStreet;
+    isSetSubMerchantStreet = true; // mark as set
   }
 
   /**
@@ -1249,6 +1360,7 @@ public class AdditionalDataCommon {
    */
   public AdditionalDataCommon subMerchantTaxId(String subMerchantTaxId) {
     this.subMerchantTaxId = subMerchantTaxId;
+    isSetSubMerchantTaxId = true; // mark as set
     return this;
   }
 
@@ -1280,6 +1392,27 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantTaxId(String subMerchantTaxId) {
     this.subMerchantTaxId = subMerchantTaxId;
+    isSetSubMerchantTaxId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataCommon includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataCommon object is equal to o. */
@@ -1296,53 +1429,103 @@ public class AdditionalDataCommon {
             this.requestedTestAcquirerResponseCode,
             additionalDataCommon.requestedTestAcquirerResponseCode)
         && Objects.equals(
+            this.isSetRequestedTestAcquirerResponseCode,
+            additionalDataCommon.isSetRequestedTestAcquirerResponseCode)
+        && Objects.equals(
             this.requestedTestErrorResponseCode,
             additionalDataCommon.requestedTestErrorResponseCode)
+        && Objects.equals(
+            this.isSetRequestedTestErrorResponseCode,
+            additionalDataCommon.isSetRequestedTestErrorResponseCode)
         && Objects.equals(this.allowPartialAuth, additionalDataCommon.allowPartialAuth)
+        && Objects.equals(this.isSetAllowPartialAuth, additionalDataCommon.isSetAllowPartialAuth)
         && Objects.equals(this.authorisationType, additionalDataCommon.authorisationType)
+        && Objects.equals(this.isSetAuthorisationType, additionalDataCommon.isSetAuthorisationType)
         && Objects.equals(this.autoRescue, additionalDataCommon.autoRescue)
+        && Objects.equals(this.isSetAutoRescue, additionalDataCommon.isSetAutoRescue)
         && Objects.equals(this.customRoutingFlag, additionalDataCommon.customRoutingFlag)
+        && Objects.equals(this.isSetCustomRoutingFlag, additionalDataCommon.isSetCustomRoutingFlag)
         && Objects.equals(this.industryUsage, additionalDataCommon.industryUsage)
+        && Objects.equals(this.isSetIndustryUsage, additionalDataCommon.isSetIndustryUsage)
         && Objects.equals(this.manualCapture, additionalDataCommon.manualCapture)
+        && Objects.equals(this.isSetManualCapture, additionalDataCommon.isSetManualCapture)
         && Objects.equals(this.maxDaysToRescue, additionalDataCommon.maxDaysToRescue)
+        && Objects.equals(this.isSetMaxDaysToRescue, additionalDataCommon.isSetMaxDaysToRescue)
         && Objects.equals(this.networkTxReference, additionalDataCommon.networkTxReference)
+        && Objects.equals(
+            this.isSetNetworkTxReference, additionalDataCommon.isSetNetworkTxReference)
         && Objects.equals(this.overwriteBrand, additionalDataCommon.overwriteBrand)
+        && Objects.equals(this.isSetOverwriteBrand, additionalDataCommon.isSetOverwriteBrand)
         && Objects.equals(this.subMerchantCity, additionalDataCommon.subMerchantCity)
+        && Objects.equals(this.isSetSubMerchantCity, additionalDataCommon.isSetSubMerchantCity)
         && Objects.equals(this.subMerchantCountry, additionalDataCommon.subMerchantCountry)
+        && Objects.equals(
+            this.isSetSubMerchantCountry, additionalDataCommon.isSetSubMerchantCountry)
         && Objects.equals(this.subMerchantEmail, additionalDataCommon.subMerchantEmail)
+        && Objects.equals(this.isSetSubMerchantEmail, additionalDataCommon.isSetSubMerchantEmail)
         && Objects.equals(this.subMerchantID, additionalDataCommon.subMerchantID)
+        && Objects.equals(this.isSetSubMerchantID, additionalDataCommon.isSetSubMerchantID)
         && Objects.equals(this.subMerchantName, additionalDataCommon.subMerchantName)
+        && Objects.equals(this.isSetSubMerchantName, additionalDataCommon.isSetSubMerchantName)
         && Objects.equals(this.subMerchantPhoneNumber, additionalDataCommon.subMerchantPhoneNumber)
+        && Objects.equals(
+            this.isSetSubMerchantPhoneNumber, additionalDataCommon.isSetSubMerchantPhoneNumber)
         && Objects.equals(this.subMerchantPostalCode, additionalDataCommon.subMerchantPostalCode)
+        && Objects.equals(
+            this.isSetSubMerchantPostalCode, additionalDataCommon.isSetSubMerchantPostalCode)
         && Objects.equals(this.subMerchantState, additionalDataCommon.subMerchantState)
+        && Objects.equals(this.isSetSubMerchantState, additionalDataCommon.isSetSubMerchantState)
         && Objects.equals(this.subMerchantStreet, additionalDataCommon.subMerchantStreet)
-        && Objects.equals(this.subMerchantTaxId, additionalDataCommon.subMerchantTaxId);
+        && Objects.equals(this.isSetSubMerchantStreet, additionalDataCommon.isSetSubMerchantStreet)
+        && Objects.equals(this.subMerchantTaxId, additionalDataCommon.subMerchantTaxId)
+        && Objects.equals(this.isSetSubMerchantTaxId, additionalDataCommon.isSetSubMerchantTaxId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         requestedTestAcquirerResponseCode,
+        isSetRequestedTestAcquirerResponseCode,
         requestedTestErrorResponseCode,
+        isSetRequestedTestErrorResponseCode,
         allowPartialAuth,
+        isSetAllowPartialAuth,
         authorisationType,
+        isSetAuthorisationType,
         autoRescue,
+        isSetAutoRescue,
         customRoutingFlag,
+        isSetCustomRoutingFlag,
         industryUsage,
+        isSetIndustryUsage,
         manualCapture,
+        isSetManualCapture,
         maxDaysToRescue,
+        isSetMaxDaysToRescue,
         networkTxReference,
+        isSetNetworkTxReference,
         overwriteBrand,
+        isSetOverwriteBrand,
         subMerchantCity,
+        isSetSubMerchantCity,
         subMerchantCountry,
+        isSetSubMerchantCountry,
         subMerchantEmail,
+        isSetSubMerchantEmail,
         subMerchantID,
+        isSetSubMerchantID,
         subMerchantName,
+        isSetSubMerchantName,
         subMerchantPhoneNumber,
+        isSetSubMerchantPhoneNumber,
         subMerchantPostalCode,
+        isSetSubMerchantPostalCode,
         subMerchantState,
+        isSetSubMerchantState,
         subMerchantStreet,
-        subMerchantTaxId);
+        isSetSubMerchantStreet,
+        subMerchantTaxId,
+        isSetSubMerchantTaxId);
   }
 
   @Override
@@ -1390,6 +1573,96 @@ public class AdditionalDataCommon {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetRequestedTestAcquirerResponseCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE,
+          this.requestedTestAcquirerResponseCode);
+    }
+    if (isSetRequestedTestErrorResponseCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE,
+          this.requestedTestErrorResponseCode);
+    }
+    if (isSetAllowPartialAuth) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOW_PARTIAL_AUTH, this.allowPartialAuth);
+    }
+    if (isSetAuthorisationType) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_TYPE, this.authorisationType);
+    }
+    if (isSetAutoRescue) {
+      addIfNull(nulls, JSON_PROPERTY_AUTO_RESCUE, this.autoRescue);
+    }
+    if (isSetCustomRoutingFlag) {
+      addIfNull(nulls, JSON_PROPERTY_CUSTOM_ROUTING_FLAG, this.customRoutingFlag);
+    }
+    if (isSetIndustryUsage) {
+      addIfNull(nulls, JSON_PROPERTY_INDUSTRY_USAGE, this.industryUsage);
+    }
+    if (isSetManualCapture) {
+      addIfNull(nulls, JSON_PROPERTY_MANUAL_CAPTURE, this.manualCapture);
+    }
+    if (isSetMaxDaysToRescue) {
+      addIfNull(nulls, JSON_PROPERTY_MAX_DAYS_TO_RESCUE, this.maxDaysToRescue);
+    }
+    if (isSetNetworkTxReference) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);
+    }
+    if (isSetOverwriteBrand) {
+      addIfNull(nulls, JSON_PROPERTY_OVERWRITE_BRAND, this.overwriteBrand);
+    }
+    if (isSetSubMerchantCity) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_CITY, this.subMerchantCity);
+    }
+    if (isSetSubMerchantCountry) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_COUNTRY, this.subMerchantCountry);
+    }
+    if (isSetSubMerchantEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_EMAIL, this.subMerchantEmail);
+    }
+    if (isSetSubMerchantID) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_I_D, this.subMerchantID);
+    }
+    if (isSetSubMerchantName) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_NAME, this.subMerchantName);
+    }
+    if (isSetSubMerchantPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_PHONE_NUMBER, this.subMerchantPhoneNumber);
+    }
+    if (isSetSubMerchantPostalCode) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE, this.subMerchantPostalCode);
+    }
+    if (isSetSubMerchantState) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_STATE, this.subMerchantState);
+    }
+    if (isSetSubMerchantStreet) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_STREET, this.subMerchantStreet);
+    }
+    if (isSetSubMerchantTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_TAX_ID, this.subMerchantTaxId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

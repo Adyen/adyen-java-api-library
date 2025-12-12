@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,8 +46,14 @@ public class TokenMandate {
   public static final String JSON_PROPERTY_ACCOUNT_ID_TYPE = "accountIdType";
   private String accountIdType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountIdType = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private String amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   /**
    * The limitation rule of the billing amount. Possible values: * **max**: The transaction amount
@@ -94,6 +102,9 @@ public class TokenMandate {
 
   public static final String JSON_PROPERTY_AMOUNT_RULE = "amountRule";
   private AmountRuleEnum amountRule;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmountRule = false;
 
   /**
    * The rule to specify the period, within which the recurring debit can happen, relative to the
@@ -145,17 +156,32 @@ public class TokenMandate {
   public static final String JSON_PROPERTY_BILLING_ATTEMPTS_RULE = "billingAttemptsRule";
   private BillingAttemptsRuleEnum billingAttemptsRule;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAttemptsRule = false;
+
   public static final String JSON_PROPERTY_BILLING_DAY = "billingDay";
   private String billingDay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingDay = false;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   private String count;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCount = false;
+
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_ENDS_AT = "endsAt";
   private String endsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndsAt = false;
 
   /**
    * The frequency with which a shopper should be charged. Possible values: **adhoc**, **daily**,
@@ -216,26 +242,56 @@ public class TokenMandate {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private FrequencyEnum frequency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFrequency = false;
+
   public static final String JSON_PROPERTY_MANDATE_ID = "mandateId";
   private String mandateId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMandateId = false;
 
   public static final String JSON_PROPERTY_MASKED_ACCOUNT_ID = "maskedAccountId";
   private String maskedAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaskedAccountId = false;
+
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
   private String providerId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProviderId = false;
 
   public static final String JSON_PROPERTY_REMARKS = "remarks";
   private String remarks;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRemarks = false;
+
   public static final String JSON_PROPERTY_STARTS_AT = "startsAt";
   private String startsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartsAt = false;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TX_VARIANT = "txVariant";
   private String txVariant;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTxVariant = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TokenMandate() {}
 
@@ -247,6 +303,7 @@ public class TokenMandate {
    */
   public TokenMandate accountIdType(String accountIdType) {
     this.accountIdType = accountIdType;
+    isSetAccountIdType = true; // mark as set
     return this;
   }
 
@@ -270,6 +327,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdType(String accountIdType) {
     this.accountIdType = accountIdType;
+    isSetAccountIdType = true; // mark as set
   }
 
   /**
@@ -280,6 +338,7 @@ public class TokenMandate {
    */
   public TokenMandate amount(String amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -303,6 +362,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(String amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -317,6 +377,7 @@ public class TokenMandate {
    */
   public TokenMandate amountRule(AmountRuleEnum amountRule) {
     this.amountRule = amountRule;
+    isSetAmountRule = true; // mark as set
     return this;
   }
 
@@ -348,6 +409,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountRule(AmountRuleEnum amountRule) {
     this.amountRule = amountRule;
+    isSetAmountRule = true; // mark as set
   }
 
   /**
@@ -363,6 +425,7 @@ public class TokenMandate {
    */
   public TokenMandate billingAttemptsRule(BillingAttemptsRuleEnum billingAttemptsRule) {
     this.billingAttemptsRule = billingAttemptsRule;
+    isSetBillingAttemptsRule = true; // mark as set
     return this;
   }
 
@@ -396,6 +459,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAttemptsRule(BillingAttemptsRuleEnum billingAttemptsRule) {
     this.billingAttemptsRule = billingAttemptsRule;
+    isSetBillingAttemptsRule = true; // mark as set
   }
 
   /**
@@ -410,6 +474,7 @@ public class TokenMandate {
    */
   public TokenMandate billingDay(String billingDay) {
     this.billingDay = billingDay;
+    isSetBillingDay = true; // mark as set
     return this;
   }
 
@@ -441,6 +506,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDay(String billingDay) {
     this.billingDay = billingDay;
+    isSetBillingDay = true; // mark as set
   }
 
   /**
@@ -451,6 +517,7 @@ public class TokenMandate {
    */
   public TokenMandate count(String count) {
     this.count = count;
+    isSetCount = true; // mark as set
     return this;
   }
 
@@ -474,6 +541,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(String count) {
     this.count = count;
+    isSetCount = true; // mark as set
   }
 
   /**
@@ -486,6 +554,7 @@ public class TokenMandate {
    */
   public TokenMandate currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -513,6 +582,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -523,6 +593,7 @@ public class TokenMandate {
    */
   public TokenMandate endsAt(String endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
     return this;
   }
 
@@ -546,6 +617,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
   }
 
   /**
@@ -559,6 +631,7 @@ public class TokenMandate {
    */
   public TokenMandate frequency(FrequencyEnum frequency) {
     this.frequency = frequency;
+    isSetFrequency = true; // mark as set
     return this;
   }
 
@@ -588,6 +661,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
     this.frequency = frequency;
+    isSetFrequency = true; // mark as set
   }
 
   /**
@@ -598,6 +672,7 @@ public class TokenMandate {
    */
   public TokenMandate mandateId(String mandateId) {
     this.mandateId = mandateId;
+    isSetMandateId = true; // mark as set
     return this;
   }
 
@@ -621,6 +696,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMandateId(String mandateId) {
     this.mandateId = mandateId;
+    isSetMandateId = true; // mark as set
   }
 
   /**
@@ -631,6 +707,7 @@ public class TokenMandate {
    */
   public TokenMandate maskedAccountId(String maskedAccountId) {
     this.maskedAccountId = maskedAccountId;
+    isSetMaskedAccountId = true; // mark as set
     return this;
   }
 
@@ -654,6 +731,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaskedAccountId(String maskedAccountId) {
     this.maskedAccountId = maskedAccountId;
+    isSetMaskedAccountId = true; // mark as set
   }
 
   /**
@@ -664,6 +742,7 @@ public class TokenMandate {
    */
   public TokenMandate providerId(String providerId) {
     this.providerId = providerId;
+    isSetProviderId = true; // mark as set
     return this;
   }
 
@@ -687,6 +766,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProviderId(String providerId) {
     this.providerId = providerId;
+    isSetProviderId = true; // mark as set
   }
 
   /**
@@ -697,6 +777,7 @@ public class TokenMandate {
    */
   public TokenMandate remarks(String remarks) {
     this.remarks = remarks;
+    isSetRemarks = true; // mark as set
     return this;
   }
 
@@ -720,6 +801,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemarks(String remarks) {
     this.remarks = remarks;
+    isSetRemarks = true; // mark as set
   }
 
   /**
@@ -731,6 +813,7 @@ public class TokenMandate {
    */
   public TokenMandate startsAt(String startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
     return this;
   }
 
@@ -756,6 +839,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(String startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
   }
 
   /**
@@ -766,6 +850,7 @@ public class TokenMandate {
    */
   public TokenMandate status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -789,6 +874,7 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -799,6 +885,7 @@ public class TokenMandate {
    */
   public TokenMandate txVariant(String txVariant) {
     this.txVariant = txVariant;
+    isSetTxVariant = true; // mark as set
     return this;
   }
 
@@ -822,6 +909,27 @@ public class TokenMandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxVariant(String txVariant) {
     this.txVariant = txVariant;
+    isSetTxVariant = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TokenMandate includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TokenMandate object is equal to o. */
@@ -835,42 +943,74 @@ public class TokenMandate {
     }
     TokenMandate tokenMandate = (TokenMandate) o;
     return Objects.equals(this.accountIdType, tokenMandate.accountIdType)
+        && Objects.equals(this.isSetAccountIdType, tokenMandate.isSetAccountIdType)
         && Objects.equals(this.amount, tokenMandate.amount)
+        && Objects.equals(this.isSetAmount, tokenMandate.isSetAmount)
         && Objects.equals(this.amountRule, tokenMandate.amountRule)
+        && Objects.equals(this.isSetAmountRule, tokenMandate.isSetAmountRule)
         && Objects.equals(this.billingAttemptsRule, tokenMandate.billingAttemptsRule)
+        && Objects.equals(this.isSetBillingAttemptsRule, tokenMandate.isSetBillingAttemptsRule)
         && Objects.equals(this.billingDay, tokenMandate.billingDay)
+        && Objects.equals(this.isSetBillingDay, tokenMandate.isSetBillingDay)
         && Objects.equals(this.count, tokenMandate.count)
+        && Objects.equals(this.isSetCount, tokenMandate.isSetCount)
         && Objects.equals(this.currency, tokenMandate.currency)
+        && Objects.equals(this.isSetCurrency, tokenMandate.isSetCurrency)
         && Objects.equals(this.endsAt, tokenMandate.endsAt)
+        && Objects.equals(this.isSetEndsAt, tokenMandate.isSetEndsAt)
         && Objects.equals(this.frequency, tokenMandate.frequency)
+        && Objects.equals(this.isSetFrequency, tokenMandate.isSetFrequency)
         && Objects.equals(this.mandateId, tokenMandate.mandateId)
+        && Objects.equals(this.isSetMandateId, tokenMandate.isSetMandateId)
         && Objects.equals(this.maskedAccountId, tokenMandate.maskedAccountId)
+        && Objects.equals(this.isSetMaskedAccountId, tokenMandate.isSetMaskedAccountId)
         && Objects.equals(this.providerId, tokenMandate.providerId)
+        && Objects.equals(this.isSetProviderId, tokenMandate.isSetProviderId)
         && Objects.equals(this.remarks, tokenMandate.remarks)
+        && Objects.equals(this.isSetRemarks, tokenMandate.isSetRemarks)
         && Objects.equals(this.startsAt, tokenMandate.startsAt)
+        && Objects.equals(this.isSetStartsAt, tokenMandate.isSetStartsAt)
         && Objects.equals(this.status, tokenMandate.status)
-        && Objects.equals(this.txVariant, tokenMandate.txVariant);
+        && Objects.equals(this.isSetStatus, tokenMandate.isSetStatus)
+        && Objects.equals(this.txVariant, tokenMandate.txVariant)
+        && Objects.equals(this.isSetTxVariant, tokenMandate.isSetTxVariant);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountIdType,
+        isSetAccountIdType,
         amount,
+        isSetAmount,
         amountRule,
+        isSetAmountRule,
         billingAttemptsRule,
+        isSetBillingAttemptsRule,
         billingDay,
+        isSetBillingDay,
         count,
+        isSetCount,
         currency,
+        isSetCurrency,
         endsAt,
+        isSetEndsAt,
         frequency,
+        isSetFrequency,
         mandateId,
+        isSetMandateId,
         maskedAccountId,
+        isSetMaskedAccountId,
         providerId,
+        isSetProviderId,
         remarks,
+        isSetRemarks,
         startsAt,
+        isSetStartsAt,
         status,
-        txVariant);
+        isSetStatus,
+        txVariant,
+        isSetTxVariant);
   }
 
   @Override
@@ -907,6 +1047,75 @@ public class TokenMandate {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountIdType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_ID_TYPE, this.accountIdType);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetAmountRule) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT_RULE, this.amountRule);
+    }
+    if (isSetBillingAttemptsRule) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ATTEMPTS_RULE, this.billingAttemptsRule);
+    }
+    if (isSetBillingDay) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_DAY, this.billingDay);
+    }
+    if (isSetCount) {
+      addIfNull(nulls, JSON_PROPERTY_COUNT, this.count);
+    }
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetEndsAt) {
+      addIfNull(nulls, JSON_PROPERTY_ENDS_AT, this.endsAt);
+    }
+    if (isSetFrequency) {
+      addIfNull(nulls, JSON_PROPERTY_FREQUENCY, this.frequency);
+    }
+    if (isSetMandateId) {
+      addIfNull(nulls, JSON_PROPERTY_MANDATE_ID, this.mandateId);
+    }
+    if (isSetMaskedAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_MASKED_ACCOUNT_ID, this.maskedAccountId);
+    }
+    if (isSetProviderId) {
+      addIfNull(nulls, JSON_PROPERTY_PROVIDER_ID, this.providerId);
+    }
+    if (isSetRemarks) {
+      addIfNull(nulls, JSON_PROPERTY_REMARKS, this.remarks);
+    }
+    if (isSetStartsAt) {
+      addIfNull(nulls, JSON_PROPERTY_STARTS_AT, this.startsAt);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTxVariant) {
+      addIfNull(nulls, JSON_PROPERTY_TX_VARIANT, this.txVariant);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

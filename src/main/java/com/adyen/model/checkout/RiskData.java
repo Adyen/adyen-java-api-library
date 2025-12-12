@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,14 +32,32 @@ public class RiskData {
   public static final String JSON_PROPERTY_CLIENT_DATA = "clientData";
   private String clientData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetClientData = false;
+
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "customFields";
   private Map<String, String> customFields;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCustomFields = false;
 
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudOffset = false;
+
   public static final String JSON_PROPERTY_PROFILE_REFERENCE = "profileReference";
   private String profileReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProfileReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public RiskData() {}
 
@@ -50,6 +70,7 @@ public class RiskData {
    */
   public RiskData clientData(String clientData) {
     this.clientData = clientData;
+    isSetClientData = true; // mark as set
     return this;
   }
 
@@ -75,6 +96,7 @@ public class RiskData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientData(String clientData) {
     this.clientData = clientData;
+    isSetClientData = true; // mark as set
   }
 
   /**
@@ -85,6 +107,7 @@ public class RiskData {
    */
   public RiskData customFields(Map<String, String> customFields) {
     this.customFields = customFields;
+    isSetCustomFields = true; // mark as set
     return this;
   }
 
@@ -116,6 +139,7 @@ public class RiskData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(Map<String, String> customFields) {
     this.customFields = customFields;
+    isSetCustomFields = true; // mark as set
   }
 
   /**
@@ -128,6 +152,7 @@ public class RiskData {
    */
   public RiskData fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
     return this;
   }
 
@@ -155,6 +180,7 @@ public class RiskData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
   }
 
   /**
@@ -167,6 +193,7 @@ public class RiskData {
    */
   public RiskData profileReference(String profileReference) {
     this.profileReference = profileReference;
+    isSetProfileReference = true; // mark as set
     return this;
   }
 
@@ -194,6 +221,27 @@ public class RiskData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
     this.profileReference = profileReference;
+    isSetProfileReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RiskData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RiskData object is equal to o. */
@@ -207,14 +255,26 @@ public class RiskData {
     }
     RiskData riskData = (RiskData) o;
     return Objects.equals(this.clientData, riskData.clientData)
+        && Objects.equals(this.isSetClientData, riskData.isSetClientData)
         && Objects.equals(this.customFields, riskData.customFields)
+        && Objects.equals(this.isSetCustomFields, riskData.isSetCustomFields)
         && Objects.equals(this.fraudOffset, riskData.fraudOffset)
-        && Objects.equals(this.profileReference, riskData.profileReference);
+        && Objects.equals(this.isSetFraudOffset, riskData.isSetFraudOffset)
+        && Objects.equals(this.profileReference, riskData.profileReference)
+        && Objects.equals(this.isSetProfileReference, riskData.isSetProfileReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientData, customFields, fraudOffset, profileReference);
+    return Objects.hash(
+        clientData,
+        isSetClientData,
+        customFields,
+        isSetCustomFields,
+        fraudOffset,
+        isSetFraudOffset,
+        profileReference,
+        isSetProfileReference);
   }
 
   @Override
@@ -237,6 +297,39 @@ public class RiskData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetClientData) {
+      addIfNull(nulls, JSON_PROPERTY_CLIENT_DATA, this.clientData);
+    }
+    if (isSetCustomFields) {
+      addIfNull(nulls, JSON_PROPERTY_CUSTOM_FIELDS, this.customFields);
+    }
+    if (isSetFraudOffset) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_OFFSET, this.fraudOffset);
+    }
+    if (isSetProfileReference) {
+      addIfNull(nulls, JSON_PROPERTY_PROFILE_REFERENCE, this.profileReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,17 +37,32 @@ public class CheckoutThreeDS2Action {
   public static final String JSON_PROPERTY_AUTHORISATION_TOKEN = "authorisationToken";
   private String authorisationToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisationToken = false;
+
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentData = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
   private String paymentMethodType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodType = false;
+
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private String subtype;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubtype = false;
+
   public static final String JSON_PROPERTY_TOKEN = "token";
   private String token;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetToken = false;
 
   /** **threeDS2** */
   public enum TypeEnum {
@@ -89,8 +106,20 @@ public class CheckoutThreeDS2Action {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutThreeDS2Action() {}
 
@@ -102,6 +131,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action authorisationToken(String authorisationToken) {
     this.authorisationToken = authorisationToken;
+    isSetAuthorisationToken = true; // mark as set
     return this;
   }
 
@@ -125,6 +155,7 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationToken(String authorisationToken) {
     this.authorisationToken = authorisationToken;
+    isSetAuthorisationToken = true; // mark as set
   }
 
   /**
@@ -135,6 +166,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action paymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
     return this;
   }
 
@@ -158,6 +190,7 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
   }
 
   /**
@@ -168,6 +201,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
     return this;
   }
 
@@ -191,6 +225,7 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
   }
 
   /**
@@ -201,6 +236,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action subtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
     return this;
   }
 
@@ -224,6 +260,7 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
   }
 
   /**
@@ -234,6 +271,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action token(String token) {
     this.token = token;
+    isSetToken = true; // mark as set
     return this;
   }
 
@@ -257,6 +295,7 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
+    isSetToken = true; // mark as set
   }
 
   /**
@@ -267,6 +306,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -290,6 +330,7 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -300,6 +341,7 @@ public class CheckoutThreeDS2Action {
    */
   public CheckoutThreeDS2Action url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -323,6 +365,27 @@ public class CheckoutThreeDS2Action {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutThreeDS2Action includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutThreeDS2Action object is equal to o. */
@@ -336,18 +399,40 @@ public class CheckoutThreeDS2Action {
     }
     CheckoutThreeDS2Action checkoutThreeDS2Action = (CheckoutThreeDS2Action) o;
     return Objects.equals(this.authorisationToken, checkoutThreeDS2Action.authorisationToken)
+        && Objects.equals(
+            this.isSetAuthorisationToken, checkoutThreeDS2Action.isSetAuthorisationToken)
         && Objects.equals(this.paymentData, checkoutThreeDS2Action.paymentData)
+        && Objects.equals(this.isSetPaymentData, checkoutThreeDS2Action.isSetPaymentData)
         && Objects.equals(this.paymentMethodType, checkoutThreeDS2Action.paymentMethodType)
+        && Objects.equals(
+            this.isSetPaymentMethodType, checkoutThreeDS2Action.isSetPaymentMethodType)
         && Objects.equals(this.subtype, checkoutThreeDS2Action.subtype)
+        && Objects.equals(this.isSetSubtype, checkoutThreeDS2Action.isSetSubtype)
         && Objects.equals(this.token, checkoutThreeDS2Action.token)
+        && Objects.equals(this.isSetToken, checkoutThreeDS2Action.isSetToken)
         && Objects.equals(this.type, checkoutThreeDS2Action.type)
-        && Objects.equals(this.url, checkoutThreeDS2Action.url);
+        && Objects.equals(this.isSetType, checkoutThreeDS2Action.isSetType)
+        && Objects.equals(this.url, checkoutThreeDS2Action.url)
+        && Objects.equals(this.isSetUrl, checkoutThreeDS2Action.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        authorisationToken, paymentData, paymentMethodType, subtype, token, type, url);
+        authorisationToken,
+        isSetAuthorisationToken,
+        paymentData,
+        isSetPaymentData,
+        paymentMethodType,
+        isSetPaymentMethodType,
+        subtype,
+        isSetSubtype,
+        token,
+        isSetToken,
+        type,
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -373,6 +458,48 @@ public class CheckoutThreeDS2Action {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthorisationToken) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_TOKEN, this.authorisationToken);
+    }
+    if (isSetPaymentData) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_DATA, this.paymentData);
+    }
+    if (isSetPaymentMethodType) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_TYPE, this.paymentMethodType);
+    }
+    if (isSetSubtype) {
+      addIfNull(nulls, JSON_PROPERTY_SUBTYPE, this.subtype);
+    }
+    if (isSetToken) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN, this.token);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

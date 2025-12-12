@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,20 +37,38 @@ public class EcontextVoucherDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
+
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstName = false;
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastName = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
 
   /** **econtextvoucher** */
   public enum TypeEnum {
@@ -100,6 +120,15 @@ public class EcontextVoucherDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public EcontextVoucherDetails() {}
 
   /**
@@ -110,6 +139,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -133,6 +163,7 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -143,6 +174,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails firstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
     return this;
   }
 
@@ -166,6 +198,7 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
   }
 
   /**
@@ -176,6 +209,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails lastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
     return this;
   }
 
@@ -199,6 +233,7 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
   }
 
   /**
@@ -209,6 +244,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -233,6 +269,7 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -243,6 +280,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -266,6 +304,7 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -280,6 +319,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -311,6 +351,7 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -321,6 +362,7 @@ public class EcontextVoucherDetails {
    */
   public EcontextVoucherDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -344,6 +386,27 @@ public class EcontextVoucherDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public EcontextVoucherDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this EcontextVoucherDetails object is equal to o. */
@@ -357,18 +420,39 @@ public class EcontextVoucherDetails {
     }
     EcontextVoucherDetails econtextVoucherDetails = (EcontextVoucherDetails) o;
     return Objects.equals(this.checkoutAttemptId, econtextVoucherDetails.checkoutAttemptId)
+        && Objects.equals(
+            this.isSetCheckoutAttemptId, econtextVoucherDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.firstName, econtextVoucherDetails.firstName)
+        && Objects.equals(this.isSetFirstName, econtextVoucherDetails.isSetFirstName)
         && Objects.equals(this.lastName, econtextVoucherDetails.lastName)
+        && Objects.equals(this.isSetLastName, econtextVoucherDetails.isSetLastName)
         && Objects.equals(this.sdkData, econtextVoucherDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, econtextVoucherDetails.isSetSdkData)
         && Objects.equals(this.shopperEmail, econtextVoucherDetails.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, econtextVoucherDetails.isSetShopperEmail)
         && Objects.equals(this.telephoneNumber, econtextVoucherDetails.telephoneNumber)
-        && Objects.equals(this.type, econtextVoucherDetails.type);
+        && Objects.equals(this.isSetTelephoneNumber, econtextVoucherDetails.isSetTelephoneNumber)
+        && Objects.equals(this.type, econtextVoucherDetails.type)
+        && Objects.equals(this.isSetType, econtextVoucherDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, firstName, lastName, sdkData, shopperEmail, telephoneNumber, type);
+        checkoutAttemptId,
+        isSetCheckoutAttemptId,
+        firstName,
+        isSetFirstName,
+        lastName,
+        isSetLastName,
+        sdkData,
+        isSetSdkData,
+        shopperEmail,
+        isSetShopperEmail,
+        telephoneNumber,
+        isSetTelephoneNumber,
+        type,
+        isSetType);
   }
 
   @Override
@@ -394,6 +478,48 @@ public class EcontextVoucherDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_NAME, this.firstName);
+    }
+    if (isSetLastName) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_NAME, this.lastName);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

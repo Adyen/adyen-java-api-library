@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,35 +37,74 @@ public class DonationCampaign {
   public static final String JSON_PROPERTY_AMOUNTS = "amounts";
   private Amounts amounts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmounts = false;
+
   public static final String JSON_PROPERTY_BANNER_URL = "bannerUrl";
   private String bannerUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBannerUrl = false;
 
   public static final String JSON_PROPERTY_CAMPAIGN_NAME = "campaignName";
   private String campaignName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCampaignName = false;
+
   public static final String JSON_PROPERTY_CAUSE_NAME = "causeName";
   private String causeName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCauseName = false;
 
   public static final String JSON_PROPERTY_DONATION = "donation";
   private Donation donation;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonation = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_LOGO_URL = "logoUrl";
   private String logoUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLogoUrl = false;
+
   public static final String JSON_PROPERTY_NONPROFIT_DESCRIPTION = "nonprofitDescription";
   private String nonprofitDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNonprofitDescription = false;
 
   public static final String JSON_PROPERTY_NONPROFIT_NAME = "nonprofitName";
   private String nonprofitName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNonprofitName = false;
+
   public static final String JSON_PROPERTY_NONPROFIT_URL = "nonprofitUrl";
   private String nonprofitUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNonprofitUrl = false;
+
   public static final String JSON_PROPERTY_TERMS_AND_CONDITIONS_URL = "termsAndConditionsUrl";
   private String termsAndConditionsUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsAndConditionsUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DonationCampaign() {}
 
@@ -75,6 +116,7 @@ public class DonationCampaign {
    */
   public DonationCampaign amounts(Amounts amounts) {
     this.amounts = amounts;
+    isSetAmounts = true; // mark as set
     return this;
   }
 
@@ -98,6 +140,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmounts(Amounts amounts) {
     this.amounts = amounts;
+    isSetAmounts = true; // mark as set
   }
 
   /**
@@ -108,6 +151,7 @@ public class DonationCampaign {
    */
   public DonationCampaign bannerUrl(String bannerUrl) {
     this.bannerUrl = bannerUrl;
+    isSetBannerUrl = true; // mark as set
     return this;
   }
 
@@ -131,6 +175,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBannerUrl(String bannerUrl) {
     this.bannerUrl = bannerUrl;
+    isSetBannerUrl = true; // mark as set
   }
 
   /**
@@ -141,6 +186,7 @@ public class DonationCampaign {
    */
   public DonationCampaign campaignName(String campaignName) {
     this.campaignName = campaignName;
+    isSetCampaignName = true; // mark as set
     return this;
   }
 
@@ -164,6 +210,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCampaignName(String campaignName) {
     this.campaignName = campaignName;
+    isSetCampaignName = true; // mark as set
   }
 
   /**
@@ -174,6 +221,7 @@ public class DonationCampaign {
    */
   public DonationCampaign causeName(String causeName) {
     this.causeName = causeName;
+    isSetCauseName = true; // mark as set
     return this;
   }
 
@@ -197,6 +245,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCauseName(String causeName) {
     this.causeName = causeName;
+    isSetCauseName = true; // mark as set
   }
 
   /**
@@ -207,6 +256,7 @@ public class DonationCampaign {
    */
   public DonationCampaign donation(Donation donation) {
     this.donation = donation;
+    isSetDonation = true; // mark as set
     return this;
   }
 
@@ -230,6 +280,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonation(Donation donation) {
     this.donation = donation;
+    isSetDonation = true; // mark as set
   }
 
   /**
@@ -240,6 +291,7 @@ public class DonationCampaign {
    */
   public DonationCampaign id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -263,6 +315,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -273,6 +326,7 @@ public class DonationCampaign {
    */
   public DonationCampaign logoUrl(String logoUrl) {
     this.logoUrl = logoUrl;
+    isSetLogoUrl = true; // mark as set
     return this;
   }
 
@@ -296,6 +350,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogoUrl(String logoUrl) {
     this.logoUrl = logoUrl;
+    isSetLogoUrl = true; // mark as set
   }
 
   /**
@@ -306,6 +361,7 @@ public class DonationCampaign {
    */
   public DonationCampaign nonprofitDescription(String nonprofitDescription) {
     this.nonprofitDescription = nonprofitDescription;
+    isSetNonprofitDescription = true; // mark as set
     return this;
   }
 
@@ -329,6 +385,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitDescription(String nonprofitDescription) {
     this.nonprofitDescription = nonprofitDescription;
+    isSetNonprofitDescription = true; // mark as set
   }
 
   /**
@@ -339,6 +396,7 @@ public class DonationCampaign {
    */
   public DonationCampaign nonprofitName(String nonprofitName) {
     this.nonprofitName = nonprofitName;
+    isSetNonprofitName = true; // mark as set
     return this;
   }
 
@@ -362,6 +420,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitName(String nonprofitName) {
     this.nonprofitName = nonprofitName;
+    isSetNonprofitName = true; // mark as set
   }
 
   /**
@@ -372,6 +431,7 @@ public class DonationCampaign {
    */
   public DonationCampaign nonprofitUrl(String nonprofitUrl) {
     this.nonprofitUrl = nonprofitUrl;
+    isSetNonprofitUrl = true; // mark as set
     return this;
   }
 
@@ -395,6 +455,7 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitUrl(String nonprofitUrl) {
     this.nonprofitUrl = nonprofitUrl;
+    isSetNonprofitUrl = true; // mark as set
   }
 
   /**
@@ -406,6 +467,7 @@ public class DonationCampaign {
    */
   public DonationCampaign termsAndConditionsUrl(String termsAndConditionsUrl) {
     this.termsAndConditionsUrl = termsAndConditionsUrl;
+    isSetTermsAndConditionsUrl = true; // mark as set
     return this;
   }
 
@@ -431,6 +493,27 @@ public class DonationCampaign {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsAndConditionsUrl(String termsAndConditionsUrl) {
     this.termsAndConditionsUrl = termsAndConditionsUrl;
+    isSetTermsAndConditionsUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DonationCampaign includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DonationCampaign object is equal to o. */
@@ -444,32 +527,56 @@ public class DonationCampaign {
     }
     DonationCampaign donationCampaign = (DonationCampaign) o;
     return Objects.equals(this.amounts, donationCampaign.amounts)
+        && Objects.equals(this.isSetAmounts, donationCampaign.isSetAmounts)
         && Objects.equals(this.bannerUrl, donationCampaign.bannerUrl)
+        && Objects.equals(this.isSetBannerUrl, donationCampaign.isSetBannerUrl)
         && Objects.equals(this.campaignName, donationCampaign.campaignName)
+        && Objects.equals(this.isSetCampaignName, donationCampaign.isSetCampaignName)
         && Objects.equals(this.causeName, donationCampaign.causeName)
+        && Objects.equals(this.isSetCauseName, donationCampaign.isSetCauseName)
         && Objects.equals(this.donation, donationCampaign.donation)
+        && Objects.equals(this.isSetDonation, donationCampaign.isSetDonation)
         && Objects.equals(this.id, donationCampaign.id)
+        && Objects.equals(this.isSetId, donationCampaign.isSetId)
         && Objects.equals(this.logoUrl, donationCampaign.logoUrl)
+        && Objects.equals(this.isSetLogoUrl, donationCampaign.isSetLogoUrl)
         && Objects.equals(this.nonprofitDescription, donationCampaign.nonprofitDescription)
+        && Objects.equals(
+            this.isSetNonprofitDescription, donationCampaign.isSetNonprofitDescription)
         && Objects.equals(this.nonprofitName, donationCampaign.nonprofitName)
+        && Objects.equals(this.isSetNonprofitName, donationCampaign.isSetNonprofitName)
         && Objects.equals(this.nonprofitUrl, donationCampaign.nonprofitUrl)
-        && Objects.equals(this.termsAndConditionsUrl, donationCampaign.termsAndConditionsUrl);
+        && Objects.equals(this.isSetNonprofitUrl, donationCampaign.isSetNonprofitUrl)
+        && Objects.equals(this.termsAndConditionsUrl, donationCampaign.termsAndConditionsUrl)
+        && Objects.equals(
+            this.isSetTermsAndConditionsUrl, donationCampaign.isSetTermsAndConditionsUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amounts,
+        isSetAmounts,
         bannerUrl,
+        isSetBannerUrl,
         campaignName,
+        isSetCampaignName,
         causeName,
+        isSetCauseName,
         donation,
+        isSetDonation,
         id,
+        isSetId,
         logoUrl,
+        isSetLogoUrl,
         nonprofitDescription,
+        isSetNonprofitDescription,
         nonprofitName,
+        isSetNonprofitName,
         nonprofitUrl,
-        termsAndConditionsUrl);
+        isSetNonprofitUrl,
+        termsAndConditionsUrl,
+        isSetTermsAndConditionsUrl);
   }
 
   @Override
@@ -503,6 +610,60 @@ public class DonationCampaign {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmounts) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNTS, this.amounts);
+    }
+    if (isSetBannerUrl) {
+      addIfNull(nulls, JSON_PROPERTY_BANNER_URL, this.bannerUrl);
+    }
+    if (isSetCampaignName) {
+      addIfNull(nulls, JSON_PROPERTY_CAMPAIGN_NAME, this.campaignName);
+    }
+    if (isSetCauseName) {
+      addIfNull(nulls, JSON_PROPERTY_CAUSE_NAME, this.causeName);
+    }
+    if (isSetDonation) {
+      addIfNull(nulls, JSON_PROPERTY_DONATION, this.donation);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLogoUrl) {
+      addIfNull(nulls, JSON_PROPERTY_LOGO_URL, this.logoUrl);
+    }
+    if (isSetNonprofitDescription) {
+      addIfNull(nulls, JSON_PROPERTY_NONPROFIT_DESCRIPTION, this.nonprofitDescription);
+    }
+    if (isSetNonprofitName) {
+      addIfNull(nulls, JSON_PROPERTY_NONPROFIT_NAME, this.nonprofitName);
+    }
+    if (isSetNonprofitUrl) {
+      addIfNull(nulls, JSON_PROPERTY_NONPROFIT_URL, this.nonprofitUrl);
+    }
+    if (isSetTermsAndConditionsUrl) {
+      addIfNull(nulls, JSON_PROPERTY_TERMS_AND_CONDITIONS_URL, this.termsAndConditionsUrl);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

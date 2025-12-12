@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -82,8 +84,14 @@ public class AchDetails {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_TYPE = "accountHolderType";
   private AccountHolderTypeEnum accountHolderType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolderType = false;
+
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountNumber = false;
 
   /** The bank account type (checking, savings...). */
   public enum BankAccountTypeEnum {
@@ -139,34 +147,64 @@ public class AchDetails {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_TYPE = "bankAccountType";
   private BankAccountTypeEnum bankAccountType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountType = false;
+
   public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankLocationId = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER =
       "encryptedBankAccountNumber";
   private String encryptedBankAccountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedBankAccountNumber = false;
+
   public static final String JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID = "encryptedBankLocationId";
   private String encryptedBankLocationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedBankLocationId = false;
+
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstrumentId = false;
 
   /** **ach** */
   public enum TypeEnum {
@@ -212,6 +250,15 @@ public class AchDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AchDetails() {}
 
   /**
@@ -222,6 +269,7 @@ public class AchDetails {
    */
   public AchDetails accountHolderType(AccountHolderTypeEnum accountHolderType) {
     this.accountHolderType = accountHolderType;
+    isSetAccountHolderType = true; // mark as set
     return this;
   }
 
@@ -245,6 +293,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderType(AccountHolderTypeEnum accountHolderType) {
     this.accountHolderType = accountHolderType;
+    isSetAccountHolderType = true; // mark as set
   }
 
   /**
@@ -255,6 +304,7 @@ public class AchDetails {
    */
   public AchDetails bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
     return this;
   }
 
@@ -278,6 +328,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
   }
 
   /**
@@ -288,6 +339,7 @@ public class AchDetails {
    */
   public AchDetails bankAccountType(BankAccountTypeEnum bankAccountType) {
     this.bankAccountType = bankAccountType;
+    isSetBankAccountType = true; // mark as set
     return this;
   }
 
@@ -311,6 +363,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountType(BankAccountTypeEnum bankAccountType) {
     this.bankAccountType = bankAccountType;
+    isSetBankAccountType = true; // mark as set
   }
 
   /**
@@ -322,6 +375,7 @@ public class AchDetails {
    */
   public AchDetails bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
     return this;
   }
 
@@ -347,6 +401,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
   }
 
   /**
@@ -357,6 +412,7 @@ public class AchDetails {
    */
   public AchDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -380,6 +436,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -391,6 +448,7 @@ public class AchDetails {
    */
   public AchDetails encryptedBankAccountNumber(String encryptedBankAccountNumber) {
     this.encryptedBankAccountNumber = encryptedBankAccountNumber;
+    isSetEncryptedBankAccountNumber = true; // mark as set
     return this;
   }
 
@@ -416,6 +474,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedBankAccountNumber(String encryptedBankAccountNumber) {
     this.encryptedBankAccountNumber = encryptedBankAccountNumber;
+    isSetEncryptedBankAccountNumber = true; // mark as set
   }
 
   /**
@@ -428,6 +487,7 @@ public class AchDetails {
    */
   public AchDetails encryptedBankLocationId(String encryptedBankLocationId) {
     this.encryptedBankLocationId = encryptedBankLocationId;
+    isSetEncryptedBankLocationId = true; // mark as set
     return this;
   }
 
@@ -455,6 +515,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedBankLocationId(String encryptedBankLocationId) {
     this.encryptedBankLocationId = encryptedBankLocationId;
+    isSetEncryptedBankLocationId = true; // mark as set
   }
 
   /**
@@ -481,6 +542,7 @@ public class AchDetails {
    */
   public AchDetails ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -536,6 +598,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -550,6 +613,7 @@ public class AchDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public AchDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -581,6 +645,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -591,6 +656,7 @@ public class AchDetails {
    */
   public AchDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -615,6 +681,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -627,6 +694,7 @@ public class AchDetails {
    */
   public AchDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -654,6 +722,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -666,6 +735,7 @@ public class AchDetails {
    */
   public AchDetails transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
     return this;
   }
 
@@ -693,6 +763,7 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
   }
 
   /**
@@ -703,6 +774,7 @@ public class AchDetails {
    */
   public AchDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -726,6 +798,27 @@ public class AchDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AchDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AchDetails object is equal to o. */
@@ -739,36 +832,65 @@ public class AchDetails {
     }
     AchDetails achDetails = (AchDetails) o;
     return Objects.equals(this.accountHolderType, achDetails.accountHolderType)
+        && Objects.equals(this.isSetAccountHolderType, achDetails.isSetAccountHolderType)
         && Objects.equals(this.bankAccountNumber, achDetails.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, achDetails.isSetBankAccountNumber)
         && Objects.equals(this.bankAccountType, achDetails.bankAccountType)
+        && Objects.equals(this.isSetBankAccountType, achDetails.isSetBankAccountType)
         && Objects.equals(this.bankLocationId, achDetails.bankLocationId)
+        && Objects.equals(this.isSetBankLocationId, achDetails.isSetBankLocationId)
         && Objects.equals(this.checkoutAttemptId, achDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, achDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.encryptedBankAccountNumber, achDetails.encryptedBankAccountNumber)
+        && Objects.equals(
+            this.isSetEncryptedBankAccountNumber, achDetails.isSetEncryptedBankAccountNumber)
         && Objects.equals(this.encryptedBankLocationId, achDetails.encryptedBankLocationId)
+        && Objects.equals(
+            this.isSetEncryptedBankLocationId, achDetails.isSetEncryptedBankLocationId)
         && Objects.equals(this.ownerName, achDetails.ownerName)
+        && Objects.equals(this.isSetOwnerName, achDetails.isSetOwnerName)
         && Objects.equals(this.recurringDetailReference, achDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, achDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, achDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, achDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, achDetails.storedPaymentMethodId)
+        && Objects.equals(this.isSetStoredPaymentMethodId, achDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.transferInstrumentId, achDetails.transferInstrumentId)
-        && Objects.equals(this.type, achDetails.type);
+        && Objects.equals(this.isSetTransferInstrumentId, achDetails.isSetTransferInstrumentId)
+        && Objects.equals(this.type, achDetails.type)
+        && Objects.equals(this.isSetType, achDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolderType,
+        isSetAccountHolderType,
         bankAccountNumber,
+        isSetBankAccountNumber,
         bankAccountType,
+        isSetBankAccountType,
         bankLocationId,
+        isSetBankLocationId,
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         encryptedBankAccountNumber,
+        isSetEncryptedBankAccountNumber,
         encryptedBankLocationId,
+        isSetEncryptedBankLocationId,
         ownerName,
+        isSetOwnerName,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         transferInstrumentId,
-        type);
+        isSetTransferInstrumentId,
+        type,
+        isSetType);
   }
 
   @Override
@@ -810,6 +932,67 @@ public class AchDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolderType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER_TYPE, this.accountHolderType);
+    }
+    if (isSetBankAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
+    }
+    if (isSetBankAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_TYPE, this.bankAccountType);
+    }
+    if (isSetBankLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_LOCATION_ID, this.bankLocationId);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetEncryptedBankAccountNumber) {
+      addIfNull(
+          nulls, JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER, this.encryptedBankAccountNumber);
+    }
+    if (isSetEncryptedBankLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID, this.encryptedBankLocationId);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetTransferInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENT_ID, this.transferInstrumentId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

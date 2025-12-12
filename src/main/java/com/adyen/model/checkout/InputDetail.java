@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,30 +39,63 @@ public class InputDetail {
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
   private Map<String, String> configuration;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfiguration = false;
+
   public static final String JSON_PROPERTY_DETAILS = "details";
   private List<SubInputDetail> details;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDetails = false;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
   @Deprecated // deprecated
   private List<SubInputDetail> inputDetails;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInputDetails = false;
+
   public static final String JSON_PROPERTY_ITEM_SEARCH_URL = "itemSearchUrl";
   private String itemSearchUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItemSearchUrl = false;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
   private List<Item> items;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItems = false;
+
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetKey = false;
 
   public static final String JSON_PROPERTY_OPTIONAL = "optional";
   private Boolean optional;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOptional = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValue = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public InputDetail() {}
 
@@ -72,6 +107,7 @@ public class InputDetail {
    */
   public InputDetail configuration(Map<String, String> configuration) {
     this.configuration = configuration;
+    isSetConfiguration = true; // mark as set
     return this;
   }
 
@@ -103,6 +139,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
     this.configuration = configuration;
+    isSetConfiguration = true; // mark as set
   }
 
   /**
@@ -113,6 +150,7 @@ public class InputDetail {
    */
   public InputDetail details(List<SubInputDetail> details) {
     this.details = details;
+    isSetDetails = true; // mark as set
     return this;
   }
 
@@ -144,6 +182,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<SubInputDetail> details) {
     this.details = details;
+    isSetDetails = true; // mark as set
   }
 
   /**
@@ -156,6 +195,7 @@ public class InputDetail {
   @Deprecated // deprecated
   public InputDetail inputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
+    isSetInputDetails = true; // mark as set
     return this;
   }
 
@@ -191,6 +231,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
+    isSetInputDetails = true; // mark as set
   }
 
   /**
@@ -201,6 +242,7 @@ public class InputDetail {
    */
   public InputDetail itemSearchUrl(String itemSearchUrl) {
     this.itemSearchUrl = itemSearchUrl;
+    isSetItemSearchUrl = true; // mark as set
     return this;
   }
 
@@ -224,6 +266,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemSearchUrl(String itemSearchUrl) {
     this.itemSearchUrl = itemSearchUrl;
+    isSetItemSearchUrl = true; // mark as set
   }
 
   /**
@@ -234,6 +277,7 @@ public class InputDetail {
    */
   public InputDetail items(List<Item> items) {
     this.items = items;
+    isSetItems = true; // mark as set
     return this;
   }
 
@@ -265,6 +309,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<Item> items) {
     this.items = items;
+    isSetItems = true; // mark as set
   }
 
   /**
@@ -275,6 +320,7 @@ public class InputDetail {
    */
   public InputDetail key(String key) {
     this.key = key;
+    isSetKey = true; // mark as set
     return this;
   }
 
@@ -298,6 +344,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKey(String key) {
     this.key = key;
+    isSetKey = true; // mark as set
   }
 
   /**
@@ -308,6 +355,7 @@ public class InputDetail {
    */
   public InputDetail optional(Boolean optional) {
     this.optional = optional;
+    isSetOptional = true; // mark as set
     return this;
   }
 
@@ -331,6 +379,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptional(Boolean optional) {
     this.optional = optional;
+    isSetOptional = true; // mark as set
   }
 
   /**
@@ -341,6 +390,7 @@ public class InputDetail {
    */
   public InputDetail type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -364,6 +414,7 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -374,6 +425,7 @@ public class InputDetail {
    */
   public InputDetail value(String value) {
     this.value = value;
+    isSetValue = true; // mark as set
     return this;
   }
 
@@ -397,6 +449,27 @@ public class InputDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {
     this.value = value;
+    isSetValue = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public InputDetail includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this InputDetail object is equal to o. */
@@ -410,20 +483,46 @@ public class InputDetail {
     }
     InputDetail inputDetail = (InputDetail) o;
     return Objects.equals(this.configuration, inputDetail.configuration)
+        && Objects.equals(this.isSetConfiguration, inputDetail.isSetConfiguration)
         && Objects.equals(this.details, inputDetail.details)
+        && Objects.equals(this.isSetDetails, inputDetail.isSetDetails)
         && Objects.equals(this.inputDetails, inputDetail.inputDetails)
+        && Objects.equals(this.isSetInputDetails, inputDetail.isSetInputDetails)
         && Objects.equals(this.itemSearchUrl, inputDetail.itemSearchUrl)
+        && Objects.equals(this.isSetItemSearchUrl, inputDetail.isSetItemSearchUrl)
         && Objects.equals(this.items, inputDetail.items)
+        && Objects.equals(this.isSetItems, inputDetail.isSetItems)
         && Objects.equals(this.key, inputDetail.key)
+        && Objects.equals(this.isSetKey, inputDetail.isSetKey)
         && Objects.equals(this.optional, inputDetail.optional)
+        && Objects.equals(this.isSetOptional, inputDetail.isSetOptional)
         && Objects.equals(this.type, inputDetail.type)
-        && Objects.equals(this.value, inputDetail.value);
+        && Objects.equals(this.isSetType, inputDetail.isSetType)
+        && Objects.equals(this.value, inputDetail.value)
+        && Objects.equals(this.isSetValue, inputDetail.isSetValue);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        configuration, details, inputDetails, itemSearchUrl, items, key, optional, type, value);
+        configuration,
+        isSetConfiguration,
+        details,
+        isSetDetails,
+        inputDetails,
+        isSetInputDetails,
+        itemSearchUrl,
+        isSetItemSearchUrl,
+        items,
+        isSetItems,
+        key,
+        isSetKey,
+        optional,
+        isSetOptional,
+        type,
+        isSetType,
+        value,
+        isSetValue);
   }
 
   @Override
@@ -451,6 +550,54 @@ public class InputDetail {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetConfiguration) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIGURATION, this.configuration);
+    }
+    if (isSetDetails) {
+      addIfNull(nulls, JSON_PROPERTY_DETAILS, this.details);
+    }
+    if (isSetInputDetails) {
+      addIfNull(nulls, JSON_PROPERTY_INPUT_DETAILS, this.inputDetails);
+    }
+    if (isSetItemSearchUrl) {
+      addIfNull(nulls, JSON_PROPERTY_ITEM_SEARCH_URL, this.itemSearchUrl);
+    }
+    if (isSetItems) {
+      addIfNull(nulls, JSON_PROPERTY_ITEMS, this.items);
+    }
+    if (isSetKey) {
+      addIfNull(nulls, JSON_PROPERTY_KEY, this.key);
+    }
+    if (isSetOptional) {
+      addIfNull(nulls, JSON_PROPERTY_OPTIONAL, this.optional);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetValue) {
+      addIfNull(nulls, JSON_PROPERTY_VALUE, this.value);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

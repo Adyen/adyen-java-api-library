@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,14 +32,32 @@ public class CardDetailsResponse {
   public static final String JSON_PROPERTY_BRANDS = "brands";
   private List<CardBrandDetails> brands;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrands = false;
+
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
 
   public static final String JSON_PROPERTY_IS_CARD_COMMERCIAL = "isCardCommercial";
   private Boolean isCardCommercial;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIsCardCommercial = false;
+
   public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODE = "issuingCountryCode";
   private String issuingCountryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuingCountryCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CardDetailsResponse() {}
 
@@ -49,6 +69,7 @@ public class CardDetailsResponse {
    */
   public CardDetailsResponse brands(List<CardBrandDetails> brands) {
     this.brands = brands;
+    isSetBrands = true; // mark as set
     return this;
   }
 
@@ -80,6 +101,7 @@ public class CardDetailsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<CardBrandDetails> brands) {
     this.brands = brands;
+    isSetBrands = true; // mark as set
   }
 
   /**
@@ -91,6 +113,7 @@ public class CardDetailsResponse {
    */
   public CardDetailsResponse fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -116,6 +139,7 @@ public class CardDetailsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -128,6 +152,7 @@ public class CardDetailsResponse {
    */
   public CardDetailsResponse isCardCommercial(Boolean isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
+    isSetIsCardCommercial = true; // mark as set
     return this;
   }
 
@@ -155,6 +180,7 @@ public class CardDetailsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(Boolean isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
+    isSetIsCardCommercial = true; // mark as set
   }
 
   /**
@@ -165,6 +191,7 @@ public class CardDetailsResponse {
    */
   public CardDetailsResponse issuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
+    isSetIssuingCountryCode = true; // mark as set
     return this;
   }
 
@@ -189,6 +216,27 @@ public class CardDetailsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
+    isSetIssuingCountryCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CardDetailsResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CardDetailsResponse object is equal to o. */
@@ -202,14 +250,27 @@ public class CardDetailsResponse {
     }
     CardDetailsResponse cardDetailsResponse = (CardDetailsResponse) o;
     return Objects.equals(this.brands, cardDetailsResponse.brands)
+        && Objects.equals(this.isSetBrands, cardDetailsResponse.isSetBrands)
         && Objects.equals(this.fundingSource, cardDetailsResponse.fundingSource)
+        && Objects.equals(this.isSetFundingSource, cardDetailsResponse.isSetFundingSource)
         && Objects.equals(this.isCardCommercial, cardDetailsResponse.isCardCommercial)
-        && Objects.equals(this.issuingCountryCode, cardDetailsResponse.issuingCountryCode);
+        && Objects.equals(this.isSetIsCardCommercial, cardDetailsResponse.isSetIsCardCommercial)
+        && Objects.equals(this.issuingCountryCode, cardDetailsResponse.issuingCountryCode)
+        && Objects.equals(
+            this.isSetIssuingCountryCode, cardDetailsResponse.isSetIssuingCountryCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brands, fundingSource, isCardCommercial, issuingCountryCode);
+    return Objects.hash(
+        brands,
+        isSetBrands,
+        fundingSource,
+        isSetFundingSource,
+        isCardCommercial,
+        isSetIsCardCommercial,
+        issuingCountryCode,
+        isSetIssuingCountryCode);
   }
 
   @Override
@@ -232,6 +293,39 @@ public class CardDetailsResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBrands) {
+      addIfNull(nulls, JSON_PROPERTY_BRANDS, this.brands);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetIsCardCommercial) {
+      addIfNull(nulls, JSON_PROPERTY_IS_CARD_COMMERCIAL, this.isCardCommercial);
+    }
+    if (isSetIssuingCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUING_COUNTRY_CODE, this.issuingCountryCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

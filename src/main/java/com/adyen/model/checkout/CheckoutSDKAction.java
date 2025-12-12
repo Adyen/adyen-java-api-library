@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,11 +37,20 @@ public class CheckoutSDKAction {
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentData = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
   private String paymentMethodType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodType = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private Map<String, String> sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   /** The type of the action. */
   public enum TypeEnum {
@@ -85,8 +96,20 @@ public class CheckoutSDKAction {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutSDKAction() {}
 
@@ -98,6 +121,7 @@ public class CheckoutSDKAction {
    */
   public CheckoutSDKAction paymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
     return this;
   }
 
@@ -121,6 +145,7 @@ public class CheckoutSDKAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
   }
 
   /**
@@ -131,6 +156,7 @@ public class CheckoutSDKAction {
    */
   public CheckoutSDKAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
     return this;
   }
 
@@ -154,6 +180,7 @@ public class CheckoutSDKAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
   }
 
   /**
@@ -164,6 +191,7 @@ public class CheckoutSDKAction {
    */
   public CheckoutSDKAction sdkData(Map<String, String> sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -195,6 +223,7 @@ public class CheckoutSDKAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(Map<String, String> sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -205,6 +234,7 @@ public class CheckoutSDKAction {
    */
   public CheckoutSDKAction type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -228,6 +258,7 @@ public class CheckoutSDKAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -238,6 +269,7 @@ public class CheckoutSDKAction {
    */
   public CheckoutSDKAction url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -261,6 +293,27 @@ public class CheckoutSDKAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutSDKAction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutSDKAction object is equal to o. */
@@ -274,15 +327,30 @@ public class CheckoutSDKAction {
     }
     CheckoutSDKAction checkoutSDKAction = (CheckoutSDKAction) o;
     return Objects.equals(this.paymentData, checkoutSDKAction.paymentData)
+        && Objects.equals(this.isSetPaymentData, checkoutSDKAction.isSetPaymentData)
         && Objects.equals(this.paymentMethodType, checkoutSDKAction.paymentMethodType)
+        && Objects.equals(this.isSetPaymentMethodType, checkoutSDKAction.isSetPaymentMethodType)
         && Objects.equals(this.sdkData, checkoutSDKAction.sdkData)
+        && Objects.equals(this.isSetSdkData, checkoutSDKAction.isSetSdkData)
         && Objects.equals(this.type, checkoutSDKAction.type)
-        && Objects.equals(this.url, checkoutSDKAction.url);
+        && Objects.equals(this.isSetType, checkoutSDKAction.isSetType)
+        && Objects.equals(this.url, checkoutSDKAction.url)
+        && Objects.equals(this.isSetUrl, checkoutSDKAction.isSetUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentData, paymentMethodType, sdkData, type, url);
+    return Objects.hash(
+        paymentData,
+        isSetPaymentData,
+        paymentMethodType,
+        isSetPaymentMethodType,
+        sdkData,
+        isSetSdkData,
+        type,
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -306,6 +374,42 @@ public class CheckoutSDKAction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPaymentData) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_DATA, this.paymentData);
+    }
+    if (isSetPaymentMethodType) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_TYPE, this.paymentMethodType);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
