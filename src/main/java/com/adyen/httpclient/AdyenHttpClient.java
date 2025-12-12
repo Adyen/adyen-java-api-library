@@ -53,15 +53,18 @@ import org.apache.hc.client5.http.classic.methods.HttpPatch;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequest;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
+import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
-import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+import org.apache.hc.client5.http.impl.routing.DefaultProxyRoutePlanner;
+import org.apache.hc.client5.http.ssl.DefaultClientTlsStrategy;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.net.URIBuilder;
 import org.apache.hc.core5.ssl.SSLContexts;
+import org.apache.hc.core5.util.Timeout;
 
 /** HTTP client implementation to invoke the Adyen APIs. Built on top of org.apache.hc.client5 */
 public class AdyenHttpClient implements ClientInterface {
@@ -155,17 +158,12 @@ public class AdyenHttpClient implements ClientInterface {
     RequestConfig.Builder builder = RequestConfig.custom();
 
     builder.setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS);
-    builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
     builder.setDefaultKeepAlive(config.getDefaultKeepAliveMillis(), TimeUnit.MILLISECONDS);
     builder.setConnectionRequestTimeout(
         config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS);
 
     if (config.getProtocolUpgradeEnabled() != null) {
       builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
-    }
-    if (proxy != null && proxy.address() instanceof InetSocketAddress) {
-      InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
-      builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));
     }
     httpRequest.setConfig(builder.build());
 
@@ -255,19 +253,40 @@ public class AdyenHttpClient implements ClientInterface {
       sslContext = SSLContexts.createDefault();
     }
     HostnameVerifier hostnameVerifier = config.getHostnameVerifier();
-    return createHttpClientWithSocketFactory(
-        new SSLConnectionSocketFactory(sslContext, hostnameVerifier));
-  }
 
-  private CloseableHttpClient createHttpClientWithSocketFactory(
-      SSLConnectionSocketFactory socketFactory) {
-    return HttpClients.custom()
-        .setConnectionManager(
-            PoolingHttpClientConnectionManagerBuilder.create()
-                .setSSLSocketFactory(socketFactory)
-                .build())
-        .setRedirectStrategy(new AdyenCustomRedirectStrategy())
-        .build();
+    // Create ConnectionConfig with connect timeout and keep-alive settings
+    ConnectionConfig connectionConfig =
+        ConnectionConfig.custom()
+            .setConnectTimeout(Timeout.ofMilliseconds(config.getConnectionTimeoutMillis()))
+            .build();
+
+    // Create TlsSocketStrategy with SSL context and hostname verifier
+    DefaultClientTlsStrategy tlsStrategy =
+        new DefaultClientTlsStrategy(sslContext, hostnameVerifier);
+
+    // Create connection manager with TLS strategy and connection config
+    var connectionManager =
+        PoolingHttpClientConnectionManagerBuilder.create()
+            .setTlsSocketStrategy(tlsStrategy)
+            .setDefaultConnectionConfig(connectionConfig)
+            .build();
+
+    // Build HTTP client with connection manager and redirect strategy
+    var httpClientBuilder =
+        HttpClients.custom()
+            .setConnectionManager(connectionManager)
+            .setRedirectStrategy(new AdyenCustomRedirectStrategy());
+
+    // Set proxy if configured
+    if (proxy != null && proxy.address() instanceof InetSocketAddress) {
+      InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
+      HttpHost proxyHost =
+          new HttpHost("http", inetSocketAddress.getHostName(), inetSocketAddress.getPort());
+      DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxyHost);
+      httpClientBuilder.setRoutePlanner(routePlanner);
+    }
+
+    return httpClientBuilder.build();
   }
 
   /** Sets content type */
