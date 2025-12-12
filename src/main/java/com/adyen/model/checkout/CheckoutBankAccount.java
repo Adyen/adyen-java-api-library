@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -89,32 +91,68 @@ public class CheckoutBankAccount {
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private AccountTypeEnum accountType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountType = false;
+
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountNumber = false;
 
   public static final String JSON_PROPERTY_BANK_CITY = "bankCity";
   private String bankCity;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankCity = false;
+
   public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankLocationId = false;
 
   public static final String JSON_PROPERTY_BANK_NAME = "bankName";
   private String bankName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankName = false;
+
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBic = false;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
+
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
 
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
+
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutBankAccount() {}
 
@@ -126,6 +164,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
     return this;
   }
 
@@ -149,6 +188,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
   }
 
   /**
@@ -159,6 +199,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
     return this;
   }
 
@@ -182,6 +223,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
   }
 
   /**
@@ -192,6 +234,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount bankCity(String bankCity) {
     this.bankCity = bankCity;
+    isSetBankCity = true; // mark as set
     return this;
   }
 
@@ -215,6 +258,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCity(String bankCity) {
     this.bankCity = bankCity;
+    isSetBankCity = true; // mark as set
   }
 
   /**
@@ -226,6 +270,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
     return this;
   }
 
@@ -251,6 +296,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
   }
 
   /**
@@ -261,6 +307,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount bankName(String bankName) {
     this.bankName = bankName;
+    isSetBankName = true; // mark as set
     return this;
   }
 
@@ -284,6 +331,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
     this.bankName = bankName;
+    isSetBankName = true; // mark as set
   }
 
   /**
@@ -296,6 +344,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount bic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
     return this;
   }
 
@@ -323,6 +372,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
   }
 
   /**
@@ -335,6 +385,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -362,6 +413,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -374,6 +426,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -401,6 +454,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -427,6 +481,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -482,6 +537,7 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -492,6 +548,7 @@ public class CheckoutBankAccount {
    */
   public CheckoutBankAccount taxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
     return this;
   }
 
@@ -515,6 +572,27 @@ public class CheckoutBankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutBankAccount includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutBankAccount object is equal to o. */
@@ -528,30 +606,50 @@ public class CheckoutBankAccount {
     }
     CheckoutBankAccount checkoutBankAccount = (CheckoutBankAccount) o;
     return Objects.equals(this.accountType, checkoutBankAccount.accountType)
+        && Objects.equals(this.isSetAccountType, checkoutBankAccount.isSetAccountType)
         && Objects.equals(this.bankAccountNumber, checkoutBankAccount.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, checkoutBankAccount.isSetBankAccountNumber)
         && Objects.equals(this.bankCity, checkoutBankAccount.bankCity)
+        && Objects.equals(this.isSetBankCity, checkoutBankAccount.isSetBankCity)
         && Objects.equals(this.bankLocationId, checkoutBankAccount.bankLocationId)
+        && Objects.equals(this.isSetBankLocationId, checkoutBankAccount.isSetBankLocationId)
         && Objects.equals(this.bankName, checkoutBankAccount.bankName)
+        && Objects.equals(this.isSetBankName, checkoutBankAccount.isSetBankName)
         && Objects.equals(this.bic, checkoutBankAccount.bic)
+        && Objects.equals(this.isSetBic, checkoutBankAccount.isSetBic)
         && Objects.equals(this.countryCode, checkoutBankAccount.countryCode)
+        && Objects.equals(this.isSetCountryCode, checkoutBankAccount.isSetCountryCode)
         && Objects.equals(this.iban, checkoutBankAccount.iban)
+        && Objects.equals(this.isSetIban, checkoutBankAccount.isSetIban)
         && Objects.equals(this.ownerName, checkoutBankAccount.ownerName)
-        && Objects.equals(this.taxId, checkoutBankAccount.taxId);
+        && Objects.equals(this.isSetOwnerName, checkoutBankAccount.isSetOwnerName)
+        && Objects.equals(this.taxId, checkoutBankAccount.taxId)
+        && Objects.equals(this.isSetTaxId, checkoutBankAccount.isSetTaxId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountType,
+        isSetAccountType,
         bankAccountNumber,
+        isSetBankAccountNumber,
         bankCity,
+        isSetBankCity,
         bankLocationId,
+        isSetBankLocationId,
         bankName,
+        isSetBankName,
         bic,
+        isSetBic,
         countryCode,
+        isSetCountryCode,
         iban,
+        isSetIban,
         ownerName,
-        taxId);
+        isSetOwnerName,
+        taxId,
+        isSetTaxId);
   }
 
   @Override
@@ -580,6 +678,57 @@ public class CheckoutBankAccount {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_TYPE, this.accountType);
+    }
+    if (isSetBankAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
+    }
+    if (isSetBankCity) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_CITY, this.bankCity);
+    }
+    if (isSetBankLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_LOCATION_ID, this.bankLocationId);
+    }
+    if (isSetBankName) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_NAME, this.bankName);
+    }
+    if (isSetBic) {
+      addIfNull(nulls, JSON_PROPERTY_BIC, this.bic);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

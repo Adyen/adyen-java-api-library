@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class PaymentValidationsNameResultResponse {
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstName = false;
+
   public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private String fullName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFullName = false;
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastName = false;
+
   public static final String JSON_PROPERTY_MIDDLE_NAME = "middleName";
   private String middleName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMiddleName = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentValidationsNameResultResponse() {}
 
@@ -52,6 +72,7 @@ public class PaymentValidationsNameResultResponse {
    */
   public PaymentValidationsNameResultResponse firstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
     return this;
   }
 
@@ -83,6 +104,7 @@ public class PaymentValidationsNameResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
   }
 
   /**
@@ -98,6 +120,7 @@ public class PaymentValidationsNameResultResponse {
    */
   public PaymentValidationsNameResultResponse fullName(String fullName) {
     this.fullName = fullName;
+    isSetFullName = true; // mark as set
     return this;
   }
 
@@ -129,6 +152,7 @@ public class PaymentValidationsNameResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullName(String fullName) {
     this.fullName = fullName;
+    isSetFullName = true; // mark as set
   }
 
   /**
@@ -144,6 +168,7 @@ public class PaymentValidationsNameResultResponse {
    */
   public PaymentValidationsNameResultResponse lastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
     return this;
   }
 
@@ -175,6 +200,7 @@ public class PaymentValidationsNameResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
   }
 
   /**
@@ -190,6 +216,7 @@ public class PaymentValidationsNameResultResponse {
    */
   public PaymentValidationsNameResultResponse middleName(String middleName) {
     this.middleName = middleName;
+    isSetMiddleName = true; // mark as set
     return this;
   }
 
@@ -221,6 +248,27 @@ public class PaymentValidationsNameResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMiddleName(String middleName) {
     this.middleName = middleName;
+    isSetMiddleName = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentValidationsNameResultResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentValidationsNameResultResponse object is equal to o. */
@@ -235,14 +283,27 @@ public class PaymentValidationsNameResultResponse {
     PaymentValidationsNameResultResponse paymentValidationsNameResultResponse =
         (PaymentValidationsNameResultResponse) o;
     return Objects.equals(this.firstName, paymentValidationsNameResultResponse.firstName)
+        && Objects.equals(this.isSetFirstName, paymentValidationsNameResultResponse.isSetFirstName)
         && Objects.equals(this.fullName, paymentValidationsNameResultResponse.fullName)
+        && Objects.equals(this.isSetFullName, paymentValidationsNameResultResponse.isSetFullName)
         && Objects.equals(this.lastName, paymentValidationsNameResultResponse.lastName)
-        && Objects.equals(this.middleName, paymentValidationsNameResultResponse.middleName);
+        && Objects.equals(this.isSetLastName, paymentValidationsNameResultResponse.isSetLastName)
+        && Objects.equals(this.middleName, paymentValidationsNameResultResponse.middleName)
+        && Objects.equals(
+            this.isSetMiddleName, paymentValidationsNameResultResponse.isSetMiddleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, fullName, lastName, middleName);
+    return Objects.hash(
+        firstName,
+        isSetFirstName,
+        fullName,
+        isSetFullName,
+        lastName,
+        isSetLastName,
+        middleName,
+        isSetMiddleName);
   }
 
   @Override
@@ -265,6 +326,39 @@ public class PaymentValidationsNameResultResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_NAME, this.firstName);
+    }
+    if (isSetFullName) {
+      addIfNull(nulls, JSON_PROPERTY_FULL_NAME, this.fullName);
+    }
+    if (isSetLastName) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_NAME, this.lastName);
+    }
+    if (isSetMiddleName) {
+      addIfNull(nulls, JSON_PROPERTY_MIDDLE_NAME, this.middleName);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

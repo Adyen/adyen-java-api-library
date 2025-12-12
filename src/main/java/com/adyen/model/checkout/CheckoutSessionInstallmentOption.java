@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -90,11 +92,26 @@ public class CheckoutSessionInstallmentOption {
   public static final String JSON_PROPERTY_PLANS = "plans";
   private List<PlansEnum> plans;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlans = false;
+
   public static final String JSON_PROPERTY_PRESELECTED_VALUE = "preselectedValue";
   private Integer preselectedValue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPreselectedValue = false;
+
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<Integer> values;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValues = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutSessionInstallmentOption() {}
 
@@ -113,6 +130,7 @@ public class CheckoutSessionInstallmentOption {
    */
   public CheckoutSessionInstallmentOption plans(List<PlansEnum> plans) {
     this.plans = plans;
+    isSetPlans = true; // mark as set
     return this;
   }
 
@@ -156,6 +174,7 @@ public class CheckoutSessionInstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlans(List<PlansEnum> plans) {
     this.plans = plans;
+    isSetPlans = true; // mark as set
   }
 
   /**
@@ -167,6 +186,7 @@ public class CheckoutSessionInstallmentOption {
    */
   public CheckoutSessionInstallmentOption preselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
+    isSetPreselectedValue = true; // mark as set
     return this;
   }
 
@@ -190,6 +210,7 @@ public class CheckoutSessionInstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreselectedValue(Integer preselectedValue) {
     this.preselectedValue = preselectedValue;
+    isSetPreselectedValue = true; // mark as set
   }
 
   /**
@@ -203,6 +224,7 @@ public class CheckoutSessionInstallmentOption {
    */
   public CheckoutSessionInstallmentOption values(List<Integer> values) {
     this.values = values;
+    isSetValues = true; // mark as set
     return this;
   }
 
@@ -238,6 +260,27 @@ public class CheckoutSessionInstallmentOption {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Integer> values) {
     this.values = values;
+    isSetValues = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutSessionInstallmentOption includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutSessionInstallmentOption object is equal to o. */
@@ -252,13 +295,18 @@ public class CheckoutSessionInstallmentOption {
     CheckoutSessionInstallmentOption checkoutSessionInstallmentOption =
         (CheckoutSessionInstallmentOption) o;
     return Objects.equals(this.plans, checkoutSessionInstallmentOption.plans)
+        && Objects.equals(this.isSetPlans, checkoutSessionInstallmentOption.isSetPlans)
         && Objects.equals(this.preselectedValue, checkoutSessionInstallmentOption.preselectedValue)
-        && Objects.equals(this.values, checkoutSessionInstallmentOption.values);
+        && Objects.equals(
+            this.isSetPreselectedValue, checkoutSessionInstallmentOption.isSetPreselectedValue)
+        && Objects.equals(this.values, checkoutSessionInstallmentOption.values)
+        && Objects.equals(this.isSetValues, checkoutSessionInstallmentOption.isSetValues);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(plans, preselectedValue, values);
+    return Objects.hash(
+        plans, isSetPlans, preselectedValue, isSetPreselectedValue, values, isSetValues);
   }
 
   @Override
@@ -280,6 +328,36 @@ public class CheckoutSessionInstallmentOption {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPlans) {
+      addIfNull(nulls, JSON_PROPERTY_PLANS, this.plans);
+    }
+    if (isSetPreselectedValue) {
+      addIfNull(nulls, JSON_PROPERTY_PRESELECTED_VALUE, this.preselectedValue);
+    }
+    if (isSetValues) {
+      addIfNull(nulls, JSON_PROPERTY_VALUES, this.values);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

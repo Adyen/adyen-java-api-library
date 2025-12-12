@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class PaymentValidationsNameResponse {
   public static final String JSON_PROPERTY_RAW_RESPONSE = "rawResponse";
   private PaymentValidationsNameResultRawResponse rawResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRawResponse = false;
+
   public static final String JSON_PROPERTY_RESULT = "result";
   private PaymentValidationsNameResultResponse result;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResult = false;
 
   /**
    * Informs you if the name validation was performed. Possible values: **performed**,
@@ -83,6 +91,15 @@ public class PaymentValidationsNameResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PaymentValidationsNameResponse() {}
 
   /**
@@ -95,6 +112,7 @@ public class PaymentValidationsNameResponse {
   public PaymentValidationsNameResponse rawResponse(
       PaymentValidationsNameResultRawResponse rawResponse) {
     this.rawResponse = rawResponse;
+    isSetRawResponse = true; // mark as set
     return this;
   }
 
@@ -118,6 +136,7 @@ public class PaymentValidationsNameResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRawResponse(PaymentValidationsNameResultRawResponse rawResponse) {
     this.rawResponse = rawResponse;
+    isSetRawResponse = true; // mark as set
   }
 
   /**
@@ -129,6 +148,7 @@ public class PaymentValidationsNameResponse {
    */
   public PaymentValidationsNameResponse result(PaymentValidationsNameResultResponse result) {
     this.result = result;
+    isSetResult = true; // mark as set
     return this;
   }
 
@@ -152,6 +172,7 @@ public class PaymentValidationsNameResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(PaymentValidationsNameResultResponse result) {
     this.result = result;
+    isSetResult = true; // mark as set
   }
 
   /**
@@ -165,6 +186,7 @@ public class PaymentValidationsNameResponse {
    */
   public PaymentValidationsNameResponse status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -192,6 +214,27 @@ public class PaymentValidationsNameResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentValidationsNameResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentValidationsNameResponse object is equal to o. */
@@ -206,13 +249,16 @@ public class PaymentValidationsNameResponse {
     PaymentValidationsNameResponse paymentValidationsNameResponse =
         (PaymentValidationsNameResponse) o;
     return Objects.equals(this.rawResponse, paymentValidationsNameResponse.rawResponse)
+        && Objects.equals(this.isSetRawResponse, paymentValidationsNameResponse.isSetRawResponse)
         && Objects.equals(this.result, paymentValidationsNameResponse.result)
-        && Objects.equals(this.status, paymentValidationsNameResponse.status);
+        && Objects.equals(this.isSetResult, paymentValidationsNameResponse.isSetResult)
+        && Objects.equals(this.status, paymentValidationsNameResponse.status)
+        && Objects.equals(this.isSetStatus, paymentValidationsNameResponse.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rawResponse, result, status);
+    return Objects.hash(rawResponse, isSetRawResponse, result, isSetResult, status, isSetStatus);
   }
 
   @Override
@@ -234,6 +280,36 @@ public class PaymentValidationsNameResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetRawResponse) {
+      addIfNull(nulls, JSON_PROPERTY_RAW_RESPONSE, this.rawResponse);
+    }
+    if (isSetResult) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT, this.result);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

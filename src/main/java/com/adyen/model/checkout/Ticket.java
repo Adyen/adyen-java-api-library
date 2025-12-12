@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,11 +30,26 @@ public class Ticket {
   public static final String JSON_PROPERTY_ISSUE_ADDRESS = "issueAddress";
   private String issueAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssueAddress = false;
+
   public static final String JSON_PROPERTY_ISSUE_DATE = "issueDate";
   private LocalDate issueDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssueDate = false;
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Ticket() {}
 
@@ -46,6 +63,7 @@ public class Ticket {
    */
   public Ticket issueAddress(String issueAddress) {
     this.issueAddress = issueAddress;
+    isSetIssueAddress = true; // mark as set
     return this;
   }
 
@@ -73,6 +91,7 @@ public class Ticket {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssueAddress(String issueAddress) {
     this.issueAddress = issueAddress;
+    isSetIssueAddress = true; // mark as set
   }
 
   /**
@@ -86,6 +105,7 @@ public class Ticket {
    */
   public Ticket issueDate(LocalDate issueDate) {
     this.issueDate = issueDate;
+    isSetIssueDate = true; // mark as set
     return this;
   }
 
@@ -115,6 +135,7 @@ public class Ticket {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssueDate(LocalDate issueDate) {
     this.issueDate = issueDate;
+    isSetIssueDate = true; // mark as set
   }
 
   /**
@@ -127,6 +148,7 @@ public class Ticket {
    */
   public Ticket number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -154,6 +176,27 @@ public class Ticket {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Ticket includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Ticket object is equal to o. */
@@ -167,13 +210,17 @@ public class Ticket {
     }
     Ticket ticket = (Ticket) o;
     return Objects.equals(this.issueAddress, ticket.issueAddress)
+        && Objects.equals(this.isSetIssueAddress, ticket.isSetIssueAddress)
         && Objects.equals(this.issueDate, ticket.issueDate)
-        && Objects.equals(this.number, ticket.number);
+        && Objects.equals(this.isSetIssueDate, ticket.isSetIssueDate)
+        && Objects.equals(this.number, ticket.number)
+        && Objects.equals(this.isSetNumber, ticket.isSetNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(issueAddress, issueDate, number);
+    return Objects.hash(
+        issueAddress, isSetIssueAddress, issueDate, isSetIssueDate, number, isSetNumber);
   }
 
   @Override
@@ -195,6 +242,36 @@ public class Ticket {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetIssueAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUE_ADDRESS, this.issueAddress);
+    }
+    if (isSetIssueDate) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUE_DATE, this.issueDate);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

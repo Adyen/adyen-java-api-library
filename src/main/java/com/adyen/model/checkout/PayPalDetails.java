@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,27 +40,51 @@ public class PayPalDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
+
   public static final String JSON_PROPERTY_ORDER_I_D = "orderID";
   private String orderID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderID = false;
 
   public static final String JSON_PROPERTY_PAYEE_PREFERRED = "payeePreferred";
   private String payeePreferred;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayeePreferred = false;
+
   public static final String JSON_PROPERTY_PAYER_I_D = "payerID";
   private String payerID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayerID = false;
+
   public static final String JSON_PROPERTY_PAYER_SELECTED = "payerSelected";
   private String payerSelected;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayerSelected = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
 
   /** The type of flow to initiate. */
   public enum SubtypeEnum {
@@ -106,6 +132,9 @@ public class PayPalDetails {
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SubtypeEnum subtype;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubtype = false;
+
   /** **paypal** */
   public enum TypeEnum {
     PAYPAL(String.valueOf("paypal"));
@@ -148,6 +177,15 @@ public class PayPalDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PayPalDetails() {}
 
   /**
@@ -158,6 +196,7 @@ public class PayPalDetails {
    */
   public PayPalDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -181,6 +220,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -191,6 +231,7 @@ public class PayPalDetails {
    */
   public PayPalDetails orderID(String orderID) {
     this.orderID = orderID;
+    isSetOrderID = true; // mark as set
     return this;
   }
 
@@ -214,6 +255,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderID(String orderID) {
     this.orderID = orderID;
+    isSetOrderID = true; // mark as set
   }
 
   /**
@@ -224,6 +266,7 @@ public class PayPalDetails {
    */
   public PayPalDetails payeePreferred(String payeePreferred) {
     this.payeePreferred = payeePreferred;
+    isSetPayeePreferred = true; // mark as set
     return this;
   }
 
@@ -247,6 +290,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayeePreferred(String payeePreferred) {
     this.payeePreferred = payeePreferred;
+    isSetPayeePreferred = true; // mark as set
   }
 
   /**
@@ -257,6 +301,7 @@ public class PayPalDetails {
    */
   public PayPalDetails payerID(String payerID) {
     this.payerID = payerID;
+    isSetPayerID = true; // mark as set
     return this;
   }
 
@@ -280,6 +325,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerID(String payerID) {
     this.payerID = payerID;
+    isSetPayerID = true; // mark as set
   }
 
   /**
@@ -290,6 +336,7 @@ public class PayPalDetails {
    */
   public PayPalDetails payerSelected(String payerSelected) {
     this.payerSelected = payerSelected;
+    isSetPayerSelected = true; // mark as set
     return this;
   }
 
@@ -313,6 +360,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerSelected(String payerSelected) {
     this.payerSelected = payerSelected;
+    isSetPayerSelected = true; // mark as set
   }
 
   /**
@@ -327,6 +375,7 @@ public class PayPalDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public PayPalDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -358,6 +407,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -368,6 +418,7 @@ public class PayPalDetails {
    */
   public PayPalDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -392,6 +443,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -404,6 +456,7 @@ public class PayPalDetails {
    */
   public PayPalDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -431,6 +484,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -441,6 +495,7 @@ public class PayPalDetails {
    */
   public PayPalDetails subtype(SubtypeEnum subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
     return this;
   }
 
@@ -464,6 +519,7 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(SubtypeEnum subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
   }
 
   /**
@@ -474,6 +530,7 @@ public class PayPalDetails {
    */
   public PayPalDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -497,6 +554,27 @@ public class PayPalDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PayPalDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PayPalDetails object is equal to o. */
@@ -510,30 +588,51 @@ public class PayPalDetails {
     }
     PayPalDetails payPalDetails = (PayPalDetails) o;
     return Objects.equals(this.checkoutAttemptId, payPalDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, payPalDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.orderID, payPalDetails.orderID)
+        && Objects.equals(this.isSetOrderID, payPalDetails.isSetOrderID)
         && Objects.equals(this.payeePreferred, payPalDetails.payeePreferred)
+        && Objects.equals(this.isSetPayeePreferred, payPalDetails.isSetPayeePreferred)
         && Objects.equals(this.payerID, payPalDetails.payerID)
+        && Objects.equals(this.isSetPayerID, payPalDetails.isSetPayerID)
         && Objects.equals(this.payerSelected, payPalDetails.payerSelected)
+        && Objects.equals(this.isSetPayerSelected, payPalDetails.isSetPayerSelected)
         && Objects.equals(this.recurringDetailReference, payPalDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, payPalDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, payPalDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, payPalDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, payPalDetails.storedPaymentMethodId)
+        && Objects.equals(this.isSetStoredPaymentMethodId, payPalDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.subtype, payPalDetails.subtype)
-        && Objects.equals(this.type, payPalDetails.type);
+        && Objects.equals(this.isSetSubtype, payPalDetails.isSetSubtype)
+        && Objects.equals(this.type, payPalDetails.type)
+        && Objects.equals(this.isSetType, payPalDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         orderID,
+        isSetOrderID,
         payeePreferred,
+        isSetPayeePreferred,
         payerID,
+        isSetPayerID,
         payerSelected,
+        isSetPayerSelected,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         subtype,
-        type);
+        isSetSubtype,
+        type,
+        isSetType);
   }
 
   @Override
@@ -566,6 +665,57 @@ public class PayPalDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetOrderID) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_I_D, this.orderID);
+    }
+    if (isSetPayeePreferred) {
+      addIfNull(nulls, JSON_PROPERTY_PAYEE_PREFERRED, this.payeePreferred);
+    }
+    if (isSetPayerID) {
+      addIfNull(nulls, JSON_PROPERTY_PAYER_I_D, this.payerID);
+    }
+    if (isSetPayerSelected) {
+      addIfNull(nulls, JSON_PROPERTY_PAYER_SELECTED, this.payerSelected);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetSubtype) {
+      addIfNull(nulls, JSON_PROPERTY_SUBTYPE, this.subtype);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

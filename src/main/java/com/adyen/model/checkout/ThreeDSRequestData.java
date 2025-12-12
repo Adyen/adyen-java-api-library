@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -83,6 +85,9 @@ public class ThreeDSRequestData {
   public static final String JSON_PROPERTY_CHALLENGE_WINDOW_SIZE = "challengeWindowSize";
   private ChallengeWindowSizeEnum challengeWindowSize;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeWindowSize = false;
+
   /**
    * Required to trigger the [data-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
@@ -130,6 +135,9 @@ public class ThreeDSRequestData {
 
   public static final String JSON_PROPERTY_DATA_ONLY = "dataOnly";
   private DataOnlyEnum dataOnly;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDataOnly = false;
 
   /**
    * Indicates if [native 3D Secure
@@ -182,6 +190,9 @@ public class ThreeDSRequestData {
   public static final String JSON_PROPERTY_NATIVE_THREE_D_S = "nativeThreeDS";
   private NativeThreeDSEnum nativeThreeDS;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNativeThreeDS = false;
+
   /** The version of 3D Secure to use. Possible values: * **2.1.0** * **2.2.0** */
   public enum ThreeDSVersionEnum {
     _2_1_0(String.valueOf("2.1.0")),
@@ -226,6 +237,15 @@ public class ThreeDSRequestData {
   public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private ThreeDSVersionEnum threeDSVersion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public ThreeDSRequestData() {}
 
   /**
@@ -240,6 +260,7 @@ public class ThreeDSRequestData {
    */
   public ThreeDSRequestData challengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
     this.challengeWindowSize = challengeWindowSize;
+    isSetChallengeWindowSize = true; // mark as set
     return this;
   }
 
@@ -271,6 +292,7 @@ public class ThreeDSRequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
     this.challengeWindowSize = challengeWindowSize;
+    isSetChallengeWindowSize = true; // mark as set
   }
 
   /**
@@ -285,6 +307,7 @@ public class ThreeDSRequestData {
    */
   public ThreeDSRequestData dataOnly(DataOnlyEnum dataOnly) {
     this.dataOnly = dataOnly;
+    isSetDataOnly = true; // mark as set
     return this;
   }
 
@@ -316,6 +339,7 @@ public class ThreeDSRequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataOnly(DataOnlyEnum dataOnly) {
     this.dataOnly = dataOnly;
+    isSetDataOnly = true; // mark as set
   }
 
   /**
@@ -336,6 +360,7 @@ public class ThreeDSRequestData {
    */
   public ThreeDSRequestData nativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
     this.nativeThreeDS = nativeThreeDS;
+    isSetNativeThreeDS = true; // mark as set
     return this;
   }
 
@@ -379,6 +404,7 @@ public class ThreeDSRequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
     this.nativeThreeDS = nativeThreeDS;
+    isSetNativeThreeDS = true; // mark as set
   }
 
   /**
@@ -389,6 +415,7 @@ public class ThreeDSRequestData {
    */
   public ThreeDSRequestData threeDSVersion(ThreeDSVersionEnum threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
     return this;
   }
 
@@ -413,6 +440,27 @@ public class ThreeDSRequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(ThreeDSVersionEnum threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDSRequestData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDSRequestData object is equal to o. */
@@ -426,14 +474,27 @@ public class ThreeDSRequestData {
     }
     ThreeDSRequestData threeDSRequestData = (ThreeDSRequestData) o;
     return Objects.equals(this.challengeWindowSize, threeDSRequestData.challengeWindowSize)
+        && Objects.equals(
+            this.isSetChallengeWindowSize, threeDSRequestData.isSetChallengeWindowSize)
         && Objects.equals(this.dataOnly, threeDSRequestData.dataOnly)
+        && Objects.equals(this.isSetDataOnly, threeDSRequestData.isSetDataOnly)
         && Objects.equals(this.nativeThreeDS, threeDSRequestData.nativeThreeDS)
-        && Objects.equals(this.threeDSVersion, threeDSRequestData.threeDSVersion);
+        && Objects.equals(this.isSetNativeThreeDS, threeDSRequestData.isSetNativeThreeDS)
+        && Objects.equals(this.threeDSVersion, threeDSRequestData.threeDSVersion)
+        && Objects.equals(this.isSetThreeDSVersion, threeDSRequestData.isSetThreeDSVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(challengeWindowSize, dataOnly, nativeThreeDS, threeDSVersion);
+    return Objects.hash(
+        challengeWindowSize,
+        isSetChallengeWindowSize,
+        dataOnly,
+        isSetDataOnly,
+        nativeThreeDS,
+        isSetNativeThreeDS,
+        threeDSVersion,
+        isSetThreeDSVersion);
   }
 
   @Override
@@ -458,6 +519,39 @@ public class ThreeDSRequestData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetChallengeWindowSize) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_WINDOW_SIZE, this.challengeWindowSize);
+    }
+    if (isSetDataOnly) {
+      addIfNull(nulls, JSON_PROPERTY_DATA_ONLY, this.dataOnly);
+    }
+    if (isSetNativeThreeDS) {
+      addIfNull(nulls, JSON_PROPERTY_NATIVE_THREE_D_S, this.nativeThreeDS);
+    }
+    if (isSetThreeDSVersion) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_VERSION, this.threeDSVersion);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

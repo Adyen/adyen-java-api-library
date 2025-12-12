@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -95,32 +97,62 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_ACCOUNT_INFO = "accountInfo";
   private AccountInfo accountInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountInfo = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_AMOUNT = "additionalAmount";
   private Amount additionalAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalAmount = false;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
   private List<String> allowedPaymentMethods;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedPaymentMethods = false;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_DATA = "authenticationData";
   private AuthenticationData authenticationData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationData = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private BillingAddress billingAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
   private List<String> blockedPaymentMethods;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBlockedPaymentMethods = false;
+
   public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCaptureDelayHours = false;
 
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out
@@ -173,59 +205,116 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_CHANNEL = "channel";
   private ChannelEnum channel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChannel = false;
+
   public static final String JSON_PROPERTY_COMPANY = "company";
   private Company company;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompany = false;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
+
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
 
   public static final String JSON_PROPERTY_DELIVER_AT = "deliverAt";
   private OffsetDateTime deliverAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliverAt = false;
+
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private DeliveryAddress deliveryAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddress = false;
 
   public static final String JSON_PROPERTY_ENABLE_ONE_CLICK = "enableOneClick";
   private Boolean enableOneClick;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnableOneClick = false;
+
   public static final String JSON_PROPERTY_ENABLE_PAY_OUT = "enablePayOut";
   private Boolean enablePayOut;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnablePayOut = false;
 
   public static final String JSON_PROPERTY_ENABLE_RECURRING = "enableRecurring";
   private Boolean enableRecurring;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnableRecurring = false;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
 
   public static final String JSON_PROPERTY_FUND_ORIGIN = "fundOrigin";
   private FundOrigin fundOrigin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundOrigin = false;
+
   public static final String JSON_PROPERTY_FUND_RECIPIENT = "fundRecipient";
   private FundRecipient fundRecipient;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundRecipient = false;
 
   public static final String JSON_PROPERTY_INSTALLMENT_OPTIONS = "installmentOptions";
   private Map<String, CheckoutSessionInstallmentOption> installmentOptions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentOptions = false;
+
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
 
   public static final String JSON_PROPERTY_MANDATE = "mandate";
   private Mandate mandate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMandate = false;
+
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcc = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
   private String merchantOrderReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantOrderReference = false;
+
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMetadata = false;
 
   /**
    * Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in
@@ -274,17 +363,32 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_MODE = "mode";
   private ModeEnum mode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMode = false;
+
   public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMpiData = false;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlatformChargebackLogic = false;
+
   public static final String JSON_PROPERTY_RECURRING_EXPIRY = "recurringExpiry";
   private String recurringExpiry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringExpiry = false;
+
   public static final String JSON_PROPERTY_RECURRING_FREQUENCY = "recurringFrequency";
   private String recurringFrequency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringFrequency = false;
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details.
@@ -343,26 +447,50 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringProcessingModel = false;
+
   public static final String JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD = "redirectFromIssuerMethod";
   private String redirectFromIssuerMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRedirectFromIssuerMethod = false;
 
   public static final String JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD = "redirectToIssuerMethod";
   private String redirectToIssuerMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRedirectToIssuerMethod = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_RETURN_URL = "returnUrl";
   private String returnUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnUrl = false;
+
   public static final String JSON_PROPERTY_RISK_DATA = "riskData";
   private RiskData riskData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskData = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
   private String shopperIP;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperIP = false;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether
@@ -424,36 +552,69 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperLocale = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private ShopperName shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
 
   public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperStatement = false;
+
   public static final String JSON_PROPERTY_SHOW_INSTALLMENT_AMOUNT = "showInstallmentAmount";
   private Boolean showInstallmentAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShowInstallmentAmount = false;
 
   public static final String JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON =
       "showRemovePaymentMethodButton";
   private Boolean showRemovePaymentMethodButton;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShowRemovePaymentMethodButton = false;
+
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
 
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
   private Boolean splitCardFundingSources;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitCardFundingSources = false;
+
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
+
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
 
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter: -
@@ -506,8 +667,14 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_STORE_FILTRATION_MODE = "storeFiltrationMode";
   private StoreFiltrationModeEnum storeFiltrationMode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreFiltrationMode = false;
+
   public static final String JSON_PROPERTY_STORE_PAYMENT_METHOD = "storePaymentMethod";
   private Boolean storePaymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStorePaymentMethod = false;
 
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
@@ -561,14 +728,26 @@ public class CreateCheckoutSessionRequest {
   public static final String JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE = "storePaymentMethodMode";
   private StorePaymentMethodModeEnum storePaymentMethodMode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStorePaymentMethodMode = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
 
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThemeId = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2RequestData = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY =
       "threeDSAuthenticationOnly";
@@ -576,8 +755,20 @@ public class CreateCheckoutSessionRequest {
   // `authenticationData.authenticationOnly` instead.
   private Boolean threeDSAuthenticationOnly;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSAuthenticationOnly = false;
+
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrustedShopper = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateCheckoutSessionRequest() {}
 
@@ -589,6 +780,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest accountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+    isSetAccountInfo = true; // mark as set
     return this;
   }
 
@@ -612,6 +804,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+    isSetAccountInfo = true; // mark as set
   }
 
   /**
@@ -622,6 +815,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest additionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
+    isSetAdditionalAmount = true; // mark as set
     return this;
   }
 
@@ -645,6 +839,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalAmount(Amount additionalAmount) {
     this.additionalAmount = additionalAmount;
+    isSetAdditionalAmount = true; // mark as set
   }
 
   /**
@@ -659,6 +854,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -698,6 +894,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -713,6 +910,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
+    isSetAllowedPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -755,6 +953,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
+    isSetAllowedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -765,6 +964,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -788,6 +988,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -798,6 +999,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -821,6 +1023,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -831,6 +1034,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest authenticationData(AuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+    isSetAuthenticationData = true; // mark as set
     return this;
   }
 
@@ -854,6 +1058,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationData(AuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+    isSetAuthenticationData = true; // mark as set
   }
 
   /**
@@ -864,6 +1069,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest billingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -887,6 +1093,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -902,6 +1109,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+    isSetBlockedPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -944,6 +1152,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+    isSetBlockedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -955,6 +1164,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
+    isSetCaptureDelayHours = true; // mark as set
     return this;
   }
 
@@ -980,6 +1190,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
+    isSetCaptureDelayHours = true; // mark as set
   }
 
   /**
@@ -996,6 +1207,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest channel(ChannelEnum channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
     return this;
   }
 
@@ -1031,6 +1243,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(ChannelEnum channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
   }
 
   /**
@@ -1041,6 +1254,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest company(Company company) {
     this.company = company;
+    isSetCompany = true; // mark as set
     return this;
   }
 
@@ -1064,6 +1278,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(Company company) {
     this.company = company;
+    isSetCompany = true; // mark as set
   }
 
   /**
@@ -1074,6 +1289,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -1097,6 +1313,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -1109,6 +1326,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -1136,6 +1354,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -1150,6 +1369,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest deliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
+    isSetDeliverAt = true; // mark as set
     return this;
   }
 
@@ -1181,6 +1401,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
+    isSetDeliverAt = true; // mark as set
   }
 
   /**
@@ -1191,6 +1412,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest deliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
     return this;
   }
 
@@ -1214,6 +1436,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
   }
 
   /**
@@ -1228,6 +1451,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest enableOneClick(Boolean enableOneClick) {
     this.enableOneClick = enableOneClick;
+    isSetEnableOneClick = true; // mark as set
     return this;
   }
 
@@ -1259,6 +1483,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableOneClick(Boolean enableOneClick) {
     this.enableOneClick = enableOneClick;
+    isSetEnableOneClick = true; // mark as set
   }
 
   /**
@@ -1271,6 +1496,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest enablePayOut(Boolean enablePayOut) {
     this.enablePayOut = enablePayOut;
+    isSetEnablePayOut = true; // mark as set
     return this;
   }
 
@@ -1298,6 +1524,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayOut(Boolean enablePayOut) {
     this.enablePayOut = enablePayOut;
+    isSetEnablePayOut = true; // mark as set
   }
 
   /**
@@ -1314,6 +1541,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest enableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
+    isSetEnableRecurring = true; // mark as set
     return this;
   }
 
@@ -1349,6 +1577,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
+    isSetEnableRecurring = true; // mark as set
   }
 
   /**
@@ -1365,6 +1594,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
     return this;
   }
 
@@ -1400,6 +1630,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
   }
 
   /**
@@ -1410,6 +1641,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest fundOrigin(FundOrigin fundOrigin) {
     this.fundOrigin = fundOrigin;
+    isSetFundOrigin = true; // mark as set
     return this;
   }
 
@@ -1433,6 +1665,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundOrigin(FundOrigin fundOrigin) {
     this.fundOrigin = fundOrigin;
+    isSetFundOrigin = true; // mark as set
   }
 
   /**
@@ -1443,6 +1676,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest fundRecipient(FundRecipient fundRecipient) {
     this.fundRecipient = fundRecipient;
+    isSetFundRecipient = true; // mark as set
     return this;
   }
 
@@ -1466,6 +1700,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundRecipient(FundRecipient fundRecipient) {
     this.fundRecipient = fundRecipient;
+    isSetFundRecipient = true; // mark as set
   }
 
   /**
@@ -1483,6 +1718,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest installmentOptions(
       Map<String, CheckoutSessionInstallmentOption> installmentOptions) {
     this.installmentOptions = installmentOptions;
+    isSetInstallmentOptions = true; // mark as set
     return this;
   }
 
@@ -1528,6 +1764,7 @@ public class CreateCheckoutSessionRequest {
   public void setInstallmentOptions(
       Map<String, CheckoutSessionInstallmentOption> installmentOptions) {
     this.installmentOptions = installmentOptions;
+    isSetInstallmentOptions = true; // mark as set
   }
 
   /**
@@ -1542,6 +1779,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -1581,6 +1819,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -1591,6 +1830,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest mandate(Mandate mandate) {
     this.mandate = mandate;
+    isSetMandate = true; // mark as set
     return this;
   }
 
@@ -1614,6 +1854,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMandate(Mandate mandate) {
     this.mandate = mandate;
+    isSetMandate = true; // mark as set
   }
 
   /**
@@ -1628,6 +1869,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest mcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -1659,6 +1901,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
   }
 
   /**
@@ -1670,6 +1913,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -1695,6 +1939,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -1719,6 +1964,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
+    isSetMerchantOrderReference = true; // mark as set
     return this;
   }
 
@@ -1771,6 +2017,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
+    isSetMerchantOrderReference = true; // mark as set
   }
 
   /**
@@ -1785,6 +2032,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
     return this;
   }
 
@@ -1824,6 +2072,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
   }
 
   /**
@@ -1836,6 +2085,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest mode(ModeEnum mode) {
     this.mode = mode;
+    isSetMode = true; // mark as set
     return this;
   }
 
@@ -1863,6 +2113,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMode(ModeEnum mode) {
     this.mode = mode;
+    isSetMode = true; // mark as set
   }
 
   /**
@@ -1873,6 +2124,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest mpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
+    isSetMpiData = true; // mark as set
     return this;
   }
 
@@ -1896,6 +2148,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
+    isSetMpiData = true; // mark as set
   }
 
   /**
@@ -1907,6 +2160,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest platformChargebackLogic(
       PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
     return this;
   }
 
@@ -1930,6 +2184,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
   }
 
   /**
@@ -1941,6 +2196,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest recurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
+    isSetRecurringExpiry = true; // mark as set
     return this;
   }
 
@@ -1966,6 +2222,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
+    isSetRecurringExpiry = true; // mark as set
   }
 
   /**
@@ -1976,6 +2233,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest recurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
+    isSetRecurringFrequency = true; // mark as set
     return this;
   }
 
@@ -1999,6 +2257,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
+    isSetRecurringFrequency = true; // mark as set
   }
 
   /**
@@ -2026,6 +2285,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest recurringProcessingModel(
       RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
     return this;
   }
 
@@ -2081,6 +2341,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
   }
 
   /**
@@ -2092,6 +2353,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
     this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    isSetRedirectFromIssuerMethod = true; // mark as set
     return this;
   }
 
@@ -2117,6 +2379,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectFromIssuerMethod(String redirectFromIssuerMethod) {
     this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    isSetRedirectFromIssuerMethod = true; // mark as set
   }
 
   /**
@@ -2128,6 +2391,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
     this.redirectToIssuerMethod = redirectToIssuerMethod;
+    isSetRedirectToIssuerMethod = true; // mark as set
     return this;
   }
 
@@ -2153,6 +2417,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectToIssuerMethod(String redirectToIssuerMethod) {
     this.redirectToIssuerMethod = redirectToIssuerMethod;
+    isSetRedirectToIssuerMethod = true; // mark as set
   }
 
   /**
@@ -2163,6 +2428,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -2186,6 +2452,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -2223,6 +2490,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
+    isSetReturnUrl = true; // mark as set
     return this;
   }
 
@@ -2300,6 +2568,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
+    isSetReturnUrl = true; // mark as set
   }
 
   /**
@@ -2310,6 +2579,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest riskData(RiskData riskData) {
     this.riskData = riskData;
+    isSetRiskData = true; // mark as set
     return this;
   }
 
@@ -2333,6 +2603,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskData(RiskData riskData) {
     this.riskData = riskData;
+    isSetRiskData = true; // mark as set
   }
 
   /**
@@ -2343,6 +2614,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -2366,6 +2638,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -2389,6 +2662,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
     return this;
   }
 
@@ -2438,6 +2712,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
   }
 
   /**
@@ -2470,6 +2745,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest shopperInteraction(
       ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -2535,6 +2811,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -2547,6 +2824,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
     return this;
   }
 
@@ -2574,6 +2852,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
   }
 
   /**
@@ -2584,6 +2863,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest shopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -2607,6 +2887,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -2622,6 +2903,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -2655,6 +2937,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -2670,6 +2953,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
     return this;
   }
 
@@ -2703,6 +2987,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
   }
 
   /**
@@ -2713,6 +2998,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest showInstallmentAmount(Boolean showInstallmentAmount) {
     this.showInstallmentAmount = showInstallmentAmount;
+    isSetShowInstallmentAmount = true; // mark as set
     return this;
   }
 
@@ -2736,6 +3022,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowInstallmentAmount(Boolean showInstallmentAmount) {
     this.showInstallmentAmount = showInstallmentAmount;
+    isSetShowInstallmentAmount = true; // mark as set
   }
 
   /**
@@ -2748,6 +3035,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest showRemovePaymentMethodButton(
       Boolean showRemovePaymentMethodButton) {
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
+    isSetShowRemovePaymentMethodButton = true; // mark as set
     return this;
   }
 
@@ -2773,6 +3061,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
+    isSetShowRemovePaymentMethodButton = true; // mark as set
   }
 
   /**
@@ -2783,6 +3072,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -2806,6 +3096,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
   }
 
   /**
@@ -2818,6 +3109,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest splitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
+    isSetSplitCardFundingSources = true; // mark as set
     return this;
   }
 
@@ -2845,6 +3137,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
+    isSetSplitCardFundingSources = true; // mark as set
   }
 
   /**
@@ -2863,6 +3156,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -2910,6 +3204,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -2933,6 +3228,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -2982,6 +3278,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
   }
 
   /**
@@ -2999,6 +3296,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest storeFiltrationMode(
       StoreFiltrationModeEnum storeFiltrationMode) {
     this.storeFiltrationMode = storeFiltrationMode;
+    isSetStoreFiltrationMode = true; // mark as set
     return this;
   }
 
@@ -3034,6 +3332,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
     this.storeFiltrationMode = storeFiltrationMode;
+    isSetStoreFiltrationMode = true; // mark as set
   }
 
   /**
@@ -3048,6 +3347,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest storePaymentMethod(Boolean storePaymentMethod) {
     this.storePaymentMethod = storePaymentMethod;
+    isSetStorePaymentMethod = true; // mark as set
     return this;
   }
 
@@ -3079,6 +3379,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorePaymentMethod(Boolean storePaymentMethod) {
     this.storePaymentMethod = storePaymentMethod;
+    isSetStorePaymentMethod = true; // mark as set
   }
 
   /**
@@ -3099,6 +3400,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest storePaymentMethodMode(
       StorePaymentMethodModeEnum storePaymentMethodMode) {
     this.storePaymentMethodMode = storePaymentMethodMode;
+    isSetStorePaymentMethodMode = true; // mark as set
     return this;
   }
 
@@ -3140,6 +3442,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
     this.storePaymentMethodMode = storePaymentMethodMode;
+    isSetStorePaymentMethodMode = true; // mark as set
   }
 
   /**
@@ -3158,6 +3461,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -3197,6 +3501,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -3211,6 +3516,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest themeId(String themeId) {
     this.themeId = themeId;
+    isSetThemeId = true; // mark as set
     return this;
   }
 
@@ -3242,6 +3548,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
     this.themeId = themeId;
+    isSetThemeId = true; // mark as set
   }
 
   /**
@@ -3253,6 +3560,7 @@ public class CreateCheckoutSessionRequest {
   public CreateCheckoutSessionRequest threeDS2RequestData(
       CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
     return this;
   }
 
@@ -3276,6 +3584,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
   }
 
   /**
@@ -3296,6 +3605,7 @@ public class CreateCheckoutSessionRequest {
   // `authenticationData.authenticationOnly` instead.
   public CreateCheckoutSessionRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
     return this;
   }
 
@@ -3339,6 +3649,7 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
   }
 
   /**
@@ -3349,6 +3660,7 @@ public class CreateCheckoutSessionRequest {
    */
   public CreateCheckoutSessionRequest trustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
+    isSetTrustedShopper = true; // mark as set
     return this;
   }
 
@@ -3372,6 +3684,27 @@ public class CreateCheckoutSessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedShopper(Boolean trustedShopper) {
     this.trustedShopper = trustedShopper;
+    isSetTrustedShopper = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateCheckoutSessionRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateCheckoutSessionRequest object is equal to o. */
@@ -3385,148 +3718,316 @@ public class CreateCheckoutSessionRequest {
     }
     CreateCheckoutSessionRequest createCheckoutSessionRequest = (CreateCheckoutSessionRequest) o;
     return Objects.equals(this.accountInfo, createCheckoutSessionRequest.accountInfo)
+        && Objects.equals(this.isSetAccountInfo, createCheckoutSessionRequest.isSetAccountInfo)
         && Objects.equals(this.additionalAmount, createCheckoutSessionRequest.additionalAmount)
+        && Objects.equals(
+            this.isSetAdditionalAmount, createCheckoutSessionRequest.isSetAdditionalAmount)
         && Objects.equals(this.additionalData, createCheckoutSessionRequest.additionalData)
         && Objects.equals(
+            this.isSetAdditionalData, createCheckoutSessionRequest.isSetAdditionalData)
+        && Objects.equals(
             this.allowedPaymentMethods, createCheckoutSessionRequest.allowedPaymentMethods)
+        && Objects.equals(
+            this.isSetAllowedPaymentMethods,
+            createCheckoutSessionRequest.isSetAllowedPaymentMethods)
         && Objects.equals(this.amount, createCheckoutSessionRequest.amount)
+        && Objects.equals(this.isSetAmount, createCheckoutSessionRequest.isSetAmount)
         && Objects.equals(this.applicationInfo, createCheckoutSessionRequest.applicationInfo)
+        && Objects.equals(
+            this.isSetApplicationInfo, createCheckoutSessionRequest.isSetApplicationInfo)
         && Objects.equals(this.authenticationData, createCheckoutSessionRequest.authenticationData)
+        && Objects.equals(
+            this.isSetAuthenticationData, createCheckoutSessionRequest.isSetAuthenticationData)
         && Objects.equals(this.billingAddress, createCheckoutSessionRequest.billingAddress)
         && Objects.equals(
+            this.isSetBillingAddress, createCheckoutSessionRequest.isSetBillingAddress)
+        && Objects.equals(
             this.blockedPaymentMethods, createCheckoutSessionRequest.blockedPaymentMethods)
+        && Objects.equals(
+            this.isSetBlockedPaymentMethods,
+            createCheckoutSessionRequest.isSetBlockedPaymentMethods)
         && Objects.equals(this.captureDelayHours, createCheckoutSessionRequest.captureDelayHours)
+        && Objects.equals(
+            this.isSetCaptureDelayHours, createCheckoutSessionRequest.isSetCaptureDelayHours)
         && Objects.equals(this.channel, createCheckoutSessionRequest.channel)
+        && Objects.equals(this.isSetChannel, createCheckoutSessionRequest.isSetChannel)
         && Objects.equals(this.company, createCheckoutSessionRequest.company)
+        && Objects.equals(this.isSetCompany, createCheckoutSessionRequest.isSetCompany)
         && Objects.equals(this.countryCode, createCheckoutSessionRequest.countryCode)
+        && Objects.equals(this.isSetCountryCode, createCheckoutSessionRequest.isSetCountryCode)
         && Objects.equals(this.dateOfBirth, createCheckoutSessionRequest.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, createCheckoutSessionRequest.isSetDateOfBirth)
         && Objects.equals(this.deliverAt, createCheckoutSessionRequest.deliverAt)
+        && Objects.equals(this.isSetDeliverAt, createCheckoutSessionRequest.isSetDeliverAt)
         && Objects.equals(this.deliveryAddress, createCheckoutSessionRequest.deliveryAddress)
+        && Objects.equals(
+            this.isSetDeliveryAddress, createCheckoutSessionRequest.isSetDeliveryAddress)
         && Objects.equals(this.enableOneClick, createCheckoutSessionRequest.enableOneClick)
+        && Objects.equals(
+            this.isSetEnableOneClick, createCheckoutSessionRequest.isSetEnableOneClick)
         && Objects.equals(this.enablePayOut, createCheckoutSessionRequest.enablePayOut)
+        && Objects.equals(this.isSetEnablePayOut, createCheckoutSessionRequest.isSetEnablePayOut)
         && Objects.equals(this.enableRecurring, createCheckoutSessionRequest.enableRecurring)
+        && Objects.equals(
+            this.isSetEnableRecurring, createCheckoutSessionRequest.isSetEnableRecurring)
         && Objects.equals(this.expiresAt, createCheckoutSessionRequest.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, createCheckoutSessionRequest.isSetExpiresAt)
         && Objects.equals(this.fundOrigin, createCheckoutSessionRequest.fundOrigin)
+        && Objects.equals(this.isSetFundOrigin, createCheckoutSessionRequest.isSetFundOrigin)
         && Objects.equals(this.fundRecipient, createCheckoutSessionRequest.fundRecipient)
+        && Objects.equals(this.isSetFundRecipient, createCheckoutSessionRequest.isSetFundRecipient)
         && Objects.equals(this.installmentOptions, createCheckoutSessionRequest.installmentOptions)
+        && Objects.equals(
+            this.isSetInstallmentOptions, createCheckoutSessionRequest.isSetInstallmentOptions)
         && Objects.equals(this.lineItems, createCheckoutSessionRequest.lineItems)
+        && Objects.equals(this.isSetLineItems, createCheckoutSessionRequest.isSetLineItems)
         && Objects.equals(this.mandate, createCheckoutSessionRequest.mandate)
+        && Objects.equals(this.isSetMandate, createCheckoutSessionRequest.isSetMandate)
         && Objects.equals(this.mcc, createCheckoutSessionRequest.mcc)
+        && Objects.equals(this.isSetMcc, createCheckoutSessionRequest.isSetMcc)
         && Objects.equals(this.merchantAccount, createCheckoutSessionRequest.merchantAccount)
         && Objects.equals(
+            this.isSetMerchantAccount, createCheckoutSessionRequest.isSetMerchantAccount)
+        && Objects.equals(
             this.merchantOrderReference, createCheckoutSessionRequest.merchantOrderReference)
+        && Objects.equals(
+            this.isSetMerchantOrderReference,
+            createCheckoutSessionRequest.isSetMerchantOrderReference)
         && Objects.equals(this.metadata, createCheckoutSessionRequest.metadata)
+        && Objects.equals(this.isSetMetadata, createCheckoutSessionRequest.isSetMetadata)
         && Objects.equals(this.mode, createCheckoutSessionRequest.mode)
+        && Objects.equals(this.isSetMode, createCheckoutSessionRequest.isSetMode)
         && Objects.equals(this.mpiData, createCheckoutSessionRequest.mpiData)
+        && Objects.equals(this.isSetMpiData, createCheckoutSessionRequest.isSetMpiData)
         && Objects.equals(
             this.platformChargebackLogic, createCheckoutSessionRequest.platformChargebackLogic)
+        && Objects.equals(
+            this.isSetPlatformChargebackLogic,
+            createCheckoutSessionRequest.isSetPlatformChargebackLogic)
         && Objects.equals(this.recurringExpiry, createCheckoutSessionRequest.recurringExpiry)
+        && Objects.equals(
+            this.isSetRecurringExpiry, createCheckoutSessionRequest.isSetRecurringExpiry)
         && Objects.equals(this.recurringFrequency, createCheckoutSessionRequest.recurringFrequency)
+        && Objects.equals(
+            this.isSetRecurringFrequency, createCheckoutSessionRequest.isSetRecurringFrequency)
         && Objects.equals(
             this.recurringProcessingModel, createCheckoutSessionRequest.recurringProcessingModel)
         && Objects.equals(
+            this.isSetRecurringProcessingModel,
+            createCheckoutSessionRequest.isSetRecurringProcessingModel)
+        && Objects.equals(
             this.redirectFromIssuerMethod, createCheckoutSessionRequest.redirectFromIssuerMethod)
         && Objects.equals(
+            this.isSetRedirectFromIssuerMethod,
+            createCheckoutSessionRequest.isSetRedirectFromIssuerMethod)
+        && Objects.equals(
             this.redirectToIssuerMethod, createCheckoutSessionRequest.redirectToIssuerMethod)
+        && Objects.equals(
+            this.isSetRedirectToIssuerMethod,
+            createCheckoutSessionRequest.isSetRedirectToIssuerMethod)
         && Objects.equals(this.reference, createCheckoutSessionRequest.reference)
+        && Objects.equals(this.isSetReference, createCheckoutSessionRequest.isSetReference)
         && Objects.equals(this.returnUrl, createCheckoutSessionRequest.returnUrl)
+        && Objects.equals(this.isSetReturnUrl, createCheckoutSessionRequest.isSetReturnUrl)
         && Objects.equals(this.riskData, createCheckoutSessionRequest.riskData)
+        && Objects.equals(this.isSetRiskData, createCheckoutSessionRequest.isSetRiskData)
         && Objects.equals(this.shopperEmail, createCheckoutSessionRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, createCheckoutSessionRequest.isSetShopperEmail)
         && Objects.equals(this.shopperIP, createCheckoutSessionRequest.shopperIP)
+        && Objects.equals(this.isSetShopperIP, createCheckoutSessionRequest.isSetShopperIP)
         && Objects.equals(this.shopperInteraction, createCheckoutSessionRequest.shopperInteraction)
+        && Objects.equals(
+            this.isSetShopperInteraction, createCheckoutSessionRequest.isSetShopperInteraction)
         && Objects.equals(this.shopperLocale, createCheckoutSessionRequest.shopperLocale)
+        && Objects.equals(this.isSetShopperLocale, createCheckoutSessionRequest.isSetShopperLocale)
         && Objects.equals(this.shopperName, createCheckoutSessionRequest.shopperName)
+        && Objects.equals(this.isSetShopperName, createCheckoutSessionRequest.isSetShopperName)
         && Objects.equals(this.shopperReference, createCheckoutSessionRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, createCheckoutSessionRequest.isSetShopperReference)
         && Objects.equals(this.shopperStatement, createCheckoutSessionRequest.shopperStatement)
         && Objects.equals(
+            this.isSetShopperStatement, createCheckoutSessionRequest.isSetShopperStatement)
+        && Objects.equals(
             this.showInstallmentAmount, createCheckoutSessionRequest.showInstallmentAmount)
+        && Objects.equals(
+            this.isSetShowInstallmentAmount,
+            createCheckoutSessionRequest.isSetShowInstallmentAmount)
         && Objects.equals(
             this.showRemovePaymentMethodButton,
             createCheckoutSessionRequest.showRemovePaymentMethodButton)
         && Objects.equals(
+            this.isSetShowRemovePaymentMethodButton,
+            createCheckoutSessionRequest.isSetShowRemovePaymentMethodButton)
+        && Objects.equals(
             this.socialSecurityNumber, createCheckoutSessionRequest.socialSecurityNumber)
         && Objects.equals(
+            this.isSetSocialSecurityNumber, createCheckoutSessionRequest.isSetSocialSecurityNumber)
+        && Objects.equals(
             this.splitCardFundingSources, createCheckoutSessionRequest.splitCardFundingSources)
+        && Objects.equals(
+            this.isSetSplitCardFundingSources,
+            createCheckoutSessionRequest.isSetSplitCardFundingSources)
         && Objects.equals(this.splits, createCheckoutSessionRequest.splits)
+        && Objects.equals(this.isSetSplits, createCheckoutSessionRequest.isSetSplits)
         && Objects.equals(this.store, createCheckoutSessionRequest.store)
+        && Objects.equals(this.isSetStore, createCheckoutSessionRequest.isSetStore)
         && Objects.equals(
             this.storeFiltrationMode, createCheckoutSessionRequest.storeFiltrationMode)
+        && Objects.equals(
+            this.isSetStoreFiltrationMode, createCheckoutSessionRequest.isSetStoreFiltrationMode)
         && Objects.equals(this.storePaymentMethod, createCheckoutSessionRequest.storePaymentMethod)
         && Objects.equals(
+            this.isSetStorePaymentMethod, createCheckoutSessionRequest.isSetStorePaymentMethod)
+        && Objects.equals(
             this.storePaymentMethodMode, createCheckoutSessionRequest.storePaymentMethodMode)
+        && Objects.equals(
+            this.isSetStorePaymentMethodMode,
+            createCheckoutSessionRequest.isSetStorePaymentMethodMode)
         && Objects.equals(this.telephoneNumber, createCheckoutSessionRequest.telephoneNumber)
+        && Objects.equals(
+            this.isSetTelephoneNumber, createCheckoutSessionRequest.isSetTelephoneNumber)
         && Objects.equals(this.themeId, createCheckoutSessionRequest.themeId)
+        && Objects.equals(this.isSetThemeId, createCheckoutSessionRequest.isSetThemeId)
         && Objects.equals(
             this.threeDS2RequestData, createCheckoutSessionRequest.threeDS2RequestData)
         && Objects.equals(
+            this.isSetThreeDS2RequestData, createCheckoutSessionRequest.isSetThreeDS2RequestData)
+        && Objects.equals(
             this.threeDSAuthenticationOnly, createCheckoutSessionRequest.threeDSAuthenticationOnly)
-        && Objects.equals(this.trustedShopper, createCheckoutSessionRequest.trustedShopper);
+        && Objects.equals(
+            this.isSetThreeDSAuthenticationOnly,
+            createCheckoutSessionRequest.isSetThreeDSAuthenticationOnly)
+        && Objects.equals(this.trustedShopper, createCheckoutSessionRequest.trustedShopper)
+        && Objects.equals(
+            this.isSetTrustedShopper, createCheckoutSessionRequest.isSetTrustedShopper);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountInfo,
+        isSetAccountInfo,
         additionalAmount,
+        isSetAdditionalAmount,
         additionalData,
+        isSetAdditionalData,
         allowedPaymentMethods,
+        isSetAllowedPaymentMethods,
         amount,
+        isSetAmount,
         applicationInfo,
+        isSetApplicationInfo,
         authenticationData,
+        isSetAuthenticationData,
         billingAddress,
+        isSetBillingAddress,
         blockedPaymentMethods,
+        isSetBlockedPaymentMethods,
         captureDelayHours,
+        isSetCaptureDelayHours,
         channel,
+        isSetChannel,
         company,
+        isSetCompany,
         countryCode,
+        isSetCountryCode,
         dateOfBirth,
+        isSetDateOfBirth,
         deliverAt,
+        isSetDeliverAt,
         deliveryAddress,
+        isSetDeliveryAddress,
         enableOneClick,
+        isSetEnableOneClick,
         enablePayOut,
+        isSetEnablePayOut,
         enableRecurring,
+        isSetEnableRecurring,
         expiresAt,
+        isSetExpiresAt,
         fundOrigin,
+        isSetFundOrigin,
         fundRecipient,
+        isSetFundRecipient,
         installmentOptions,
+        isSetInstallmentOptions,
         lineItems,
+        isSetLineItems,
         mandate,
+        isSetMandate,
         mcc,
+        isSetMcc,
         merchantAccount,
+        isSetMerchantAccount,
         merchantOrderReference,
+        isSetMerchantOrderReference,
         metadata,
+        isSetMetadata,
         mode,
+        isSetMode,
         mpiData,
+        isSetMpiData,
         platformChargebackLogic,
+        isSetPlatformChargebackLogic,
         recurringExpiry,
+        isSetRecurringExpiry,
         recurringFrequency,
+        isSetRecurringFrequency,
         recurringProcessingModel,
+        isSetRecurringProcessingModel,
         redirectFromIssuerMethod,
+        isSetRedirectFromIssuerMethod,
         redirectToIssuerMethod,
+        isSetRedirectToIssuerMethod,
         reference,
+        isSetReference,
         returnUrl,
+        isSetReturnUrl,
         riskData,
+        isSetRiskData,
         shopperEmail,
+        isSetShopperEmail,
         shopperIP,
+        isSetShopperIP,
         shopperInteraction,
+        isSetShopperInteraction,
         shopperLocale,
+        isSetShopperLocale,
         shopperName,
+        isSetShopperName,
         shopperReference,
+        isSetShopperReference,
         shopperStatement,
+        isSetShopperStatement,
         showInstallmentAmount,
+        isSetShowInstallmentAmount,
         showRemovePaymentMethodButton,
+        isSetShowRemovePaymentMethodButton,
         socialSecurityNumber,
+        isSetSocialSecurityNumber,
         splitCardFundingSources,
+        isSetSplitCardFundingSources,
         splits,
+        isSetSplits,
         store,
+        isSetStore,
         storeFiltrationMode,
+        isSetStoreFiltrationMode,
         storePaymentMethod,
+        isSetStorePaymentMethod,
         storePaymentMethodMode,
+        isSetStorePaymentMethodMode,
         telephoneNumber,
+        isSetTelephoneNumber,
         themeId,
+        isSetThemeId,
         threeDS2RequestData,
+        isSetThreeDS2RequestData,
         threeDSAuthenticationOnly,
-        trustedShopper);
+        isSetThreeDSAuthenticationOnly,
+        trustedShopper,
+        isSetTrustedShopper);
   }
 
   @Override
@@ -3636,6 +4137,213 @@ public class CreateCheckoutSessionRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountInfo) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_INFO, this.accountInfo);
+    }
+    if (isSetAdditionalAmount) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_AMOUNT, this.additionalAmount);
+    }
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAllowedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_PAYMENT_METHODS, this.allowedPaymentMethods);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetAuthenticationData) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_DATA, this.authenticationData);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetBlockedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_BLOCKED_PAYMENT_METHODS, this.blockedPaymentMethods);
+    }
+    if (isSetCaptureDelayHours) {
+      addIfNull(nulls, JSON_PROPERTY_CAPTURE_DELAY_HOURS, this.captureDelayHours);
+    }
+    if (isSetChannel) {
+      addIfNull(nulls, JSON_PROPERTY_CHANNEL, this.channel);
+    }
+    if (isSetCompany) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY, this.company);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetDeliverAt) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVER_AT, this.deliverAt);
+    }
+    if (isSetDeliveryAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
+    if (isSetEnableOneClick) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLE_ONE_CLICK, this.enableOneClick);
+    }
+    if (isSetEnablePayOut) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLE_PAY_OUT, this.enablePayOut);
+    }
+    if (isSetEnableRecurring) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLE_RECURRING, this.enableRecurring);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+    if (isSetFundOrigin) {
+      addIfNull(nulls, JSON_PROPERTY_FUND_ORIGIN, this.fundOrigin);
+    }
+    if (isSetFundRecipient) {
+      addIfNull(nulls, JSON_PROPERTY_FUND_RECIPIENT, this.fundRecipient);
+    }
+    if (isSetInstallmentOptions) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLMENT_OPTIONS, this.installmentOptions);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetMandate) {
+      addIfNull(nulls, JSON_PROPERTY_MANDATE, this.mandate);
+    }
+    if (isSetMcc) {
+      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetMerchantOrderReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ORDER_REFERENCE, this.merchantOrderReference);
+    }
+    if (isSetMetadata) {
+      addIfNull(nulls, JSON_PROPERTY_METADATA, this.metadata);
+    }
+    if (isSetMode) {
+      addIfNull(nulls, JSON_PROPERTY_MODE, this.mode);
+    }
+    if (isSetMpiData) {
+      addIfNull(nulls, JSON_PROPERTY_MPI_DATA, this.mpiData);
+    }
+    if (isSetPlatformChargebackLogic) {
+      addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
+    }
+    if (isSetRecurringExpiry) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_EXPIRY, this.recurringExpiry);
+    }
+    if (isSetRecurringFrequency) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_FREQUENCY, this.recurringFrequency);
+    }
+    if (isSetRecurringProcessingModel) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_PROCESSING_MODEL, this.recurringProcessingModel);
+    }
+    if (isSetRedirectFromIssuerMethod) {
+      addIfNull(nulls, JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD, this.redirectFromIssuerMethod);
+    }
+    if (isSetRedirectToIssuerMethod) {
+      addIfNull(nulls, JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD, this.redirectToIssuerMethod);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetReturnUrl) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_URL, this.returnUrl);
+    }
+    if (isSetRiskData) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_DATA, this.riskData);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperIP) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_I_P, this.shopperIP);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetShopperLocale) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_LOCALE, this.shopperLocale);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetShowInstallmentAmount) {
+      addIfNull(nulls, JSON_PROPERTY_SHOW_INSTALLMENT_AMOUNT, this.showInstallmentAmount);
+    }
+    if (isSetShowRemovePaymentMethodButton) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON,
+          this.showRemovePaymentMethodButton);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+    if (isSetSplitCardFundingSources) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES, this.splitCardFundingSources);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+    if (isSetStoreFiltrationMode) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_FILTRATION_MODE, this.storeFiltrationMode);
+    }
+    if (isSetStorePaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_PAYMENT_METHOD, this.storePaymentMethod);
+    }
+    if (isSetStorePaymentMethodMode) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE, this.storePaymentMethodMode);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetThemeId) {
+      addIfNull(nulls, JSON_PROPERTY_THEME_ID, this.themeId);
+    }
+    if (isSetThreeDS2RequestData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);
+    }
+    if (isSetThreeDSAuthenticationOnly) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY, this.threeDSAuthenticationOnly);
+    }
+    if (isSetTrustedShopper) {
+      addIfNull(nulls, JSON_PROPERTY_TRUSTED_SHOPPER, this.trustedShopper);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

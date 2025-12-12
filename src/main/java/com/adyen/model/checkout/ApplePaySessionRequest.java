@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class ApplePaySessionRequest {
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   private String displayName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisplayName = false;
+
   public static final String JSON_PROPERTY_DOMAIN_NAME = "domainName";
   private String domainName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDomainName = false;
+
   public static final String JSON_PROPERTY_MERCHANT_IDENTIFIER = "merchantIdentifier";
   private String merchantIdentifier;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantIdentifier = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ApplePaySessionRequest() {}
 
@@ -49,6 +66,7 @@ public class ApplePaySessionRequest {
    */
   public ApplePaySessionRequest displayName(String displayName) {
     this.displayName = displayName;
+    isSetDisplayName = true; // mark as set
     return this;
   }
 
@@ -84,6 +102,7 @@ public class ApplePaySessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
+    isSetDisplayName = true; // mark as set
   }
 
   /**
@@ -96,6 +115,7 @@ public class ApplePaySessionRequest {
    */
   public ApplePaySessionRequest domainName(String domainName) {
     this.domainName = domainName;
+    isSetDomainName = true; // mark as set
     return this;
   }
 
@@ -123,6 +143,7 @@ public class ApplePaySessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomainName(String domainName) {
     this.domainName = domainName;
+    isSetDomainName = true; // mark as set
   }
 
   /**
@@ -139,6 +160,7 @@ public class ApplePaySessionRequest {
    */
   public ApplePaySessionRequest merchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
+    isSetMerchantIdentifier = true; // mark as set
     return this;
   }
 
@@ -174,6 +196,27 @@ public class ApplePaySessionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
+    isSetMerchantIdentifier = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ApplePaySessionRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ApplePaySessionRequest object is equal to o. */
@@ -187,13 +230,23 @@ public class ApplePaySessionRequest {
     }
     ApplePaySessionRequest applePaySessionRequest = (ApplePaySessionRequest) o;
     return Objects.equals(this.displayName, applePaySessionRequest.displayName)
+        && Objects.equals(this.isSetDisplayName, applePaySessionRequest.isSetDisplayName)
         && Objects.equals(this.domainName, applePaySessionRequest.domainName)
-        && Objects.equals(this.merchantIdentifier, applePaySessionRequest.merchantIdentifier);
+        && Objects.equals(this.isSetDomainName, applePaySessionRequest.isSetDomainName)
+        && Objects.equals(this.merchantIdentifier, applePaySessionRequest.merchantIdentifier)
+        && Objects.equals(
+            this.isSetMerchantIdentifier, applePaySessionRequest.isSetMerchantIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, domainName, merchantIdentifier);
+    return Objects.hash(
+        displayName,
+        isSetDisplayName,
+        domainName,
+        isSetDomainName,
+        merchantIdentifier,
+        isSetMerchantIdentifier);
   }
 
   @Override
@@ -215,6 +268,36 @@ public class ApplePaySessionRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDisplayName) {
+      addIfNull(nulls, JSON_PROPERTY_DISPLAY_NAME, this.displayName);
+    }
+    if (isSetDomainName) {
+      addIfNull(nulls, JSON_PROPERTY_DOMAIN_NAME, this.domainName);
+    }
+    if (isSetMerchantIdentifier) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_IDENTIFIER, this.merchantIdentifier);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

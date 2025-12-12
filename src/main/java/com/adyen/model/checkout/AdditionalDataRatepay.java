@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,27 +34,57 @@ public class AdditionalDataRatepay {
   public static final String JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT = "ratepay.installmentAmount";
   private String ratepayInstallmentAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepayInstallmentAmount = false;
+
   public static final String JSON_PROPERTY_RATEPAY_INTEREST_RATE = "ratepay.interestRate";
   private String ratepayInterestRate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepayInterestRate = false;
 
   public static final String JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT =
       "ratepay.lastInstallmentAmount";
   private String ratepayLastInstallmentAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepayLastInstallmentAmount = false;
+
   public static final String JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY = "ratepay.paymentFirstday";
   private String ratepayPaymentFirstday;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepayPaymentFirstday = false;
 
   public static final String JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE = "ratepaydata.deliveryDate";
   private String ratepaydataDeliveryDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepaydataDeliveryDate = false;
+
   public static final String JSON_PROPERTY_RATEPAYDATA_DUE_DATE = "ratepaydata.dueDate";
   private String ratepaydataDueDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepaydataDueDate = false;
 
   public static final String JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE = "ratepaydata.invoiceDate";
   private String ratepaydataInvoiceDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepaydataInvoiceDate = false;
+
   public static final String JSON_PROPERTY_RATEPAYDATA_INVOICE_ID = "ratepaydata.invoiceId";
   private String ratepaydataInvoiceId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRatepaydataInvoiceId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataRatepay() {}
 
@@ -64,6 +96,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepayInstallmentAmount(String ratepayInstallmentAmount) {
     this.ratepayInstallmentAmount = ratepayInstallmentAmount;
+    isSetRatepayInstallmentAmount = true; // mark as set
     return this;
   }
 
@@ -87,6 +120,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayInstallmentAmount(String ratepayInstallmentAmount) {
     this.ratepayInstallmentAmount = ratepayInstallmentAmount;
+    isSetRatepayInstallmentAmount = true; // mark as set
   }
 
   /**
@@ -97,6 +131,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepayInterestRate(String ratepayInterestRate) {
     this.ratepayInterestRate = ratepayInterestRate;
+    isSetRatepayInterestRate = true; // mark as set
     return this;
   }
 
@@ -120,6 +155,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayInterestRate(String ratepayInterestRate) {
     this.ratepayInterestRate = ratepayInterestRate;
+    isSetRatepayInterestRate = true; // mark as set
   }
 
   /**
@@ -130,6 +166,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepayLastInstallmentAmount(String ratepayLastInstallmentAmount) {
     this.ratepayLastInstallmentAmount = ratepayLastInstallmentAmount;
+    isSetRatepayLastInstallmentAmount = true; // mark as set
     return this;
   }
 
@@ -153,6 +190,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayLastInstallmentAmount(String ratepayLastInstallmentAmount) {
     this.ratepayLastInstallmentAmount = ratepayLastInstallmentAmount;
+    isSetRatepayLastInstallmentAmount = true; // mark as set
   }
 
   /**
@@ -163,6 +201,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepayPaymentFirstday(String ratepayPaymentFirstday) {
     this.ratepayPaymentFirstday = ratepayPaymentFirstday;
+    isSetRatepayPaymentFirstday = true; // mark as set
     return this;
   }
 
@@ -186,6 +225,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayPaymentFirstday(String ratepayPaymentFirstday) {
     this.ratepayPaymentFirstday = ratepayPaymentFirstday;
+    isSetRatepayPaymentFirstday = true; // mark as set
   }
 
   /**
@@ -196,6 +236,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepaydataDeliveryDate(String ratepaydataDeliveryDate) {
     this.ratepaydataDeliveryDate = ratepaydataDeliveryDate;
+    isSetRatepaydataDeliveryDate = true; // mark as set
     return this;
   }
 
@@ -219,6 +260,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataDeliveryDate(String ratepaydataDeliveryDate) {
     this.ratepaydataDeliveryDate = ratepaydataDeliveryDate;
+    isSetRatepaydataDeliveryDate = true; // mark as set
   }
 
   /**
@@ -229,6 +271,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepaydataDueDate(String ratepaydataDueDate) {
     this.ratepaydataDueDate = ratepaydataDueDate;
+    isSetRatepaydataDueDate = true; // mark as set
     return this;
   }
 
@@ -252,6 +295,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataDueDate(String ratepaydataDueDate) {
     this.ratepaydataDueDate = ratepaydataDueDate;
+    isSetRatepaydataDueDate = true; // mark as set
   }
 
   /**
@@ -264,6 +308,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepaydataInvoiceDate(String ratepaydataInvoiceDate) {
     this.ratepaydataInvoiceDate = ratepaydataInvoiceDate;
+    isSetRatepaydataInvoiceDate = true; // mark as set
     return this;
   }
 
@@ -291,6 +336,7 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataInvoiceDate(String ratepaydataInvoiceDate) {
     this.ratepaydataInvoiceDate = ratepaydataInvoiceDate;
+    isSetRatepaydataInvoiceDate = true; // mark as set
   }
 
   /**
@@ -302,6 +348,7 @@ public class AdditionalDataRatepay {
    */
   public AdditionalDataRatepay ratepaydataInvoiceId(String ratepaydataInvoiceId) {
     this.ratepaydataInvoiceId = ratepaydataInvoiceId;
+    isSetRatepaydataInvoiceId = true; // mark as set
     return this;
   }
 
@@ -327,6 +374,27 @@ public class AdditionalDataRatepay {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataInvoiceId(String ratepaydataInvoiceId) {
     this.ratepaydataInvoiceId = ratepaydataInvoiceId;
+    isSetRatepaydataInvoiceId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataRatepay includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataRatepay object is equal to o. */
@@ -341,28 +409,53 @@ public class AdditionalDataRatepay {
     AdditionalDataRatepay additionalDataRatepay = (AdditionalDataRatepay) o;
     return Objects.equals(
             this.ratepayInstallmentAmount, additionalDataRatepay.ratepayInstallmentAmount)
+        && Objects.equals(
+            this.isSetRatepayInstallmentAmount, additionalDataRatepay.isSetRatepayInstallmentAmount)
         && Objects.equals(this.ratepayInterestRate, additionalDataRatepay.ratepayInterestRate)
         && Objects.equals(
+            this.isSetRatepayInterestRate, additionalDataRatepay.isSetRatepayInterestRate)
+        && Objects.equals(
             this.ratepayLastInstallmentAmount, additionalDataRatepay.ratepayLastInstallmentAmount)
+        && Objects.equals(
+            this.isSetRatepayLastInstallmentAmount,
+            additionalDataRatepay.isSetRatepayLastInstallmentAmount)
         && Objects.equals(this.ratepayPaymentFirstday, additionalDataRatepay.ratepayPaymentFirstday)
         && Objects.equals(
+            this.isSetRatepayPaymentFirstday, additionalDataRatepay.isSetRatepayPaymentFirstday)
+        && Objects.equals(
             this.ratepaydataDeliveryDate, additionalDataRatepay.ratepaydataDeliveryDate)
+        && Objects.equals(
+            this.isSetRatepaydataDeliveryDate, additionalDataRatepay.isSetRatepaydataDeliveryDate)
         && Objects.equals(this.ratepaydataDueDate, additionalDataRatepay.ratepaydataDueDate)
+        && Objects.equals(
+            this.isSetRatepaydataDueDate, additionalDataRatepay.isSetRatepaydataDueDate)
         && Objects.equals(this.ratepaydataInvoiceDate, additionalDataRatepay.ratepaydataInvoiceDate)
-        && Objects.equals(this.ratepaydataInvoiceId, additionalDataRatepay.ratepaydataInvoiceId);
+        && Objects.equals(
+            this.isSetRatepaydataInvoiceDate, additionalDataRatepay.isSetRatepaydataInvoiceDate)
+        && Objects.equals(this.ratepaydataInvoiceId, additionalDataRatepay.ratepaydataInvoiceId)
+        && Objects.equals(
+            this.isSetRatepaydataInvoiceId, additionalDataRatepay.isSetRatepaydataInvoiceId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         ratepayInstallmentAmount,
+        isSetRatepayInstallmentAmount,
         ratepayInterestRate,
+        isSetRatepayInterestRate,
         ratepayLastInstallmentAmount,
+        isSetRatepayLastInstallmentAmount,
         ratepayPaymentFirstday,
+        isSetRatepayPaymentFirstday,
         ratepaydataDeliveryDate,
+        isSetRatepaydataDeliveryDate,
         ratepaydataDueDate,
+        isSetRatepaydataDueDate,
         ratepaydataInvoiceDate,
-        ratepaydataInvoiceId);
+        isSetRatepaydataInvoiceDate,
+        ratepaydataInvoiceId,
+        isSetRatepaydataInvoiceId);
   }
 
   @Override
@@ -403,6 +496,52 @@ public class AdditionalDataRatepay {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetRatepayInstallmentAmount) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT, this.ratepayInstallmentAmount);
+    }
+    if (isSetRatepayInterestRate) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAY_INTEREST_RATE, this.ratepayInterestRate);
+    }
+    if (isSetRatepayLastInstallmentAmount) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT, this.ratepayLastInstallmentAmount);
+    }
+    if (isSetRatepayPaymentFirstday) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY, this.ratepayPaymentFirstday);
+    }
+    if (isSetRatepaydataDeliveryDate) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE, this.ratepaydataDeliveryDate);
+    }
+    if (isSetRatepaydataDueDate) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAYDATA_DUE_DATE, this.ratepaydataDueDate);
+    }
+    if (isSetRatepaydataInvoiceDate) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE, this.ratepaydataInvoiceDate);
+    }
+    if (isSetRatepaydataInvoiceId) {
+      addIfNull(nulls, JSON_PROPERTY_RATEPAYDATA_INVOICE_ID, this.ratepaydataInvoiceId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

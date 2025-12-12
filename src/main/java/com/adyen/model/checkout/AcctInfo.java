@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -95,8 +97,14 @@ public class AcctInfo {
   public static final String JSON_PROPERTY_CH_ACC_AGE_IND = "chAccAgeInd";
   private ChAccAgeIndEnum chAccAgeInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChAccAgeInd = false;
+
   public static final String JSON_PROPERTY_CH_ACC_CHANGE = "chAccChange";
   private String chAccChange;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChAccChange = false;
 
   /**
    * Length of time since the cardholder’s account information with the 3DS Requestor was last
@@ -151,8 +159,14 @@ public class AcctInfo {
   public static final String JSON_PROPERTY_CH_ACC_CHANGE_IND = "chAccChangeInd";
   private ChAccChangeIndEnum chAccChangeInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChAccChangeInd = false;
+
   public static final String JSON_PROPERTY_CH_ACC_PW_CHANGE = "chAccPwChange";
   private String chAccPwChange;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChAccPwChange = false;
 
   /**
    * Indicates the length of time since the cardholder’s account with the 3DS Requestor had a
@@ -209,14 +223,26 @@ public class AcctInfo {
   public static final String JSON_PROPERTY_CH_ACC_PW_CHANGE_IND = "chAccPwChangeInd";
   private ChAccPwChangeIndEnum chAccPwChangeInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChAccPwChangeInd = false;
+
   public static final String JSON_PROPERTY_CH_ACC_STRING = "chAccString";
   private String chAccString;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChAccString = false;
 
   public static final String JSON_PROPERTY_NB_PURCHASE_ACCOUNT = "nbPurchaseAccount";
   private String nbPurchaseAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNbPurchaseAccount = false;
+
   public static final String JSON_PROPERTY_PAYMENT_ACC_AGE = "paymentAccAge";
   private String paymentAccAge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentAccAge = false;
 
   /**
    * Indicates the length of time that the payment account was enrolled in the cardholder’s account
@@ -273,11 +299,20 @@ public class AcctInfo {
   public static final String JSON_PROPERTY_PAYMENT_ACC_IND = "paymentAccInd";
   private PaymentAccIndEnum paymentAccInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentAccInd = false;
+
   public static final String JSON_PROPERTY_PROVISION_ATTEMPTS_DAY = "provisionAttemptsDay";
   private String provisionAttemptsDay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProvisionAttemptsDay = false;
+
   public static final String JSON_PROPERTY_SHIP_ADDRESS_USAGE = "shipAddressUsage";
   private String shipAddressUsage;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShipAddressUsage = false;
 
   /**
    * Indicates when the shipping address used for this transaction was first used with the 3DS
@@ -331,6 +366,9 @@ public class AcctInfo {
   public static final String JSON_PROPERTY_SHIP_ADDRESS_USAGE_IND = "shipAddressUsageInd";
   private ShipAddressUsageIndEnum shipAddressUsageInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShipAddressUsageInd = false;
+
   /**
    * Indicates if the Cardholder Name on the account is identical to the shipping Name used for this
    * transaction. Allowed values: * **01** — Account Name identical to shipping Name * **02** —
@@ -378,6 +416,9 @@ public class AcctInfo {
 
   public static final String JSON_PROPERTY_SHIP_NAME_INDICATOR = "shipNameIndicator";
   private ShipNameIndicatorEnum shipNameIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShipNameIndicator = false;
 
   /**
    * Indicates whether the 3DS Requestor has experienced suspicious activity (including previous
@@ -427,11 +468,26 @@ public class AcctInfo {
   public static final String JSON_PROPERTY_SUSPICIOUS_ACC_ACTIVITY = "suspiciousAccActivity";
   private SuspiciousAccActivityEnum suspiciousAccActivity;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSuspiciousAccActivity = false;
+
   public static final String JSON_PROPERTY_TXN_ACTIVITY_DAY = "txnActivityDay";
   private String txnActivityDay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTxnActivityDay = false;
+
   public static final String JSON_PROPERTY_TXN_ACTIVITY_YEAR = "txnActivityYear";
   private String txnActivityYear;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTxnActivityYear = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AcctInfo() {}
 
@@ -447,6 +503,7 @@ public class AcctInfo {
    */
   public AcctInfo chAccAgeInd(ChAccAgeIndEnum chAccAgeInd) {
     this.chAccAgeInd = chAccAgeInd;
+    isSetChAccAgeInd = true; // mark as set
     return this;
   }
 
@@ -478,6 +535,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccAgeInd(ChAccAgeIndEnum chAccAgeInd) {
     this.chAccAgeInd = chAccAgeInd;
+    isSetChAccAgeInd = true; // mark as set
   }
 
   /**
@@ -491,6 +549,7 @@ public class AcctInfo {
    */
   public AcctInfo chAccChange(String chAccChange) {
     this.chAccChange = chAccChange;
+    isSetChAccChange = true; // mark as set
     return this;
   }
 
@@ -520,6 +579,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccChange(String chAccChange) {
     this.chAccChange = chAccChange;
+    isSetChAccChange = true; // mark as set
   }
 
   /**
@@ -536,6 +596,7 @@ public class AcctInfo {
    */
   public AcctInfo chAccChangeInd(ChAccChangeIndEnum chAccChangeInd) {
     this.chAccChangeInd = chAccChangeInd;
+    isSetChAccChangeInd = true; // mark as set
     return this;
   }
 
@@ -571,6 +632,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccChangeInd(ChAccChangeIndEnum chAccChangeInd) {
     this.chAccChangeInd = chAccChangeInd;
+    isSetChAccChangeInd = true; // mark as set
   }
 
   /**
@@ -583,6 +645,7 @@ public class AcctInfo {
    */
   public AcctInfo chAccPwChange(String chAccPwChange) {
     this.chAccPwChange = chAccPwChange;
+    isSetChAccPwChange = true; // mark as set
     return this;
   }
 
@@ -610,6 +673,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccPwChange(String chAccPwChange) {
     this.chAccPwChange = chAccPwChange;
+    isSetChAccPwChange = true; // mark as set
   }
 
   /**
@@ -626,6 +690,7 @@ public class AcctInfo {
    */
   public AcctInfo chAccPwChangeInd(ChAccPwChangeIndEnum chAccPwChangeInd) {
     this.chAccPwChangeInd = chAccPwChangeInd;
+    isSetChAccPwChangeInd = true; // mark as set
     return this;
   }
 
@@ -661,6 +726,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccPwChangeInd(ChAccPwChangeIndEnum chAccPwChangeInd) {
     this.chAccPwChangeInd = chAccPwChangeInd;
+    isSetChAccPwChangeInd = true; // mark as set
   }
 
   /**
@@ -672,6 +738,7 @@ public class AcctInfo {
    */
   public AcctInfo chAccString(String chAccString) {
     this.chAccString = chAccString;
+    isSetChAccString = true; // mark as set
     return this;
   }
 
@@ -697,6 +764,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChAccString(String chAccString) {
     this.chAccString = chAccString;
+    isSetChAccString = true; // mark as set
   }
 
   /**
@@ -709,6 +777,7 @@ public class AcctInfo {
    */
   public AcctInfo nbPurchaseAccount(String nbPurchaseAccount) {
     this.nbPurchaseAccount = nbPurchaseAccount;
+    isSetNbPurchaseAccount = true; // mark as set
     return this;
   }
 
@@ -736,6 +805,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNbPurchaseAccount(String nbPurchaseAccount) {
     this.nbPurchaseAccount = nbPurchaseAccount;
+    isSetNbPurchaseAccount = true; // mark as set
   }
 
   /**
@@ -748,6 +818,7 @@ public class AcctInfo {
    */
   public AcctInfo paymentAccAge(String paymentAccAge) {
     this.paymentAccAge = paymentAccAge;
+    isSetPaymentAccAge = true; // mark as set
     return this;
   }
 
@@ -775,6 +846,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccAge(String paymentAccAge) {
     this.paymentAccAge = paymentAccAge;
+    isSetPaymentAccAge = true; // mark as set
   }
 
   /**
@@ -791,6 +863,7 @@ public class AcctInfo {
    */
   public AcctInfo paymentAccInd(PaymentAccIndEnum paymentAccInd) {
     this.paymentAccInd = paymentAccInd;
+    isSetPaymentAccInd = true; // mark as set
     return this;
   }
 
@@ -826,6 +899,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccInd(PaymentAccIndEnum paymentAccInd) {
     this.paymentAccInd = paymentAccInd;
+    isSetPaymentAccInd = true; // mark as set
   }
 
   /**
@@ -837,6 +911,7 @@ public class AcctInfo {
    */
   public AcctInfo provisionAttemptsDay(String provisionAttemptsDay) {
     this.provisionAttemptsDay = provisionAttemptsDay;
+    isSetProvisionAttemptsDay = true; // mark as set
     return this;
   }
 
@@ -862,6 +937,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProvisionAttemptsDay(String provisionAttemptsDay) {
     this.provisionAttemptsDay = provisionAttemptsDay;
+    isSetProvisionAttemptsDay = true; // mark as set
   }
 
   /**
@@ -874,6 +950,7 @@ public class AcctInfo {
    */
   public AcctInfo shipAddressUsage(String shipAddressUsage) {
     this.shipAddressUsage = shipAddressUsage;
+    isSetShipAddressUsage = true; // mark as set
     return this;
   }
 
@@ -901,6 +978,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipAddressUsage(String shipAddressUsage) {
     this.shipAddressUsage = shipAddressUsage;
+    isSetShipAddressUsage = true; // mark as set
   }
 
   /**
@@ -915,6 +993,7 @@ public class AcctInfo {
    */
   public AcctInfo shipAddressUsageInd(ShipAddressUsageIndEnum shipAddressUsageInd) {
     this.shipAddressUsageInd = shipAddressUsageInd;
+    isSetShipAddressUsageInd = true; // mark as set
     return this;
   }
 
@@ -946,6 +1025,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipAddressUsageInd(ShipAddressUsageIndEnum shipAddressUsageInd) {
     this.shipAddressUsageInd = shipAddressUsageInd;
+    isSetShipAddressUsageInd = true; // mark as set
   }
 
   /**
@@ -960,6 +1040,7 @@ public class AcctInfo {
    */
   public AcctInfo shipNameIndicator(ShipNameIndicatorEnum shipNameIndicator) {
     this.shipNameIndicator = shipNameIndicator;
+    isSetShipNameIndicator = true; // mark as set
     return this;
   }
 
@@ -991,6 +1072,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipNameIndicator(ShipNameIndicatorEnum shipNameIndicator) {
     this.shipNameIndicator = shipNameIndicator;
+    isSetShipNameIndicator = true; // mark as set
   }
 
   /**
@@ -1005,6 +1087,7 @@ public class AcctInfo {
    */
   public AcctInfo suspiciousAccActivity(SuspiciousAccActivityEnum suspiciousAccActivity) {
     this.suspiciousAccActivity = suspiciousAccActivity;
+    isSetSuspiciousAccActivity = true; // mark as set
     return this;
   }
 
@@ -1036,6 +1119,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuspiciousAccActivity(SuspiciousAccActivityEnum suspiciousAccActivity) {
     this.suspiciousAccActivity = suspiciousAccActivity;
+    isSetSuspiciousAccActivity = true; // mark as set
   }
 
   /**
@@ -1049,6 +1133,7 @@ public class AcctInfo {
    */
   public AcctInfo txnActivityDay(String txnActivityDay) {
     this.txnActivityDay = txnActivityDay;
+    isSetTxnActivityDay = true; // mark as set
     return this;
   }
 
@@ -1078,6 +1163,7 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxnActivityDay(String txnActivityDay) {
     this.txnActivityDay = txnActivityDay;
+    isSetTxnActivityDay = true; // mark as set
   }
 
   /**
@@ -1091,6 +1177,7 @@ public class AcctInfo {
    */
   public AcctInfo txnActivityYear(String txnActivityYear) {
     this.txnActivityYear = txnActivityYear;
+    isSetTxnActivityYear = true; // mark as set
     return this;
   }
 
@@ -1120,6 +1207,27 @@ public class AcctInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxnActivityYear(String txnActivityYear) {
     this.txnActivityYear = txnActivityYear;
+    isSetTxnActivityYear = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AcctInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AcctInfo object is equal to o. */
@@ -1133,42 +1241,74 @@ public class AcctInfo {
     }
     AcctInfo acctInfo = (AcctInfo) o;
     return Objects.equals(this.chAccAgeInd, acctInfo.chAccAgeInd)
+        && Objects.equals(this.isSetChAccAgeInd, acctInfo.isSetChAccAgeInd)
         && Objects.equals(this.chAccChange, acctInfo.chAccChange)
+        && Objects.equals(this.isSetChAccChange, acctInfo.isSetChAccChange)
         && Objects.equals(this.chAccChangeInd, acctInfo.chAccChangeInd)
+        && Objects.equals(this.isSetChAccChangeInd, acctInfo.isSetChAccChangeInd)
         && Objects.equals(this.chAccPwChange, acctInfo.chAccPwChange)
+        && Objects.equals(this.isSetChAccPwChange, acctInfo.isSetChAccPwChange)
         && Objects.equals(this.chAccPwChangeInd, acctInfo.chAccPwChangeInd)
+        && Objects.equals(this.isSetChAccPwChangeInd, acctInfo.isSetChAccPwChangeInd)
         && Objects.equals(this.chAccString, acctInfo.chAccString)
+        && Objects.equals(this.isSetChAccString, acctInfo.isSetChAccString)
         && Objects.equals(this.nbPurchaseAccount, acctInfo.nbPurchaseAccount)
+        && Objects.equals(this.isSetNbPurchaseAccount, acctInfo.isSetNbPurchaseAccount)
         && Objects.equals(this.paymentAccAge, acctInfo.paymentAccAge)
+        && Objects.equals(this.isSetPaymentAccAge, acctInfo.isSetPaymentAccAge)
         && Objects.equals(this.paymentAccInd, acctInfo.paymentAccInd)
+        && Objects.equals(this.isSetPaymentAccInd, acctInfo.isSetPaymentAccInd)
         && Objects.equals(this.provisionAttemptsDay, acctInfo.provisionAttemptsDay)
+        && Objects.equals(this.isSetProvisionAttemptsDay, acctInfo.isSetProvisionAttemptsDay)
         && Objects.equals(this.shipAddressUsage, acctInfo.shipAddressUsage)
+        && Objects.equals(this.isSetShipAddressUsage, acctInfo.isSetShipAddressUsage)
         && Objects.equals(this.shipAddressUsageInd, acctInfo.shipAddressUsageInd)
+        && Objects.equals(this.isSetShipAddressUsageInd, acctInfo.isSetShipAddressUsageInd)
         && Objects.equals(this.shipNameIndicator, acctInfo.shipNameIndicator)
+        && Objects.equals(this.isSetShipNameIndicator, acctInfo.isSetShipNameIndicator)
         && Objects.equals(this.suspiciousAccActivity, acctInfo.suspiciousAccActivity)
+        && Objects.equals(this.isSetSuspiciousAccActivity, acctInfo.isSetSuspiciousAccActivity)
         && Objects.equals(this.txnActivityDay, acctInfo.txnActivityDay)
-        && Objects.equals(this.txnActivityYear, acctInfo.txnActivityYear);
+        && Objects.equals(this.isSetTxnActivityDay, acctInfo.isSetTxnActivityDay)
+        && Objects.equals(this.txnActivityYear, acctInfo.txnActivityYear)
+        && Objects.equals(this.isSetTxnActivityYear, acctInfo.isSetTxnActivityYear);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         chAccAgeInd,
+        isSetChAccAgeInd,
         chAccChange,
+        isSetChAccChange,
         chAccChangeInd,
+        isSetChAccChangeInd,
         chAccPwChange,
+        isSetChAccPwChange,
         chAccPwChangeInd,
+        isSetChAccPwChangeInd,
         chAccString,
+        isSetChAccString,
         nbPurchaseAccount,
+        isSetNbPurchaseAccount,
         paymentAccAge,
+        isSetPaymentAccAge,
         paymentAccInd,
+        isSetPaymentAccInd,
         provisionAttemptsDay,
+        isSetProvisionAttemptsDay,
         shipAddressUsage,
+        isSetShipAddressUsage,
         shipAddressUsageInd,
+        isSetShipAddressUsageInd,
         shipNameIndicator,
+        isSetShipNameIndicator,
         suspiciousAccActivity,
+        isSetSuspiciousAccActivity,
         txnActivityDay,
-        txnActivityYear);
+        isSetTxnActivityDay,
+        txnActivityYear,
+        isSetTxnActivityYear);
   }
 
   @Override
@@ -1209,6 +1349,75 @@ public class AcctInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetChAccAgeInd) {
+      addIfNull(nulls, JSON_PROPERTY_CH_ACC_AGE_IND, this.chAccAgeInd);
+    }
+    if (isSetChAccChange) {
+      addIfNull(nulls, JSON_PROPERTY_CH_ACC_CHANGE, this.chAccChange);
+    }
+    if (isSetChAccChangeInd) {
+      addIfNull(nulls, JSON_PROPERTY_CH_ACC_CHANGE_IND, this.chAccChangeInd);
+    }
+    if (isSetChAccPwChange) {
+      addIfNull(nulls, JSON_PROPERTY_CH_ACC_PW_CHANGE, this.chAccPwChange);
+    }
+    if (isSetChAccPwChangeInd) {
+      addIfNull(nulls, JSON_PROPERTY_CH_ACC_PW_CHANGE_IND, this.chAccPwChangeInd);
+    }
+    if (isSetChAccString) {
+      addIfNull(nulls, JSON_PROPERTY_CH_ACC_STRING, this.chAccString);
+    }
+    if (isSetNbPurchaseAccount) {
+      addIfNull(nulls, JSON_PROPERTY_NB_PURCHASE_ACCOUNT, this.nbPurchaseAccount);
+    }
+    if (isSetPaymentAccAge) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_ACC_AGE, this.paymentAccAge);
+    }
+    if (isSetPaymentAccInd) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_ACC_IND, this.paymentAccInd);
+    }
+    if (isSetProvisionAttemptsDay) {
+      addIfNull(nulls, JSON_PROPERTY_PROVISION_ATTEMPTS_DAY, this.provisionAttemptsDay);
+    }
+    if (isSetShipAddressUsage) {
+      addIfNull(nulls, JSON_PROPERTY_SHIP_ADDRESS_USAGE, this.shipAddressUsage);
+    }
+    if (isSetShipAddressUsageInd) {
+      addIfNull(nulls, JSON_PROPERTY_SHIP_ADDRESS_USAGE_IND, this.shipAddressUsageInd);
+    }
+    if (isSetShipNameIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_SHIP_NAME_INDICATOR, this.shipNameIndicator);
+    }
+    if (isSetSuspiciousAccActivity) {
+      addIfNull(nulls, JSON_PROPERTY_SUSPICIOUS_ACC_ACTIVITY, this.suspiciousAccActivity);
+    }
+    if (isSetTxnActivityDay) {
+      addIfNull(nulls, JSON_PROPERTY_TXN_ACTIVITY_DAY, this.txnActivityDay);
+    }
+    if (isSetTxnActivityYear) {
+      addIfNull(nulls, JSON_PROPERTY_TXN_ACTIVITY_YEAR, this.txnActivityYear);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

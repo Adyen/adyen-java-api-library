@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class PaymentCancelRequest {
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
   private EnhancedSchemeData enhancedSchemeData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeData = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentCancelRequest() {}
 
@@ -47,6 +67,7 @@ public class PaymentCancelRequest {
    */
   public PaymentCancelRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class PaymentCancelRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class PaymentCancelRequest {
    */
   public PaymentCancelRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
     this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class PaymentCancelRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
     this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class PaymentCancelRequest {
    */
   public PaymentCancelRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class PaymentCancelRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class PaymentCancelRequest {
    */
   public PaymentCancelRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class PaymentCancelRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentCancelRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentCancelRequest object is equal to o. */
@@ -182,14 +230,27 @@ public class PaymentCancelRequest {
     }
     PaymentCancelRequest paymentCancelRequest = (PaymentCancelRequest) o;
     return Objects.equals(this.applicationInfo, paymentCancelRequest.applicationInfo)
+        && Objects.equals(this.isSetApplicationInfo, paymentCancelRequest.isSetApplicationInfo)
         && Objects.equals(this.enhancedSchemeData, paymentCancelRequest.enhancedSchemeData)
+        && Objects.equals(
+            this.isSetEnhancedSchemeData, paymentCancelRequest.isSetEnhancedSchemeData)
         && Objects.equals(this.merchantAccount, paymentCancelRequest.merchantAccount)
-        && Objects.equals(this.reference, paymentCancelRequest.reference);
+        && Objects.equals(this.isSetMerchantAccount, paymentCancelRequest.isSetMerchantAccount)
+        && Objects.equals(this.reference, paymentCancelRequest.reference)
+        && Objects.equals(this.isSetReference, paymentCancelRequest.isSetReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationInfo, enhancedSchemeData, merchantAccount, reference);
+    return Objects.hash(
+        applicationInfo,
+        isSetApplicationInfo,
+        enhancedSchemeData,
+        isSetEnhancedSchemeData,
+        merchantAccount,
+        isSetMerchantAccount,
+        reference,
+        isSetReference);
   }
 
   @Override
@@ -212,6 +273,39 @@ public class PaymentCancelRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetEnhancedSchemeData) {
+      addIfNull(nulls, JSON_PROPERTY_ENHANCED_SCHEME_DATA, this.enhancedSchemeData);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

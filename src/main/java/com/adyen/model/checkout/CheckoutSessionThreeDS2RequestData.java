@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,8 +34,14 @@ public class CheckoutSessionThreeDS2RequestData {
   public static final String JSON_PROPERTY_HOME_PHONE = "homePhone";
   private Phone homePhone;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHomePhone = false;
+
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
   private Phone mobilePhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMobilePhone = false;
 
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No
@@ -94,8 +102,20 @@ public class CheckoutSessionThreeDS2RequestData {
       "threeDSRequestorChallengeInd";
   private ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorChallengeInd = false;
+
   public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
   private Phone workPhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWorkPhone = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutSessionThreeDS2RequestData() {}
 
@@ -108,6 +128,7 @@ public class CheckoutSessionThreeDS2RequestData {
    */
   public CheckoutSessionThreeDS2RequestData homePhone(Phone homePhone) {
     this.homePhone = homePhone;
+    isSetHomePhone = true; // mark as set
     return this;
   }
 
@@ -131,6 +152,7 @@ public class CheckoutSessionThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(Phone homePhone) {
     this.homePhone = homePhone;
+    isSetHomePhone = true; // mark as set
   }
 
   /**
@@ -142,6 +164,7 @@ public class CheckoutSessionThreeDS2RequestData {
    */
   public CheckoutSessionThreeDS2RequestData mobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
+    isSetMobilePhone = true; // mark as set
     return this;
   }
 
@@ -165,6 +188,7 @@ public class CheckoutSessionThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
+    isSetMobilePhone = true; // mark as set
   }
 
   /**
@@ -184,6 +208,7 @@ public class CheckoutSessionThreeDS2RequestData {
   public CheckoutSessionThreeDS2RequestData threeDSRequestorChallengeInd(
       ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    isSetThreeDSRequestorChallengeInd = true; // mark as set
     return this;
   }
 
@@ -222,6 +247,7 @@ public class CheckoutSessionThreeDS2RequestData {
   public void setThreeDSRequestorChallengeInd(
       ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    isSetThreeDSRequestorChallengeInd = true; // mark as set
   }
 
   /**
@@ -233,6 +259,7 @@ public class CheckoutSessionThreeDS2RequestData {
    */
   public CheckoutSessionThreeDS2RequestData workPhone(Phone workPhone) {
     this.workPhone = workPhone;
+    isSetWorkPhone = true; // mark as set
     return this;
   }
 
@@ -256,6 +283,27 @@ public class CheckoutSessionThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(Phone workPhone) {
     this.workPhone = workPhone;
+    isSetWorkPhone = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutSessionThreeDS2RequestData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutSessionThreeDS2RequestData object is equal to o. */
@@ -270,16 +318,31 @@ public class CheckoutSessionThreeDS2RequestData {
     CheckoutSessionThreeDS2RequestData checkoutSessionThreeDS2RequestData =
         (CheckoutSessionThreeDS2RequestData) o;
     return Objects.equals(this.homePhone, checkoutSessionThreeDS2RequestData.homePhone)
+        && Objects.equals(this.isSetHomePhone, checkoutSessionThreeDS2RequestData.isSetHomePhone)
         && Objects.equals(this.mobilePhone, checkoutSessionThreeDS2RequestData.mobilePhone)
+        && Objects.equals(
+            this.isSetMobilePhone, checkoutSessionThreeDS2RequestData.isSetMobilePhone)
         && Objects.equals(
             this.threeDSRequestorChallengeInd,
             checkoutSessionThreeDS2RequestData.threeDSRequestorChallengeInd)
-        && Objects.equals(this.workPhone, checkoutSessionThreeDS2RequestData.workPhone);
+        && Objects.equals(
+            this.isSetThreeDSRequestorChallengeInd,
+            checkoutSessionThreeDS2RequestData.isSetThreeDSRequestorChallengeInd)
+        && Objects.equals(this.workPhone, checkoutSessionThreeDS2RequestData.workPhone)
+        && Objects.equals(this.isSetWorkPhone, checkoutSessionThreeDS2RequestData.isSetWorkPhone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(homePhone, mobilePhone, threeDSRequestorChallengeInd, workPhone);
+    return Objects.hash(
+        homePhone,
+        isSetHomePhone,
+        mobilePhone,
+        isSetMobilePhone,
+        threeDSRequestorChallengeInd,
+        isSetThreeDSRequestorChallengeInd,
+        workPhone,
+        isSetWorkPhone);
   }
 
   @Override
@@ -304,6 +367,42 @@ public class CheckoutSessionThreeDS2RequestData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetHomePhone) {
+      addIfNull(nulls, JSON_PROPERTY_HOME_PHONE, this.homePhone);
+    }
+    if (isSetMobilePhone) {
+      addIfNull(nulls, JSON_PROPERTY_MOBILE_PHONE, this.mobilePhone);
+    }
+    if (isSetThreeDSRequestorChallengeInd) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
+          this.threeDSRequestorChallengeInd);
+    }
+    if (isSetWorkPhone) {
+      addIfNull(nulls, JSON_PROPERTY_WORK_PHONE, this.workPhone);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

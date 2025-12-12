@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,14 +36,26 @@ public class SecureRemoteCommerceCheckoutData {
   public static final String JSON_PROPERTY_CHECKOUT_PAYLOAD = "checkoutPayload";
   private String checkoutPayload;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutPayload = false;
+
   public static final String JSON_PROPERTY_CORRELATION_ID = "correlationId";
   private String correlationId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCorrelationId = false;
 
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvc = false;
+
   public static final String JSON_PROPERTY_DIGITAL_CARD_ID = "digitalCardId";
   private String digitalCardId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDigitalCardId = false;
 
   /** The Secure Remote Commerce scheme. */
   public enum SchemeEnum {
@@ -87,8 +101,20 @@ public class SecureRemoteCommerceCheckoutData {
   public static final String JSON_PROPERTY_SCHEME = "scheme";
   private SchemeEnum scheme;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScheme = false;
+
   public static final String JSON_PROPERTY_TOKEN_REFERENCE = "tokenReference";
   private String tokenReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SecureRemoteCommerceCheckoutData() {}
 
@@ -101,6 +127,7 @@ public class SecureRemoteCommerceCheckoutData {
    */
   public SecureRemoteCommerceCheckoutData checkoutPayload(String checkoutPayload) {
     this.checkoutPayload = checkoutPayload;
+    isSetCheckoutPayload = true; // mark as set
     return this;
   }
 
@@ -125,6 +152,7 @@ public class SecureRemoteCommerceCheckoutData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutPayload(String checkoutPayload) {
     this.checkoutPayload = checkoutPayload;
+    isSetCheckoutPayload = true; // mark as set
   }
 
   /**
@@ -140,6 +168,7 @@ public class SecureRemoteCommerceCheckoutData {
    */
   public SecureRemoteCommerceCheckoutData correlationId(String correlationId) {
     this.correlationId = correlationId;
+    isSetCorrelationId = true; // mark as set
     return this;
   }
 
@@ -171,6 +200,7 @@ public class SecureRemoteCommerceCheckoutData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCorrelationId(String correlationId) {
     this.correlationId = correlationId;
+    isSetCorrelationId = true; // mark as set
   }
 
   /**
@@ -184,6 +214,7 @@ public class SecureRemoteCommerceCheckoutData {
    */
   public SecureRemoteCommerceCheckoutData cvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
     return this;
   }
 
@@ -211,6 +242,7 @@ public class SecureRemoteCommerceCheckoutData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
   }
 
   /**
@@ -224,6 +256,7 @@ public class SecureRemoteCommerceCheckoutData {
    */
   public SecureRemoteCommerceCheckoutData digitalCardId(String digitalCardId) {
     this.digitalCardId = digitalCardId;
+    isSetDigitalCardId = true; // mark as set
     return this;
   }
 
@@ -251,6 +284,7 @@ public class SecureRemoteCommerceCheckoutData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDigitalCardId(String digitalCardId) {
     this.digitalCardId = digitalCardId;
+    isSetDigitalCardId = true; // mark as set
   }
 
   /**
@@ -262,6 +296,7 @@ public class SecureRemoteCommerceCheckoutData {
    */
   public SecureRemoteCommerceCheckoutData scheme(SchemeEnum scheme) {
     this.scheme = scheme;
+    isSetScheme = true; // mark as set
     return this;
   }
 
@@ -285,6 +320,7 @@ public class SecureRemoteCommerceCheckoutData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheme(SchemeEnum scheme) {
     this.scheme = scheme;
+    isSetScheme = true; // mark as set
   }
 
   /**
@@ -298,6 +334,7 @@ public class SecureRemoteCommerceCheckoutData {
    */
   public SecureRemoteCommerceCheckoutData tokenReference(String tokenReference) {
     this.tokenReference = tokenReference;
+    isSetTokenReference = true; // mark as set
     return this;
   }
 
@@ -325,6 +362,27 @@ public class SecureRemoteCommerceCheckoutData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenReference(String tokenReference) {
     this.tokenReference = tokenReference;
+    isSetTokenReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SecureRemoteCommerceCheckoutData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SecureRemoteCommerceCheckoutData object is equal to o. */
@@ -339,16 +397,38 @@ public class SecureRemoteCommerceCheckoutData {
     SecureRemoteCommerceCheckoutData secureRemoteCommerceCheckoutData =
         (SecureRemoteCommerceCheckoutData) o;
     return Objects.equals(this.checkoutPayload, secureRemoteCommerceCheckoutData.checkoutPayload)
+        && Objects.equals(
+            this.isSetCheckoutPayload, secureRemoteCommerceCheckoutData.isSetCheckoutPayload)
         && Objects.equals(this.correlationId, secureRemoteCommerceCheckoutData.correlationId)
+        && Objects.equals(
+            this.isSetCorrelationId, secureRemoteCommerceCheckoutData.isSetCorrelationId)
         && Objects.equals(this.cvc, secureRemoteCommerceCheckoutData.cvc)
+        && Objects.equals(this.isSetCvc, secureRemoteCommerceCheckoutData.isSetCvc)
         && Objects.equals(this.digitalCardId, secureRemoteCommerceCheckoutData.digitalCardId)
+        && Objects.equals(
+            this.isSetDigitalCardId, secureRemoteCommerceCheckoutData.isSetDigitalCardId)
         && Objects.equals(this.scheme, secureRemoteCommerceCheckoutData.scheme)
-        && Objects.equals(this.tokenReference, secureRemoteCommerceCheckoutData.tokenReference);
+        && Objects.equals(this.isSetScheme, secureRemoteCommerceCheckoutData.isSetScheme)
+        && Objects.equals(this.tokenReference, secureRemoteCommerceCheckoutData.tokenReference)
+        && Objects.equals(
+            this.isSetTokenReference, secureRemoteCommerceCheckoutData.isSetTokenReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutPayload, correlationId, cvc, digitalCardId, scheme, tokenReference);
+    return Objects.hash(
+        checkoutPayload,
+        isSetCheckoutPayload,
+        correlationId,
+        isSetCorrelationId,
+        cvc,
+        isSetCvc,
+        digitalCardId,
+        isSetDigitalCardId,
+        scheme,
+        isSetScheme,
+        tokenReference,
+        isSetTokenReference);
   }
 
   @Override
@@ -373,6 +453,45 @@ public class SecureRemoteCommerceCheckoutData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutPayload) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_PAYLOAD, this.checkoutPayload);
+    }
+    if (isSetCorrelationId) {
+      addIfNull(nulls, JSON_PROPERTY_CORRELATION_ID, this.correlationId);
+    }
+    if (isSetCvc) {
+      addIfNull(nulls, JSON_PROPERTY_CVC, this.cvc);
+    }
+    if (isSetDigitalCardId) {
+      addIfNull(nulls, JSON_PROPERTY_DIGITAL_CARD_ID, this.digitalCardId);
+    }
+    if (isSetScheme) {
+      addIfNull(nulls, JSON_PROPERTY_SCHEME, this.scheme);
+    }
+    if (isSetTokenReference) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_REFERENCE, this.tokenReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

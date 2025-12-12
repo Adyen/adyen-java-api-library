@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -99,8 +101,14 @@ public class AccountInfo {
   public static final String JSON_PROPERTY_ACCOUNT_AGE_INDICATOR = "accountAgeIndicator";
   private AccountAgeIndicatorEnum accountAgeIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountAgeIndicator = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_CHANGE_DATE = "accountChangeDate";
   private OffsetDateTime accountChangeDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountChangeDate = false;
 
   /**
    * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed
@@ -153,8 +161,14 @@ public class AccountInfo {
   public static final String JSON_PROPERTY_ACCOUNT_CHANGE_INDICATOR = "accountChangeIndicator";
   private AccountChangeIndicatorEnum accountChangeIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountChangeIndicator = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_CREATION_DATE = "accountCreationDate";
   private OffsetDateTime accountCreationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountCreationDate = false;
 
   /**
    * Indicates the type of account. For example, for a multi-account card product. Allowed values: *
@@ -205,11 +219,20 @@ public class AccountInfo {
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private AccountTypeEnum accountType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountType = false;
+
   public static final String JSON_PROPERTY_ADD_CARD_ATTEMPTS_DAY = "addCardAttemptsDay";
   private Integer addCardAttemptsDay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddCardAttemptsDay = false;
+
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_DATE = "deliveryAddressUsageDate";
   private OffsetDateTime deliveryAddressUsageDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddressUsageDate = false;
 
   /**
    * Indicator for the length of time since this delivery address was first used. Allowed values: *
@@ -264,18 +287,30 @@ public class AccountInfo {
       "deliveryAddressUsageIndicator";
   private DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddressUsageIndicator = false;
+
   public static final String JSON_PROPERTY_HOME_PHONE = "homePhone";
   @Deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.homePhone`
   // instead.
   private String homePhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHomePhone = false;
 
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
   @Deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.mobilePhone`
   // instead.
   private String mobilePhone;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMobilePhone = false;
+
   public static final String JSON_PROPERTY_PASSWORD_CHANGE_DATE = "passwordChangeDate";
   private OffsetDateTime passwordChangeDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPasswordChangeDate = false;
 
   /**
    * Indicator when the shopper has changed their password. Allowed values: * notApplicable *
@@ -330,14 +365,26 @@ public class AccountInfo {
   public static final String JSON_PROPERTY_PASSWORD_CHANGE_INDICATOR = "passwordChangeIndicator";
   private PasswordChangeIndicatorEnum passwordChangeIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPasswordChangeIndicator = false;
+
   public static final String JSON_PROPERTY_PAST_TRANSACTIONS_DAY = "pastTransactionsDay";
   private Integer pastTransactionsDay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPastTransactionsDay = false;
 
   public static final String JSON_PROPERTY_PAST_TRANSACTIONS_YEAR = "pastTransactionsYear";
   private Integer pastTransactionsYear;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPastTransactionsYear = false;
+
   public static final String JSON_PROPERTY_PAYMENT_ACCOUNT_AGE = "paymentAccountAge";
   private OffsetDateTime paymentAccountAge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentAccountAge = false;
 
   /**
    * Indicator for the length of time since this payment method was added to this shopper&#39;s
@@ -393,16 +440,34 @@ public class AccountInfo {
   public static final String JSON_PROPERTY_PAYMENT_ACCOUNT_INDICATOR = "paymentAccountIndicator";
   private PaymentAccountIndicatorEnum paymentAccountIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentAccountIndicator = false;
+
   public static final String JSON_PROPERTY_PURCHASES_LAST6_MONTHS = "purchasesLast6Months";
   private Integer purchasesLast6Months;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPurchasesLast6Months = false;
+
   public static final String JSON_PROPERTY_SUSPICIOUS_ACTIVITY = "suspiciousActivity";
   private Boolean suspiciousActivity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSuspiciousActivity = false;
 
   public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
   @Deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.workPhone`
   // instead.
   private String workPhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWorkPhone = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AccountInfo() {}
 
@@ -418,6 +483,7 @@ public class AccountInfo {
    */
   public AccountInfo accountAgeIndicator(AccountAgeIndicatorEnum accountAgeIndicator) {
     this.accountAgeIndicator = accountAgeIndicator;
+    isSetAccountAgeIndicator = true; // mark as set
     return this;
   }
 
@@ -449,6 +515,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountAgeIndicator(AccountAgeIndicatorEnum accountAgeIndicator) {
     this.accountAgeIndicator = accountAgeIndicator;
+    isSetAccountAgeIndicator = true; // mark as set
   }
 
   /**
@@ -459,6 +526,7 @@ public class AccountInfo {
    */
   public AccountInfo accountChangeDate(OffsetDateTime accountChangeDate) {
     this.accountChangeDate = accountChangeDate;
+    isSetAccountChangeDate = true; // mark as set
     return this;
   }
 
@@ -482,6 +550,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountChangeDate(OffsetDateTime accountChangeDate) {
     this.accountChangeDate = accountChangeDate;
+    isSetAccountChangeDate = true; // mark as set
   }
 
   /**
@@ -495,6 +564,7 @@ public class AccountInfo {
    */
   public AccountInfo accountChangeIndicator(AccountChangeIndicatorEnum accountChangeIndicator) {
     this.accountChangeIndicator = accountChangeIndicator;
+    isSetAccountChangeIndicator = true; // mark as set
     return this;
   }
 
@@ -524,6 +594,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountChangeIndicator(AccountChangeIndicatorEnum accountChangeIndicator) {
     this.accountChangeIndicator = accountChangeIndicator;
+    isSetAccountChangeIndicator = true; // mark as set
   }
 
   /**
@@ -534,6 +605,7 @@ public class AccountInfo {
    */
   public AccountInfo accountCreationDate(OffsetDateTime accountCreationDate) {
     this.accountCreationDate = accountCreationDate;
+    isSetAccountCreationDate = true; // mark as set
     return this;
   }
 
@@ -557,6 +629,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountCreationDate(OffsetDateTime accountCreationDate) {
     this.accountCreationDate = accountCreationDate;
+    isSetAccountCreationDate = true; // mark as set
   }
 
   /**
@@ -569,6 +642,7 @@ public class AccountInfo {
    */
   public AccountInfo accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
     return this;
   }
 
@@ -596,6 +670,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
   }
 
   /**
@@ -607,6 +682,7 @@ public class AccountInfo {
    */
   public AccountInfo addCardAttemptsDay(Integer addCardAttemptsDay) {
     this.addCardAttemptsDay = addCardAttemptsDay;
+    isSetAddCardAttemptsDay = true; // mark as set
     return this;
   }
 
@@ -632,6 +708,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddCardAttemptsDay(Integer addCardAttemptsDay) {
     this.addCardAttemptsDay = addCardAttemptsDay;
+    isSetAddCardAttemptsDay = true; // mark as set
   }
 
   /**
@@ -642,6 +719,7 @@ public class AccountInfo {
    */
   public AccountInfo deliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
     this.deliveryAddressUsageDate = deliveryAddressUsageDate;
+    isSetDeliveryAddressUsageDate = true; // mark as set
     return this;
   }
 
@@ -665,6 +743,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
     this.deliveryAddressUsageDate = deliveryAddressUsageDate;
+    isSetDeliveryAddressUsageDate = true; // mark as set
   }
 
   /**
@@ -679,6 +758,7 @@ public class AccountInfo {
   public AccountInfo deliveryAddressUsageIndicator(
       DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator) {
     this.deliveryAddressUsageIndicator = deliveryAddressUsageIndicator;
+    isSetDeliveryAddressUsageIndicator = true; // mark as set
     return this;
   }
 
@@ -709,6 +789,7 @@ public class AccountInfo {
   public void setDeliveryAddressUsageIndicator(
       DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator) {
     this.deliveryAddressUsageIndicator = deliveryAddressUsageIndicator;
+    isSetDeliveryAddressUsageIndicator = true; // mark as set
   }
 
   /**
@@ -722,6 +803,7 @@ public class AccountInfo {
   // instead.
   public AccountInfo homePhone(String homePhone) {
     this.homePhone = homePhone;
+    isSetHomePhone = true; // mark as set
     return this;
   }
 
@@ -752,6 +834,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(String homePhone) {
     this.homePhone = homePhone;
+    isSetHomePhone = true; // mark as set
   }
 
   /**
@@ -766,6 +849,7 @@ public class AccountInfo {
   // instead.
   public AccountInfo mobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
+    isSetMobilePhone = true; // mark as set
     return this;
   }
 
@@ -797,6 +881,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
+    isSetMobilePhone = true; // mark as set
   }
 
   /**
@@ -807,6 +892,7 @@ public class AccountInfo {
    */
   public AccountInfo passwordChangeDate(OffsetDateTime passwordChangeDate) {
     this.passwordChangeDate = passwordChangeDate;
+    isSetPasswordChangeDate = true; // mark as set
     return this;
   }
 
@@ -830,6 +916,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasswordChangeDate(OffsetDateTime passwordChangeDate) {
     this.passwordChangeDate = passwordChangeDate;
+    isSetPasswordChangeDate = true; // mark as set
   }
 
   /**
@@ -843,6 +930,7 @@ public class AccountInfo {
    */
   public AccountInfo passwordChangeIndicator(PasswordChangeIndicatorEnum passwordChangeIndicator) {
     this.passwordChangeIndicator = passwordChangeIndicator;
+    isSetPasswordChangeIndicator = true; // mark as set
     return this;
   }
 
@@ -872,6 +960,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasswordChangeIndicator(PasswordChangeIndicatorEnum passwordChangeIndicator) {
     this.passwordChangeIndicator = passwordChangeIndicator;
+    isSetPasswordChangeIndicator = true; // mark as set
   }
 
   /**
@@ -883,6 +972,7 @@ public class AccountInfo {
    */
   public AccountInfo pastTransactionsDay(Integer pastTransactionsDay) {
     this.pastTransactionsDay = pastTransactionsDay;
+    isSetPastTransactionsDay = true; // mark as set
     return this;
   }
 
@@ -908,6 +998,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPastTransactionsDay(Integer pastTransactionsDay) {
     this.pastTransactionsDay = pastTransactionsDay;
+    isSetPastTransactionsDay = true; // mark as set
   }
 
   /**
@@ -919,6 +1010,7 @@ public class AccountInfo {
    */
   public AccountInfo pastTransactionsYear(Integer pastTransactionsYear) {
     this.pastTransactionsYear = pastTransactionsYear;
+    isSetPastTransactionsYear = true; // mark as set
     return this;
   }
 
@@ -944,6 +1036,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPastTransactionsYear(Integer pastTransactionsYear) {
     this.pastTransactionsYear = pastTransactionsYear;
+    isSetPastTransactionsYear = true; // mark as set
   }
 
   /**
@@ -954,6 +1047,7 @@ public class AccountInfo {
    */
   public AccountInfo paymentAccountAge(OffsetDateTime paymentAccountAge) {
     this.paymentAccountAge = paymentAccountAge;
+    isSetPaymentAccountAge = true; // mark as set
     return this;
   }
 
@@ -977,6 +1071,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountAge(OffsetDateTime paymentAccountAge) {
     this.paymentAccountAge = paymentAccountAge;
+    isSetPaymentAccountAge = true; // mark as set
   }
 
   /**
@@ -991,6 +1086,7 @@ public class AccountInfo {
    */
   public AccountInfo paymentAccountIndicator(PaymentAccountIndicatorEnum paymentAccountIndicator) {
     this.paymentAccountIndicator = paymentAccountIndicator;
+    isSetPaymentAccountIndicator = true; // mark as set
     return this;
   }
 
@@ -1022,6 +1118,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountIndicator(PaymentAccountIndicatorEnum paymentAccountIndicator) {
     this.paymentAccountIndicator = paymentAccountIndicator;
+    isSetPaymentAccountIndicator = true; // mark as set
   }
 
   /**
@@ -1032,6 +1129,7 @@ public class AccountInfo {
    */
   public AccountInfo purchasesLast6Months(Integer purchasesLast6Months) {
     this.purchasesLast6Months = purchasesLast6Months;
+    isSetPurchasesLast6Months = true; // mark as set
     return this;
   }
 
@@ -1055,6 +1153,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchasesLast6Months(Integer purchasesLast6Months) {
     this.purchasesLast6Months = purchasesLast6Months;
+    isSetPurchasesLast6Months = true; // mark as set
   }
 
   /**
@@ -1065,6 +1164,7 @@ public class AccountInfo {
    */
   public AccountInfo suspiciousActivity(Boolean suspiciousActivity) {
     this.suspiciousActivity = suspiciousActivity;
+    isSetSuspiciousActivity = true; // mark as set
     return this;
   }
 
@@ -1088,6 +1188,7 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuspiciousActivity(Boolean suspiciousActivity) {
     this.suspiciousActivity = suspiciousActivity;
+    isSetSuspiciousActivity = true; // mark as set
   }
 
   /**
@@ -1101,6 +1202,7 @@ public class AccountInfo {
   // instead.
   public AccountInfo workPhone(String workPhone) {
     this.workPhone = workPhone;
+    isSetWorkPhone = true; // mark as set
     return this;
   }
 
@@ -1131,6 +1233,27 @@ public class AccountInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(String workPhone) {
     this.workPhone = workPhone;
+    isSetWorkPhone = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AccountInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AccountInfo object is equal to o. */
@@ -1144,49 +1267,91 @@ public class AccountInfo {
     }
     AccountInfo accountInfo = (AccountInfo) o;
     return Objects.equals(this.accountAgeIndicator, accountInfo.accountAgeIndicator)
+        && Objects.equals(this.isSetAccountAgeIndicator, accountInfo.isSetAccountAgeIndicator)
         && Objects.equals(this.accountChangeDate, accountInfo.accountChangeDate)
+        && Objects.equals(this.isSetAccountChangeDate, accountInfo.isSetAccountChangeDate)
         && Objects.equals(this.accountChangeIndicator, accountInfo.accountChangeIndicator)
+        && Objects.equals(this.isSetAccountChangeIndicator, accountInfo.isSetAccountChangeIndicator)
         && Objects.equals(this.accountCreationDate, accountInfo.accountCreationDate)
+        && Objects.equals(this.isSetAccountCreationDate, accountInfo.isSetAccountCreationDate)
         && Objects.equals(this.accountType, accountInfo.accountType)
+        && Objects.equals(this.isSetAccountType, accountInfo.isSetAccountType)
         && Objects.equals(this.addCardAttemptsDay, accountInfo.addCardAttemptsDay)
+        && Objects.equals(this.isSetAddCardAttemptsDay, accountInfo.isSetAddCardAttemptsDay)
         && Objects.equals(this.deliveryAddressUsageDate, accountInfo.deliveryAddressUsageDate)
         && Objects.equals(
+            this.isSetDeliveryAddressUsageDate, accountInfo.isSetDeliveryAddressUsageDate)
+        && Objects.equals(
             this.deliveryAddressUsageIndicator, accountInfo.deliveryAddressUsageIndicator)
+        && Objects.equals(
+            this.isSetDeliveryAddressUsageIndicator, accountInfo.isSetDeliveryAddressUsageIndicator)
         && Objects.equals(this.homePhone, accountInfo.homePhone)
+        && Objects.equals(this.isSetHomePhone, accountInfo.isSetHomePhone)
         && Objects.equals(this.mobilePhone, accountInfo.mobilePhone)
+        && Objects.equals(this.isSetMobilePhone, accountInfo.isSetMobilePhone)
         && Objects.equals(this.passwordChangeDate, accountInfo.passwordChangeDate)
+        && Objects.equals(this.isSetPasswordChangeDate, accountInfo.isSetPasswordChangeDate)
         && Objects.equals(this.passwordChangeIndicator, accountInfo.passwordChangeIndicator)
+        && Objects.equals(
+            this.isSetPasswordChangeIndicator, accountInfo.isSetPasswordChangeIndicator)
         && Objects.equals(this.pastTransactionsDay, accountInfo.pastTransactionsDay)
+        && Objects.equals(this.isSetPastTransactionsDay, accountInfo.isSetPastTransactionsDay)
         && Objects.equals(this.pastTransactionsYear, accountInfo.pastTransactionsYear)
+        && Objects.equals(this.isSetPastTransactionsYear, accountInfo.isSetPastTransactionsYear)
         && Objects.equals(this.paymentAccountAge, accountInfo.paymentAccountAge)
+        && Objects.equals(this.isSetPaymentAccountAge, accountInfo.isSetPaymentAccountAge)
         && Objects.equals(this.paymentAccountIndicator, accountInfo.paymentAccountIndicator)
+        && Objects.equals(
+            this.isSetPaymentAccountIndicator, accountInfo.isSetPaymentAccountIndicator)
         && Objects.equals(this.purchasesLast6Months, accountInfo.purchasesLast6Months)
+        && Objects.equals(this.isSetPurchasesLast6Months, accountInfo.isSetPurchasesLast6Months)
         && Objects.equals(this.suspiciousActivity, accountInfo.suspiciousActivity)
-        && Objects.equals(this.workPhone, accountInfo.workPhone);
+        && Objects.equals(this.isSetSuspiciousActivity, accountInfo.isSetSuspiciousActivity)
+        && Objects.equals(this.workPhone, accountInfo.workPhone)
+        && Objects.equals(this.isSetWorkPhone, accountInfo.isSetWorkPhone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountAgeIndicator,
+        isSetAccountAgeIndicator,
         accountChangeDate,
+        isSetAccountChangeDate,
         accountChangeIndicator,
+        isSetAccountChangeIndicator,
         accountCreationDate,
+        isSetAccountCreationDate,
         accountType,
+        isSetAccountType,
         addCardAttemptsDay,
+        isSetAddCardAttemptsDay,
         deliveryAddressUsageDate,
+        isSetDeliveryAddressUsageDate,
         deliveryAddressUsageIndicator,
+        isSetDeliveryAddressUsageIndicator,
         homePhone,
+        isSetHomePhone,
         mobilePhone,
+        isSetMobilePhone,
         passwordChangeDate,
+        isSetPasswordChangeDate,
         passwordChangeIndicator,
+        isSetPasswordChangeIndicator,
         pastTransactionsDay,
+        isSetPastTransactionsDay,
         pastTransactionsYear,
+        isSetPastTransactionsYear,
         paymentAccountAge,
+        isSetPaymentAccountAge,
         paymentAccountIndicator,
+        isSetPaymentAccountIndicator,
         purchasesLast6Months,
+        isSetPurchasesLast6Months,
         suspiciousActivity,
-        workPhone);
+        isSetSuspiciousActivity,
+        workPhone,
+        isSetWorkPhone);
   }
 
   @Override
@@ -1244,6 +1409,87 @@ public class AccountInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountAgeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_AGE_INDICATOR, this.accountAgeIndicator);
+    }
+    if (isSetAccountChangeDate) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_CHANGE_DATE, this.accountChangeDate);
+    }
+    if (isSetAccountChangeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_CHANGE_INDICATOR, this.accountChangeIndicator);
+    }
+    if (isSetAccountCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_CREATION_DATE, this.accountCreationDate);
+    }
+    if (isSetAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_TYPE, this.accountType);
+    }
+    if (isSetAddCardAttemptsDay) {
+      addIfNull(nulls, JSON_PROPERTY_ADD_CARD_ATTEMPTS_DAY, this.addCardAttemptsDay);
+    }
+    if (isSetDeliveryAddressUsageDate) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_DATE, this.deliveryAddressUsageDate);
+    }
+    if (isSetDeliveryAddressUsageIndicator) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_INDICATOR,
+          this.deliveryAddressUsageIndicator);
+    }
+    if (isSetHomePhone) {
+      addIfNull(nulls, JSON_PROPERTY_HOME_PHONE, this.homePhone);
+    }
+    if (isSetMobilePhone) {
+      addIfNull(nulls, JSON_PROPERTY_MOBILE_PHONE, this.mobilePhone);
+    }
+    if (isSetPasswordChangeDate) {
+      addIfNull(nulls, JSON_PROPERTY_PASSWORD_CHANGE_DATE, this.passwordChangeDate);
+    }
+    if (isSetPasswordChangeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_PASSWORD_CHANGE_INDICATOR, this.passwordChangeIndicator);
+    }
+    if (isSetPastTransactionsDay) {
+      addIfNull(nulls, JSON_PROPERTY_PAST_TRANSACTIONS_DAY, this.pastTransactionsDay);
+    }
+    if (isSetPastTransactionsYear) {
+      addIfNull(nulls, JSON_PROPERTY_PAST_TRANSACTIONS_YEAR, this.pastTransactionsYear);
+    }
+    if (isSetPaymentAccountAge) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_ACCOUNT_AGE, this.paymentAccountAge);
+    }
+    if (isSetPaymentAccountIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_ACCOUNT_INDICATOR, this.paymentAccountIndicator);
+    }
+    if (isSetPurchasesLast6Months) {
+      addIfNull(nulls, JSON_PROPERTY_PURCHASES_LAST6_MONTHS, this.purchasesLast6Months);
+    }
+    if (isSetSuspiciousActivity) {
+      addIfNull(nulls, JSON_PROPERTY_SUSPICIOUS_ACTIVITY, this.suspiciousActivity);
+    }
+    if (isSetWorkPhone) {
+      addIfNull(nulls, JSON_PROPERTY_WORK_PHONE, this.workPhone);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

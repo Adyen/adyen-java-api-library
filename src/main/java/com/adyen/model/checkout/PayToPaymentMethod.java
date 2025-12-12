@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +38,15 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PayToPaymentMethod() {}
 
   /**
@@ -46,6 +57,7 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
    */
   public PayToPaymentMethod shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -69,6 +81,27 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PayToPaymentMethod includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PayToPaymentMethod object is equal to o. */
@@ -82,12 +115,13 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
     }
     PayToPaymentMethod payToPaymentMethod = (PayToPaymentMethod) o;
     return Objects.equals(this.shopperReference, payToPaymentMethod.shopperReference)
+        && Objects.equals(this.isSetShopperReference, payToPaymentMethod.isSetShopperReference)
         && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shopperReference, super.hashCode());
+    return Objects.hash(shopperReference, isSetShopperReference, super.hashCode());
   }
 
   @Override
@@ -115,6 +149,30 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
     Map<String, Class<?>> mappings = new HashMap<>();
     mappings.put("PayToPaymentMethod", PayToPaymentMethod.class);
     JSON.registerDiscriminator(PayToPaymentMethod.class, "type", mappings);
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

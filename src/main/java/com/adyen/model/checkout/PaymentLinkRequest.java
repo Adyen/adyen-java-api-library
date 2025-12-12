@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -76,68 +78,134 @@ public class PaymentLinkRequest {
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
   private List<String> allowedPaymentMethods;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedPaymentMethods = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
   private List<String> blockedPaymentMethods;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBlockedPaymentMethods = false;
+
   public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCaptureDelayHours = false;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
+
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
 
   public static final String JSON_PROPERTY_DELIVER_AT = "deliverAt";
   private OffsetDateTime deliverAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliverAt = false;
+
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private Address deliveryAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddress = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
 
   public static final String JSON_PROPERTY_FUND_ORIGIN = "fundOrigin";
   private FundOrigin fundOrigin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundOrigin = false;
+
   public static final String JSON_PROPERTY_FUND_RECIPIENT = "fundRecipient";
   private FundRecipient fundRecipient;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundRecipient = false;
 
   public static final String JSON_PROPERTY_INSTALLMENT_OPTIONS = "installmentOptions";
   private Map<String, InstallmentOption> installmentOptions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentOptions = false;
+
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
 
   public static final String JSON_PROPERTY_MANUAL_CAPTURE = "manualCapture";
   private Boolean manualCapture;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetManualCapture = false;
+
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcc = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ORDER_REFERENCE = "merchantOrderReference";
   private String merchantOrderReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantOrderReference = false;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMetadata = false;
+
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlatformChargebackLogic = false;
 
   /**
    * Defines a recurring payment type. Required when &#x60;storePaymentMethodMode&#x60; is set to
@@ -196,8 +264,14 @@ public class PaymentLinkRequest {
   public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringProcessingModel = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /** Gets or Sets requiredShopperFields */
   public enum RequiredShopperFieldsEnum {
@@ -249,45 +323,87 @@ public class PaymentLinkRequest {
   public static final String JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS = "requiredShopperFields";
   private List<RequiredShopperFieldsEnum> requiredShopperFields;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequiredShopperFields = false;
+
   public static final String JSON_PROPERTY_RETURN_URL = "returnUrl";
   private String returnUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnUrl = false;
 
   public static final String JSON_PROPERTY_REUSABLE = "reusable";
   private Boolean reusable;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReusable = false;
+
   public static final String JSON_PROPERTY_RISK_DATA = "riskData";
   private RiskData riskData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskData = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperLocale = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperStatement = false;
 
   public static final String JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON =
       "showRemovePaymentMethodButton";
   private Boolean showRemovePaymentMethodButton;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShowRemovePaymentMethodButton = false;
+
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
 
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
   private Boolean splitCardFundingSources;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitCardFundingSources = false;
+
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
+
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
 
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
@@ -343,14 +459,32 @@ public class PaymentLinkRequest {
   public static final String JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE = "storePaymentMethodMode";
   private StorePaymentMethodModeEnum storePaymentMethodMode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStorePaymentMethodMode = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
 
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThemeId = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2RequestData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentLinkRequest() {}
 
@@ -367,6 +501,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
+    isSetAllowedPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -408,6 +543,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
+    isSetAllowedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -418,6 +554,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -441,6 +578,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -451,6 +589,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -474,6 +613,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -484,6 +624,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -507,6 +648,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -522,6 +664,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+    isSetBlockedPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -563,6 +706,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+    isSetBlockedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -574,6 +718,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
+    isSetCaptureDelayHours = true; // mark as set
     return this;
   }
 
@@ -599,6 +744,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
+    isSetCaptureDelayHours = true; // mark as set
   }
 
   /**
@@ -609,6 +755,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -632,6 +779,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -644,6 +792,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -671,6 +820,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -685,6 +835,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest deliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
+    isSetDeliverAt = true; // mark as set
     return this;
   }
 
@@ -716,6 +867,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
+    isSetDeliverAt = true; // mark as set
   }
 
   /**
@@ -726,6 +878,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest deliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
     return this;
   }
 
@@ -749,6 +902,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
   }
 
   /**
@@ -760,6 +914,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -785,6 +940,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -802,6 +958,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
     return this;
   }
 
@@ -839,6 +996,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
   }
 
   /**
@@ -849,6 +1007,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest fundOrigin(FundOrigin fundOrigin) {
     this.fundOrigin = fundOrigin;
+    isSetFundOrigin = true; // mark as set
     return this;
   }
 
@@ -872,6 +1031,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundOrigin(FundOrigin fundOrigin) {
     this.fundOrigin = fundOrigin;
+    isSetFundOrigin = true; // mark as set
   }
 
   /**
@@ -882,6 +1042,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest fundRecipient(FundRecipient fundRecipient) {
     this.fundRecipient = fundRecipient;
+    isSetFundRecipient = true; // mark as set
     return this;
   }
 
@@ -905,6 +1066,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundRecipient(FundRecipient fundRecipient) {
     this.fundRecipient = fundRecipient;
+    isSetFundRecipient = true; // mark as set
   }
 
   /**
@@ -921,6 +1083,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest installmentOptions(Map<String, InstallmentOption> installmentOptions) {
     this.installmentOptions = installmentOptions;
+    isSetInstallmentOptions = true; // mark as set
     return this;
   }
 
@@ -965,6 +1128,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentOptions(Map<String, InstallmentOption> installmentOptions) {
     this.installmentOptions = installmentOptions;
+    isSetInstallmentOptions = true; // mark as set
   }
 
   /**
@@ -979,6 +1143,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -1018,6 +1183,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -1030,6 +1196,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest manualCapture(Boolean manualCapture) {
     this.manualCapture = manualCapture;
+    isSetManualCapture = true; // mark as set
     return this;
   }
 
@@ -1057,6 +1224,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManualCapture(Boolean manualCapture) {
     this.manualCapture = manualCapture;
+    isSetManualCapture = true; // mark as set
   }
 
   /**
@@ -1071,6 +1239,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest mcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -1102,6 +1271,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
   }
 
   /**
@@ -1112,6 +1282,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -1135,6 +1306,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -1148,6 +1320,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
+    isSetMerchantOrderReference = true; // mark as set
     return this;
   }
 
@@ -1177,6 +1350,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
+    isSetMerchantOrderReference = true; // mark as set
   }
 
   /**
@@ -1197,6 +1371,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
     return this;
   }
 
@@ -1248,6 +1423,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
   }
 
   /**
@@ -1259,6 +1435,7 @@ public class PaymentLinkRequest {
   public PaymentLinkRequest platformChargebackLogic(
       PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
     return this;
   }
 
@@ -1282,6 +1459,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
   }
 
   /**
@@ -1309,6 +1487,7 @@ public class PaymentLinkRequest {
   public PaymentLinkRequest recurringProcessingModel(
       RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
     return this;
   }
 
@@ -1364,6 +1543,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
   }
 
   /**
@@ -1376,6 +1556,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -1403,6 +1584,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -1426,6 +1608,7 @@ public class PaymentLinkRequest {
   public PaymentLinkRequest requiredShopperFields(
       List<RequiredShopperFieldsEnum> requiredShopperFields) {
     this.requiredShopperFields = requiredShopperFields;
+    isSetRequiredShopperFields = true; // mark as set
     return this;
   }
 
@@ -1482,6 +1665,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
     this.requiredShopperFields = requiredShopperFields;
+    isSetRequiredShopperFields = true; // mark as set
   }
 
   /**
@@ -1496,6 +1680,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
+    isSetReturnUrl = true; // mark as set
     return this;
   }
 
@@ -1527,6 +1712,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
+    isSetReturnUrl = true; // mark as set
   }
 
   /**
@@ -1540,6 +1726,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest reusable(Boolean reusable) {
     this.reusable = reusable;
+    isSetReusable = true; // mark as set
     return this;
   }
 
@@ -1569,6 +1756,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReusable(Boolean reusable) {
     this.reusable = reusable;
+    isSetReusable = true; // mark as set
   }
 
   /**
@@ -1579,6 +1767,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest riskData(RiskData riskData) {
     this.riskData = riskData;
+    isSetRiskData = true; // mark as set
     return this;
   }
 
@@ -1602,6 +1791,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskData(RiskData riskData) {
     this.riskData = riskData;
+    isSetRiskData = true; // mark as set
   }
 
   /**
@@ -1612,6 +1802,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -1635,6 +1826,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -1651,6 +1843,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
     return this;
   }
 
@@ -1686,6 +1879,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
   }
 
   /**
@@ -1696,6 +1890,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -1719,6 +1914,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -1734,6 +1930,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -1767,6 +1964,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -1782,6 +1980,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
     return this;
   }
 
@@ -1815,6 +2014,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
   }
 
   /**
@@ -1826,6 +2026,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest showRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
+    isSetShowRemovePaymentMethodButton = true; // mark as set
     return this;
   }
 
@@ -1851,6 +2052,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
     this.showRemovePaymentMethodButton = showRemovePaymentMethodButton;
+    isSetShowRemovePaymentMethodButton = true; // mark as set
   }
 
   /**
@@ -1861,6 +2063,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -1884,6 +2087,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
   }
 
   /**
@@ -1896,6 +2100,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest splitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
+    isSetSplitCardFundingSources = true; // mark as set
     return this;
   }
 
@@ -1923,6 +2128,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
+    isSetSplitCardFundingSources = true; // mark as set
   }
 
   /**
@@ -1941,6 +2147,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -1988,6 +2195,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -1998,6 +2206,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -2021,6 +2230,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
   }
 
   /**
@@ -2044,6 +2254,7 @@ public class PaymentLinkRequest {
   public PaymentLinkRequest storePaymentMethodMode(
       StorePaymentMethodModeEnum storePaymentMethodMode) {
     this.storePaymentMethodMode = storePaymentMethodMode;
+    isSetStorePaymentMethodMode = true; // mark as set
     return this;
   }
 
@@ -2091,6 +2302,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
     this.storePaymentMethodMode = storePaymentMethodMode;
+    isSetStorePaymentMethodMode = true; // mark as set
   }
 
   /**
@@ -2109,6 +2321,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -2148,6 +2361,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -2163,6 +2377,7 @@ public class PaymentLinkRequest {
    */
   public PaymentLinkRequest themeId(String themeId) {
     this.themeId = themeId;
+    isSetThemeId = true; // mark as set
     return this;
   }
 
@@ -2196,6 +2411,7 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
     this.themeId = themeId;
+    isSetThemeId = true; // mark as set
   }
 
   /**
@@ -2207,6 +2423,7 @@ public class PaymentLinkRequest {
   public PaymentLinkRequest threeDS2RequestData(
       CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
     return this;
   }
 
@@ -2230,6 +2447,27 @@ public class PaymentLinkRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentLinkRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentLinkRequest object is equal to o. */
@@ -2243,96 +2481,192 @@ public class PaymentLinkRequest {
     }
     PaymentLinkRequest paymentLinkRequest = (PaymentLinkRequest) o;
     return Objects.equals(this.allowedPaymentMethods, paymentLinkRequest.allowedPaymentMethods)
+        && Objects.equals(
+            this.isSetAllowedPaymentMethods, paymentLinkRequest.isSetAllowedPaymentMethods)
         && Objects.equals(this.amount, paymentLinkRequest.amount)
+        && Objects.equals(this.isSetAmount, paymentLinkRequest.isSetAmount)
         && Objects.equals(this.applicationInfo, paymentLinkRequest.applicationInfo)
+        && Objects.equals(this.isSetApplicationInfo, paymentLinkRequest.isSetApplicationInfo)
         && Objects.equals(this.billingAddress, paymentLinkRequest.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, paymentLinkRequest.isSetBillingAddress)
         && Objects.equals(this.blockedPaymentMethods, paymentLinkRequest.blockedPaymentMethods)
+        && Objects.equals(
+            this.isSetBlockedPaymentMethods, paymentLinkRequest.isSetBlockedPaymentMethods)
         && Objects.equals(this.captureDelayHours, paymentLinkRequest.captureDelayHours)
+        && Objects.equals(this.isSetCaptureDelayHours, paymentLinkRequest.isSetCaptureDelayHours)
         && Objects.equals(this.countryCode, paymentLinkRequest.countryCode)
+        && Objects.equals(this.isSetCountryCode, paymentLinkRequest.isSetCountryCode)
         && Objects.equals(this.dateOfBirth, paymentLinkRequest.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, paymentLinkRequest.isSetDateOfBirth)
         && Objects.equals(this.deliverAt, paymentLinkRequest.deliverAt)
+        && Objects.equals(this.isSetDeliverAt, paymentLinkRequest.isSetDeliverAt)
         && Objects.equals(this.deliveryAddress, paymentLinkRequest.deliveryAddress)
+        && Objects.equals(this.isSetDeliveryAddress, paymentLinkRequest.isSetDeliveryAddress)
         && Objects.equals(this.description, paymentLinkRequest.description)
+        && Objects.equals(this.isSetDescription, paymentLinkRequest.isSetDescription)
         && Objects.equals(this.expiresAt, paymentLinkRequest.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, paymentLinkRequest.isSetExpiresAt)
         && Objects.equals(this.fundOrigin, paymentLinkRequest.fundOrigin)
+        && Objects.equals(this.isSetFundOrigin, paymentLinkRequest.isSetFundOrigin)
         && Objects.equals(this.fundRecipient, paymentLinkRequest.fundRecipient)
+        && Objects.equals(this.isSetFundRecipient, paymentLinkRequest.isSetFundRecipient)
         && Objects.equals(this.installmentOptions, paymentLinkRequest.installmentOptions)
+        && Objects.equals(this.isSetInstallmentOptions, paymentLinkRequest.isSetInstallmentOptions)
         && Objects.equals(this.lineItems, paymentLinkRequest.lineItems)
+        && Objects.equals(this.isSetLineItems, paymentLinkRequest.isSetLineItems)
         && Objects.equals(this.manualCapture, paymentLinkRequest.manualCapture)
+        && Objects.equals(this.isSetManualCapture, paymentLinkRequest.isSetManualCapture)
         && Objects.equals(this.mcc, paymentLinkRequest.mcc)
+        && Objects.equals(this.isSetMcc, paymentLinkRequest.isSetMcc)
         && Objects.equals(this.merchantAccount, paymentLinkRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, paymentLinkRequest.isSetMerchantAccount)
         && Objects.equals(this.merchantOrderReference, paymentLinkRequest.merchantOrderReference)
+        && Objects.equals(
+            this.isSetMerchantOrderReference, paymentLinkRequest.isSetMerchantOrderReference)
         && Objects.equals(this.metadata, paymentLinkRequest.metadata)
+        && Objects.equals(this.isSetMetadata, paymentLinkRequest.isSetMetadata)
         && Objects.equals(this.platformChargebackLogic, paymentLinkRequest.platformChargebackLogic)
         && Objects.equals(
+            this.isSetPlatformChargebackLogic, paymentLinkRequest.isSetPlatformChargebackLogic)
+        && Objects.equals(
             this.recurringProcessingModel, paymentLinkRequest.recurringProcessingModel)
+        && Objects.equals(
+            this.isSetRecurringProcessingModel, paymentLinkRequest.isSetRecurringProcessingModel)
         && Objects.equals(this.reference, paymentLinkRequest.reference)
+        && Objects.equals(this.isSetReference, paymentLinkRequest.isSetReference)
         && Objects.equals(this.requiredShopperFields, paymentLinkRequest.requiredShopperFields)
+        && Objects.equals(
+            this.isSetRequiredShopperFields, paymentLinkRequest.isSetRequiredShopperFields)
         && Objects.equals(this.returnUrl, paymentLinkRequest.returnUrl)
+        && Objects.equals(this.isSetReturnUrl, paymentLinkRequest.isSetReturnUrl)
         && Objects.equals(this.reusable, paymentLinkRequest.reusable)
+        && Objects.equals(this.isSetReusable, paymentLinkRequest.isSetReusable)
         && Objects.equals(this.riskData, paymentLinkRequest.riskData)
+        && Objects.equals(this.isSetRiskData, paymentLinkRequest.isSetRiskData)
         && Objects.equals(this.shopperEmail, paymentLinkRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, paymentLinkRequest.isSetShopperEmail)
         && Objects.equals(this.shopperLocale, paymentLinkRequest.shopperLocale)
+        && Objects.equals(this.isSetShopperLocale, paymentLinkRequest.isSetShopperLocale)
         && Objects.equals(this.shopperName, paymentLinkRequest.shopperName)
+        && Objects.equals(this.isSetShopperName, paymentLinkRequest.isSetShopperName)
         && Objects.equals(this.shopperReference, paymentLinkRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, paymentLinkRequest.isSetShopperReference)
         && Objects.equals(this.shopperStatement, paymentLinkRequest.shopperStatement)
+        && Objects.equals(this.isSetShopperStatement, paymentLinkRequest.isSetShopperStatement)
         && Objects.equals(
             this.showRemovePaymentMethodButton, paymentLinkRequest.showRemovePaymentMethodButton)
+        && Objects.equals(
+            this.isSetShowRemovePaymentMethodButton,
+            paymentLinkRequest.isSetShowRemovePaymentMethodButton)
         && Objects.equals(this.socialSecurityNumber, paymentLinkRequest.socialSecurityNumber)
+        && Objects.equals(
+            this.isSetSocialSecurityNumber, paymentLinkRequest.isSetSocialSecurityNumber)
         && Objects.equals(this.splitCardFundingSources, paymentLinkRequest.splitCardFundingSources)
+        && Objects.equals(
+            this.isSetSplitCardFundingSources, paymentLinkRequest.isSetSplitCardFundingSources)
         && Objects.equals(this.splits, paymentLinkRequest.splits)
+        && Objects.equals(this.isSetSplits, paymentLinkRequest.isSetSplits)
         && Objects.equals(this.store, paymentLinkRequest.store)
+        && Objects.equals(this.isSetStore, paymentLinkRequest.isSetStore)
         && Objects.equals(this.storePaymentMethodMode, paymentLinkRequest.storePaymentMethodMode)
+        && Objects.equals(
+            this.isSetStorePaymentMethodMode, paymentLinkRequest.isSetStorePaymentMethodMode)
         && Objects.equals(this.telephoneNumber, paymentLinkRequest.telephoneNumber)
+        && Objects.equals(this.isSetTelephoneNumber, paymentLinkRequest.isSetTelephoneNumber)
         && Objects.equals(this.themeId, paymentLinkRequest.themeId)
-        && Objects.equals(this.threeDS2RequestData, paymentLinkRequest.threeDS2RequestData);
+        && Objects.equals(this.isSetThemeId, paymentLinkRequest.isSetThemeId)
+        && Objects.equals(this.threeDS2RequestData, paymentLinkRequest.threeDS2RequestData)
+        && Objects.equals(
+            this.isSetThreeDS2RequestData, paymentLinkRequest.isSetThreeDS2RequestData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         allowedPaymentMethods,
+        isSetAllowedPaymentMethods,
         amount,
+        isSetAmount,
         applicationInfo,
+        isSetApplicationInfo,
         billingAddress,
+        isSetBillingAddress,
         blockedPaymentMethods,
+        isSetBlockedPaymentMethods,
         captureDelayHours,
+        isSetCaptureDelayHours,
         countryCode,
+        isSetCountryCode,
         dateOfBirth,
+        isSetDateOfBirth,
         deliverAt,
+        isSetDeliverAt,
         deliveryAddress,
+        isSetDeliveryAddress,
         description,
+        isSetDescription,
         expiresAt,
+        isSetExpiresAt,
         fundOrigin,
+        isSetFundOrigin,
         fundRecipient,
+        isSetFundRecipient,
         installmentOptions,
+        isSetInstallmentOptions,
         lineItems,
+        isSetLineItems,
         manualCapture,
+        isSetManualCapture,
         mcc,
+        isSetMcc,
         merchantAccount,
+        isSetMerchantAccount,
         merchantOrderReference,
+        isSetMerchantOrderReference,
         metadata,
+        isSetMetadata,
         platformChargebackLogic,
+        isSetPlatformChargebackLogic,
         recurringProcessingModel,
+        isSetRecurringProcessingModel,
         reference,
+        isSetReference,
         requiredShopperFields,
+        isSetRequiredShopperFields,
         returnUrl,
+        isSetReturnUrl,
         reusable,
+        isSetReusable,
         riskData,
+        isSetRiskData,
         shopperEmail,
+        isSetShopperEmail,
         shopperLocale,
+        isSetShopperLocale,
         shopperName,
+        isSetShopperName,
         shopperReference,
+        isSetShopperReference,
         shopperStatement,
+        isSetShopperStatement,
         showRemovePaymentMethodButton,
+        isSetShowRemovePaymentMethodButton,
         socialSecurityNumber,
+        isSetSocialSecurityNumber,
         splitCardFundingSources,
+        isSetSplitCardFundingSources,
         splits,
+        isSetSplits,
         store,
+        isSetStore,
         storePaymentMethodMode,
+        isSetStorePaymentMethodMode,
         telephoneNumber,
+        isSetTelephoneNumber,
         themeId,
-        threeDS2RequestData);
+        isSetThemeId,
+        threeDS2RequestData,
+        isSetThreeDS2RequestData);
   }
 
   @Override
@@ -2415,6 +2749,156 @@ public class PaymentLinkRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_PAYMENT_METHODS, this.allowedPaymentMethods);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetBlockedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_BLOCKED_PAYMENT_METHODS, this.blockedPaymentMethods);
+    }
+    if (isSetCaptureDelayHours) {
+      addIfNull(nulls, JSON_PROPERTY_CAPTURE_DELAY_HOURS, this.captureDelayHours);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetDeliverAt) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVER_AT, this.deliverAt);
+    }
+    if (isSetDeliveryAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+    if (isSetFundOrigin) {
+      addIfNull(nulls, JSON_PROPERTY_FUND_ORIGIN, this.fundOrigin);
+    }
+    if (isSetFundRecipient) {
+      addIfNull(nulls, JSON_PROPERTY_FUND_RECIPIENT, this.fundRecipient);
+    }
+    if (isSetInstallmentOptions) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLMENT_OPTIONS, this.installmentOptions);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetManualCapture) {
+      addIfNull(nulls, JSON_PROPERTY_MANUAL_CAPTURE, this.manualCapture);
+    }
+    if (isSetMcc) {
+      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetMerchantOrderReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ORDER_REFERENCE, this.merchantOrderReference);
+    }
+    if (isSetMetadata) {
+      addIfNull(nulls, JSON_PROPERTY_METADATA, this.metadata);
+    }
+    if (isSetPlatformChargebackLogic) {
+      addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
+    }
+    if (isSetRecurringProcessingModel) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_PROCESSING_MODEL, this.recurringProcessingModel);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetRequiredShopperFields) {
+      addIfNull(nulls, JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS, this.requiredShopperFields);
+    }
+    if (isSetReturnUrl) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_URL, this.returnUrl);
+    }
+    if (isSetReusable) {
+      addIfNull(nulls, JSON_PROPERTY_REUSABLE, this.reusable);
+    }
+    if (isSetRiskData) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_DATA, this.riskData);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperLocale) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_LOCALE, this.shopperLocale);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetShowRemovePaymentMethodButton) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON,
+          this.showRemovePaymentMethodButton);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+    if (isSetSplitCardFundingSources) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES, this.splitCardFundingSources);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+    if (isSetStorePaymentMethodMode) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE, this.storePaymentMethodMode);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetThemeId) {
+      addIfNull(nulls, JSON_PROPERTY_THEME_ID, this.themeId);
+    }
+    if (isSetThreeDS2RequestData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

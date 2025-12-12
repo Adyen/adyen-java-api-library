@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,26 +34,56 @@ public class DeliveryAddress {
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCity = false;
+
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountry = false;
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstName = false;
+
   public static final String JSON_PROPERTY_HOUSE_NUMBER_OR_NAME = "houseNumberOrName";
   private String houseNumberOrName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHouseNumberOrName = false;
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastName = false;
+
   public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPostalCode = false;
 
   public static final String JSON_PROPERTY_STATE_OR_PROVINCE = "stateOrProvince";
   private String stateOrProvince;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStateOrProvince = false;
+
   public static final String JSON_PROPERTY_STREET = "street";
   private String street;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStreet = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DeliveryAddress() {}
 
@@ -63,6 +95,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress city(String city) {
     this.city = city;
+    isSetCity = true; // mark as set
     return this;
   }
 
@@ -86,6 +119,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
+    isSetCity = true; // mark as set
   }
 
   /**
@@ -100,6 +134,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress country(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -131,6 +166,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
   }
 
   /**
@@ -141,6 +177,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress firstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
     return this;
   }
 
@@ -164,6 +201,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    isSetFirstName = true; // mark as set
   }
 
   /**
@@ -174,6 +212,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress houseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
+    isSetHouseNumberOrName = true; // mark as set
     return this;
   }
 
@@ -197,6 +236,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
+    isSetHouseNumberOrName = true; // mark as set
   }
 
   /**
@@ -207,6 +247,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress lastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
     return this;
   }
 
@@ -230,6 +271,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    isSetLastName = true; // mark as set
   }
 
   /**
@@ -242,6 +284,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress postalCode(String postalCode) {
     this.postalCode = postalCode;
+    isSetPostalCode = true; // mark as set
     return this;
   }
 
@@ -269,6 +312,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
+    isSetPostalCode = true; // mark as set
   }
 
   /**
@@ -281,6 +325,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
+    isSetStateOrProvince = true; // mark as set
     return this;
   }
 
@@ -308,6 +353,7 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
+    isSetStateOrProvince = true; // mark as set
   }
 
   /**
@@ -321,6 +367,7 @@ public class DeliveryAddress {
    */
   public DeliveryAddress street(String street) {
     this.street = street;
+    isSetStreet = true; // mark as set
     return this;
   }
 
@@ -350,6 +397,27 @@ public class DeliveryAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {
     this.street = street;
+    isSetStreet = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DeliveryAddress includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DeliveryAddress object is equal to o. */
@@ -363,19 +431,42 @@ public class DeliveryAddress {
     }
     DeliveryAddress deliveryAddress = (DeliveryAddress) o;
     return Objects.equals(this.city, deliveryAddress.city)
+        && Objects.equals(this.isSetCity, deliveryAddress.isSetCity)
         && Objects.equals(this.country, deliveryAddress.country)
+        && Objects.equals(this.isSetCountry, deliveryAddress.isSetCountry)
         && Objects.equals(this.firstName, deliveryAddress.firstName)
+        && Objects.equals(this.isSetFirstName, deliveryAddress.isSetFirstName)
         && Objects.equals(this.houseNumberOrName, deliveryAddress.houseNumberOrName)
+        && Objects.equals(this.isSetHouseNumberOrName, deliveryAddress.isSetHouseNumberOrName)
         && Objects.equals(this.lastName, deliveryAddress.lastName)
+        && Objects.equals(this.isSetLastName, deliveryAddress.isSetLastName)
         && Objects.equals(this.postalCode, deliveryAddress.postalCode)
+        && Objects.equals(this.isSetPostalCode, deliveryAddress.isSetPostalCode)
         && Objects.equals(this.stateOrProvince, deliveryAddress.stateOrProvince)
-        && Objects.equals(this.street, deliveryAddress.street);
+        && Objects.equals(this.isSetStateOrProvince, deliveryAddress.isSetStateOrProvince)
+        && Objects.equals(this.street, deliveryAddress.street)
+        && Objects.equals(this.isSetStreet, deliveryAddress.isSetStreet);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        city, country, firstName, houseNumberOrName, lastName, postalCode, stateOrProvince, street);
+        city,
+        isSetCity,
+        country,
+        isSetCountry,
+        firstName,
+        isSetFirstName,
+        houseNumberOrName,
+        isSetHouseNumberOrName,
+        lastName,
+        isSetLastName,
+        postalCode,
+        isSetPostalCode,
+        stateOrProvince,
+        isSetStateOrProvince,
+        street,
+        isSetStreet);
   }
 
   @Override
@@ -402,6 +493,51 @@ public class DeliveryAddress {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCity) {
+      addIfNull(nulls, JSON_PROPERTY_CITY, this.city);
+    }
+    if (isSetCountry) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_NAME, this.firstName);
+    }
+    if (isSetHouseNumberOrName) {
+      addIfNull(nulls, JSON_PROPERTY_HOUSE_NUMBER_OR_NAME, this.houseNumberOrName);
+    }
+    if (isSetLastName) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_NAME, this.lastName);
+    }
+    if (isSetPostalCode) {
+      addIfNull(nulls, JSON_PROPERTY_POSTAL_CODE, this.postalCode);
+    }
+    if (isSetStateOrProvince) {
+      addIfNull(nulls, JSON_PROPERTY_STATE_OR_PROVINCE, this.stateOrProvince);
+    }
+    if (isSetStreet) {
+      addIfNull(nulls, JSON_PROPERTY_STREET, this.street);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

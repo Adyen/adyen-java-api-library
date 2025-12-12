@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -75,23 +77,44 @@ public class DonationPaymentRequest {
   public static final String JSON_PROPERTY_ACCOUNT_INFO = "accountInfo";
   private AccountInfo accountInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountInfo = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_DATA = "authenticationData";
   private AuthenticationData authenticationData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationData = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private BillingAddress billingAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
+
   public static final String JSON_PROPERTY_BROWSER_INFO = "browserInfo";
   private BrowserInfo browserInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrowserInfo = false;
 
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out
@@ -144,61 +167,118 @@ public class DonationPaymentRequest {
   public static final String JSON_PROPERTY_CHANNEL = "channel";
   private ChannelEnum channel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChannel = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_CONVERSION_ID = "conversionId";
   @Deprecated // deprecated since Adyen Checkout API v68: Use `checkoutAttemptId` instead
   private String conversionId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConversionId = false;
+
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
 
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private OffsetDateTime dateOfBirth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
+
   public static final String JSON_PROPERTY_DELIVER_AT = "deliverAt";
   private OffsetDateTime deliverAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliverAt = false;
 
   public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
   private DeliveryAddress deliveryAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddress = false;
+
   public static final String JSON_PROPERTY_DEVICE_FINGERPRINT = "deviceFingerprint";
   private String deviceFingerprint;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceFingerprint = false;
 
   public static final String JSON_PROPERTY_DONATION_ACCOUNT = "donationAccount";
   private String donationAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonationAccount = false;
+
   public static final String JSON_PROPERTY_DONATION_CAMPAIGN_ID = "donationCampaignId";
   private String donationCampaignId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonationCampaignId = false;
 
   public static final String JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE =
       "donationOriginalPspReference";
   private String donationOriginalPspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonationOriginalPspReference = false;
+
   public static final String JSON_PROPERTY_DONATION_TOKEN = "donationToken";
   private String donationToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonationToken = false;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_MERCHANT_RISK_INDICATOR = "merchantRiskIndicator";
   private MerchantRiskIndicator merchantRiskIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantRiskIndicator = false;
+
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, String> metadata;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMetadata = false;
 
   public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMpiData = false;
+
   public static final String JSON_PROPERTY_ORIGIN = "origin";
   private String origin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrigin = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private DonationPaymentMethod paymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details or
@@ -257,26 +337,50 @@ public class DonationPaymentRequest {
   public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringProcessingModel = false;
+
   public static final String JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD = "redirectFromIssuerMethod";
   private String redirectFromIssuerMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRedirectFromIssuerMethod = false;
 
   public static final String JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD = "redirectToIssuerMethod";
   private String redirectToIssuerMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRedirectToIssuerMethod = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_RETURN_URL = "returnUrl";
   private String returnUrl;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnUrl = false;
+
   public static final String JSON_PROPERTY_SESSION_VALIDITY = "sessionValidity";
   private String sessionValidity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSessionValidity = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
   private String shopperIP;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperIP = false;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether
@@ -338,29 +442,59 @@ public class DonationPaymentRequest {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperLocale = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private ShopperName shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
 
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private ThreeDS2RequestFields threeDS2RequestData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2RequestData = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY =
       "threeDSAuthenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v69: Use
   // `authenticationData.authenticationOnly` instead.
   private Boolean threeDSAuthenticationOnly;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSAuthenticationOnly = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DonationPaymentRequest() {}
 
@@ -372,6 +506,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest accountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+    isSetAccountInfo = true; // mark as set
     return this;
   }
 
@@ -395,6 +530,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountInfo(AccountInfo accountInfo) {
     this.accountInfo = accountInfo;
+    isSetAccountInfo = true; // mark as set
   }
 
   /**
@@ -409,6 +545,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -448,6 +585,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -458,6 +596,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -481,6 +620,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -491,6 +631,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -514,6 +655,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -524,6 +666,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest authenticationData(AuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+    isSetAuthenticationData = true; // mark as set
     return this;
   }
 
@@ -547,6 +690,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationData(AuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+    isSetAuthenticationData = true; // mark as set
   }
 
   /**
@@ -557,6 +701,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest billingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -580,6 +725,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(BillingAddress billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -590,6 +736,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest browserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
+    isSetBrowserInfo = true; // mark as set
     return this;
   }
 
@@ -613,6 +760,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrowserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
+    isSetBrowserInfo = true; // mark as set
   }
 
   /**
@@ -629,6 +777,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest channel(ChannelEnum channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
     return this;
   }
 
@@ -664,6 +813,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(ChannelEnum channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
   }
 
   /**
@@ -676,6 +826,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -703,6 +854,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -717,6 +869,7 @@ public class DonationPaymentRequest {
   @Deprecated // deprecated since Adyen Checkout API v68: Use `checkoutAttemptId` instead
   public DonationPaymentRequest conversionId(String conversionId) {
     this.conversionId = conversionId;
+    isSetConversionId = true; // mark as set
     return this;
   }
 
@@ -748,6 +901,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConversionId(String conversionId) {
     this.conversionId = conversionId;
+    isSetConversionId = true; // mark as set
   }
 
   /**
@@ -760,6 +914,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -787,6 +942,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -799,6 +955,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest dateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -826,6 +983,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -840,6 +998,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest deliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
+    isSetDeliverAt = true; // mark as set
     return this;
   }
 
@@ -871,6 +1030,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
+    isSetDeliverAt = true; // mark as set
   }
 
   /**
@@ -881,6 +1041,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest deliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
     return this;
   }
 
@@ -904,6 +1065,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
   }
 
   /**
@@ -917,6 +1079,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest deviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
+    isSetDeviceFingerprint = true; // mark as set
     return this;
   }
 
@@ -946,6 +1109,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceFingerprint(String deviceFingerprint) {
     this.deviceFingerprint = deviceFingerprint;
+    isSetDeviceFingerprint = true; // mark as set
   }
 
   /**
@@ -956,6 +1120,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest donationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
+    isSetDonationAccount = true; // mark as set
     return this;
   }
 
@@ -979,6 +1144,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
+    isSetDonationAccount = true; // mark as set
   }
 
   /**
@@ -990,6 +1156,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest donationCampaignId(String donationCampaignId) {
     this.donationCampaignId = donationCampaignId;
+    isSetDonationCampaignId = true; // mark as set
     return this;
   }
 
@@ -1015,6 +1182,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationCampaignId(String donationCampaignId) {
     this.donationCampaignId = donationCampaignId;
+    isSetDonationCampaignId = true; // mark as set
   }
 
   /**
@@ -1027,6 +1195,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest donationOriginalPspReference(String donationOriginalPspReference) {
     this.donationOriginalPspReference = donationOriginalPspReference;
+    isSetDonationOriginalPspReference = true; // mark as set
     return this;
   }
 
@@ -1054,6 +1223,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationOriginalPspReference(String donationOriginalPspReference) {
     this.donationOriginalPspReference = donationOriginalPspReference;
+    isSetDonationOriginalPspReference = true; // mark as set
   }
 
   /**
@@ -1064,6 +1234,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest donationToken(String donationToken) {
     this.donationToken = donationToken;
+    isSetDonationToken = true; // mark as set
     return this;
   }
 
@@ -1087,6 +1258,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationToken(String donationToken) {
     this.donationToken = donationToken;
+    isSetDonationToken = true; // mark as set
   }
 
   /**
@@ -1101,6 +1273,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -1140,6 +1313,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -1151,6 +1325,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -1176,6 +1351,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -1186,6 +1362,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
+    isSetMerchantRiskIndicator = true; // mark as set
     return this;
   }
 
@@ -1209,6 +1386,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
     this.merchantRiskIndicator = merchantRiskIndicator;
+    isSetMerchantRiskIndicator = true; // mark as set
   }
 
   /**
@@ -1225,6 +1403,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
     return this;
   }
 
@@ -1268,6 +1447,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    isSetMetadata = true; // mark as set
   }
 
   /**
@@ -1278,6 +1458,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest mpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
+    isSetMpiData = true; // mark as set
     return this;
   }
 
@@ -1301,6 +1482,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
+    isSetMpiData = true; // mark as set
   }
 
   /**
@@ -1315,6 +1497,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest origin(String origin) {
     this.origin = origin;
+    isSetOrigin = true; // mark as set
     return this;
   }
 
@@ -1346,6 +1529,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrigin(String origin) {
     this.origin = origin;
+    isSetOrigin = true; // mark as set
   }
 
   /**
@@ -1356,6 +1540,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest paymentMethod(DonationPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -1379,6 +1564,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(DonationPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -1407,6 +1593,7 @@ public class DonationPaymentRequest {
   public DonationPaymentRequest recurringProcessingModel(
       RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
     return this;
   }
 
@@ -1464,6 +1651,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
   }
 
   /**
@@ -1475,6 +1663,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
     this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    isSetRedirectFromIssuerMethod = true; // mark as set
     return this;
   }
 
@@ -1500,6 +1689,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectFromIssuerMethod(String redirectFromIssuerMethod) {
     this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    isSetRedirectFromIssuerMethod = true; // mark as set
   }
 
   /**
@@ -1511,6 +1701,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
     this.redirectToIssuerMethod = redirectToIssuerMethod;
+    isSetRedirectToIssuerMethod = true; // mark as set
     return this;
   }
 
@@ -1536,6 +1727,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectToIssuerMethod(String redirectToIssuerMethod) {
     this.redirectToIssuerMethod = redirectToIssuerMethod;
+    isSetRedirectToIssuerMethod = true; // mark as set
   }
 
   /**
@@ -1552,6 +1744,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -1587,6 +1780,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -1624,6 +1818,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
+    isSetReturnUrl = true; // mark as set
     return this;
   }
 
@@ -1701,6 +1896,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
+    isSetReturnUrl = true; // mark as set
   }
 
   /**
@@ -1714,6 +1910,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest sessionValidity(String sessionValidity) {
     this.sessionValidity = sessionValidity;
+    isSetSessionValidity = true; // mark as set
     return this;
   }
 
@@ -1743,6 +1940,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionValidity(String sessionValidity) {
     this.sessionValidity = sessionValidity;
+    isSetSessionValidity = true; // mark as set
   }
 
   /**
@@ -1757,6 +1955,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -1788,6 +1987,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -1811,6 +2011,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
     return this;
   }
 
@@ -1860,6 +2061,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
   }
 
   /**
@@ -1891,6 +2093,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -1956,6 +2159,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -1968,6 +2172,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
     return this;
   }
 
@@ -1995,6 +2200,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
   }
 
   /**
@@ -2005,6 +2211,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest shopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -2028,6 +2235,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -2043,6 +2251,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -2076,6 +2285,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -2086,6 +2296,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -2109,6 +2320,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
   }
 
   /**
@@ -2127,6 +2339,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -2166,6 +2379,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -2176,6 +2390,7 @@ public class DonationPaymentRequest {
    */
   public DonationPaymentRequest threeDS2RequestData(ThreeDS2RequestFields threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
     return this;
   }
 
@@ -2199,6 +2414,7 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2RequestData(ThreeDS2RequestFields threeDS2RequestData) {
     this.threeDS2RequestData = threeDS2RequestData;
+    isSetThreeDS2RequestData = true; // mark as set
   }
 
   /**
@@ -2219,6 +2435,7 @@ public class DonationPaymentRequest {
   // `authenticationData.authenticationOnly` instead.
   public DonationPaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
     return this;
   }
 
@@ -2262,6 +2479,27 @@ public class DonationPaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    isSetThreeDSAuthenticationOnly = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DonationPaymentRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DonationPaymentRequest object is equal to o. */
@@ -2275,99 +2513,200 @@ public class DonationPaymentRequest {
     }
     DonationPaymentRequest donationPaymentRequest = (DonationPaymentRequest) o;
     return Objects.equals(this.accountInfo, donationPaymentRequest.accountInfo)
+        && Objects.equals(this.isSetAccountInfo, donationPaymentRequest.isSetAccountInfo)
         && Objects.equals(this.additionalData, donationPaymentRequest.additionalData)
+        && Objects.equals(this.isSetAdditionalData, donationPaymentRequest.isSetAdditionalData)
         && Objects.equals(this.amount, donationPaymentRequest.amount)
+        && Objects.equals(this.isSetAmount, donationPaymentRequest.isSetAmount)
         && Objects.equals(this.applicationInfo, donationPaymentRequest.applicationInfo)
+        && Objects.equals(this.isSetApplicationInfo, donationPaymentRequest.isSetApplicationInfo)
         && Objects.equals(this.authenticationData, donationPaymentRequest.authenticationData)
+        && Objects.equals(
+            this.isSetAuthenticationData, donationPaymentRequest.isSetAuthenticationData)
         && Objects.equals(this.billingAddress, donationPaymentRequest.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, donationPaymentRequest.isSetBillingAddress)
         && Objects.equals(this.browserInfo, donationPaymentRequest.browserInfo)
+        && Objects.equals(this.isSetBrowserInfo, donationPaymentRequest.isSetBrowserInfo)
         && Objects.equals(this.channel, donationPaymentRequest.channel)
+        && Objects.equals(this.isSetChannel, donationPaymentRequest.isSetChannel)
         && Objects.equals(this.checkoutAttemptId, donationPaymentRequest.checkoutAttemptId)
+        && Objects.equals(
+            this.isSetCheckoutAttemptId, donationPaymentRequest.isSetCheckoutAttemptId)
         && Objects.equals(this.conversionId, donationPaymentRequest.conversionId)
+        && Objects.equals(this.isSetConversionId, donationPaymentRequest.isSetConversionId)
         && Objects.equals(this.countryCode, donationPaymentRequest.countryCode)
+        && Objects.equals(this.isSetCountryCode, donationPaymentRequest.isSetCountryCode)
         && Objects.equals(this.dateOfBirth, donationPaymentRequest.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, donationPaymentRequest.isSetDateOfBirth)
         && Objects.equals(this.deliverAt, donationPaymentRequest.deliverAt)
+        && Objects.equals(this.isSetDeliverAt, donationPaymentRequest.isSetDeliverAt)
         && Objects.equals(this.deliveryAddress, donationPaymentRequest.deliveryAddress)
+        && Objects.equals(this.isSetDeliveryAddress, donationPaymentRequest.isSetDeliveryAddress)
         && Objects.equals(this.deviceFingerprint, donationPaymentRequest.deviceFingerprint)
+        && Objects.equals(
+            this.isSetDeviceFingerprint, donationPaymentRequest.isSetDeviceFingerprint)
         && Objects.equals(this.donationAccount, donationPaymentRequest.donationAccount)
+        && Objects.equals(this.isSetDonationAccount, donationPaymentRequest.isSetDonationAccount)
         && Objects.equals(this.donationCampaignId, donationPaymentRequest.donationCampaignId)
         && Objects.equals(
+            this.isSetDonationCampaignId, donationPaymentRequest.isSetDonationCampaignId)
+        && Objects.equals(
             this.donationOriginalPspReference, donationPaymentRequest.donationOriginalPspReference)
+        && Objects.equals(
+            this.isSetDonationOriginalPspReference,
+            donationPaymentRequest.isSetDonationOriginalPspReference)
         && Objects.equals(this.donationToken, donationPaymentRequest.donationToken)
+        && Objects.equals(this.isSetDonationToken, donationPaymentRequest.isSetDonationToken)
         && Objects.equals(this.lineItems, donationPaymentRequest.lineItems)
+        && Objects.equals(this.isSetLineItems, donationPaymentRequest.isSetLineItems)
         && Objects.equals(this.merchantAccount, donationPaymentRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, donationPaymentRequest.isSetMerchantAccount)
         && Objects.equals(this.merchantRiskIndicator, donationPaymentRequest.merchantRiskIndicator)
+        && Objects.equals(
+            this.isSetMerchantRiskIndicator, donationPaymentRequest.isSetMerchantRiskIndicator)
         && Objects.equals(this.metadata, donationPaymentRequest.metadata)
+        && Objects.equals(this.isSetMetadata, donationPaymentRequest.isSetMetadata)
         && Objects.equals(this.mpiData, donationPaymentRequest.mpiData)
+        && Objects.equals(this.isSetMpiData, donationPaymentRequest.isSetMpiData)
         && Objects.equals(this.origin, donationPaymentRequest.origin)
+        && Objects.equals(this.isSetOrigin, donationPaymentRequest.isSetOrigin)
         && Objects.equals(this.paymentMethod, donationPaymentRequest.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, donationPaymentRequest.isSetPaymentMethod)
         && Objects.equals(
             this.recurringProcessingModel, donationPaymentRequest.recurringProcessingModel)
         && Objects.equals(
+            this.isSetRecurringProcessingModel,
+            donationPaymentRequest.isSetRecurringProcessingModel)
+        && Objects.equals(
             this.redirectFromIssuerMethod, donationPaymentRequest.redirectFromIssuerMethod)
         && Objects.equals(
+            this.isSetRedirectFromIssuerMethod,
+            donationPaymentRequest.isSetRedirectFromIssuerMethod)
+        && Objects.equals(
             this.redirectToIssuerMethod, donationPaymentRequest.redirectToIssuerMethod)
+        && Objects.equals(
+            this.isSetRedirectToIssuerMethod, donationPaymentRequest.isSetRedirectToIssuerMethod)
         && Objects.equals(this.reference, donationPaymentRequest.reference)
+        && Objects.equals(this.isSetReference, donationPaymentRequest.isSetReference)
         && Objects.equals(this.returnUrl, donationPaymentRequest.returnUrl)
+        && Objects.equals(this.isSetReturnUrl, donationPaymentRequest.isSetReturnUrl)
         && Objects.equals(this.sessionValidity, donationPaymentRequest.sessionValidity)
+        && Objects.equals(this.isSetSessionValidity, donationPaymentRequest.isSetSessionValidity)
         && Objects.equals(this.shopperEmail, donationPaymentRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, donationPaymentRequest.isSetShopperEmail)
         && Objects.equals(this.shopperIP, donationPaymentRequest.shopperIP)
+        && Objects.equals(this.isSetShopperIP, donationPaymentRequest.isSetShopperIP)
         && Objects.equals(this.shopperInteraction, donationPaymentRequest.shopperInteraction)
+        && Objects.equals(
+            this.isSetShopperInteraction, donationPaymentRequest.isSetShopperInteraction)
         && Objects.equals(this.shopperLocale, donationPaymentRequest.shopperLocale)
+        && Objects.equals(this.isSetShopperLocale, donationPaymentRequest.isSetShopperLocale)
         && Objects.equals(this.shopperName, donationPaymentRequest.shopperName)
+        && Objects.equals(this.isSetShopperName, donationPaymentRequest.isSetShopperName)
         && Objects.equals(this.shopperReference, donationPaymentRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, donationPaymentRequest.isSetShopperReference)
         && Objects.equals(this.socialSecurityNumber, donationPaymentRequest.socialSecurityNumber)
+        && Objects.equals(
+            this.isSetSocialSecurityNumber, donationPaymentRequest.isSetSocialSecurityNumber)
         && Objects.equals(this.telephoneNumber, donationPaymentRequest.telephoneNumber)
+        && Objects.equals(this.isSetTelephoneNumber, donationPaymentRequest.isSetTelephoneNumber)
         && Objects.equals(this.threeDS2RequestData, donationPaymentRequest.threeDS2RequestData)
         && Objects.equals(
-            this.threeDSAuthenticationOnly, donationPaymentRequest.threeDSAuthenticationOnly);
+            this.isSetThreeDS2RequestData, donationPaymentRequest.isSetThreeDS2RequestData)
+        && Objects.equals(
+            this.threeDSAuthenticationOnly, donationPaymentRequest.threeDSAuthenticationOnly)
+        && Objects.equals(
+            this.isSetThreeDSAuthenticationOnly,
+            donationPaymentRequest.isSetThreeDSAuthenticationOnly);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountInfo,
+        isSetAccountInfo,
         additionalData,
+        isSetAdditionalData,
         amount,
+        isSetAmount,
         applicationInfo,
+        isSetApplicationInfo,
         authenticationData,
+        isSetAuthenticationData,
         billingAddress,
+        isSetBillingAddress,
         browserInfo,
+        isSetBrowserInfo,
         channel,
+        isSetChannel,
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         conversionId,
+        isSetConversionId,
         countryCode,
+        isSetCountryCode,
         dateOfBirth,
+        isSetDateOfBirth,
         deliverAt,
+        isSetDeliverAt,
         deliveryAddress,
+        isSetDeliveryAddress,
         deviceFingerprint,
+        isSetDeviceFingerprint,
         donationAccount,
+        isSetDonationAccount,
         donationCampaignId,
+        isSetDonationCampaignId,
         donationOriginalPspReference,
+        isSetDonationOriginalPspReference,
         donationToken,
+        isSetDonationToken,
         lineItems,
+        isSetLineItems,
         merchantAccount,
+        isSetMerchantAccount,
         merchantRiskIndicator,
+        isSetMerchantRiskIndicator,
         metadata,
+        isSetMetadata,
         mpiData,
+        isSetMpiData,
         origin,
+        isSetOrigin,
         paymentMethod,
+        isSetPaymentMethod,
         recurringProcessingModel,
+        isSetRecurringProcessingModel,
         redirectFromIssuerMethod,
+        isSetRedirectFromIssuerMethod,
         redirectToIssuerMethod,
+        isSetRedirectToIssuerMethod,
         reference,
+        isSetReference,
         returnUrl,
+        isSetReturnUrl,
         sessionValidity,
+        isSetSessionValidity,
         shopperEmail,
+        isSetShopperEmail,
         shopperIP,
+        isSetShopperIP,
         shopperInteraction,
+        isSetShopperInteraction,
         shopperLocale,
+        isSetShopperLocale,
         shopperName,
+        isSetShopperName,
         shopperReference,
+        isSetShopperReference,
         socialSecurityNumber,
+        isSetSocialSecurityNumber,
         telephoneNumber,
+        isSetTelephoneNumber,
         threeDS2RequestData,
-        threeDSAuthenticationOnly);
+        isSetThreeDS2RequestData,
+        threeDSAuthenticationOnly,
+        isSetThreeDSAuthenticationOnly);
   }
 
   @Override
@@ -2444,6 +2783,154 @@ public class DonationPaymentRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountInfo) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_INFO, this.accountInfo);
+    }
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetAuthenticationData) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_DATA, this.authenticationData);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetBrowserInfo) {
+      addIfNull(nulls, JSON_PROPERTY_BROWSER_INFO, this.browserInfo);
+    }
+    if (isSetChannel) {
+      addIfNull(nulls, JSON_PROPERTY_CHANNEL, this.channel);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetConversionId) {
+      addIfNull(nulls, JSON_PROPERTY_CONVERSION_ID, this.conversionId);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetDeliverAt) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVER_AT, this.deliverAt);
+    }
+    if (isSetDeliveryAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
+    if (isSetDeviceFingerprint) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_FINGERPRINT, this.deviceFingerprint);
+    }
+    if (isSetDonationAccount) {
+      addIfNull(nulls, JSON_PROPERTY_DONATION_ACCOUNT, this.donationAccount);
+    }
+    if (isSetDonationCampaignId) {
+      addIfNull(nulls, JSON_PROPERTY_DONATION_CAMPAIGN_ID, this.donationCampaignId);
+    }
+    if (isSetDonationOriginalPspReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE, this.donationOriginalPspReference);
+    }
+    if (isSetDonationToken) {
+      addIfNull(nulls, JSON_PROPERTY_DONATION_TOKEN, this.donationToken);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetMerchantRiskIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_RISK_INDICATOR, this.merchantRiskIndicator);
+    }
+    if (isSetMetadata) {
+      addIfNull(nulls, JSON_PROPERTY_METADATA, this.metadata);
+    }
+    if (isSetMpiData) {
+      addIfNull(nulls, JSON_PROPERTY_MPI_DATA, this.mpiData);
+    }
+    if (isSetOrigin) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGIN, this.origin);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetRecurringProcessingModel) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_PROCESSING_MODEL, this.recurringProcessingModel);
+    }
+    if (isSetRedirectFromIssuerMethod) {
+      addIfNull(nulls, JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD, this.redirectFromIssuerMethod);
+    }
+    if (isSetRedirectToIssuerMethod) {
+      addIfNull(nulls, JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD, this.redirectToIssuerMethod);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetReturnUrl) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_URL, this.returnUrl);
+    }
+    if (isSetSessionValidity) {
+      addIfNull(nulls, JSON_PROPERTY_SESSION_VALIDITY, this.sessionValidity);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperIP) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_I_P, this.shopperIP);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetShopperLocale) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_LOCALE, this.shopperLocale);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetThreeDS2RequestData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);
+    }
+    if (isSetThreeDSAuthenticationOnly) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY, this.threeDSAuthenticationOnly);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

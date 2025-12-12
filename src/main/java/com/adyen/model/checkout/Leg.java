@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,29 +36,62 @@ public class Leg {
   public static final String JSON_PROPERTY_CARRIER_CODE = "carrierCode";
   private String carrierCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarrierCode = false;
+
   public static final String JSON_PROPERTY_CLASS_OF_TRAVEL = "classOfTravel";
   private String classOfTravel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetClassOfTravel = false;
 
   public static final String JSON_PROPERTY_DATE_OF_TRAVEL = "dateOfTravel";
   private OffsetDateTime dateOfTravel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfTravel = false;
+
   public static final String JSON_PROPERTY_DEPARTURE_AIRPORT_CODE = "departureAirportCode";
   private String departureAirportCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDepartureAirportCode = false;
 
   public static final String JSON_PROPERTY_DEPARTURE_TAX = "departureTax";
   private Long departureTax;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDepartureTax = false;
+
   public static final String JSON_PROPERTY_DESTINATION_AIRPORT_CODE = "destinationAirportCode";
   private String destinationAirportCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDestinationAirportCode = false;
 
   public static final String JSON_PROPERTY_FARE_BASIS_CODE = "fareBasisCode";
   private String fareBasisCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFareBasisCode = false;
+
   public static final String JSON_PROPERTY_FLIGHT_NUMBER = "flightNumber";
   private String flightNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFlightNumber = false;
+
   public static final String JSON_PROPERTY_STOP_OVER_CODE = "stopOverCode";
   private String stopOverCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStopOverCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Leg() {}
 
@@ -74,6 +109,7 @@ public class Leg {
    */
   public Leg carrierCode(String carrierCode) {
     this.carrierCode = carrierCode;
+    isSetCarrierCode = true; // mark as set
     return this;
   }
 
@@ -109,6 +145,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarrierCode(String carrierCode) {
     this.carrierCode = carrierCode;
+    isSetCarrierCode = true; // mark as set
   }
 
   /**
@@ -124,6 +161,7 @@ public class Leg {
    */
   public Leg classOfTravel(String classOfTravel) {
     this.classOfTravel = classOfTravel;
+    isSetClassOfTravel = true; // mark as set
     return this;
   }
 
@@ -157,6 +195,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClassOfTravel(String classOfTravel) {
     this.classOfTravel = classOfTravel;
+    isSetClassOfTravel = true; // mark as set
   }
 
   /**
@@ -169,6 +208,7 @@ public class Leg {
    */
   public Leg dateOfTravel(OffsetDateTime dateOfTravel) {
     this.dateOfTravel = dateOfTravel;
+    isSetDateOfTravel = true; // mark as set
     return this;
   }
 
@@ -196,6 +236,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfTravel(OffsetDateTime dateOfTravel) {
     this.dateOfTravel = dateOfTravel;
+    isSetDateOfTravel = true; // mark as set
   }
 
   /**
@@ -213,6 +254,7 @@ public class Leg {
    */
   public Leg departureAirportCode(String departureAirportCode) {
     this.departureAirportCode = departureAirportCode;
+    isSetDepartureAirportCode = true; // mark as set
     return this;
   }
 
@@ -250,6 +292,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDepartureAirportCode(String departureAirportCode) {
     this.departureAirportCode = departureAirportCode;
+    isSetDepartureAirportCode = true; // mark as set
   }
 
   /**
@@ -264,6 +307,7 @@ public class Leg {
    */
   public Leg departureTax(Long departureTax) {
     this.departureTax = departureTax;
+    isSetDepartureTax = true; // mark as set
     return this;
   }
 
@@ -295,6 +339,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDepartureTax(Long departureTax) {
     this.departureTax = departureTax;
+    isSetDepartureTax = true; // mark as set
   }
 
   /**
@@ -312,6 +357,7 @@ public class Leg {
    */
   public Leg destinationAirportCode(String destinationAirportCode) {
     this.destinationAirportCode = destinationAirportCode;
+    isSetDestinationAirportCode = true; // mark as set
     return this;
   }
 
@@ -349,6 +395,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDestinationAirportCode(String destinationAirportCode) {
     this.destinationAirportCode = destinationAirportCode;
+    isSetDestinationAirportCode = true; // mark as set
   }
 
   /**
@@ -363,6 +410,7 @@ public class Leg {
    */
   public Leg fareBasisCode(String fareBasisCode) {
     this.fareBasisCode = fareBasisCode;
+    isSetFareBasisCode = true; // mark as set
     return this;
   }
 
@@ -394,6 +442,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFareBasisCode(String fareBasisCode) {
     this.fareBasisCode = fareBasisCode;
+    isSetFareBasisCode = true; // mark as set
   }
 
   /**
@@ -406,6 +455,7 @@ public class Leg {
    */
   public Leg flightNumber(String flightNumber) {
     this.flightNumber = flightNumber;
+    isSetFlightNumber = true; // mark as set
     return this;
   }
 
@@ -433,6 +483,7 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFlightNumber(String flightNumber) {
     this.flightNumber = flightNumber;
+    isSetFlightNumber = true; // mark as set
   }
 
   /**
@@ -447,6 +498,7 @@ public class Leg {
    */
   public Leg stopOverCode(String stopOverCode) {
     this.stopOverCode = stopOverCode;
+    isSetStopOverCode = true; // mark as set
     return this;
   }
 
@@ -478,6 +530,27 @@ public class Leg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStopOverCode(String stopOverCode) {
     this.stopOverCode = stopOverCode;
+    isSetStopOverCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Leg includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Leg object is equal to o. */
@@ -491,28 +564,46 @@ public class Leg {
     }
     Leg leg = (Leg) o;
     return Objects.equals(this.carrierCode, leg.carrierCode)
+        && Objects.equals(this.isSetCarrierCode, leg.isSetCarrierCode)
         && Objects.equals(this.classOfTravel, leg.classOfTravel)
+        && Objects.equals(this.isSetClassOfTravel, leg.isSetClassOfTravel)
         && Objects.equals(this.dateOfTravel, leg.dateOfTravel)
+        && Objects.equals(this.isSetDateOfTravel, leg.isSetDateOfTravel)
         && Objects.equals(this.departureAirportCode, leg.departureAirportCode)
+        && Objects.equals(this.isSetDepartureAirportCode, leg.isSetDepartureAirportCode)
         && Objects.equals(this.departureTax, leg.departureTax)
+        && Objects.equals(this.isSetDepartureTax, leg.isSetDepartureTax)
         && Objects.equals(this.destinationAirportCode, leg.destinationAirportCode)
+        && Objects.equals(this.isSetDestinationAirportCode, leg.isSetDestinationAirportCode)
         && Objects.equals(this.fareBasisCode, leg.fareBasisCode)
+        && Objects.equals(this.isSetFareBasisCode, leg.isSetFareBasisCode)
         && Objects.equals(this.flightNumber, leg.flightNumber)
-        && Objects.equals(this.stopOverCode, leg.stopOverCode);
+        && Objects.equals(this.isSetFlightNumber, leg.isSetFlightNumber)
+        && Objects.equals(this.stopOverCode, leg.stopOverCode)
+        && Objects.equals(this.isSetStopOverCode, leg.isSetStopOverCode);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         carrierCode,
+        isSetCarrierCode,
         classOfTravel,
+        isSetClassOfTravel,
         dateOfTravel,
+        isSetDateOfTravel,
         departureAirportCode,
+        isSetDepartureAirportCode,
         departureTax,
+        isSetDepartureTax,
         destinationAirportCode,
+        isSetDestinationAirportCode,
         fareBasisCode,
+        isSetFareBasisCode,
         flightNumber,
-        stopOverCode);
+        isSetFlightNumber,
+        stopOverCode,
+        isSetStopOverCode);
   }
 
   @Override
@@ -544,6 +635,54 @@ public class Leg {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCarrierCode) {
+      addIfNull(nulls, JSON_PROPERTY_CARRIER_CODE, this.carrierCode);
+    }
+    if (isSetClassOfTravel) {
+      addIfNull(nulls, JSON_PROPERTY_CLASS_OF_TRAVEL, this.classOfTravel);
+    }
+    if (isSetDateOfTravel) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_TRAVEL, this.dateOfTravel);
+    }
+    if (isSetDepartureAirportCode) {
+      addIfNull(nulls, JSON_PROPERTY_DEPARTURE_AIRPORT_CODE, this.departureAirportCode);
+    }
+    if (isSetDepartureTax) {
+      addIfNull(nulls, JSON_PROPERTY_DEPARTURE_TAX, this.departureTax);
+    }
+    if (isSetDestinationAirportCode) {
+      addIfNull(nulls, JSON_PROPERTY_DESTINATION_AIRPORT_CODE, this.destinationAirportCode);
+    }
+    if (isSetFareBasisCode) {
+      addIfNull(nulls, JSON_PROPERTY_FARE_BASIS_CODE, this.fareBasisCode);
+    }
+    if (isSetFlightNumber) {
+      addIfNull(nulls, JSON_PROPERTY_FLIGHT_NUMBER, this.flightNumber);
+    }
+    if (isSetStopOverCode) {
+      addIfNull(nulls, JSON_PROPERTY_STOP_OVER_CODE, this.stopOverCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

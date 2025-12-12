@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,26 +42,50 @@ public class PaymentCaptureResponse {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
   private String paymentPspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentPspReference = false;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlatformChargebackLogic = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
 
   /** The status of your request. This will always have the value **received**. */
   public enum StatusEnum {
@@ -103,8 +129,20 @@ public class PaymentCaptureResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
   private List<SubMerchantInfo> subMerchants;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchants = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentCaptureResponse() {}
 
@@ -116,6 +154,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -139,6 +178,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -155,6 +195,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -198,6 +239,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -208,6 +250,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -231,6 +274,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -245,6 +289,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse paymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
+    isSetPaymentPspReference = true; // mark as set
     return this;
   }
 
@@ -276,6 +321,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
+    isSetPaymentPspReference = true; // mark as set
   }
 
   /**
@@ -287,6 +333,7 @@ public class PaymentCaptureResponse {
   public PaymentCaptureResponse platformChargebackLogic(
       PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
     return this;
   }
 
@@ -310,6 +357,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
   }
 
   /**
@@ -320,6 +368,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -343,6 +392,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -353,6 +403,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -376,6 +427,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -392,6 +444,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -435,6 +488,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -445,6 +499,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -468,6 +523,7 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -478,6 +534,7 @@ public class PaymentCaptureResponse {
    */
   public PaymentCaptureResponse subMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
+    isSetSubMerchants = true; // mark as set
     return this;
   }
 
@@ -509,6 +566,27 @@ public class PaymentCaptureResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
+    isSetSubMerchants = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentCaptureResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentCaptureResponse object is equal to o. */
@@ -522,31 +600,53 @@ public class PaymentCaptureResponse {
     }
     PaymentCaptureResponse paymentCaptureResponse = (PaymentCaptureResponse) o;
     return Objects.equals(this.amount, paymentCaptureResponse.amount)
+        && Objects.equals(this.isSetAmount, paymentCaptureResponse.isSetAmount)
         && Objects.equals(this.lineItems, paymentCaptureResponse.lineItems)
+        && Objects.equals(this.isSetLineItems, paymentCaptureResponse.isSetLineItems)
         && Objects.equals(this.merchantAccount, paymentCaptureResponse.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, paymentCaptureResponse.isSetMerchantAccount)
         && Objects.equals(this.paymentPspReference, paymentCaptureResponse.paymentPspReference)
         && Objects.equals(
+            this.isSetPaymentPspReference, paymentCaptureResponse.isSetPaymentPspReference)
+        && Objects.equals(
             this.platformChargebackLogic, paymentCaptureResponse.platformChargebackLogic)
+        && Objects.equals(
+            this.isSetPlatformChargebackLogic, paymentCaptureResponse.isSetPlatformChargebackLogic)
         && Objects.equals(this.pspReference, paymentCaptureResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, paymentCaptureResponse.isSetPspReference)
         && Objects.equals(this.reference, paymentCaptureResponse.reference)
+        && Objects.equals(this.isSetReference, paymentCaptureResponse.isSetReference)
         && Objects.equals(this.splits, paymentCaptureResponse.splits)
+        && Objects.equals(this.isSetSplits, paymentCaptureResponse.isSetSplits)
         && Objects.equals(this.status, paymentCaptureResponse.status)
-        && Objects.equals(this.subMerchants, paymentCaptureResponse.subMerchants);
+        && Objects.equals(this.isSetStatus, paymentCaptureResponse.isSetStatus)
+        && Objects.equals(this.subMerchants, paymentCaptureResponse.subMerchants)
+        && Objects.equals(this.isSetSubMerchants, paymentCaptureResponse.isSetSubMerchants);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         lineItems,
+        isSetLineItems,
         merchantAccount,
+        isSetMerchantAccount,
         paymentPspReference,
+        isSetPaymentPspReference,
         platformChargebackLogic,
+        isSetPlatformChargebackLogic,
         pspReference,
+        isSetPspReference,
         reference,
+        isSetReference,
         splits,
+        isSetSplits,
         status,
-        subMerchants);
+        isSetStatus,
+        subMerchants,
+        isSetSubMerchants);
   }
 
   @Override
@@ -579,6 +679,57 @@ public class PaymentCaptureResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetPaymentPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_PSP_REFERENCE, this.paymentPspReference);
+    }
+    if (isSetPlatformChargebackLogic) {
+      addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetSubMerchants) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANTS, this.subMerchants);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

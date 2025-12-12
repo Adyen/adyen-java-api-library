@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,62 +46,128 @@ public class PaymentCompletionDetails {
   public static final String JSON_PROPERTY_M_D = "MD";
   private String MD;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMD = false;
+
   public static final String JSON_PROPERTY_PA_REQ = "PaReq";
   private String paReq;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaReq = false;
 
   public static final String JSON_PROPERTY_PA_RES = "PaRes";
   private String paRes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaRes = false;
+
   public static final String JSON_PROPERTY_AUTHORIZATION_TOKEN = "authorization_token";
   private String authorizationToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorizationToken = false;
 
   public static final String JSON_PROPERTY_BILLING_TOKEN = "billingToken";
   private String billingToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingToken = false;
+
   public static final String JSON_PROPERTY_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
   private String cupsecureplusSmscode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCupsecureplusSmscode = false;
 
   public static final String JSON_PROPERTY_FACILITATOR_ACCESS_TOKEN = "facilitatorAccessToken";
   private String facilitatorAccessToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFacilitatorAccessToken = false;
+
   public static final String JSON_PROPERTY_ONE_TIME_PASSCODE = "oneTimePasscode";
   private String oneTimePasscode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOneTimePasscode = false;
 
   public static final String JSON_PROPERTY_ORDER_I_D = "orderID";
   private String orderID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderID = false;
+
   public static final String JSON_PROPERTY_PAYER_I_D = "payerID";
   private String payerID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayerID = false;
 
   public static final String JSON_PROPERTY_PAYLOAD = "payload";
   private String payload;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayload = false;
+
   public static final String JSON_PROPERTY_PAYMENT_I_D = "paymentID";
   private String paymentID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentID = false;
 
   public static final String JSON_PROPERTY_PAYMENT_STATUS = "paymentStatus";
   private String paymentStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentStatus = false;
+
   public static final String JSON_PROPERTY_REDIRECT_RESULT = "redirectResult";
   private String redirectResult;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRedirectResult = false;
 
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
   public static final String JSON_PROPERTY_RETURN_URL_QUERY_STRING = "returnUrlQueryString";
   private String returnUrlQueryString;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnUrlQueryString = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_RESULT = "threeDSResult";
   private String threeDSResult;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSResult = false;
+
   public static final String JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT = "threeds2.challengeResult";
   private String threeds2ChallengeResult;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeds2ChallengeResult = false;
 
   public static final String JSON_PROPERTY_THREEDS2_FINGERPRINT = "threeds2.fingerprint";
   private String threeds2Fingerprint;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeds2Fingerprint = false;
+
   public static final String JSON_PROPERTY_VAULT_TOKEN = "vaultToken";
   private String vaultToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVaultToken = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentCompletionDetails() {}
 
@@ -111,6 +179,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails MD(String MD) {
     this.MD = MD;
+    isSetMD = true; // mark as set
     return this;
   }
 
@@ -134,6 +203,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMD(String MD) {
     this.MD = MD;
+    isSetMD = true; // mark as set
   }
 
   /**
@@ -144,6 +214,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails paReq(String paReq) {
     this.paReq = paReq;
+    isSetPaReq = true; // mark as set
     return this;
   }
 
@@ -167,6 +238,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaReq(String paReq) {
     this.paReq = paReq;
+    isSetPaReq = true; // mark as set
   }
 
   /**
@@ -177,6 +249,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails paRes(String paRes) {
     this.paRes = paRes;
+    isSetPaRes = true; // mark as set
     return this;
   }
 
@@ -200,6 +273,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaRes(String paRes) {
     this.paRes = paRes;
+    isSetPaRes = true; // mark as set
   }
 
   /**
@@ -210,6 +284,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails authorizationToken(String authorizationToken) {
     this.authorizationToken = authorizationToken;
+    isSetAuthorizationToken = true; // mark as set
     return this;
   }
 
@@ -233,6 +308,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorizationToken(String authorizationToken) {
     this.authorizationToken = authorizationToken;
+    isSetAuthorizationToken = true; // mark as set
   }
 
   /**
@@ -243,6 +319,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails billingToken(String billingToken) {
     this.billingToken = billingToken;
+    isSetBillingToken = true; // mark as set
     return this;
   }
 
@@ -266,6 +343,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingToken(String billingToken) {
     this.billingToken = billingToken;
+    isSetBillingToken = true; // mark as set
   }
 
   /**
@@ -276,6 +354,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
+    isSetCupsecureplusSmscode = true; // mark as set
     return this;
   }
 
@@ -299,6 +378,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
+    isSetCupsecureplusSmscode = true; // mark as set
   }
 
   /**
@@ -309,6 +389,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails facilitatorAccessToken(String facilitatorAccessToken) {
     this.facilitatorAccessToken = facilitatorAccessToken;
+    isSetFacilitatorAccessToken = true; // mark as set
     return this;
   }
 
@@ -332,6 +413,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFacilitatorAccessToken(String facilitatorAccessToken) {
     this.facilitatorAccessToken = facilitatorAccessToken;
+    isSetFacilitatorAccessToken = true; // mark as set
   }
 
   /**
@@ -343,6 +425,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails oneTimePasscode(String oneTimePasscode) {
     this.oneTimePasscode = oneTimePasscode;
+    isSetOneTimePasscode = true; // mark as set
     return this;
   }
 
@@ -368,6 +451,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOneTimePasscode(String oneTimePasscode) {
     this.oneTimePasscode = oneTimePasscode;
+    isSetOneTimePasscode = true; // mark as set
   }
 
   /**
@@ -378,6 +462,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails orderID(String orderID) {
     this.orderID = orderID;
+    isSetOrderID = true; // mark as set
     return this;
   }
 
@@ -401,6 +486,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderID(String orderID) {
     this.orderID = orderID;
+    isSetOrderID = true; // mark as set
   }
 
   /**
@@ -411,6 +497,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails payerID(String payerID) {
     this.payerID = payerID;
+    isSetPayerID = true; // mark as set
     return this;
   }
 
@@ -434,6 +521,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerID(String payerID) {
     this.payerID = payerID;
+    isSetPayerID = true; // mark as set
   }
 
   /**
@@ -444,6 +532,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails payload(String payload) {
     this.payload = payload;
+    isSetPayload = true; // mark as set
     return this;
   }
 
@@ -467,6 +556,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayload(String payload) {
     this.payload = payload;
+    isSetPayload = true; // mark as set
   }
 
   /**
@@ -477,6 +567,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails paymentID(String paymentID) {
     this.paymentID = paymentID;
+    isSetPaymentID = true; // mark as set
     return this;
   }
 
@@ -500,6 +591,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentID(String paymentID) {
     this.paymentID = paymentID;
+    isSetPaymentID = true; // mark as set
   }
 
   /**
@@ -513,6 +605,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails paymentStatus(String paymentStatus) {
     this.paymentStatus = paymentStatus;
+    isSetPaymentStatus = true; // mark as set
     return this;
   }
 
@@ -542,6 +635,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentStatus(String paymentStatus) {
     this.paymentStatus = paymentStatus;
+    isSetPaymentStatus = true; // mark as set
   }
 
   /**
@@ -552,6 +646,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails redirectResult(String redirectResult) {
     this.redirectResult = redirectResult;
+    isSetRedirectResult = true; // mark as set
     return this;
   }
 
@@ -575,6 +670,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectResult(String redirectResult) {
     this.redirectResult = redirectResult;
+    isSetRedirectResult = true; // mark as set
   }
 
   /**
@@ -585,6 +681,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails resultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -608,6 +705,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
   }
 
   /**
@@ -619,6 +717,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails returnUrlQueryString(String returnUrlQueryString) {
     this.returnUrlQueryString = returnUrlQueryString;
+    isSetReturnUrlQueryString = true; // mark as set
     return this;
   }
 
@@ -644,6 +743,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReturnUrlQueryString(String returnUrlQueryString) {
     this.returnUrlQueryString = returnUrlQueryString;
+    isSetReturnUrlQueryString = true; // mark as set
   }
 
   /**
@@ -657,6 +757,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails threeDSResult(String threeDSResult) {
     this.threeDSResult = threeDSResult;
+    isSetThreeDSResult = true; // mark as set
     return this;
   }
 
@@ -686,6 +787,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSResult(String threeDSResult) {
     this.threeDSResult = threeDSResult;
+    isSetThreeDSResult = true; // mark as set
   }
 
   /**
@@ -698,6 +800,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails threeds2ChallengeResult(String threeds2ChallengeResult) {
     this.threeds2ChallengeResult = threeds2ChallengeResult;
+    isSetThreeds2ChallengeResult = true; // mark as set
     return this;
   }
 
@@ -725,6 +828,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2ChallengeResult(String threeds2ChallengeResult) {
     this.threeds2ChallengeResult = threeds2ChallengeResult;
+    isSetThreeds2ChallengeResult = true; // mark as set
   }
 
   /**
@@ -737,6 +841,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails threeds2Fingerprint(String threeds2Fingerprint) {
     this.threeds2Fingerprint = threeds2Fingerprint;
+    isSetThreeds2Fingerprint = true; // mark as set
     return this;
   }
 
@@ -764,6 +869,7 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2Fingerprint(String threeds2Fingerprint) {
     this.threeds2Fingerprint = threeds2Fingerprint;
+    isSetThreeds2Fingerprint = true; // mark as set
   }
 
   /**
@@ -774,6 +880,7 @@ public class PaymentCompletionDetails {
    */
   public PaymentCompletionDetails vaultToken(String vaultToken) {
     this.vaultToken = vaultToken;
+    isSetVaultToken = true; // mark as set
     return this;
   }
 
@@ -797,6 +904,27 @@ public class PaymentCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVaultToken(String vaultToken) {
     this.vaultToken = vaultToken;
+    isSetVaultToken = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentCompletionDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentCompletionDetails object is equal to o. */
@@ -810,52 +938,99 @@ public class PaymentCompletionDetails {
     }
     PaymentCompletionDetails paymentCompletionDetails = (PaymentCompletionDetails) o;
     return Objects.equals(this.MD, paymentCompletionDetails.MD)
+        && Objects.equals(this.isSetMD, paymentCompletionDetails.isSetMD)
         && Objects.equals(this.paReq, paymentCompletionDetails.paReq)
+        && Objects.equals(this.isSetPaReq, paymentCompletionDetails.isSetPaReq)
         && Objects.equals(this.paRes, paymentCompletionDetails.paRes)
+        && Objects.equals(this.isSetPaRes, paymentCompletionDetails.isSetPaRes)
         && Objects.equals(this.authorizationToken, paymentCompletionDetails.authorizationToken)
+        && Objects.equals(
+            this.isSetAuthorizationToken, paymentCompletionDetails.isSetAuthorizationToken)
         && Objects.equals(this.billingToken, paymentCompletionDetails.billingToken)
+        && Objects.equals(this.isSetBillingToken, paymentCompletionDetails.isSetBillingToken)
         && Objects.equals(this.cupsecureplusSmscode, paymentCompletionDetails.cupsecureplusSmscode)
         && Objects.equals(
+            this.isSetCupsecureplusSmscode, paymentCompletionDetails.isSetCupsecureplusSmscode)
+        && Objects.equals(
             this.facilitatorAccessToken, paymentCompletionDetails.facilitatorAccessToken)
+        && Objects.equals(
+            this.isSetFacilitatorAccessToken, paymentCompletionDetails.isSetFacilitatorAccessToken)
         && Objects.equals(this.oneTimePasscode, paymentCompletionDetails.oneTimePasscode)
+        && Objects.equals(this.isSetOneTimePasscode, paymentCompletionDetails.isSetOneTimePasscode)
         && Objects.equals(this.orderID, paymentCompletionDetails.orderID)
+        && Objects.equals(this.isSetOrderID, paymentCompletionDetails.isSetOrderID)
         && Objects.equals(this.payerID, paymentCompletionDetails.payerID)
+        && Objects.equals(this.isSetPayerID, paymentCompletionDetails.isSetPayerID)
         && Objects.equals(this.payload, paymentCompletionDetails.payload)
+        && Objects.equals(this.isSetPayload, paymentCompletionDetails.isSetPayload)
         && Objects.equals(this.paymentID, paymentCompletionDetails.paymentID)
+        && Objects.equals(this.isSetPaymentID, paymentCompletionDetails.isSetPaymentID)
         && Objects.equals(this.paymentStatus, paymentCompletionDetails.paymentStatus)
+        && Objects.equals(this.isSetPaymentStatus, paymentCompletionDetails.isSetPaymentStatus)
         && Objects.equals(this.redirectResult, paymentCompletionDetails.redirectResult)
+        && Objects.equals(this.isSetRedirectResult, paymentCompletionDetails.isSetRedirectResult)
         && Objects.equals(this.resultCode, paymentCompletionDetails.resultCode)
+        && Objects.equals(this.isSetResultCode, paymentCompletionDetails.isSetResultCode)
         && Objects.equals(this.returnUrlQueryString, paymentCompletionDetails.returnUrlQueryString)
+        && Objects.equals(
+            this.isSetReturnUrlQueryString, paymentCompletionDetails.isSetReturnUrlQueryString)
         && Objects.equals(this.threeDSResult, paymentCompletionDetails.threeDSResult)
+        && Objects.equals(this.isSetThreeDSResult, paymentCompletionDetails.isSetThreeDSResult)
         && Objects.equals(
             this.threeds2ChallengeResult, paymentCompletionDetails.threeds2ChallengeResult)
+        && Objects.equals(
+            this.isSetThreeds2ChallengeResult,
+            paymentCompletionDetails.isSetThreeds2ChallengeResult)
         && Objects.equals(this.threeds2Fingerprint, paymentCompletionDetails.threeds2Fingerprint)
-        && Objects.equals(this.vaultToken, paymentCompletionDetails.vaultToken);
+        && Objects.equals(
+            this.isSetThreeds2Fingerprint, paymentCompletionDetails.isSetThreeds2Fingerprint)
+        && Objects.equals(this.vaultToken, paymentCompletionDetails.vaultToken)
+        && Objects.equals(this.isSetVaultToken, paymentCompletionDetails.isSetVaultToken);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         MD,
+        isSetMD,
         paReq,
+        isSetPaReq,
         paRes,
+        isSetPaRes,
         authorizationToken,
+        isSetAuthorizationToken,
         billingToken,
+        isSetBillingToken,
         cupsecureplusSmscode,
+        isSetCupsecureplusSmscode,
         facilitatorAccessToken,
+        isSetFacilitatorAccessToken,
         oneTimePasscode,
+        isSetOneTimePasscode,
         orderID,
+        isSetOrderID,
         payerID,
+        isSetPayerID,
         payload,
+        isSetPayload,
         paymentID,
+        isSetPaymentID,
         paymentStatus,
+        isSetPaymentStatus,
         redirectResult,
+        isSetRedirectResult,
         resultCode,
+        isSetResultCode,
         returnUrlQueryString,
+        isSetReturnUrlQueryString,
         threeDSResult,
+        isSetThreeDSResult,
         threeds2ChallengeResult,
+        isSetThreeds2ChallengeResult,
         threeds2Fingerprint,
-        vaultToken);
+        isSetThreeds2Fingerprint,
+        vaultToken,
+        isSetVaultToken);
   }
 
   @Override
@@ -904,6 +1079,87 @@ public class PaymentCompletionDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMD) {
+      addIfNull(nulls, JSON_PROPERTY_M_D, this.MD);
+    }
+    if (isSetPaReq) {
+      addIfNull(nulls, JSON_PROPERTY_PA_REQ, this.paReq);
+    }
+    if (isSetPaRes) {
+      addIfNull(nulls, JSON_PROPERTY_PA_RES, this.paRes);
+    }
+    if (isSetAuthorizationToken) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORIZATION_TOKEN, this.authorizationToken);
+    }
+    if (isSetBillingToken) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_TOKEN, this.billingToken);
+    }
+    if (isSetCupsecureplusSmscode) {
+      addIfNull(nulls, JSON_PROPERTY_CUPSECUREPLUS_SMSCODE, this.cupsecureplusSmscode);
+    }
+    if (isSetFacilitatorAccessToken) {
+      addIfNull(nulls, JSON_PROPERTY_FACILITATOR_ACCESS_TOKEN, this.facilitatorAccessToken);
+    }
+    if (isSetOneTimePasscode) {
+      addIfNull(nulls, JSON_PROPERTY_ONE_TIME_PASSCODE, this.oneTimePasscode);
+    }
+    if (isSetOrderID) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_I_D, this.orderID);
+    }
+    if (isSetPayerID) {
+      addIfNull(nulls, JSON_PROPERTY_PAYER_I_D, this.payerID);
+    }
+    if (isSetPayload) {
+      addIfNull(nulls, JSON_PROPERTY_PAYLOAD, this.payload);
+    }
+    if (isSetPaymentID) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_I_D, this.paymentID);
+    }
+    if (isSetPaymentStatus) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_STATUS, this.paymentStatus);
+    }
+    if (isSetRedirectResult) {
+      addIfNull(nulls, JSON_PROPERTY_REDIRECT_RESULT, this.redirectResult);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+    if (isSetReturnUrlQueryString) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_URL_QUERY_STRING, this.returnUrlQueryString);
+    }
+    if (isSetThreeDSResult) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_RESULT, this.threeDSResult);
+    }
+    if (isSetThreeds2ChallengeResult) {
+      addIfNull(nulls, JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT, this.threeds2ChallengeResult);
+    }
+    if (isSetThreeds2Fingerprint) {
+      addIfNull(nulls, JSON_PROPERTY_THREEDS2_FINGERPRINT, this.threeds2Fingerprint);
+    }
+    if (isSetVaultToken) {
+      addIfNull(nulls, JSON_PROPERTY_VAULT_TOKEN, this.vaultToken);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

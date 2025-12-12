@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +40,9 @@ import java.util.logging.Logger;
 public class PaymentAmountUpdateResponse {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   /**
    * The reason for the amount update. Possible values: * **delayedCharge** * **noShow** *
@@ -88,23 +93,44 @@ public class PaymentAmountUpdateResponse {
   public static final String JSON_PROPERTY_INDUSTRY_USAGE = "industryUsage";
   private IndustryUsageEnum industryUsage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndustryUsage = false;
+
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_PAYMENT_PSP_REFERENCE = "paymentPspReference";
   private String paymentPspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentPspReference = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
 
   /** The status of your request. This will always have the value **received**. */
   public enum StatusEnum {
@@ -148,6 +174,15 @@ public class PaymentAmountUpdateResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PaymentAmountUpdateResponse() {}
 
   /**
@@ -158,6 +193,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -181,6 +217,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -193,6 +230,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse industryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+    isSetIndustryUsage = true; // mark as set
     return this;
   }
 
@@ -220,6 +258,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+    isSetIndustryUsage = true; // mark as set
   }
 
   /**
@@ -236,6 +275,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -279,6 +319,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -289,6 +330,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -312,6 +354,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -326,6 +369,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse paymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
+    isSetPaymentPspReference = true; // mark as set
     return this;
   }
 
@@ -357,6 +401,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
+    isSetPaymentPspReference = true; // mark as set
   }
 
   /**
@@ -368,6 +413,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -393,6 +439,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -403,6 +450,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -426,6 +474,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -442,6 +491,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -485,6 +535,7 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -495,6 +546,7 @@ public class PaymentAmountUpdateResponse {
    */
   public PaymentAmountUpdateResponse status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -518,6 +570,27 @@ public class PaymentAmountUpdateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentAmountUpdateResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentAmountUpdateResponse object is equal to o. */
@@ -531,28 +604,48 @@ public class PaymentAmountUpdateResponse {
     }
     PaymentAmountUpdateResponse paymentAmountUpdateResponse = (PaymentAmountUpdateResponse) o;
     return Objects.equals(this.amount, paymentAmountUpdateResponse.amount)
+        && Objects.equals(this.isSetAmount, paymentAmountUpdateResponse.isSetAmount)
         && Objects.equals(this.industryUsage, paymentAmountUpdateResponse.industryUsage)
+        && Objects.equals(this.isSetIndustryUsage, paymentAmountUpdateResponse.isSetIndustryUsage)
         && Objects.equals(this.lineItems, paymentAmountUpdateResponse.lineItems)
+        && Objects.equals(this.isSetLineItems, paymentAmountUpdateResponse.isSetLineItems)
         && Objects.equals(this.merchantAccount, paymentAmountUpdateResponse.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, paymentAmountUpdateResponse.isSetMerchantAccount)
         && Objects.equals(this.paymentPspReference, paymentAmountUpdateResponse.paymentPspReference)
+        && Objects.equals(
+            this.isSetPaymentPspReference, paymentAmountUpdateResponse.isSetPaymentPspReference)
         && Objects.equals(this.pspReference, paymentAmountUpdateResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, paymentAmountUpdateResponse.isSetPspReference)
         && Objects.equals(this.reference, paymentAmountUpdateResponse.reference)
+        && Objects.equals(this.isSetReference, paymentAmountUpdateResponse.isSetReference)
         && Objects.equals(this.splits, paymentAmountUpdateResponse.splits)
-        && Objects.equals(this.status, paymentAmountUpdateResponse.status);
+        && Objects.equals(this.isSetSplits, paymentAmountUpdateResponse.isSetSplits)
+        && Objects.equals(this.status, paymentAmountUpdateResponse.status)
+        && Objects.equals(this.isSetStatus, paymentAmountUpdateResponse.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         industryUsage,
+        isSetIndustryUsage,
         lineItems,
+        isSetLineItems,
         merchantAccount,
+        isSetMerchantAccount,
         paymentPspReference,
+        isSetPaymentPspReference,
         pspReference,
+        isSetPspReference,
         reference,
+        isSetReference,
         splits,
-        status);
+        isSetSplits,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -582,6 +675,54 @@ public class PaymentAmountUpdateResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetIndustryUsage) {
+      addIfNull(nulls, JSON_PROPERTY_INDUSTRY_USAGE, this.industryUsage);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetPaymentPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_PSP_REFERENCE, this.paymentPspReference);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

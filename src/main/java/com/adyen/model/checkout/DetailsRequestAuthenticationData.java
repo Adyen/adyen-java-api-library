@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,6 +24,15 @@ import java.util.*;
 public class DetailsRequestAuthenticationData {
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
   private Boolean authenticationOnly;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationOnly = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DetailsRequestAuthenticationData() {}
 
@@ -40,6 +51,7 @@ public class DetailsRequestAuthenticationData {
    */
   public DetailsRequestAuthenticationData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
+    isSetAuthenticationOnly = true; // mark as set
     return this;
   }
 
@@ -75,6 +87,27 @@ public class DetailsRequestAuthenticationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
+    isSetAuthenticationOnly = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DetailsRequestAuthenticationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DetailsRequestAuthenticationData object is equal to o. */
@@ -89,12 +122,14 @@ public class DetailsRequestAuthenticationData {
     DetailsRequestAuthenticationData detailsRequestAuthenticationData =
         (DetailsRequestAuthenticationData) o;
     return Objects.equals(
-        this.authenticationOnly, detailsRequestAuthenticationData.authenticationOnly);
+            this.authenticationOnly, detailsRequestAuthenticationData.authenticationOnly)
+        && Objects.equals(
+            this.isSetAuthenticationOnly, detailsRequestAuthenticationData.isSetAuthenticationOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationOnly);
+    return Objects.hash(authenticationOnly, isSetAuthenticationOnly);
   }
 
   @Override
@@ -114,6 +149,30 @@ public class DetailsRequestAuthenticationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthenticationOnly) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_ONLY, this.authenticationOnly);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

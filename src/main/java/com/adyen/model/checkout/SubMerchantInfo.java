@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,32 +36,68 @@ public class SubMerchantInfo {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private BillingAddress address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcc = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
+
   public static final String JSON_PROPERTY_REGISTERED_SINCE = "registeredSince";
   private String registeredSince;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegisteredSince = false;
 
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxId = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SubMerchantInfo() {}
 
@@ -71,6 +109,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo address(BillingAddress address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
@@ -94,6 +133,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(BillingAddress address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -104,6 +144,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -127,6 +168,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -139,6 +181,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -166,6 +209,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -180,6 +224,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -211,6 +256,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -224,6 +270,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo mcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -253,6 +300,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
   }
 
   /**
@@ -270,6 +318,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -307,6 +356,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -319,6 +369,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -346,6 +397,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -356,6 +408,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo registeredSince(String registeredSince) {
     this.registeredSince = registeredSince;
+    isSetRegisteredSince = true; // mark as set
     return this;
   }
 
@@ -379,6 +432,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredSince(String registeredSince) {
     this.registeredSince = registeredSince;
+    isSetRegisteredSince = true; // mark as set
   }
 
   /**
@@ -392,6 +446,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo taxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
     return this;
   }
 
@@ -421,6 +476,7 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
   }
 
   /**
@@ -433,6 +489,7 @@ public class SubMerchantInfo {
    */
   public SubMerchantInfo url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -460,6 +517,27 @@ public class SubMerchantInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SubMerchantInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SubMerchantInfo object is equal to o. */
@@ -473,21 +551,50 @@ public class SubMerchantInfo {
     }
     SubMerchantInfo subMerchantInfo = (SubMerchantInfo) o;
     return Objects.equals(this.address, subMerchantInfo.address)
+        && Objects.equals(this.isSetAddress, subMerchantInfo.isSetAddress)
         && Objects.equals(this.amount, subMerchantInfo.amount)
+        && Objects.equals(this.isSetAmount, subMerchantInfo.isSetAmount)
         && Objects.equals(this.email, subMerchantInfo.email)
+        && Objects.equals(this.isSetEmail, subMerchantInfo.isSetEmail)
         && Objects.equals(this.id, subMerchantInfo.id)
+        && Objects.equals(this.isSetId, subMerchantInfo.isSetId)
         && Objects.equals(this.mcc, subMerchantInfo.mcc)
+        && Objects.equals(this.isSetMcc, subMerchantInfo.isSetMcc)
         && Objects.equals(this.name, subMerchantInfo.name)
+        && Objects.equals(this.isSetName, subMerchantInfo.isSetName)
         && Objects.equals(this.phoneNumber, subMerchantInfo.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, subMerchantInfo.isSetPhoneNumber)
         && Objects.equals(this.registeredSince, subMerchantInfo.registeredSince)
+        && Objects.equals(this.isSetRegisteredSince, subMerchantInfo.isSetRegisteredSince)
         && Objects.equals(this.taxId, subMerchantInfo.taxId)
-        && Objects.equals(this.url, subMerchantInfo.url);
+        && Objects.equals(this.isSetTaxId, subMerchantInfo.isSetTaxId)
+        && Objects.equals(this.url, subMerchantInfo.url)
+        && Objects.equals(this.isSetUrl, subMerchantInfo.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        address, amount, email, id, mcc, name, phoneNumber, registeredSince, taxId, url);
+        address,
+        isSetAddress,
+        amount,
+        isSetAmount,
+        email,
+        isSetEmail,
+        id,
+        isSetId,
+        mcc,
+        isSetMcc,
+        name,
+        isSetName,
+        phoneNumber,
+        isSetPhoneNumber,
+        registeredSince,
+        isSetRegisteredSince,
+        taxId,
+        isSetTaxId,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -516,6 +623,57 @@ public class SubMerchantInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetMcc) {
+      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetRegisteredSince) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTERED_SINCE, this.registeredSince);
+    }
+    if (isSetTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

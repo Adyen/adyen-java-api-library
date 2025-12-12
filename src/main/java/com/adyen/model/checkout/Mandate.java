@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +38,9 @@ import java.util.logging.Logger;
 public class Mandate {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private String amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   /**
    * The limitation rule of the billing amount. Possible values: * **max**: The transaction amount
@@ -84,6 +89,9 @@ public class Mandate {
 
   public static final String JSON_PROPERTY_AMOUNT_RULE = "amountRule";
   private AmountRuleEnum amountRule;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmountRule = false;
 
   /**
    * The rule to specify the period, within which the recurring debit can happen, relative to the
@@ -135,14 +143,26 @@ public class Mandate {
   public static final String JSON_PROPERTY_BILLING_ATTEMPTS_RULE = "billingAttemptsRule";
   private BillingAttemptsRuleEnum billingAttemptsRule;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAttemptsRule = false;
+
   public static final String JSON_PROPERTY_BILLING_DAY = "billingDay";
   private String billingDay;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingDay = false;
 
   public static final String JSON_PROPERTY_COUNT = "count";
   private String count;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCount = false;
+
   public static final String JSON_PROPERTY_ENDS_AT = "endsAt";
   private String endsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndsAt = false;
 
   /**
    * The frequency with which a shopper should be charged. Possible values: **adhoc**, **daily**,
@@ -203,11 +223,26 @@ public class Mandate {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private FrequencyEnum frequency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFrequency = false;
+
   public static final String JSON_PROPERTY_REMARKS = "remarks";
   private String remarks;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRemarks = false;
+
   public static final String JSON_PROPERTY_STARTS_AT = "startsAt";
   private String startsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartsAt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Mandate() {}
 
@@ -219,6 +254,7 @@ public class Mandate {
    */
   public Mandate amount(String amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -242,6 +278,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(String amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -256,6 +293,7 @@ public class Mandate {
    */
   public Mandate amountRule(AmountRuleEnum amountRule) {
     this.amountRule = amountRule;
+    isSetAmountRule = true; // mark as set
     return this;
   }
 
@@ -287,6 +325,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountRule(AmountRuleEnum amountRule) {
     this.amountRule = amountRule;
+    isSetAmountRule = true; // mark as set
   }
 
   /**
@@ -302,6 +341,7 @@ public class Mandate {
    */
   public Mandate billingAttemptsRule(BillingAttemptsRuleEnum billingAttemptsRule) {
     this.billingAttemptsRule = billingAttemptsRule;
+    isSetBillingAttemptsRule = true; // mark as set
     return this;
   }
 
@@ -335,6 +375,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAttemptsRule(BillingAttemptsRuleEnum billingAttemptsRule) {
     this.billingAttemptsRule = billingAttemptsRule;
+    isSetBillingAttemptsRule = true; // mark as set
   }
 
   /**
@@ -349,6 +390,7 @@ public class Mandate {
    */
   public Mandate billingDay(String billingDay) {
     this.billingDay = billingDay;
+    isSetBillingDay = true; // mark as set
     return this;
   }
 
@@ -380,6 +422,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDay(String billingDay) {
     this.billingDay = billingDay;
+    isSetBillingDay = true; // mark as set
   }
 
   /**
@@ -390,6 +433,7 @@ public class Mandate {
    */
   public Mandate count(String count) {
     this.count = count;
+    isSetCount = true; // mark as set
     return this;
   }
 
@@ -413,6 +457,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(String count) {
     this.count = count;
+    isSetCount = true; // mark as set
   }
 
   /**
@@ -423,6 +468,7 @@ public class Mandate {
    */
   public Mandate endsAt(String endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
     return this;
   }
 
@@ -446,6 +492,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
   }
 
   /**
@@ -459,6 +506,7 @@ public class Mandate {
    */
   public Mandate frequency(FrequencyEnum frequency) {
     this.frequency = frequency;
+    isSetFrequency = true; // mark as set
     return this;
   }
 
@@ -488,6 +536,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
     this.frequency = frequency;
+    isSetFrequency = true; // mark as set
   }
 
   /**
@@ -498,6 +547,7 @@ public class Mandate {
    */
   public Mandate remarks(String remarks) {
     this.remarks = remarks;
+    isSetRemarks = true; // mark as set
     return this;
   }
 
@@ -521,6 +571,7 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemarks(String remarks) {
     this.remarks = remarks;
+    isSetRemarks = true; // mark as set
   }
 
   /**
@@ -532,6 +583,7 @@ public class Mandate {
    */
   public Mandate startsAt(String startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
     return this;
   }
 
@@ -557,6 +609,27 @@ public class Mandate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(String startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Mandate includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Mandate object is equal to o. */
@@ -570,28 +643,46 @@ public class Mandate {
     }
     Mandate mandate = (Mandate) o;
     return Objects.equals(this.amount, mandate.amount)
+        && Objects.equals(this.isSetAmount, mandate.isSetAmount)
         && Objects.equals(this.amountRule, mandate.amountRule)
+        && Objects.equals(this.isSetAmountRule, mandate.isSetAmountRule)
         && Objects.equals(this.billingAttemptsRule, mandate.billingAttemptsRule)
+        && Objects.equals(this.isSetBillingAttemptsRule, mandate.isSetBillingAttemptsRule)
         && Objects.equals(this.billingDay, mandate.billingDay)
+        && Objects.equals(this.isSetBillingDay, mandate.isSetBillingDay)
         && Objects.equals(this.count, mandate.count)
+        && Objects.equals(this.isSetCount, mandate.isSetCount)
         && Objects.equals(this.endsAt, mandate.endsAt)
+        && Objects.equals(this.isSetEndsAt, mandate.isSetEndsAt)
         && Objects.equals(this.frequency, mandate.frequency)
+        && Objects.equals(this.isSetFrequency, mandate.isSetFrequency)
         && Objects.equals(this.remarks, mandate.remarks)
-        && Objects.equals(this.startsAt, mandate.startsAt);
+        && Objects.equals(this.isSetRemarks, mandate.isSetRemarks)
+        && Objects.equals(this.startsAt, mandate.startsAt)
+        && Objects.equals(this.isSetStartsAt, mandate.isSetStartsAt);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         amountRule,
+        isSetAmountRule,
         billingAttemptsRule,
+        isSetBillingAttemptsRule,
         billingDay,
+        isSetBillingDay,
         count,
+        isSetCount,
         endsAt,
+        isSetEndsAt,
         frequency,
+        isSetFrequency,
         remarks,
-        startsAt);
+        isSetRemarks,
+        startsAt,
+        isSetStartsAt);
   }
 
   @Override
@@ -621,6 +712,54 @@ public class Mandate {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetAmountRule) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT_RULE, this.amountRule);
+    }
+    if (isSetBillingAttemptsRule) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ATTEMPTS_RULE, this.billingAttemptsRule);
+    }
+    if (isSetBillingDay) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_DAY, this.billingDay);
+    }
+    if (isSetCount) {
+      addIfNull(nulls, JSON_PROPERTY_COUNT, this.count);
+    }
+    if (isSetEndsAt) {
+      addIfNull(nulls, JSON_PROPERTY_ENDS_AT, this.endsAt);
+    }
+    if (isSetFrequency) {
+      addIfNull(nulls, JSON_PROPERTY_FREQUENCY, this.frequency);
+    }
+    if (isSetRemarks) {
+      addIfNull(nulls, JSON_PROPERTY_REMARKS, this.remarks);
+    }
+    if (isSetStartsAt) {
+      addIfNull(nulls, JSON_PROPERTY_STARTS_AT, this.startsAt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
