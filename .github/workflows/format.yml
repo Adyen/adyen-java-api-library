@@ -36,9 +36,11 @@ jobs:
         run: mvn spotless:apply
 
       - name: Commit and Push Changes
+        env:
+          BOT_EMAIL: ${{ secrets.ADYEN_AUTOMATION_BOT_EMAIL }}
         run: |
           git config user.name AdyenAutomationBot
-          git config user.email "${{ secrets.ADYEN_AUTOMATION_BOT_EMAIL }}"
+          git config user.email "$BOT_EMAIL"
           git add .
           if git diff --cached --quiet; then
             echo "No changes to commit."
