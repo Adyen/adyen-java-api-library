@@ -24,6 +24,7 @@ import java.util.*;
   CheckoutForwardRequest.JSON_PROPERTY_BASE_URL,
   CheckoutForwardRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   CheckoutForwardRequest.JSON_PROPERTY_OPTIONS,
+  CheckoutForwardRequest.JSON_PROPERTY_PAYMENT_METHOD,
   CheckoutForwardRequest.JSON_PROPERTY_REQUEST,
   CheckoutForwardRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
   CheckoutForwardRequest.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
@@ -46,6 +47,12 @@ public class CheckoutForwardRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetOptions = false;
+
+  public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
+  private CheckoutForwardRequestCard paymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
 
   public static final String JSON_PROPERTY_REQUEST = "request";
   private CheckoutOutgoingForwardRequest request;
@@ -182,6 +189,41 @@ public class CheckoutForwardRequest {
   public void setOptions(CheckoutForwardRequestOptions options) {
     this.options = options;
     isSetOptions = true; // mark as set
+  }
+
+  /**
+   * paymentMethod
+   *
+   * @param paymentMethod
+   * @return the current {@code CheckoutForwardRequest} instance, allowing for method chaining
+   */
+  public CheckoutForwardRequest paymentMethod(CheckoutForwardRequestCard paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get paymentMethod
+   *
+   * @return paymentMethod
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CheckoutForwardRequestCard getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  /**
+   * paymentMethod
+   *
+   * @param paymentMethod
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaymentMethod(CheckoutForwardRequestCard paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -349,6 +391,8 @@ public class CheckoutForwardRequest {
         && Objects.equals(this.isSetMerchantAccount, checkoutForwardRequest.isSetMerchantAccount)
         && Objects.equals(this.options, checkoutForwardRequest.options)
         && Objects.equals(this.isSetOptions, checkoutForwardRequest.isSetOptions)
+        && Objects.equals(this.paymentMethod, checkoutForwardRequest.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, checkoutForwardRequest.isSetPaymentMethod)
         && Objects.equals(this.request, checkoutForwardRequest.request)
         && Objects.equals(this.isSetRequest, checkoutForwardRequest.isSetRequest)
         && Objects.equals(this.shopperReference, checkoutForwardRequest.shopperReference)
@@ -367,6 +411,8 @@ public class CheckoutForwardRequest {
         isSetMerchantAccount,
         options,
         isSetOptions,
+        paymentMethod,
+        isSetPaymentMethod,
         request,
         isSetRequest,
         shopperReference,
@@ -382,6 +428,7 @@ public class CheckoutForwardRequest {
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    storedPaymentMethodId: ")
@@ -419,6 +466,9 @@ public class CheckoutForwardRequest {
     }
     if (isSetOptions) {
       addIfNull(nulls, JSON_PROPERTY_OPTIONS, this.options);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
     }
     if (isSetRequest) {
       addIfNull(nulls, JSON_PROPERTY_REQUEST, this.request);

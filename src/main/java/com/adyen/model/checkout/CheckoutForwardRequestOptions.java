@@ -18,12 +18,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /** CheckoutForwardRequestOptions */
 @JsonPropertyOrder({
   CheckoutForwardRequestOptions.JSON_PROPERTY_ACCOUNT_UPDATE,
   CheckoutForwardRequestOptions.JSON_PROPERTY_DRY_RUN,
   CheckoutForwardRequestOptions.JSON_PROPERTY_NETWORK_TOKEN,
+  CheckoutForwardRequestOptions.JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS,
   CheckoutForwardRequestOptions.JSON_PROPERTY_TOKENIZE
 })
 public class CheckoutForwardRequestOptions {
@@ -44,6 +47,12 @@ public class CheckoutForwardRequestOptions {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetNetworkToken = false;
+
+  public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS = "networkTxReferencePaths";
+  private List<String> networkTxReferencePaths;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkTxReferencePaths = false;
 
   public static final String JSON_PROPERTY_TOKENIZE = "tokenize";
   private Boolean tokenize;
@@ -180,6 +189,58 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
+   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
+   * networkTxReference in the incoming 3rd party response
+   *
+   * @param networkTxReferencePaths Set in tokenize:true case when forwarding PAN. Addresses to the
+   *     possible location(s) of networkTxReference in the incoming 3rd party response
+   * @return the current {@code CheckoutForwardRequestOptions} instance, allowing for method
+   *     chaining
+   */
+  public CheckoutForwardRequestOptions networkTxReferencePaths(
+      List<String> networkTxReferencePaths) {
+    this.networkTxReferencePaths = networkTxReferencePaths;
+    isSetNetworkTxReferencePaths = true; // mark as set
+    return this;
+  }
+
+  public CheckoutForwardRequestOptions addNetworkTxReferencePathsItem(
+      String networkTxReferencePathsItem) {
+    if (this.networkTxReferencePaths == null) {
+      this.networkTxReferencePaths = new ArrayList<>();
+    }
+    this.networkTxReferencePaths.add(networkTxReferencePathsItem);
+    return this;
+  }
+
+  /**
+   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
+   * networkTxReference in the incoming 3rd party response
+   *
+   * @return networkTxReferencePaths Set in tokenize:true case when forwarding PAN. Addresses to the
+   *     possible location(s) of networkTxReference in the incoming 3rd party response
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNetworkTxReferencePaths() {
+    return networkTxReferencePaths;
+  }
+
+  /**
+   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
+   * networkTxReference in the incoming 3rd party response
+   *
+   * @param networkTxReferencePaths Set in tokenize:true case when forwarding PAN. Addresses to the
+   *     possible location(s) of networkTxReference in the incoming 3rd party response
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkTxReferencePaths(List<String> networkTxReferencePaths) {
+    this.networkTxReferencePaths = networkTxReferencePaths;
+    isSetNetworkTxReferencePaths = true; // mark as set
+  }
+
+  /**
    * Set to **true**, the payment details are
    * [tokenized](https://docs.adyen.com/online-payments/tokenization).
    *
@@ -257,6 +318,11 @@ public class CheckoutForwardRequestOptions {
         && Objects.equals(this.isSetDryRun, checkoutForwardRequestOptions.isSetDryRun)
         && Objects.equals(this.networkToken, checkoutForwardRequestOptions.networkToken)
         && Objects.equals(this.isSetNetworkToken, checkoutForwardRequestOptions.isSetNetworkToken)
+        && Objects.equals(
+            this.networkTxReferencePaths, checkoutForwardRequestOptions.networkTxReferencePaths)
+        && Objects.equals(
+            this.isSetNetworkTxReferencePaths,
+            checkoutForwardRequestOptions.isSetNetworkTxReferencePaths)
         && Objects.equals(this.tokenize, checkoutForwardRequestOptions.tokenize)
         && Objects.equals(this.isSetTokenize, checkoutForwardRequestOptions.isSetTokenize);
   }
@@ -270,6 +336,8 @@ public class CheckoutForwardRequestOptions {
         isSetDryRun,
         networkToken,
         isSetNetworkToken,
+        networkTxReferencePaths,
+        isSetNetworkTxReferencePaths,
         tokenize,
         isSetTokenize);
   }
@@ -281,6 +349,9 @@ public class CheckoutForwardRequestOptions {
     sb.append("    accountUpdate: ").append(toIndentedString(accountUpdate)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    networkToken: ").append(toIndentedString(networkToken)).append("\n");
+    sb.append("    networkTxReferencePaths: ")
+        .append(toIndentedString(networkTxReferencePaths))
+        .append("\n");
     sb.append("    tokenize: ").append(toIndentedString(tokenize)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -314,6 +385,9 @@ public class CheckoutForwardRequestOptions {
     }
     if (isSetNetworkToken) {
       addIfNull(nulls, JSON_PROPERTY_NETWORK_TOKEN, this.networkToken);
+    }
+    if (isSetNetworkTxReferencePaths) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS, this.networkTxReferencePaths);
     }
     if (isSetTokenize) {
       addIfNull(nulls, JSON_PROPERTY_TOKENIZE, this.tokenize);
