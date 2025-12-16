@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class AdditionalDataRetry {
   public static final String JSON_PROPERTY_RETRY_CHAIN_ATTEMPT_NUMBER = "retry.chainAttemptNumber";
   private String retryChainAttemptNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRetryChainAttemptNumber = false;
+
   public static final String JSON_PROPERTY_RETRY_ORDER_ATTEMPT_NUMBER = "retry.orderAttemptNumber";
   private String retryOrderAttemptNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRetryOrderAttemptNumber = false;
+
   public static final String JSON_PROPERTY_RETRY_SKIP_RETRY = "retry.skipRetry";
   private String retrySkipRetry;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRetrySkipRetry = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataRetry() {}
 
@@ -54,6 +71,7 @@ public class AdditionalDataRetry {
    */
   public AdditionalDataRetry retryChainAttemptNumber(String retryChainAttemptNumber) {
     this.retryChainAttemptNumber = retryChainAttemptNumber;
+    isSetRetryChainAttemptNumber = true; // mark as set
     return this;
   }
 
@@ -99,6 +117,7 @@ public class AdditionalDataRetry {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetryChainAttemptNumber(String retryChainAttemptNumber) {
     this.retryChainAttemptNumber = retryChainAttemptNumber;
+    isSetRetryChainAttemptNumber = true; // mark as set
   }
 
   /**
@@ -120,6 +139,7 @@ public class AdditionalDataRetry {
    */
   public AdditionalDataRetry retryOrderAttemptNumber(String retryOrderAttemptNumber) {
     this.retryOrderAttemptNumber = retryOrderAttemptNumber;
+    isSetRetryOrderAttemptNumber = true; // mark as set
     return this;
   }
 
@@ -165,6 +185,7 @@ public class AdditionalDataRetry {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetryOrderAttemptNumber(String retryOrderAttemptNumber) {
     this.retryOrderAttemptNumber = retryOrderAttemptNumber;
+    isSetRetryOrderAttemptNumber = true; // mark as set
   }
 
   /**
@@ -182,6 +203,7 @@ public class AdditionalDataRetry {
    */
   public AdditionalDataRetry retrySkipRetry(String retrySkipRetry) {
     this.retrySkipRetry = retrySkipRetry;
+    isSetRetrySkipRetry = true; // mark as set
     return this;
   }
 
@@ -219,6 +241,27 @@ public class AdditionalDataRetry {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetrySkipRetry(String retrySkipRetry) {
     this.retrySkipRetry = retrySkipRetry;
+    isSetRetrySkipRetry = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataRetry includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataRetry object is equal to o. */
@@ -232,13 +275,24 @@ public class AdditionalDataRetry {
     }
     AdditionalDataRetry additionalDataRetry = (AdditionalDataRetry) o;
     return Objects.equals(this.retryChainAttemptNumber, additionalDataRetry.retryChainAttemptNumber)
+        && Objects.equals(
+            this.isSetRetryChainAttemptNumber, additionalDataRetry.isSetRetryChainAttemptNumber)
         && Objects.equals(this.retryOrderAttemptNumber, additionalDataRetry.retryOrderAttemptNumber)
-        && Objects.equals(this.retrySkipRetry, additionalDataRetry.retrySkipRetry);
+        && Objects.equals(
+            this.isSetRetryOrderAttemptNumber, additionalDataRetry.isSetRetryOrderAttemptNumber)
+        && Objects.equals(this.retrySkipRetry, additionalDataRetry.retrySkipRetry)
+        && Objects.equals(this.isSetRetrySkipRetry, additionalDataRetry.isSetRetrySkipRetry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(retryChainAttemptNumber, retryOrderAttemptNumber, retrySkipRetry);
+    return Objects.hash(
+        retryChainAttemptNumber,
+        isSetRetryChainAttemptNumber,
+        retryOrderAttemptNumber,
+        isSetRetryOrderAttemptNumber,
+        retrySkipRetry,
+        isSetRetrySkipRetry);
   }
 
   @Override
@@ -264,6 +318,36 @@ public class AdditionalDataRetry {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetRetryChainAttemptNumber) {
+      addIfNull(nulls, JSON_PROPERTY_RETRY_CHAIN_ATTEMPT_NUMBER, this.retryChainAttemptNumber);
+    }
+    if (isSetRetryOrderAttemptNumber) {
+      addIfNull(nulls, JSON_PROPERTY_RETRY_ORDER_ATTEMPT_NUMBER, this.retryOrderAttemptNumber);
+    }
+    if (isSetRetrySkipRetry) {
+      addIfNull(nulls, JSON_PROPERTY_RETRY_SKIP_RETRY, this.retrySkipRetry);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -803,4 +803,95 @@ public class CheckoutTest extends BaseTest {
     assertEquals(
         "upi_qr", paymentResponse.getAction().getCheckoutQrCodeAction().getPaymentMethodType());
   }
+
+  @Test
+  public void testForwardToken() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/forwardResponse.json");
+    RecurringApi recurringApi = new RecurringApi(client);
+
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Authorization", "Basic {{credentials}}");
+
+    CheckoutOutgoingForwardRequest outgoingForwardRequest =
+        new CheckoutOutgoingForwardRequest()
+            .httpMethod(CheckoutOutgoingForwardRequest.HttpMethodEnum.POST)
+            .urlSuffix("/payments")
+            .credentials("YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY")
+            .headers(headers)
+            .body(
+                "{\n"
+                    + "        \"amount\": {\n"
+                    + "            \"value\": 100,\n"
+                    + "            \"currency\": \"USD\"\n"
+                    + "        },\n"
+                    + "        \"paymentMethod\": {\n"
+                    + "           \"creditCard\": {\n"
+                    + "                \"holderName\": \"{{holderName}}\",\n"
+                    + "                \"number\": \"{{number}}\",\n"
+                    + "                \"expiryMonth\": \"{{expiryMonth}}\",\n"
+                    + "                \"expiryYear\": \"{{expiryYear}}\"\n"
+                    + "           }\n"
+                    + "        }\n"
+                    + "     }");
+
+    CheckoutForwardRequest checkoutForwardRequest =
+        new CheckoutForwardRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .shopperReference("YOUR_SHOPPER_REFERENCE")
+            .storedPaymentMethodId("M5N7TQ4TG5PFWR50")
+            .baseUrl("http://thirdparty.example.com")
+            .request(outgoingForwardRequest);
+
+    CheckoutForwardResponse response = recurringApi.forward(checkoutForwardRequest);
+
+    assertEquals("PAYMENT_METHOD_ID", response.getStoredPaymentMethodId());
+    assertNotNull(response.getResponse());
+    assertEquals(200, (int) response.getResponse().getStatus());
+    assertTrue(response.getResponse().getBody().contains("PAYMENT_METHOD_ID"));
+  }
+
+  @Test
+  public void testForwardCardDetails() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/forwardCardDetailsResponse.json");
+    RecurringApi recurringApi = new RecurringApi(client);
+
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Authorization", "Basic {{credentials}}");
+
+    CheckoutOutgoingForwardRequest outgoingForwardRequest =
+        new CheckoutOutgoingForwardRequest()
+            .httpMethod(CheckoutOutgoingForwardRequest.HttpMethodEnum.POST)
+            .urlSuffix("/payments")
+            .credentials("YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY")
+            .headers(headers)
+            .body(
+                "{\n"
+                    + "        \"amount\": {\n"
+                    + "            \"value\": 100,\n"
+                    + "            \"currency\": \"USD\"\n"
+                    + "        }\n"
+                    + "     }");
+
+    CheckoutForwardRequest checkoutForwardRequest =
+        new CheckoutForwardRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .shopperReference("YOUR_SHOPPER_REFERENCE")
+            .paymentMethod(
+                new CheckoutForwardRequestCard()
+                    .type(CheckoutForwardRequestCard.TypeEnum.SCHEME)
+                    .number("4111111111111111")
+                    .expiryMonth("03")
+                    .expiryYear("2030")
+                    .cvc("737")
+                    .holderName("S. Hopper"))
+            .baseUrl("http://thirdparty.example.com")
+            .request(outgoingForwardRequest);
+
+    CheckoutForwardResponse response = recurringApi.forward(checkoutForwardRequest);
+
+	  assertNull(response.getStoredPaymentMethodId());  // card is not tokenized
+    assertNotNull(response.getResponse());
+    assertEquals(200, (int) response.getResponse().getStatus());
+    assertTrue(response.getResponse().getBody().contains("PAYMENT_METHOD_ID"));
+  }
 }

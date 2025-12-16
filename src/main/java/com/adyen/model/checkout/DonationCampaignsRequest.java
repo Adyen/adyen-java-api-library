@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class DonationCampaignsRequest {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_LOCALE = "locale";
   private String locale;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocale = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DonationCampaignsRequest() {}
 
@@ -45,6 +62,7 @@ public class DonationCampaignsRequest {
    */
   public DonationCampaignsRequest currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -72,6 +90,7 @@ public class DonationCampaignsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -82,6 +101,7 @@ public class DonationCampaignsRequest {
    */
   public DonationCampaignsRequest locale(String locale) {
     this.locale = locale;
+    isSetLocale = true; // mark as set
     return this;
   }
 
@@ -105,6 +125,7 @@ public class DonationCampaignsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
     this.locale = locale;
+    isSetLocale = true; // mark as set
   }
 
   /**
@@ -115,6 +136,7 @@ public class DonationCampaignsRequest {
    */
   public DonationCampaignsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -138,6 +160,27 @@ public class DonationCampaignsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DonationCampaignsRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DonationCampaignsRequest object is equal to o. */
@@ -151,13 +194,17 @@ public class DonationCampaignsRequest {
     }
     DonationCampaignsRequest donationCampaignsRequest = (DonationCampaignsRequest) o;
     return Objects.equals(this.currency, donationCampaignsRequest.currency)
+        && Objects.equals(this.isSetCurrency, donationCampaignsRequest.isSetCurrency)
         && Objects.equals(this.locale, donationCampaignsRequest.locale)
-        && Objects.equals(this.merchantAccount, donationCampaignsRequest.merchantAccount);
+        && Objects.equals(this.isSetLocale, donationCampaignsRequest.isSetLocale)
+        && Objects.equals(this.merchantAccount, donationCampaignsRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, donationCampaignsRequest.isSetMerchantAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, locale, merchantAccount);
+    return Objects.hash(
+        currency, isSetCurrency, locale, isSetLocale, merchantAccount, isSetMerchantAccount);
   }
 
   @Override
@@ -179,6 +226,36 @@ public class DonationCampaignsRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetLocale) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALE, this.locale);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

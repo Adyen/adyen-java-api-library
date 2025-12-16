@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,8 +30,20 @@ public class PaymentMethodsResponse {
   public static final String JSON_PROPERTY_PAYMENT_METHODS = "paymentMethods";
   private List<PaymentMethod> paymentMethods;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethods = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHODS = "storedPaymentMethods";
   private List<StoredPaymentMethod> storedPaymentMethods;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethods = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethodsResponse() {}
 
@@ -41,6 +55,7 @@ public class PaymentMethodsResponse {
    */
   public PaymentMethodsResponse paymentMethods(List<PaymentMethod> paymentMethods) {
     this.paymentMethods = paymentMethods;
+    isSetPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -72,6 +87,7 @@ public class PaymentMethodsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
     this.paymentMethods = paymentMethods;
+    isSetPaymentMethods = true; // mark as set
   }
 
   /**
@@ -83,6 +99,7 @@ public class PaymentMethodsResponse {
   public PaymentMethodsResponse storedPaymentMethods(
       List<StoredPaymentMethod> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
+    isSetStoredPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -115,6 +132,27 @@ public class PaymentMethodsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
+    isSetStoredPaymentMethods = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodsResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethodsResponse object is equal to o. */
@@ -128,12 +166,16 @@ public class PaymentMethodsResponse {
     }
     PaymentMethodsResponse paymentMethodsResponse = (PaymentMethodsResponse) o;
     return Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods)
-        && Objects.equals(this.storedPaymentMethods, paymentMethodsResponse.storedPaymentMethods);
+        && Objects.equals(this.isSetPaymentMethods, paymentMethodsResponse.isSetPaymentMethods)
+        && Objects.equals(this.storedPaymentMethods, paymentMethodsResponse.storedPaymentMethods)
+        && Objects.equals(
+            this.isSetStoredPaymentMethods, paymentMethodsResponse.isSetStoredPaymentMethods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethods, storedPaymentMethods);
+    return Objects.hash(
+        paymentMethods, isSetPaymentMethods, storedPaymentMethods, isSetStoredPaymentMethods);
   }
 
   @Override
@@ -156,6 +198,33 @@ public class PaymentMethodsResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHODS, this.paymentMethods);
+    }
+    if (isSetStoredPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHODS, this.storedPaymentMethods);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

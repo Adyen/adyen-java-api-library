@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,10 +20,28 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** EnhancedSchemeData */
-@JsonPropertyOrder({EnhancedSchemeData.JSON_PROPERTY_AIRLINE})
+@JsonPropertyOrder({
+  EnhancedSchemeData.JSON_PROPERTY_AIRLINE,
+  EnhancedSchemeData.JSON_PROPERTY_LEVEL_TWO_THREE
+})
 public class EnhancedSchemeData {
   public static final String JSON_PROPERTY_AIRLINE = "airline";
   private Airline airline;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirline = false;
+
+  public static final String JSON_PROPERTY_LEVEL_TWO_THREE = "levelTwoThree";
+  private LevelTwoThree levelTwoThree;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLevelTwoThree = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public EnhancedSchemeData() {}
 
@@ -33,6 +53,7 @@ public class EnhancedSchemeData {
    */
   public EnhancedSchemeData airline(Airline airline) {
     this.airline = airline;
+    isSetAirline = true; // mark as set
     return this;
   }
 
@@ -56,6 +77,62 @@ public class EnhancedSchemeData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirline(Airline airline) {
     this.airline = airline;
+    isSetAirline = true; // mark as set
+  }
+
+  /**
+   * levelTwoThree
+   *
+   * @param levelTwoThree
+   * @return the current {@code EnhancedSchemeData} instance, allowing for method chaining
+   */
+  public EnhancedSchemeData levelTwoThree(LevelTwoThree levelTwoThree) {
+    this.levelTwoThree = levelTwoThree;
+    isSetLevelTwoThree = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get levelTwoThree
+   *
+   * @return levelTwoThree
+   */
+  @JsonProperty(JSON_PROPERTY_LEVEL_TWO_THREE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LevelTwoThree getLevelTwoThree() {
+    return levelTwoThree;
+  }
+
+  /**
+   * levelTwoThree
+   *
+   * @param levelTwoThree
+   */
+  @JsonProperty(JSON_PROPERTY_LEVEL_TWO_THREE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLevelTwoThree(LevelTwoThree levelTwoThree) {
+    this.levelTwoThree = levelTwoThree;
+    isSetLevelTwoThree = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public EnhancedSchemeData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this EnhancedSchemeData object is equal to o. */
@@ -68,12 +145,15 @@ public class EnhancedSchemeData {
       return false;
     }
     EnhancedSchemeData enhancedSchemeData = (EnhancedSchemeData) o;
-    return Objects.equals(this.airline, enhancedSchemeData.airline);
+    return Objects.equals(this.airline, enhancedSchemeData.airline)
+        && Objects.equals(this.isSetAirline, enhancedSchemeData.isSetAirline)
+        && Objects.equals(this.levelTwoThree, enhancedSchemeData.levelTwoThree)
+        && Objects.equals(this.isSetLevelTwoThree, enhancedSchemeData.isSetLevelTwoThree);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(airline);
+    return Objects.hash(airline, isSetAirline, levelTwoThree, isSetLevelTwoThree);
   }
 
   @Override
@@ -81,6 +161,7 @@ public class EnhancedSchemeData {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnhancedSchemeData {\n");
     sb.append("    airline: ").append(toIndentedString(airline)).append("\n");
+    sb.append("    levelTwoThree: ").append(toIndentedString(levelTwoThree)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -93,6 +174,33 @@ public class EnhancedSchemeData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAirline) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE, this.airline);
+    }
+    if (isSetLevelTwoThree) {
+      addIfNull(nulls, JSON_PROPERTY_LEVEL_TWO_THREE, this.levelTwoThree);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

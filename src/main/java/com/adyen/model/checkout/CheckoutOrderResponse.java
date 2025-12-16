@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class CheckoutOrderResponse {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private String expiresAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
 
   public static final String JSON_PROPERTY_ORDER_DATA = "orderData";
   private String orderData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderData = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_REMAINING_AMOUNT = "remainingAmount";
   private Amount remainingAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRemainingAmount = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutOrderResponse() {}
 
@@ -55,6 +81,7 @@ public class CheckoutOrderResponse {
    */
   public CheckoutOrderResponse amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class CheckoutOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class CheckoutOrderResponse {
    */
   public CheckoutOrderResponse expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
     return this;
   }
 
@@ -111,6 +140,7 @@ public class CheckoutOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
   }
 
   /**
@@ -121,6 +151,7 @@ public class CheckoutOrderResponse {
    */
   public CheckoutOrderResponse orderData(String orderData) {
     this.orderData = orderData;
+    isSetOrderData = true; // mark as set
     return this;
   }
 
@@ -144,6 +175,7 @@ public class CheckoutOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
+    isSetOrderData = true; // mark as set
   }
 
   /**
@@ -154,6 +186,7 @@ public class CheckoutOrderResponse {
    */
   public CheckoutOrderResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -177,6 +210,7 @@ public class CheckoutOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -187,6 +221,7 @@ public class CheckoutOrderResponse {
    */
   public CheckoutOrderResponse reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -210,6 +245,7 @@ public class CheckoutOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -220,6 +256,7 @@ public class CheckoutOrderResponse {
    */
   public CheckoutOrderResponse remainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
+    isSetRemainingAmount = true; // mark as set
     return this;
   }
 
@@ -243,6 +280,27 @@ public class CheckoutOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
+    isSetRemainingAmount = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutOrderResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutOrderResponse object is equal to o. */
@@ -256,16 +314,34 @@ public class CheckoutOrderResponse {
     }
     CheckoutOrderResponse checkoutOrderResponse = (CheckoutOrderResponse) o;
     return Objects.equals(this.amount, checkoutOrderResponse.amount)
+        && Objects.equals(this.isSetAmount, checkoutOrderResponse.isSetAmount)
         && Objects.equals(this.expiresAt, checkoutOrderResponse.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, checkoutOrderResponse.isSetExpiresAt)
         && Objects.equals(this.orderData, checkoutOrderResponse.orderData)
+        && Objects.equals(this.isSetOrderData, checkoutOrderResponse.isSetOrderData)
         && Objects.equals(this.pspReference, checkoutOrderResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, checkoutOrderResponse.isSetPspReference)
         && Objects.equals(this.reference, checkoutOrderResponse.reference)
-        && Objects.equals(this.remainingAmount, checkoutOrderResponse.remainingAmount);
+        && Objects.equals(this.isSetReference, checkoutOrderResponse.isSetReference)
+        && Objects.equals(this.remainingAmount, checkoutOrderResponse.remainingAmount)
+        && Objects.equals(this.isSetRemainingAmount, checkoutOrderResponse.isSetRemainingAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, expiresAt, orderData, pspReference, reference, remainingAmount);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        expiresAt,
+        isSetExpiresAt,
+        orderData,
+        isSetOrderData,
+        pspReference,
+        isSetPspReference,
+        reference,
+        isSetReference,
+        remainingAmount,
+        isSetRemainingAmount);
   }
 
   @Override
@@ -290,6 +366,45 @@ public class CheckoutOrderResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+    if (isSetOrderData) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_DATA, this.orderData);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetRemainingAmount) {
+      addIfNull(nulls, JSON_PROPERTY_REMAINING_AMOUNT, this.remainingAmount);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

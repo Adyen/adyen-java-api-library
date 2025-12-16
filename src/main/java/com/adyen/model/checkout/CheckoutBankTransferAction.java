@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,41 +45,80 @@ public class CheckoutBankTransferAction {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountNumber = false;
+
   public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
   private String bankCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankCode = false;
 
   public static final String JSON_PROPERTY_BENEFICIARY = "beneficiary";
   private String beneficiary;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBeneficiary = false;
+
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBic = false;
 
   public static final String JSON_PROPERTY_BRANCH_CODE = "branchCode";
   private String branchCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBranchCode = false;
+
   public static final String JSON_PROPERTY_DOWNLOAD_URL = "downloadUrl";
   private String downloadUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDownloadUrl = false;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
   private String paymentMethodType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodType = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoutingNumber = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_SORT_CODE = "sortCode";
   private String sortCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSortCode = false;
+
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "totalAmount";
   private Amount totalAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTotalAmount = false;
 
   /** The type of the action. */
   public enum TypeEnum {
@@ -121,8 +162,20 @@ public class CheckoutBankTransferAction {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutBankTransferAction() {}
 
@@ -134,6 +187,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
     return this;
   }
 
@@ -157,6 +211,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
   }
 
   /**
@@ -167,6 +222,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction bankCode(String bankCode) {
     this.bankCode = bankCode;
+    isSetBankCode = true; // mark as set
     return this;
   }
 
@@ -190,6 +246,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
+    isSetBankCode = true; // mark as set
   }
 
   /**
@@ -200,6 +257,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction beneficiary(String beneficiary) {
     this.beneficiary = beneficiary;
+    isSetBeneficiary = true; // mark as set
     return this;
   }
 
@@ -223,6 +281,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeneficiary(String beneficiary) {
     this.beneficiary = beneficiary;
+    isSetBeneficiary = true; // mark as set
   }
 
   /**
@@ -233,6 +292,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction bic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
     return this;
   }
 
@@ -256,6 +316,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
   }
 
   /**
@@ -266,6 +327,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction branchCode(String branchCode) {
     this.branchCode = branchCode;
+    isSetBranchCode = true; // mark as set
     return this;
   }
 
@@ -289,6 +351,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchCode(String branchCode) {
     this.branchCode = branchCode;
+    isSetBranchCode = true; // mark as set
   }
 
   /**
@@ -299,6 +362,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
+    isSetDownloadUrl = true; // mark as set
     return this;
   }
 
@@ -322,6 +386,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
+    isSetDownloadUrl = true; // mark as set
   }
 
   /**
@@ -332,6 +397,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -355,6 +421,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -365,6 +432,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
     return this;
   }
 
@@ -388,6 +456,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
   }
 
   /**
@@ -398,6 +467,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -421,6 +491,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -431,6 +502,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+    isSetRoutingNumber = true; // mark as set
     return this;
   }
 
@@ -454,6 +526,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+    isSetRoutingNumber = true; // mark as set
   }
 
   /**
@@ -464,6 +537,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -487,6 +561,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -497,6 +572,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction sortCode(String sortCode) {
     this.sortCode = sortCode;
+    isSetSortCode = true; // mark as set
     return this;
   }
 
@@ -520,6 +596,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortCode(String sortCode) {
     this.sortCode = sortCode;
+    isSetSortCode = true; // mark as set
   }
 
   /**
@@ -530,6 +607,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction totalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
+    isSetTotalAmount = true; // mark as set
     return this;
   }
 
@@ -553,6 +631,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
+    isSetTotalAmount = true; // mark as set
   }
 
   /**
@@ -563,6 +642,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -586,6 +666,7 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -596,6 +677,7 @@ public class CheckoutBankTransferAction {
    */
   public CheckoutBankTransferAction url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -619,6 +701,27 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutBankTransferAction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutBankTransferAction object is equal to o. */
@@ -632,40 +735,71 @@ public class CheckoutBankTransferAction {
     }
     CheckoutBankTransferAction checkoutBankTransferAction = (CheckoutBankTransferAction) o;
     return Objects.equals(this.accountNumber, checkoutBankTransferAction.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, checkoutBankTransferAction.isSetAccountNumber)
         && Objects.equals(this.bankCode, checkoutBankTransferAction.bankCode)
+        && Objects.equals(this.isSetBankCode, checkoutBankTransferAction.isSetBankCode)
         && Objects.equals(this.beneficiary, checkoutBankTransferAction.beneficiary)
+        && Objects.equals(this.isSetBeneficiary, checkoutBankTransferAction.isSetBeneficiary)
         && Objects.equals(this.bic, checkoutBankTransferAction.bic)
+        && Objects.equals(this.isSetBic, checkoutBankTransferAction.isSetBic)
         && Objects.equals(this.branchCode, checkoutBankTransferAction.branchCode)
+        && Objects.equals(this.isSetBranchCode, checkoutBankTransferAction.isSetBranchCode)
         && Objects.equals(this.downloadUrl, checkoutBankTransferAction.downloadUrl)
+        && Objects.equals(this.isSetDownloadUrl, checkoutBankTransferAction.isSetDownloadUrl)
         && Objects.equals(this.iban, checkoutBankTransferAction.iban)
+        && Objects.equals(this.isSetIban, checkoutBankTransferAction.isSetIban)
         && Objects.equals(this.paymentMethodType, checkoutBankTransferAction.paymentMethodType)
+        && Objects.equals(
+            this.isSetPaymentMethodType, checkoutBankTransferAction.isSetPaymentMethodType)
         && Objects.equals(this.reference, checkoutBankTransferAction.reference)
+        && Objects.equals(this.isSetReference, checkoutBankTransferAction.isSetReference)
         && Objects.equals(this.routingNumber, checkoutBankTransferAction.routingNumber)
+        && Objects.equals(this.isSetRoutingNumber, checkoutBankTransferAction.isSetRoutingNumber)
         && Objects.equals(this.shopperEmail, checkoutBankTransferAction.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, checkoutBankTransferAction.isSetShopperEmail)
         && Objects.equals(this.sortCode, checkoutBankTransferAction.sortCode)
+        && Objects.equals(this.isSetSortCode, checkoutBankTransferAction.isSetSortCode)
         && Objects.equals(this.totalAmount, checkoutBankTransferAction.totalAmount)
+        && Objects.equals(this.isSetTotalAmount, checkoutBankTransferAction.isSetTotalAmount)
         && Objects.equals(this.type, checkoutBankTransferAction.type)
-        && Objects.equals(this.url, checkoutBankTransferAction.url);
+        && Objects.equals(this.isSetType, checkoutBankTransferAction.isSetType)
+        && Objects.equals(this.url, checkoutBankTransferAction.url)
+        && Objects.equals(this.isSetUrl, checkoutBankTransferAction.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountNumber,
+        isSetAccountNumber,
         bankCode,
+        isSetBankCode,
         beneficiary,
+        isSetBeneficiary,
         bic,
+        isSetBic,
         branchCode,
+        isSetBranchCode,
         downloadUrl,
+        isSetDownloadUrl,
         iban,
+        isSetIban,
         paymentMethodType,
+        isSetPaymentMethodType,
         reference,
+        isSetReference,
         routingNumber,
+        isSetRoutingNumber,
         shopperEmail,
+        isSetShopperEmail,
         sortCode,
+        isSetSortCode,
         totalAmount,
+        isSetTotalAmount,
         type,
-        url);
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -699,6 +833,72 @@ public class CheckoutBankTransferAction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_NUMBER, this.accountNumber);
+    }
+    if (isSetBankCode) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_CODE, this.bankCode);
+    }
+    if (isSetBeneficiary) {
+      addIfNull(nulls, JSON_PROPERTY_BENEFICIARY, this.beneficiary);
+    }
+    if (isSetBic) {
+      addIfNull(nulls, JSON_PROPERTY_BIC, this.bic);
+    }
+    if (isSetBranchCode) {
+      addIfNull(nulls, JSON_PROPERTY_BRANCH_CODE, this.branchCode);
+    }
+    if (isSetDownloadUrl) {
+      addIfNull(nulls, JSON_PROPERTY_DOWNLOAD_URL, this.downloadUrl);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetPaymentMethodType) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_TYPE, this.paymentMethodType);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetRoutingNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ROUTING_NUMBER, this.routingNumber);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetSortCode) {
+      addIfNull(nulls, JSON_PROPERTY_SORT_CODE, this.sortCode);
+    }
+    if (isSetTotalAmount) {
+      addIfNull(nulls, JSON_PROPERTY_TOTAL_AMOUNT, this.totalAmount);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

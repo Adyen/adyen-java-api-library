@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,29 +37,62 @@ public class PaymentCaptureRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApplicationInfo = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
   private EnhancedSchemeData enhancedSchemeData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeData = false;
+
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLineItems = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlatformChargebackLogic = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
   private List<SubMerchantInfo> subMerchants;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchants = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentCaptureRequest() {}
 
@@ -69,6 +104,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -92,6 +128,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -102,6 +139,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
     return this;
   }
 
@@ -125,6 +163,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+    isSetApplicationInfo = true; // mark as set
   }
 
   /**
@@ -135,6 +174,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
     this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
     return this;
   }
 
@@ -158,6 +198,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
     this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
   }
 
   /**
@@ -174,6 +215,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
     return this;
   }
 
@@ -217,6 +259,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
+    isSetLineItems = true; // mark as set
   }
 
   /**
@@ -227,6 +270,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -250,6 +294,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -261,6 +306,7 @@ public class PaymentCaptureRequest {
   public PaymentCaptureRequest platformChargebackLogic(
       PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
     return this;
   }
 
@@ -284,6 +330,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
   }
 
   /**
@@ -294,6 +341,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -317,6 +365,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -333,6 +382,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -376,6 +426,7 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -386,6 +437,7 @@ public class PaymentCaptureRequest {
    */
   public PaymentCaptureRequest subMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
+    isSetSubMerchants = true; // mark as set
     return this;
   }
 
@@ -417,6 +469,27 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
+    isSetSubMerchants = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentCaptureRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentCaptureRequest object is equal to o. */
@@ -430,29 +503,49 @@ public class PaymentCaptureRequest {
     }
     PaymentCaptureRequest paymentCaptureRequest = (PaymentCaptureRequest) o;
     return Objects.equals(this.amount, paymentCaptureRequest.amount)
+        && Objects.equals(this.isSetAmount, paymentCaptureRequest.isSetAmount)
         && Objects.equals(this.applicationInfo, paymentCaptureRequest.applicationInfo)
+        && Objects.equals(this.isSetApplicationInfo, paymentCaptureRequest.isSetApplicationInfo)
         && Objects.equals(this.enhancedSchemeData, paymentCaptureRequest.enhancedSchemeData)
+        && Objects.equals(
+            this.isSetEnhancedSchemeData, paymentCaptureRequest.isSetEnhancedSchemeData)
         && Objects.equals(this.lineItems, paymentCaptureRequest.lineItems)
+        && Objects.equals(this.isSetLineItems, paymentCaptureRequest.isSetLineItems)
         && Objects.equals(this.merchantAccount, paymentCaptureRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, paymentCaptureRequest.isSetMerchantAccount)
         && Objects.equals(
             this.platformChargebackLogic, paymentCaptureRequest.platformChargebackLogic)
+        && Objects.equals(
+            this.isSetPlatformChargebackLogic, paymentCaptureRequest.isSetPlatformChargebackLogic)
         && Objects.equals(this.reference, paymentCaptureRequest.reference)
+        && Objects.equals(this.isSetReference, paymentCaptureRequest.isSetReference)
         && Objects.equals(this.splits, paymentCaptureRequest.splits)
-        && Objects.equals(this.subMerchants, paymentCaptureRequest.subMerchants);
+        && Objects.equals(this.isSetSplits, paymentCaptureRequest.isSetSplits)
+        && Objects.equals(this.subMerchants, paymentCaptureRequest.subMerchants)
+        && Objects.equals(this.isSetSubMerchants, paymentCaptureRequest.isSetSubMerchants);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         applicationInfo,
+        isSetApplicationInfo,
         enhancedSchemeData,
+        isSetEnhancedSchemeData,
         lineItems,
+        isSetLineItems,
         merchantAccount,
+        isSetMerchantAccount,
         platformChargebackLogic,
+        isSetPlatformChargebackLogic,
         reference,
+        isSetReference,
         splits,
-        subMerchants);
+        isSetSplits,
+        subMerchants,
+        isSetSubMerchants);
   }
 
   @Override
@@ -482,6 +575,54 @@ public class PaymentCaptureRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetApplicationInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APPLICATION_INFO, this.applicationInfo);
+    }
+    if (isSetEnhancedSchemeData) {
+      addIfNull(nulls, JSON_PROPERTY_ENHANCED_SCHEME_DATA, this.enhancedSchemeData);
+    }
+    if (isSetLineItems) {
+      addIfNull(nulls, JSON_PROPERTY_LINE_ITEMS, this.lineItems);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetPlatformChargebackLogic) {
+      addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetSubMerchants) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANTS, this.subMerchants);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,11 +40,20 @@ public class PixRecurring {
   public static final String JSON_PROPERTY_BILLING_DATE = "billingDate";
   private String billingDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingDate = false;
+
   public static final String JSON_PROPERTY_BUSINESS_DAY_ONLY = "businessDayOnly";
   private Boolean businessDayOnly;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBusinessDayOnly = false;
+
   public static final String JSON_PROPERTY_ENDS_AT = "endsAt";
   private String endsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndsAt = false;
 
   /** The frequency at which the shopper will be charged. */
   public enum FrequencyEnum {
@@ -94,23 +105,50 @@ public class PixRecurring {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private FrequencyEnum frequency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFrequency = false;
+
   public static final String JSON_PROPERTY_MIN_AMOUNT = "minAmount";
   private Amount minAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMinAmount = false;
 
   public static final String JSON_PROPERTY_ORIGINAL_PSP_REFERENCE = "originalPspReference";
   private String originalPspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOriginalPspReference = false;
+
   public static final String JSON_PROPERTY_RECURRING_AMOUNT = "recurringAmount";
   private Amount recurringAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringAmount = false;
 
   public static final String JSON_PROPERTY_RECURRING_STATEMENT = "recurringStatement";
   private String recurringStatement;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringStatement = false;
+
   public static final String JSON_PROPERTY_RETRY_POLICY = "retryPolicy";
   private Boolean retryPolicy;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRetryPolicy = false;
+
   public static final String JSON_PROPERTY_STARTS_AT = "startsAt";
   private String startsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartsAt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PixRecurring() {}
 
@@ -123,6 +161,7 @@ public class PixRecurring {
    */
   public PixRecurring billingDate(String billingDate) {
     this.billingDate = billingDate;
+    isSetBillingDate = true; // mark as set
     return this;
   }
 
@@ -148,6 +187,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDate(String billingDate) {
     this.billingDate = billingDate;
+    isSetBillingDate = true; // mark as set
   }
 
   /**
@@ -158,6 +198,7 @@ public class PixRecurring {
    */
   public PixRecurring businessDayOnly(Boolean businessDayOnly) {
     this.businessDayOnly = businessDayOnly;
+    isSetBusinessDayOnly = true; // mark as set
     return this;
   }
 
@@ -182,6 +223,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessDayOnly(Boolean businessDayOnly) {
     this.businessDayOnly = businessDayOnly;
+    isSetBusinessDayOnly = true; // mark as set
   }
 
   /**
@@ -196,6 +238,7 @@ public class PixRecurring {
    */
   public PixRecurring endsAt(String endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
     return this;
   }
 
@@ -227,6 +270,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
     this.endsAt = endsAt;
+    isSetEndsAt = true; // mark as set
   }
 
   /**
@@ -237,6 +281,7 @@ public class PixRecurring {
    */
   public PixRecurring frequency(FrequencyEnum frequency) {
     this.frequency = frequency;
+    isSetFrequency = true; // mark as set
     return this;
   }
 
@@ -260,6 +305,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
     this.frequency = frequency;
+    isSetFrequency = true; // mark as set
   }
 
   /**
@@ -270,6 +316,7 @@ public class PixRecurring {
    */
   public PixRecurring minAmount(Amount minAmount) {
     this.minAmount = minAmount;
+    isSetMinAmount = true; // mark as set
     return this;
   }
 
@@ -293,6 +340,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMinAmount(Amount minAmount) {
     this.minAmount = minAmount;
+    isSetMinAmount = true; // mark as set
   }
 
   /**
@@ -305,6 +353,7 @@ public class PixRecurring {
    */
   public PixRecurring originalPspReference(String originalPspReference) {
     this.originalPspReference = originalPspReference;
+    isSetOriginalPspReference = true; // mark as set
     return this;
   }
 
@@ -332,6 +381,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalPspReference(String originalPspReference) {
     this.originalPspReference = originalPspReference;
+    isSetOriginalPspReference = true; // mark as set
   }
 
   /**
@@ -342,6 +392,7 @@ public class PixRecurring {
    */
   public PixRecurring recurringAmount(Amount recurringAmount) {
     this.recurringAmount = recurringAmount;
+    isSetRecurringAmount = true; // mark as set
     return this;
   }
 
@@ -365,6 +416,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringAmount(Amount recurringAmount) {
     this.recurringAmount = recurringAmount;
+    isSetRecurringAmount = true; // mark as set
   }
 
   /**
@@ -379,6 +431,7 @@ public class PixRecurring {
    */
   public PixRecurring recurringStatement(String recurringStatement) {
     this.recurringStatement = recurringStatement;
+    isSetRecurringStatement = true; // mark as set
     return this;
   }
 
@@ -410,6 +463,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringStatement(String recurringStatement) {
     this.recurringStatement = recurringStatement;
+    isSetRecurringStatement = true; // mark as set
   }
 
   /**
@@ -421,6 +475,7 @@ public class PixRecurring {
    */
   public PixRecurring retryPolicy(Boolean retryPolicy) {
     this.retryPolicy = retryPolicy;
+    isSetRetryPolicy = true; // mark as set
     return this;
   }
 
@@ -446,6 +501,7 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetryPolicy(Boolean retryPolicy) {
     this.retryPolicy = retryPolicy;
+    isSetRetryPolicy = true; // mark as set
   }
 
   /**
@@ -458,6 +514,7 @@ public class PixRecurring {
    */
   public PixRecurring startsAt(String startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
     return this;
   }
 
@@ -485,6 +542,27 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(String startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PixRecurring includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PixRecurring object is equal to o. */
@@ -498,30 +576,50 @@ public class PixRecurring {
     }
     PixRecurring pixRecurring = (PixRecurring) o;
     return Objects.equals(this.billingDate, pixRecurring.billingDate)
+        && Objects.equals(this.isSetBillingDate, pixRecurring.isSetBillingDate)
         && Objects.equals(this.businessDayOnly, pixRecurring.businessDayOnly)
+        && Objects.equals(this.isSetBusinessDayOnly, pixRecurring.isSetBusinessDayOnly)
         && Objects.equals(this.endsAt, pixRecurring.endsAt)
+        && Objects.equals(this.isSetEndsAt, pixRecurring.isSetEndsAt)
         && Objects.equals(this.frequency, pixRecurring.frequency)
+        && Objects.equals(this.isSetFrequency, pixRecurring.isSetFrequency)
         && Objects.equals(this.minAmount, pixRecurring.minAmount)
+        && Objects.equals(this.isSetMinAmount, pixRecurring.isSetMinAmount)
         && Objects.equals(this.originalPspReference, pixRecurring.originalPspReference)
+        && Objects.equals(this.isSetOriginalPspReference, pixRecurring.isSetOriginalPspReference)
         && Objects.equals(this.recurringAmount, pixRecurring.recurringAmount)
+        && Objects.equals(this.isSetRecurringAmount, pixRecurring.isSetRecurringAmount)
         && Objects.equals(this.recurringStatement, pixRecurring.recurringStatement)
+        && Objects.equals(this.isSetRecurringStatement, pixRecurring.isSetRecurringStatement)
         && Objects.equals(this.retryPolicy, pixRecurring.retryPolicy)
-        && Objects.equals(this.startsAt, pixRecurring.startsAt);
+        && Objects.equals(this.isSetRetryPolicy, pixRecurring.isSetRetryPolicy)
+        && Objects.equals(this.startsAt, pixRecurring.startsAt)
+        && Objects.equals(this.isSetStartsAt, pixRecurring.isSetStartsAt);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         billingDate,
+        isSetBillingDate,
         businessDayOnly,
+        isSetBusinessDayOnly,
         endsAt,
+        isSetEndsAt,
         frequency,
+        isSetFrequency,
         minAmount,
+        isSetMinAmount,
         originalPspReference,
+        isSetOriginalPspReference,
         recurringAmount,
+        isSetRecurringAmount,
         recurringStatement,
+        isSetRecurringStatement,
         retryPolicy,
-        startsAt);
+        isSetRetryPolicy,
+        startsAt,
+        isSetStartsAt);
   }
 
   @Override
@@ -552,6 +650,57 @@ public class PixRecurring {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingDate) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_DATE, this.billingDate);
+    }
+    if (isSetBusinessDayOnly) {
+      addIfNull(nulls, JSON_PROPERTY_BUSINESS_DAY_ONLY, this.businessDayOnly);
+    }
+    if (isSetEndsAt) {
+      addIfNull(nulls, JSON_PROPERTY_ENDS_AT, this.endsAt);
+    }
+    if (isSetFrequency) {
+      addIfNull(nulls, JSON_PROPERTY_FREQUENCY, this.frequency);
+    }
+    if (isSetMinAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MIN_AMOUNT, this.minAmount);
+    }
+    if (isSetOriginalPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGINAL_PSP_REFERENCE, this.originalPspReference);
+    }
+    if (isSetRecurringAmount) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_AMOUNT, this.recurringAmount);
+    }
+    if (isSetRecurringStatement) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_STATEMENT, this.recurringStatement);
+    }
+    if (isSetRetryPolicy) {
+      addIfNull(nulls, JSON_PROPERTY_RETRY_POLICY, this.retryPolicy);
+    }
+    if (isSetStartsAt) {
+      addIfNull(nulls, JSON_PROPERTY_STARTS_AT, this.startsAt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

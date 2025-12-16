@@ -541,6 +541,32 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'EftDetails'", e);
       }
 
+      // deserialize ExternalTokenDetails
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(ExternalTokenDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
+
+          if (typeMatch) {
+            deserialized = tree.traverse(jp.getCodec()).readValueAs(ExternalTokenDetails.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(Level.FINER, "Input data matches schema 'ExternalTokenDetails'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ExternalTokenDetails'", e);
+      }
+
       // deserialize FastlaneDetails
       try {
         boolean attemptParsing = true;
@@ -1573,6 +1599,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public CheckoutPaymentMethod(ExternalTokenDetails o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public CheckoutPaymentMethod(FastlaneDetails o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1767,6 +1798,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     schemas.put("EBankingFinlandDetails", new GenericType<EBankingFinlandDetails>() {});
     schemas.put("EcontextVoucherDetails", new GenericType<EcontextVoucherDetails>() {});
     schemas.put("EftDetails", new GenericType<EftDetails>() {});
+    schemas.put("ExternalTokenDetails", new GenericType<ExternalTokenDetails>() {});
     schemas.put("FastlaneDetails", new GenericType<FastlaneDetails>() {});
     schemas.put(
         "GenericIssuerPaymentMethodDetails",
@@ -1818,14 +1850,15 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    * against the oneOf child schemas: AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails,
    * AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails,
    * BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails,
-   * EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails,
-   * GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails,
-   * MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails,
-   * PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails,
-   * PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails,
-   * RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
-   * StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails,
-   * VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+   * EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
+   * FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
+   * KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails,
+   * OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails,
+   * PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails,
+   * PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails,
+   * SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails,
+   * UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails,
+   * WeChatPayMiniProgramDetails, ZipDetails
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1918,6 +1951,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     if (JSON.isInstanceOf(EftDetails.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(ExternalTokenDetails.class, instance, new HashSet<>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2098,7 +2136,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     throw new RuntimeException(
-        "Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
+        "Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
   }
 
   /**
@@ -2106,27 +2144,27 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    * AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails,
    * BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails,
    * CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails,
-   * EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails,
-   * GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails,
-   * MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails,
-   * PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails,
-   * PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails,
-   * RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
+   * EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails,
+   * GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails,
+   * MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails,
+   * PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails,
+   * PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails,
+   * RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
    * StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails,
    * VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
    *
    * @return The actual instance (AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails,
    *     AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails,
    *     BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails,
-   *     EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails,
-   *     GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails,
-   *     MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails,
-   *     PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails,
-   *     PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails,
-   *     RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails,
-   *     SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails,
-   *     UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails,
-   *     WeChatPayMiniProgramDetails, ZipDetails)
+   *     EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
+   *     FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
+   *     KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails,
+   *     OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails,
+   *     PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails,
+   *     PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails,
+   *     SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails,
+   *     UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails,
+   *     WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails)
    */
   @Override
   public Object getActualInstance() {
@@ -2329,6 +2367,17 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    */
   public EftDetails getEftDetails() throws ClassCastException {
     return (EftDetails) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ExternalTokenDetails`. If the actual instance is not
+   * `ExternalTokenDetails`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ExternalTokenDetails`
+   * @throws ClassCastException if the instance is not `ExternalTokenDetails`
+   */
+  public ExternalTokenDetails getExternalTokenDetails() throws ClassCastException {
+    return (ExternalTokenDetails) super.getActualInstance();
   }
 
   /**

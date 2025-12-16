@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,8 +25,20 @@ public class Agency {
   public static final String JSON_PROPERTY_INVOICE_NUMBER = "invoiceNumber";
   private String invoiceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInvoiceNumber = false;
+
   public static final String JSON_PROPERTY_PLAN_NAME = "planName";
   private String planName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlanName = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Agency() {}
 
@@ -38,6 +52,7 @@ public class Agency {
    */
   public Agency invoiceNumber(String invoiceNumber) {
     this.invoiceNumber = invoiceNumber;
+    isSetInvoiceNumber = true; // mark as set
     return this;
   }
 
@@ -65,6 +80,7 @@ public class Agency {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvoiceNumber(String invoiceNumber) {
     this.invoiceNumber = invoiceNumber;
+    isSetInvoiceNumber = true; // mark as set
   }
 
   /**
@@ -77,6 +93,7 @@ public class Agency {
    */
   public Agency planName(String planName) {
     this.planName = planName;
+    isSetPlanName = true; // mark as set
     return this;
   }
 
@@ -104,6 +121,27 @@ public class Agency {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlanName(String planName) {
     this.planName = planName;
+    isSetPlanName = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Agency includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Agency object is equal to o. */
@@ -117,12 +155,14 @@ public class Agency {
     }
     Agency agency = (Agency) o;
     return Objects.equals(this.invoiceNumber, agency.invoiceNumber)
-        && Objects.equals(this.planName, agency.planName);
+        && Objects.equals(this.isSetInvoiceNumber, agency.isSetInvoiceNumber)
+        && Objects.equals(this.planName, agency.planName)
+        && Objects.equals(this.isSetPlanName, agency.isSetPlanName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(invoiceNumber, planName);
+    return Objects.hash(invoiceNumber, isSetInvoiceNumber, planName, isSetPlanName);
   }
 
   @Override
@@ -143,6 +183,33 @@ public class Agency {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetInvoiceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_INVOICE_NUMBER, this.invoiceNumber);
+    }
+    if (isSetPlanName) {
+      addIfNull(nulls, JSON_PROPERTY_PLAN_NAME, this.planName);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

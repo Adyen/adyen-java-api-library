@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class Company {
   public static final String JSON_PROPERTY_HOMEPAGE = "homepage";
   private String homepage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHomepage = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegistrationNumber = false;
+
   public static final String JSON_PROPERTY_REGISTRY_LOCATION = "registryLocation";
   private String registryLocation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegistryLocation = false;
 
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxId = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Company() {}
 
@@ -55,6 +81,7 @@ public class Company {
    */
   public Company homepage(String homepage) {
     this.homepage = homepage;
+    isSetHomepage = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class Company {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomepage(String homepage) {
     this.homepage = homepage;
+    isSetHomepage = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class Company {
    */
   public Company name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -111,6 +140,7 @@ public class Company {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -121,6 +151,7 @@ public class Company {
    */
   public Company registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+    isSetRegistrationNumber = true; // mark as set
     return this;
   }
 
@@ -144,6 +175,7 @@ public class Company {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+    isSetRegistrationNumber = true; // mark as set
   }
 
   /**
@@ -154,6 +186,7 @@ public class Company {
    */
   public Company registryLocation(String registryLocation) {
     this.registryLocation = registryLocation;
+    isSetRegistryLocation = true; // mark as set
     return this;
   }
 
@@ -177,6 +210,7 @@ public class Company {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistryLocation(String registryLocation) {
     this.registryLocation = registryLocation;
+    isSetRegistryLocation = true; // mark as set
   }
 
   /**
@@ -187,6 +221,7 @@ public class Company {
    */
   public Company taxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
     return this;
   }
 
@@ -210,6 +245,7 @@ public class Company {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
   }
 
   /**
@@ -220,6 +256,7 @@ public class Company {
    */
   public Company type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -243,6 +280,27 @@ public class Company {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Company includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Company object is equal to o. */
@@ -256,16 +314,34 @@ public class Company {
     }
     Company company = (Company) o;
     return Objects.equals(this.homepage, company.homepage)
+        && Objects.equals(this.isSetHomepage, company.isSetHomepage)
         && Objects.equals(this.name, company.name)
+        && Objects.equals(this.isSetName, company.isSetName)
         && Objects.equals(this.registrationNumber, company.registrationNumber)
+        && Objects.equals(this.isSetRegistrationNumber, company.isSetRegistrationNumber)
         && Objects.equals(this.registryLocation, company.registryLocation)
+        && Objects.equals(this.isSetRegistryLocation, company.isSetRegistryLocation)
         && Objects.equals(this.taxId, company.taxId)
-        && Objects.equals(this.type, company.type);
+        && Objects.equals(this.isSetTaxId, company.isSetTaxId)
+        && Objects.equals(this.type, company.type)
+        && Objects.equals(this.isSetType, company.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(homepage, name, registrationNumber, registryLocation, taxId, type);
+    return Objects.hash(
+        homepage,
+        isSetHomepage,
+        name,
+        isSetName,
+        registrationNumber,
+        isSetRegistrationNumber,
+        registryLocation,
+        isSetRegistryLocation,
+        taxId,
+        isSetTaxId,
+        type,
+        isSetType);
   }
 
   @Override
@@ -290,6 +366,45 @@ public class Company {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetHomepage) {
+      addIfNull(nulls, JSON_PROPERTY_HOMEPAGE, this.homepage);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetRegistrationNumber) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER, this.registrationNumber);
+    }
+    if (isSetRegistryLocation) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTRY_LOCATION, this.registryLocation);
+    }
+    if (isSetTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

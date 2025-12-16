@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,19 +37,34 @@ public class PayUUpiDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
+
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE =
       "shopperNotificationReference";
   private String shopperNotificationReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperNotificationReference = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
 
   /** **payu_IN_upi** */
   public enum TypeEnum {
@@ -91,8 +108,20 @@ public class PayUUpiDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS = "virtualPaymentAddress";
   private String virtualPaymentAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVirtualPaymentAddress = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PayUUpiDetails() {}
 
@@ -104,6 +133,7 @@ public class PayUUpiDetails {
    */
   public PayUUpiDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -127,6 +157,7 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -141,6 +172,7 @@ public class PayUUpiDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public PayUUpiDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -172,6 +204,7 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -182,6 +215,7 @@ public class PayUUpiDetails {
    */
   public PayUUpiDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -206,6 +240,7 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -218,6 +253,7 @@ public class PayUUpiDetails {
    */
   public PayUUpiDetails shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
     return this;
   }
 
@@ -245,6 +281,7 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
+    isSetShopperNotificationReference = true; // mark as set
   }
 
   /**
@@ -257,6 +294,7 @@ public class PayUUpiDetails {
    */
   public PayUUpiDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -284,6 +322,7 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -294,6 +333,7 @@ public class PayUUpiDetails {
    */
   public PayUUpiDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -317,6 +357,7 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -327,6 +368,7 @@ public class PayUUpiDetails {
    */
   public PayUUpiDetails virtualPaymentAddress(String virtualPaymentAddress) {
     this.virtualPaymentAddress = virtualPaymentAddress;
+    isSetVirtualPaymentAddress = true; // mark as set
     return this;
   }
 
@@ -350,6 +392,27 @@ public class PayUUpiDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVirtualPaymentAddress(String virtualPaymentAddress) {
     this.virtualPaymentAddress = virtualPaymentAddress;
+    isSetVirtualPaymentAddress = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PayUUpiDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PayUUpiDetails object is equal to o. */
@@ -363,25 +426,44 @@ public class PayUUpiDetails {
     }
     PayUUpiDetails payUUpiDetails = (PayUUpiDetails) o;
     return Objects.equals(this.checkoutAttemptId, payUUpiDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, payUUpiDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.recurringDetailReference, payUUpiDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, payUUpiDetails.isSetRecurringDetailReference)
         && Objects.equals(this.sdkData, payUUpiDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, payUUpiDetails.isSetSdkData)
         && Objects.equals(
             this.shopperNotificationReference, payUUpiDetails.shopperNotificationReference)
+        && Objects.equals(
+            this.isSetShopperNotificationReference,
+            payUUpiDetails.isSetShopperNotificationReference)
         && Objects.equals(this.storedPaymentMethodId, payUUpiDetails.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, payUUpiDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.type, payUUpiDetails.type)
-        && Objects.equals(this.virtualPaymentAddress, payUUpiDetails.virtualPaymentAddress);
+        && Objects.equals(this.isSetType, payUUpiDetails.isSetType)
+        && Objects.equals(this.virtualPaymentAddress, payUUpiDetails.virtualPaymentAddress)
+        && Objects.equals(
+            this.isSetVirtualPaymentAddress, payUUpiDetails.isSetVirtualPaymentAddress);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
+        isSetSdkData,
         shopperNotificationReference,
+        isSetShopperNotificationReference,
         storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         type,
-        virtualPaymentAddress);
+        isSetType,
+        virtualPaymentAddress,
+        isSetVirtualPaymentAddress);
   }
 
   @Override
@@ -415,6 +497,49 @@ public class PayUUpiDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetShopperNotificationReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE, this.shopperNotificationReference);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetVirtualPaymentAddress) {
+      addIfNull(nulls, JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS, this.virtualPaymentAddress);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

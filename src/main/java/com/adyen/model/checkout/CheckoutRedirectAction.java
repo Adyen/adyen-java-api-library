@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,11 +37,20 @@ public class CheckoutRedirectAction {
   public static final String JSON_PROPERTY_DATA = "data";
   private Map<String, String> data;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
+
   public static final String JSON_PROPERTY_METHOD = "method";
   private String method;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMethod = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
   private String paymentMethodType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodType = false;
 
   /** **redirect** */
   public enum TypeEnum {
@@ -83,8 +94,20 @@ public class CheckoutRedirectAction {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutRedirectAction() {}
 
@@ -97,6 +120,7 @@ public class CheckoutRedirectAction {
    */
   public CheckoutRedirectAction data(Map<String, String> data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -130,6 +154,7 @@ public class CheckoutRedirectAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Map<String, String> data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -140,6 +165,7 @@ public class CheckoutRedirectAction {
    */
   public CheckoutRedirectAction method(String method) {
     this.method = method;
+    isSetMethod = true; // mark as set
     return this;
   }
 
@@ -163,6 +189,7 @@ public class CheckoutRedirectAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMethod(String method) {
     this.method = method;
+    isSetMethod = true; // mark as set
   }
 
   /**
@@ -173,6 +200,7 @@ public class CheckoutRedirectAction {
    */
   public CheckoutRedirectAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
     return this;
   }
 
@@ -196,6 +224,7 @@ public class CheckoutRedirectAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
   }
 
   /**
@@ -206,6 +235,7 @@ public class CheckoutRedirectAction {
    */
   public CheckoutRedirectAction type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -229,6 +259,7 @@ public class CheckoutRedirectAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -239,6 +270,7 @@ public class CheckoutRedirectAction {
    */
   public CheckoutRedirectAction url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -262,6 +294,27 @@ public class CheckoutRedirectAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutRedirectAction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutRedirectAction object is equal to o. */
@@ -275,15 +328,31 @@ public class CheckoutRedirectAction {
     }
     CheckoutRedirectAction checkoutRedirectAction = (CheckoutRedirectAction) o;
     return Objects.equals(this.data, checkoutRedirectAction.data)
+        && Objects.equals(this.isSetData, checkoutRedirectAction.isSetData)
         && Objects.equals(this.method, checkoutRedirectAction.method)
+        && Objects.equals(this.isSetMethod, checkoutRedirectAction.isSetMethod)
         && Objects.equals(this.paymentMethodType, checkoutRedirectAction.paymentMethodType)
+        && Objects.equals(
+            this.isSetPaymentMethodType, checkoutRedirectAction.isSetPaymentMethodType)
         && Objects.equals(this.type, checkoutRedirectAction.type)
-        && Objects.equals(this.url, checkoutRedirectAction.url);
+        && Objects.equals(this.isSetType, checkoutRedirectAction.isSetType)
+        && Objects.equals(this.url, checkoutRedirectAction.url)
+        && Objects.equals(this.isSetUrl, checkoutRedirectAction.isSetUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, method, paymentMethodType, type, url);
+    return Objects.hash(
+        data,
+        isSetData,
+        method,
+        isSetMethod,
+        paymentMethodType,
+        isSetPaymentMethodType,
+        type,
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -307,6 +376,42 @@ public class CheckoutRedirectAction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetMethod) {
+      addIfNull(nulls, JSON_PROPERTY_METHOD, this.method);
+    }
+    if (isSetPaymentMethodType) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_TYPE, this.paymentMethodType);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

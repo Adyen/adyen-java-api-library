@@ -1,0 +1,11 @@
+{
+  "pspReference": "8815658961765250",
+  "response": {
+    "body": "{\"data\": {\"tokenizeCreditCard\": {\"paymentMethod\": {\"id\": \"PAYMENT_METHOD_ID\"}}}}",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "status": 200
+  },
+  "storedPaymentMethodId": "PAYMENT_METHOD_ID"
+}
