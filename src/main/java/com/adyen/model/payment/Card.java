@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,26 +34,56 @@ public class Card {
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvc = false;
+
   public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryMonth = false;
 
   public static final String JSON_PROPERTY_EXPIRY_YEAR = "expiryYear";
   private String expiryYear;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryYear = false;
+
   public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
   private String holderName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_ISSUE_NUMBER = "issueNumber";
   private String issueNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssueNumber = false;
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
 
   public static final String JSON_PROPERTY_START_MONTH = "startMonth";
   private String startMonth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartMonth = false;
+
   public static final String JSON_PROPERTY_START_YEAR = "startYear";
   private String startYear;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartYear = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Card() {}
 
@@ -79,6 +111,7 @@ public class Card {
    */
   public Card cvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
     return this;
   }
 
@@ -134,6 +167,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
   }
 
   /**
@@ -146,6 +180,7 @@ public class Card {
    */
   public Card expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
     return this;
   }
 
@@ -173,6 +208,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
   }
 
   /**
@@ -183,6 +219,7 @@ public class Card {
    */
   public Card expiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
     return this;
   }
 
@@ -206,6 +243,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
   }
 
   /**
@@ -216,6 +254,7 @@ public class Card {
    */
   public Card holderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
     return this;
   }
 
@@ -239,6 +278,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
   }
 
   /**
@@ -249,6 +289,7 @@ public class Card {
    */
   public Card issueNumber(String issueNumber) {
     this.issueNumber = issueNumber;
+    isSetIssueNumber = true; // mark as set
     return this;
   }
 
@@ -272,6 +313,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssueNumber(String issueNumber) {
     this.issueNumber = issueNumber;
+    isSetIssueNumber = true; // mark as set
   }
 
   /**
@@ -284,6 +326,7 @@ public class Card {
    */
   public Card number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -311,6 +354,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -321,6 +365,7 @@ public class Card {
    */
   public Card startMonth(String startMonth) {
     this.startMonth = startMonth;
+    isSetStartMonth = true; // mark as set
     return this;
   }
 
@@ -344,6 +389,7 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartMonth(String startMonth) {
     this.startMonth = startMonth;
+    isSetStartMonth = true; // mark as set
   }
 
   /**
@@ -354,6 +400,7 @@ public class Card {
    */
   public Card startYear(String startYear) {
     this.startYear = startYear;
+    isSetStartYear = true; // mark as set
     return this;
   }
 
@@ -377,6 +424,27 @@ public class Card {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartYear(String startYear) {
     this.startYear = startYear;
+    isSetStartYear = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Card includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Card object is equal to o. */
@@ -390,19 +458,42 @@ public class Card {
     }
     Card card = (Card) o;
     return Objects.equals(this.cvc, card.cvc)
+        && Objects.equals(this.isSetCvc, card.isSetCvc)
         && Objects.equals(this.expiryMonth, card.expiryMonth)
+        && Objects.equals(this.isSetExpiryMonth, card.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, card.expiryYear)
+        && Objects.equals(this.isSetExpiryYear, card.isSetExpiryYear)
         && Objects.equals(this.holderName, card.holderName)
+        && Objects.equals(this.isSetHolderName, card.isSetHolderName)
         && Objects.equals(this.issueNumber, card.issueNumber)
+        && Objects.equals(this.isSetIssueNumber, card.isSetIssueNumber)
         && Objects.equals(this.number, card.number)
+        && Objects.equals(this.isSetNumber, card.isSetNumber)
         && Objects.equals(this.startMonth, card.startMonth)
-        && Objects.equals(this.startYear, card.startYear);
+        && Objects.equals(this.isSetStartMonth, card.isSetStartMonth)
+        && Objects.equals(this.startYear, card.startYear)
+        && Objects.equals(this.isSetStartYear, card.isSetStartYear);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cvc, expiryMonth, expiryYear, holderName, issueNumber, number, startMonth, startYear);
+        cvc,
+        isSetCvc,
+        expiryMonth,
+        isSetExpiryMonth,
+        expiryYear,
+        isSetExpiryYear,
+        holderName,
+        isSetHolderName,
+        issueNumber,
+        isSetIssueNumber,
+        number,
+        isSetNumber,
+        startMonth,
+        isSetStartMonth,
+        startYear,
+        isSetStartYear);
   }
 
   @Override
@@ -429,6 +520,51 @@ public class Card {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCvc) {
+      addIfNull(nulls, JSON_PROPERTY_CVC, this.cvc);
+    }
+    if (isSetExpiryMonth) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_MONTH, this.expiryMonth);
+    }
+    if (isSetExpiryYear) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_YEAR, this.expiryYear);
+    }
+    if (isSetHolderName) {
+      addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);
+    }
+    if (isSetIssueNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUE_NUMBER, this.issueNumber);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetStartMonth) {
+      addIfNull(nulls, JSON_PROPERTY_START_MONTH, this.startMonth);
+    }
+    if (isSetStartYear) {
+      addIfNull(nulls, JSON_PROPERTY_START_YEAR, this.startYear);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

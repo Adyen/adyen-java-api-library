@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class ShopperInteractionDevice {
   public static final String JSON_PROPERTY_LOCALE = "locale";
   private String locale;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocale = false;
+
   public static final String JSON_PROPERTY_OS = "os";
   private String os;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOs = false;
+
   public static final String JSON_PROPERTY_OS_VERSION = "osVersion";
   private String osVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOsVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ShopperInteractionDevice() {}
 
@@ -43,6 +60,7 @@ public class ShopperInteractionDevice {
    */
   public ShopperInteractionDevice locale(String locale) {
     this.locale = locale;
+    isSetLocale = true; // mark as set
     return this;
   }
 
@@ -66,6 +84,7 @@ public class ShopperInteractionDevice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
     this.locale = locale;
+    isSetLocale = true; // mark as set
   }
 
   /**
@@ -76,6 +95,7 @@ public class ShopperInteractionDevice {
    */
   public ShopperInteractionDevice os(String os) {
     this.os = os;
+    isSetOs = true; // mark as set
     return this;
   }
 
@@ -99,6 +119,7 @@ public class ShopperInteractionDevice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
     this.os = os;
+    isSetOs = true; // mark as set
   }
 
   /**
@@ -109,6 +130,7 @@ public class ShopperInteractionDevice {
    */
   public ShopperInteractionDevice osVersion(String osVersion) {
     this.osVersion = osVersion;
+    isSetOsVersion = true; // mark as set
     return this;
   }
 
@@ -132,6 +154,27 @@ public class ShopperInteractionDevice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
+    isSetOsVersion = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ShopperInteractionDevice includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ShopperInteractionDevice object is equal to o. */
@@ -145,13 +188,16 @@ public class ShopperInteractionDevice {
     }
     ShopperInteractionDevice shopperInteractionDevice = (ShopperInteractionDevice) o;
     return Objects.equals(this.locale, shopperInteractionDevice.locale)
+        && Objects.equals(this.isSetLocale, shopperInteractionDevice.isSetLocale)
         && Objects.equals(this.os, shopperInteractionDevice.os)
-        && Objects.equals(this.osVersion, shopperInteractionDevice.osVersion);
+        && Objects.equals(this.isSetOs, shopperInteractionDevice.isSetOs)
+        && Objects.equals(this.osVersion, shopperInteractionDevice.osVersion)
+        && Objects.equals(this.isSetOsVersion, shopperInteractionDevice.isSetOsVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locale, os, osVersion);
+    return Objects.hash(locale, isSetLocale, os, isSetOs, osVersion, isSetOsVersion);
   }
 
   @Override
@@ -173,6 +219,36 @@ public class ShopperInteractionDevice {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLocale) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALE, this.locale);
+    }
+    if (isSetOs) {
+      addIfNull(nulls, JSON_PROPERTY_OS, this.os);
+    }
+    if (isSetOsVersion) {
+      addIfNull(nulls, JSON_PROPERTY_OS_VERSION, this.osVersion);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

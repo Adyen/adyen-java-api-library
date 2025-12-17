@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -47,83 +49,158 @@ public class AdditionalDataCarRental {
   public static final String JSON_PROPERTY_CAR_RENTAL_CHECK_OUT_DATE = "carRental.checkOutDate";
   private String carRentalCheckOutDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalCheckOutDate = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER =
       "carRental.customerServiceTollFreeNumber";
   private String carRentalCustomerServiceTollFreeNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalCustomerServiceTollFreeNumber = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED = "carRental.daysRented";
   private String carRentalDaysRented;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalDaysRented = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_FUEL_CHARGES = "carRental.fuelCharges";
   private String carRentalFuelCharges;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalFuelCharges = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES =
       "carRental.insuranceCharges";
   private String carRentalInsuranceCharges;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalInsuranceCharges = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY = "carRental.locationCity";
   private String carRentalLocationCity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalLocationCity = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_LOCATION_COUNTRY =
       "carRental.locationCountry";
   private String carRentalLocationCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalLocationCountry = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE =
       "carRental.locationStateProvince";
   private String carRentalLocationStateProvince;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalLocationStateProvince = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_NO_SHOW_INDICATOR =
       "carRental.noShowIndicator";
   private String carRentalNoShowIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalNoShowIndicator = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_ONE_WAY_DROP_OFF_CHARGES =
       "carRental.oneWayDropOffCharges";
   private String carRentalOneWayDropOffCharges;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalOneWayDropOffCharges = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_RATE = "carRental.rate";
   private String carRentalRate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalRate = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_RATE_INDICATOR = "carRental.rateIndicator";
   private String carRentalRateIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalRateIndicator = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER =
       "carRental.rentalAgreementNumber";
   private String carRentalRentalAgreementNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalRentalAgreementNumber = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID = "carRental.rentalClassId";
   private String carRentalRentalClassId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalRentalClassId = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_RENTER_NAME = "carRental.renterName";
   private String carRentalRenterName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalRenterName = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_RETURN_CITY = "carRental.returnCity";
   private String carRentalReturnCity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalReturnCity = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_RETURN_COUNTRY = "carRental.returnCountry";
   private String carRentalReturnCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalReturnCountry = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_RETURN_DATE = "carRental.returnDate";
   private String carRentalReturnDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalReturnDate = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID =
       "carRental.returnLocationId";
   private String carRentalReturnLocationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalReturnLocationId = false;
+
   public static final String JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE =
       "carRental.returnStateProvince";
   private String carRentalReturnStateProvince;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalReturnStateProvince = false;
 
   public static final String JSON_PROPERTY_CAR_RENTAL_TAX_EXEMPT_INDICATOR =
       "carRental.taxExemptIndicator";
   private String carRentalTaxExemptIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRentalTaxExemptIndicator = false;
+
   public static final String JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION =
       "travelEntertainmentAuthData.duration";
   private String travelEntertainmentAuthDataDuration;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTravelEntertainmentAuthDataDuration = false;
+
   public static final String JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET =
       "travelEntertainmentAuthData.market";
   private String travelEntertainmentAuthDataMarket;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTravelEntertainmentAuthDataMarket = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataCarRental() {}
 
@@ -135,6 +212,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalCheckOutDate(String carRentalCheckOutDate) {
     this.carRentalCheckOutDate = carRentalCheckOutDate;
+    isSetCarRentalCheckOutDate = true; // mark as set
     return this;
   }
 
@@ -158,6 +236,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalCheckOutDate(String carRentalCheckOutDate) {
     this.carRentalCheckOutDate = carRentalCheckOutDate;
+    isSetCarRentalCheckOutDate = true; // mark as set
   }
 
   /**
@@ -174,6 +253,7 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental carRentalCustomerServiceTollFreeNumber(
       String carRentalCustomerServiceTollFreeNumber) {
     this.carRentalCustomerServiceTollFreeNumber = carRentalCustomerServiceTollFreeNumber;
+    isSetCarRentalCustomerServiceTollFreeNumber = true; // mark as set
     return this;
   }
 
@@ -208,6 +288,7 @@ public class AdditionalDataCarRental {
   public void setCarRentalCustomerServiceTollFreeNumber(
       String carRentalCustomerServiceTollFreeNumber) {
     this.carRentalCustomerServiceTollFreeNumber = carRentalCustomerServiceTollFreeNumber;
+    isSetCarRentalCustomerServiceTollFreeNumber = true; // mark as set
   }
 
   /**
@@ -220,6 +301,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalDaysRented(String carRentalDaysRented) {
     this.carRentalDaysRented = carRentalDaysRented;
+    isSetCarRentalDaysRented = true; // mark as set
     return this;
   }
 
@@ -247,6 +329,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalDaysRented(String carRentalDaysRented) {
     this.carRentalDaysRented = carRentalDaysRented;
+    isSetCarRentalDaysRented = true; // mark as set
   }
 
   /**
@@ -261,6 +344,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalFuelCharges(String carRentalFuelCharges) {
     this.carRentalFuelCharges = carRentalFuelCharges;
+    isSetCarRentalFuelCharges = true; // mark as set
     return this;
   }
 
@@ -292,6 +376,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalFuelCharges(String carRentalFuelCharges) {
     this.carRentalFuelCharges = carRentalFuelCharges;
+    isSetCarRentalFuelCharges = true; // mark as set
   }
 
   /**
@@ -306,6 +391,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalInsuranceCharges(String carRentalInsuranceCharges) {
     this.carRentalInsuranceCharges = carRentalInsuranceCharges;
+    isSetCarRentalInsuranceCharges = true; // mark as set
     return this;
   }
 
@@ -337,6 +423,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalInsuranceCharges(String carRentalInsuranceCharges) {
     this.carRentalInsuranceCharges = carRentalInsuranceCharges;
+    isSetCarRentalInsuranceCharges = true; // mark as set
   }
 
   /**
@@ -349,6 +436,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalLocationCity(String carRentalLocationCity) {
     this.carRentalLocationCity = carRentalLocationCity;
+    isSetCarRentalLocationCity = true; // mark as set
     return this;
   }
 
@@ -376,6 +464,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalLocationCity(String carRentalLocationCity) {
     this.carRentalLocationCity = carRentalLocationCity;
+    isSetCarRentalLocationCity = true; // mark as set
   }
 
   /**
@@ -390,6 +479,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalLocationCountry(String carRentalLocationCountry) {
     this.carRentalLocationCountry = carRentalLocationCountry;
+    isSetCarRentalLocationCountry = true; // mark as set
     return this;
   }
 
@@ -421,6 +511,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalLocationCountry(String carRentalLocationCountry) {
     this.carRentalLocationCountry = carRentalLocationCountry;
+    isSetCarRentalLocationCountry = true; // mark as set
   }
 
   /**
@@ -435,6 +526,7 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental carRentalLocationStateProvince(
       String carRentalLocationStateProvince) {
     this.carRentalLocationStateProvince = carRentalLocationStateProvince;
+    isSetCarRentalLocationStateProvince = true; // mark as set
     return this;
   }
 
@@ -464,6 +556,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalLocationStateProvince(String carRentalLocationStateProvince) {
     this.carRentalLocationStateProvince = carRentalLocationStateProvince;
+    isSetCarRentalLocationStateProvince = true; // mark as set
   }
 
   /**
@@ -476,6 +569,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalNoShowIndicator(String carRentalNoShowIndicator) {
     this.carRentalNoShowIndicator = carRentalNoShowIndicator;
+    isSetCarRentalNoShowIndicator = true; // mark as set
     return this;
   }
 
@@ -503,6 +597,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalNoShowIndicator(String carRentalNoShowIndicator) {
     this.carRentalNoShowIndicator = carRentalNoShowIndicator;
+    isSetCarRentalNoShowIndicator = true; // mark as set
   }
 
   /**
@@ -517,6 +612,7 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental carRentalOneWayDropOffCharges(
       String carRentalOneWayDropOffCharges) {
     this.carRentalOneWayDropOffCharges = carRentalOneWayDropOffCharges;
+    isSetCarRentalOneWayDropOffCharges = true; // mark as set
     return this;
   }
 
@@ -546,6 +642,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalOneWayDropOffCharges(String carRentalOneWayDropOffCharges) {
     this.carRentalOneWayDropOffCharges = carRentalOneWayDropOffCharges;
+    isSetCarRentalOneWayDropOffCharges = true; // mark as set
   }
 
   /**
@@ -560,6 +657,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalRate(String carRentalRate) {
     this.carRentalRate = carRentalRate;
+    isSetCarRentalRate = true; // mark as set
     return this;
   }
 
@@ -591,6 +689,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRate(String carRentalRate) {
     this.carRentalRate = carRentalRate;
+    isSetCarRentalRate = true; // mark as set
   }
 
   /**
@@ -602,6 +701,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalRateIndicator(String carRentalRateIndicator) {
     this.carRentalRateIndicator = carRentalRateIndicator;
+    isSetCarRentalRateIndicator = true; // mark as set
     return this;
   }
 
@@ -627,6 +727,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRateIndicator(String carRentalRateIndicator) {
     this.carRentalRateIndicator = carRentalRateIndicator;
+    isSetCarRentalRateIndicator = true; // mark as set
   }
 
   /**
@@ -641,6 +742,7 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental carRentalRentalAgreementNumber(
       String carRentalRentalAgreementNumber) {
     this.carRentalRentalAgreementNumber = carRentalRentalAgreementNumber;
+    isSetCarRentalRentalAgreementNumber = true; // mark as set
     return this;
   }
 
@@ -670,6 +772,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRentalAgreementNumber(String carRentalRentalAgreementNumber) {
     this.carRentalRentalAgreementNumber = carRentalRentalAgreementNumber;
+    isSetCarRentalRentalAgreementNumber = true; // mark as set
   }
 
   /**
@@ -682,6 +785,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalRentalClassId(String carRentalRentalClassId) {
     this.carRentalRentalClassId = carRentalRentalClassId;
+    isSetCarRentalRentalClassId = true; // mark as set
     return this;
   }
 
@@ -709,6 +813,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRentalClassId(String carRentalRentalClassId) {
     this.carRentalRentalClassId = carRentalRentalClassId;
+    isSetCarRentalRentalClassId = true; // mark as set
   }
 
   /**
@@ -723,6 +828,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalRenterName(String carRentalRenterName) {
     this.carRentalRenterName = carRentalRenterName;
+    isSetCarRentalRenterName = true; // mark as set
     return this;
   }
 
@@ -754,6 +860,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalRenterName(String carRentalRenterName) {
     this.carRentalRenterName = carRentalRenterName;
+    isSetCarRentalRenterName = true; // mark as set
   }
 
   /**
@@ -766,6 +873,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalReturnCity(String carRentalReturnCity) {
     this.carRentalReturnCity = carRentalReturnCity;
+    isSetCarRentalReturnCity = true; // mark as set
     return this;
   }
 
@@ -793,6 +901,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnCity(String carRentalReturnCity) {
     this.carRentalReturnCity = carRentalReturnCity;
+    isSetCarRentalReturnCity = true; // mark as set
   }
 
   /**
@@ -807,6 +916,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalReturnCountry(String carRentalReturnCountry) {
     this.carRentalReturnCountry = carRentalReturnCountry;
+    isSetCarRentalReturnCountry = true; // mark as set
     return this;
   }
 
@@ -838,6 +948,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnCountry(String carRentalReturnCountry) {
     this.carRentalReturnCountry = carRentalReturnCountry;
+    isSetCarRentalReturnCountry = true; // mark as set
   }
 
   /**
@@ -849,6 +960,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalReturnDate(String carRentalReturnDate) {
     this.carRentalReturnDate = carRentalReturnDate;
+    isSetCarRentalReturnDate = true; // mark as set
     return this;
   }
 
@@ -874,6 +986,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnDate(String carRentalReturnDate) {
     this.carRentalReturnDate = carRentalReturnDate;
+    isSetCarRentalReturnDate = true; // mark as set
   }
 
   /**
@@ -887,6 +1000,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalReturnLocationId(String carRentalReturnLocationId) {
     this.carRentalReturnLocationId = carRentalReturnLocationId;
+    isSetCarRentalReturnLocationId = true; // mark as set
     return this;
   }
 
@@ -916,6 +1030,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnLocationId(String carRentalReturnLocationId) {
     this.carRentalReturnLocationId = carRentalReturnLocationId;
+    isSetCarRentalReturnLocationId = true; // mark as set
   }
 
   /**
@@ -929,6 +1044,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalReturnStateProvince(String carRentalReturnStateProvince) {
     this.carRentalReturnStateProvince = carRentalReturnStateProvince;
+    isSetCarRentalReturnStateProvince = true; // mark as set
     return this;
   }
 
@@ -958,6 +1074,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalReturnStateProvince(String carRentalReturnStateProvince) {
     this.carRentalReturnStateProvince = carRentalReturnStateProvince;
+    isSetCarRentalReturnStateProvince = true; // mark as set
   }
 
   /**
@@ -971,6 +1088,7 @@ public class AdditionalDataCarRental {
    */
   public AdditionalDataCarRental carRentalTaxExemptIndicator(String carRentalTaxExemptIndicator) {
     this.carRentalTaxExemptIndicator = carRentalTaxExemptIndicator;
+    isSetCarRentalTaxExemptIndicator = true; // mark as set
     return this;
   }
 
@@ -1000,6 +1118,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarRentalTaxExemptIndicator(String carRentalTaxExemptIndicator) {
     this.carRentalTaxExemptIndicator = carRentalTaxExemptIndicator;
+    isSetCarRentalTaxExemptIndicator = true; // mark as set
   }
 
   /**
@@ -1013,6 +1132,7 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental travelEntertainmentAuthDataDuration(
       String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
+    isSetTravelEntertainmentAuthDataDuration = true; // mark as set
     return this;
   }
 
@@ -1040,6 +1160,7 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
     this.travelEntertainmentAuthDataDuration = travelEntertainmentAuthDataDuration;
+    isSetTravelEntertainmentAuthDataDuration = true; // mark as set
   }
 
   /**
@@ -1055,6 +1176,7 @@ public class AdditionalDataCarRental {
   public AdditionalDataCarRental travelEntertainmentAuthDataMarket(
       String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
+    isSetTravelEntertainmentAuthDataMarket = true; // mark as set
     return this;
   }
 
@@ -1086,6 +1208,27 @@ public class AdditionalDataCarRental {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTravelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
     this.travelEntertainmentAuthDataMarket = travelEntertainmentAuthDataMarket;
+    isSetTravelEntertainmentAuthDataMarket = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataCarRental includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataCarRental object is equal to o. */
@@ -1100,76 +1243,156 @@ public class AdditionalDataCarRental {
     AdditionalDataCarRental additionalDataCarRental = (AdditionalDataCarRental) o;
     return Objects.equals(this.carRentalCheckOutDate, additionalDataCarRental.carRentalCheckOutDate)
         && Objects.equals(
+            this.isSetCarRentalCheckOutDate, additionalDataCarRental.isSetCarRentalCheckOutDate)
+        && Objects.equals(
             this.carRentalCustomerServiceTollFreeNumber,
             additionalDataCarRental.carRentalCustomerServiceTollFreeNumber)
+        && Objects.equals(
+            this.isSetCarRentalCustomerServiceTollFreeNumber,
+            additionalDataCarRental.isSetCarRentalCustomerServiceTollFreeNumber)
         && Objects.equals(this.carRentalDaysRented, additionalDataCarRental.carRentalDaysRented)
+        && Objects.equals(
+            this.isSetCarRentalDaysRented, additionalDataCarRental.isSetCarRentalDaysRented)
         && Objects.equals(this.carRentalFuelCharges, additionalDataCarRental.carRentalFuelCharges)
         && Objects.equals(
+            this.isSetCarRentalFuelCharges, additionalDataCarRental.isSetCarRentalFuelCharges)
+        && Objects.equals(
             this.carRentalInsuranceCharges, additionalDataCarRental.carRentalInsuranceCharges)
+        && Objects.equals(
+            this.isSetCarRentalInsuranceCharges,
+            additionalDataCarRental.isSetCarRentalInsuranceCharges)
         && Objects.equals(this.carRentalLocationCity, additionalDataCarRental.carRentalLocationCity)
         && Objects.equals(
+            this.isSetCarRentalLocationCity, additionalDataCarRental.isSetCarRentalLocationCity)
+        && Objects.equals(
             this.carRentalLocationCountry, additionalDataCarRental.carRentalLocationCountry)
+        && Objects.equals(
+            this.isSetCarRentalLocationCountry,
+            additionalDataCarRental.isSetCarRentalLocationCountry)
         && Objects.equals(
             this.carRentalLocationStateProvince,
             additionalDataCarRental.carRentalLocationStateProvince)
         && Objects.equals(
+            this.isSetCarRentalLocationStateProvince,
+            additionalDataCarRental.isSetCarRentalLocationStateProvince)
+        && Objects.equals(
             this.carRentalNoShowIndicator, additionalDataCarRental.carRentalNoShowIndicator)
+        && Objects.equals(
+            this.isSetCarRentalNoShowIndicator,
+            additionalDataCarRental.isSetCarRentalNoShowIndicator)
         && Objects.equals(
             this.carRentalOneWayDropOffCharges,
             additionalDataCarRental.carRentalOneWayDropOffCharges)
+        && Objects.equals(
+            this.isSetCarRentalOneWayDropOffCharges,
+            additionalDataCarRental.isSetCarRentalOneWayDropOffCharges)
         && Objects.equals(this.carRentalRate, additionalDataCarRental.carRentalRate)
+        && Objects.equals(this.isSetCarRentalRate, additionalDataCarRental.isSetCarRentalRate)
         && Objects.equals(
             this.carRentalRateIndicator, additionalDataCarRental.carRentalRateIndicator)
+        && Objects.equals(
+            this.isSetCarRentalRateIndicator, additionalDataCarRental.isSetCarRentalRateIndicator)
         && Objects.equals(
             this.carRentalRentalAgreementNumber,
             additionalDataCarRental.carRentalRentalAgreementNumber)
         && Objects.equals(
+            this.isSetCarRentalRentalAgreementNumber,
+            additionalDataCarRental.isSetCarRentalRentalAgreementNumber)
+        && Objects.equals(
             this.carRentalRentalClassId, additionalDataCarRental.carRentalRentalClassId)
+        && Objects.equals(
+            this.isSetCarRentalRentalClassId, additionalDataCarRental.isSetCarRentalRentalClassId)
         && Objects.equals(this.carRentalRenterName, additionalDataCarRental.carRentalRenterName)
+        && Objects.equals(
+            this.isSetCarRentalRenterName, additionalDataCarRental.isSetCarRentalRenterName)
         && Objects.equals(this.carRentalReturnCity, additionalDataCarRental.carRentalReturnCity)
         && Objects.equals(
+            this.isSetCarRentalReturnCity, additionalDataCarRental.isSetCarRentalReturnCity)
+        && Objects.equals(
             this.carRentalReturnCountry, additionalDataCarRental.carRentalReturnCountry)
+        && Objects.equals(
+            this.isSetCarRentalReturnCountry, additionalDataCarRental.isSetCarRentalReturnCountry)
         && Objects.equals(this.carRentalReturnDate, additionalDataCarRental.carRentalReturnDate)
+        && Objects.equals(
+            this.isSetCarRentalReturnDate, additionalDataCarRental.isSetCarRentalReturnDate)
         && Objects.equals(
             this.carRentalReturnLocationId, additionalDataCarRental.carRentalReturnLocationId)
         && Objects.equals(
+            this.isSetCarRentalReturnLocationId,
+            additionalDataCarRental.isSetCarRentalReturnLocationId)
+        && Objects.equals(
             this.carRentalReturnStateProvince, additionalDataCarRental.carRentalReturnStateProvince)
         && Objects.equals(
+            this.isSetCarRentalReturnStateProvince,
+            additionalDataCarRental.isSetCarRentalReturnStateProvince)
+        && Objects.equals(
             this.carRentalTaxExemptIndicator, additionalDataCarRental.carRentalTaxExemptIndicator)
+        && Objects.equals(
+            this.isSetCarRentalTaxExemptIndicator,
+            additionalDataCarRental.isSetCarRentalTaxExemptIndicator)
         && Objects.equals(
             this.travelEntertainmentAuthDataDuration,
             additionalDataCarRental.travelEntertainmentAuthDataDuration)
         && Objects.equals(
+            this.isSetTravelEntertainmentAuthDataDuration,
+            additionalDataCarRental.isSetTravelEntertainmentAuthDataDuration)
+        && Objects.equals(
             this.travelEntertainmentAuthDataMarket,
-            additionalDataCarRental.travelEntertainmentAuthDataMarket);
+            additionalDataCarRental.travelEntertainmentAuthDataMarket)
+        && Objects.equals(
+            this.isSetTravelEntertainmentAuthDataMarket,
+            additionalDataCarRental.isSetTravelEntertainmentAuthDataMarket);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         carRentalCheckOutDate,
+        isSetCarRentalCheckOutDate,
         carRentalCustomerServiceTollFreeNumber,
+        isSetCarRentalCustomerServiceTollFreeNumber,
         carRentalDaysRented,
+        isSetCarRentalDaysRented,
         carRentalFuelCharges,
+        isSetCarRentalFuelCharges,
         carRentalInsuranceCharges,
+        isSetCarRentalInsuranceCharges,
         carRentalLocationCity,
+        isSetCarRentalLocationCity,
         carRentalLocationCountry,
+        isSetCarRentalLocationCountry,
         carRentalLocationStateProvince,
+        isSetCarRentalLocationStateProvince,
         carRentalNoShowIndicator,
+        isSetCarRentalNoShowIndicator,
         carRentalOneWayDropOffCharges,
+        isSetCarRentalOneWayDropOffCharges,
         carRentalRate,
+        isSetCarRentalRate,
         carRentalRateIndicator,
+        isSetCarRentalRateIndicator,
         carRentalRentalAgreementNumber,
+        isSetCarRentalRentalAgreementNumber,
         carRentalRentalClassId,
+        isSetCarRentalRentalClassId,
         carRentalRenterName,
+        isSetCarRentalRenterName,
         carRentalReturnCity,
+        isSetCarRentalReturnCity,
         carRentalReturnCountry,
+        isSetCarRentalReturnCountry,
         carRentalReturnDate,
+        isSetCarRentalReturnDate,
         carRentalReturnLocationId,
+        isSetCarRentalReturnLocationId,
         carRentalReturnStateProvince,
+        isSetCarRentalReturnStateProvince,
         carRentalTaxExemptIndicator,
+        isSetCarRentalTaxExemptIndicator,
         travelEntertainmentAuthDataDuration,
-        travelEntertainmentAuthDataMarket);
+        isSetTravelEntertainmentAuthDataDuration,
+        travelEntertainmentAuthDataMarket,
+        isSetTravelEntertainmentAuthDataMarket);
   }
 
   @Override
@@ -1255,6 +1478,116 @@ public class AdditionalDataCarRental {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCarRentalCheckOutDate) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_CHECK_OUT_DATE, this.carRentalCheckOutDate);
+    }
+    if (isSetCarRentalCustomerServiceTollFreeNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER,
+          this.carRentalCustomerServiceTollFreeNumber);
+    }
+    if (isSetCarRentalDaysRented) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED, this.carRentalDaysRented);
+    }
+    if (isSetCarRentalFuelCharges) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_FUEL_CHARGES, this.carRentalFuelCharges);
+    }
+    if (isSetCarRentalInsuranceCharges) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES, this.carRentalInsuranceCharges);
+    }
+    if (isSetCarRentalLocationCity) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY, this.carRentalLocationCity);
+    }
+    if (isSetCarRentalLocationCountry) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_LOCATION_COUNTRY, this.carRentalLocationCountry);
+    }
+    if (isSetCarRentalLocationStateProvince) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE,
+          this.carRentalLocationStateProvince);
+    }
+    if (isSetCarRentalNoShowIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_NO_SHOW_INDICATOR, this.carRentalNoShowIndicator);
+    }
+    if (isSetCarRentalOneWayDropOffCharges) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_CAR_RENTAL_ONE_WAY_DROP_OFF_CHARGES,
+          this.carRentalOneWayDropOffCharges);
+    }
+    if (isSetCarRentalRate) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RATE, this.carRentalRate);
+    }
+    if (isSetCarRentalRateIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RATE_INDICATOR, this.carRentalRateIndicator);
+    }
+    if (isSetCarRentalRentalAgreementNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER,
+          this.carRentalRentalAgreementNumber);
+    }
+    if (isSetCarRentalRentalClassId) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID, this.carRentalRentalClassId);
+    }
+    if (isSetCarRentalRenterName) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RENTER_NAME, this.carRentalRenterName);
+    }
+    if (isSetCarRentalReturnCity) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RETURN_CITY, this.carRentalReturnCity);
+    }
+    if (isSetCarRentalReturnCountry) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RETURN_COUNTRY, this.carRentalReturnCountry);
+    }
+    if (isSetCarRentalReturnDate) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RETURN_DATE, this.carRentalReturnDate);
+    }
+    if (isSetCarRentalReturnLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID, this.carRentalReturnLocationId);
+    }
+    if (isSetCarRentalReturnStateProvince) {
+      addIfNull(
+          nulls, JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE, this.carRentalReturnStateProvince);
+    }
+    if (isSetCarRentalTaxExemptIndicator) {
+      addIfNull(
+          nulls, JSON_PROPERTY_CAR_RENTAL_TAX_EXEMPT_INDICATOR, this.carRentalTaxExemptIndicator);
+    }
+    if (isSetTravelEntertainmentAuthDataDuration) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION,
+          this.travelEntertainmentAuthDataDuration);
+    }
+    if (isSetTravelEntertainmentAuthDataMarket) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET,
+          this.travelEntertainmentAuthDataMarket);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

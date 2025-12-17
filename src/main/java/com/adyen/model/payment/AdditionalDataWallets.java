@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class AdditionalDataWallets {
   public static final String JSON_PROPERTY_ANDROIDPAY_TOKEN = "androidpay.token";
   private String androidpayToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAndroidpayToken = false;
+
   public static final String JSON_PROPERTY_MASTERPASS_TRANSACTION_ID = "masterpass.transactionId";
   private String masterpassTransactionId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMasterpassTransactionId = false;
 
   public static final String JSON_PROPERTY_PAYMENT_TOKEN = "payment.token";
   private String paymentToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentToken = false;
+
   public static final String JSON_PROPERTY_PAYWITHGOOGLE_TOKEN = "paywithgoogle.token";
   private String paywithgoogleToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaywithgoogleToken = false;
 
   public static final String JSON_PROPERTY_SAMSUNGPAY_TOKEN = "samsungpay.token";
   private String samsungpayToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSamsungpayToken = false;
+
   public static final String JSON_PROPERTY_VISACHECKOUT_CALL_ID = "visacheckout.callId";
   private String visacheckoutCallId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVisacheckoutCallId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataWallets() {}
 
@@ -55,6 +81,7 @@ public class AdditionalDataWallets {
    */
   public AdditionalDataWallets androidpayToken(String androidpayToken) {
     this.androidpayToken = androidpayToken;
+    isSetAndroidpayToken = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class AdditionalDataWallets {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAndroidpayToken(String androidpayToken) {
     this.androidpayToken = androidpayToken;
+    isSetAndroidpayToken = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class AdditionalDataWallets {
    */
   public AdditionalDataWallets masterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
+    isSetMasterpassTransactionId = true; // mark as set
     return this;
   }
 
@@ -112,6 +141,7 @@ public class AdditionalDataWallets {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
+    isSetMasterpassTransactionId = true; // mark as set
   }
 
   /**
@@ -122,6 +152,7 @@ public class AdditionalDataWallets {
    */
   public AdditionalDataWallets paymentToken(String paymentToken) {
     this.paymentToken = paymentToken;
+    isSetPaymentToken = true; // mark as set
     return this;
   }
 
@@ -145,6 +176,7 @@ public class AdditionalDataWallets {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentToken(String paymentToken) {
     this.paymentToken = paymentToken;
+    isSetPaymentToken = true; // mark as set
   }
 
   /**
@@ -155,6 +187,7 @@ public class AdditionalDataWallets {
    */
   public AdditionalDataWallets paywithgoogleToken(String paywithgoogleToken) {
     this.paywithgoogleToken = paywithgoogleToken;
+    isSetPaywithgoogleToken = true; // mark as set
     return this;
   }
 
@@ -178,6 +211,7 @@ public class AdditionalDataWallets {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaywithgoogleToken(String paywithgoogleToken) {
     this.paywithgoogleToken = paywithgoogleToken;
+    isSetPaywithgoogleToken = true; // mark as set
   }
 
   /**
@@ -188,6 +222,7 @@ public class AdditionalDataWallets {
    */
   public AdditionalDataWallets samsungpayToken(String samsungpayToken) {
     this.samsungpayToken = samsungpayToken;
+    isSetSamsungpayToken = true; // mark as set
     return this;
   }
 
@@ -211,6 +246,7 @@ public class AdditionalDataWallets {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSamsungpayToken(String samsungpayToken) {
     this.samsungpayToken = samsungpayToken;
+    isSetSamsungpayToken = true; // mark as set
   }
 
   /**
@@ -221,6 +257,7 @@ public class AdditionalDataWallets {
    */
   public AdditionalDataWallets visacheckoutCallId(String visacheckoutCallId) {
     this.visacheckoutCallId = visacheckoutCallId;
+    isSetVisacheckoutCallId = true; // mark as set
     return this;
   }
 
@@ -244,6 +281,27 @@ public class AdditionalDataWallets {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisacheckoutCallId(String visacheckoutCallId) {
     this.visacheckoutCallId = visacheckoutCallId;
+    isSetVisacheckoutCallId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataWallets includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataWallets object is equal to o. */
@@ -257,23 +315,38 @@ public class AdditionalDataWallets {
     }
     AdditionalDataWallets additionalDataWallets = (AdditionalDataWallets) o;
     return Objects.equals(this.androidpayToken, additionalDataWallets.androidpayToken)
+        && Objects.equals(this.isSetAndroidpayToken, additionalDataWallets.isSetAndroidpayToken)
         && Objects.equals(
             this.masterpassTransactionId, additionalDataWallets.masterpassTransactionId)
+        && Objects.equals(
+            this.isSetMasterpassTransactionId, additionalDataWallets.isSetMasterpassTransactionId)
         && Objects.equals(this.paymentToken, additionalDataWallets.paymentToken)
+        && Objects.equals(this.isSetPaymentToken, additionalDataWallets.isSetPaymentToken)
         && Objects.equals(this.paywithgoogleToken, additionalDataWallets.paywithgoogleToken)
+        && Objects.equals(
+            this.isSetPaywithgoogleToken, additionalDataWallets.isSetPaywithgoogleToken)
         && Objects.equals(this.samsungpayToken, additionalDataWallets.samsungpayToken)
-        && Objects.equals(this.visacheckoutCallId, additionalDataWallets.visacheckoutCallId);
+        && Objects.equals(this.isSetSamsungpayToken, additionalDataWallets.isSetSamsungpayToken)
+        && Objects.equals(this.visacheckoutCallId, additionalDataWallets.visacheckoutCallId)
+        && Objects.equals(
+            this.isSetVisacheckoutCallId, additionalDataWallets.isSetVisacheckoutCallId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         androidpayToken,
+        isSetAndroidpayToken,
         masterpassTransactionId,
+        isSetMasterpassTransactionId,
         paymentToken,
+        isSetPaymentToken,
         paywithgoogleToken,
+        isSetPaywithgoogleToken,
         samsungpayToken,
-        visacheckoutCallId);
+        isSetSamsungpayToken,
+        visacheckoutCallId,
+        isSetVisacheckoutCallId);
   }
 
   @Override
@@ -300,6 +373,45 @@ public class AdditionalDataWallets {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAndroidpayToken) {
+      addIfNull(nulls, JSON_PROPERTY_ANDROIDPAY_TOKEN, this.androidpayToken);
+    }
+    if (isSetMasterpassTransactionId) {
+      addIfNull(nulls, JSON_PROPERTY_MASTERPASS_TRANSACTION_ID, this.masterpassTransactionId);
+    }
+    if (isSetPaymentToken) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_TOKEN, this.paymentToken);
+    }
+    if (isSetPaywithgoogleToken) {
+      addIfNull(nulls, JSON_PROPERTY_PAYWITHGOOGLE_TOKEN, this.paywithgoogleToken);
+    }
+    if (isSetSamsungpayToken) {
+      addIfNull(nulls, JSON_PROPERTY_SAMSUNGPAY_TOKEN, this.samsungpayToken);
+    }
+    if (isSetVisacheckoutCallId) {
+      addIfNull(nulls, JSON_PROPERTY_VISACHECKOUT_CALL_ID, this.visacheckoutCallId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
