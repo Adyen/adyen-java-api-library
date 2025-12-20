@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,8 +44,14 @@ public class ThreeDS2Result {
   public static final String JSON_PROPERTY_AUTHENTICATION_VALUE = "authenticationValue";
   private String authenticationValue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationValue = false;
+
   public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavvAlgorithm = false;
 
   /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the
@@ -103,11 +111,20 @@ public class ThreeDS2Result {
   public static final String JSON_PROPERTY_CHALLENGE_CANCEL = "challengeCancel";
   private ChallengeCancelEnum challengeCancel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeCancel = false;
+
   public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsTransID = false;
+
   public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEci = false;
 
   /**
    * Indicates the exemption type that was applied by the issuer to the authentication, if exemption
@@ -161,11 +178,20 @@ public class ThreeDS2Result {
   public static final String JSON_PROPERTY_EXEMPTION_INDICATOR = "exemptionIndicator";
   private ExemptionIndicatorEnum exemptionIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExemptionIndicator = false;
+
   public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
   private String messageVersion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessageVersion = false;
+
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private String riskScore;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskScore = false;
 
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No
@@ -226,20 +252,44 @@ public class ThreeDS2Result {
       "threeDSRequestorChallengeInd";
   private ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorChallengeInd = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D = "threeDSServerTransID";
   private String threeDSServerTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSServerTransID = false;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private String timestamp;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimestamp = false;
+
   public static final String JSON_PROPERTY_TRANS_STATUS = "transStatus";
   private String transStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatus = false;
 
   public static final String JSON_PROPERTY_TRANS_STATUS_REASON = "transStatusReason";
   private String transStatusReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatusReason = false;
+
   public static final String JSON_PROPERTY_WHITE_LIST_STATUS = "whiteListStatus";
   private String whiteListStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWhiteListStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDS2Result() {}
 
@@ -252,6 +302,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result authenticationValue(String authenticationValue) {
     this.authenticationValue = authenticationValue;
+    isSetAuthenticationValue = true; // mark as set
     return this;
   }
 
@@ -277,6 +328,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationValue(String authenticationValue) {
     this.authenticationValue = authenticationValue;
+    isSetAuthenticationValue = true; // mark as set
   }
 
   /**
@@ -289,6 +341,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
     return this;
   }
 
@@ -316,6 +369,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
   }
 
   /**
@@ -331,6 +385,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result challengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
+    isSetChallengeCancel = true; // mark as set
     return this;
   }
 
@@ -364,6 +419,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
+    isSetChallengeCancel = true; // mark as set
   }
 
   /**
@@ -374,6 +430,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
     return this;
   }
 
@@ -397,6 +454,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
   }
 
   /**
@@ -407,6 +465,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result eci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
     return this;
   }
 
@@ -430,6 +489,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
   }
 
   /**
@@ -445,6 +505,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result exemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
+    isSetExemptionIndicator = true; // mark as set
     return this;
   }
 
@@ -478,6 +539,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
+    isSetExemptionIndicator = true; // mark as set
   }
 
   /**
@@ -489,6 +551,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result messageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
     return this;
   }
 
@@ -514,6 +577,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
   }
 
   /**
@@ -524,6 +588,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result riskScore(String riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
     return this;
   }
 
@@ -547,6 +612,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
   }
 
   /**
@@ -565,6 +631,7 @@ public class ThreeDS2Result {
   public ThreeDS2Result threeDSRequestorChallengeInd(
       ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    isSetThreeDSRequestorChallengeInd = true; // mark as set
     return this;
   }
 
@@ -603,6 +670,7 @@ public class ThreeDS2Result {
   public void setThreeDSRequestorChallengeInd(
       ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    isSetThreeDSRequestorChallengeInd = true; // mark as set
   }
 
   /**
@@ -614,6 +682,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result threeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
+    isSetThreeDSServerTransID = true; // mark as set
     return this;
   }
 
@@ -639,6 +708,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
+    isSetThreeDSServerTransID = true; // mark as set
   }
 
   /**
@@ -649,6 +719,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result timestamp(String timestamp) {
     this.timestamp = timestamp;
+    isSetTimestamp = true; // mark as set
     return this;
   }
 
@@ -672,6 +743,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(String timestamp) {
     this.timestamp = timestamp;
+    isSetTimestamp = true; // mark as set
   }
 
   /**
@@ -683,6 +755,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result transStatus(String transStatus) {
     this.transStatus = transStatus;
+    isSetTransStatus = true; // mark as set
     return this;
   }
 
@@ -708,6 +781,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(String transStatus) {
     this.transStatus = transStatus;
+    isSetTransStatus = true; // mark as set
   }
 
   /**
@@ -722,6 +796,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result transStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
     return this;
   }
 
@@ -753,6 +828,7 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
   }
 
   /**
@@ -764,6 +840,7 @@ public class ThreeDS2Result {
    */
   public ThreeDS2Result whiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
+    isSetWhiteListStatus = true; // mark as set
     return this;
   }
 
@@ -789,6 +866,27 @@ public class ThreeDS2Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
+    isSetWhiteListStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDS2Result includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDS2Result object is equal to o. */
@@ -802,39 +900,69 @@ public class ThreeDS2Result {
     }
     ThreeDS2Result threeDS2Result = (ThreeDS2Result) o;
     return Objects.equals(this.authenticationValue, threeDS2Result.authenticationValue)
+        && Objects.equals(this.isSetAuthenticationValue, threeDS2Result.isSetAuthenticationValue)
         && Objects.equals(this.cavvAlgorithm, threeDS2Result.cavvAlgorithm)
+        && Objects.equals(this.isSetCavvAlgorithm, threeDS2Result.isSetCavvAlgorithm)
         && Objects.equals(this.challengeCancel, threeDS2Result.challengeCancel)
+        && Objects.equals(this.isSetChallengeCancel, threeDS2Result.isSetChallengeCancel)
         && Objects.equals(this.dsTransID, threeDS2Result.dsTransID)
+        && Objects.equals(this.isSetDsTransID, threeDS2Result.isSetDsTransID)
         && Objects.equals(this.eci, threeDS2Result.eci)
+        && Objects.equals(this.isSetEci, threeDS2Result.isSetEci)
         && Objects.equals(this.exemptionIndicator, threeDS2Result.exemptionIndicator)
+        && Objects.equals(this.isSetExemptionIndicator, threeDS2Result.isSetExemptionIndicator)
         && Objects.equals(this.messageVersion, threeDS2Result.messageVersion)
+        && Objects.equals(this.isSetMessageVersion, threeDS2Result.isSetMessageVersion)
         && Objects.equals(this.riskScore, threeDS2Result.riskScore)
+        && Objects.equals(this.isSetRiskScore, threeDS2Result.isSetRiskScore)
         && Objects.equals(
             this.threeDSRequestorChallengeInd, threeDS2Result.threeDSRequestorChallengeInd)
+        && Objects.equals(
+            this.isSetThreeDSRequestorChallengeInd,
+            threeDS2Result.isSetThreeDSRequestorChallengeInd)
         && Objects.equals(this.threeDSServerTransID, threeDS2Result.threeDSServerTransID)
+        && Objects.equals(this.isSetThreeDSServerTransID, threeDS2Result.isSetThreeDSServerTransID)
         && Objects.equals(this.timestamp, threeDS2Result.timestamp)
+        && Objects.equals(this.isSetTimestamp, threeDS2Result.isSetTimestamp)
         && Objects.equals(this.transStatus, threeDS2Result.transStatus)
+        && Objects.equals(this.isSetTransStatus, threeDS2Result.isSetTransStatus)
         && Objects.equals(this.transStatusReason, threeDS2Result.transStatusReason)
-        && Objects.equals(this.whiteListStatus, threeDS2Result.whiteListStatus);
+        && Objects.equals(this.isSetTransStatusReason, threeDS2Result.isSetTransStatusReason)
+        && Objects.equals(this.whiteListStatus, threeDS2Result.whiteListStatus)
+        && Objects.equals(this.isSetWhiteListStatus, threeDS2Result.isSetWhiteListStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         authenticationValue,
+        isSetAuthenticationValue,
         cavvAlgorithm,
+        isSetCavvAlgorithm,
         challengeCancel,
+        isSetChallengeCancel,
         dsTransID,
+        isSetDsTransID,
         eci,
+        isSetEci,
         exemptionIndicator,
+        isSetExemptionIndicator,
         messageVersion,
+        isSetMessageVersion,
         riskScore,
+        isSetRiskScore,
         threeDSRequestorChallengeInd,
+        isSetThreeDSRequestorChallengeInd,
         threeDSServerTransID,
+        isSetThreeDSServerTransID,
         timestamp,
+        isSetTimestamp,
         transStatus,
+        isSetTransStatus,
         transStatusReason,
-        whiteListStatus);
+        isSetTransStatusReason,
+        whiteListStatus,
+        isSetWhiteListStatus);
   }
 
   @Override
@@ -873,6 +1001,72 @@ public class ThreeDS2Result {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthenticationValue) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_VALUE, this.authenticationValue);
+    }
+    if (isSetCavvAlgorithm) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV_ALGORITHM, this.cavvAlgorithm);
+    }
+    if (isSetChallengeCancel) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_CANCEL, this.challengeCancel);
+    }
+    if (isSetDsTransID) {
+      addIfNull(nulls, JSON_PROPERTY_DS_TRANS_I_D, this.dsTransID);
+    }
+    if (isSetEci) {
+      addIfNull(nulls, JSON_PROPERTY_ECI, this.eci);
+    }
+    if (isSetExemptionIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_EXEMPTION_INDICATOR, this.exemptionIndicator);
+    }
+    if (isSetMessageVersion) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE_VERSION, this.messageVersion);
+    }
+    if (isSetRiskScore) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SCORE, this.riskScore);
+    }
+    if (isSetThreeDSRequestorChallengeInd) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
+          this.threeDSRequestorChallengeInd);
+    }
+    if (isSetThreeDSServerTransID) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D, this.threeDSServerTransID);
+    }
+    if (isSetTimestamp) {
+      addIfNull(nulls, JSON_PROPERTY_TIMESTAMP, this.timestamp);
+    }
+    if (isSetTransStatus) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS, this.transStatus);
+    }
+    if (isSetTransStatusReason) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS_REASON, this.transStatusReason);
+    }
+    if (isSetWhiteListStatus) {
+      addIfNull(nulls, JSON_PROPERTY_WHITE_LIST_STATUS, this.whiteListStatus);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

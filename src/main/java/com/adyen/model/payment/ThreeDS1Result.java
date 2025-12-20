@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,21 +32,45 @@ public class ThreeDS1Result {
   public static final String JSON_PROPERTY_CAVV = "cavv";
   private String cavv;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavv = false;
+
   public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavvAlgorithm = false;
+
   public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEci = false;
 
   public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE =
       "threeDAuthenticatedResponse";
   private String threeDAuthenticatedResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDAuthenticatedResponse = false;
+
   public static final String JSON_PROPERTY_THREE_D_OFFERED_RESPONSE = "threeDOfferedResponse";
   private String threeDOfferedResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDOfferedResponse = false;
+
   public static final String JSON_PROPERTY_XID = "xid";
   private String xid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetXid = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDS1Result() {}
 
@@ -56,6 +82,7 @@ public class ThreeDS1Result {
    */
   public ThreeDS1Result cavv(String cavv) {
     this.cavv = cavv;
+    isSetCavv = true; // mark as set
     return this;
   }
 
@@ -79,6 +106,7 @@ public class ThreeDS1Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(String cavv) {
     this.cavv = cavv;
+    isSetCavv = true; // mark as set
   }
 
   /**
@@ -89,6 +117,7 @@ public class ThreeDS1Result {
    */
   public ThreeDS1Result cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
     return this;
   }
 
@@ -112,6 +141,7 @@ public class ThreeDS1Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
   }
 
   /**
@@ -122,6 +152,7 @@ public class ThreeDS1Result {
    */
   public ThreeDS1Result eci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
     return this;
   }
 
@@ -145,6 +176,7 @@ public class ThreeDS1Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
   }
 
   /**
@@ -155,6 +187,7 @@ public class ThreeDS1Result {
    */
   public ThreeDS1Result threeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
+    isSetThreeDAuthenticatedResponse = true; // mark as set
     return this;
   }
 
@@ -178,6 +211,7 @@ public class ThreeDS1Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
+    isSetThreeDAuthenticatedResponse = true; // mark as set
   }
 
   /**
@@ -188,6 +222,7 @@ public class ThreeDS1Result {
    */
   public ThreeDS1Result threeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
+    isSetThreeDOfferedResponse = true; // mark as set
     return this;
   }
 
@@ -211,6 +246,7 @@ public class ThreeDS1Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
+    isSetThreeDOfferedResponse = true; // mark as set
   }
 
   /**
@@ -223,6 +259,7 @@ public class ThreeDS1Result {
    */
   public ThreeDS1Result xid(String xid) {
     this.xid = xid;
+    isSetXid = true; // mark as set
     return this;
   }
 
@@ -250,6 +287,27 @@ public class ThreeDS1Result {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(String xid) {
     this.xid = xid;
+    isSetXid = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDS1Result includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDS1Result object is equal to o. */
@@ -263,18 +321,37 @@ public class ThreeDS1Result {
     }
     ThreeDS1Result threeDS1Result = (ThreeDS1Result) o;
     return Objects.equals(this.cavv, threeDS1Result.cavv)
+        && Objects.equals(this.isSetCavv, threeDS1Result.isSetCavv)
         && Objects.equals(this.cavvAlgorithm, threeDS1Result.cavvAlgorithm)
+        && Objects.equals(this.isSetCavvAlgorithm, threeDS1Result.isSetCavvAlgorithm)
         && Objects.equals(this.eci, threeDS1Result.eci)
+        && Objects.equals(this.isSetEci, threeDS1Result.isSetEci)
         && Objects.equals(
             this.threeDAuthenticatedResponse, threeDS1Result.threeDAuthenticatedResponse)
+        && Objects.equals(
+            this.isSetThreeDAuthenticatedResponse, threeDS1Result.isSetThreeDAuthenticatedResponse)
         && Objects.equals(this.threeDOfferedResponse, threeDS1Result.threeDOfferedResponse)
-        && Objects.equals(this.xid, threeDS1Result.xid);
+        && Objects.equals(
+            this.isSetThreeDOfferedResponse, threeDS1Result.isSetThreeDOfferedResponse)
+        && Objects.equals(this.xid, threeDS1Result.xid)
+        && Objects.equals(this.isSetXid, threeDS1Result.isSetXid);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cavv, cavvAlgorithm, eci, threeDAuthenticatedResponse, threeDOfferedResponse, xid);
+        cavv,
+        isSetCavv,
+        cavvAlgorithm,
+        isSetCavvAlgorithm,
+        eci,
+        isSetEci,
+        threeDAuthenticatedResponse,
+        isSetThreeDAuthenticatedResponse,
+        threeDOfferedResponse,
+        isSetThreeDOfferedResponse,
+        xid,
+        isSetXid);
   }
 
   @Override
@@ -303,6 +380,46 @@ public class ThreeDS1Result {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCavv) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV, this.cavv);
+    }
+    if (isSetCavvAlgorithm) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV_ALGORITHM, this.cavvAlgorithm);
+    }
+    if (isSetEci) {
+      addIfNull(nulls, JSON_PROPERTY_ECI, this.eci);
+    }
+    if (isSetThreeDAuthenticatedResponse) {
+      addIfNull(
+          nulls, JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE, this.threeDAuthenticatedResponse);
+    }
+    if (isSetThreeDOfferedResponse) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_OFFERED_RESPONSE, this.threeDOfferedResponse);
+    }
+    if (isSetXid) {
+      addIfNull(nulls, JSON_PROPERTY_XID, this.xid);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
