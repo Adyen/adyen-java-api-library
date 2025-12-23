@@ -124,8 +124,30 @@ public class TransferEvent {
 
     APPROVED(String.valueOf("approved")),
 
+    AVSDECLINED(String.valueOf("avsDeclined")),
+
     BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE(
         String.valueOf("balanceAccountTemporarilyBlockedByTransactionRule")),
+
+    BLOCKCARD(String.valueOf("blockCard")),
+
+    CALLREFERRAL(String.valueOf("callReferral")),
+
+    CANCELLED(String.valueOf("cancelled")),
+
+    CAPTURECARD(String.valueOf("captureCard")),
+
+    CARDEXPIRED(String.valueOf("cardExpired")),
+
+    CARDHOLDERAUTHENTICATIONREQUIRED(String.valueOf("cardholderAuthenticationRequired")),
+
+    CASHBACKAMOUNTEXCEEDSLIMIT(String.valueOf("cashbackAmountExceedsLimit")),
+
+    CAVVDECLINED(String.valueOf("cavvDeclined")),
+
+    CONTACTLESSFALLBACK(String.valueOf("contactlessFallback")),
+
+    CONTACTLESSLIMITREACHED(String.valueOf("contactlessLimitReached")),
 
     COUNTERPARTYACCOUNTBLOCKED(String.valueOf("counterpartyAccountBlocked")),
 
@@ -139,15 +161,79 @@ public class TransferEvent {
 
     COUNTERPARTYBANKUNAVAILABLE(String.valueOf("counterpartyBankUnavailable")),
 
+    CRYPTOGRAPHICFAILURE(String.valueOf("cryptographicFailure")),
+
+    CVCDECLINED(String.valueOf("cvcDeclined")),
+
     DECLINED(String.valueOf("declined")),
+
+    DECLINEDBYBAPVALIDATION(String.valueOf("declinedByBapValidation")),
 
     DECLINEDBYTRANSACTIONRULE(String.valueOf("declinedByTransactionRule")),
 
+    DECLINEDNONGENERIC(String.valueOf("declinedNonGeneric")),
+
     DIRECTDEBITNOTSUPPORTED(String.valueOf("directDebitNotSupported")),
+
+    DONOTHONOR(String.valueOf("doNotHonor")),
+
+    DOMESTICDEBITTRANSACTIONNOTALLOWED(String.valueOf("domesticDebitTransactionNotAllowed")),
+
+    DUPLICATETRANSMISSIONDETECTED(String.valueOf("duplicateTransmissionDetected")),
 
     ERROR(String.valueOf("error")),
 
+    FORMATERROR(String.valueOf("formatError")),
+
+    FRAUD(String.valueOf("fraud")),
+
+    FRAUDCANCELLED(String.valueOf("fraudCancelled")),
+
+    HONORWITHID(String.valueOf("honorWithId")),
+
+    INTERNALTIMEOUT(String.valueOf("internalTimeout")),
+
+    INVALIDACCOUNT(String.valueOf("invalidAccount")),
+
+    INVALIDAMOUNT(String.valueOf("invalidAmount")),
+
+    INVALIDAUTHORIZATIONLIFECYCLE(String.valueOf("invalidAuthorizationLifeCycle")),
+
+    INVALIDCARD(String.valueOf("invalidCard")),
+
+    INVALIDEXPIRYDATE(String.valueOf("invalidExpiryDate")),
+
+    INVALIDFROMACCOUNT(String.valueOf("invalidFromAccount")),
+
+    INVALIDISSUER(String.valueOf("invalidIssuer")),
+
+    INVALIDMERCHANT(String.valueOf("invalidMerchant")),
+
+    INVALIDPIN(String.valueOf("invalidPin")),
+
+    INVALIDTOACCOUNT(String.valueOf("invalidToAccount")),
+
+    INVALIDTRANSACTION(String.valueOf("invalidTransaction")),
+
+    ISSUERSUSPECTEDFRAUD(String.valueOf("issuerSuspectedFraud")),
+
+    LOSTCARD(String.valueOf("lostCard")),
+
+    MOBILEPINREQUIRED(String.valueOf("mobilePinRequired")),
+
+    NOCHECKINGACCOUNT(String.valueOf("noCheckingAccount")),
+
+    NOSAVINGSACCOUNT(String.valueOf("noSavingsAccount")),
+
+    NOT3DAUTHENTICATED(String.valueOf("not3dAuthenticated")),
+
     NOTENOUGHBALANCE(String.valueOf("notEnoughBalance")),
+
+    NOTSUBMITTED(String.valueOf("notSubmitted")),
+
+    NOTSUPPORTED(String.valueOf("notSupported")),
+
+    PARTIALLYAPPROVED(String.valueOf("partiallyApproved")),
 
     PENDING(String.valueOf("pending")),
 
@@ -155,19 +241,51 @@ public class TransferEvent {
 
     PENDINGEXECUTION(String.valueOf("pendingExecution")),
 
+    PINNOTCHANGED(String.valueOf("pinNotChanged")),
+
+    PINREQUIRED(String.valueOf("pinRequired")),
+
+    PINTRIESEXCEEDED(String.valueOf("pinTriesExceeded")),
+
+    PINVALIDATIONNOTPOSSIBLE(String.valueOf("pinValidationNotPossible")),
+
+    PURCHASEAMOUNTONLYNOCASHBACK(String.valueOf("purchaseAmountOnlyNoCashBack")),
+
     REFUSEDBYCOUNTERPARTYBANK(String.valueOf("refusedByCounterpartyBank")),
 
     REFUSEDBYCUSTOMER(String.valueOf("refusedByCustomer")),
 
+    RESTRICTEDCARD(String.valueOf("restrictedCard")),
+
+    REVOCATIONOFAUTH(String.valueOf("revocationOfAuth")),
+
     ROUTENOTFOUND(String.valueOf("routeNotFound")),
+
+    SCAAUTHENTICATIONREQUIRED(String.valueOf("scaAuthenticationRequired")),
 
     SCAFAILED(String.valueOf("scaFailed")),
 
     SCHEMEADVICE(String.valueOf("schemeAdvice")),
 
+    SECURITYVIOLATION(String.valueOf("securityViolation")),
+
+    SHOPPERCANCELLED(String.valueOf("shopperCancelled")),
+
+    STOLENCARD(String.valueOf("stolenCard")),
+
+    THREEDSDYNAMICLINKINGMISMATCH(String.valueOf("threedsDynamicLinkingMismatch")),
+
+    TRANSACTIONNOTPERMITTED(String.valueOf("transactionNotPermitted")),
+
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
-    UNKNOWN(String.valueOf("unknown"));
+    UNABLETOROUTETRANSACTION(String.valueOf("unableToRouteTransaction")),
+
+    UNKNOWN(String.valueOf("unknown")),
+
+    WITHDRAWALAMOUNTEXCEEDED(String.valueOf("withdrawalAmountExceeded")),
+
+    WITHDRAWALCOUNTEXCEEDED(String.valueOf("withdrawalCountExceeded"));
 
     private static final Logger LOG = Logger.getLogger(ReasonEnum.class.getName());
 
