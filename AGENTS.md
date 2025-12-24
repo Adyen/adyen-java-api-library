@@ -1,92 +1,234 @@
-## Overview
+# Adyen Java API Library for AI Assistants
 
-This is the Adyen Java API Library, providing Java developers with an easy way to interact with the Adyen API. The library is a wrapper around the Adyen API, generated from OpenAPI specifications.
+This file gives guidance to AI-based coding assistants (like Copilot or ChatGPT) to help developers use the **Adyen Java API Library**.
 
-## Code Generation
+The goal is to provide **simple, working examples** that help developers quickly get started with setup, making requests, and handling responses.
 
-A significant portion of this library, particularly the API services and data models, is automatically generated
+---
 
-- **Engine**: We use [OpenAPI Generator](https://openapi-generator.tech/) with custom [Mustache](https://mustache.github.io/) templates to convert Adyen's OpenAPI specifications into Java code.
-- **Templates**: The custom templates are located in the `/templates` directory. These templates are tailored to fit our custom HTTP client and model structure.
-- **Automation**:
-    - **Centralized**: The primary generation process is managed in a separate repository, [`adyen-sdk-automation`](https://github.com/Adyen/adyen-sdk-automation). Changes to the OpenAPI specs trigger a GitHub workflow in that repository, which generates the code and opens Pull Requests in this library.
-    - **Local**: For development and testing, you must use the [`adyen-sdk-automation`](https://github.com/Adyen/adyen-sdk-automation) repository.
+## General Rules
 
-### Local Code Generation
+- Always use classes from the `com.adyen` package (not internal or test code).
+- Show **minimal, copy-pasteable examples**.
+- Use `Environment.TEST` in all examples.
+- Get credentials (API key, merchant account) from **environment variables** — never hardcode secrets.
+- Generate snippets only looking at this file, the README.md or the unit test source code at https://github.com/Adyen/adyen-java-api-library/tree/main/src/test/java/com/adyen
+- If developers need more details, link to:
+    - [Adyen Java API Library](https://github.com/Adyen/adyen-java-api-library)
+    - [Adyen API Explorer](https://docs.adyen.com/api-explorer/)
+    - [Adyen Java Sample Application](https://github.com/adyen-examples/adyen-java-spring-online-payments)
 
-To test new features or changes to the templates, you must run the generation process from a local clone of the `adyen-sdk-automation` repository.
+## What is the Adyen Java API Library?
 
-1.  **Clone the automation repository**:
-    ```bash
-    git clone https://github.com/Adyen/adyen-sdk-automation.git
-    ```
+The Adyen Java API Library is a client SDK that allows developers to integrate with Adyen from Java applications. It provides:
 
-2.  **Link this library**: The automation project needs to target your local clone of `adyen-java-api-library`. From inside the `adyen-sdk-automation` directory, run the following commands. This will replace the `java/repo` directory with a symlink to your local project.
-    ```bash
-    rm -rf java/repo
-    ln -s /path/to/your/adyen-java-api-library java/repo
-    ```
+- Simplified access to Adyen APIs (Checkout, Terminal API, Platforms and Financial Services).
+- Request and response models for all API endpoints, so you don’t have to manually construct JSON.
+- Helpers for security and HTTP calls, including setting API keys, idempotency keys, and headers.
+- Error handling utilities to manage API exceptions in a structured way.
 
-3.  **Run the generator**: You can now run the Gradle commands to generate code.
-    - **To generate all services for the Java library**:
-      ```bash
-      ./gradlew :java:services
-      ```
-    - **To generate a single service (e.g., Checkout)**:
-      ```bash
-      ./gradlew :java:checkout
-      ```
-    - **To clean the repository before generating**:
-      ```bash
-      ./gradlew :java:cleanRepo :java:checkout
-      ```
+It supports the following Adyen APIs:
 
-## Core Components
+- **Checkout** https://docs.adyen.com/api-explorer/Checkout/latest/overview
+- **Terminal API** https://docs.adyen.com/api-explorer/terminal-api/1/overview
+- **Management API** https://docs.adyen.com/api-explorer/Management/
+- **Legal Entity Management API** https://docs.adyen.com/api-explorer/legalentity/
+- **Balance Platform Configuration API** https://docs.adyen.com/api-explorer/balanceplatform/
+- **Transfers API** https://docs.adyen.com/api-explorer/transfers/
+- **Webhooks** https://docs.adyen.com/api-explorer/Webhooks/1/overview
+- **Balance Platform Configuration webhooks** https://docs.adyen.com/api-explorer/balanceplatform-webhooks/
+- **Transfers Webhooks** https://docs.adyen.com/api-explorer/transfer-webhooks/
 
-- **`Client.java`**: The central class for configuring the library (API key, environment, etc.) and accessing API services.
-- **`Service.java`**: The base class for all API services, containing the generic HTTP client logic.
-- **`/service`**: This package contains the generated service classes (e.g., `Checkout`, `Management`) that expose methods for specific API endpoints.
-- **`/model`**: This package contains the generated data models used for API requests and responses.
 
-## Development Workflow
+## Installation
 
-This is a standard Maven project.
+Show developers how to add the library:
 
-### Building
+**Maven**
 
-To compile the source code, run the tests, and package the project into a JAR file, use:
+```xml
 
-```bash
-mvn install
+<dependency>
+    <groupId>com.adyen</groupId>
+    <artifactId>adyen-java-api-library</artifactId>
+    <version>LATEST_VERSION</version>
+</dependency>
 ```
 
-### Running Tests
+```gradle
+implementation 'com.adyen:adyen-java-api-library:LATEST_VERSION'
 
-To execute the unit tests:
-
-```bash
-mvn test
 ```
 
-### Code Style & Formatting
+## Setup
 
-We use Checkstyle for linting and Spotless for formatting.
+Show developers how to setup the client:
 
-- **Check for style violations**:
-  ```bash
-  mvn checkstyle:check
-  ```
-- **Apply formatting**:
-  ```bash
-  mvn spotless:apply
-  ```
+```java
 
-The build will fail if there are any Checkstyle violations. Run `spotless:apply` before committing.
+import com.adyen.Client;
+import com.adyen.enums.Environment;
+import com.adyen.service.checkout.PaymentsApi;
+import com.adyen.model.checkout.*;
 
-## Release Process
+// Setup Client
+Client client = new Client(new Config()
+    .environment(Environment.TEST)
+    .apiKey(System.getenv("ADYEN_API_KEY"))
+);
 
-The release process is automated via GitHub Actions. When a release is triggered:
-1.  A script determines the next version number (major, minor, or patch).
-2.  The `pom.xml` and other version files are updated.
-3.  A pull request is created with the version bump.
-4.  Once merged, a GitHub release is created, and the new version is published to Maven Central.
+// Setup Service
+PaymentsApi paymentsApi = new PaymentsApi(client);
+```
+
+## Make a payment with Checkout
+
+Show developers how to make a payment with the Checkout API:
+
+```java
+
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.service.checkout.PaymentsApi;
+import com.adyen.model.checkout.*;
+
+// Setup Client
+Client client = new Client(new Config()
+    .environment(Environment.TEST)
+    .apiKey(System.getenv("ADYEN_API_KEY"))
+);
+
+// Setup Service
+PaymentsApi paymentsApi = new PaymentsApi(client);
+
+// Create PaymentRequest
+CardDetails cardDetails =
+    new CardDetails()
+        .type(CardDetails.TypeEnum.SCHEME)
+        .encryptedCardNumber("5136333333333335")
+        .holderName("John Doe")
+        .cvc("737")
+        .encryptedExpiryMonth("08")
+        .encryptedExpiryYear("2018");
+PaymentRequest paymentRequest =
+    new PaymentRequest()
+        .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+        .reference("YOUR_REFERENCE")
+        .amount(new Amount()
+            .currency("EUR")
+            .value(1000L))
+        .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
+        .paymentMethod(new CheckoutPaymentMethod(cardDetails));
+
+// Make a call to the /payments endpoint
+PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest);
+```
+
+## Error handling 
+
+Show developers how to handle errors: use a try-catch block to handle API errors. 
+Catch the `ApiException` to inspect the response and handle specific cases:
+
+
+```java
+// Setup Client
+Client client = new Client(new Config()
+    .environment(Environment.TEST)
+    .apiKey(System.getenv("ADYEN_API_KEY"))
+);
+
+
+// Setup Service
+PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
+
+// Get Payment link
+try {
+    paymentLinksApi.getPaymentLink("1234");
+} catch (ApiException e) {
+    // Obtain response 
+    int statusCode = e.getStatusCode();
+    String responseBody = e.getResponseBody();
+    // Check ApiError object
+    ApiError apiError = e.getError();
+    String errorCode = apiError.getErrorCode();
+    List<com.adyen.model.InvalidField> invalidFields = apiError.getInvalidFields();
+}
+
+```
+
+## Webhook processing 
+
+Show developers how to handle webhooks:
+
+```java
+import java.util.List;
+import com.adyen.util.HMACValidator;
+import com.adyen.notification.WebhookHandler;
+import com.adyen.model.notification.NotificationRequest;
+import com.adyen.model.notification.NotificationRequestItem;
+
+String hmacKey = System.getenv("ADYEN_HMAC_KEY");
+// The webhook payload
+String notificationRequestJson = "NOTIFICATION_REQUEST_JSON";
+
+HMACValidator hmacValidator = new HMACValidator();
+
+WebhookHandler webhookHandler = new WebhookHandler();
+NotificationRequest notificationRequest = webhookHandler.handleNotificationJson(notificationRequestJson);
+
+// fetch first (and only) NotificationRequestItem
+var notificationRequestItemOptional = notificationRequest.getNotificationItems().stream().findFirst();
+
+if (notificationRequestItemOptional.isPresent()) {
+    NotificationRequestItem notificationRequestItem = notificationRequestItemOptional.get();
+    // validate the HMAC signature
+    if ( hmacValidator.validateHMAC(notificationRequestItem, hmacKey) ) {
+      // Process the notification based on the eventCode
+      System.out.printf("Received webhook with event %s : %n" +
+        "Merchant Reference: %s%n" +
+        "Alias : %s%n" +
+        "PSP reference : %s%n", 
+        notificationRequestItem.getEventCode(), 
+        notificationRequestItem.getMerchantReference(),
+        notificationRequestItem.getAdditionalData().get("alias"),
+        notificationRequestItem.getPspReference());
+    } else {
+      // Non valid NotificationRequest
+	  throw new RuntimeException("Invalid HMAC signature");
+    }
+}
+
+```
+
+## Idempotency key 
+
+Show developers how to use an idempotency key:
+
+```java
+
+import java.util.UUID;
+import com.adyen.model.checkout.PaymentRequest;
+import com.adyen.model.checkout.PaymentResponse;
+import com.adyen.RequestOptions;
+
+// Create a PaymentRequest
+PaymentRequest paymentRequest = new PaymentRequest();
+// ... set amount, merchant account, payment method, etc.
+
+// Generate a random idempotency key
+RequestOptions requestOptions = new RequestOptions()
+    .idempotencyKey(UUID.randomUUID().toString());
+
+// Make the payment request with idempotency
+PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest, requestOptions);
+
+System.out.println("Payment response: " + paymentResponse);
+
+```
+Notes for developers:
+
+- UUID.randomUUID() generates a random UUID (version 4), suitable for idempotency keys.
+- Always use a new key for each logically unique request.
+- This is important to prevent duplicate payments if the request is retried due to network issues or timeouts.
+
