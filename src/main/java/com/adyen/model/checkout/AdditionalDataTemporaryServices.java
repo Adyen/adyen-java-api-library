@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,37 +36,70 @@ public class AdditionalDataTemporaryServices {
       "enhancedSchemeData.customerReference";
   private String enhancedSchemeDataCustomerReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataCustomerReference = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME =
       "enhancedSchemeData.employeeName";
   private String enhancedSchemeDataEmployeeName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataEmployeeName = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION =
       "enhancedSchemeData.jobDescription";
   private String enhancedSchemeDataJobDescription;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataJobDescription = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE =
       "enhancedSchemeData.regularHoursRate";
   private String enhancedSchemeDataRegularHoursRate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataRegularHoursRate = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED =
       "enhancedSchemeData.regularHoursWorked";
   private String enhancedSchemeDataRegularHoursWorked;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataRegularHoursWorked = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME =
       "enhancedSchemeData.requestName";
   private String enhancedSchemeDataRequestName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataRequestName = false;
 
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE =
       "enhancedSchemeData.tempStartDate";
   private String enhancedSchemeDataTempStartDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataTempStartDate = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING =
       "enhancedSchemeData.tempWeekEnding";
   private String enhancedSchemeDataTempWeekEnding;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataTempWeekEnding = false;
+
   public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT =
       "enhancedSchemeData.totalTaxAmount";
   private String enhancedSchemeDataTotalTaxAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeDataTotalTaxAmount = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataTemporaryServices() {}
 
@@ -79,6 +114,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataCustomerReference(
       String enhancedSchemeDataCustomerReference) {
     this.enhancedSchemeDataCustomerReference = enhancedSchemeDataCustomerReference;
+    isSetEnhancedSchemeDataCustomerReference = true; // mark as set
     return this;
   }
 
@@ -104,6 +140,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
     this.enhancedSchemeDataCustomerReference = enhancedSchemeDataCustomerReference;
+    isSetEnhancedSchemeDataCustomerReference = true; // mark as set
   }
 
   /**
@@ -118,6 +155,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataEmployeeName(
       String enhancedSchemeDataEmployeeName) {
     this.enhancedSchemeDataEmployeeName = enhancedSchemeDataEmployeeName;
+    isSetEnhancedSchemeDataEmployeeName = true; // mark as set
     return this;
   }
 
@@ -145,6 +183,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataEmployeeName(String enhancedSchemeDataEmployeeName) {
     this.enhancedSchemeDataEmployeeName = enhancedSchemeDataEmployeeName;
+    isSetEnhancedSchemeDataEmployeeName = true; // mark as set
   }
 
   /**
@@ -159,6 +198,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataJobDescription(
       String enhancedSchemeDataJobDescription) {
     this.enhancedSchemeDataJobDescription = enhancedSchemeDataJobDescription;
+    isSetEnhancedSchemeDataJobDescription = true; // mark as set
     return this;
   }
 
@@ -186,6 +226,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataJobDescription(String enhancedSchemeDataJobDescription) {
     this.enhancedSchemeDataJobDescription = enhancedSchemeDataJobDescription;
+    isSetEnhancedSchemeDataJobDescription = true; // mark as set
   }
 
   /**
@@ -202,6 +243,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataRegularHoursRate(
       String enhancedSchemeDataRegularHoursRate) {
     this.enhancedSchemeDataRegularHoursRate = enhancedSchemeDataRegularHoursRate;
+    isSetEnhancedSchemeDataRegularHoursRate = true; // mark as set
     return this;
   }
 
@@ -233,6 +275,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRegularHoursRate(String enhancedSchemeDataRegularHoursRate) {
     this.enhancedSchemeDataRegularHoursRate = enhancedSchemeDataRegularHoursRate;
+    isSetEnhancedSchemeDataRegularHoursRate = true; // mark as set
   }
 
   /**
@@ -246,6 +289,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataRegularHoursWorked(
       String enhancedSchemeDataRegularHoursWorked) {
     this.enhancedSchemeDataRegularHoursWorked = enhancedSchemeDataRegularHoursWorked;
+    isSetEnhancedSchemeDataRegularHoursWorked = true; // mark as set
     return this;
   }
 
@@ -271,6 +315,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRegularHoursWorked(String enhancedSchemeDataRegularHoursWorked) {
     this.enhancedSchemeDataRegularHoursWorked = enhancedSchemeDataRegularHoursWorked;
+    isSetEnhancedSchemeDataRegularHoursWorked = true; // mark as set
   }
 
   /**
@@ -285,6 +330,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataRequestName(
       String enhancedSchemeDataRequestName) {
     this.enhancedSchemeDataRequestName = enhancedSchemeDataRequestName;
+    isSetEnhancedSchemeDataRequestName = true; // mark as set
     return this;
   }
 
@@ -312,6 +358,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRequestName(String enhancedSchemeDataRequestName) {
     this.enhancedSchemeDataRequestName = enhancedSchemeDataRequestName;
+    isSetEnhancedSchemeDataRequestName = true; // mark as set
   }
 
   /**
@@ -325,6 +372,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataTempStartDate(
       String enhancedSchemeDataTempStartDate) {
     this.enhancedSchemeDataTempStartDate = enhancedSchemeDataTempStartDate;
+    isSetEnhancedSchemeDataTempStartDate = true; // mark as set
     return this;
   }
 
@@ -350,6 +398,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTempStartDate(String enhancedSchemeDataTempStartDate) {
     this.enhancedSchemeDataTempStartDate = enhancedSchemeDataTempStartDate;
+    isSetEnhancedSchemeDataTempStartDate = true; // mark as set
   }
 
   /**
@@ -363,6 +412,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataTempWeekEnding(
       String enhancedSchemeDataTempWeekEnding) {
     this.enhancedSchemeDataTempWeekEnding = enhancedSchemeDataTempWeekEnding;
+    isSetEnhancedSchemeDataTempWeekEnding = true; // mark as set
     return this;
   }
 
@@ -388,6 +438,7 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTempWeekEnding(String enhancedSchemeDataTempWeekEnding) {
     this.enhancedSchemeDataTempWeekEnding = enhancedSchemeDataTempWeekEnding;
+    isSetEnhancedSchemeDataTempWeekEnding = true; // mark as set
   }
 
   /**
@@ -404,6 +455,7 @@ public class AdditionalDataTemporaryServices {
   public AdditionalDataTemporaryServices enhancedSchemeDataTotalTaxAmount(
       String enhancedSchemeDataTotalTaxAmount) {
     this.enhancedSchemeDataTotalTaxAmount = enhancedSchemeDataTotalTaxAmount;
+    isSetEnhancedSchemeDataTotalTaxAmount = true; // mark as set
     return this;
   }
 
@@ -435,6 +487,27 @@ public class AdditionalDataTemporaryServices {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {
     this.enhancedSchemeDataTotalTaxAmount = enhancedSchemeDataTotalTaxAmount;
+    isSetEnhancedSchemeDataTotalTaxAmount = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataTemporaryServices includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataTemporaryServices object is equal to o. */
@@ -452,43 +525,79 @@ public class AdditionalDataTemporaryServices {
             this.enhancedSchemeDataCustomerReference,
             additionalDataTemporaryServices.enhancedSchemeDataCustomerReference)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataCustomerReference,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataCustomerReference)
+        && Objects.equals(
             this.enhancedSchemeDataEmployeeName,
             additionalDataTemporaryServices.enhancedSchemeDataEmployeeName)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataEmployeeName,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataEmployeeName)
         && Objects.equals(
             this.enhancedSchemeDataJobDescription,
             additionalDataTemporaryServices.enhancedSchemeDataJobDescription)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataJobDescription,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataJobDescription)
+        && Objects.equals(
             this.enhancedSchemeDataRegularHoursRate,
             additionalDataTemporaryServices.enhancedSchemeDataRegularHoursRate)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataRegularHoursRate,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataRegularHoursRate)
         && Objects.equals(
             this.enhancedSchemeDataRegularHoursWorked,
             additionalDataTemporaryServices.enhancedSchemeDataRegularHoursWorked)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataRegularHoursWorked,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataRegularHoursWorked)
+        && Objects.equals(
             this.enhancedSchemeDataRequestName,
             additionalDataTemporaryServices.enhancedSchemeDataRequestName)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataRequestName,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataRequestName)
         && Objects.equals(
             this.enhancedSchemeDataTempStartDate,
             additionalDataTemporaryServices.enhancedSchemeDataTempStartDate)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataTempStartDate,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataTempStartDate)
+        && Objects.equals(
             this.enhancedSchemeDataTempWeekEnding,
             additionalDataTemporaryServices.enhancedSchemeDataTempWeekEnding)
         && Objects.equals(
+            this.isSetEnhancedSchemeDataTempWeekEnding,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataTempWeekEnding)
+        && Objects.equals(
             this.enhancedSchemeDataTotalTaxAmount,
-            additionalDataTemporaryServices.enhancedSchemeDataTotalTaxAmount);
+            additionalDataTemporaryServices.enhancedSchemeDataTotalTaxAmount)
+        && Objects.equals(
+            this.isSetEnhancedSchemeDataTotalTaxAmount,
+            additionalDataTemporaryServices.isSetEnhancedSchemeDataTotalTaxAmount);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         enhancedSchemeDataCustomerReference,
+        isSetEnhancedSchemeDataCustomerReference,
         enhancedSchemeDataEmployeeName,
+        isSetEnhancedSchemeDataEmployeeName,
         enhancedSchemeDataJobDescription,
+        isSetEnhancedSchemeDataJobDescription,
         enhancedSchemeDataRegularHoursRate,
+        isSetEnhancedSchemeDataRegularHoursRate,
         enhancedSchemeDataRegularHoursWorked,
+        isSetEnhancedSchemeDataRegularHoursWorked,
         enhancedSchemeDataRequestName,
+        isSetEnhancedSchemeDataRequestName,
         enhancedSchemeDataTempStartDate,
+        isSetEnhancedSchemeDataTempStartDate,
         enhancedSchemeDataTempWeekEnding,
-        enhancedSchemeDataTotalTaxAmount);
+        isSetEnhancedSchemeDataTempWeekEnding,
+        enhancedSchemeDataTotalTaxAmount,
+        isSetEnhancedSchemeDataTotalTaxAmount);
   }
 
   @Override
@@ -534,6 +643,81 @@ public class AdditionalDataTemporaryServices {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetEnhancedSchemeDataCustomerReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE,
+          this.enhancedSchemeDataCustomerReference);
+    }
+    if (isSetEnhancedSchemeDataEmployeeName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME,
+          this.enhancedSchemeDataEmployeeName);
+    }
+    if (isSetEnhancedSchemeDataJobDescription) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION,
+          this.enhancedSchemeDataJobDescription);
+    }
+    if (isSetEnhancedSchemeDataRegularHoursRate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE,
+          this.enhancedSchemeDataRegularHoursRate);
+    }
+    if (isSetEnhancedSchemeDataRegularHoursWorked) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED,
+          this.enhancedSchemeDataRegularHoursWorked);
+    }
+    if (isSetEnhancedSchemeDataRequestName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME,
+          this.enhancedSchemeDataRequestName);
+    }
+    if (isSetEnhancedSchemeDataTempStartDate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE,
+          this.enhancedSchemeDataTempStartDate);
+    }
+    if (isSetEnhancedSchemeDataTempWeekEnding) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING,
+          this.enhancedSchemeDataTempWeekEnding);
+    }
+    if (isSetEnhancedSchemeDataTotalTaxAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT,
+          this.enhancedSchemeDataTotalTaxAmount);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

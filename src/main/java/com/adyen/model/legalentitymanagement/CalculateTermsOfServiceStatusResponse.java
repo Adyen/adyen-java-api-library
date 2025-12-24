@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -86,6 +88,15 @@ public class CalculateTermsOfServiceStatusResponse {
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_TYPES = "termsOfServiceTypes";
   private List<TermsOfServiceTypesEnum> termsOfServiceTypes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsOfServiceTypes = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CalculateTermsOfServiceStatusResponse() {}
 
   /**
@@ -100,6 +111,7 @@ public class CalculateTermsOfServiceStatusResponse {
   public CalculateTermsOfServiceStatusResponse termsOfServiceTypes(
       List<TermsOfServiceTypesEnum> termsOfServiceTypes) {
     this.termsOfServiceTypes = termsOfServiceTypes;
+    isSetTermsOfServiceTypes = true; // mark as set
     return this;
   }
 
@@ -136,6 +148,27 @@ public class CalculateTermsOfServiceStatusResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceTypes(List<TermsOfServiceTypesEnum> termsOfServiceTypes) {
     this.termsOfServiceTypes = termsOfServiceTypes;
+    isSetTermsOfServiceTypes = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CalculateTermsOfServiceStatusResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CalculateTermsOfServiceStatusResponse object is equal to o. */
@@ -150,12 +183,15 @@ public class CalculateTermsOfServiceStatusResponse {
     CalculateTermsOfServiceStatusResponse calculateTermsOfServiceStatusResponse =
         (CalculateTermsOfServiceStatusResponse) o;
     return Objects.equals(
-        this.termsOfServiceTypes, calculateTermsOfServiceStatusResponse.termsOfServiceTypes);
+            this.termsOfServiceTypes, calculateTermsOfServiceStatusResponse.termsOfServiceTypes)
+        && Objects.equals(
+            this.isSetTermsOfServiceTypes,
+            calculateTermsOfServiceStatusResponse.isSetTermsOfServiceTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(termsOfServiceTypes);
+    return Objects.hash(termsOfServiceTypes, isSetTermsOfServiceTypes);
   }
 
   @Override
@@ -177,6 +213,30 @@ public class CalculateTermsOfServiceStatusResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetTermsOfServiceTypes) {
+      addIfNull(nulls, JSON_PROPERTY_TERMS_OF_SERVICE_TYPES, this.termsOfServiceTypes);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,17 +39,32 @@ public class BalanceCheckResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_BALANCE = "balance";
   private Amount balance;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalance = false;
 
   public static final String JSON_PROPERTY_FRAUD_RESULT = "fraudResult";
   private FraudResult fraudResult;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudResult = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPspReference = false;
+
   public static final String JSON_PROPERTY_REFUSAL_REASON = "refusalReason";
   private String refusalReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefusalReason = false;
 
   /**
    * The result of the cancellation request. Possible values: * **Success** – Indicates that the
@@ -101,8 +118,20 @@ public class BalanceCheckResponse {
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private ResultCodeEnum resultCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
   public static final String JSON_PROPERTY_TRANSACTION_LIMIT = "transactionLimit";
   private Amount transactionLimit;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionLimit = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BalanceCheckResponse() {}
 
@@ -117,6 +146,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -154,6 +184,7 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -164,6 +195,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse balance(Amount balance) {
     this.balance = balance;
+    isSetBalance = true; // mark as set
     return this;
   }
 
@@ -187,6 +219,7 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Amount balance) {
     this.balance = balance;
+    isSetBalance = true; // mark as set
   }
 
   /**
@@ -197,6 +230,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
     return this;
   }
 
@@ -220,6 +254,7 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
+    isSetFraudResult = true; // mark as set
   }
 
   /**
@@ -232,6 +267,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
     return this;
   }
 
@@ -260,6 +296,7 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
+    isSetPspReference = true; // mark as set
   }
 
   /**
@@ -278,6 +315,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
     return this;
   }
 
@@ -317,6 +355,7 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
+    isSetRefusalReason = true; // mark as set
   }
 
   /**
@@ -335,6 +374,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -374,6 +414,7 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
   }
 
   /**
@@ -384,6 +425,7 @@ public class BalanceCheckResponse {
    */
   public BalanceCheckResponse transactionLimit(Amount transactionLimit) {
     this.transactionLimit = transactionLimit;
+    isSetTransactionLimit = true; // mark as set
     return this;
   }
 
@@ -407,6 +449,27 @@ public class BalanceCheckResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionLimit(Amount transactionLimit) {
     this.transactionLimit = transactionLimit;
+    isSetTransactionLimit = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BalanceCheckResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BalanceCheckResponse object is equal to o. */
@@ -420,24 +483,38 @@ public class BalanceCheckResponse {
     }
     BalanceCheckResponse balanceCheckResponse = (BalanceCheckResponse) o;
     return Objects.equals(this.additionalData, balanceCheckResponse.additionalData)
+        && Objects.equals(this.isSetAdditionalData, balanceCheckResponse.isSetAdditionalData)
         && Objects.equals(this.balance, balanceCheckResponse.balance)
+        && Objects.equals(this.isSetBalance, balanceCheckResponse.isSetBalance)
         && Objects.equals(this.fraudResult, balanceCheckResponse.fraudResult)
+        && Objects.equals(this.isSetFraudResult, balanceCheckResponse.isSetFraudResult)
         && Objects.equals(this.pspReference, balanceCheckResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, balanceCheckResponse.isSetPspReference)
         && Objects.equals(this.refusalReason, balanceCheckResponse.refusalReason)
+        && Objects.equals(this.isSetRefusalReason, balanceCheckResponse.isSetRefusalReason)
         && Objects.equals(this.resultCode, balanceCheckResponse.resultCode)
-        && Objects.equals(this.transactionLimit, balanceCheckResponse.transactionLimit);
+        && Objects.equals(this.isSetResultCode, balanceCheckResponse.isSetResultCode)
+        && Objects.equals(this.transactionLimit, balanceCheckResponse.transactionLimit)
+        && Objects.equals(this.isSetTransactionLimit, balanceCheckResponse.isSetTransactionLimit);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         balance,
+        isSetBalance,
         fraudResult,
+        isSetFraudResult,
         pspReference,
+        isSetPspReference,
         refusalReason,
+        isSetRefusalReason,
         resultCode,
-        transactionLimit);
+        isSetResultCode,
+        transactionLimit,
+        isSetTransactionLimit);
   }
 
   @Override
@@ -463,6 +540,48 @@ public class BalanceCheckResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetBalance) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE, this.balance);
+    }
+    if (isSetFraudResult) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_RESULT, this.fraudResult);
+    }
+    if (isSetPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
+    }
+    if (isSetRefusalReason) {
+      addIfNull(nulls, JSON_PROPERTY_REFUSAL_REASON, this.refusalReason);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+    if (isSetTransactionLimit) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_LIMIT, this.transactionLimit);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

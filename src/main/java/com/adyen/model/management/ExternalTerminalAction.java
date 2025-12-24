@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,26 +35,56 @@ public class ExternalTerminalAction {
   public static final String JSON_PROPERTY_ACTION_TYPE = "actionType";
   private String actionType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActionType = false;
+
   public static final String JSON_PROPERTY_CONFIG = "config";
   private String config;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfig = false;
 
   public static final String JSON_PROPERTY_CONFIRMED_AT = "confirmedAt";
   private OffsetDateTime confirmedAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfirmedAt = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResult = false;
+
   public static final String JSON_PROPERTY_SCHEDULED_AT = "scheduledAt";
   private OffsetDateTime scheduledAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScheduledAt = false;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
   private String terminalId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ExternalTerminalAction() {}
 
@@ -66,6 +98,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction actionType(String actionType) {
     this.actionType = actionType;
+    isSetActionType = true; // mark as set
     return this;
   }
 
@@ -93,6 +126,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionType(String actionType) {
     this.actionType = actionType;
+    isSetActionType = true; // mark as set
   }
 
   /**
@@ -103,6 +137,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction config(String config) {
     this.config = config;
+    isSetConfig = true; // mark as set
     return this;
   }
 
@@ -126,6 +161,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfig(String config) {
     this.config = config;
+    isSetConfig = true; // mark as set
   }
 
   /**
@@ -136,6 +172,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction confirmedAt(OffsetDateTime confirmedAt) {
     this.confirmedAt = confirmedAt;
+    isSetConfirmedAt = true; // mark as set
     return this;
   }
 
@@ -159,6 +196,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfirmedAt(OffsetDateTime confirmedAt) {
     this.confirmedAt = confirmedAt;
+    isSetConfirmedAt = true; // mark as set
   }
 
   /**
@@ -169,6 +207,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -192,6 +231,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -202,6 +242,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction result(String result) {
     this.result = result;
+    isSetResult = true; // mark as set
     return this;
   }
 
@@ -225,6 +266,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
     this.result = result;
+    isSetResult = true; // mark as set
   }
 
   /**
@@ -235,6 +277,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction scheduledAt(OffsetDateTime scheduledAt) {
     this.scheduledAt = scheduledAt;
+    isSetScheduledAt = true; // mark as set
     return this;
   }
 
@@ -258,6 +301,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledAt(OffsetDateTime scheduledAt) {
     this.scheduledAt = scheduledAt;
+    isSetScheduledAt = true; // mark as set
   }
 
   /**
@@ -270,6 +314,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -297,6 +342,7 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -307,6 +353,7 @@ public class ExternalTerminalAction {
    */
   public ExternalTerminalAction terminalId(String terminalId) {
     this.terminalId = terminalId;
+    isSetTerminalId = true; // mark as set
     return this;
   }
 
@@ -330,6 +377,27 @@ public class ExternalTerminalAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
+    isSetTerminalId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ExternalTerminalAction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ExternalTerminalAction object is equal to o. */
@@ -343,19 +411,42 @@ public class ExternalTerminalAction {
     }
     ExternalTerminalAction externalTerminalAction = (ExternalTerminalAction) o;
     return Objects.equals(this.actionType, externalTerminalAction.actionType)
+        && Objects.equals(this.isSetActionType, externalTerminalAction.isSetActionType)
         && Objects.equals(this.config, externalTerminalAction.config)
+        && Objects.equals(this.isSetConfig, externalTerminalAction.isSetConfig)
         && Objects.equals(this.confirmedAt, externalTerminalAction.confirmedAt)
+        && Objects.equals(this.isSetConfirmedAt, externalTerminalAction.isSetConfirmedAt)
         && Objects.equals(this.id, externalTerminalAction.id)
+        && Objects.equals(this.isSetId, externalTerminalAction.isSetId)
         && Objects.equals(this.result, externalTerminalAction.result)
+        && Objects.equals(this.isSetResult, externalTerminalAction.isSetResult)
         && Objects.equals(this.scheduledAt, externalTerminalAction.scheduledAt)
+        && Objects.equals(this.isSetScheduledAt, externalTerminalAction.isSetScheduledAt)
         && Objects.equals(this.status, externalTerminalAction.status)
-        && Objects.equals(this.terminalId, externalTerminalAction.terminalId);
+        && Objects.equals(this.isSetStatus, externalTerminalAction.isSetStatus)
+        && Objects.equals(this.terminalId, externalTerminalAction.terminalId)
+        && Objects.equals(this.isSetTerminalId, externalTerminalAction.isSetTerminalId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        actionType, config, confirmedAt, id, result, scheduledAt, status, terminalId);
+        actionType,
+        isSetActionType,
+        config,
+        isSetConfig,
+        confirmedAt,
+        isSetConfirmedAt,
+        id,
+        isSetId,
+        result,
+        isSetResult,
+        scheduledAt,
+        isSetScheduledAt,
+        status,
+        isSetStatus,
+        terminalId,
+        isSetTerminalId);
   }
 
   @Override
@@ -382,6 +473,51 @@ public class ExternalTerminalAction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetActionType) {
+      addIfNull(nulls, JSON_PROPERTY_ACTION_TYPE, this.actionType);
+    }
+    if (isSetConfig) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIG, this.config);
+    }
+    if (isSetConfirmedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIRMED_AT, this.confirmedAt);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetResult) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT, this.result);
+    }
+    if (isSetScheduledAt) {
+      addIfNull(nulls, JSON_PROPERTY_SCHEDULED_AT, this.scheduledAt);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTerminalId) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_ID, this.terminalId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

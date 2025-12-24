@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class TaxInformation {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountry = false;
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
 
   public static final String JSON_PROPERTY_NUMBER_ABSENT = "numberAbsent";
   private Boolean numberAbsent;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumberAbsent = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TaxInformation() {}
 
@@ -49,6 +69,7 @@ public class TaxInformation {
    */
   public TaxInformation country(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -76,6 +97,7 @@ public class TaxInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
   }
 
   /**
@@ -86,6 +108,7 @@ public class TaxInformation {
    */
   public TaxInformation number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -109,6 +132,7 @@ public class TaxInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -121,6 +145,7 @@ public class TaxInformation {
    */
   public TaxInformation numberAbsent(Boolean numberAbsent) {
     this.numberAbsent = numberAbsent;
+    isSetNumberAbsent = true; // mark as set
     return this;
   }
 
@@ -148,6 +173,7 @@ public class TaxInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberAbsent(Boolean numberAbsent) {
     this.numberAbsent = numberAbsent;
+    isSetNumberAbsent = true; // mark as set
   }
 
   /**
@@ -162,6 +188,7 @@ public class TaxInformation {
    */
   public TaxInformation type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -193,6 +220,27 @@ public class TaxInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TaxInformation includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TaxInformation object is equal to o. */
@@ -206,14 +254,26 @@ public class TaxInformation {
     }
     TaxInformation taxInformation = (TaxInformation) o;
     return Objects.equals(this.country, taxInformation.country)
+        && Objects.equals(this.isSetCountry, taxInformation.isSetCountry)
         && Objects.equals(this.number, taxInformation.number)
+        && Objects.equals(this.isSetNumber, taxInformation.isSetNumber)
         && Objects.equals(this.numberAbsent, taxInformation.numberAbsent)
-        && Objects.equals(this.type, taxInformation.type);
+        && Objects.equals(this.isSetNumberAbsent, taxInformation.isSetNumberAbsent)
+        && Objects.equals(this.type, taxInformation.type)
+        && Objects.equals(this.isSetType, taxInformation.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, number, numberAbsent, type);
+    return Objects.hash(
+        country,
+        isSetCountry,
+        number,
+        isSetNumber,
+        numberAbsent,
+        isSetNumberAbsent,
+        type,
+        isSetType);
   }
 
   @Override
@@ -236,6 +296,39 @@ public class TaxInformation {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCountry) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetNumberAbsent) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER_ABSENT, this.numberAbsent);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

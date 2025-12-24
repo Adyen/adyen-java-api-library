@@ -1,0 +1,7 @@
+{
+  "pspReference": "8815658961765250",
+  "response": {
+    "status": 200,
+    "body": "{\"success\": \"ok\",\"data\": {\"tokenizeCreditCard\": {\"paymentMethod\": {\"id\": \"PAYMENT_METHOD_ID\"}}}}"
+  }
+}

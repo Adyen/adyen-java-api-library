@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -76,17 +78,38 @@ public class Notification {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCategory = false;
+
   public static final String JSON_PROPERTY_DETAILS = "details";
   private String details;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDetails = false;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnabled = false;
+
   public static final String JSON_PROPERTY_SHOW_BUTTON = "showButton";
   private Boolean showButton;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShowButton = false;
+
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTitle = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Notification() {}
 
@@ -98,6 +121,7 @@ public class Notification {
    */
   public Notification category(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
     return this;
   }
 
@@ -121,6 +145,7 @@ public class Notification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
   }
 
   /**
@@ -133,6 +158,7 @@ public class Notification {
    */
   public Notification details(String details) {
     this.details = details;
+    isSetDetails = true; // mark as set
     return this;
   }
 
@@ -160,6 +186,7 @@ public class Notification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(String details) {
     this.details = details;
+    isSetDetails = true; // mark as set
   }
 
   /**
@@ -172,6 +199,7 @@ public class Notification {
    */
   public Notification enabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
     return this;
   }
 
@@ -199,6 +227,7 @@ public class Notification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
   }
 
   /**
@@ -211,6 +240,7 @@ public class Notification {
    */
   public Notification showButton(Boolean showButton) {
     this.showButton = showButton;
+    isSetShowButton = true; // mark as set
     return this;
   }
 
@@ -238,6 +268,7 @@ public class Notification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowButton(Boolean showButton) {
     this.showButton = showButton;
+    isSetShowButton = true; // mark as set
   }
 
   /**
@@ -248,6 +279,7 @@ public class Notification {
    */
   public Notification title(String title) {
     this.title = title;
+    isSetTitle = true; // mark as set
     return this;
   }
 
@@ -271,6 +303,27 @@ public class Notification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
     this.title = title;
+    isSetTitle = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Notification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Notification object is equal to o. */
@@ -284,15 +337,30 @@ public class Notification {
     }
     Notification notification = (Notification) o;
     return Objects.equals(this.category, notification.category)
+        && Objects.equals(this.isSetCategory, notification.isSetCategory)
         && Objects.equals(this.details, notification.details)
+        && Objects.equals(this.isSetDetails, notification.isSetDetails)
         && Objects.equals(this.enabled, notification.enabled)
+        && Objects.equals(this.isSetEnabled, notification.isSetEnabled)
         && Objects.equals(this.showButton, notification.showButton)
-        && Objects.equals(this.title, notification.title);
+        && Objects.equals(this.isSetShowButton, notification.isSetShowButton)
+        && Objects.equals(this.title, notification.title)
+        && Objects.equals(this.isSetTitle, notification.isSetTitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, details, enabled, showButton, title);
+    return Objects.hash(
+        category,
+        isSetCategory,
+        details,
+        isSetDetails,
+        enabled,
+        isSetEnabled,
+        showButton,
+        isSetShowButton,
+        title,
+        isSetTitle);
   }
 
   @Override
@@ -316,6 +384,42 @@ public class Notification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCategory) {
+      addIfNull(nulls, JSON_PROPERTY_CATEGORY, this.category);
+    }
+    if (isSetDetails) {
+      addIfNull(nulls, JSON_PROPERTY_DETAILS, this.details);
+    }
+    if (isSetEnabled) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLED, this.enabled);
+    }
+    if (isSetShowButton) {
+      addIfNull(nulls, JSON_PROPERTY_SHOW_BUTTON, this.showButton);
+    }
+    if (isSetTitle) {
+      addIfNull(nulls, JSON_PROPERTY_TITLE, this.title);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -50,17 +52,32 @@ public class PaymentMethodsRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
   private List<String> allowedPaymentMethods;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedPaymentMethods = false;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
   private List<String> blockedPaymentMethods;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBlockedPaymentMethods = false;
+
   public static final String JSON_PROPERTY_BROWSER_INFO = "browserInfo";
   private BrowserInfo browserInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrowserInfo = false;
 
   /**
    * The platform where a payment transaction takes place. This field can be used for filtering out
@@ -112,41 +129,74 @@ public class PaymentMethodsRequest {
   public static final String JSON_PROPERTY_CHANNEL = "channel";
   private ChannelEnum channel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChannel = false;
+
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_ORDER = "order";
   private EncryptedOrderData order;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrder = false;
 
   public static final String JSON_PROPERTY_SHOPPER_CONVERSION_ID = "shopperConversionId";
   private String shopperConversionId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperConversionId = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
   private String shopperIP;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperIP = false;
+
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperLocale = false;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
   private Boolean splitCardFundingSources;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitCardFundingSources = false;
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStore = false;
+
   /**
-   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter: -
-   * &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are
-   * returned. - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not
-   * associated with any other store are returned.
+   * Specifies how payment methods should be filtered based on the &#x60;store&#x60; parameter: -
+   * **exclusive**: Only payment methods belonging to the specified &#x60;store&#x60; are returned.
+   * - **inclusive**: Payment methods from the &#x60;store&#x60; and those not associated with any
+   * other store are returned.
    */
   public enum StoreFiltrationModeEnum {
     EXCLUSIVE(String.valueOf("exclusive")),
@@ -193,8 +243,20 @@ public class PaymentMethodsRequest {
   public static final String JSON_PROPERTY_STORE_FILTRATION_MODE = "storeFiltrationMode";
   private StoreFiltrationModeEnum storeFiltrationMode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreFiltrationMode = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethodsRequest() {}
 
@@ -210,6 +272,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -249,6 +312,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -264,6 +328,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
+    isSetAllowedPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -305,6 +370,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
     this.allowedPaymentMethods = allowedPaymentMethods;
+    isSetAllowedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -315,6 +381,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -338,6 +405,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -353,6 +421,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+    isSetBlockedPaymentMethods = true; // mark as set
     return this;
   }
 
@@ -394,6 +463,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+    isSetBlockedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -404,6 +474,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest browserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
+    isSetBrowserInfo = true; // mark as set
     return this;
   }
 
@@ -427,6 +498,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrowserInfo(BrowserInfo browserInfo) {
     this.browserInfo = browserInfo;
+    isSetBrowserInfo = true; // mark as set
   }
 
   /**
@@ -441,6 +513,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest channel(ChannelEnum channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
     return this;
   }
 
@@ -472,6 +545,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChannel(ChannelEnum channel) {
     this.channel = channel;
+    isSetChannel = true; // mark as set
   }
 
   /**
@@ -482,6 +556,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -505,6 +580,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -516,6 +592,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -541,6 +618,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -551,6 +629,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest order(EncryptedOrderData order) {
     this.order = order;
+    isSetOrder = true; // mark as set
     return this;
   }
 
@@ -574,6 +653,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(EncryptedOrderData order) {
     this.order = order;
+    isSetOrder = true; // mark as set
   }
 
   /**
@@ -587,6 +667,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest shopperConversionId(String shopperConversionId) {
     this.shopperConversionId = shopperConversionId;
+    isSetShopperConversionId = true; // mark as set
     return this;
   }
 
@@ -616,6 +697,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperConversionId(String shopperConversionId) {
     this.shopperConversionId = shopperConversionId;
+    isSetShopperConversionId = true; // mark as set
   }
 
   /**
@@ -630,6 +712,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -661,6 +744,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -684,6 +768,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
     return this;
   }
 
@@ -733,6 +818,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
   }
 
   /**
@@ -745,6 +831,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
     return this;
   }
 
@@ -772,6 +859,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
+    isSetShopperLocale = true; // mark as set
   }
 
   /**
@@ -788,6 +876,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -823,6 +912,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -835,6 +925,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest splitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
+    isSetSplitCardFundingSources = true; // mark as set
     return this;
   }
 
@@ -862,6 +953,7 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitCardFundingSources(Boolean splitCardFundingSources) {
     this.splitCardFundingSources = splitCardFundingSources;
+    isSetSplitCardFundingSources = true; // mark as set
   }
 
   /**
@@ -885,6 +977,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest store(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
     return this;
   }
 
@@ -934,35 +1027,37 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
+    isSetStore = true; // mark as set
   }
 
   /**
-   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter: -
-   * &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are
-   * returned. - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not
-   * associated with any other store are returned.
+   * Specifies how payment methods should be filtered based on the &#x60;store&#x60; parameter: -
+   * **exclusive**: Only payment methods belonging to the specified &#x60;store&#x60; are returned.
+   * - **inclusive**: Payment methods from the &#x60;store&#x60; and those not associated with any
+   * other store are returned.
    *
    * @param storeFiltrationMode Specifies how payment methods should be filtered based on the
-   *     &#39;store&#39; parameter: - &#39;exclusive&#39;: Only payment methods belonging to the
-   *     specified &#39;store&#39; are returned. - &#39;inclusive&#39;: Payment methods from the
-   *     &#39;store&#39; and those not associated with any other store are returned.
+   *     &#x60;store&#x60; parameter: - **exclusive**: Only payment methods belonging to the
+   *     specified &#x60;store&#x60; are returned. - **inclusive**: Payment methods from the
+   *     &#x60;store&#x60; and those not associated with any other store are returned.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest storeFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
     this.storeFiltrationMode = storeFiltrationMode;
+    isSetStoreFiltrationMode = true; // mark as set
     return this;
   }
 
   /**
-   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter: -
-   * &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are
-   * returned. - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not
-   * associated with any other store are returned.
+   * Specifies how payment methods should be filtered based on the &#x60;store&#x60; parameter: -
+   * **exclusive**: Only payment methods belonging to the specified &#x60;store&#x60; are returned.
+   * - **inclusive**: Payment methods from the &#x60;store&#x60; and those not associated with any
+   * other store are returned.
    *
    * @return storeFiltrationMode Specifies how payment methods should be filtered based on the
-   *     &#39;store&#39; parameter: - &#39;exclusive&#39;: Only payment methods belonging to the
-   *     specified &#39;store&#39; are returned. - &#39;inclusive&#39;: Payment methods from the
-   *     &#39;store&#39; and those not associated with any other store are returned.
+   *     &#x60;store&#x60; parameter: - **exclusive**: Only payment methods belonging to the
+   *     specified &#x60;store&#x60; are returned. - **inclusive**: Payment methods from the
+   *     &#x60;store&#x60; and those not associated with any other store are returned.
    */
   @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -971,20 +1066,21 @@ public class PaymentMethodsRequest {
   }
 
   /**
-   * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter: -
-   * &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are
-   * returned. - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not
-   * associated with any other store are returned.
+   * Specifies how payment methods should be filtered based on the &#x60;store&#x60; parameter: -
+   * **exclusive**: Only payment methods belonging to the specified &#x60;store&#x60; are returned.
+   * - **inclusive**: Payment methods from the &#x60;store&#x60; and those not associated with any
+   * other store are returned.
    *
    * @param storeFiltrationMode Specifies how payment methods should be filtered based on the
-   *     &#39;store&#39; parameter: - &#39;exclusive&#39;: Only payment methods belonging to the
-   *     specified &#39;store&#39; are returned. - &#39;inclusive&#39;: Payment methods from the
-   *     &#39;store&#39; and those not associated with any other store are returned.
+   *     &#x60;store&#x60; parameter: - **exclusive**: Only payment methods belonging to the
+   *     specified &#x60;store&#x60; are returned. - **inclusive**: Payment methods from the
+   *     &#x60;store&#x60; and those not associated with any other store are returned.
    */
   @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
     this.storeFiltrationMode = storeFiltrationMode;
+    isSetStoreFiltrationMode = true; // mark as set
   }
 
   /**
@@ -1003,6 +1099,7 @@ public class PaymentMethodsRequest {
    */
   public PaymentMethodsRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -1042,6 +1139,27 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodsRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethodsRequest object is equal to o. */
@@ -1055,47 +1173,88 @@ public class PaymentMethodsRequest {
     }
     PaymentMethodsRequest paymentMethodsRequest = (PaymentMethodsRequest) o;
     return Objects.equals(this.additionalData, paymentMethodsRequest.additionalData)
+        && Objects.equals(this.isSetAdditionalData, paymentMethodsRequest.isSetAdditionalData)
         && Objects.equals(this.allowedPaymentMethods, paymentMethodsRequest.allowedPaymentMethods)
+        && Objects.equals(
+            this.isSetAllowedPaymentMethods, paymentMethodsRequest.isSetAllowedPaymentMethods)
         && Objects.equals(this.amount, paymentMethodsRequest.amount)
+        && Objects.equals(this.isSetAmount, paymentMethodsRequest.isSetAmount)
         && Objects.equals(this.blockedPaymentMethods, paymentMethodsRequest.blockedPaymentMethods)
+        && Objects.equals(
+            this.isSetBlockedPaymentMethods, paymentMethodsRequest.isSetBlockedPaymentMethods)
         && Objects.equals(this.browserInfo, paymentMethodsRequest.browserInfo)
+        && Objects.equals(this.isSetBrowserInfo, paymentMethodsRequest.isSetBrowserInfo)
         && Objects.equals(this.channel, paymentMethodsRequest.channel)
+        && Objects.equals(this.isSetChannel, paymentMethodsRequest.isSetChannel)
         && Objects.equals(this.countryCode, paymentMethodsRequest.countryCode)
+        && Objects.equals(this.isSetCountryCode, paymentMethodsRequest.isSetCountryCode)
         && Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, paymentMethodsRequest.isSetMerchantAccount)
         && Objects.equals(this.order, paymentMethodsRequest.order)
+        && Objects.equals(this.isSetOrder, paymentMethodsRequest.isSetOrder)
         && Objects.equals(this.shopperConversionId, paymentMethodsRequest.shopperConversionId)
+        && Objects.equals(
+            this.isSetShopperConversionId, paymentMethodsRequest.isSetShopperConversionId)
         && Objects.equals(this.shopperEmail, paymentMethodsRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, paymentMethodsRequest.isSetShopperEmail)
         && Objects.equals(this.shopperIP, paymentMethodsRequest.shopperIP)
+        && Objects.equals(this.isSetShopperIP, paymentMethodsRequest.isSetShopperIP)
         && Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale)
+        && Objects.equals(this.isSetShopperLocale, paymentMethodsRequest.isSetShopperLocale)
         && Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, paymentMethodsRequest.isSetShopperReference)
         && Objects.equals(
             this.splitCardFundingSources, paymentMethodsRequest.splitCardFundingSources)
+        && Objects.equals(
+            this.isSetSplitCardFundingSources, paymentMethodsRequest.isSetSplitCardFundingSources)
         && Objects.equals(this.store, paymentMethodsRequest.store)
+        && Objects.equals(this.isSetStore, paymentMethodsRequest.isSetStore)
         && Objects.equals(this.storeFiltrationMode, paymentMethodsRequest.storeFiltrationMode)
-        && Objects.equals(this.telephoneNumber, paymentMethodsRequest.telephoneNumber);
+        && Objects.equals(
+            this.isSetStoreFiltrationMode, paymentMethodsRequest.isSetStoreFiltrationMode)
+        && Objects.equals(this.telephoneNumber, paymentMethodsRequest.telephoneNumber)
+        && Objects.equals(this.isSetTelephoneNumber, paymentMethodsRequest.isSetTelephoneNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         allowedPaymentMethods,
+        isSetAllowedPaymentMethods,
         amount,
+        isSetAmount,
         blockedPaymentMethods,
+        isSetBlockedPaymentMethods,
         browserInfo,
+        isSetBrowserInfo,
         channel,
+        isSetChannel,
         countryCode,
+        isSetCountryCode,
         merchantAccount,
+        isSetMerchantAccount,
         order,
+        isSetOrder,
         shopperConversionId,
+        isSetShopperConversionId,
         shopperEmail,
+        isSetShopperEmail,
         shopperIP,
+        isSetShopperIP,
         shopperLocale,
+        isSetShopperLocale,
         shopperReference,
+        isSetShopperReference,
         splitCardFundingSources,
+        isSetSplitCardFundingSources,
         store,
+        isSetStore,
         storeFiltrationMode,
-        telephoneNumber);
+        isSetStoreFiltrationMode,
+        telephoneNumber,
+        isSetTelephoneNumber);
   }
 
   @Override
@@ -1142,6 +1301,81 @@ public class PaymentMethodsRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAllowedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_PAYMENT_METHODS, this.allowedPaymentMethods);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBlockedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_BLOCKED_PAYMENT_METHODS, this.blockedPaymentMethods);
+    }
+    if (isSetBrowserInfo) {
+      addIfNull(nulls, JSON_PROPERTY_BROWSER_INFO, this.browserInfo);
+    }
+    if (isSetChannel) {
+      addIfNull(nulls, JSON_PROPERTY_CHANNEL, this.channel);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetOrder) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER, this.order);
+    }
+    if (isSetShopperConversionId) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_CONVERSION_ID, this.shopperConversionId);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperIP) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_I_P, this.shopperIP);
+    }
+    if (isSetShopperLocale) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_LOCALE, this.shopperLocale);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetSplitCardFundingSources) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES, this.splitCardFundingSources);
+    }
+    if (isSetStore) {
+      addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+    if (isSetStoreFiltrationMode) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_FILTRATION_MODE, this.storeFiltrationMode);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

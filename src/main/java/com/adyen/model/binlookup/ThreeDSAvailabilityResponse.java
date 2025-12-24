@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,18 +33,39 @@ public class ThreeDSAvailabilityResponse {
   public static final String JSON_PROPERTY_BIN_DETAILS = "binDetails";
   private BinDetail binDetails;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBinDetails = false;
+
   public static final String JSON_PROPERTY_DS_PUBLIC_KEYS = "dsPublicKeys";
   private List<DSPublicKeyDetail> dsPublicKeys;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsPublicKeys = false;
+
   public static final String JSON_PROPERTY_THREE_D_S1_SUPPORTED = "threeDS1Supported";
   private Boolean threeDS1Supported;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS1Supported = false;
 
   public static final String JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS =
       "threeDS2CardRangeDetails";
   private List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2CardRangeDetails = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2SUPPORTED = "threeDS2supported";
   private Boolean threeDS2supported;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2supported = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDSAvailabilityResponse() {}
 
@@ -54,6 +77,7 @@ public class ThreeDSAvailabilityResponse {
    */
   public ThreeDSAvailabilityResponse binDetails(BinDetail binDetails) {
     this.binDetails = binDetails;
+    isSetBinDetails = true; // mark as set
     return this;
   }
 
@@ -77,6 +101,7 @@ public class ThreeDSAvailabilityResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBinDetails(BinDetail binDetails) {
     this.binDetails = binDetails;
+    isSetBinDetails = true; // mark as set
   }
 
   /**
@@ -87,6 +112,7 @@ public class ThreeDSAvailabilityResponse {
    */
   public ThreeDSAvailabilityResponse dsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
     this.dsPublicKeys = dsPublicKeys;
+    isSetDsPublicKeys = true; // mark as set
     return this;
   }
 
@@ -118,6 +144,7 @@ public class ThreeDSAvailabilityResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
     this.dsPublicKeys = dsPublicKeys;
+    isSetDsPublicKeys = true; // mark as set
   }
 
   /**
@@ -128,6 +155,7 @@ public class ThreeDSAvailabilityResponse {
    */
   public ThreeDSAvailabilityResponse threeDS1Supported(Boolean threeDS1Supported) {
     this.threeDS1Supported = threeDS1Supported;
+    isSetThreeDS1Supported = true; // mark as set
     return this;
   }
 
@@ -151,6 +179,7 @@ public class ThreeDSAvailabilityResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS1Supported(Boolean threeDS1Supported) {
     this.threeDS1Supported = threeDS1Supported;
+    isSetThreeDS1Supported = true; // mark as set
   }
 
   /**
@@ -162,6 +191,7 @@ public class ThreeDSAvailabilityResponse {
   public ThreeDSAvailabilityResponse threeDS2CardRangeDetails(
       List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails) {
     this.threeDS2CardRangeDetails = threeDS2CardRangeDetails;
+    isSetThreeDS2CardRangeDetails = true; // mark as set
     return this;
   }
 
@@ -194,6 +224,7 @@ public class ThreeDSAvailabilityResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2CardRangeDetails(List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails) {
     this.threeDS2CardRangeDetails = threeDS2CardRangeDetails;
+    isSetThreeDS2CardRangeDetails = true; // mark as set
   }
 
   /**
@@ -204,6 +235,7 @@ public class ThreeDSAvailabilityResponse {
    */
   public ThreeDSAvailabilityResponse threeDS2supported(Boolean threeDS2supported) {
     this.threeDS2supported = threeDS2supported;
+    isSetThreeDS2supported = true; // mark as set
     return this;
   }
 
@@ -227,6 +259,27 @@ public class ThreeDSAvailabilityResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2supported(Boolean threeDS2supported) {
     this.threeDS2supported = threeDS2supported;
+    isSetThreeDS2supported = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDSAvailabilityResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDSAvailabilityResponse object is equal to o. */
@@ -240,17 +293,35 @@ public class ThreeDSAvailabilityResponse {
     }
     ThreeDSAvailabilityResponse threeDSAvailabilityResponse = (ThreeDSAvailabilityResponse) o;
     return Objects.equals(this.binDetails, threeDSAvailabilityResponse.binDetails)
+        && Objects.equals(this.isSetBinDetails, threeDSAvailabilityResponse.isSetBinDetails)
         && Objects.equals(this.dsPublicKeys, threeDSAvailabilityResponse.dsPublicKeys)
+        && Objects.equals(this.isSetDsPublicKeys, threeDSAvailabilityResponse.isSetDsPublicKeys)
         && Objects.equals(this.threeDS1Supported, threeDSAvailabilityResponse.threeDS1Supported)
         && Objects.equals(
+            this.isSetThreeDS1Supported, threeDSAvailabilityResponse.isSetThreeDS1Supported)
+        && Objects.equals(
             this.threeDS2CardRangeDetails, threeDSAvailabilityResponse.threeDS2CardRangeDetails)
-        && Objects.equals(this.threeDS2supported, threeDSAvailabilityResponse.threeDS2supported);
+        && Objects.equals(
+            this.isSetThreeDS2CardRangeDetails,
+            threeDSAvailabilityResponse.isSetThreeDS2CardRangeDetails)
+        && Objects.equals(this.threeDS2supported, threeDSAvailabilityResponse.threeDS2supported)
+        && Objects.equals(
+            this.isSetThreeDS2supported, threeDSAvailabilityResponse.isSetThreeDS2supported);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        binDetails, dsPublicKeys, threeDS1Supported, threeDS2CardRangeDetails, threeDS2supported);
+        binDetails,
+        isSetBinDetails,
+        dsPublicKeys,
+        isSetDsPublicKeys,
+        threeDS1Supported,
+        isSetThreeDS1Supported,
+        threeDS2CardRangeDetails,
+        isSetThreeDS2CardRangeDetails,
+        threeDS2supported,
+        isSetThreeDS2supported);
   }
 
   @Override
@@ -276,6 +347,42 @@ public class ThreeDSAvailabilityResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBinDetails) {
+      addIfNull(nulls, JSON_PROPERTY_BIN_DETAILS, this.binDetails);
+    }
+    if (isSetDsPublicKeys) {
+      addIfNull(nulls, JSON_PROPERTY_DS_PUBLIC_KEYS, this.dsPublicKeys);
+    }
+    if (isSetThreeDS1Supported) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S1_SUPPORTED, this.threeDS1Supported);
+    }
+    if (isSetThreeDS2CardRangeDetails) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS, this.threeDS2CardRangeDetails);
+    }
+    if (isSetThreeDS2supported) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2SUPPORTED, this.threeDS2supported);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

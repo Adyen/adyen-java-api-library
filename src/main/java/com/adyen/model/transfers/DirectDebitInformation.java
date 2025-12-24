@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,14 +31,32 @@ public class DirectDebitInformation {
   public static final String JSON_PROPERTY_DATE_OF_SIGNATURE = "dateOfSignature";
   private OffsetDateTime dateOfSignature;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfSignature = false;
+
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
   private OffsetDateTime dueDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDueDate = false;
 
   public static final String JSON_PROPERTY_MANDATE_ID = "mandateId";
   private String mandateId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMandateId = false;
+
   public static final String JSON_PROPERTY_SEQUENCE_TYPE = "sequenceType";
   private String sequenceType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSequenceType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DirectDebitInformation() {}
 
@@ -50,6 +70,7 @@ public class DirectDebitInformation {
    */
   public DirectDebitInformation dateOfSignature(OffsetDateTime dateOfSignature) {
     this.dateOfSignature = dateOfSignature;
+    isSetDateOfSignature = true; // mark as set
     return this;
   }
 
@@ -77,6 +98,7 @@ public class DirectDebitInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfSignature(OffsetDateTime dateOfSignature) {
     this.dateOfSignature = dateOfSignature;
+    isSetDateOfSignature = true; // mark as set
   }
 
   /**
@@ -87,6 +109,7 @@ public class DirectDebitInformation {
    */
   public DirectDebitInformation dueDate(OffsetDateTime dueDate) {
     this.dueDate = dueDate;
+    isSetDueDate = true; // mark as set
     return this;
   }
 
@@ -110,6 +133,7 @@ public class DirectDebitInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDueDate(OffsetDateTime dueDate) {
     this.dueDate = dueDate;
+    isSetDueDate = true; // mark as set
   }
 
   /**
@@ -120,6 +144,7 @@ public class DirectDebitInformation {
    */
   public DirectDebitInformation mandateId(String mandateId) {
     this.mandateId = mandateId;
+    isSetMandateId = true; // mark as set
     return this;
   }
 
@@ -143,6 +168,7 @@ public class DirectDebitInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMandateId(String mandateId) {
     this.mandateId = mandateId;
+    isSetMandateId = true; // mark as set
   }
 
   /**
@@ -155,6 +181,7 @@ public class DirectDebitInformation {
    */
   public DirectDebitInformation sequenceType(String sequenceType) {
     this.sequenceType = sequenceType;
+    isSetSequenceType = true; // mark as set
     return this;
   }
 
@@ -182,6 +209,27 @@ public class DirectDebitInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSequenceType(String sequenceType) {
     this.sequenceType = sequenceType;
+    isSetSequenceType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DirectDebitInformation includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DirectDebitInformation object is equal to o. */
@@ -195,14 +243,26 @@ public class DirectDebitInformation {
     }
     DirectDebitInformation directDebitInformation = (DirectDebitInformation) o;
     return Objects.equals(this.dateOfSignature, directDebitInformation.dateOfSignature)
+        && Objects.equals(this.isSetDateOfSignature, directDebitInformation.isSetDateOfSignature)
         && Objects.equals(this.dueDate, directDebitInformation.dueDate)
+        && Objects.equals(this.isSetDueDate, directDebitInformation.isSetDueDate)
         && Objects.equals(this.mandateId, directDebitInformation.mandateId)
-        && Objects.equals(this.sequenceType, directDebitInformation.sequenceType);
+        && Objects.equals(this.isSetMandateId, directDebitInformation.isSetMandateId)
+        && Objects.equals(this.sequenceType, directDebitInformation.sequenceType)
+        && Objects.equals(this.isSetSequenceType, directDebitInformation.isSetSequenceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateOfSignature, dueDate, mandateId, sequenceType);
+    return Objects.hash(
+        dateOfSignature,
+        isSetDateOfSignature,
+        dueDate,
+        isSetDueDate,
+        mandateId,
+        isSetMandateId,
+        sequenceType,
+        isSetSequenceType);
   }
 
   @Override
@@ -225,6 +285,39 @@ public class DirectDebitInformation {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDateOfSignature) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_SIGNATURE, this.dateOfSignature);
+    }
+    if (isSetDueDate) {
+      addIfNull(nulls, JSON_PROPERTY_DUE_DATE, this.dueDate);
+    }
+    if (isSetMandateId) {
+      addIfNull(nulls, JSON_PROPERTY_MANDATE_ID, this.mandateId);
+    }
+    if (isSetSequenceType) {
+      addIfNull(nulls, JSON_PROPERTY_SEQUENCE_TYPE, this.sequenceType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,32 +38,68 @@ public class User {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private Links links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
   private List<String> accountGroups;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountGroups = false;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActive = false;
+
   public static final String JSON_PROPERTY_APPS = "apps";
   private List<String> apps;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetApps = false;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private Name name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_ROLES = "roles";
   private List<String> roles;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoles = false;
 
   public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeZoneCode = false;
+
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsername = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public User() {}
 
@@ -73,6 +111,7 @@ public class User {
    */
   public User links(Links links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
@@ -96,6 +135,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -109,6 +149,7 @@ public class User {
    */
   public User accountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
+    isSetAccountGroups = true; // mark as set
     return this;
   }
 
@@ -146,6 +187,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
+    isSetAccountGroups = true; // mark as set
   }
 
   /**
@@ -156,6 +198,7 @@ public class User {
    */
   public User active(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
     return this;
   }
 
@@ -179,6 +222,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
   }
 
   /**
@@ -189,6 +233,7 @@ public class User {
    */
   public User apps(List<String> apps) {
     this.apps = apps;
+    isSetApps = true; // mark as set
     return this;
   }
 
@@ -220,6 +265,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<String> apps) {
     this.apps = apps;
+    isSetApps = true; // mark as set
   }
 
   /**
@@ -230,6 +276,7 @@ public class User {
    */
   public User email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -253,6 +300,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -263,6 +311,7 @@ public class User {
    */
   public User id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -286,6 +335,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -296,6 +346,7 @@ public class User {
    */
   public User name(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -319,6 +370,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -329,6 +381,7 @@ public class User {
    */
   public User roles(List<String> roles) {
     this.roles = roles;
+    isSetRoles = true; // mark as set
     return this;
   }
 
@@ -360,6 +413,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
+    isSetRoles = true; // mark as set
   }
 
   /**
@@ -373,6 +427,7 @@ public class User {
    */
   public User timeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
+    isSetTimeZoneCode = true; // mark as set
     return this;
   }
 
@@ -402,6 +457,7 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
+    isSetTimeZoneCode = true; // mark as set
   }
 
   /**
@@ -412,6 +468,7 @@ public class User {
    */
   public User username(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
     return this;
   }
 
@@ -435,6 +492,27 @@ public class User {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public User includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this User object is equal to o. */
@@ -448,21 +526,50 @@ public class User {
     }
     User user = (User) o;
     return Objects.equals(this.links, user.links)
+        && Objects.equals(this.isSetLinks, user.isSetLinks)
         && Objects.equals(this.accountGroups, user.accountGroups)
+        && Objects.equals(this.isSetAccountGroups, user.isSetAccountGroups)
         && Objects.equals(this.active, user.active)
+        && Objects.equals(this.isSetActive, user.isSetActive)
         && Objects.equals(this.apps, user.apps)
+        && Objects.equals(this.isSetApps, user.isSetApps)
         && Objects.equals(this.email, user.email)
+        && Objects.equals(this.isSetEmail, user.isSetEmail)
         && Objects.equals(this.id, user.id)
+        && Objects.equals(this.isSetId, user.isSetId)
         && Objects.equals(this.name, user.name)
+        && Objects.equals(this.isSetName, user.isSetName)
         && Objects.equals(this.roles, user.roles)
+        && Objects.equals(this.isSetRoles, user.isSetRoles)
         && Objects.equals(this.timeZoneCode, user.timeZoneCode)
-        && Objects.equals(this.username, user.username);
+        && Objects.equals(this.isSetTimeZoneCode, user.isSetTimeZoneCode)
+        && Objects.equals(this.username, user.username)
+        && Objects.equals(this.isSetUsername, user.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        links, accountGroups, active, apps, email, id, name, roles, timeZoneCode, username);
+        links,
+        isSetLinks,
+        accountGroups,
+        isSetAccountGroups,
+        active,
+        isSetActive,
+        apps,
+        isSetApps,
+        email,
+        isSetEmail,
+        id,
+        isSetId,
+        name,
+        isSetName,
+        roles,
+        isSetRoles,
+        timeZoneCode,
+        isSetTimeZoneCode,
+        username,
+        isSetUsername);
   }
 
   @Override
@@ -491,6 +598,57 @@ public class User {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetAccountGroups) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_GROUPS, this.accountGroups);
+    }
+    if (isSetActive) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE, this.active);
+    }
+    if (isSetApps) {
+      addIfNull(nulls, JSON_PROPERTY_APPS, this.apps);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetRoles) {
+      addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetTimeZoneCode) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_ZONE_CODE, this.timeZoneCode);
+    }
+    if (isSetUsername) {
+      addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

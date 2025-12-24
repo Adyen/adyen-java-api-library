@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,8 +28,20 @@ public class RevealPinResponse {
   public static final String JSON_PROPERTY_ENCRYPTED_PIN_BLOCK = "encryptedPinBlock";
   private String encryptedPinBlock;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedPinBlock = false;
+
   public static final String JSON_PROPERTY_TOKEN = "token";
   private String token;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetToken = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public RevealPinResponse() {}
 
@@ -40,6 +54,7 @@ public class RevealPinResponse {
    */
   public RevealPinResponse encryptedPinBlock(String encryptedPinBlock) {
     this.encryptedPinBlock = encryptedPinBlock;
+    isSetEncryptedPinBlock = true; // mark as set
     return this;
   }
 
@@ -65,6 +80,7 @@ public class RevealPinResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedPinBlock(String encryptedPinBlock) {
     this.encryptedPinBlock = encryptedPinBlock;
+    isSetEncryptedPinBlock = true; // mark as set
   }
 
   /**
@@ -75,6 +91,7 @@ public class RevealPinResponse {
    */
   public RevealPinResponse token(String token) {
     this.token = token;
+    isSetToken = true; // mark as set
     return this;
   }
 
@@ -98,6 +115,27 @@ public class RevealPinResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
+    isSetToken = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RevealPinResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RevealPinResponse object is equal to o. */
@@ -111,12 +149,14 @@ public class RevealPinResponse {
     }
     RevealPinResponse revealPinResponse = (RevealPinResponse) o;
     return Objects.equals(this.encryptedPinBlock, revealPinResponse.encryptedPinBlock)
-        && Objects.equals(this.token, revealPinResponse.token);
+        && Objects.equals(this.isSetEncryptedPinBlock, revealPinResponse.isSetEncryptedPinBlock)
+        && Objects.equals(this.token, revealPinResponse.token)
+        && Objects.equals(this.isSetToken, revealPinResponse.isSetToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptedPinBlock, token);
+    return Objects.hash(encryptedPinBlock, isSetEncryptedPinBlock, token, isSetToken);
   }
 
   @Override
@@ -137,6 +177,33 @@ public class RevealPinResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetEncryptedPinBlock) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_PIN_BLOCK, this.encryptedPinBlock);
+    }
+    if (isSetToken) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN, this.token);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

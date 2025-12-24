@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,20 +39,38 @@ public class ResponseAdditionalDataCard {
   public static final String JSON_PROPERTY_CARD_BIN = "cardBin";
   private String cardBin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardBin = false;
+
   public static final String JSON_PROPERTY_CARD_HOLDER_NAME = "cardHolderName";
   private String cardHolderName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardHolderName = false;
 
   public static final String JSON_PROPERTY_CARD_ISSUING_BANK = "cardIssuingBank";
   private String cardIssuingBank;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardIssuingBank = false;
+
   public static final String JSON_PROPERTY_CARD_ISSUING_COUNTRY = "cardIssuingCountry";
   private String cardIssuingCountry;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardIssuingCountry = false;
 
   public static final String JSON_PROPERTY_CARD_ISSUING_CURRENCY = "cardIssuingCurrency";
   private String cardIssuingCurrency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardIssuingCurrency = false;
+
   public static final String JSON_PROPERTY_CARD_PAYMENT_METHOD = "cardPaymentMethod";
   private String cardPaymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardPaymentMethod = false;
 
   /**
    * The Card Product ID represents the type of card following card scheme product definitions and
@@ -122,11 +142,26 @@ public class ResponseAdditionalDataCard {
   public static final String JSON_PROPERTY_CARD_PRODUCT_ID = "cardProductId";
   private CardProductIdEnum cardProductId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardProductId = false;
+
   public static final String JSON_PROPERTY_CARD_SUMMARY = "cardSummary";
   private String cardSummary;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardSummary = false;
+
   public static final String JSON_PROPERTY_ISSUER_BIN = "issuerBin";
   private String issuerBin;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerBin = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ResponseAdditionalDataCard() {}
 
@@ -142,6 +177,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardBin(String cardBin) {
     this.cardBin = cardBin;
+    isSetCardBin = true; // mark as set
     return this;
   }
 
@@ -174,6 +210,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(String cardBin) {
     this.cardBin = cardBin;
+    isSetCardBin = true; // mark as set
   }
 
   /**
@@ -184,6 +221,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardHolderName(String cardHolderName) {
     this.cardHolderName = cardHolderName;
+    isSetCardHolderName = true; // mark as set
     return this;
   }
 
@@ -207,6 +245,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderName(String cardHolderName) {
     this.cardHolderName = cardHolderName;
+    isSetCardHolderName = true; // mark as set
   }
 
   /**
@@ -219,6 +258,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardIssuingBank(String cardIssuingBank) {
     this.cardIssuingBank = cardIssuingBank;
+    isSetCardIssuingBank = true; // mark as set
     return this;
   }
 
@@ -246,6 +286,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingBank(String cardIssuingBank) {
     this.cardIssuingBank = cardIssuingBank;
+    isSetCardIssuingBank = true; // mark as set
   }
 
   /**
@@ -256,6 +297,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardIssuingCountry(String cardIssuingCountry) {
     this.cardIssuingCountry = cardIssuingCountry;
+    isSetCardIssuingCountry = true; // mark as set
     return this;
   }
 
@@ -279,6 +321,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingCountry(String cardIssuingCountry) {
     this.cardIssuingCountry = cardIssuingCountry;
+    isSetCardIssuingCountry = true; // mark as set
   }
 
   /**
@@ -292,6 +335,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardIssuingCurrency(String cardIssuingCurrency) {
     this.cardIssuingCurrency = cardIssuingCurrency;
+    isSetCardIssuingCurrency = true; // mark as set
     return this;
   }
 
@@ -321,6 +365,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingCurrency(String cardIssuingCurrency) {
     this.cardIssuingCurrency = cardIssuingCurrency;
+    isSetCardIssuingCurrency = true; // mark as set
   }
 
   /**
@@ -331,6 +376,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardPaymentMethod(String cardPaymentMethod) {
     this.cardPaymentMethod = cardPaymentMethod;
+    isSetCardPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -354,6 +400,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardPaymentMethod(String cardPaymentMethod) {
     this.cardPaymentMethod = cardPaymentMethod;
+    isSetCardPaymentMethod = true; // mark as set
   }
 
   /**
@@ -376,6 +423,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardProductId(CardProductIdEnum cardProductId) {
     this.cardProductId = cardProductId;
+    isSetCardProductId = true; // mark as set
     return this;
   }
 
@@ -423,6 +471,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardProductId(CardProductIdEnum cardProductId) {
     this.cardProductId = cardProductId;
+    isSetCardProductId = true; // mark as set
   }
 
   /**
@@ -434,6 +483,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard cardSummary(String cardSummary) {
     this.cardSummary = cardSummary;
+    isSetCardSummary = true; // mark as set
     return this;
   }
 
@@ -459,6 +509,7 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardSummary(String cardSummary) {
     this.cardSummary = cardSummary;
+    isSetCardSummary = true; // mark as set
   }
 
   /**
@@ -475,6 +526,7 @@ public class ResponseAdditionalDataCard {
    */
   public ResponseAdditionalDataCard issuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
+    isSetIssuerBin = true; // mark as set
     return this;
   }
 
@@ -510,6 +562,27 @@ public class ResponseAdditionalDataCard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
+    isSetIssuerBin = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ResponseAdditionalDataCard includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ResponseAdditionalDataCard object is equal to o. */
@@ -523,28 +596,50 @@ public class ResponseAdditionalDataCard {
     }
     ResponseAdditionalDataCard responseAdditionalDataCard = (ResponseAdditionalDataCard) o;
     return Objects.equals(this.cardBin, responseAdditionalDataCard.cardBin)
+        && Objects.equals(this.isSetCardBin, responseAdditionalDataCard.isSetCardBin)
         && Objects.equals(this.cardHolderName, responseAdditionalDataCard.cardHolderName)
+        && Objects.equals(this.isSetCardHolderName, responseAdditionalDataCard.isSetCardHolderName)
         && Objects.equals(this.cardIssuingBank, responseAdditionalDataCard.cardIssuingBank)
+        && Objects.equals(
+            this.isSetCardIssuingBank, responseAdditionalDataCard.isSetCardIssuingBank)
         && Objects.equals(this.cardIssuingCountry, responseAdditionalDataCard.cardIssuingCountry)
+        && Objects.equals(
+            this.isSetCardIssuingCountry, responseAdditionalDataCard.isSetCardIssuingCountry)
         && Objects.equals(this.cardIssuingCurrency, responseAdditionalDataCard.cardIssuingCurrency)
+        && Objects.equals(
+            this.isSetCardIssuingCurrency, responseAdditionalDataCard.isSetCardIssuingCurrency)
         && Objects.equals(this.cardPaymentMethod, responseAdditionalDataCard.cardPaymentMethod)
+        && Objects.equals(
+            this.isSetCardPaymentMethod, responseAdditionalDataCard.isSetCardPaymentMethod)
         && Objects.equals(this.cardProductId, responseAdditionalDataCard.cardProductId)
+        && Objects.equals(this.isSetCardProductId, responseAdditionalDataCard.isSetCardProductId)
         && Objects.equals(this.cardSummary, responseAdditionalDataCard.cardSummary)
-        && Objects.equals(this.issuerBin, responseAdditionalDataCard.issuerBin);
+        && Objects.equals(this.isSetCardSummary, responseAdditionalDataCard.isSetCardSummary)
+        && Objects.equals(this.issuerBin, responseAdditionalDataCard.issuerBin)
+        && Objects.equals(this.isSetIssuerBin, responseAdditionalDataCard.isSetIssuerBin);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         cardBin,
+        isSetCardBin,
         cardHolderName,
+        isSetCardHolderName,
         cardIssuingBank,
+        isSetCardIssuingBank,
         cardIssuingCountry,
+        isSetCardIssuingCountry,
         cardIssuingCurrency,
+        isSetCardIssuingCurrency,
         cardPaymentMethod,
+        isSetCardPaymentMethod,
         cardProductId,
+        isSetCardProductId,
         cardSummary,
-        issuerBin);
+        isSetCardSummary,
+        issuerBin,
+        isSetIssuerBin);
   }
 
   @Override
@@ -574,6 +669,54 @@ public class ResponseAdditionalDataCard {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardBin) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_BIN, this.cardBin);
+    }
+    if (isSetCardHolderName) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_HOLDER_NAME, this.cardHolderName);
+    }
+    if (isSetCardIssuingBank) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_ISSUING_BANK, this.cardIssuingBank);
+    }
+    if (isSetCardIssuingCountry) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_ISSUING_COUNTRY, this.cardIssuingCountry);
+    }
+    if (isSetCardIssuingCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_ISSUING_CURRENCY, this.cardIssuingCurrency);
+    }
+    if (isSetCardPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_PAYMENT_METHOD, this.cardPaymentMethod);
+    }
+    if (isSetCardProductId) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_PRODUCT_ID, this.cardProductId);
+    }
+    if (isSetCardSummary) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_SUMMARY, this.cardSummary);
+    }
+    if (isSetIssuerBin) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_BIN, this.issuerBin);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

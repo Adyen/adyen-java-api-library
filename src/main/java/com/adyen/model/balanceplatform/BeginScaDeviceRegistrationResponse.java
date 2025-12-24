@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,8 +28,20 @@ public class BeginScaDeviceRegistrationResponse {
   public static final String JSON_PROPERTY_SCA_DEVICE = "scaDevice";
   private ScaDevice scaDevice;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaDevice = false;
+
   public static final String JSON_PROPERTY_SDK_INPUT = "sdkInput";
   private String sdkInput;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkInput = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BeginScaDeviceRegistrationResponse() {}
 
@@ -40,6 +54,7 @@ public class BeginScaDeviceRegistrationResponse {
    */
   public BeginScaDeviceRegistrationResponse scaDevice(ScaDevice scaDevice) {
     this.scaDevice = scaDevice;
+    isSetScaDevice = true; // mark as set
     return this;
   }
 
@@ -63,6 +78,7 @@ public class BeginScaDeviceRegistrationResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaDevice(ScaDevice scaDevice) {
     this.scaDevice = scaDevice;
+    isSetScaDevice = true; // mark as set
   }
 
   /**
@@ -76,6 +92,7 @@ public class BeginScaDeviceRegistrationResponse {
    */
   public BeginScaDeviceRegistrationResponse sdkInput(String sdkInput) {
     this.sdkInput = sdkInput;
+    isSetSdkInput = true; // mark as set
     return this;
   }
 
@@ -103,6 +120,27 @@ public class BeginScaDeviceRegistrationResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkInput(String sdkInput) {
     this.sdkInput = sdkInput;
+    isSetSdkInput = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BeginScaDeviceRegistrationResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BeginScaDeviceRegistrationResponse object is equal to o. */
@@ -117,12 +155,14 @@ public class BeginScaDeviceRegistrationResponse {
     BeginScaDeviceRegistrationResponse beginScaDeviceRegistrationResponse =
         (BeginScaDeviceRegistrationResponse) o;
     return Objects.equals(this.scaDevice, beginScaDeviceRegistrationResponse.scaDevice)
-        && Objects.equals(this.sdkInput, beginScaDeviceRegistrationResponse.sdkInput);
+        && Objects.equals(this.isSetScaDevice, beginScaDeviceRegistrationResponse.isSetScaDevice)
+        && Objects.equals(this.sdkInput, beginScaDeviceRegistrationResponse.sdkInput)
+        && Objects.equals(this.isSetSdkInput, beginScaDeviceRegistrationResponse.isSetSdkInput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scaDevice, sdkInput);
+    return Objects.hash(scaDevice, isSetScaDevice, sdkInput, isSetSdkInput);
   }
 
   @Override
@@ -143,6 +183,33 @@ public class BeginScaDeviceRegistrationResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetScaDevice) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_DEVICE, this.scaDevice);
+    }
+    if (isSetSdkInput) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_INPUT, this.sdkInput);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

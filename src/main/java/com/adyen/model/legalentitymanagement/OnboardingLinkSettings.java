@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,59 +45,116 @@ public class OnboardingLinkSettings {
   public static final String JSON_PROPERTY_ACCEPTED_COUNTRIES = "acceptedCountries";
   private List<String> acceptedCountries;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptedCountries = false;
+
   public static final String JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION =
       "allowBankAccountFormatSelection";
   private Boolean allowBankAccountFormatSelection;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowBankAccountFormatSelection = false;
+
   public static final String JSON_PROPERTY_ALLOW_DEBUG_UI = "allowDebugUi";
   private Boolean allowDebugUi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowDebugUi = false;
 
   public static final String JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT =
       "allowIntraRegionCrossBorderPayout";
   private Boolean allowIntraRegionCrossBorderPayout;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowIntraRegionCrossBorderPayout = false;
+
   public static final String JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE = "changeLegalEntityType";
   private Boolean changeLegalEntityType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChangeLegalEntityType = false;
 
   public static final String JSON_PROPERTY_EDIT_PREFILLED_COUNTRY = "editPrefilledCountry";
   private Boolean editPrefilledCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEditPrefilledCountry = false;
+
   public static final String JSON_PROPERTY_ENFORCE_LEGAL_AGE = "enforceLegalAge";
   private Boolean enforceLegalAge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnforceLegalAge = false;
 
   public static final String JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL =
       "hideOnboardingIntroductionIndividual";
   private Boolean hideOnboardingIntroductionIndividual;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHideOnboardingIntroductionIndividual = false;
+
   public static final String JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION =
       "hideOnboardingIntroductionOrganization";
   private Boolean hideOnboardingIntroductionOrganization;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHideOnboardingIntroductionOrganization = false;
 
   public static final String JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR =
       "hideOnboardingIntroductionSoleProprietor";
   private Boolean hideOnboardingIntroductionSoleProprietor;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHideOnboardingIntroductionSoleProprietor = false;
+
   public static final String JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_TRUST =
       "hideOnboardingIntroductionTrust";
   private Boolean hideOnboardingIntroductionTrust;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHideOnboardingIntroductionTrust = false;
+
   public static final String JSON_PROPERTY_INSTANT_BANK_VERIFICATION = "instantBankVerification";
   private Boolean instantBankVerification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstantBankVerification = false;
 
   public static final String JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOM_MOTO = "requirePciSignEcomMoto";
   private Boolean requirePciSignEcomMoto;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequirePciSignEcomMoto = false;
+
   public static final String JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOMMERCE = "requirePciSignEcommerce";
   private Boolean requirePciSignEcommerce;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequirePciSignEcommerce = false;
 
   public static final String JSON_PROPERTY_REQUIRE_PCI_SIGN_POS = "requirePciSignPos";
   private Boolean requirePciSignPos;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequirePciSignPos = false;
+
   public static final String JSON_PROPERTY_REQUIRE_PCI_SIGN_POS_MOTO = "requirePciSignPosMoto";
   private Boolean requirePciSignPosMoto;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequirePciSignPosMoto = false;
+
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_LIMIT = "transferInstrumentLimit";
   private Integer transferInstrumentLimit;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstrumentLimit = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public OnboardingLinkSettings() {}
 
@@ -115,6 +174,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings acceptedCountries(List<String> acceptedCountries) {
     this.acceptedCountries = acceptedCountries;
+    isSetAcceptedCountries = true; // mark as set
     return this;
   }
 
@@ -162,6 +222,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedCountries(List<String> acceptedCountries) {
     this.acceptedCountries = acceptedCountries;
+    isSetAcceptedCountries = true; // mark as set
   }
 
   /**
@@ -175,6 +236,7 @@ public class OnboardingLinkSettings {
   public OnboardingLinkSettings allowBankAccountFormatSelection(
       Boolean allowBankAccountFormatSelection) {
     this.allowBankAccountFormatSelection = allowBankAccountFormatSelection;
+    isSetAllowBankAccountFormatSelection = true; // mark as set
     return this;
   }
 
@@ -202,6 +264,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowBankAccountFormatSelection(Boolean allowBankAccountFormatSelection) {
     this.allowBankAccountFormatSelection = allowBankAccountFormatSelection;
+    isSetAllowBankAccountFormatSelection = true; // mark as set
   }
 
   /**
@@ -216,6 +279,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings allowDebugUi(Boolean allowDebugUi) {
     this.allowDebugUi = allowDebugUi;
+    isSetAllowDebugUi = true; // mark as set
     return this;
   }
 
@@ -247,6 +311,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowDebugUi(Boolean allowDebugUi) {
     this.allowDebugUi = allowDebugUi;
+    isSetAllowDebugUi = true; // mark as set
   }
 
   /**
@@ -261,6 +326,7 @@ public class OnboardingLinkSettings {
   public OnboardingLinkSettings allowIntraRegionCrossBorderPayout(
       Boolean allowIntraRegionCrossBorderPayout) {
     this.allowIntraRegionCrossBorderPayout = allowIntraRegionCrossBorderPayout;
+    isSetAllowIntraRegionCrossBorderPayout = true; // mark as set
     return this;
   }
 
@@ -290,6 +356,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowIntraRegionCrossBorderPayout(Boolean allowIntraRegionCrossBorderPayout) {
     this.allowIntraRegionCrossBorderPayout = allowIntraRegionCrossBorderPayout;
+    isSetAllowIntraRegionCrossBorderPayout = true; // mark as set
   }
 
   /**
@@ -301,6 +368,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings changeLegalEntityType(Boolean changeLegalEntityType) {
     this.changeLegalEntityType = changeLegalEntityType;
+    isSetChangeLegalEntityType = true; // mark as set
     return this;
   }
 
@@ -326,6 +394,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChangeLegalEntityType(Boolean changeLegalEntityType) {
     this.changeLegalEntityType = changeLegalEntityType;
+    isSetChangeLegalEntityType = true; // mark as set
   }
 
   /**
@@ -339,6 +408,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings editPrefilledCountry(Boolean editPrefilledCountry) {
     this.editPrefilledCountry = editPrefilledCountry;
+    isSetEditPrefilledCountry = true; // mark as set
     return this;
   }
 
@@ -368,6 +438,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditPrefilledCountry(Boolean editPrefilledCountry) {
     this.editPrefilledCountry = editPrefilledCountry;
+    isSetEditPrefilledCountry = true; // mark as set
   }
 
   /**
@@ -379,6 +450,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings enforceLegalAge(Boolean enforceLegalAge) {
     this.enforceLegalAge = enforceLegalAge;
+    isSetEnforceLegalAge = true; // mark as set
     return this;
   }
 
@@ -404,6 +476,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnforceLegalAge(Boolean enforceLegalAge) {
     this.enforceLegalAge = enforceLegalAge;
+    isSetEnforceLegalAge = true; // mark as set
   }
 
   /**
@@ -420,6 +493,7 @@ public class OnboardingLinkSettings {
   public OnboardingLinkSettings hideOnboardingIntroductionIndividual(
       Boolean hideOnboardingIntroductionIndividual) {
     this.hideOnboardingIntroductionIndividual = hideOnboardingIntroductionIndividual;
+    isSetHideOnboardingIntroductionIndividual = true; // mark as set
     return this;
   }
 
@@ -454,6 +528,7 @@ public class OnboardingLinkSettings {
   public void setHideOnboardingIntroductionIndividual(
       Boolean hideOnboardingIntroductionIndividual) {
     this.hideOnboardingIntroductionIndividual = hideOnboardingIntroductionIndividual;
+    isSetHideOnboardingIntroductionIndividual = true; // mark as set
   }
 
   /**
@@ -470,6 +545,7 @@ public class OnboardingLinkSettings {
   public OnboardingLinkSettings hideOnboardingIntroductionOrganization(
       Boolean hideOnboardingIntroductionOrganization) {
     this.hideOnboardingIntroductionOrganization = hideOnboardingIntroductionOrganization;
+    isSetHideOnboardingIntroductionOrganization = true; // mark as set
     return this;
   }
 
@@ -504,6 +580,7 @@ public class OnboardingLinkSettings {
   public void setHideOnboardingIntroductionOrganization(
       Boolean hideOnboardingIntroductionOrganization) {
     this.hideOnboardingIntroductionOrganization = hideOnboardingIntroductionOrganization;
+    isSetHideOnboardingIntroductionOrganization = true; // mark as set
   }
 
   /**
@@ -520,6 +597,7 @@ public class OnboardingLinkSettings {
   public OnboardingLinkSettings hideOnboardingIntroductionSoleProprietor(
       Boolean hideOnboardingIntroductionSoleProprietor) {
     this.hideOnboardingIntroductionSoleProprietor = hideOnboardingIntroductionSoleProprietor;
+    isSetHideOnboardingIntroductionSoleProprietor = true; // mark as set
     return this;
   }
 
@@ -554,6 +632,7 @@ public class OnboardingLinkSettings {
   public void setHideOnboardingIntroductionSoleProprietor(
       Boolean hideOnboardingIntroductionSoleProprietor) {
     this.hideOnboardingIntroductionSoleProprietor = hideOnboardingIntroductionSoleProprietor;
+    isSetHideOnboardingIntroductionSoleProprietor = true; // mark as set
   }
 
   /**
@@ -570,6 +649,7 @@ public class OnboardingLinkSettings {
   public OnboardingLinkSettings hideOnboardingIntroductionTrust(
       Boolean hideOnboardingIntroductionTrust) {
     this.hideOnboardingIntroductionTrust = hideOnboardingIntroductionTrust;
+    isSetHideOnboardingIntroductionTrust = true; // mark as set
     return this;
   }
 
@@ -603,6 +683,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideOnboardingIntroductionTrust(Boolean hideOnboardingIntroductionTrust) {
     this.hideOnboardingIntroductionTrust = hideOnboardingIntroductionTrust;
+    isSetHideOnboardingIntroductionTrust = true; // mark as set
   }
 
   /**
@@ -615,6 +696,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings instantBankVerification(Boolean instantBankVerification) {
     this.instantBankVerification = instantBankVerification;
+    isSetInstantBankVerification = true; // mark as set
     return this;
   }
 
@@ -642,6 +724,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstantBankVerification(Boolean instantBankVerification) {
     this.instantBankVerification = instantBankVerification;
+    isSetInstantBankVerification = true; // mark as set
   }
 
   /**
@@ -654,6 +737,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings requirePciSignEcomMoto(Boolean requirePciSignEcomMoto) {
     this.requirePciSignEcomMoto = requirePciSignEcomMoto;
+    isSetRequirePciSignEcomMoto = true; // mark as set
     return this;
   }
 
@@ -681,6 +765,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirePciSignEcomMoto(Boolean requirePciSignEcomMoto) {
     this.requirePciSignEcomMoto = requirePciSignEcomMoto;
+    isSetRequirePciSignEcomMoto = true; // mark as set
   }
 
   /**
@@ -693,6 +778,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings requirePciSignEcommerce(Boolean requirePciSignEcommerce) {
     this.requirePciSignEcommerce = requirePciSignEcommerce;
+    isSetRequirePciSignEcommerce = true; // mark as set
     return this;
   }
 
@@ -720,6 +806,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirePciSignEcommerce(Boolean requirePciSignEcommerce) {
     this.requirePciSignEcommerce = requirePciSignEcommerce;
+    isSetRequirePciSignEcommerce = true; // mark as set
   }
 
   /**
@@ -732,6 +819,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings requirePciSignPos(Boolean requirePciSignPos) {
     this.requirePciSignPos = requirePciSignPos;
+    isSetRequirePciSignPos = true; // mark as set
     return this;
   }
 
@@ -759,6 +847,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirePciSignPos(Boolean requirePciSignPos) {
     this.requirePciSignPos = requirePciSignPos;
+    isSetRequirePciSignPos = true; // mark as set
   }
 
   /**
@@ -771,6 +860,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings requirePciSignPosMoto(Boolean requirePciSignPosMoto) {
     this.requirePciSignPosMoto = requirePciSignPosMoto;
+    isSetRequirePciSignPosMoto = true; // mark as set
     return this;
   }
 
@@ -798,6 +888,7 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirePciSignPosMoto(Boolean requirePciSignPosMoto) {
     this.requirePciSignPosMoto = requirePciSignPosMoto;
+    isSetRequirePciSignPosMoto = true; // mark as set
   }
 
   /**
@@ -808,6 +899,7 @@ public class OnboardingLinkSettings {
    */
   public OnboardingLinkSettings transferInstrumentLimit(Integer transferInstrumentLimit) {
     this.transferInstrumentLimit = transferInstrumentLimit;
+    isSetTransferInstrumentLimit = true; // mark as set
     return this;
   }
 
@@ -831,6 +923,27 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentLimit(Integer transferInstrumentLimit) {
     this.transferInstrumentLimit = transferInstrumentLimit;
+    isSetTransferInstrumentLimit = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public OnboardingLinkSettings includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this OnboardingLinkSettings object is equal to o. */
@@ -845,59 +958,114 @@ public class OnboardingLinkSettings {
     OnboardingLinkSettings onboardingLinkSettings = (OnboardingLinkSettings) o;
     return Objects.equals(this.acceptedCountries, onboardingLinkSettings.acceptedCountries)
         && Objects.equals(
+            this.isSetAcceptedCountries, onboardingLinkSettings.isSetAcceptedCountries)
+        && Objects.equals(
             this.allowBankAccountFormatSelection,
             onboardingLinkSettings.allowBankAccountFormatSelection)
+        && Objects.equals(
+            this.isSetAllowBankAccountFormatSelection,
+            onboardingLinkSettings.isSetAllowBankAccountFormatSelection)
         && Objects.equals(this.allowDebugUi, onboardingLinkSettings.allowDebugUi)
+        && Objects.equals(this.isSetAllowDebugUi, onboardingLinkSettings.isSetAllowDebugUi)
         && Objects.equals(
             this.allowIntraRegionCrossBorderPayout,
             onboardingLinkSettings.allowIntraRegionCrossBorderPayout)
+        && Objects.equals(
+            this.isSetAllowIntraRegionCrossBorderPayout,
+            onboardingLinkSettings.isSetAllowIntraRegionCrossBorderPayout)
         && Objects.equals(this.changeLegalEntityType, onboardingLinkSettings.changeLegalEntityType)
+        && Objects.equals(
+            this.isSetChangeLegalEntityType, onboardingLinkSettings.isSetChangeLegalEntityType)
         && Objects.equals(this.editPrefilledCountry, onboardingLinkSettings.editPrefilledCountry)
+        && Objects.equals(
+            this.isSetEditPrefilledCountry, onboardingLinkSettings.isSetEditPrefilledCountry)
         && Objects.equals(this.enforceLegalAge, onboardingLinkSettings.enforceLegalAge)
+        && Objects.equals(this.isSetEnforceLegalAge, onboardingLinkSettings.isSetEnforceLegalAge)
         && Objects.equals(
             this.hideOnboardingIntroductionIndividual,
             onboardingLinkSettings.hideOnboardingIntroductionIndividual)
         && Objects.equals(
+            this.isSetHideOnboardingIntroductionIndividual,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionIndividual)
+        && Objects.equals(
             this.hideOnboardingIntroductionOrganization,
             onboardingLinkSettings.hideOnboardingIntroductionOrganization)
+        && Objects.equals(
+            this.isSetHideOnboardingIntroductionOrganization,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionOrganization)
         && Objects.equals(
             this.hideOnboardingIntroductionSoleProprietor,
             onboardingLinkSettings.hideOnboardingIntroductionSoleProprietor)
         && Objects.equals(
+            this.isSetHideOnboardingIntroductionSoleProprietor,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionSoleProprietor)
+        && Objects.equals(
             this.hideOnboardingIntroductionTrust,
             onboardingLinkSettings.hideOnboardingIntroductionTrust)
         && Objects.equals(
+            this.isSetHideOnboardingIntroductionTrust,
+            onboardingLinkSettings.isSetHideOnboardingIntroductionTrust)
+        && Objects.equals(
             this.instantBankVerification, onboardingLinkSettings.instantBankVerification)
+        && Objects.equals(
+            this.isSetInstantBankVerification, onboardingLinkSettings.isSetInstantBankVerification)
         && Objects.equals(
             this.requirePciSignEcomMoto, onboardingLinkSettings.requirePciSignEcomMoto)
         && Objects.equals(
+            this.isSetRequirePciSignEcomMoto, onboardingLinkSettings.isSetRequirePciSignEcomMoto)
+        && Objects.equals(
             this.requirePciSignEcommerce, onboardingLinkSettings.requirePciSignEcommerce)
+        && Objects.equals(
+            this.isSetRequirePciSignEcommerce, onboardingLinkSettings.isSetRequirePciSignEcommerce)
         && Objects.equals(this.requirePciSignPos, onboardingLinkSettings.requirePciSignPos)
+        && Objects.equals(
+            this.isSetRequirePciSignPos, onboardingLinkSettings.isSetRequirePciSignPos)
         && Objects.equals(this.requirePciSignPosMoto, onboardingLinkSettings.requirePciSignPosMoto)
         && Objects.equals(
-            this.transferInstrumentLimit, onboardingLinkSettings.transferInstrumentLimit);
+            this.isSetRequirePciSignPosMoto, onboardingLinkSettings.isSetRequirePciSignPosMoto)
+        && Objects.equals(
+            this.transferInstrumentLimit, onboardingLinkSettings.transferInstrumentLimit)
+        && Objects.equals(
+            this.isSetTransferInstrumentLimit, onboardingLinkSettings.isSetTransferInstrumentLimit);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acceptedCountries,
+        isSetAcceptedCountries,
         allowBankAccountFormatSelection,
+        isSetAllowBankAccountFormatSelection,
         allowDebugUi,
+        isSetAllowDebugUi,
         allowIntraRegionCrossBorderPayout,
+        isSetAllowIntraRegionCrossBorderPayout,
         changeLegalEntityType,
+        isSetChangeLegalEntityType,
         editPrefilledCountry,
+        isSetEditPrefilledCountry,
         enforceLegalAge,
+        isSetEnforceLegalAge,
         hideOnboardingIntroductionIndividual,
+        isSetHideOnboardingIntroductionIndividual,
         hideOnboardingIntroductionOrganization,
+        isSetHideOnboardingIntroductionOrganization,
         hideOnboardingIntroductionSoleProprietor,
+        isSetHideOnboardingIntroductionSoleProprietor,
         hideOnboardingIntroductionTrust,
+        isSetHideOnboardingIntroductionTrust,
         instantBankVerification,
+        isSetInstantBankVerification,
         requirePciSignEcomMoto,
+        isSetRequirePciSignEcomMoto,
         requirePciSignEcommerce,
+        isSetRequirePciSignEcommerce,
         requirePciSignPos,
+        isSetRequirePciSignPos,
         requirePciSignPosMoto,
-        transferInstrumentLimit);
+        isSetRequirePciSignPosMoto,
+        transferInstrumentLimit,
+        isSetTransferInstrumentLimit);
   }
 
   @Override
@@ -959,6 +1127,96 @@ public class OnboardingLinkSettings {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcceptedCountries) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTED_COUNTRIES, this.acceptedCountries);
+    }
+    if (isSetAllowBankAccountFormatSelection) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION,
+          this.allowBankAccountFormatSelection);
+    }
+    if (isSetAllowDebugUi) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOW_DEBUG_UI, this.allowDebugUi);
+    }
+    if (isSetAllowIntraRegionCrossBorderPayout) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT,
+          this.allowIntraRegionCrossBorderPayout);
+    }
+    if (isSetChangeLegalEntityType) {
+      addIfNull(nulls, JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE, this.changeLegalEntityType);
+    }
+    if (isSetEditPrefilledCountry) {
+      addIfNull(nulls, JSON_PROPERTY_EDIT_PREFILLED_COUNTRY, this.editPrefilledCountry);
+    }
+    if (isSetEnforceLegalAge) {
+      addIfNull(nulls, JSON_PROPERTY_ENFORCE_LEGAL_AGE, this.enforceLegalAge);
+    }
+    if (isSetHideOnboardingIntroductionIndividual) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL,
+          this.hideOnboardingIntroductionIndividual);
+    }
+    if (isSetHideOnboardingIntroductionOrganization) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION,
+          this.hideOnboardingIntroductionOrganization);
+    }
+    if (isSetHideOnboardingIntroductionSoleProprietor) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR,
+          this.hideOnboardingIntroductionSoleProprietor);
+    }
+    if (isSetHideOnboardingIntroductionTrust) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_TRUST,
+          this.hideOnboardingIntroductionTrust);
+    }
+    if (isSetInstantBankVerification) {
+      addIfNull(nulls, JSON_PROPERTY_INSTANT_BANK_VERIFICATION, this.instantBankVerification);
+    }
+    if (isSetRequirePciSignEcomMoto) {
+      addIfNull(nulls, JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOM_MOTO, this.requirePciSignEcomMoto);
+    }
+    if (isSetRequirePciSignEcommerce) {
+      addIfNull(nulls, JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOMMERCE, this.requirePciSignEcommerce);
+    }
+    if (isSetRequirePciSignPos) {
+      addIfNull(nulls, JSON_PROPERTY_REQUIRE_PCI_SIGN_POS, this.requirePciSignPos);
+    }
+    if (isSetRequirePciSignPosMoto) {
+      addIfNull(nulls, JSON_PROPERTY_REQUIRE_PCI_SIGN_POS_MOTO, this.requirePciSignPosMoto);
+    }
+    if (isSetTransferInstrumentLimit) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENT_LIMIT, this.transferInstrumentLimit);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,14 +32,32 @@ public class ListCompanyResponse {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private PaginationLinks links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Company> data;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItemsTotal = false;
+
   public static final String JSON_PROPERTY_PAGES_TOTAL = "pagesTotal";
   private Integer pagesTotal;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPagesTotal = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ListCompanyResponse() {}
 
@@ -49,6 +69,7 @@ public class ListCompanyResponse {
    */
   public ListCompanyResponse links(PaginationLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
@@ -72,6 +93,7 @@ public class ListCompanyResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -82,6 +104,7 @@ public class ListCompanyResponse {
    */
   public ListCompanyResponse data(List<Company> data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -113,6 +136,7 @@ public class ListCompanyResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Company> data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -123,6 +147,7 @@ public class ListCompanyResponse {
    */
   public ListCompanyResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
+    isSetItemsTotal = true; // mark as set
     return this;
   }
 
@@ -146,6 +171,7 @@ public class ListCompanyResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
+    isSetItemsTotal = true; // mark as set
   }
 
   /**
@@ -156,6 +182,7 @@ public class ListCompanyResponse {
    */
   public ListCompanyResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
+    isSetPagesTotal = true; // mark as set
     return this;
   }
 
@@ -179,6 +206,27 @@ public class ListCompanyResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
+    isSetPagesTotal = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ListCompanyResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ListCompanyResponse object is equal to o. */
@@ -192,14 +240,26 @@ public class ListCompanyResponse {
     }
     ListCompanyResponse listCompanyResponse = (ListCompanyResponse) o;
     return Objects.equals(this.links, listCompanyResponse.links)
+        && Objects.equals(this.isSetLinks, listCompanyResponse.isSetLinks)
         && Objects.equals(this.data, listCompanyResponse.data)
+        && Objects.equals(this.isSetData, listCompanyResponse.isSetData)
         && Objects.equals(this.itemsTotal, listCompanyResponse.itemsTotal)
-        && Objects.equals(this.pagesTotal, listCompanyResponse.pagesTotal);
+        && Objects.equals(this.isSetItemsTotal, listCompanyResponse.isSetItemsTotal)
+        && Objects.equals(this.pagesTotal, listCompanyResponse.pagesTotal)
+        && Objects.equals(this.isSetPagesTotal, listCompanyResponse.isSetPagesTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data, itemsTotal, pagesTotal);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        data,
+        isSetData,
+        itemsTotal,
+        isSetItemsTotal,
+        pagesTotal,
+        isSetPagesTotal);
   }
 
   @Override
@@ -222,6 +282,39 @@ public class ListCompanyResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetItemsTotal) {
+      addIfNull(nulls, JSON_PROPERTY_ITEMS_TOTAL, this.itemsTotal);
+    }
+    if (isSetPagesTotal) {
+      addIfNull(nulls, JSON_PROPERTY_PAGES_TOTAL, this.pagesTotal);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

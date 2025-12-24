@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +35,9 @@ import java.util.logging.Logger;
 public class TransactionRuleInterval {
   public static final String JSON_PROPERTY_DAY_OF_MONTH = "dayOfMonth";
   private Integer dayOfMonth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDayOfMonth = false;
 
   /**
    * The day of week, used when the &#x60;duration.unit&#x60; is **weeks**. If not provided, by
@@ -92,14 +97,26 @@ public class TransactionRuleInterval {
   public static final String JSON_PROPERTY_DAY_OF_WEEK = "dayOfWeek";
   private DayOfWeekEnum dayOfWeek;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDayOfWeek = false;
+
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Duration duration;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDuration = false;
 
   public static final String JSON_PROPERTY_TIME_OF_DAY = "timeOfDay";
   private String timeOfDay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeOfDay = false;
+
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
   private String timeZone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeZone = false;
 
   /**
    * The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during
@@ -167,6 +184,15 @@ public class TransactionRuleInterval {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TransactionRuleInterval() {}
 
   /**
@@ -179,6 +205,7 @@ public class TransactionRuleInterval {
    */
   public TransactionRuleInterval dayOfMonth(Integer dayOfMonth) {
     this.dayOfMonth = dayOfMonth;
+    isSetDayOfMonth = true; // mark as set
     return this;
   }
 
@@ -206,6 +233,7 @@ public class TransactionRuleInterval {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfMonth(Integer dayOfMonth) {
     this.dayOfMonth = dayOfMonth;
+    isSetDayOfMonth = true; // mark as set
   }
 
   /**
@@ -220,6 +248,7 @@ public class TransactionRuleInterval {
    */
   public TransactionRuleInterval dayOfWeek(DayOfWeekEnum dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
+    isSetDayOfWeek = true; // mark as set
     return this;
   }
 
@@ -251,6 +280,7 @@ public class TransactionRuleInterval {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfWeek(DayOfWeekEnum dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
+    isSetDayOfWeek = true; // mark as set
   }
 
   /**
@@ -261,6 +291,7 @@ public class TransactionRuleInterval {
    */
   public TransactionRuleInterval duration(Duration duration) {
     this.duration = duration;
+    isSetDuration = true; // mark as set
     return this;
   }
 
@@ -284,6 +315,7 @@ public class TransactionRuleInterval {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDuration(Duration duration) {
     this.duration = duration;
+    isSetDuration = true; // mark as set
   }
 
   /**
@@ -297,6 +329,7 @@ public class TransactionRuleInterval {
    */
   public TransactionRuleInterval timeOfDay(String timeOfDay) {
     this.timeOfDay = timeOfDay;
+    isSetTimeOfDay = true; // mark as set
     return this;
   }
 
@@ -326,6 +359,7 @@ public class TransactionRuleInterval {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeOfDay(String timeOfDay) {
     this.timeOfDay = timeOfDay;
+    isSetTimeOfDay = true; // mark as set
   }
 
   /**
@@ -338,6 +372,7 @@ public class TransactionRuleInterval {
    */
   public TransactionRuleInterval timeZone(String timeZone) {
     this.timeZone = timeZone;
+    isSetTimeZone = true; // mark as set
     return this;
   }
 
@@ -365,6 +400,7 @@ public class TransactionRuleInterval {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
+    isSetTimeZone = true; // mark as set
   }
 
   /**
@@ -397,6 +433,7 @@ public class TransactionRuleInterval {
    */
   public TransactionRuleInterval type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -464,6 +501,27 @@ public class TransactionRuleInterval {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransactionRuleInterval includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransactionRuleInterval object is equal to o. */
@@ -477,16 +535,34 @@ public class TransactionRuleInterval {
     }
     TransactionRuleInterval transactionRuleInterval = (TransactionRuleInterval) o;
     return Objects.equals(this.dayOfMonth, transactionRuleInterval.dayOfMonth)
+        && Objects.equals(this.isSetDayOfMonth, transactionRuleInterval.isSetDayOfMonth)
         && Objects.equals(this.dayOfWeek, transactionRuleInterval.dayOfWeek)
+        && Objects.equals(this.isSetDayOfWeek, transactionRuleInterval.isSetDayOfWeek)
         && Objects.equals(this.duration, transactionRuleInterval.duration)
+        && Objects.equals(this.isSetDuration, transactionRuleInterval.isSetDuration)
         && Objects.equals(this.timeOfDay, transactionRuleInterval.timeOfDay)
+        && Objects.equals(this.isSetTimeOfDay, transactionRuleInterval.isSetTimeOfDay)
         && Objects.equals(this.timeZone, transactionRuleInterval.timeZone)
-        && Objects.equals(this.type, transactionRuleInterval.type);
+        && Objects.equals(this.isSetTimeZone, transactionRuleInterval.isSetTimeZone)
+        && Objects.equals(this.type, transactionRuleInterval.type)
+        && Objects.equals(this.isSetType, transactionRuleInterval.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dayOfMonth, dayOfWeek, duration, timeOfDay, timeZone, type);
+    return Objects.hash(
+        dayOfMonth,
+        isSetDayOfMonth,
+        dayOfWeek,
+        isSetDayOfWeek,
+        duration,
+        isSetDuration,
+        timeOfDay,
+        isSetTimeOfDay,
+        timeZone,
+        isSetTimeZone,
+        type,
+        isSetType);
   }
 
   @Override
@@ -511,6 +587,45 @@ public class TransactionRuleInterval {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDayOfMonth) {
+      addIfNull(nulls, JSON_PROPERTY_DAY_OF_MONTH, this.dayOfMonth);
+    }
+    if (isSetDayOfWeek) {
+      addIfNull(nulls, JSON_PROPERTY_DAY_OF_WEEK, this.dayOfWeek);
+    }
+    if (isSetDuration) {
+      addIfNull(nulls, JSON_PROPERTY_DURATION, this.duration);
+    }
+    if (isSetTimeOfDay) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_OF_DAY, this.timeOfDay);
+    }
+    if (isSetTimeZone) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_ZONE, this.timeZone);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -13,7 +13,6 @@ on:
         type: boolean
         default: false
         description: "Publish Github release for the current version"
-  # Monitor pull request events
   pull_request:
     types:
       - closed
@@ -29,9 +28,9 @@ jobs:
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
       - name: Prepare the next main release
-        uses: Adyen/release-automation-action@v1.3.1
+        uses: Adyen/release-automation-action@596a5a3a2d677ec5329c916d7a4628f8045a5585
         with:
           token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
           develop-branch: main

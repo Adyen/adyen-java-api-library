@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,26 +41,50 @@ public class LegalEntityAssociation {
   public static final String JSON_PROPERTY_ASSOCIATOR_ID = "associatorId";
   private String associatorId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssociatorId = false;
+
   public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
   private String entityType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityType = false;
 
   public static final String JSON_PROPERTY_JOB_TITLE = "jobTitle";
   private String jobTitle;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetJobTitle = false;
+
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalEntityId = false;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_NOMINEE = "nominee";
   private Boolean nominee;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNominee = false;
 
   public static final String JSON_PROPERTY_RELATIONSHIP = "relationship";
   private String relationship;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRelationship = false;
+
   public static final String JSON_PROPERTY_SETTLOR_EXEMPTION_REASON = "settlorExemptionReason";
   private List<String> settlorExemptionReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSettlorExemptionReason = false;
 
   /**
    * Defines the relationship of the legal entity to the current legal entity. Possible value for
@@ -146,6 +172,15 @@ public class LegalEntityAssociation {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public LegalEntityAssociation() {}
 
   @JsonCreator
@@ -197,6 +232,7 @@ public class LegalEntityAssociation {
    */
   public LegalEntityAssociation jobTitle(String jobTitle) {
     this.jobTitle = jobTitle;
+    isSetJobTitle = true; // mark as set
     return this;
   }
 
@@ -224,6 +260,7 @@ public class LegalEntityAssociation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJobTitle(String jobTitle) {
     this.jobTitle = jobTitle;
+    isSetJobTitle = true; // mark as set
   }
 
   /**
@@ -236,6 +273,7 @@ public class LegalEntityAssociation {
    */
   public LegalEntityAssociation legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
     return this;
   }
 
@@ -263,6 +301,7 @@ public class LegalEntityAssociation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
   }
 
   /**
@@ -294,6 +333,7 @@ public class LegalEntityAssociation {
    */
   public LegalEntityAssociation nominee(Boolean nominee) {
     this.nominee = nominee;
+    isSetNominee = true; // mark as set
     return this;
   }
 
@@ -325,6 +365,7 @@ public class LegalEntityAssociation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNominee(Boolean nominee) {
     this.nominee = nominee;
+    isSetNominee = true; // mark as set
   }
 
   /**
@@ -337,6 +378,7 @@ public class LegalEntityAssociation {
    */
   public LegalEntityAssociation relationship(String relationship) {
     this.relationship = relationship;
+    isSetRelationship = true; // mark as set
     return this;
   }
 
@@ -364,6 +406,7 @@ public class LegalEntityAssociation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelationship(String relationship) {
     this.relationship = relationship;
+    isSetRelationship = true; // mark as set
   }
 
   /**
@@ -378,6 +421,7 @@ public class LegalEntityAssociation {
    */
   public LegalEntityAssociation settlorExemptionReason(List<String> settlorExemptionReason) {
     this.settlorExemptionReason = settlorExemptionReason;
+    isSetSettlorExemptionReason = true; // mark as set
     return this;
   }
 
@@ -417,6 +461,7 @@ public class LegalEntityAssociation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettlorExemptionReason(List<String> settlorExemptionReason) {
     this.settlorExemptionReason = settlorExemptionReason;
+    isSetSettlorExemptionReason = true; // mark as set
   }
 
   /**
@@ -444,6 +489,7 @@ public class LegalEntityAssociation {
    */
   public LegalEntityAssociation type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -501,6 +547,27 @@ public class LegalEntityAssociation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public LegalEntityAssociation includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this LegalEntityAssociation object is equal to o. */
@@ -514,29 +581,48 @@ public class LegalEntityAssociation {
     }
     LegalEntityAssociation legalEntityAssociation = (LegalEntityAssociation) o;
     return Objects.equals(this.associatorId, legalEntityAssociation.associatorId)
+        && Objects.equals(this.isSetAssociatorId, legalEntityAssociation.isSetAssociatorId)
         && Objects.equals(this.entityType, legalEntityAssociation.entityType)
+        && Objects.equals(this.isSetEntityType, legalEntityAssociation.isSetEntityType)
         && Objects.equals(this.jobTitle, legalEntityAssociation.jobTitle)
+        && Objects.equals(this.isSetJobTitle, legalEntityAssociation.isSetJobTitle)
         && Objects.equals(this.legalEntityId, legalEntityAssociation.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, legalEntityAssociation.isSetLegalEntityId)
         && Objects.equals(this.name, legalEntityAssociation.name)
+        && Objects.equals(this.isSetName, legalEntityAssociation.isSetName)
         && Objects.equals(this.nominee, legalEntityAssociation.nominee)
+        && Objects.equals(this.isSetNominee, legalEntityAssociation.isSetNominee)
         && Objects.equals(this.relationship, legalEntityAssociation.relationship)
+        && Objects.equals(this.isSetRelationship, legalEntityAssociation.isSetRelationship)
         && Objects.equals(
             this.settlorExemptionReason, legalEntityAssociation.settlorExemptionReason)
-        && Objects.equals(this.type, legalEntityAssociation.type);
+        && Objects.equals(
+            this.isSetSettlorExemptionReason, legalEntityAssociation.isSetSettlorExemptionReason)
+        && Objects.equals(this.type, legalEntityAssociation.type)
+        && Objects.equals(this.isSetType, legalEntityAssociation.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         associatorId,
+        isSetAssociatorId,
         entityType,
+        isSetEntityType,
         jobTitle,
+        isSetJobTitle,
         legalEntityId,
+        isSetLegalEntityId,
         name,
+        isSetName,
         nominee,
+        isSetNominee,
         relationship,
+        isSetRelationship,
         settlorExemptionReason,
-        type);
+        isSetSettlorExemptionReason,
+        type,
+        isSetType);
   }
 
   @Override
@@ -566,6 +652,54 @@ public class LegalEntityAssociation {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAssociatorId) {
+      addIfNull(nulls, JSON_PROPERTY_ASSOCIATOR_ID, this.associatorId);
+    }
+    if (isSetEntityType) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_TYPE, this.entityType);
+    }
+    if (isSetJobTitle) {
+      addIfNull(nulls, JSON_PROPERTY_JOB_TITLE, this.jobTitle);
+    }
+    if (isSetLegalEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetNominee) {
+      addIfNull(nulls, JSON_PROPERTY_NOMINEE, this.nominee);
+    }
+    if (isSetRelationship) {
+      addIfNull(nulls, JSON_PROPERTY_RELATIONSHIP, this.relationship);
+    }
+    if (isSetSettlorExemptionReason) {
+      addIfNull(nulls, JSON_PROPERTY_SETTLOR_EXEMPTION_REASON, this.settlorExemptionReason);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

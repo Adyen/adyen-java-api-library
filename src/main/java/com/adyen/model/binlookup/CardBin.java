@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,35 +37,74 @@ public class CardBin {
   public static final String JSON_PROPERTY_BIN = "bin";
   private String bin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBin = false;
+
   public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
   private Boolean commercial;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCommercial = false;
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
+
   public static final String JSON_PROPERTY_FUNDS_AVAILABILITY = "fundsAvailability";
   private String fundsAvailability;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundsAvailability = false;
 
   public static final String JSON_PROPERTY_ISSUER_BIN = "issuerBin";
   private String issuerBin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerBin = false;
+
   public static final String JSON_PROPERTY_ISSUING_BANK = "issuingBank";
   private String issuingBank;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuingBank = false;
 
   public static final String JSON_PROPERTY_ISSUING_COUNTRY = "issuingCountry";
   private String issuingCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuingCountry = false;
+
   public static final String JSON_PROPERTY_ISSUING_CURRENCY = "issuingCurrency";
   private String issuingCurrency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuingCurrency = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
+
   public static final String JSON_PROPERTY_PAYOUT_ELIGIBLE = "payoutEligible";
   private String payoutEligible;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayoutEligible = false;
+
   public static final String JSON_PROPERTY_SUMMARY = "summary";
   private String summary;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSummary = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CardBin() {}
 
@@ -76,6 +117,7 @@ public class CardBin {
    */
   public CardBin bin(String bin) {
     this.bin = bin;
+    isSetBin = true; // mark as set
     return this;
   }
 
@@ -101,6 +143,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
     this.bin = bin;
+    isSetBin = true; // mark as set
   }
 
   /**
@@ -112,6 +155,7 @@ public class CardBin {
    */
   public CardBin commercial(Boolean commercial) {
     this.commercial = commercial;
+    isSetCommercial = true; // mark as set
     return this;
   }
 
@@ -137,6 +181,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommercial(Boolean commercial) {
     this.commercial = commercial;
+    isSetCommercial = true; // mark as set
   }
 
   /**
@@ -151,6 +196,7 @@ public class CardBin {
    */
   public CardBin fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -182,6 +228,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -200,6 +247,7 @@ public class CardBin {
    */
   public CardBin fundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
+    isSetFundsAvailability = true; // mark as set
     return this;
   }
 
@@ -239,6 +287,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
+    isSetFundsAvailability = true; // mark as set
   }
 
   /**
@@ -250,6 +299,7 @@ public class CardBin {
    */
   public CardBin issuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
+    isSetIssuerBin = true; // mark as set
     return this;
   }
 
@@ -275,6 +325,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerBin(String issuerBin) {
     this.issuerBin = issuerBin;
+    isSetIssuerBin = true; // mark as set
   }
 
   /**
@@ -285,6 +336,7 @@ public class CardBin {
    */
   public CardBin issuingBank(String issuingBank) {
     this.issuingBank = issuingBank;
+    isSetIssuingBank = true; // mark as set
     return this;
   }
 
@@ -308,6 +360,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingBank(String issuingBank) {
     this.issuingBank = issuingBank;
+    isSetIssuingBank = true; // mark as set
   }
 
   /**
@@ -318,6 +371,7 @@ public class CardBin {
    */
   public CardBin issuingCountry(String issuingCountry) {
     this.issuingCountry = issuingCountry;
+    isSetIssuingCountry = true; // mark as set
     return this;
   }
 
@@ -341,6 +395,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountry(String issuingCountry) {
     this.issuingCountry = issuingCountry;
+    isSetIssuingCountry = true; // mark as set
   }
 
   /**
@@ -351,6 +406,7 @@ public class CardBin {
    */
   public CardBin issuingCurrency(String issuingCurrency) {
     this.issuingCurrency = issuingCurrency;
+    isSetIssuingCurrency = true; // mark as set
     return this;
   }
 
@@ -374,6 +430,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCurrency(String issuingCurrency) {
     this.issuingCurrency = issuingCurrency;
+    isSetIssuingCurrency = true; // mark as set
   }
 
   /**
@@ -384,6 +441,7 @@ public class CardBin {
    */
   public CardBin paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -407,6 +465,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -425,6 +484,7 @@ public class CardBin {
    */
   public CardBin payoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
+    isSetPayoutEligible = true; // mark as set
     return this;
   }
 
@@ -464,6 +524,7 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
+    isSetPayoutEligible = true; // mark as set
   }
 
   /**
@@ -474,6 +535,7 @@ public class CardBin {
    */
   public CardBin summary(String summary) {
     this.summary = summary;
+    isSetSummary = true; // mark as set
     return this;
   }
 
@@ -497,6 +559,27 @@ public class CardBin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSummary(String summary) {
     this.summary = summary;
+    isSetSummary = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CardBin includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CardBin object is equal to o. */
@@ -510,32 +593,54 @@ public class CardBin {
     }
     CardBin cardBin = (CardBin) o;
     return Objects.equals(this.bin, cardBin.bin)
+        && Objects.equals(this.isSetBin, cardBin.isSetBin)
         && Objects.equals(this.commercial, cardBin.commercial)
+        && Objects.equals(this.isSetCommercial, cardBin.isSetCommercial)
         && Objects.equals(this.fundingSource, cardBin.fundingSource)
+        && Objects.equals(this.isSetFundingSource, cardBin.isSetFundingSource)
         && Objects.equals(this.fundsAvailability, cardBin.fundsAvailability)
+        && Objects.equals(this.isSetFundsAvailability, cardBin.isSetFundsAvailability)
         && Objects.equals(this.issuerBin, cardBin.issuerBin)
+        && Objects.equals(this.isSetIssuerBin, cardBin.isSetIssuerBin)
         && Objects.equals(this.issuingBank, cardBin.issuingBank)
+        && Objects.equals(this.isSetIssuingBank, cardBin.isSetIssuingBank)
         && Objects.equals(this.issuingCountry, cardBin.issuingCountry)
+        && Objects.equals(this.isSetIssuingCountry, cardBin.isSetIssuingCountry)
         && Objects.equals(this.issuingCurrency, cardBin.issuingCurrency)
+        && Objects.equals(this.isSetIssuingCurrency, cardBin.isSetIssuingCurrency)
         && Objects.equals(this.paymentMethod, cardBin.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, cardBin.isSetPaymentMethod)
         && Objects.equals(this.payoutEligible, cardBin.payoutEligible)
-        && Objects.equals(this.summary, cardBin.summary);
+        && Objects.equals(this.isSetPayoutEligible, cardBin.isSetPayoutEligible)
+        && Objects.equals(this.summary, cardBin.summary)
+        && Objects.equals(this.isSetSummary, cardBin.isSetSummary);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         bin,
+        isSetBin,
         commercial,
+        isSetCommercial,
         fundingSource,
+        isSetFundingSource,
         fundsAvailability,
+        isSetFundsAvailability,
         issuerBin,
+        isSetIssuerBin,
         issuingBank,
+        isSetIssuingBank,
         issuingCountry,
+        isSetIssuingCountry,
         issuingCurrency,
+        isSetIssuingCurrency,
         paymentMethod,
+        isSetPaymentMethod,
         payoutEligible,
-        summary);
+        isSetPayoutEligible,
+        summary,
+        isSetSummary);
   }
 
   @Override
@@ -565,6 +670,60 @@ public class CardBin {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBin) {
+      addIfNull(nulls, JSON_PROPERTY_BIN, this.bin);
+    }
+    if (isSetCommercial) {
+      addIfNull(nulls, JSON_PROPERTY_COMMERCIAL, this.commercial);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetFundsAvailability) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDS_AVAILABILITY, this.fundsAvailability);
+    }
+    if (isSetIssuerBin) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_BIN, this.issuerBin);
+    }
+    if (isSetIssuingBank) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUING_BANK, this.issuingBank);
+    }
+    if (isSetIssuingCountry) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUING_COUNTRY, this.issuingCountry);
+    }
+    if (isSetIssuingCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUING_CURRENCY, this.issuingCurrency);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetPayoutEligible) {
+      addIfNull(nulls, JSON_PROPERTY_PAYOUT_ELIGIBLE, this.payoutEligible);
+    }
+    if (isSetSummary) {
+      addIfNull(nulls, JSON_PROPERTY_SUMMARY, this.summary);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

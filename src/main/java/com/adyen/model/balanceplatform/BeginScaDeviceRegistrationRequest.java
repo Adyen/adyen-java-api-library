@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,8 +28,20 @@ public class BeginScaDeviceRegistrationRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_SDK_OUTPUT = "sdkOutput";
   private String sdkOutput;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkOutput = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BeginScaDeviceRegistrationRequest() {}
 
@@ -42,6 +56,7 @@ public class BeginScaDeviceRegistrationRequest {
    */
   public BeginScaDeviceRegistrationRequest name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -69,6 +84,7 @@ public class BeginScaDeviceRegistrationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -82,6 +98,7 @@ public class BeginScaDeviceRegistrationRequest {
    */
   public BeginScaDeviceRegistrationRequest sdkOutput(String sdkOutput) {
     this.sdkOutput = sdkOutput;
+    isSetSdkOutput = true; // mark as set
     return this;
   }
 
@@ -109,6 +126,27 @@ public class BeginScaDeviceRegistrationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkOutput(String sdkOutput) {
     this.sdkOutput = sdkOutput;
+    isSetSdkOutput = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BeginScaDeviceRegistrationRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BeginScaDeviceRegistrationRequest object is equal to o. */
@@ -123,12 +161,14 @@ public class BeginScaDeviceRegistrationRequest {
     BeginScaDeviceRegistrationRequest beginScaDeviceRegistrationRequest =
         (BeginScaDeviceRegistrationRequest) o;
     return Objects.equals(this.name, beginScaDeviceRegistrationRequest.name)
-        && Objects.equals(this.sdkOutput, beginScaDeviceRegistrationRequest.sdkOutput);
+        && Objects.equals(this.isSetName, beginScaDeviceRegistrationRequest.isSetName)
+        && Objects.equals(this.sdkOutput, beginScaDeviceRegistrationRequest.sdkOutput)
+        && Objects.equals(this.isSetSdkOutput, beginScaDeviceRegistrationRequest.isSetSdkOutput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, sdkOutput);
+    return Objects.hash(name, isSetName, sdkOutput, isSetSdkOutput);
   }
 
   @Override
@@ -149,6 +189,33 @@ public class BeginScaDeviceRegistrationRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetSdkOutput) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_OUTPUT, this.sdkOutput);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

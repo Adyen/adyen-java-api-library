@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,38 +38,80 @@ public class PaymentMethodToStore {
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvc = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_CARD = "encryptedCard";
   private String encryptedCard;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedCard = false;
+
   public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedCardNumber = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
   private String encryptedExpiryMonth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedExpiryMonth = false;
+
   public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
   private String encryptedExpiryYear;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedExpiryYear = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
   private String encryptedSecurityCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedSecurityCode = false;
+
   public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryMonth = false;
 
   public static final String JSON_PROPERTY_EXPIRY_YEAR = "expiryYear";
   private String expiryYear;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryYear = false;
+
   public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
   private String holderName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethodToStore() {}
 
@@ -79,6 +123,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -102,6 +147,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -114,6 +160,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore cvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
     return this;
   }
 
@@ -141,6 +188,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+    isSetCvc = true; // mark as set
   }
 
   /**
@@ -151,6 +199,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore encryptedCard(String encryptedCard) {
     this.encryptedCard = encryptedCard;
+    isSetEncryptedCard = true; // mark as set
     return this;
   }
 
@@ -174,6 +223,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCard(String encryptedCard) {
     this.encryptedCard = encryptedCard;
+    isSetEncryptedCard = true; // mark as set
   }
 
   /**
@@ -184,6 +234,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore encryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
+    isSetEncryptedCardNumber = true; // mark as set
     return this;
   }
 
@@ -207,6 +258,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
+    isSetEncryptedCardNumber = true; // mark as set
   }
 
   /**
@@ -217,6 +269,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore encryptedExpiryMonth(String encryptedExpiryMonth) {
     this.encryptedExpiryMonth = encryptedExpiryMonth;
+    isSetEncryptedExpiryMonth = true; // mark as set
     return this;
   }
 
@@ -240,6 +293,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryMonth(String encryptedExpiryMonth) {
     this.encryptedExpiryMonth = encryptedExpiryMonth;
+    isSetEncryptedExpiryMonth = true; // mark as set
   }
 
   /**
@@ -250,6 +304,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore encryptedExpiryYear(String encryptedExpiryYear) {
     this.encryptedExpiryYear = encryptedExpiryYear;
+    isSetEncryptedExpiryYear = true; // mark as set
     return this;
   }
 
@@ -273,6 +328,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryYear(String encryptedExpiryYear) {
     this.encryptedExpiryYear = encryptedExpiryYear;
+    isSetEncryptedExpiryYear = true; // mark as set
   }
 
   /**
@@ -283,6 +339,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore encryptedSecurityCode(String encryptedSecurityCode) {
     this.encryptedSecurityCode = encryptedSecurityCode;
+    isSetEncryptedSecurityCode = true; // mark as set
     return this;
   }
 
@@ -306,6 +363,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedSecurityCode(String encryptedSecurityCode) {
     this.encryptedSecurityCode = encryptedSecurityCode;
+    isSetEncryptedSecurityCode = true; // mark as set
   }
 
   /**
@@ -318,6 +376,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
     return this;
   }
 
@@ -345,6 +404,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
+    isSetExpiryMonth = true; // mark as set
   }
 
   /**
@@ -357,6 +417,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore expiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
     return this;
   }
 
@@ -384,6 +445,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
+    isSetExpiryYear = true; // mark as set
   }
 
   /**
@@ -394,6 +456,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore holderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
     return this;
   }
 
@@ -417,6 +480,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
     this.holderName = holderName;
+    isSetHolderName = true; // mark as set
   }
 
   /**
@@ -429,6 +493,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -456,6 +521,7 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -466,6 +532,7 @@ public class PaymentMethodToStore {
    */
   public PaymentMethodToStore type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -489,6 +556,27 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodToStore includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethodToStore object is equal to o. */
@@ -502,34 +590,62 @@ public class PaymentMethodToStore {
     }
     PaymentMethodToStore paymentMethodToStore = (PaymentMethodToStore) o;
     return Objects.equals(this.brand, paymentMethodToStore.brand)
+        && Objects.equals(this.isSetBrand, paymentMethodToStore.isSetBrand)
         && Objects.equals(this.cvc, paymentMethodToStore.cvc)
+        && Objects.equals(this.isSetCvc, paymentMethodToStore.isSetCvc)
         && Objects.equals(this.encryptedCard, paymentMethodToStore.encryptedCard)
+        && Objects.equals(this.isSetEncryptedCard, paymentMethodToStore.isSetEncryptedCard)
         && Objects.equals(this.encryptedCardNumber, paymentMethodToStore.encryptedCardNumber)
+        && Objects.equals(
+            this.isSetEncryptedCardNumber, paymentMethodToStore.isSetEncryptedCardNumber)
         && Objects.equals(this.encryptedExpiryMonth, paymentMethodToStore.encryptedExpiryMonth)
+        && Objects.equals(
+            this.isSetEncryptedExpiryMonth, paymentMethodToStore.isSetEncryptedExpiryMonth)
         && Objects.equals(this.encryptedExpiryYear, paymentMethodToStore.encryptedExpiryYear)
+        && Objects.equals(
+            this.isSetEncryptedExpiryYear, paymentMethodToStore.isSetEncryptedExpiryYear)
         && Objects.equals(this.encryptedSecurityCode, paymentMethodToStore.encryptedSecurityCode)
+        && Objects.equals(
+            this.isSetEncryptedSecurityCode, paymentMethodToStore.isSetEncryptedSecurityCode)
         && Objects.equals(this.expiryMonth, paymentMethodToStore.expiryMonth)
+        && Objects.equals(this.isSetExpiryMonth, paymentMethodToStore.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, paymentMethodToStore.expiryYear)
+        && Objects.equals(this.isSetExpiryYear, paymentMethodToStore.isSetExpiryYear)
         && Objects.equals(this.holderName, paymentMethodToStore.holderName)
+        && Objects.equals(this.isSetHolderName, paymentMethodToStore.isSetHolderName)
         && Objects.equals(this.number, paymentMethodToStore.number)
-        && Objects.equals(this.type, paymentMethodToStore.type);
+        && Objects.equals(this.isSetNumber, paymentMethodToStore.isSetNumber)
+        && Objects.equals(this.type, paymentMethodToStore.type)
+        && Objects.equals(this.isSetType, paymentMethodToStore.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         brand,
+        isSetBrand,
         cvc,
+        isSetCvc,
         encryptedCard,
+        isSetEncryptedCard,
         encryptedCardNumber,
+        isSetEncryptedCardNumber,
         encryptedExpiryMonth,
+        isSetEncryptedExpiryMonth,
         encryptedExpiryYear,
+        isSetEncryptedExpiryYear,
         encryptedSecurityCode,
+        isSetEncryptedSecurityCode,
         expiryMonth,
+        isSetExpiryMonth,
         expiryYear,
+        isSetExpiryYear,
         holderName,
+        isSetHolderName,
         number,
-        type);
+        isSetNumber,
+        type,
+        isSetType);
   }
 
   @Override
@@ -568,6 +684,63 @@ public class PaymentMethodToStore {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetCvc) {
+      addIfNull(nulls, JSON_PROPERTY_CVC, this.cvc);
+    }
+    if (isSetEncryptedCard) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_CARD, this.encryptedCard);
+    }
+    if (isSetEncryptedCardNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_CARD_NUMBER, this.encryptedCardNumber);
+    }
+    if (isSetEncryptedExpiryMonth) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH, this.encryptedExpiryMonth);
+    }
+    if (isSetEncryptedExpiryYear) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR, this.encryptedExpiryYear);
+    }
+    if (isSetEncryptedSecurityCode) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_SECURITY_CODE, this.encryptedSecurityCode);
+    }
+    if (isSetExpiryMonth) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_MONTH, this.expiryMonth);
+    }
+    if (isSetExpiryYear) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_YEAR, this.expiryYear);
+    }
+    if (isSetHolderName) {
+      addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

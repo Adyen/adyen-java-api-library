@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,17 +34,38 @@ public class OnboardingTheme {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
   private Map<String, String> properties;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProperties = false;
+
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUpdatedAt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public OnboardingTheme() {}
 
@@ -54,6 +77,7 @@ public class OnboardingTheme {
    */
   public OnboardingTheme createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -77,6 +101,7 @@ public class OnboardingTheme {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -87,6 +112,7 @@ public class OnboardingTheme {
    */
   public OnboardingTheme description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -110,6 +136,7 @@ public class OnboardingTheme {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -120,6 +147,7 @@ public class OnboardingTheme {
    */
   public OnboardingTheme id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -143,6 +171,7 @@ public class OnboardingTheme {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -153,6 +182,7 @@ public class OnboardingTheme {
    */
   public OnboardingTheme properties(Map<String, String> properties) {
     this.properties = properties;
+    isSetProperties = true; // mark as set
     return this;
   }
 
@@ -184,6 +214,7 @@ public class OnboardingTheme {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
+    isSetProperties = true; // mark as set
   }
 
   /**
@@ -194,6 +225,7 @@ public class OnboardingTheme {
    */
   public OnboardingTheme updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    isSetUpdatedAt = true; // mark as set
     return this;
   }
 
@@ -217,6 +249,27 @@ public class OnboardingTheme {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    isSetUpdatedAt = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public OnboardingTheme includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this OnboardingTheme object is equal to o. */
@@ -230,15 +283,30 @@ public class OnboardingTheme {
     }
     OnboardingTheme onboardingTheme = (OnboardingTheme) o;
     return Objects.equals(this.createdAt, onboardingTheme.createdAt)
+        && Objects.equals(this.isSetCreatedAt, onboardingTheme.isSetCreatedAt)
         && Objects.equals(this.description, onboardingTheme.description)
+        && Objects.equals(this.isSetDescription, onboardingTheme.isSetDescription)
         && Objects.equals(this.id, onboardingTheme.id)
+        && Objects.equals(this.isSetId, onboardingTheme.isSetId)
         && Objects.equals(this.properties, onboardingTheme.properties)
-        && Objects.equals(this.updatedAt, onboardingTheme.updatedAt);
+        && Objects.equals(this.isSetProperties, onboardingTheme.isSetProperties)
+        && Objects.equals(this.updatedAt, onboardingTheme.updatedAt)
+        && Objects.equals(this.isSetUpdatedAt, onboardingTheme.isSetUpdatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, id, properties, updatedAt);
+    return Objects.hash(
+        createdAt,
+        isSetCreatedAt,
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        properties,
+        isSetProperties,
+        updatedAt,
+        isSetUpdatedAt);
   }
 
   @Override
@@ -262,6 +330,42 @@ public class OnboardingTheme {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetProperties) {
+      addIfNull(nulls, JSON_PROPERTY_PROPERTIES, this.properties);
+    }
+    if (isSetUpdatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_UPDATED_AT, this.updatedAt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class TerminalReassignmentRequest {
   public static final String JSON_PROPERTY_COMPANY_ID = "companyId";
   private String companyId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompanyId = false;
+
   public static final String JSON_PROPERTY_INVENTORY = "inventory";
   private Boolean inventory;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInventory = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantId = false;
+
   public static final String JSON_PROPERTY_STORE_ID = "storeId";
   private String storeId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalReassignmentRequest() {}
 
@@ -48,6 +68,7 @@ public class TerminalReassignmentRequest {
    */
   public TerminalReassignmentRequest companyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
     return this;
   }
 
@@ -73,6 +94,7 @@ public class TerminalReassignmentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
   }
 
   /**
@@ -89,6 +111,7 @@ public class TerminalReassignmentRequest {
    */
   public TerminalReassignmentRequest inventory(Boolean inventory) {
     this.inventory = inventory;
+    isSetInventory = true; // mark as set
     return this;
   }
 
@@ -124,6 +147,7 @@ public class TerminalReassignmentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventory(Boolean inventory) {
     this.inventory = inventory;
+    isSetInventory = true; // mark as set
   }
 
   /**
@@ -137,6 +161,7 @@ public class TerminalReassignmentRequest {
    */
   public TerminalReassignmentRequest merchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -166,6 +191,7 @@ public class TerminalReassignmentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
   }
 
   /**
@@ -176,6 +202,7 @@ public class TerminalReassignmentRequest {
    */
   public TerminalReassignmentRequest storeId(String storeId) {
     this.storeId = storeId;
+    isSetStoreId = true; // mark as set
     return this;
   }
 
@@ -199,6 +226,27 @@ public class TerminalReassignmentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
+    isSetStoreId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TerminalReassignmentRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalReassignmentRequest object is equal to o. */
@@ -212,14 +260,26 @@ public class TerminalReassignmentRequest {
     }
     TerminalReassignmentRequest terminalReassignmentRequest = (TerminalReassignmentRequest) o;
     return Objects.equals(this.companyId, terminalReassignmentRequest.companyId)
+        && Objects.equals(this.isSetCompanyId, terminalReassignmentRequest.isSetCompanyId)
         && Objects.equals(this.inventory, terminalReassignmentRequest.inventory)
+        && Objects.equals(this.isSetInventory, terminalReassignmentRequest.isSetInventory)
         && Objects.equals(this.merchantId, terminalReassignmentRequest.merchantId)
-        && Objects.equals(this.storeId, terminalReassignmentRequest.storeId);
+        && Objects.equals(this.isSetMerchantId, terminalReassignmentRequest.isSetMerchantId)
+        && Objects.equals(this.storeId, terminalReassignmentRequest.storeId)
+        && Objects.equals(this.isSetStoreId, terminalReassignmentRequest.isSetStoreId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyId, inventory, merchantId, storeId);
+    return Objects.hash(
+        companyId,
+        isSetCompanyId,
+        inventory,
+        isSetInventory,
+        merchantId,
+        isSetMerchantId,
+        storeId,
+        isSetStoreId);
   }
 
   @Override
@@ -242,6 +302,39 @@ public class TerminalReassignmentRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCompanyId) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY_ID, this.companyId);
+    }
+    if (isSetInventory) {
+      addIfNull(nulls, JSON_PROPERTY_INVENTORY, this.inventory);
+    }
+    if (isSetMerchantId) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
+    }
+    if (isSetStoreId) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_ID, this.storeId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

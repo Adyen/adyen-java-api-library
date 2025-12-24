@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,12 +31,27 @@ public class Surcharge {
   public static final String JSON_PROPERTY_ASK_CONFIRMATION = "askConfirmation";
   private Boolean askConfirmation;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAskConfirmation = false;
+
   public static final String JSON_PROPERTY_CONFIGURATIONS = "configurations";
   private List<ModelConfiguration> configurations;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConfigurations = false;
 
   public static final String JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE =
       "excludeGratuityFromSurcharge";
   private Boolean excludeGratuityFromSurcharge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExcludeGratuityFromSurcharge = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Surcharge() {}
 
@@ -46,6 +63,7 @@ public class Surcharge {
    */
   public Surcharge askConfirmation(Boolean askConfirmation) {
     this.askConfirmation = askConfirmation;
+    isSetAskConfirmation = true; // mark as set
     return this;
   }
 
@@ -69,6 +87,7 @@ public class Surcharge {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskConfirmation(Boolean askConfirmation) {
     this.askConfirmation = askConfirmation;
+    isSetAskConfirmation = true; // mark as set
   }
 
   /**
@@ -81,6 +100,7 @@ public class Surcharge {
    */
   public Surcharge configurations(List<ModelConfiguration> configurations) {
     this.configurations = configurations;
+    isSetConfigurations = true; // mark as set
     return this;
   }
 
@@ -116,6 +136,7 @@ public class Surcharge {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurations(List<ModelConfiguration> configurations) {
     this.configurations = configurations;
+    isSetConfigurations = true; // mark as set
   }
 
   /**
@@ -126,6 +147,7 @@ public class Surcharge {
    */
   public Surcharge excludeGratuityFromSurcharge(Boolean excludeGratuityFromSurcharge) {
     this.excludeGratuityFromSurcharge = excludeGratuityFromSurcharge;
+    isSetExcludeGratuityFromSurcharge = true; // mark as set
     return this;
   }
 
@@ -149,6 +171,27 @@ public class Surcharge {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExcludeGratuityFromSurcharge(Boolean excludeGratuityFromSurcharge) {
     this.excludeGratuityFromSurcharge = excludeGratuityFromSurcharge;
+    isSetExcludeGratuityFromSurcharge = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Surcharge includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Surcharge object is equal to o. */
@@ -162,14 +205,23 @@ public class Surcharge {
     }
     Surcharge surcharge = (Surcharge) o;
     return Objects.equals(this.askConfirmation, surcharge.askConfirmation)
+        && Objects.equals(this.isSetAskConfirmation, surcharge.isSetAskConfirmation)
         && Objects.equals(this.configurations, surcharge.configurations)
+        && Objects.equals(this.isSetConfigurations, surcharge.isSetConfigurations)
+        && Objects.equals(this.excludeGratuityFromSurcharge, surcharge.excludeGratuityFromSurcharge)
         && Objects.equals(
-            this.excludeGratuityFromSurcharge, surcharge.excludeGratuityFromSurcharge);
+            this.isSetExcludeGratuityFromSurcharge, surcharge.isSetExcludeGratuityFromSurcharge);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(askConfirmation, configurations, excludeGratuityFromSurcharge);
+    return Objects.hash(
+        askConfirmation,
+        isSetAskConfirmation,
+        configurations,
+        isSetConfigurations,
+        excludeGratuityFromSurcharge,
+        isSetExcludeGratuityFromSurcharge);
   }
 
   @Override
@@ -193,6 +245,37 @@ public class Surcharge {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAskConfirmation) {
+      addIfNull(nulls, JSON_PROPERTY_ASK_CONFIRMATION, this.askConfirmation);
+    }
+    if (isSetConfigurations) {
+      addIfNull(nulls, JSON_PROPERTY_CONFIGURATIONS, this.configurations);
+    }
+    if (isSetExcludeGratuityFromSurcharge) {
+      addIfNull(
+          nulls, JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE, this.excludeGratuityFromSurcharge);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class PhoneNumber {
   public static final String JSON_PROPERTY_PHONE_COUNTRY_CODE = "phoneCountryCode";
   private String phoneCountryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneCountryCode = false;
+
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
 
   /** The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**. */
   public enum PhoneTypeEnum {
@@ -82,6 +90,15 @@ public class PhoneNumber {
   public static final String JSON_PROPERTY_PHONE_TYPE = "phoneType";
   private PhoneTypeEnum phoneType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PhoneNumber() {}
 
   /**
@@ -94,6 +111,7 @@ public class PhoneNumber {
    */
   public PhoneNumber phoneCountryCode(String phoneCountryCode) {
     this.phoneCountryCode = phoneCountryCode;
+    isSetPhoneCountryCode = true; // mark as set
     return this;
   }
 
@@ -121,6 +139,7 @@ public class PhoneNumber {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneCountryCode(String phoneCountryCode) {
     this.phoneCountryCode = phoneCountryCode;
+    isSetPhoneCountryCode = true; // mark as set
   }
 
   /**
@@ -132,6 +151,7 @@ public class PhoneNumber {
    */
   public PhoneNumber phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -157,6 +177,7 @@ public class PhoneNumber {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -168,6 +189,7 @@ public class PhoneNumber {
    */
   public PhoneNumber phoneType(PhoneTypeEnum phoneType) {
     this.phoneType = phoneType;
+    isSetPhoneType = true; // mark as set
     return this;
   }
 
@@ -193,6 +215,27 @@ public class PhoneNumber {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneType(PhoneTypeEnum phoneType) {
     this.phoneType = phoneType;
+    isSetPhoneType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PhoneNumber includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PhoneNumber object is equal to o. */
@@ -206,13 +249,22 @@ public class PhoneNumber {
     }
     PhoneNumber phoneNumber = (PhoneNumber) o;
     return Objects.equals(this.phoneCountryCode, phoneNumber.phoneCountryCode)
+        && Objects.equals(this.isSetPhoneCountryCode, phoneNumber.isSetPhoneCountryCode)
         && Objects.equals(this.phoneNumber, phoneNumber.phoneNumber)
-        && Objects.equals(this.phoneType, phoneNumber.phoneType);
+        && Objects.equals(this.isSetPhoneNumber, phoneNumber.isSetPhoneNumber)
+        && Objects.equals(this.phoneType, phoneNumber.phoneType)
+        && Objects.equals(this.isSetPhoneType, phoneNumber.isSetPhoneType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneCountryCode, phoneNumber, phoneType);
+    return Objects.hash(
+        phoneCountryCode,
+        isSetPhoneCountryCode,
+        phoneNumber,
+        isSetPhoneNumber,
+        phoneType,
+        isSetPhoneType);
   }
 
   @Override
@@ -234,6 +286,36 @@ public class PhoneNumber {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPhoneCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_COUNTRY_CODE, this.phoneCountryCode);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetPhoneType) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_TYPE, this.phoneType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

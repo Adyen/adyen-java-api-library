@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,8 +25,20 @@ public class Expiry {
   public static final String JSON_PROPERTY_MONTH = "month";
   private String month;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMonth = false;
+
   public static final String JSON_PROPERTY_YEAR = "year";
   private String year;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetYear = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Expiry() {}
 
@@ -36,6 +50,7 @@ public class Expiry {
    */
   public Expiry month(String month) {
     this.month = month;
+    isSetMonth = true; // mark as set
     return this;
   }
 
@@ -59,6 +74,7 @@ public class Expiry {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMonth(String month) {
     this.month = month;
+    isSetMonth = true; // mark as set
   }
 
   /**
@@ -69,6 +85,7 @@ public class Expiry {
    */
   public Expiry year(String year) {
     this.year = year;
+    isSetYear = true; // mark as set
     return this;
   }
 
@@ -92,6 +109,27 @@ public class Expiry {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setYear(String year) {
     this.year = year;
+    isSetYear = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Expiry includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Expiry object is equal to o. */
@@ -104,12 +142,15 @@ public class Expiry {
       return false;
     }
     Expiry expiry = (Expiry) o;
-    return Objects.equals(this.month, expiry.month) && Objects.equals(this.year, expiry.year);
+    return Objects.equals(this.month, expiry.month)
+        && Objects.equals(this.isSetMonth, expiry.isSetMonth)
+        && Objects.equals(this.year, expiry.year)
+        && Objects.equals(this.isSetYear, expiry.isSetYear);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(month, year);
+    return Objects.hash(month, isSetMonth, year, isSetYear);
   }
 
   @Override
@@ -130,6 +171,33 @@ public class Expiry {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMonth) {
+      addIfNull(nulls, JSON_PROPERTY_MONTH, this.month);
+    }
+    if (isSetYear) {
+      addIfNull(nulls, JSON_PROPERTY_YEAR, this.year);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

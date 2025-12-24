@@ -73,14 +73,14 @@ public class TransferData {
   private List<BalanceMutation> balances;
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   public enum CategoryEnum {
     BANK(String.valueOf("bank")),
@@ -263,6 +263,8 @@ public class TransferData {
 
     SCAFAILED(String.valueOf("scaFailed")),
 
+    SCHEMEADVICE(String.valueOf("schemeAdvice")),
+
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
     UNKNOWN(String.valueOf("unknown"));
@@ -319,10 +321,12 @@ public class TransferData {
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    */
   public enum StatusEnum {
     APPROVALPENDING(String.valueOf("approvalPending")),
@@ -801,24 +805,24 @@ public class TransferData {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData category(CategoryEnum category) {
@@ -827,24 +831,24 @@ public class TransferData {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @return category The category of the transfer. Possible values: - **bank**: a transfer
+   * @return category The category of the transfer. Possible values: - **bank**: A transfer
    *     involving a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -853,24 +857,24 @@ public class TransferData {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1572,16 +1576,21 @@ public class TransferData {
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
-   *     request is created. - **authorised**: the transfer request is authorized and the funds are
-   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   *     transfer is returned by the counterparty&#39;s bank.
+   *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
+   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
+   *     Transaction rule requirements violated. - **authorised**: the transfer request is
+   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
+   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
+   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   *     bank.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData status(StatusEnum status) {
@@ -1591,16 +1600,21 @@ public class TransferData {
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    *
    * @return status The result of the transfer. For example: - **received**: an outgoing transfer
-   *     request is created. - **authorised**: the transfer request is authorized and the funds are
-   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   *     transfer is returned by the counterparty&#39;s bank.
+   *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
+   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
+   *     Transaction rule requirements violated. - **authorised**: the transfer request is
+   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
+   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
+   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   *     bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1610,16 +1624,21 @@ public class TransferData {
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
-   *     request is created. - **authorised**: the transfer request is authorized and the funds are
-   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   *     transfer is returned by the counterparty&#39;s bank.
+   *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
+   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
+   *     Transaction rule requirements violated. - **authorised**: the transfer request is
+   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
+   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
+   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   *     bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

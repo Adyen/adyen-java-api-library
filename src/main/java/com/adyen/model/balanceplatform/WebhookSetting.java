@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,17 +48,38 @@ public class WebhookSetting {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TARGET = "target";
   private Target target;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTarget = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private SettingType type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public WebhookSetting() {}
 
@@ -70,6 +93,7 @@ public class WebhookSetting {
    */
   public WebhookSetting currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -97,6 +121,7 @@ public class WebhookSetting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -107,6 +132,7 @@ public class WebhookSetting {
    */
   public WebhookSetting id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -130,6 +156,7 @@ public class WebhookSetting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -140,6 +167,7 @@ public class WebhookSetting {
    */
   public WebhookSetting status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -163,6 +191,7 @@ public class WebhookSetting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -173,6 +202,7 @@ public class WebhookSetting {
    */
   public WebhookSetting target(Target target) {
     this.target = target;
+    isSetTarget = true; // mark as set
     return this;
   }
 
@@ -196,6 +226,7 @@ public class WebhookSetting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTarget(Target target) {
     this.target = target;
+    isSetTarget = true; // mark as set
   }
 
   /**
@@ -206,6 +237,7 @@ public class WebhookSetting {
    */
   public WebhookSetting type(SettingType type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -229,6 +261,27 @@ public class WebhookSetting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(SettingType type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public WebhookSetting includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this WebhookSetting object is equal to o. */
@@ -242,15 +295,30 @@ public class WebhookSetting {
     }
     WebhookSetting webhookSetting = (WebhookSetting) o;
     return Objects.equals(this.currency, webhookSetting.currency)
+        && Objects.equals(this.isSetCurrency, webhookSetting.isSetCurrency)
         && Objects.equals(this.id, webhookSetting.id)
+        && Objects.equals(this.isSetId, webhookSetting.isSetId)
         && Objects.equals(this.status, webhookSetting.status)
+        && Objects.equals(this.isSetStatus, webhookSetting.isSetStatus)
         && Objects.equals(this.target, webhookSetting.target)
-        && Objects.equals(this.type, webhookSetting.type);
+        && Objects.equals(this.isSetTarget, webhookSetting.isSetTarget)
+        && Objects.equals(this.type, webhookSetting.type)
+        && Objects.equals(this.isSetType, webhookSetting.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, id, status, target, type);
+    return Objects.hash(
+        currency,
+        isSetCurrency,
+        id,
+        isSetId,
+        status,
+        isSetStatus,
+        target,
+        isSetTarget,
+        type,
+        isSetType);
   }
 
   @Override
@@ -282,6 +350,42 @@ public class WebhookSetting {
     mappings.put("balance", BalanceWebhookSetting.class);
     mappings.put("WebhookSetting", WebhookSetting.class);
     JSON.registerDiscriminator(WebhookSetting.class, "type", mappings);
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTarget) {
+      addIfNull(nulls, JSON_PROPERTY_TARGET, this.target);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

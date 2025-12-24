@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,35 +46,68 @@ public class SourceOfFunds {
   public static final String JSON_PROPERTY_ADYEN_PROCESSED_FUNDS = "adyenProcessedFunds";
   private Boolean adyenProcessedFunds;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdyenProcessedFunds = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_ASSET_MONTHS_HELD = "assetMonthsHeld";
   private Integer assetMonthsHeld;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssetMonthsHeld = false;
+
   public static final String JSON_PROPERTY_CRYPTOCURRENCY_EXCHANGE = "cryptocurrencyExchange";
   private String cryptocurrencyExchange;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCryptocurrencyExchange = false;
 
   public static final String JSON_PROPERTY_DATE_OF_FUNDS_RECEIVED = "dateOfFundsReceived";
   private LocalDate dateOfFundsReceived;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfFundsReceived = false;
+
   public static final String JSON_PROPERTY_DATE_OF_SOURCE_EVENT = "dateOfSourceEvent";
   private LocalDate dateOfSourceEvent;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfSourceEvent = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_FINANCIERS = "financiers";
   private List<Financier> financiers;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFinanciers = false;
 
   public static final String JSON_PROPERTY_ORIGINATOR_LEGAL_ENTITY_ID = "originatorLegalEntityId";
   private String originatorLegalEntityId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOriginatorLegalEntityId = false;
+
   public static final String JSON_PROPERTY_PURPOSE = "purpose";
   private String purpose;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPurpose = false;
+
   public static final String JSON_PROPERTY_RELATIONSHIP = "relationship";
   private String relationship;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRelationship = false;
 
   /**
    * The type of the source of funds. Possible values: * **business** * **employment** *
@@ -149,8 +184,20 @@ public class SourceOfFunds {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_WEBSITE = "website";
   private String website;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWebsite = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SourceOfFunds() {}
 
@@ -164,6 +211,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds adyenProcessedFunds(Boolean adyenProcessedFunds) {
     this.adyenProcessedFunds = adyenProcessedFunds;
+    isSetAdyenProcessedFunds = true; // mark as set
     return this;
   }
 
@@ -191,6 +239,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenProcessedFunds(Boolean adyenProcessedFunds) {
     this.adyenProcessedFunds = adyenProcessedFunds;
+    isSetAdyenProcessedFunds = true; // mark as set
   }
 
   /**
@@ -201,6 +250,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -224,6 +274,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -238,6 +289,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds assetMonthsHeld(Integer assetMonthsHeld) {
     this.assetMonthsHeld = assetMonthsHeld;
+    isSetAssetMonthsHeld = true; // mark as set
     return this;
   }
 
@@ -269,6 +321,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssetMonthsHeld(Integer assetMonthsHeld) {
     this.assetMonthsHeld = assetMonthsHeld;
+    isSetAssetMonthsHeld = true; // mark as set
   }
 
   /**
@@ -281,6 +334,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds cryptocurrencyExchange(String cryptocurrencyExchange) {
     this.cryptocurrencyExchange = cryptocurrencyExchange;
+    isSetCryptocurrencyExchange = true; // mark as set
     return this;
   }
 
@@ -308,6 +362,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCryptocurrencyExchange(String cryptocurrencyExchange) {
     this.cryptocurrencyExchange = cryptocurrencyExchange;
+    isSetCryptocurrencyExchange = true; // mark as set
   }
 
   /**
@@ -320,6 +375,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds dateOfFundsReceived(LocalDate dateOfFundsReceived) {
     this.dateOfFundsReceived = dateOfFundsReceived;
+    isSetDateOfFundsReceived = true; // mark as set
     return this;
   }
 
@@ -347,6 +403,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfFundsReceived(LocalDate dateOfFundsReceived) {
     this.dateOfFundsReceived = dateOfFundsReceived;
+    isSetDateOfFundsReceived = true; // mark as set
   }
 
   /**
@@ -363,6 +420,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds dateOfSourceEvent(LocalDate dateOfSourceEvent) {
     this.dateOfSourceEvent = dateOfSourceEvent;
+    isSetDateOfSourceEvent = true; // mark as set
     return this;
   }
 
@@ -399,6 +457,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfSourceEvent(LocalDate dateOfSourceEvent) {
     this.dateOfSourceEvent = dateOfSourceEvent;
+    isSetDateOfSourceEvent = true; // mark as set
   }
 
   /**
@@ -417,6 +476,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -456,6 +516,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -467,6 +528,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds financiers(List<Financier> financiers) {
     this.financiers = financiers;
+    isSetFinanciers = true; // mark as set
     return this;
   }
 
@@ -500,6 +562,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinanciers(List<Financier> financiers) {
     this.financiers = financiers;
+    isSetFinanciers = true; // mark as set
   }
 
   /**
@@ -517,6 +580,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds originatorLegalEntityId(String originatorLegalEntityId) {
     this.originatorLegalEntityId = originatorLegalEntityId;
+    isSetOriginatorLegalEntityId = true; // mark as set
     return this;
   }
 
@@ -554,6 +618,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginatorLegalEntityId(String originatorLegalEntityId) {
     this.originatorLegalEntityId = originatorLegalEntityId;
+    isSetOriginatorLegalEntityId = true; // mark as set
   }
 
   /**
@@ -565,6 +630,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds purpose(String purpose) {
     this.purpose = purpose;
+    isSetPurpose = true; // mark as set
     return this;
   }
 
@@ -590,6 +656,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurpose(String purpose) {
     this.purpose = purpose;
+    isSetPurpose = true; // mark as set
   }
 
   /**
@@ -602,6 +669,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds relationship(String relationship) {
     this.relationship = relationship;
+    isSetRelationship = true; // mark as set
     return this;
   }
 
@@ -629,6 +697,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelationship(String relationship) {
     this.relationship = relationship;
+    isSetRelationship = true; // mark as set
   }
 
   /**
@@ -645,6 +714,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -681,6 +751,7 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -695,6 +766,7 @@ public class SourceOfFunds {
    */
   public SourceOfFunds website(String website) {
     this.website = website;
+    isSetWebsite = true; // mark as set
     return this;
   }
 
@@ -726,6 +798,27 @@ public class SourceOfFunds {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebsite(String website) {
     this.website = website;
+    isSetWebsite = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SourceOfFunds includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SourceOfFunds object is equal to o. */
@@ -739,36 +832,64 @@ public class SourceOfFunds {
     }
     SourceOfFunds sourceOfFunds = (SourceOfFunds) o;
     return Objects.equals(this.adyenProcessedFunds, sourceOfFunds.adyenProcessedFunds)
+        && Objects.equals(this.isSetAdyenProcessedFunds, sourceOfFunds.isSetAdyenProcessedFunds)
         && Objects.equals(this.amount, sourceOfFunds.amount)
+        && Objects.equals(this.isSetAmount, sourceOfFunds.isSetAmount)
         && Objects.equals(this.assetMonthsHeld, sourceOfFunds.assetMonthsHeld)
+        && Objects.equals(this.isSetAssetMonthsHeld, sourceOfFunds.isSetAssetMonthsHeld)
         && Objects.equals(this.cryptocurrencyExchange, sourceOfFunds.cryptocurrencyExchange)
+        && Objects.equals(
+            this.isSetCryptocurrencyExchange, sourceOfFunds.isSetCryptocurrencyExchange)
         && Objects.equals(this.dateOfFundsReceived, sourceOfFunds.dateOfFundsReceived)
+        && Objects.equals(this.isSetDateOfFundsReceived, sourceOfFunds.isSetDateOfFundsReceived)
         && Objects.equals(this.dateOfSourceEvent, sourceOfFunds.dateOfSourceEvent)
+        && Objects.equals(this.isSetDateOfSourceEvent, sourceOfFunds.isSetDateOfSourceEvent)
         && Objects.equals(this.description, sourceOfFunds.description)
+        && Objects.equals(this.isSetDescription, sourceOfFunds.isSetDescription)
         && Objects.equals(this.financiers, sourceOfFunds.financiers)
+        && Objects.equals(this.isSetFinanciers, sourceOfFunds.isSetFinanciers)
         && Objects.equals(this.originatorLegalEntityId, sourceOfFunds.originatorLegalEntityId)
+        && Objects.equals(
+            this.isSetOriginatorLegalEntityId, sourceOfFunds.isSetOriginatorLegalEntityId)
         && Objects.equals(this.purpose, sourceOfFunds.purpose)
+        && Objects.equals(this.isSetPurpose, sourceOfFunds.isSetPurpose)
         && Objects.equals(this.relationship, sourceOfFunds.relationship)
+        && Objects.equals(this.isSetRelationship, sourceOfFunds.isSetRelationship)
         && Objects.equals(this.type, sourceOfFunds.type)
-        && Objects.equals(this.website, sourceOfFunds.website);
+        && Objects.equals(this.isSetType, sourceOfFunds.isSetType)
+        && Objects.equals(this.website, sourceOfFunds.website)
+        && Objects.equals(this.isSetWebsite, sourceOfFunds.isSetWebsite);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         adyenProcessedFunds,
+        isSetAdyenProcessedFunds,
         amount,
+        isSetAmount,
         assetMonthsHeld,
+        isSetAssetMonthsHeld,
         cryptocurrencyExchange,
+        isSetCryptocurrencyExchange,
         dateOfFundsReceived,
+        isSetDateOfFundsReceived,
         dateOfSourceEvent,
+        isSetDateOfSourceEvent,
         description,
+        isSetDescription,
         financiers,
+        isSetFinanciers,
         originatorLegalEntityId,
+        isSetOriginatorLegalEntityId,
         purpose,
+        isSetPurpose,
         relationship,
+        isSetRelationship,
         type,
-        website);
+        isSetType,
+        website,
+        isSetWebsite);
   }
 
   @Override
@@ -808,6 +929,66 @@ public class SourceOfFunds {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdyenProcessedFunds) {
+      addIfNull(nulls, JSON_PROPERTY_ADYEN_PROCESSED_FUNDS, this.adyenProcessedFunds);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetAssetMonthsHeld) {
+      addIfNull(nulls, JSON_PROPERTY_ASSET_MONTHS_HELD, this.assetMonthsHeld);
+    }
+    if (isSetCryptocurrencyExchange) {
+      addIfNull(nulls, JSON_PROPERTY_CRYPTOCURRENCY_EXCHANGE, this.cryptocurrencyExchange);
+    }
+    if (isSetDateOfFundsReceived) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_FUNDS_RECEIVED, this.dateOfFundsReceived);
+    }
+    if (isSetDateOfSourceEvent) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_SOURCE_EVENT, this.dateOfSourceEvent);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetFinanciers) {
+      addIfNull(nulls, JSON_PROPERTY_FINANCIERS, this.financiers);
+    }
+    if (isSetOriginatorLegalEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGINATOR_LEGAL_ENTITY_ID, this.originatorLegalEntityId);
+    }
+    if (isSetPurpose) {
+      addIfNull(nulls, JSON_PROPERTY_PURPOSE, this.purpose);
+    }
+    if (isSetRelationship) {
+      addIfNull(nulls, JSON_PROPERTY_RELATIONSHIP, this.relationship);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetWebsite) {
+      addIfNull(nulls, JSON_PROPERTY_WEBSITE, this.website);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

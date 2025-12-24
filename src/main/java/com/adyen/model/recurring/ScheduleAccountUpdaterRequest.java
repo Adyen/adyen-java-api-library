@@ -11,6 +11,8 @@
 
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,21 +34,45 @@ public class ScheduleAccountUpdaterRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE =
       "selectedRecurringDetailReference";
   private String selectedRecurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelectedRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ScheduleAccountUpdaterRequest() {}
 
@@ -60,6 +86,7 @@ public class ScheduleAccountUpdaterRequest {
    */
   public ScheduleAccountUpdaterRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -94,6 +121,7 @@ public class ScheduleAccountUpdaterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -105,6 +133,7 @@ public class ScheduleAccountUpdaterRequest {
    */
   public ScheduleAccountUpdaterRequest card(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -128,6 +157,7 @@ public class ScheduleAccountUpdaterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -139,6 +169,7 @@ public class ScheduleAccountUpdaterRequest {
    */
   public ScheduleAccountUpdaterRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -162,6 +193,7 @@ public class ScheduleAccountUpdaterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -173,6 +205,7 @@ public class ScheduleAccountUpdaterRequest {
    */
   public ScheduleAccountUpdaterRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -196,6 +229,7 @@ public class ScheduleAccountUpdaterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -209,6 +243,7 @@ public class ScheduleAccountUpdaterRequest {
   public ScheduleAccountUpdaterRequest selectedRecurringDetailReference(
       String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -234,6 +269,7 @@ public class ScheduleAccountUpdaterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -247,6 +283,7 @@ public class ScheduleAccountUpdaterRequest {
    */
   public ScheduleAccountUpdaterRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -274,6 +311,27 @@ public class ScheduleAccountUpdaterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ScheduleAccountUpdaterRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ScheduleAccountUpdaterRequest object is equal to o. */
@@ -287,24 +345,41 @@ public class ScheduleAccountUpdaterRequest {
     }
     ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest = (ScheduleAccountUpdaterRequest) o;
     return Objects.equals(this.additionalData, scheduleAccountUpdaterRequest.additionalData)
+        && Objects.equals(
+            this.isSetAdditionalData, scheduleAccountUpdaterRequest.isSetAdditionalData)
         && Objects.equals(this.card, scheduleAccountUpdaterRequest.card)
+        && Objects.equals(this.isSetCard, scheduleAccountUpdaterRequest.isSetCard)
         && Objects.equals(this.merchantAccount, scheduleAccountUpdaterRequest.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, scheduleAccountUpdaterRequest.isSetMerchantAccount)
         && Objects.equals(this.reference, scheduleAccountUpdaterRequest.reference)
+        && Objects.equals(this.isSetReference, scheduleAccountUpdaterRequest.isSetReference)
         && Objects.equals(
             this.selectedRecurringDetailReference,
             scheduleAccountUpdaterRequest.selectedRecurringDetailReference)
-        && Objects.equals(this.shopperReference, scheduleAccountUpdaterRequest.shopperReference);
+        && Objects.equals(
+            this.isSetSelectedRecurringDetailReference,
+            scheduleAccountUpdaterRequest.isSetSelectedRecurringDetailReference)
+        && Objects.equals(this.shopperReference, scheduleAccountUpdaterRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, scheduleAccountUpdaterRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         card,
+        isSetCard,
         merchantAccount,
+        isSetMerchantAccount,
         reference,
+        isSetReference,
         selectedRecurringDetailReference,
-        shopperReference);
+        isSetSelectedRecurringDetailReference,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override
@@ -331,6 +406,48 @@ public class ScheduleAccountUpdaterRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSelectedRecurringDetailReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+          this.selectedRecurringDetailReference);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

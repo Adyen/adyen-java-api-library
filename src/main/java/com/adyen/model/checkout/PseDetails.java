@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,20 +37,38 @@ public class PseDetails {
   public static final String JSON_PROPERTY_BANK = "bank";
   private String bank;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBank = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_CLIENT_TYPE = "clientType";
   private String clientType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetClientType = false;
+
   public static final String JSON_PROPERTY_IDENTIFICATION = "identification";
   private String identification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdentification = false;
 
   public static final String JSON_PROPERTY_IDENTIFICATION_TYPE = "identificationType";
   private String identificationType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdentificationType = false;
+
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
 
   /** The payment method type. */
   public enum TypeEnum {
@@ -92,6 +112,15 @@ public class PseDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PseDetails() {}
 
   /**
@@ -102,6 +131,7 @@ public class PseDetails {
    */
   public PseDetails bank(String bank) {
     this.bank = bank;
+    isSetBank = true; // mark as set
     return this;
   }
 
@@ -125,6 +155,7 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(String bank) {
     this.bank = bank;
+    isSetBank = true; // mark as set
   }
 
   /**
@@ -135,6 +166,7 @@ public class PseDetails {
    */
   public PseDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -158,6 +190,7 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -168,6 +201,7 @@ public class PseDetails {
    */
   public PseDetails clientType(String clientType) {
     this.clientType = clientType;
+    isSetClientType = true; // mark as set
     return this;
   }
 
@@ -191,6 +225,7 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientType(String clientType) {
     this.clientType = clientType;
+    isSetClientType = true; // mark as set
   }
 
   /**
@@ -201,6 +236,7 @@ public class PseDetails {
    */
   public PseDetails identification(String identification) {
     this.identification = identification;
+    isSetIdentification = true; // mark as set
     return this;
   }
 
@@ -224,6 +260,7 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
     this.identification = identification;
+    isSetIdentification = true; // mark as set
   }
 
   /**
@@ -234,6 +271,7 @@ public class PseDetails {
    */
   public PseDetails identificationType(String identificationType) {
     this.identificationType = identificationType;
+    isSetIdentificationType = true; // mark as set
     return this;
   }
 
@@ -257,6 +295,7 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(String identificationType) {
     this.identificationType = identificationType;
+    isSetIdentificationType = true; // mark as set
   }
 
   /**
@@ -267,6 +306,7 @@ public class PseDetails {
    */
   public PseDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -291,6 +331,7 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -301,6 +342,7 @@ public class PseDetails {
    */
   public PseDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -324,6 +366,27 @@ public class PseDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PseDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PseDetails object is equal to o. */
@@ -337,18 +400,38 @@ public class PseDetails {
     }
     PseDetails pseDetails = (PseDetails) o;
     return Objects.equals(this.bank, pseDetails.bank)
+        && Objects.equals(this.isSetBank, pseDetails.isSetBank)
         && Objects.equals(this.checkoutAttemptId, pseDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, pseDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.clientType, pseDetails.clientType)
+        && Objects.equals(this.isSetClientType, pseDetails.isSetClientType)
         && Objects.equals(this.identification, pseDetails.identification)
+        && Objects.equals(this.isSetIdentification, pseDetails.isSetIdentification)
         && Objects.equals(this.identificationType, pseDetails.identificationType)
+        && Objects.equals(this.isSetIdentificationType, pseDetails.isSetIdentificationType)
         && Objects.equals(this.sdkData, pseDetails.sdkData)
-        && Objects.equals(this.type, pseDetails.type);
+        && Objects.equals(this.isSetSdkData, pseDetails.isSetSdkData)
+        && Objects.equals(this.type, pseDetails.type)
+        && Objects.equals(this.isSetType, pseDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        bank, checkoutAttemptId, clientType, identification, identificationType, sdkData, type);
+        bank,
+        isSetBank,
+        checkoutAttemptId,
+        isSetCheckoutAttemptId,
+        clientType,
+        isSetClientType,
+        identification,
+        isSetIdentification,
+        identificationType,
+        isSetIdentificationType,
+        sdkData,
+        isSetSdkData,
+        type,
+        isSetType);
   }
 
   @Override
@@ -374,6 +457,48 @@ public class PseDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBank) {
+      addIfNull(nulls, JSON_PROPERTY_BANK, this.bank);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetClientType) {
+      addIfNull(nulls, JSON_PROPERTY_CLIENT_TYPE, this.clientType);
+    }
+    if (isSetIdentification) {
+      addIfNull(nulls, JSON_PROPERTY_IDENTIFICATION, this.identification);
+    }
+    if (isSetIdentificationType) {
+      addIfNull(nulls, JSON_PROPERTY_IDENTIFICATION_TYPE, this.identificationType);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

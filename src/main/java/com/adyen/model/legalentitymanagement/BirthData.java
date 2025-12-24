@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,6 +25,15 @@ public class BirthData {
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private String dateOfBirth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public BirthData() {}
 
   /**
@@ -33,6 +44,7 @@ public class BirthData {
    */
   public BirthData dateOfBirth(String dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -56,6 +68,27 @@ public class BirthData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(String dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BirthData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BirthData object is equal to o. */
@@ -68,12 +101,13 @@ public class BirthData {
       return false;
     }
     BirthData birthData = (BirthData) o;
-    return Objects.equals(this.dateOfBirth, birthData.dateOfBirth);
+    return Objects.equals(this.dateOfBirth, birthData.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, birthData.isSetDateOfBirth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateOfBirth);
+    return Objects.hash(dateOfBirth, isSetDateOfBirth);
   }
 
   @Override
@@ -93,6 +127,30 @@ public class BirthData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

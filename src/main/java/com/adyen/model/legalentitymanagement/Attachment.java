@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,19 +32,40 @@ public class Attachment {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private byte[] content;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContent = false;
+
   public static final String JSON_PROPERTY_CONTENT_TYPE = "contentType";
   @Deprecated // deprecated since Legal Entity Management API v1
   private String contentType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContentType = false;
 
   public static final String JSON_PROPERTY_FILENAME = "filename";
   @Deprecated // deprecated since Legal Entity Management API v1
   private String filename;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFilename = false;
+
   public static final String JSON_PROPERTY_PAGE_NAME = "pageName";
   private String pageName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPageName = false;
+
   public static final String JSON_PROPERTY_PAGE_TYPE = "pageType";
   private String pageType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPageType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Attachment() {}
 
@@ -54,6 +77,7 @@ public class Attachment {
    */
   public Attachment content(byte[] content) {
     this.content = content;
+    isSetContent = true; // mark as set
     return this;
   }
 
@@ -77,6 +101,7 @@ public class Attachment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
     this.content = content;
+    isSetContent = true; // mark as set
   }
 
   /**
@@ -91,6 +116,7 @@ public class Attachment {
   @Deprecated // deprecated since Legal Entity Management API v1
   public Attachment contentType(String contentType) {
     this.contentType = contentType;
+    isSetContentType = true; // mark as set
     return this;
   }
 
@@ -122,6 +148,7 @@ public class Attachment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
     this.contentType = contentType;
+    isSetContentType = true; // mark as set
   }
 
   /**
@@ -134,6 +161,7 @@ public class Attachment {
   @Deprecated // deprecated since Legal Entity Management API v1
   public Attachment filename(String filename) {
     this.filename = filename;
+    isSetFilename = true; // mark as set
     return this;
   }
 
@@ -161,6 +189,7 @@ public class Attachment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilename(String filename) {
     this.filename = filename;
+    isSetFilename = true; // mark as set
   }
 
   /**
@@ -171,6 +200,7 @@ public class Attachment {
    */
   public Attachment pageName(String pageName) {
     this.pageName = pageName;
+    isSetPageName = true; // mark as set
     return this;
   }
 
@@ -194,6 +224,7 @@ public class Attachment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
     this.pageName = pageName;
+    isSetPageName = true; // mark as set
   }
 
   /**
@@ -210,6 +241,7 @@ public class Attachment {
    */
   public Attachment pageType(String pageType) {
     this.pageType = pageType;
+    isSetPageType = true; // mark as set
     return this;
   }
 
@@ -245,6 +277,27 @@ public class Attachment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageType(String pageType) {
     this.pageType = pageType;
+    isSetPageType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Attachment includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Attachment object is equal to o. */
@@ -258,15 +311,30 @@ public class Attachment {
     }
     Attachment attachment = (Attachment) o;
     return Arrays.equals(this.content, attachment.content)
+        && Objects.equals(this.isSetContent, attachment.isSetContent)
         && Objects.equals(this.contentType, attachment.contentType)
+        && Objects.equals(this.isSetContentType, attachment.isSetContentType)
         && Objects.equals(this.filename, attachment.filename)
+        && Objects.equals(this.isSetFilename, attachment.isSetFilename)
         && Objects.equals(this.pageName, attachment.pageName)
-        && Objects.equals(this.pageType, attachment.pageType);
+        && Objects.equals(this.isSetPageName, attachment.isSetPageName)
+        && Objects.equals(this.pageType, attachment.pageType)
+        && Objects.equals(this.isSetPageType, attachment.isSetPageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(content), contentType, filename, pageName, pageType);
+    return Objects.hash(
+        Arrays.hashCode(content),
+        isSetContent,
+        contentType,
+        isSetContentType,
+        filename,
+        isSetFilename,
+        pageName,
+        isSetPageName,
+        pageType,
+        isSetPageType);
   }
 
   @Override
@@ -290,6 +358,42 @@ public class Attachment {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetContent) {
+      addIfNull(nulls, JSON_PROPERTY_CONTENT, this.content);
+    }
+    if (isSetContentType) {
+      addIfNull(nulls, JSON_PROPERTY_CONTENT_TYPE, this.contentType);
+    }
+    if (isSetFilename) {
+      addIfNull(nulls, JSON_PROPERTY_FILENAME, this.filename);
+    }
+    if (isSetPageName) {
+      addIfNull(nulls, JSON_PROPERTY_PAGE_NAME, this.pageName);
+    }
+    if (isSetPageType) {
+      addIfNull(nulls, JSON_PROPERTY_PAGE_TYPE, this.pageType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

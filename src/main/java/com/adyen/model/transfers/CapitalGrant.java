@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,26 +39,50 @@ public class CapitalGrant {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_BALANCES = "balances";
   private CapitalBalance balances;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalances = false;
 
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private Counterparty counterparty;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCounterparty = false;
+
   public static final String JSON_PROPERTY_FEE = "fee";
   private Fee fee;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFee = false;
 
   public static final String JSON_PROPERTY_GRANT_ACCOUNT_ID = "grantAccountId";
   private String grantAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGrantAccountId = false;
+
   public static final String JSON_PROPERTY_GRANT_OFFER_ID = "grantOfferId";
   private String grantOfferId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGrantOfferId = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_REPAYMENT = "repayment";
   private Repayment repayment;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRepayment = false;
 
   /**
    * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**,
@@ -113,6 +139,15 @@ public class CapitalGrant {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CapitalGrant() {}
 
   /**
@@ -123,6 +158,7 @@ public class CapitalGrant {
    */
   public CapitalGrant amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -146,6 +182,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -156,6 +193,7 @@ public class CapitalGrant {
    */
   public CapitalGrant balances(CapitalBalance balances) {
     this.balances = balances;
+    isSetBalances = true; // mark as set
     return this;
   }
 
@@ -179,6 +217,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(CapitalBalance balances) {
     this.balances = balances;
+    isSetBalances = true; // mark as set
   }
 
   /**
@@ -189,6 +228,7 @@ public class CapitalGrant {
    */
   public CapitalGrant counterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
     return this;
   }
 
@@ -212,6 +252,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
   }
 
   /**
@@ -222,6 +263,7 @@ public class CapitalGrant {
    */
   public CapitalGrant fee(Fee fee) {
     this.fee = fee;
+    isSetFee = true; // mark as set
     return this;
   }
 
@@ -245,6 +287,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
     this.fee = fee;
+    isSetFee = true; // mark as set
   }
 
   /**
@@ -255,6 +298,7 @@ public class CapitalGrant {
    */
   public CapitalGrant grantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
+    isSetGrantAccountId = true; // mark as set
     return this;
   }
 
@@ -278,6 +322,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
+    isSetGrantAccountId = true; // mark as set
   }
 
   /**
@@ -290,6 +335,7 @@ public class CapitalGrant {
    */
   public CapitalGrant grantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
+    isSetGrantOfferId = true; // mark as set
     return this;
   }
 
@@ -317,6 +363,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
+    isSetGrantOfferId = true; // mark as set
   }
 
   /**
@@ -327,6 +374,7 @@ public class CapitalGrant {
    */
   public CapitalGrant id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -350,6 +398,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -360,6 +409,7 @@ public class CapitalGrant {
    */
   public CapitalGrant repayment(Repayment repayment) {
     this.repayment = repayment;
+    isSetRepayment = true; // mark as set
     return this;
   }
 
@@ -383,6 +433,7 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
     this.repayment = repayment;
+    isSetRepayment = true; // mark as set
   }
 
   /**
@@ -395,6 +446,7 @@ public class CapitalGrant {
    */
   public CapitalGrant status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -422,6 +474,27 @@ public class CapitalGrant {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CapitalGrant includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CapitalGrant object is equal to o. */
@@ -435,20 +508,46 @@ public class CapitalGrant {
     }
     CapitalGrant capitalGrant = (CapitalGrant) o;
     return Objects.equals(this.amount, capitalGrant.amount)
+        && Objects.equals(this.isSetAmount, capitalGrant.isSetAmount)
         && Objects.equals(this.balances, capitalGrant.balances)
+        && Objects.equals(this.isSetBalances, capitalGrant.isSetBalances)
         && Objects.equals(this.counterparty, capitalGrant.counterparty)
+        && Objects.equals(this.isSetCounterparty, capitalGrant.isSetCounterparty)
         && Objects.equals(this.fee, capitalGrant.fee)
+        && Objects.equals(this.isSetFee, capitalGrant.isSetFee)
         && Objects.equals(this.grantAccountId, capitalGrant.grantAccountId)
+        && Objects.equals(this.isSetGrantAccountId, capitalGrant.isSetGrantAccountId)
         && Objects.equals(this.grantOfferId, capitalGrant.grantOfferId)
+        && Objects.equals(this.isSetGrantOfferId, capitalGrant.isSetGrantOfferId)
         && Objects.equals(this.id, capitalGrant.id)
+        && Objects.equals(this.isSetId, capitalGrant.isSetId)
         && Objects.equals(this.repayment, capitalGrant.repayment)
-        && Objects.equals(this.status, capitalGrant.status);
+        && Objects.equals(this.isSetRepayment, capitalGrant.isSetRepayment)
+        && Objects.equals(this.status, capitalGrant.status)
+        && Objects.equals(this.isSetStatus, capitalGrant.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount, balances, counterparty, fee, grantAccountId, grantOfferId, id, repayment, status);
+        amount,
+        isSetAmount,
+        balances,
+        isSetBalances,
+        counterparty,
+        isSetCounterparty,
+        fee,
+        isSetFee,
+        grantAccountId,
+        isSetGrantAccountId,
+        grantOfferId,
+        isSetGrantOfferId,
+        id,
+        isSetId,
+        repayment,
+        isSetRepayment,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -476,6 +575,54 @@ public class CapitalGrant {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBalances) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCES, this.balances);
+    }
+    if (isSetCounterparty) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY, this.counterparty);
+    }
+    if (isSetFee) {
+      addIfNull(nulls, JSON_PROPERTY_FEE, this.fee);
+    }
+    if (isSetGrantAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_GRANT_ACCOUNT_ID, this.grantAccountId);
+    }
+    if (isSetGrantOfferId) {
+      addIfNull(nulls, JSON_PROPERTY_GRANT_OFFER_ID, this.grantOfferId);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetRepayment) {
+      addIfNull(nulls, JSON_PROPERTY_REPAYMENT, this.repayment);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

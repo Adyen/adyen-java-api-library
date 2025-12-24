@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,12 +29,27 @@ public class RegisterSCARequest {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentId = false;
 
   public static final String JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION =
       "strongCustomerAuthentication";
   private DelegatedAuthenticationData strongCustomerAuthentication;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStrongCustomerAuthentication = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public RegisterSCARequest() {}
 
@@ -47,6 +64,7 @@ public class RegisterSCARequest {
    */
   public RegisterSCARequest name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -76,6 +94,7 @@ public class RegisterSCARequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -87,6 +106,7 @@ public class RegisterSCARequest {
    */
   public RegisterSCARequest paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
     return this;
   }
 
@@ -112,6 +132,7 @@ public class RegisterSCARequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
   }
 
   /**
@@ -123,6 +144,7 @@ public class RegisterSCARequest {
   public RegisterSCARequest strongCustomerAuthentication(
       DelegatedAuthenticationData strongCustomerAuthentication) {
     this.strongCustomerAuthentication = strongCustomerAuthentication;
+    isSetStrongCustomerAuthentication = true; // mark as set
     return this;
   }
 
@@ -147,6 +169,27 @@ public class RegisterSCARequest {
   public void setStrongCustomerAuthentication(
       DelegatedAuthenticationData strongCustomerAuthentication) {
     this.strongCustomerAuthentication = strongCustomerAuthentication;
+    isSetStrongCustomerAuthentication = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RegisterSCARequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RegisterSCARequest object is equal to o. */
@@ -160,14 +203,26 @@ public class RegisterSCARequest {
     }
     RegisterSCARequest registerSCARequest = (RegisterSCARequest) o;
     return Objects.equals(this.name, registerSCARequest.name)
+        && Objects.equals(this.isSetName, registerSCARequest.isSetName)
         && Objects.equals(this.paymentInstrumentId, registerSCARequest.paymentInstrumentId)
         && Objects.equals(
-            this.strongCustomerAuthentication, registerSCARequest.strongCustomerAuthentication);
+            this.isSetPaymentInstrumentId, registerSCARequest.isSetPaymentInstrumentId)
+        && Objects.equals(
+            this.strongCustomerAuthentication, registerSCARequest.strongCustomerAuthentication)
+        && Objects.equals(
+            this.isSetStrongCustomerAuthentication,
+            registerSCARequest.isSetStrongCustomerAuthentication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, paymentInstrumentId, strongCustomerAuthentication);
+    return Objects.hash(
+        name,
+        isSetName,
+        paymentInstrumentId,
+        isSetPaymentInstrumentId,
+        strongCustomerAuthentication,
+        isSetStrongCustomerAuthentication);
   }
 
   @Override
@@ -193,6 +248,37 @@ public class RegisterSCARequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPaymentInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_ID, this.paymentInstrumentId);
+    }
+    if (isSetStrongCustomerAuthentication) {
+      addIfNull(
+          nulls, JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION, this.strongCustomerAuthentication);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,53 +48,110 @@ public class RecurringDetail {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlias = false;
 
   public static final String JSON_PROPERTY_ALIAS_TYPE = "aliasType";
   private String aliasType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAliasType = false;
+
   public static final String JSON_PROPERTY_BANK = "bank";
   private BankAccount bank;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBank = false;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
+
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
 
   public static final String JSON_PROPERTY_CONTRACT_TYPES = "contractTypes";
   private List<String> contractTypes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContractTypes = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_FIRST_PSP_REFERENCE = "firstPspReference";
   private String firstPspReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirstPspReference = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkTxReference = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD_VARIANT = "paymentMethodVariant";
   private String paymentMethodVariant;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodVariant = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
 
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
+
   public static final String JSON_PROPERTY_TOKEN_DETAILS = "tokenDetails";
   private TokenDetails tokenDetails;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenDetails = false;
+
   public static final String JSON_PROPERTY_VARIANT = "variant";
   private String variant;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVariant = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public RecurringDetail() {}
 
@@ -107,6 +166,7 @@ public class RecurringDetail {
    */
   public RecurringDetail additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -144,6 +204,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -156,6 +217,7 @@ public class RecurringDetail {
    */
   public RecurringDetail alias(String alias) {
     this.alias = alias;
+    isSetAlias = true; // mark as set
     return this;
   }
 
@@ -183,6 +245,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
     this.alias = alias;
+    isSetAlias = true; // mark as set
   }
 
   /**
@@ -195,6 +258,7 @@ public class RecurringDetail {
    */
   public RecurringDetail aliasType(String aliasType) {
     this.aliasType = aliasType;
+    isSetAliasType = true; // mark as set
     return this;
   }
 
@@ -222,6 +286,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
     this.aliasType = aliasType;
+    isSetAliasType = true; // mark as set
   }
 
   /**
@@ -232,6 +297,7 @@ public class RecurringDetail {
    */
   public RecurringDetail bank(BankAccount bank) {
     this.bank = bank;
+    isSetBank = true; // mark as set
     return this;
   }
 
@@ -255,6 +321,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
     this.bank = bank;
+    isSetBank = true; // mark as set
   }
 
   /**
@@ -265,6 +332,7 @@ public class RecurringDetail {
    */
   public RecurringDetail billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -288,6 +356,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -298,6 +367,7 @@ public class RecurringDetail {
    */
   public RecurringDetail card(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -321,6 +391,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -331,6 +402,7 @@ public class RecurringDetail {
    */
   public RecurringDetail contractTypes(List<String> contractTypes) {
     this.contractTypes = contractTypes;
+    isSetContractTypes = true; // mark as set
     return this;
   }
 
@@ -362,6 +434,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractTypes(List<String> contractTypes) {
     this.contractTypes = contractTypes;
+    isSetContractTypes = true; // mark as set
   }
 
   /**
@@ -372,6 +445,7 @@ public class RecurringDetail {
    */
   public RecurringDetail creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -395,6 +469,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -406,6 +481,7 @@ public class RecurringDetail {
    */
   public RecurringDetail firstPspReference(String firstPspReference) {
     this.firstPspReference = firstPspReference;
+    isSetFirstPspReference = true; // mark as set
     return this;
   }
 
@@ -431,6 +507,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstPspReference(String firstPspReference) {
     this.firstPspReference = firstPspReference;
+    isSetFirstPspReference = true; // mark as set
   }
 
   /**
@@ -441,6 +518,7 @@ public class RecurringDetail {
    */
   public RecurringDetail name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -464,6 +542,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -478,6 +557,7 @@ public class RecurringDetail {
    */
   public RecurringDetail networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
     return this;
   }
 
@@ -509,6 +589,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
+    isSetNetworkTxReference = true; // mark as set
   }
 
   /**
@@ -523,6 +604,7 @@ public class RecurringDetail {
    */
   public RecurringDetail paymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
+    isSetPaymentMethodVariant = true; // mark as set
     return this;
   }
 
@@ -554,6 +636,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
+    isSetPaymentMethodVariant = true; // mark as set
   }
 
   /**
@@ -564,6 +647,7 @@ public class RecurringDetail {
    */
   public RecurringDetail recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -587,6 +671,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -597,6 +682,7 @@ public class RecurringDetail {
    */
   public RecurringDetail shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -620,6 +706,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -631,6 +718,7 @@ public class RecurringDetail {
    */
   public RecurringDetail socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -656,6 +744,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
   }
 
   /**
@@ -666,6 +755,7 @@ public class RecurringDetail {
    */
   public RecurringDetail tokenDetails(TokenDetails tokenDetails) {
     this.tokenDetails = tokenDetails;
+    isSetTokenDetails = true; // mark as set
     return this;
   }
 
@@ -689,6 +779,7 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDetails(TokenDetails tokenDetails) {
     this.tokenDetails = tokenDetails;
+    isSetTokenDetails = true; // mark as set
   }
 
   /**
@@ -701,6 +792,7 @@ public class RecurringDetail {
    */
   public RecurringDetail variant(String variant) {
     this.variant = variant;
+    isSetVariant = true; // mark as set
     return this;
   }
 
@@ -728,6 +820,27 @@ public class RecurringDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariant(String variant) {
     this.variant = variant;
+    isSetVariant = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RecurringDetail includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RecurringDetail object is equal to o. */
@@ -741,44 +854,79 @@ public class RecurringDetail {
     }
     RecurringDetail recurringDetail = (RecurringDetail) o;
     return Objects.equals(this.additionalData, recurringDetail.additionalData)
+        && Objects.equals(this.isSetAdditionalData, recurringDetail.isSetAdditionalData)
         && Objects.equals(this.alias, recurringDetail.alias)
+        && Objects.equals(this.isSetAlias, recurringDetail.isSetAlias)
         && Objects.equals(this.aliasType, recurringDetail.aliasType)
+        && Objects.equals(this.isSetAliasType, recurringDetail.isSetAliasType)
         && Objects.equals(this.bank, recurringDetail.bank)
+        && Objects.equals(this.isSetBank, recurringDetail.isSetBank)
         && Objects.equals(this.billingAddress, recurringDetail.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, recurringDetail.isSetBillingAddress)
         && Objects.equals(this.card, recurringDetail.card)
+        && Objects.equals(this.isSetCard, recurringDetail.isSetCard)
         && Objects.equals(this.contractTypes, recurringDetail.contractTypes)
+        && Objects.equals(this.isSetContractTypes, recurringDetail.isSetContractTypes)
         && Objects.equals(this.creationDate, recurringDetail.creationDate)
+        && Objects.equals(this.isSetCreationDate, recurringDetail.isSetCreationDate)
         && Objects.equals(this.firstPspReference, recurringDetail.firstPspReference)
+        && Objects.equals(this.isSetFirstPspReference, recurringDetail.isSetFirstPspReference)
         && Objects.equals(this.name, recurringDetail.name)
+        && Objects.equals(this.isSetName, recurringDetail.isSetName)
         && Objects.equals(this.networkTxReference, recurringDetail.networkTxReference)
+        && Objects.equals(this.isSetNetworkTxReference, recurringDetail.isSetNetworkTxReference)
         && Objects.equals(this.paymentMethodVariant, recurringDetail.paymentMethodVariant)
+        && Objects.equals(this.isSetPaymentMethodVariant, recurringDetail.isSetPaymentMethodVariant)
         && Objects.equals(this.recurringDetailReference, recurringDetail.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, recurringDetail.isSetRecurringDetailReference)
         && Objects.equals(this.shopperName, recurringDetail.shopperName)
+        && Objects.equals(this.isSetShopperName, recurringDetail.isSetShopperName)
         && Objects.equals(this.socialSecurityNumber, recurringDetail.socialSecurityNumber)
+        && Objects.equals(this.isSetSocialSecurityNumber, recurringDetail.isSetSocialSecurityNumber)
         && Objects.equals(this.tokenDetails, recurringDetail.tokenDetails)
-        && Objects.equals(this.variant, recurringDetail.variant);
+        && Objects.equals(this.isSetTokenDetails, recurringDetail.isSetTokenDetails)
+        && Objects.equals(this.variant, recurringDetail.variant)
+        && Objects.equals(this.isSetVariant, recurringDetail.isSetVariant);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         alias,
+        isSetAlias,
         aliasType,
+        isSetAliasType,
         bank,
+        isSetBank,
         billingAddress,
+        isSetBillingAddress,
         card,
+        isSetCard,
         contractTypes,
+        isSetContractTypes,
         creationDate,
+        isSetCreationDate,
         firstPspReference,
+        isSetFirstPspReference,
         name,
+        isSetName,
         networkTxReference,
+        isSetNetworkTxReference,
         paymentMethodVariant,
+        isSetPaymentMethodVariant,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         shopperName,
+        isSetShopperName,
         socialSecurityNumber,
+        isSetSocialSecurityNumber,
         tokenDetails,
-        variant);
+        isSetTokenDetails,
+        variant,
+        isSetVariant);
   }
 
   @Override
@@ -820,6 +968,78 @@ public class RecurringDetail {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAlias) {
+      addIfNull(nulls, JSON_PROPERTY_ALIAS, this.alias);
+    }
+    if (isSetAliasType) {
+      addIfNull(nulls, JSON_PROPERTY_ALIAS_TYPE, this.aliasType);
+    }
+    if (isSetBank) {
+      addIfNull(nulls, JSON_PROPERTY_BANK, this.bank);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetContractTypes) {
+      addIfNull(nulls, JSON_PROPERTY_CONTRACT_TYPES, this.contractTypes);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetFirstPspReference) {
+      addIfNull(nulls, JSON_PROPERTY_FIRST_PSP_REFERENCE, this.firstPspReference);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetNetworkTxReference) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);
+    }
+    if (isSetPaymentMethodVariant) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_VARIANT, this.paymentMethodVariant);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+    if (isSetTokenDetails) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_DETAILS, this.tokenDetails);
+    }
+    if (isSetVariant) {
+      addIfNull(nulls, JSON_PROPERTY_VARIANT, this.variant);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

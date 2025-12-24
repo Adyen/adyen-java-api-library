@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,19 +45,34 @@ public class CreateMerchantWebhookRequest {
       "acceptsExpiredCertificate";
   private Boolean acceptsExpiredCertificate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsExpiredCertificate = false;
+
   public static final String JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE =
       "acceptsSelfSignedCertificate";
   private Boolean acceptsSelfSignedCertificate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsSelfSignedCertificate = false;
 
   public static final String JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE =
       "acceptsUntrustedRootCertificate";
   private Boolean acceptsUntrustedRootCertificate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsUntrustedRootCertificate = false;
+
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActive = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_SETTINGS = "additionalSettings";
   private AdditionalSettings additionalSettings;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalSettings = false;
 
   /**
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json**
@@ -105,8 +122,14 @@ public class CreateMerchantWebhookRequest {
   public static final String JSON_PROPERTY_COMMUNICATION_FORMAT = "communicationFormat";
   private CommunicationFormatEnum communicationFormat;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCommunicationFormat = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   /**
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible
@@ -158,6 +181,9 @@ public class CreateMerchantWebhookRequest {
   public static final String JSON_PROPERTY_ENCRYPTION_PROTOCOL = "encryptionProtocol";
   private EncryptionProtocolEnum encryptionProtocol;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptionProtocol = false;
+
   /**
    * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**
    * Default Value: **public**.
@@ -205,20 +231,44 @@ public class CreateMerchantWebhookRequest {
   public static final String JSON_PROPERTY_NETWORK_TYPE = "networkType";
   private NetworkTypeEnum networkType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkType = false;
+
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPassword = false;
 
   public static final String JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER = "populateSoapActionHeader";
   private Boolean populateSoapActionHeader;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPopulateSoapActionHeader = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsername = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateMerchantWebhookRequest() {}
 
@@ -231,6 +281,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest acceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
+    isSetAcceptsExpiredCertificate = true; // mark as set
     return this;
   }
 
@@ -256,6 +307,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
+    isSetAcceptsExpiredCertificate = true; // mark as set
   }
 
   /**
@@ -268,6 +320,7 @@ public class CreateMerchantWebhookRequest {
   public CreateMerchantWebhookRequest acceptsSelfSignedCertificate(
       Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
+    isSetAcceptsSelfSignedCertificate = true; // mark as set
     return this;
   }
 
@@ -293,6 +346,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
+    isSetAcceptsSelfSignedCertificate = true; // mark as set
   }
 
   /**
@@ -305,6 +359,7 @@ public class CreateMerchantWebhookRequest {
   public CreateMerchantWebhookRequest acceptsUntrustedRootCertificate(
       Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
+    isSetAcceptsUntrustedRootCertificate = true; // mark as set
     return this;
   }
 
@@ -330,6 +385,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
+    isSetAcceptsUntrustedRootCertificate = true; // mark as set
   }
 
   /**
@@ -342,6 +398,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest active(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
     return this;
   }
 
@@ -369,6 +426,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
   }
 
   /**
@@ -379,6 +437,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest additionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
+    isSetAdditionalSettings = true; // mark as set
     return this;
   }
 
@@ -402,6 +461,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
+    isSetAdditionalSettings = true; // mark as set
   }
 
   /**
@@ -414,6 +474,7 @@ public class CreateMerchantWebhookRequest {
   public CreateMerchantWebhookRequest communicationFormat(
       CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
+    isSetCommunicationFormat = true; // mark as set
     return this;
   }
 
@@ -439,6 +500,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
+    isSetCommunicationFormat = true; // mark as set
   }
 
   /**
@@ -449,6 +511,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -472,6 +535,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -488,6 +552,7 @@ public class CreateMerchantWebhookRequest {
   public CreateMerchantWebhookRequest encryptionProtocol(
       EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
+    isSetEncryptionProtocol = true; // mark as set
     return this;
   }
 
@@ -521,6 +586,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
+    isSetEncryptionProtocol = true; // mark as set
   }
 
   /**
@@ -533,6 +599,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest networkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
+    isSetNetworkType = true; // mark as set
     return this;
   }
 
@@ -560,6 +627,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
+    isSetNetworkType = true; // mark as set
   }
 
   /**
@@ -570,6 +638,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest password(String password) {
     this.password = password;
+    isSetPassword = true; // mark as set
     return this;
   }
 
@@ -593,6 +662,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
+    isSetPassword = true; // mark as set
   }
 
   /**
@@ -605,6 +675,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest populateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
+    isSetPopulateSoapActionHeader = true; // mark as set
     return this;
   }
 
@@ -632,6 +703,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
+    isSetPopulateSoapActionHeader = true; // mark as set
   }
 
   /**
@@ -661,6 +733,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -722,6 +795,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -734,6 +808,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -761,6 +836,7 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
   }
 
   /**
@@ -771,6 +847,7 @@ public class CreateMerchantWebhookRequest {
    */
   public CreateMerchantWebhookRequest username(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
     return this;
   }
 
@@ -794,6 +871,27 @@ public class CreateMerchantWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateMerchantWebhookRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateMerchantWebhookRequest object is equal to o. */
@@ -809,43 +907,82 @@ public class CreateMerchantWebhookRequest {
     return Objects.equals(
             this.acceptsExpiredCertificate, createMerchantWebhookRequest.acceptsExpiredCertificate)
         && Objects.equals(
+            this.isSetAcceptsExpiredCertificate,
+            createMerchantWebhookRequest.isSetAcceptsExpiredCertificate)
+        && Objects.equals(
             this.acceptsSelfSignedCertificate,
             createMerchantWebhookRequest.acceptsSelfSignedCertificate)
         && Objects.equals(
+            this.isSetAcceptsSelfSignedCertificate,
+            createMerchantWebhookRequest.isSetAcceptsSelfSignedCertificate)
+        && Objects.equals(
             this.acceptsUntrustedRootCertificate,
             createMerchantWebhookRequest.acceptsUntrustedRootCertificate)
+        && Objects.equals(
+            this.isSetAcceptsUntrustedRootCertificate,
+            createMerchantWebhookRequest.isSetAcceptsUntrustedRootCertificate)
         && Objects.equals(this.active, createMerchantWebhookRequest.active)
+        && Objects.equals(this.isSetActive, createMerchantWebhookRequest.isSetActive)
         && Objects.equals(this.additionalSettings, createMerchantWebhookRequest.additionalSettings)
         && Objects.equals(
+            this.isSetAdditionalSettings, createMerchantWebhookRequest.isSetAdditionalSettings)
+        && Objects.equals(
             this.communicationFormat, createMerchantWebhookRequest.communicationFormat)
+        && Objects.equals(
+            this.isSetCommunicationFormat, createMerchantWebhookRequest.isSetCommunicationFormat)
         && Objects.equals(this.description, createMerchantWebhookRequest.description)
+        && Objects.equals(this.isSetDescription, createMerchantWebhookRequest.isSetDescription)
         && Objects.equals(this.encryptionProtocol, createMerchantWebhookRequest.encryptionProtocol)
+        && Objects.equals(
+            this.isSetEncryptionProtocol, createMerchantWebhookRequest.isSetEncryptionProtocol)
         && Objects.equals(this.networkType, createMerchantWebhookRequest.networkType)
+        && Objects.equals(this.isSetNetworkType, createMerchantWebhookRequest.isSetNetworkType)
         && Objects.equals(this.password, createMerchantWebhookRequest.password)
+        && Objects.equals(this.isSetPassword, createMerchantWebhookRequest.isSetPassword)
         && Objects.equals(
             this.populateSoapActionHeader, createMerchantWebhookRequest.populateSoapActionHeader)
+        && Objects.equals(
+            this.isSetPopulateSoapActionHeader,
+            createMerchantWebhookRequest.isSetPopulateSoapActionHeader)
         && Objects.equals(this.type, createMerchantWebhookRequest.type)
+        && Objects.equals(this.isSetType, createMerchantWebhookRequest.isSetType)
         && Objects.equals(this.url, createMerchantWebhookRequest.url)
-        && Objects.equals(this.username, createMerchantWebhookRequest.username);
+        && Objects.equals(this.isSetUrl, createMerchantWebhookRequest.isSetUrl)
+        && Objects.equals(this.username, createMerchantWebhookRequest.username)
+        && Objects.equals(this.isSetUsername, createMerchantWebhookRequest.isSetUsername);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acceptsExpiredCertificate,
+        isSetAcceptsExpiredCertificate,
         acceptsSelfSignedCertificate,
+        isSetAcceptsSelfSignedCertificate,
         acceptsUntrustedRootCertificate,
+        isSetAcceptsUntrustedRootCertificate,
         active,
+        isSetActive,
         additionalSettings,
+        isSetAdditionalSettings,
         communicationFormat,
+        isSetCommunicationFormat,
         description,
+        isSetDescription,
         encryptionProtocol,
+        isSetEncryptionProtocol,
         networkType,
+        isSetNetworkType,
         password,
+        isSetPassword,
         populateSoapActionHeader,
+        isSetPopulateSoapActionHeader,
         type,
+        isSetType,
         url,
-        username);
+        isSetUrl,
+        username,
+        isSetUsername);
   }
 
   @Override
@@ -888,6 +1025,73 @@ public class CreateMerchantWebhookRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcceptsExpiredCertificate) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE, this.acceptsExpiredCertificate);
+    }
+    if (isSetAcceptsSelfSignedCertificate) {
+      addIfNull(
+          nulls, JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE, this.acceptsSelfSignedCertificate);
+    }
+    if (isSetAcceptsUntrustedRootCertificate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE,
+          this.acceptsUntrustedRootCertificate);
+    }
+    if (isSetActive) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE, this.active);
+    }
+    if (isSetAdditionalSettings) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_SETTINGS, this.additionalSettings);
+    }
+    if (isSetCommunicationFormat) {
+      addIfNull(nulls, JSON_PROPERTY_COMMUNICATION_FORMAT, this.communicationFormat);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetEncryptionProtocol) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTION_PROTOCOL, this.encryptionProtocol);
+    }
+    if (isSetNetworkType) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TYPE, this.networkType);
+    }
+    if (isSetPassword) {
+      addIfNull(nulls, JSON_PROPERTY_PASSWORD, this.password);
+    }
+    if (isSetPopulateSoapActionHeader) {
+      addIfNull(nulls, JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER, this.populateSoapActionHeader);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+    if (isSetUsername) {
+      addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -81,6 +83,9 @@ public class Condition {
   public static final String JSON_PROPERTY_BALANCE_TYPE = "balanceType";
   private BalanceTypeEnum balanceType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceType = false;
+
   /**
    * Define when you want to get notified about a balance change. Possible values: *
    * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;. *
@@ -136,8 +141,20 @@ public class Condition {
   public static final String JSON_PROPERTY_CONDITION_TYPE = "conditionType";
   private ConditionTypeEnum conditionType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConditionType = false;
+
   public static final String JSON_PROPERTY_VALUE = "value";
   private Long value;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValue = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Condition() {}
 
@@ -155,6 +172,7 @@ public class Condition {
    */
   public Condition balanceType(BalanceTypeEnum balanceType) {
     this.balanceType = balanceType;
+    isSetBalanceType = true; // mark as set
     return this;
   }
 
@@ -190,6 +208,7 @@ public class Condition {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceType(BalanceTypeEnum balanceType) {
     this.balanceType = balanceType;
+    isSetBalanceType = true; // mark as set
   }
 
   /**
@@ -210,6 +229,7 @@ public class Condition {
    */
   public Condition conditionType(ConditionTypeEnum conditionType) {
     this.conditionType = conditionType;
+    isSetConditionType = true; // mark as set
     return this;
   }
 
@@ -253,6 +273,7 @@ public class Condition {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConditionType(ConditionTypeEnum conditionType) {
     this.conditionType = conditionType;
+    isSetConditionType = true; // mark as set
   }
 
   /**
@@ -263,6 +284,7 @@ public class Condition {
    */
   public Condition value(Long value) {
     this.value = value;
+    isSetValue = true; // mark as set
     return this;
   }
 
@@ -286,6 +308,27 @@ public class Condition {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {
     this.value = value;
+    isSetValue = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Condition includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Condition object is equal to o. */
@@ -299,13 +342,17 @@ public class Condition {
     }
     Condition condition = (Condition) o;
     return Objects.equals(this.balanceType, condition.balanceType)
+        && Objects.equals(this.isSetBalanceType, condition.isSetBalanceType)
         && Objects.equals(this.conditionType, condition.conditionType)
-        && Objects.equals(this.value, condition.value);
+        && Objects.equals(this.isSetConditionType, condition.isSetConditionType)
+        && Objects.equals(this.value, condition.value)
+        && Objects.equals(this.isSetValue, condition.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceType, conditionType, value);
+    return Objects.hash(
+        balanceType, isSetBalanceType, conditionType, isSetConditionType, value, isSetValue);
   }
 
   @Override
@@ -327,6 +374,36 @@ public class Condition {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalanceType) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_TYPE, this.balanceType);
+    }
+    if (isSetConditionType) {
+      addIfNull(nulls, JSON_PROPERTY_CONDITION_TYPE, this.conditionType);
+    }
+    if (isSetValue) {
+      addIfNull(nulls, JSON_PROPERTY_VALUE, this.value);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

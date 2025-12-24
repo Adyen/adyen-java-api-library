@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -58,37 +60,70 @@ public class Organization {
   public static final String JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW = "countryOfGoverningLaw";
   private String countryOfGoverningLaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryOfGoverningLaw = false;
+
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfIncorporation = false;
 
   public static final String JSON_PROPERTY_DATE_OF_INITIATION_OF_LEGAL_PROCEEDING =
       "dateOfInitiationOfLegalProceeding";
   private String dateOfInitiationOfLegalProceeding;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfInitiationOfLegalProceeding = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDoingBusinessAs = false;
+
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS_ABSENT = "doingBusinessAsAbsent";
   private Boolean doingBusinessAsAbsent;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDoingBusinessAsAbsent = false;
 
   public static final String JSON_PROPERTY_ECONOMIC_SECTOR = "economicSector";
   private String economicSector;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEconomicSector = false;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
+
   public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
   private List<FinancialReport> financialReports;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFinancialReports = false;
 
   public static final String JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER =
       "globalLegalEntityIdentifier";
   private String globalLegalEntityIdentifier;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGlobalLegalEntityIdentifier = false;
+
   public static final String JSON_PROPERTY_HEAD_OFFICE_INDICATOR = "headOfficeIndicator";
   private Boolean headOfficeIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHeadOfficeIndicator = false;
 
   /** The institutional sector the organization operates within. */
   public enum InstitutionalSectorEnum {
@@ -166,26 +201,50 @@ public class Organization {
   public static final String JSON_PROPERTY_INSTITUTIONAL_SECTOR = "institutionalSector";
   private InstitutionalSectorEnum institutionalSector;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstitutionalSector = false;
+
   public static final String JSON_PROPERTY_LEGAL_FORM = "legalForm";
   private String legalForm;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalForm = false;
 
   public static final String JSON_PROPERTY_LEGAL_NAME = "legalName";
   private String legalName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalName = false;
+
   public static final String JSON_PROPERTY_PHONE = "phone";
   private PhoneNumber phone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhone = false;
 
   public static final String JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS = "principalPlaceOfBusiness";
   private Address principalPlaceOfBusiness;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPrincipalPlaceOfBusiness = false;
+
   public static final String JSON_PROPERTY_REGISTERED_ADDRESS = "registeredAddress";
   private Address registeredAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegisteredAddress = false;
 
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegistrationNumber = false;
+
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER_ABSENT = "registrationNumberAbsent";
   private Boolean registrationNumberAbsent;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegistrationNumberAbsent = false;
 
   /**
    * The status of any current or past legal action taken against the legal entity. Possible values:
@@ -240,18 +299,33 @@ public class Organization {
   public static final String JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING = "statusOfLegalProceeding";
   private StatusOfLegalProceedingEnum statusOfLegalProceeding;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatusOfLegalProceeding = false;
+
   public static final String JSON_PROPERTY_STOCK_DATA = "stockData";
   private StockData stockData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStockData = false;
 
   public static final String JSON_PROPERTY_SUPPORT = "support";
   private Support support;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupport = false;
+
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
   private List<TaxInformation> taxInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxInformation = false;
 
   public static final String JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION =
       "taxReportingClassification";
   private TaxReportingClassification taxReportingClassification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxReportingClassification = false;
 
   /**
    * Type of organization. Possible values: **associationIncorporated**,
@@ -309,6 +383,9 @@ public class Organization {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   /**
    * The reason the organization has not provided a VAT number. Possible values:
    * **industryExemption**, **belowTaxThreshold**.
@@ -356,11 +433,26 @@ public class Organization {
   public static final String JSON_PROPERTY_VAT_ABSENCE_REASON = "vatAbsenceReason";
   private VatAbsenceReasonEnum vatAbsenceReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVatAbsenceReason = false;
+
   public static final String JSON_PROPERTY_VAT_NUMBER = "vatNumber";
   private String vatNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVatNumber = false;
+
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
   private WebData webData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWebData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Organization() {}
 
@@ -375,6 +467,7 @@ public class Organization {
    */
   public Organization countryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
+    isSetCountryOfGoverningLaw = true; // mark as set
     return this;
   }
 
@@ -404,6 +497,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
+    isSetCountryOfGoverningLaw = true; // mark as set
   }
 
   /**
@@ -415,6 +509,7 @@ public class Organization {
    */
   public Organization dateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+    isSetDateOfIncorporation = true; // mark as set
     return this;
   }
 
@@ -440,6 +535,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
     this.dateOfIncorporation = dateOfIncorporation;
+    isSetDateOfIncorporation = true; // mark as set
   }
 
   /**
@@ -456,6 +552,7 @@ public class Organization {
    */
   public Organization dateOfInitiationOfLegalProceeding(String dateOfInitiationOfLegalProceeding) {
     this.dateOfInitiationOfLegalProceeding = dateOfInitiationOfLegalProceeding;
+    isSetDateOfInitiationOfLegalProceeding = true; // mark as set
     return this;
   }
 
@@ -491,6 +588,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfInitiationOfLegalProceeding(String dateOfInitiationOfLegalProceeding) {
     this.dateOfInitiationOfLegalProceeding = dateOfInitiationOfLegalProceeding;
+    isSetDateOfInitiationOfLegalProceeding = true; // mark as set
   }
 
   /**
@@ -501,6 +599,7 @@ public class Organization {
    */
   public Organization description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -524,6 +623,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -535,6 +635,7 @@ public class Organization {
    */
   public Organization doingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
+    isSetDoingBusinessAs = true; // mark as set
     return this;
   }
 
@@ -560,6 +661,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
+    isSetDoingBusinessAs = true; // mark as set
   }
 
   /**
@@ -572,6 +674,7 @@ public class Organization {
    */
   public Organization doingBusinessAsAbsent(Boolean doingBusinessAsAbsent) {
     this.doingBusinessAsAbsent = doingBusinessAsAbsent;
+    isSetDoingBusinessAsAbsent = true; // mark as set
     return this;
   }
 
@@ -599,6 +702,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAsAbsent(Boolean doingBusinessAsAbsent) {
     this.doingBusinessAsAbsent = doingBusinessAsAbsent;
+    isSetDoingBusinessAsAbsent = true; // mark as set
   }
 
   /**
@@ -615,6 +719,7 @@ public class Organization {
    */
   public Organization economicSector(String economicSector) {
     this.economicSector = economicSector;
+    isSetEconomicSector = true; // mark as set
     return this;
   }
 
@@ -650,6 +755,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEconomicSector(String economicSector) {
     this.economicSector = economicSector;
+    isSetEconomicSector = true; // mark as set
   }
 
   /**
@@ -660,6 +766,7 @@ public class Organization {
    */
   public Organization email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -683,6 +790,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -693,6 +801,7 @@ public class Organization {
    */
   public Organization financialReports(List<FinancialReport> financialReports) {
     this.financialReports = financialReports;
+    isSetFinancialReports = true; // mark as set
     return this;
   }
 
@@ -724,6 +833,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialReports(List<FinancialReport> financialReports) {
     this.financialReports = financialReports;
+    isSetFinancialReports = true; // mark as set
   }
 
   /**
@@ -734,6 +844,7 @@ public class Organization {
    */
   public Organization globalLegalEntityIdentifier(String globalLegalEntityIdentifier) {
     this.globalLegalEntityIdentifier = globalLegalEntityIdentifier;
+    isSetGlobalLegalEntityIdentifier = true; // mark as set
     return this;
   }
 
@@ -757,6 +868,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGlobalLegalEntityIdentifier(String globalLegalEntityIdentifier) {
     this.globalLegalEntityIdentifier = globalLegalEntityIdentifier;
+    isSetGlobalLegalEntityIdentifier = true; // mark as set
   }
 
   /**
@@ -768,6 +880,7 @@ public class Organization {
    */
   public Organization headOfficeIndicator(Boolean headOfficeIndicator) {
     this.headOfficeIndicator = headOfficeIndicator;
+    isSetHeadOfficeIndicator = true; // mark as set
     return this;
   }
 
@@ -793,6 +906,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeadOfficeIndicator(Boolean headOfficeIndicator) {
     this.headOfficeIndicator = headOfficeIndicator;
+    isSetHeadOfficeIndicator = true; // mark as set
   }
 
   /**
@@ -803,6 +917,7 @@ public class Organization {
    */
   public Organization institutionalSector(InstitutionalSectorEnum institutionalSector) {
     this.institutionalSector = institutionalSector;
+    isSetInstitutionalSector = true; // mark as set
     return this;
   }
 
@@ -826,6 +941,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstitutionalSector(InstitutionalSectorEnum institutionalSector) {
     this.institutionalSector = institutionalSector;
+    isSetInstitutionalSector = true; // mark as set
   }
 
   /**
@@ -838,6 +954,7 @@ public class Organization {
    */
   public Organization legalForm(String legalForm) {
     this.legalForm = legalForm;
+    isSetLegalForm = true; // mark as set
     return this;
   }
 
@@ -865,6 +982,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalForm(String legalForm) {
     this.legalForm = legalForm;
+    isSetLegalForm = true; // mark as set
   }
 
   /**
@@ -875,6 +993,7 @@ public class Organization {
    */
   public Organization legalName(String legalName) {
     this.legalName = legalName;
+    isSetLegalName = true; // mark as set
     return this;
   }
 
@@ -898,6 +1017,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalName(String legalName) {
     this.legalName = legalName;
+    isSetLegalName = true; // mark as set
   }
 
   /**
@@ -908,6 +1028,7 @@ public class Organization {
    */
   public Organization phone(PhoneNumber phone) {
     this.phone = phone;
+    isSetPhone = true; // mark as set
     return this;
   }
 
@@ -931,6 +1052,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
     this.phone = phone;
+    isSetPhone = true; // mark as set
   }
 
   /**
@@ -941,6 +1063,7 @@ public class Organization {
    */
   public Organization principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
+    isSetPrincipalPlaceOfBusiness = true; // mark as set
     return this;
   }
 
@@ -964,6 +1087,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
     this.principalPlaceOfBusiness = principalPlaceOfBusiness;
+    isSetPrincipalPlaceOfBusiness = true; // mark as set
   }
 
   /**
@@ -974,6 +1098,7 @@ public class Organization {
    */
   public Organization registeredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
+    isSetRegisteredAddress = true; // mark as set
     return this;
   }
 
@@ -997,6 +1122,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
+    isSetRegisteredAddress = true; // mark as set
   }
 
   /**
@@ -1007,6 +1133,7 @@ public class Organization {
    */
   public Organization registrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+    isSetRegistrationNumber = true; // mark as set
     return this;
   }
 
@@ -1030,6 +1157,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+    isSetRegistrationNumber = true; // mark as set
   }
 
   /**
@@ -1044,6 +1172,7 @@ public class Organization {
    */
   public Organization registrationNumberAbsent(Boolean registrationNumberAbsent) {
     this.registrationNumberAbsent = registrationNumberAbsent;
+    isSetRegistrationNumberAbsent = true; // mark as set
     return this;
   }
 
@@ -1075,6 +1204,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumberAbsent(Boolean registrationNumberAbsent) {
     this.registrationNumberAbsent = registrationNumberAbsent;
+    isSetRegistrationNumberAbsent = true; // mark as set
   }
 
   /**
@@ -1092,6 +1222,7 @@ public class Organization {
    */
   public Organization statusOfLegalProceeding(StatusOfLegalProceedingEnum statusOfLegalProceeding) {
     this.statusOfLegalProceeding = statusOfLegalProceeding;
+    isSetStatusOfLegalProceeding = true; // mark as set
     return this;
   }
 
@@ -1129,6 +1260,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatusOfLegalProceeding(StatusOfLegalProceedingEnum statusOfLegalProceeding) {
     this.statusOfLegalProceeding = statusOfLegalProceeding;
+    isSetStatusOfLegalProceeding = true; // mark as set
   }
 
   /**
@@ -1139,6 +1271,7 @@ public class Organization {
    */
   public Organization stockData(StockData stockData) {
     this.stockData = stockData;
+    isSetStockData = true; // mark as set
     return this;
   }
 
@@ -1162,6 +1295,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockData(StockData stockData) {
     this.stockData = stockData;
+    isSetStockData = true; // mark as set
   }
 
   /**
@@ -1172,6 +1306,7 @@ public class Organization {
    */
   public Organization support(Support support) {
     this.support = support;
+    isSetSupport = true; // mark as set
     return this;
   }
 
@@ -1195,6 +1330,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupport(Support support) {
     this.support = support;
+    isSetSupport = true; // mark as set
   }
 
   /**
@@ -1205,6 +1341,7 @@ public class Organization {
    */
   public Organization taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
+    isSetTaxInformation = true; // mark as set
     return this;
   }
 
@@ -1236,6 +1373,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
+    isSetTaxInformation = true; // mark as set
   }
 
   /**
@@ -1247,6 +1385,7 @@ public class Organization {
   public Organization taxReportingClassification(
       TaxReportingClassification taxReportingClassification) {
     this.taxReportingClassification = taxReportingClassification;
+    isSetTaxReportingClassification = true; // mark as set
     return this;
   }
 
@@ -1270,6 +1409,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxReportingClassification(TaxReportingClassification taxReportingClassification) {
     this.taxReportingClassification = taxReportingClassification;
+    isSetTaxReportingClassification = true; // mark as set
   }
 
   /**
@@ -1284,6 +1424,7 @@ public class Organization {
    */
   public Organization type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1315,6 +1456,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -1327,6 +1469,7 @@ public class Organization {
    */
   public Organization vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
+    isSetVatAbsenceReason = true; // mark as set
     return this;
   }
 
@@ -1354,6 +1497,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
     this.vatAbsenceReason = vatAbsenceReason;
+    isSetVatAbsenceReason = true; // mark as set
   }
 
   /**
@@ -1364,6 +1508,7 @@ public class Organization {
    */
   public Organization vatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
+    isSetVatNumber = true; // mark as set
     return this;
   }
 
@@ -1387,6 +1532,7 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
     this.vatNumber = vatNumber;
+    isSetVatNumber = true; // mark as set
   }
 
   /**
@@ -1397,6 +1543,7 @@ public class Organization {
    */
   public Organization webData(WebData webData) {
     this.webData = webData;
+    isSetWebData = true; // mark as set
     return this;
   }
 
@@ -1420,6 +1567,27 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {
     this.webData = webData;
+    isSetWebData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Organization includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Organization object is equal to o. */
@@ -1433,68 +1601,131 @@ public class Organization {
     }
     Organization organization = (Organization) o;
     return Objects.equals(this.countryOfGoverningLaw, organization.countryOfGoverningLaw)
+        && Objects.equals(this.isSetCountryOfGoverningLaw, organization.isSetCountryOfGoverningLaw)
         && Objects.equals(this.dateOfIncorporation, organization.dateOfIncorporation)
+        && Objects.equals(this.isSetDateOfIncorporation, organization.isSetDateOfIncorporation)
         && Objects.equals(
             this.dateOfInitiationOfLegalProceeding, organization.dateOfInitiationOfLegalProceeding)
+        && Objects.equals(
+            this.isSetDateOfInitiationOfLegalProceeding,
+            organization.isSetDateOfInitiationOfLegalProceeding)
         && Objects.equals(this.description, organization.description)
+        && Objects.equals(this.isSetDescription, organization.isSetDescription)
         && Objects.equals(this.doingBusinessAs, organization.doingBusinessAs)
+        && Objects.equals(this.isSetDoingBusinessAs, organization.isSetDoingBusinessAs)
         && Objects.equals(this.doingBusinessAsAbsent, organization.doingBusinessAsAbsent)
+        && Objects.equals(this.isSetDoingBusinessAsAbsent, organization.isSetDoingBusinessAsAbsent)
         && Objects.equals(this.economicSector, organization.economicSector)
+        && Objects.equals(this.isSetEconomicSector, organization.isSetEconomicSector)
         && Objects.equals(this.email, organization.email)
+        && Objects.equals(this.isSetEmail, organization.isSetEmail)
         && Objects.equals(this.financialReports, organization.financialReports)
+        && Objects.equals(this.isSetFinancialReports, organization.isSetFinancialReports)
         && Objects.equals(
             this.globalLegalEntityIdentifier, organization.globalLegalEntityIdentifier)
+        && Objects.equals(
+            this.isSetGlobalLegalEntityIdentifier, organization.isSetGlobalLegalEntityIdentifier)
         && Objects.equals(this.headOfficeIndicator, organization.headOfficeIndicator)
+        && Objects.equals(this.isSetHeadOfficeIndicator, organization.isSetHeadOfficeIndicator)
         && Objects.equals(this.institutionalSector, organization.institutionalSector)
+        && Objects.equals(this.isSetInstitutionalSector, organization.isSetInstitutionalSector)
         && Objects.equals(this.legalForm, organization.legalForm)
+        && Objects.equals(this.isSetLegalForm, organization.isSetLegalForm)
         && Objects.equals(this.legalName, organization.legalName)
+        && Objects.equals(this.isSetLegalName, organization.isSetLegalName)
         && Objects.equals(this.phone, organization.phone)
+        && Objects.equals(this.isSetPhone, organization.isSetPhone)
         && Objects.equals(this.principalPlaceOfBusiness, organization.principalPlaceOfBusiness)
+        && Objects.equals(
+            this.isSetPrincipalPlaceOfBusiness, organization.isSetPrincipalPlaceOfBusiness)
         && Objects.equals(this.registeredAddress, organization.registeredAddress)
+        && Objects.equals(this.isSetRegisteredAddress, organization.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, organization.registrationNumber)
+        && Objects.equals(this.isSetRegistrationNumber, organization.isSetRegistrationNumber)
         && Objects.equals(this.registrationNumberAbsent, organization.registrationNumberAbsent)
+        && Objects.equals(
+            this.isSetRegistrationNumberAbsent, organization.isSetRegistrationNumberAbsent)
         && Objects.equals(this.statusOfLegalProceeding, organization.statusOfLegalProceeding)
+        && Objects.equals(
+            this.isSetStatusOfLegalProceeding, organization.isSetStatusOfLegalProceeding)
         && Objects.equals(this.stockData, organization.stockData)
+        && Objects.equals(this.isSetStockData, organization.isSetStockData)
         && Objects.equals(this.support, organization.support)
+        && Objects.equals(this.isSetSupport, organization.isSetSupport)
         && Objects.equals(this.taxInformation, organization.taxInformation)
+        && Objects.equals(this.isSetTaxInformation, organization.isSetTaxInformation)
         && Objects.equals(this.taxReportingClassification, organization.taxReportingClassification)
+        && Objects.equals(
+            this.isSetTaxReportingClassification, organization.isSetTaxReportingClassification)
         && Objects.equals(this.type, organization.type)
+        && Objects.equals(this.isSetType, organization.isSetType)
         && Objects.equals(this.vatAbsenceReason, organization.vatAbsenceReason)
+        && Objects.equals(this.isSetVatAbsenceReason, organization.isSetVatAbsenceReason)
         && Objects.equals(this.vatNumber, organization.vatNumber)
-        && Objects.equals(this.webData, organization.webData);
+        && Objects.equals(this.isSetVatNumber, organization.isSetVatNumber)
+        && Objects.equals(this.webData, organization.webData)
+        && Objects.equals(this.isSetWebData, organization.isSetWebData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         countryOfGoverningLaw,
+        isSetCountryOfGoverningLaw,
         dateOfIncorporation,
+        isSetDateOfIncorporation,
         dateOfInitiationOfLegalProceeding,
+        isSetDateOfInitiationOfLegalProceeding,
         description,
+        isSetDescription,
         doingBusinessAs,
+        isSetDoingBusinessAs,
         doingBusinessAsAbsent,
+        isSetDoingBusinessAsAbsent,
         economicSector,
+        isSetEconomicSector,
         email,
+        isSetEmail,
         financialReports,
+        isSetFinancialReports,
         globalLegalEntityIdentifier,
+        isSetGlobalLegalEntityIdentifier,
         headOfficeIndicator,
+        isSetHeadOfficeIndicator,
         institutionalSector,
+        isSetInstitutionalSector,
         legalForm,
+        isSetLegalForm,
         legalName,
+        isSetLegalName,
         phone,
+        isSetPhone,
         principalPlaceOfBusiness,
+        isSetPrincipalPlaceOfBusiness,
         registeredAddress,
+        isSetRegisteredAddress,
         registrationNumber,
+        isSetRegistrationNumber,
         registrationNumberAbsent,
+        isSetRegistrationNumberAbsent,
         statusOfLegalProceeding,
+        isSetStatusOfLegalProceeding,
         stockData,
+        isSetStockData,
         support,
+        isSetSupport,
         taxInformation,
+        isSetTaxInformation,
         taxReportingClassification,
+        isSetTaxReportingClassification,
         type,
+        isSetType,
         vatAbsenceReason,
+        isSetVatAbsenceReason,
         vatNumber,
-        webData);
+        isSetVatNumber,
+        webData,
+        isSetWebData);
   }
 
   @Override
@@ -1563,6 +1794,115 @@ public class Organization {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCountryOfGoverningLaw) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW, this.countryOfGoverningLaw);
+    }
+    if (isSetDateOfIncorporation) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_INCORPORATION, this.dateOfIncorporation);
+    }
+    if (isSetDateOfInitiationOfLegalProceeding) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_DATE_OF_INITIATION_OF_LEGAL_PROCEEDING,
+          this.dateOfInitiationOfLegalProceeding);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetDoingBusinessAs) {
+      addIfNull(nulls, JSON_PROPERTY_DOING_BUSINESS_AS, this.doingBusinessAs);
+    }
+    if (isSetDoingBusinessAsAbsent) {
+      addIfNull(nulls, JSON_PROPERTY_DOING_BUSINESS_AS_ABSENT, this.doingBusinessAsAbsent);
+    }
+    if (isSetEconomicSector) {
+      addIfNull(nulls, JSON_PROPERTY_ECONOMIC_SECTOR, this.economicSector);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetFinancialReports) {
+      addIfNull(nulls, JSON_PROPERTY_FINANCIAL_REPORTS, this.financialReports);
+    }
+    if (isSetGlobalLegalEntityIdentifier) {
+      addIfNull(
+          nulls, JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER, this.globalLegalEntityIdentifier);
+    }
+    if (isSetHeadOfficeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_HEAD_OFFICE_INDICATOR, this.headOfficeIndicator);
+    }
+    if (isSetInstitutionalSector) {
+      addIfNull(nulls, JSON_PROPERTY_INSTITUTIONAL_SECTOR, this.institutionalSector);
+    }
+    if (isSetLegalForm) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_FORM, this.legalForm);
+    }
+    if (isSetLegalName) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_NAME, this.legalName);
+    }
+    if (isSetPhone) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE, this.phone);
+    }
+    if (isSetPrincipalPlaceOfBusiness) {
+      addIfNull(nulls, JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS, this.principalPlaceOfBusiness);
+    }
+    if (isSetRegisteredAddress) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTERED_ADDRESS, this.registeredAddress);
+    }
+    if (isSetRegistrationNumber) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER, this.registrationNumber);
+    }
+    if (isSetRegistrationNumberAbsent) {
+      addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER_ABSENT, this.registrationNumberAbsent);
+    }
+    if (isSetStatusOfLegalProceeding) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING, this.statusOfLegalProceeding);
+    }
+    if (isSetStockData) {
+      addIfNull(nulls, JSON_PROPERTY_STOCK_DATA, this.stockData);
+    }
+    if (isSetSupport) {
+      addIfNull(nulls, JSON_PROPERTY_SUPPORT, this.support);
+    }
+    if (isSetTaxInformation) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_INFORMATION, this.taxInformation);
+    }
+    if (isSetTaxReportingClassification) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION, this.taxReportingClassification);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetVatAbsenceReason) {
+      addIfNull(nulls, JSON_PROPERTY_VAT_ABSENCE_REASON, this.vatAbsenceReason);
+    }
+    if (isSetVatNumber) {
+      addIfNull(nulls, JSON_PROPERTY_VAT_NUMBER, this.vatNumber);
+    }
+    if (isSetWebData) {
+      addIfNull(nulls, JSON_PROPERTY_WEB_DATA, this.webData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

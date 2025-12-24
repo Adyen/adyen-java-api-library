@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class TerminalConnectivity {
   public static final String JSON_PROPERTY_BLUETOOTH = "bluetooth";
   private TerminalConnectivityBluetooth bluetooth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBluetooth = false;
+
   public static final String JSON_PROPERTY_CELLULAR = "cellular";
   private TerminalConnectivityCellular cellular;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCellular = false;
 
   public static final String JSON_PROPERTY_ETHERNET = "ethernet";
   private TerminalConnectivityEthernet ethernet;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEthernet = false;
+
   public static final String JSON_PROPERTY_WIFI = "wifi";
   private TerminalConnectivityWifi wifi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWifi = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalConnectivity() {}
 
@@ -47,6 +67,7 @@ public class TerminalConnectivity {
    */
   public TerminalConnectivity bluetooth(TerminalConnectivityBluetooth bluetooth) {
     this.bluetooth = bluetooth;
+    isSetBluetooth = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class TerminalConnectivity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetooth(TerminalConnectivityBluetooth bluetooth) {
     this.bluetooth = bluetooth;
+    isSetBluetooth = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class TerminalConnectivity {
    */
   public TerminalConnectivity cellular(TerminalConnectivityCellular cellular) {
     this.cellular = cellular;
+    isSetCellular = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class TerminalConnectivity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCellular(TerminalConnectivityCellular cellular) {
     this.cellular = cellular;
+    isSetCellular = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class TerminalConnectivity {
    */
   public TerminalConnectivity ethernet(TerminalConnectivityEthernet ethernet) {
     this.ethernet = ethernet;
+    isSetEthernet = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class TerminalConnectivity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernet(TerminalConnectivityEthernet ethernet) {
     this.ethernet = ethernet;
+    isSetEthernet = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class TerminalConnectivity {
    */
   public TerminalConnectivity wifi(TerminalConnectivityWifi wifi) {
     this.wifi = wifi;
+    isSetWifi = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class TerminalConnectivity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifi(TerminalConnectivityWifi wifi) {
     this.wifi = wifi;
+    isSetWifi = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TerminalConnectivity includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalConnectivity object is equal to o. */
@@ -182,14 +230,26 @@ public class TerminalConnectivity {
     }
     TerminalConnectivity terminalConnectivity = (TerminalConnectivity) o;
     return Objects.equals(this.bluetooth, terminalConnectivity.bluetooth)
+        && Objects.equals(this.isSetBluetooth, terminalConnectivity.isSetBluetooth)
         && Objects.equals(this.cellular, terminalConnectivity.cellular)
+        && Objects.equals(this.isSetCellular, terminalConnectivity.isSetCellular)
         && Objects.equals(this.ethernet, terminalConnectivity.ethernet)
-        && Objects.equals(this.wifi, terminalConnectivity.wifi);
+        && Objects.equals(this.isSetEthernet, terminalConnectivity.isSetEthernet)
+        && Objects.equals(this.wifi, terminalConnectivity.wifi)
+        && Objects.equals(this.isSetWifi, terminalConnectivity.isSetWifi);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bluetooth, cellular, ethernet, wifi);
+    return Objects.hash(
+        bluetooth,
+        isSetBluetooth,
+        cellular,
+        isSetCellular,
+        ethernet,
+        isSetEthernet,
+        wifi,
+        isSetWifi);
   }
 
   @Override
@@ -212,6 +272,39 @@ public class TerminalConnectivity {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBluetooth) {
+      addIfNull(nulls, JSON_PROPERTY_BLUETOOTH, this.bluetooth);
+    }
+    if (isSetCellular) {
+      addIfNull(nulls, JSON_PROPERTY_CELLULAR, this.cellular);
+    }
+    if (isSetEthernet) {
+      addIfNull(nulls, JSON_PROPERTY_ETHERNET, this.ethernet);
+    }
+    if (isSetWifi) {
+      addIfNull(nulls, JSON_PROPERTY_WIFI, this.wifi);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

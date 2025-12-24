@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,8 +34,14 @@ public class ReturnTransferResponse {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /** The resulting status of the return. Possible values: **Authorised**, **Declined**. */
   public enum StatusEnum {
@@ -79,8 +87,20 @@ public class ReturnTransferResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TRANSFER_ID = "transferId";
   private String transferId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ReturnTransferResponse() {}
 
@@ -92,6 +112,7 @@ public class ReturnTransferResponse {
    */
   public ReturnTransferResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -115,6 +136,7 @@ public class ReturnTransferResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -125,6 +147,7 @@ public class ReturnTransferResponse {
    */
   public ReturnTransferResponse reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -148,6 +171,7 @@ public class ReturnTransferResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -159,6 +183,7 @@ public class ReturnTransferResponse {
    */
   public ReturnTransferResponse status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -184,6 +209,7 @@ public class ReturnTransferResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -194,6 +220,7 @@ public class ReturnTransferResponse {
    */
   public ReturnTransferResponse transferId(String transferId) {
     this.transferId = transferId;
+    isSetTransferId = true; // mark as set
     return this;
   }
 
@@ -217,6 +244,27 @@ public class ReturnTransferResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferId(String transferId) {
     this.transferId = transferId;
+    isSetTransferId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ReturnTransferResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ReturnTransferResponse object is equal to o. */
@@ -230,14 +278,19 @@ public class ReturnTransferResponse {
     }
     ReturnTransferResponse returnTransferResponse = (ReturnTransferResponse) o;
     return Objects.equals(this.id, returnTransferResponse.id)
+        && Objects.equals(this.isSetId, returnTransferResponse.isSetId)
         && Objects.equals(this.reference, returnTransferResponse.reference)
+        && Objects.equals(this.isSetReference, returnTransferResponse.isSetReference)
         && Objects.equals(this.status, returnTransferResponse.status)
-        && Objects.equals(this.transferId, returnTransferResponse.transferId);
+        && Objects.equals(this.isSetStatus, returnTransferResponse.isSetStatus)
+        && Objects.equals(this.transferId, returnTransferResponse.transferId)
+        && Objects.equals(this.isSetTransferId, returnTransferResponse.isSetTransferId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, reference, status, transferId);
+    return Objects.hash(
+        id, isSetId, reference, isSetReference, status, isSetStatus, transferId, isSetTransferId);
   }
 
   @Override
@@ -260,6 +313,39 @@ public class ReturnTransferResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTransferId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_ID, this.transferId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

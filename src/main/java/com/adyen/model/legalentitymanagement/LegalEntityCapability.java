@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +38,9 @@ import java.util.logging.Logger;
 public class LegalEntityCapability {
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowed = false;
 
   /**
    * The capability level that is allowed for the legal entity. Possible values: **notApplicable**,
@@ -88,11 +93,20 @@ public class LegalEntityCapability {
   public static final String JSON_PROPERTY_ALLOWED_LEVEL = "allowedLevel";
   private AllowedLevelEnum allowedLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedLevel = false;
+
   public static final String JSON_PROPERTY_ALLOWED_SETTINGS = "allowedSettings";
   private CapabilitySettings allowedSettings;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedSettings = false;
+
   public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequested = false;
 
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card
@@ -147,14 +161,32 @@ public class LegalEntityCapability {
   public static final String JSON_PROPERTY_REQUESTED_LEVEL = "requestedLevel";
   private RequestedLevelEnum requestedLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedLevel = false;
+
   public static final String JSON_PROPERTY_REQUESTED_SETTINGS = "requestedSettings";
   private CapabilitySettings requestedSettings;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedSettings = false;
 
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENTS = "transferInstruments";
   private List<SupportingEntityCapability> transferInstruments;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstruments = false;
+
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private String verificationStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public LegalEntityCapability() {}
 
@@ -210,6 +242,7 @@ public class LegalEntityCapability {
    */
   public LegalEntityCapability allowedSettings(CapabilitySettings allowedSettings) {
     this.allowedSettings = allowedSettings;
+    isSetAllowedSettings = true; // mark as set
     return this;
   }
 
@@ -233,6 +266,7 @@ public class LegalEntityCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedSettings(CapabilitySettings allowedSettings) {
     this.allowedSettings = allowedSettings;
+    isSetAllowedSettings = true; // mark as set
   }
 
   /**
@@ -274,6 +308,7 @@ public class LegalEntityCapability {
    */
   public LegalEntityCapability requestedSettings(CapabilitySettings requestedSettings) {
     this.requestedSettings = requestedSettings;
+    isSetRequestedSettings = true; // mark as set
     return this;
   }
 
@@ -297,6 +332,7 @@ public class LegalEntityCapability {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedSettings(CapabilitySettings requestedSettings) {
     this.requestedSettings = requestedSettings;
+    isSetRequestedSettings = true; // mark as set
   }
 
   /**
@@ -330,6 +366,26 @@ public class LegalEntityCapability {
     return verificationStatus;
   }
 
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public LegalEntityCapability includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
   /** Return true if this LegalEntityCapability object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -341,26 +397,44 @@ public class LegalEntityCapability {
     }
     LegalEntityCapability legalEntityCapability = (LegalEntityCapability) o;
     return Objects.equals(this.allowed, legalEntityCapability.allowed)
+        && Objects.equals(this.isSetAllowed, legalEntityCapability.isSetAllowed)
         && Objects.equals(this.allowedLevel, legalEntityCapability.allowedLevel)
+        && Objects.equals(this.isSetAllowedLevel, legalEntityCapability.isSetAllowedLevel)
         && Objects.equals(this.allowedSettings, legalEntityCapability.allowedSettings)
+        && Objects.equals(this.isSetAllowedSettings, legalEntityCapability.isSetAllowedSettings)
         && Objects.equals(this.requested, legalEntityCapability.requested)
+        && Objects.equals(this.isSetRequested, legalEntityCapability.isSetRequested)
         && Objects.equals(this.requestedLevel, legalEntityCapability.requestedLevel)
+        && Objects.equals(this.isSetRequestedLevel, legalEntityCapability.isSetRequestedLevel)
         && Objects.equals(this.requestedSettings, legalEntityCapability.requestedSettings)
+        && Objects.equals(this.isSetRequestedSettings, legalEntityCapability.isSetRequestedSettings)
         && Objects.equals(this.transferInstruments, legalEntityCapability.transferInstruments)
-        && Objects.equals(this.verificationStatus, legalEntityCapability.verificationStatus);
+        && Objects.equals(
+            this.isSetTransferInstruments, legalEntityCapability.isSetTransferInstruments)
+        && Objects.equals(this.verificationStatus, legalEntityCapability.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus, legalEntityCapability.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         allowed,
+        isSetAllowed,
         allowedLevel,
+        isSetAllowedLevel,
         allowedSettings,
+        isSetAllowedSettings,
         requested,
+        isSetRequested,
         requestedLevel,
+        isSetRequestedLevel,
         requestedSettings,
+        isSetRequestedSettings,
         transferInstruments,
-        verificationStatus);
+        isSetTransferInstruments,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override
@@ -389,6 +463,51 @@ public class LegalEntityCapability {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowed) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED, this.allowed);
+    }
+    if (isSetAllowedLevel) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_LEVEL, this.allowedLevel);
+    }
+    if (isSetAllowedSettings) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_SETTINGS, this.allowedSettings);
+    }
+    if (isSetRequested) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED, this.requested);
+    }
+    if (isSetRequestedLevel) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED_LEVEL, this.requestedLevel);
+    }
+    if (isSetRequestedSettings) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED_SETTINGS, this.requestedSettings);
+    }
+    if (isSetTransferInstruments) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENTS, this.transferInstruments);
+    }
+    if (isSetVerificationStatus) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_STATUS, this.verificationStatus);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

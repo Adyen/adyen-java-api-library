@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +32,9 @@ public class TransferReview {
   public static final String JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED =
       "numberOfApprovalsRequired";
   private Integer numberOfApprovalsRequired;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumberOfApprovalsRequired = false;
 
   /**
    * Shows the status of the Strong Customer Authentication (SCA) process. Possible values:
@@ -80,6 +85,15 @@ public class TransferReview {
   public static final String JSON_PROPERTY_SCA_ON_APPROVAL = "scaOnApproval";
   private ScaOnApprovalEnum scaOnApproval;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaOnApproval = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TransferReview() {}
 
   /**
@@ -94,6 +108,7 @@ public class TransferReview {
    */
   public TransferReview numberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
     this.numberOfApprovalsRequired = numberOfApprovalsRequired;
+    isSetNumberOfApprovalsRequired = true; // mark as set
     return this;
   }
 
@@ -125,6 +140,7 @@ public class TransferReview {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
     this.numberOfApprovalsRequired = numberOfApprovalsRequired;
+    isSetNumberOfApprovalsRequired = true; // mark as set
   }
 
   /**
@@ -137,6 +153,7 @@ public class TransferReview {
    */
   public TransferReview scaOnApproval(ScaOnApprovalEnum scaOnApproval) {
     this.scaOnApproval = scaOnApproval;
+    isSetScaOnApproval = true; // mark as set
     return this;
   }
 
@@ -164,6 +181,27 @@ public class TransferReview {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaOnApproval(ScaOnApprovalEnum scaOnApproval) {
     this.scaOnApproval = scaOnApproval;
+    isSetScaOnApproval = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransferReview includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransferReview object is equal to o. */
@@ -177,12 +215,19 @@ public class TransferReview {
     }
     TransferReview transferReview = (TransferReview) o;
     return Objects.equals(this.numberOfApprovalsRequired, transferReview.numberOfApprovalsRequired)
-        && Objects.equals(this.scaOnApproval, transferReview.scaOnApproval);
+        && Objects.equals(
+            this.isSetNumberOfApprovalsRequired, transferReview.isSetNumberOfApprovalsRequired)
+        && Objects.equals(this.scaOnApproval, transferReview.scaOnApproval)
+        && Objects.equals(this.isSetScaOnApproval, transferReview.isSetScaOnApproval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfApprovalsRequired, scaOnApproval);
+    return Objects.hash(
+        numberOfApprovalsRequired,
+        isSetNumberOfApprovalsRequired,
+        scaOnApproval,
+        isSetScaOnApproval);
   }
 
   @Override
@@ -205,6 +250,33 @@ public class TransferReview {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetNumberOfApprovalsRequired) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED, this.numberOfApprovalsRequired);
+    }
+    if (isSetScaOnApproval) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_ON_APPROVAL, this.scaOnApproval);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

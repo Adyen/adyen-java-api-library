@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,12 +34,21 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   public static final String JSON_PROPERTY_DOCUMENT = "document";
   private byte[] document;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDocument = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_ACCEPTANCE_REFERENCE =
       "termsOfServiceAcceptanceReference";
   private String termsOfServiceAcceptanceReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsOfServiceAcceptanceReference = false;
 
   /** The format of the Terms of Service document. */
   public enum TermsOfServiceDocumentFormatEnum {
@@ -87,6 +98,15 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
       "termsOfServiceDocumentFormat";
   private TermsOfServiceDocumentFormatEnum termsOfServiceDocumentFormat;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsOfServiceDocumentFormat = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public GetAcceptedTermsOfServiceDocumentResponse() {}
 
   /**
@@ -100,6 +120,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    */
   public GetAcceptedTermsOfServiceDocumentResponse document(byte[] document) {
     this.document = document;
+    isSetDocument = true; // mark as set
     return this;
   }
 
@@ -127,6 +148,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocument(byte[] document) {
     this.document = document;
+    isSetDocument = true; // mark as set
   }
 
   /**
@@ -138,6 +160,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    */
   public GetAcceptedTermsOfServiceDocumentResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -161,6 +184,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -174,6 +198,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   public GetAcceptedTermsOfServiceDocumentResponse termsOfServiceAcceptanceReference(
       String termsOfServiceAcceptanceReference) {
     this.termsOfServiceAcceptanceReference = termsOfServiceAcceptanceReference;
+    isSetTermsOfServiceAcceptanceReference = true; // mark as set
     return this;
   }
 
@@ -199,6 +224,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceAcceptanceReference(String termsOfServiceAcceptanceReference) {
     this.termsOfServiceAcceptanceReference = termsOfServiceAcceptanceReference;
+    isSetTermsOfServiceAcceptanceReference = true; // mark as set
   }
 
   /**
@@ -211,6 +237,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   public GetAcceptedTermsOfServiceDocumentResponse termsOfServiceDocumentFormat(
       TermsOfServiceDocumentFormatEnum termsOfServiceDocumentFormat) {
     this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+    isSetTermsOfServiceDocumentFormat = true; // mark as set
     return this;
   }
 
@@ -235,6 +262,27 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   public void setTermsOfServiceDocumentFormat(
       TermsOfServiceDocumentFormatEnum termsOfServiceDocumentFormat) {
     this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
+    isSetTermsOfServiceDocumentFormat = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public GetAcceptedTermsOfServiceDocumentResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this GetAcceptedTermsOfServiceDocumentResponse object is equal to o. */
@@ -249,22 +297,35 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
     GetAcceptedTermsOfServiceDocumentResponse getAcceptedTermsOfServiceDocumentResponse =
         (GetAcceptedTermsOfServiceDocumentResponse) o;
     return Arrays.equals(this.document, getAcceptedTermsOfServiceDocumentResponse.document)
+        && Objects.equals(
+            this.isSetDocument, getAcceptedTermsOfServiceDocumentResponse.isSetDocument)
         && Objects.equals(this.id, getAcceptedTermsOfServiceDocumentResponse.id)
+        && Objects.equals(this.isSetId, getAcceptedTermsOfServiceDocumentResponse.isSetId)
         && Objects.equals(
             this.termsOfServiceAcceptanceReference,
             getAcceptedTermsOfServiceDocumentResponse.termsOfServiceAcceptanceReference)
         && Objects.equals(
+            this.isSetTermsOfServiceAcceptanceReference,
+            getAcceptedTermsOfServiceDocumentResponse.isSetTermsOfServiceAcceptanceReference)
+        && Objects.equals(
             this.termsOfServiceDocumentFormat,
-            getAcceptedTermsOfServiceDocumentResponse.termsOfServiceDocumentFormat);
+            getAcceptedTermsOfServiceDocumentResponse.termsOfServiceDocumentFormat)
+        && Objects.equals(
+            this.isSetTermsOfServiceDocumentFormat,
+            getAcceptedTermsOfServiceDocumentResponse.isSetTermsOfServiceDocumentFormat);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         Arrays.hashCode(document),
+        isSetDocument,
         id,
+        isSetId,
         termsOfServiceAcceptanceReference,
-        termsOfServiceDocumentFormat);
+        isSetTermsOfServiceAcceptanceReference,
+        termsOfServiceDocumentFormat,
+        isSetTermsOfServiceDocumentFormat);
   }
 
   @Override
@@ -291,6 +352,43 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDocument) {
+      addIfNull(nulls, JSON_PROPERTY_DOCUMENT, this.document);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetTermsOfServiceAcceptanceReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TERMS_OF_SERVICE_ACCEPTANCE_REFERENCE,
+          this.termsOfServiceAcceptanceReference);
+    }
+    if (isSetTermsOfServiceDocumentFormat) {
+      addIfNull(
+          nulls, JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT, this.termsOfServiceDocumentFormat);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

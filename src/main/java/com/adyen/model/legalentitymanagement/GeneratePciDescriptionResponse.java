@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,11 +32,26 @@ public class GeneratePciDescriptionResponse {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private byte[] content;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContent = false;
+
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLanguage = false;
+
   public static final String JSON_PROPERTY_PCI_TEMPLATE_REFERENCES = "pciTemplateReferences";
   private List<String> pciTemplateReferences;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPciTemplateReferences = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public GeneratePciDescriptionResponse() {}
 
@@ -47,6 +64,7 @@ public class GeneratePciDescriptionResponse {
    */
   public GeneratePciDescriptionResponse content(byte[] content) {
     this.content = content;
+    isSetContent = true; // mark as set
     return this;
   }
 
@@ -70,6 +88,7 @@ public class GeneratePciDescriptionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
     this.content = content;
+    isSetContent = true; // mark as set
   }
 
   /**
@@ -84,6 +103,7 @@ public class GeneratePciDescriptionResponse {
    */
   public GeneratePciDescriptionResponse language(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
     return this;
   }
 
@@ -113,6 +133,7 @@ public class GeneratePciDescriptionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
   }
 
   /**
@@ -126,6 +147,7 @@ public class GeneratePciDescriptionResponse {
    */
   public GeneratePciDescriptionResponse pciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
+    isSetPciTemplateReferences = true; // mark as set
     return this;
   }
 
@@ -162,6 +184,27 @@ public class GeneratePciDescriptionResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
+    isSetPciTemplateReferences = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public GeneratePciDescriptionResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this GeneratePciDescriptionResponse object is equal to o. */
@@ -176,14 +219,25 @@ public class GeneratePciDescriptionResponse {
     GeneratePciDescriptionResponse generatePciDescriptionResponse =
         (GeneratePciDescriptionResponse) o;
     return Arrays.equals(this.content, generatePciDescriptionResponse.content)
+        && Objects.equals(this.isSetContent, generatePciDescriptionResponse.isSetContent)
         && Objects.equals(this.language, generatePciDescriptionResponse.language)
+        && Objects.equals(this.isSetLanguage, generatePciDescriptionResponse.isSetLanguage)
         && Objects.equals(
-            this.pciTemplateReferences, generatePciDescriptionResponse.pciTemplateReferences);
+            this.pciTemplateReferences, generatePciDescriptionResponse.pciTemplateReferences)
+        && Objects.equals(
+            this.isSetPciTemplateReferences,
+            generatePciDescriptionResponse.isSetPciTemplateReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(content), language, pciTemplateReferences);
+    return Objects.hash(
+        Arrays.hashCode(content),
+        isSetContent,
+        language,
+        isSetLanguage,
+        pciTemplateReferences,
+        isSetPciTemplateReferences);
   }
 
   @Override
@@ -207,6 +261,36 @@ public class GeneratePciDescriptionResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetContent) {
+      addIfNull(nulls, JSON_PROPERTY_CONTENT, this.content);
+    }
+    if (isSetLanguage) {
+      addIfNull(nulls, JSON_PROPERTY_LANGUAGE, this.language);
+    }
+    if (isSetPciTemplateReferences) {
+      addIfNull(nulls, JSON_PROPERTY_PCI_TEMPLATE_REFERENCES, this.pciTemplateReferences);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

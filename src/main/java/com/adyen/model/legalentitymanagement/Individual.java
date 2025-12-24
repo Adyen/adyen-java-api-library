@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,32 +38,68 @@ public class Individual {
   public static final String JSON_PROPERTY_BIRTH_DATA = "birthData";
   private BirthData birthData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBirthData = false;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
 
   public static final String JSON_PROPERTY_IDENTIFICATION_DATA = "identificationData";
   private IdentificationData identificationData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdentificationData = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private Name name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_NATIONALITY = "nationality";
   private String nationality;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNationality = false;
+
   public static final String JSON_PROPERTY_PHONE = "phone";
   private PhoneNumber phone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhone = false;
 
   public static final String JSON_PROPERTY_RESIDENTIAL_ADDRESS = "residentialAddress";
   private Address residentialAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResidentialAddress = false;
+
   public static final String JSON_PROPERTY_SUPPORT = "support";
   private Support support;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupport = false;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
   private List<TaxInformation> taxInformation;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxInformation = false;
+
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
   private WebData webData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWebData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Individual() {}
 
@@ -73,6 +111,7 @@ public class Individual {
    */
   public Individual birthData(BirthData birthData) {
     this.birthData = birthData;
+    isSetBirthData = true; // mark as set
     return this;
   }
 
@@ -96,6 +135,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBirthData(BirthData birthData) {
     this.birthData = birthData;
+    isSetBirthData = true; // mark as set
   }
 
   /**
@@ -106,6 +146,7 @@ public class Individual {
    */
   public Individual email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -129,6 +170,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -139,6 +181,7 @@ public class Individual {
    */
   public Individual identificationData(IdentificationData identificationData) {
     this.identificationData = identificationData;
+    isSetIdentificationData = true; // mark as set
     return this;
   }
 
@@ -162,6 +205,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationData(IdentificationData identificationData) {
     this.identificationData = identificationData;
+    isSetIdentificationData = true; // mark as set
   }
 
   /**
@@ -172,6 +216,7 @@ public class Individual {
    */
   public Individual name(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -195,6 +240,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -205,6 +251,7 @@ public class Individual {
    */
   public Individual nationality(String nationality) {
     this.nationality = nationality;
+    isSetNationality = true; // mark as set
     return this;
   }
 
@@ -228,6 +275,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
     this.nationality = nationality;
+    isSetNationality = true; // mark as set
   }
 
   /**
@@ -238,6 +286,7 @@ public class Individual {
    */
   public Individual phone(PhoneNumber phone) {
     this.phone = phone;
+    isSetPhone = true; // mark as set
     return this;
   }
 
@@ -261,6 +310,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
     this.phone = phone;
+    isSetPhone = true; // mark as set
   }
 
   /**
@@ -271,6 +321,7 @@ public class Individual {
    */
   public Individual residentialAddress(Address residentialAddress) {
     this.residentialAddress = residentialAddress;
+    isSetResidentialAddress = true; // mark as set
     return this;
   }
 
@@ -294,6 +345,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResidentialAddress(Address residentialAddress) {
     this.residentialAddress = residentialAddress;
+    isSetResidentialAddress = true; // mark as set
   }
 
   /**
@@ -304,6 +356,7 @@ public class Individual {
    */
   public Individual support(Support support) {
     this.support = support;
+    isSetSupport = true; // mark as set
     return this;
   }
 
@@ -327,6 +380,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupport(Support support) {
     this.support = support;
+    isSetSupport = true; // mark as set
   }
 
   /**
@@ -337,6 +391,7 @@ public class Individual {
    */
   public Individual taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
+    isSetTaxInformation = true; // mark as set
     return this;
   }
 
@@ -368,6 +423,7 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
+    isSetTaxInformation = true; // mark as set
   }
 
   /**
@@ -378,6 +434,7 @@ public class Individual {
    */
   public Individual webData(WebData webData) {
     this.webData = webData;
+    isSetWebData = true; // mark as set
     return this;
   }
 
@@ -401,6 +458,27 @@ public class Individual {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {
     this.webData = webData;
+    isSetWebData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Individual includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Individual object is equal to o. */
@@ -414,30 +492,50 @@ public class Individual {
     }
     Individual individual = (Individual) o;
     return Objects.equals(this.birthData, individual.birthData)
+        && Objects.equals(this.isSetBirthData, individual.isSetBirthData)
         && Objects.equals(this.email, individual.email)
+        && Objects.equals(this.isSetEmail, individual.isSetEmail)
         && Objects.equals(this.identificationData, individual.identificationData)
+        && Objects.equals(this.isSetIdentificationData, individual.isSetIdentificationData)
         && Objects.equals(this.name, individual.name)
+        && Objects.equals(this.isSetName, individual.isSetName)
         && Objects.equals(this.nationality, individual.nationality)
+        && Objects.equals(this.isSetNationality, individual.isSetNationality)
         && Objects.equals(this.phone, individual.phone)
+        && Objects.equals(this.isSetPhone, individual.isSetPhone)
         && Objects.equals(this.residentialAddress, individual.residentialAddress)
+        && Objects.equals(this.isSetResidentialAddress, individual.isSetResidentialAddress)
         && Objects.equals(this.support, individual.support)
+        && Objects.equals(this.isSetSupport, individual.isSetSupport)
         && Objects.equals(this.taxInformation, individual.taxInformation)
-        && Objects.equals(this.webData, individual.webData);
+        && Objects.equals(this.isSetTaxInformation, individual.isSetTaxInformation)
+        && Objects.equals(this.webData, individual.webData)
+        && Objects.equals(this.isSetWebData, individual.isSetWebData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         birthData,
+        isSetBirthData,
         email,
+        isSetEmail,
         identificationData,
+        isSetIdentificationData,
         name,
+        isSetName,
         nationality,
+        isSetNationality,
         phone,
+        isSetPhone,
         residentialAddress,
+        isSetResidentialAddress,
         support,
+        isSetSupport,
         taxInformation,
-        webData);
+        isSetTaxInformation,
+        webData,
+        isSetWebData);
   }
 
   @Override
@@ -466,6 +564,57 @@ public class Individual {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBirthData) {
+      addIfNull(nulls, JSON_PROPERTY_BIRTH_DATA, this.birthData);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetIdentificationData) {
+      addIfNull(nulls, JSON_PROPERTY_IDENTIFICATION_DATA, this.identificationData);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetNationality) {
+      addIfNull(nulls, JSON_PROPERTY_NATIONALITY, this.nationality);
+    }
+    if (isSetPhone) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE, this.phone);
+    }
+    if (isSetResidentialAddress) {
+      addIfNull(nulls, JSON_PROPERTY_RESIDENTIAL_ADDRESS, this.residentialAddress);
+    }
+    if (isSetSupport) {
+      addIfNull(nulls, JSON_PROPERTY_SUPPORT, this.support);
+    }
+    if (isSetTaxInformation) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_INFORMATION, this.taxInformation);
+    }
+    if (isSetWebData) {
+      addIfNull(nulls, JSON_PROPERTY_WEB_DATA, this.webData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,23 +34,50 @@ public class AndroidCertificate {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_EXTENSION = "extension";
   private String extension;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExtension = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_NOT_AFTER = "notAfter";
   private OffsetDateTime notAfter;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNotAfter = false;
+
   public static final String JSON_PROPERTY_NOT_BEFORE = "notBefore";
   private OffsetDateTime notBefore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNotBefore = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AndroidCertificate() {}
 
@@ -60,6 +89,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -83,6 +113,7 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -95,6 +126,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate extension(String extension) {
     this.extension = extension;
+    isSetExtension = true; // mark as set
     return this;
   }
 
@@ -122,6 +154,7 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtension(String extension) {
     this.extension = extension;
+    isSetExtension = true; // mark as set
   }
 
   /**
@@ -132,6 +165,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -155,6 +189,7 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -165,6 +200,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -188,6 +224,7 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -198,6 +235,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate notAfter(OffsetDateTime notAfter) {
     this.notAfter = notAfter;
+    isSetNotAfter = true; // mark as set
     return this;
   }
 
@@ -221,6 +259,7 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotAfter(OffsetDateTime notAfter) {
     this.notAfter = notAfter;
+    isSetNotAfter = true; // mark as set
   }
 
   /**
@@ -231,6 +270,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate notBefore(OffsetDateTime notBefore) {
     this.notBefore = notBefore;
+    isSetNotBefore = true; // mark as set
     return this;
   }
 
@@ -254,6 +294,7 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotBefore(OffsetDateTime notBefore) {
     this.notBefore = notBefore;
+    isSetNotBefore = true; // mark as set
   }
 
   /**
@@ -264,6 +305,7 @@ public class AndroidCertificate {
    */
   public AndroidCertificate status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -287,6 +329,27 @@ public class AndroidCertificate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AndroidCertificate includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AndroidCertificate object is equal to o. */
@@ -300,17 +363,38 @@ public class AndroidCertificate {
     }
     AndroidCertificate androidCertificate = (AndroidCertificate) o;
     return Objects.equals(this.description, androidCertificate.description)
+        && Objects.equals(this.isSetDescription, androidCertificate.isSetDescription)
         && Objects.equals(this.extension, androidCertificate.extension)
+        && Objects.equals(this.isSetExtension, androidCertificate.isSetExtension)
         && Objects.equals(this.id, androidCertificate.id)
+        && Objects.equals(this.isSetId, androidCertificate.isSetId)
         && Objects.equals(this.name, androidCertificate.name)
+        && Objects.equals(this.isSetName, androidCertificate.isSetName)
         && Objects.equals(this.notAfter, androidCertificate.notAfter)
+        && Objects.equals(this.isSetNotAfter, androidCertificate.isSetNotAfter)
         && Objects.equals(this.notBefore, androidCertificate.notBefore)
-        && Objects.equals(this.status, androidCertificate.status);
+        && Objects.equals(this.isSetNotBefore, androidCertificate.isSetNotBefore)
+        && Objects.equals(this.status, androidCertificate.status)
+        && Objects.equals(this.isSetStatus, androidCertificate.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, extension, id, name, notAfter, notBefore, status);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        extension,
+        isSetExtension,
+        id,
+        isSetId,
+        name,
+        isSetName,
+        notAfter,
+        isSetNotAfter,
+        notBefore,
+        isSetNotBefore,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -336,6 +420,48 @@ public class AndroidCertificate {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetExtension) {
+      addIfNull(nulls, JSON_PROPERTY_EXTENSION, this.extension);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetNotAfter) {
+      addIfNull(nulls, JSON_PROPERTY_NOT_AFTER, this.notAfter);
+    }
+    if (isSetNotBefore) {
+      addIfNull(nulls, JSON_PROPERTY_NOT_BEFORE, this.notBefore);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

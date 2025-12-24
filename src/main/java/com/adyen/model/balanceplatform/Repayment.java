@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Repayment {
   public static final String JSON_PROPERTY_BASIS_POINTS = "basisPoints";
   private Integer basisPoints;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBasisPoints = false;
+
   public static final String JSON_PROPERTY_TERM = "term";
   private RepaymentTerm term;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerm = false;
+
   public static final String JSON_PROPERTY_THRESHOLD = "threshold";
   private ThresholdRepayment threshold;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreshold = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Repayment() {}
 
@@ -45,6 +62,7 @@ public class Repayment {
    */
   public Repayment basisPoints(Integer basisPoints) {
     this.basisPoints = basisPoints;
+    isSetBasisPoints = true; // mark as set
     return this;
   }
 
@@ -72,6 +90,7 @@ public class Repayment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasisPoints(Integer basisPoints) {
     this.basisPoints = basisPoints;
+    isSetBasisPoints = true; // mark as set
   }
 
   /**
@@ -82,6 +101,7 @@ public class Repayment {
    */
   public Repayment term(RepaymentTerm term) {
     this.term = term;
+    isSetTerm = true; // mark as set
     return this;
   }
 
@@ -105,6 +125,7 @@ public class Repayment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerm(RepaymentTerm term) {
     this.term = term;
+    isSetTerm = true; // mark as set
   }
 
   /**
@@ -115,6 +136,7 @@ public class Repayment {
    */
   public Repayment threshold(ThresholdRepayment threshold) {
     this.threshold = threshold;
+    isSetThreshold = true; // mark as set
     return this;
   }
 
@@ -138,6 +160,27 @@ public class Repayment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreshold(ThresholdRepayment threshold) {
     this.threshold = threshold;
+    isSetThreshold = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Repayment includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Repayment object is equal to o. */
@@ -151,13 +194,16 @@ public class Repayment {
     }
     Repayment repayment = (Repayment) o;
     return Objects.equals(this.basisPoints, repayment.basisPoints)
+        && Objects.equals(this.isSetBasisPoints, repayment.isSetBasisPoints)
         && Objects.equals(this.term, repayment.term)
-        && Objects.equals(this.threshold, repayment.threshold);
+        && Objects.equals(this.isSetTerm, repayment.isSetTerm)
+        && Objects.equals(this.threshold, repayment.threshold)
+        && Objects.equals(this.isSetThreshold, repayment.isSetThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basisPoints, term, threshold);
+    return Objects.hash(basisPoints, isSetBasisPoints, term, isSetTerm, threshold, isSetThreshold);
   }
 
   @Override
@@ -179,6 +225,36 @@ public class Repayment {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBasisPoints) {
+      addIfNull(nulls, JSON_PROPERTY_BASIS_POINTS, this.basisPoints);
+    }
+    if (isSetTerm) {
+      addIfNull(nulls, JSON_PROPERTY_TERM, this.term);
+    }
+    if (isSetThreshold) {
+      addIfNull(nulls, JSON_PROPERTY_THRESHOLD, this.threshold);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

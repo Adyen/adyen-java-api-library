@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,14 +37,26 @@ public class PaymentMethodResponse {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private PaginationLinks links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private List<PaymentMethod> data;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItemsTotal = false;
+
   public static final String JSON_PROPERTY_PAGES_TOTAL = "pagesTotal";
   private Integer pagesTotal;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPagesTotal = false;
 
   /** Gets or Sets typesWithErrors */
   public enum TypesWithErrorsEnum {
@@ -145,6 +159,8 @@ public class PaymentMethodResponse {
     ELODEBIT(String.valueOf("elodebit")),
 
     GIROCARD(String.valueOf("girocard")),
+
+    GIVEX(String.valueOf("givex")),
 
     GOOGLEPAY(String.valueOf("googlepay")),
 
@@ -284,7 +300,7 @@ public class PaymentMethodResponse {
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
 
-    VALUELINK(String.valueOf("valueLink")),
+    VALUELINK(String.valueOf("valuelink")),
 
     VEGAS_CARD(String.valueOf("vegas_card")),
 
@@ -350,6 +366,15 @@ public class PaymentMethodResponse {
   public static final String JSON_PROPERTY_TYPES_WITH_ERRORS = "typesWithErrors";
   private List<TypesWithErrorsEnum> typesWithErrors;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTypesWithErrors = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public PaymentMethodResponse() {}
 
   /**
@@ -360,6 +385,7 @@ public class PaymentMethodResponse {
    */
   public PaymentMethodResponse links(PaginationLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
@@ -383,6 +409,7 @@ public class PaymentMethodResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -393,6 +420,7 @@ public class PaymentMethodResponse {
    */
   public PaymentMethodResponse data(List<PaymentMethod> data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -424,6 +452,7 @@ public class PaymentMethodResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PaymentMethod> data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -434,6 +463,7 @@ public class PaymentMethodResponse {
    */
   public PaymentMethodResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
+    isSetItemsTotal = true; // mark as set
     return this;
   }
 
@@ -457,6 +487,7 @@ public class PaymentMethodResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
+    isSetItemsTotal = true; // mark as set
   }
 
   /**
@@ -467,6 +498,7 @@ public class PaymentMethodResponse {
    */
   public PaymentMethodResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
+    isSetPagesTotal = true; // mark as set
     return this;
   }
 
@@ -490,6 +522,7 @@ public class PaymentMethodResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
+    isSetPagesTotal = true; // mark as set
   }
 
   /**
@@ -501,6 +534,7 @@ public class PaymentMethodResponse {
    */
   public PaymentMethodResponse typesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
     this.typesWithErrors = typesWithErrors;
+    isSetTypesWithErrors = true; // mark as set
     return this;
   }
 
@@ -534,6 +568,27 @@ public class PaymentMethodResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
     this.typesWithErrors = typesWithErrors;
+    isSetTypesWithErrors = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentMethodResponse object is equal to o. */
@@ -547,15 +602,30 @@ public class PaymentMethodResponse {
     }
     PaymentMethodResponse paymentMethodResponse = (PaymentMethodResponse) o;
     return Objects.equals(this.links, paymentMethodResponse.links)
+        && Objects.equals(this.isSetLinks, paymentMethodResponse.isSetLinks)
         && Objects.equals(this.data, paymentMethodResponse.data)
+        && Objects.equals(this.isSetData, paymentMethodResponse.isSetData)
         && Objects.equals(this.itemsTotal, paymentMethodResponse.itemsTotal)
+        && Objects.equals(this.isSetItemsTotal, paymentMethodResponse.isSetItemsTotal)
         && Objects.equals(this.pagesTotal, paymentMethodResponse.pagesTotal)
-        && Objects.equals(this.typesWithErrors, paymentMethodResponse.typesWithErrors);
+        && Objects.equals(this.isSetPagesTotal, paymentMethodResponse.isSetPagesTotal)
+        && Objects.equals(this.typesWithErrors, paymentMethodResponse.typesWithErrors)
+        && Objects.equals(this.isSetTypesWithErrors, paymentMethodResponse.isSetTypesWithErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data, itemsTotal, pagesTotal, typesWithErrors);
+    return Objects.hash(
+        links,
+        isSetLinks,
+        data,
+        isSetData,
+        itemsTotal,
+        isSetItemsTotal,
+        pagesTotal,
+        isSetPagesTotal,
+        typesWithErrors,
+        isSetTypesWithErrors);
   }
 
   @Override
@@ -579,6 +649,42 @@ public class PaymentMethodResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetItemsTotal) {
+      addIfNull(nulls, JSON_PROPERTY_ITEMS_TOTAL, this.itemsTotal);
+    }
+    if (isSetPagesTotal) {
+      addIfNull(nulls, JSON_PROPERTY_PAGES_TOTAL, this.pagesTotal);
+    }
+    if (isSetTypesWithErrors) {
+      addIfNull(nulls, JSON_PROPERTY_TYPES_WITH_ERRORS, this.typesWithErrors);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

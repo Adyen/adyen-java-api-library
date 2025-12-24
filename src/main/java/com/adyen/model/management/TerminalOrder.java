@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,26 +36,56 @@ public class TerminalOrder {
   public static final String JSON_PROPERTY_BILLING_ENTITY = "billingEntity";
   private BillingEntity billingEntity;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingEntity = false;
+
   public static final String JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE = "customerOrderReference";
   private String customerOrderReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCustomerOrderReference = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_ITEMS = "items";
   private List<OrderItem> items;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItems = false;
 
   public static final String JSON_PROPERTY_ORDER_DATE = "orderDate";
   private String orderDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderDate = false;
+
   public static final String JSON_PROPERTY_SHIPPING_LOCATION = "shippingLocation";
   private ShippingLocation shippingLocation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShippingLocation = false;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TRACKING_URL = "trackingUrl";
   private String trackingUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrackingUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalOrder() {}
 
@@ -65,6 +97,7 @@ public class TerminalOrder {
    */
   public TerminalOrder billingEntity(BillingEntity billingEntity) {
     this.billingEntity = billingEntity;
+    isSetBillingEntity = true; // mark as set
     return this;
   }
 
@@ -88,6 +121,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntity(BillingEntity billingEntity) {
     this.billingEntity = billingEntity;
+    isSetBillingEntity = true; // mark as set
   }
 
   /**
@@ -99,6 +133,7 @@ public class TerminalOrder {
    */
   public TerminalOrder customerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
+    isSetCustomerOrderReference = true; // mark as set
     return this;
   }
 
@@ -124,6 +159,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
+    isSetCustomerOrderReference = true; // mark as set
   }
 
   /**
@@ -134,6 +170,7 @@ public class TerminalOrder {
    */
   public TerminalOrder id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -157,6 +194,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -167,6 +205,7 @@ public class TerminalOrder {
    */
   public TerminalOrder items(List<OrderItem> items) {
     this.items = items;
+    isSetItems = true; // mark as set
     return this;
   }
 
@@ -198,6 +237,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
     this.items = items;
+    isSetItems = true; // mark as set
   }
 
   /**
@@ -210,6 +250,7 @@ public class TerminalOrder {
    */
   public TerminalOrder orderDate(String orderDate) {
     this.orderDate = orderDate;
+    isSetOrderDate = true; // mark as set
     return this;
   }
 
@@ -237,6 +278,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderDate(String orderDate) {
     this.orderDate = orderDate;
+    isSetOrderDate = true; // mark as set
   }
 
   /**
@@ -247,6 +289,7 @@ public class TerminalOrder {
    */
   public TerminalOrder shippingLocation(ShippingLocation shippingLocation) {
     this.shippingLocation = shippingLocation;
+    isSetShippingLocation = true; // mark as set
     return this;
   }
 
@@ -270,6 +313,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocation(ShippingLocation shippingLocation) {
     this.shippingLocation = shippingLocation;
+    isSetShippingLocation = true; // mark as set
   }
 
   /**
@@ -280,6 +324,7 @@ public class TerminalOrder {
    */
   public TerminalOrder status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -303,6 +348,7 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -313,6 +359,7 @@ public class TerminalOrder {
    */
   public TerminalOrder trackingUrl(String trackingUrl) {
     this.trackingUrl = trackingUrl;
+    isSetTrackingUrl = true; // mark as set
     return this;
   }
 
@@ -337,6 +384,27 @@ public class TerminalOrder {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingUrl(String trackingUrl) {
     this.trackingUrl = trackingUrl;
+    isSetTrackingUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TerminalOrder includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalOrder object is equal to o. */
@@ -350,26 +418,43 @@ public class TerminalOrder {
     }
     TerminalOrder terminalOrder = (TerminalOrder) o;
     return Objects.equals(this.billingEntity, terminalOrder.billingEntity)
+        && Objects.equals(this.isSetBillingEntity, terminalOrder.isSetBillingEntity)
         && Objects.equals(this.customerOrderReference, terminalOrder.customerOrderReference)
+        && Objects.equals(
+            this.isSetCustomerOrderReference, terminalOrder.isSetCustomerOrderReference)
         && Objects.equals(this.id, terminalOrder.id)
+        && Objects.equals(this.isSetId, terminalOrder.isSetId)
         && Objects.equals(this.items, terminalOrder.items)
+        && Objects.equals(this.isSetItems, terminalOrder.isSetItems)
         && Objects.equals(this.orderDate, terminalOrder.orderDate)
+        && Objects.equals(this.isSetOrderDate, terminalOrder.isSetOrderDate)
         && Objects.equals(this.shippingLocation, terminalOrder.shippingLocation)
+        && Objects.equals(this.isSetShippingLocation, terminalOrder.isSetShippingLocation)
         && Objects.equals(this.status, terminalOrder.status)
-        && Objects.equals(this.trackingUrl, terminalOrder.trackingUrl);
+        && Objects.equals(this.isSetStatus, terminalOrder.isSetStatus)
+        && Objects.equals(this.trackingUrl, terminalOrder.trackingUrl)
+        && Objects.equals(this.isSetTrackingUrl, terminalOrder.isSetTrackingUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         billingEntity,
+        isSetBillingEntity,
         customerOrderReference,
+        isSetCustomerOrderReference,
         id,
+        isSetId,
         items,
+        isSetItems,
         orderDate,
+        isSetOrderDate,
         shippingLocation,
+        isSetShippingLocation,
         status,
-        trackingUrl);
+        isSetStatus,
+        trackingUrl,
+        isSetTrackingUrl);
   }
 
   @Override
@@ -398,6 +483,51 @@ public class TerminalOrder {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingEntity) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ENTITY, this.billingEntity);
+    }
+    if (isSetCustomerOrderReference) {
+      addIfNull(nulls, JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE, this.customerOrderReference);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetItems) {
+      addIfNull(nulls, JSON_PROPERTY_ITEMS, this.items);
+    }
+    if (isSetOrderDate) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_DATE, this.orderDate);
+    }
+    if (isSetShippingLocation) {
+      addIfNull(nulls, JSON_PROPERTY_SHIPPING_LOCATION, this.shippingLocation);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTrackingUrl) {
+      addIfNull(nulls, JSON_PROPERTY_TRACKING_URL, this.trackingUrl);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

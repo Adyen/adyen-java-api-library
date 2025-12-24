@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,6 +25,15 @@ public class Link {
   public static final String JSON_PROPERTY_HREF = "href";
   private String href;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHref = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Link() {}
 
   /**
@@ -33,6 +44,7 @@ public class Link {
    */
   public Link href(String href) {
     this.href = href;
+    isSetHref = true; // mark as set
     return this;
   }
 
@@ -56,6 +68,27 @@ public class Link {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHref(String href) {
     this.href = href;
+    isSetHref = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Link includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Link object is equal to o. */
@@ -68,12 +101,12 @@ public class Link {
       return false;
     }
     Link link = (Link) o;
-    return Objects.equals(this.href, link.href);
+    return Objects.equals(this.href, link.href) && Objects.equals(this.isSetHref, link.isSetHref);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(href, isSetHref);
   }
 
   @Override
@@ -93,6 +126,30 @@ public class Link {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetHref) {
+      addIfNull(nulls, JSON_PROPERTY_HREF, this.href);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

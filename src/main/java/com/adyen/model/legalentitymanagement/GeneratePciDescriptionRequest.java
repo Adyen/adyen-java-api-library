@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -77,8 +79,20 @@ public class GeneratePciDescriptionRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS = "additionalSalesChannels";
   private List<AdditionalSalesChannelsEnum> additionalSalesChannels;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalSalesChannels = false;
+
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLanguage = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public GeneratePciDescriptionRequest() {}
 
@@ -100,6 +114,7 @@ public class GeneratePciDescriptionRequest {
   public GeneratePciDescriptionRequest additionalSalesChannels(
       List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
     this.additionalSalesChannels = additionalSalesChannels;
+    isSetAdditionalSalesChannels = true; // mark as set
     return this;
   }
 
@@ -149,6 +164,7 @@ public class GeneratePciDescriptionRequest {
   public void setAdditionalSalesChannels(
       List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
     this.additionalSalesChannels = additionalSalesChannels;
+    isSetAdditionalSalesChannels = true; // mark as set
   }
 
   /**
@@ -162,6 +178,7 @@ public class GeneratePciDescriptionRequest {
    */
   public GeneratePciDescriptionRequest language(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
     return this;
   }
 
@@ -189,6 +206,27 @@ public class GeneratePciDescriptionRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public GeneratePciDescriptionRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this GeneratePciDescriptionRequest object is equal to o. */
@@ -203,12 +241,17 @@ public class GeneratePciDescriptionRequest {
     GeneratePciDescriptionRequest generatePciDescriptionRequest = (GeneratePciDescriptionRequest) o;
     return Objects.equals(
             this.additionalSalesChannels, generatePciDescriptionRequest.additionalSalesChannels)
-        && Objects.equals(this.language, generatePciDescriptionRequest.language);
+        && Objects.equals(
+            this.isSetAdditionalSalesChannels,
+            generatePciDescriptionRequest.isSetAdditionalSalesChannels)
+        && Objects.equals(this.language, generatePciDescriptionRequest.language)
+        && Objects.equals(this.isSetLanguage, generatePciDescriptionRequest.isSetLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalSalesChannels, language);
+    return Objects.hash(
+        additionalSalesChannels, isSetAdditionalSalesChannels, language, isSetLanguage);
   }
 
   @Override
@@ -231,6 +274,33 @@ public class GeneratePciDescriptionRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalSalesChannels) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS, this.additionalSalesChannels);
+    }
+    if (isSetLanguage) {
+      addIfNull(nulls, JSON_PROPERTY_LANGUAGE, this.language);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

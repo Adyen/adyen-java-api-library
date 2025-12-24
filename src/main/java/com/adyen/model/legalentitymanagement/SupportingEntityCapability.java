@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,14 +31,32 @@ public class SupportingEntityCapability {
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowed = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequested = false;
+
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private String verificationStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SupportingEntityCapability() {}
 
@@ -112,6 +132,26 @@ public class SupportingEntityCapability {
     return verificationStatus;
   }
 
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SupportingEntityCapability includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
   /** Return true if this SupportingEntityCapability object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -123,14 +163,27 @@ public class SupportingEntityCapability {
     }
     SupportingEntityCapability supportingEntityCapability = (SupportingEntityCapability) o;
     return Objects.equals(this.allowed, supportingEntityCapability.allowed)
+        && Objects.equals(this.isSetAllowed, supportingEntityCapability.isSetAllowed)
         && Objects.equals(this.id, supportingEntityCapability.id)
+        && Objects.equals(this.isSetId, supportingEntityCapability.isSetId)
         && Objects.equals(this.requested, supportingEntityCapability.requested)
-        && Objects.equals(this.verificationStatus, supportingEntityCapability.verificationStatus);
+        && Objects.equals(this.isSetRequested, supportingEntityCapability.isSetRequested)
+        && Objects.equals(this.verificationStatus, supportingEntityCapability.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus, supportingEntityCapability.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, id, requested, verificationStatus);
+    return Objects.hash(
+        allowed,
+        isSetAllowed,
+        id,
+        isSetId,
+        requested,
+        isSetRequested,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override
@@ -153,6 +206,39 @@ public class SupportingEntityCapability {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowed) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED, this.allowed);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetRequested) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED, this.requested);
+    }
+    if (isSetVerificationStatus) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_STATUS, this.verificationStatus);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

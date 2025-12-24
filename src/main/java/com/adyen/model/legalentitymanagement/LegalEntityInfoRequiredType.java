@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,23 +44,44 @@ public class LegalEntityInfoRequiredType {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, LegalEntityCapability> capabilities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCapabilities = false;
+
   public static final String JSON_PROPERTY_ENTITY_ASSOCIATIONS = "entityAssociations";
   private List<LegalEntityAssociation> entityAssociations;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityAssociations = false;
 
   public static final String JSON_PROPERTY_INDIVIDUAL = "individual";
   private Individual individual;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndividual = false;
+
   public static final String JSON_PROPERTY_ORGANIZATION = "organization";
   private Organization organization;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrganization = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SOLE_PROPRIETORSHIP = "soleProprietorship";
   private SoleProprietorship soleProprietorship;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSoleProprietorship = false;
+
   public static final String JSON_PROPERTY_TRUST = "trust";
   private Trust trust;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrust = false;
 
   /**
    * The type of legal entity. Possible values: **individual**, **organization**,
@@ -113,11 +136,26 @@ public class LegalEntityInfoRequiredType {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP = "unincorporatedPartnership";
   private UnincorporatedPartnership unincorporatedPartnership;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUnincorporatedPartnership = false;
+
   public static final String JSON_PROPERTY_VERIFICATION_PLAN = "verificationPlan";
   private String verificationPlan;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationPlan = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public LegalEntityInfoRequiredType() {}
 
@@ -134,6 +172,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType capabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
     return this;
   }
 
@@ -176,6 +215,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, LegalEntityCapability> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
   }
 
   /**
@@ -191,6 +231,7 @@ public class LegalEntityInfoRequiredType {
   public LegalEntityInfoRequiredType entityAssociations(
       List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
+    isSetEntityAssociations = true; // mark as set
     return this;
   }
 
@@ -231,6 +272,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityAssociations(List<LegalEntityAssociation> entityAssociations) {
     this.entityAssociations = entityAssociations;
+    isSetEntityAssociations = true; // mark as set
   }
 
   /**
@@ -241,6 +283,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType individual(Individual individual) {
     this.individual = individual;
+    isSetIndividual = true; // mark as set
     return this;
   }
 
@@ -264,6 +307,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndividual(Individual individual) {
     this.individual = individual;
+    isSetIndividual = true; // mark as set
   }
 
   /**
@@ -274,6 +318,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType organization(Organization organization) {
     this.organization = organization;
+    isSetOrganization = true; // mark as set
     return this;
   }
 
@@ -297,6 +342,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrganization(Organization organization) {
     this.organization = organization;
+    isSetOrganization = true; // mark as set
   }
 
   /**
@@ -307,6 +353,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -330,6 +377,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -340,6 +388,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType soleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
+    isSetSoleProprietorship = true; // mark as set
     return this;
   }
 
@@ -363,6 +412,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSoleProprietorship(SoleProprietorship soleProprietorship) {
     this.soleProprietorship = soleProprietorship;
+    isSetSoleProprietorship = true; // mark as set
   }
 
   /**
@@ -373,6 +423,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType trust(Trust trust) {
     this.trust = trust;
+    isSetTrust = true; // mark as set
     return this;
   }
 
@@ -396,6 +447,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrust(Trust trust) {
     this.trust = trust;
+    isSetTrust = true; // mark as set
   }
 
   /**
@@ -408,6 +460,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -435,6 +488,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -446,6 +500,7 @@ public class LegalEntityInfoRequiredType {
   public LegalEntityInfoRequiredType unincorporatedPartnership(
       UnincorporatedPartnership unincorporatedPartnership) {
     this.unincorporatedPartnership = unincorporatedPartnership;
+    isSetUnincorporatedPartnership = true; // mark as set
     return this;
   }
 
@@ -469,6 +524,7 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
     this.unincorporatedPartnership = unincorporatedPartnership;
+    isSetUnincorporatedPartnership = true; // mark as set
   }
 
   /**
@@ -483,6 +539,7 @@ public class LegalEntityInfoRequiredType {
    */
   public LegalEntityInfoRequiredType verificationPlan(String verificationPlan) {
     this.verificationPlan = verificationPlan;
+    isSetVerificationPlan = true; // mark as set
     return this;
   }
 
@@ -514,6 +571,27 @@ public class LegalEntityInfoRequiredType {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationPlan(String verificationPlan) {
     this.verificationPlan = verificationPlan;
+    isSetVerificationPlan = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public LegalEntityInfoRequiredType includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this LegalEntityInfoRequiredType object is equal to o. */
@@ -527,31 +605,56 @@ public class LegalEntityInfoRequiredType {
     }
     LegalEntityInfoRequiredType legalEntityInfoRequiredType = (LegalEntityInfoRequiredType) o;
     return Objects.equals(this.capabilities, legalEntityInfoRequiredType.capabilities)
+        && Objects.equals(this.isSetCapabilities, legalEntityInfoRequiredType.isSetCapabilities)
         && Objects.equals(this.entityAssociations, legalEntityInfoRequiredType.entityAssociations)
+        && Objects.equals(
+            this.isSetEntityAssociations, legalEntityInfoRequiredType.isSetEntityAssociations)
         && Objects.equals(this.individual, legalEntityInfoRequiredType.individual)
+        && Objects.equals(this.isSetIndividual, legalEntityInfoRequiredType.isSetIndividual)
         && Objects.equals(this.organization, legalEntityInfoRequiredType.organization)
+        && Objects.equals(this.isSetOrganization, legalEntityInfoRequiredType.isSetOrganization)
         && Objects.equals(this.reference, legalEntityInfoRequiredType.reference)
+        && Objects.equals(this.isSetReference, legalEntityInfoRequiredType.isSetReference)
         && Objects.equals(this.soleProprietorship, legalEntityInfoRequiredType.soleProprietorship)
+        && Objects.equals(
+            this.isSetSoleProprietorship, legalEntityInfoRequiredType.isSetSoleProprietorship)
         && Objects.equals(this.trust, legalEntityInfoRequiredType.trust)
+        && Objects.equals(this.isSetTrust, legalEntityInfoRequiredType.isSetTrust)
         && Objects.equals(this.type, legalEntityInfoRequiredType.type)
+        && Objects.equals(this.isSetType, legalEntityInfoRequiredType.isSetType)
         && Objects.equals(
             this.unincorporatedPartnership, legalEntityInfoRequiredType.unincorporatedPartnership)
-        && Objects.equals(this.verificationPlan, legalEntityInfoRequiredType.verificationPlan);
+        && Objects.equals(
+            this.isSetUnincorporatedPartnership,
+            legalEntityInfoRequiredType.isSetUnincorporatedPartnership)
+        && Objects.equals(this.verificationPlan, legalEntityInfoRequiredType.verificationPlan)
+        && Objects.equals(
+            this.isSetVerificationPlan, legalEntityInfoRequiredType.isSetVerificationPlan);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         capabilities,
+        isSetCapabilities,
         entityAssociations,
+        isSetEntityAssociations,
         individual,
+        isSetIndividual,
         organization,
+        isSetOrganization,
         reference,
+        isSetReference,
         soleProprietorship,
+        isSetSoleProprietorship,
         trust,
+        isSetTrust,
         type,
+        isSetType,
         unincorporatedPartnership,
-        verificationPlan);
+        isSetUnincorporatedPartnership,
+        verificationPlan,
+        isSetVerificationPlan);
   }
 
   @Override
@@ -582,6 +685,57 @@ public class LegalEntityInfoRequiredType {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCapabilities) {
+      addIfNull(nulls, JSON_PROPERTY_CAPABILITIES, this.capabilities);
+    }
+    if (isSetEntityAssociations) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_ASSOCIATIONS, this.entityAssociations);
+    }
+    if (isSetIndividual) {
+      addIfNull(nulls, JSON_PROPERTY_INDIVIDUAL, this.individual);
+    }
+    if (isSetOrganization) {
+      addIfNull(nulls, JSON_PROPERTY_ORGANIZATION, this.organization);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSoleProprietorship) {
+      addIfNull(nulls, JSON_PROPERTY_SOLE_PROPRIETORSHIP, this.soleProprietorship);
+    }
+    if (isSetTrust) {
+      addIfNull(nulls, JSON_PROPERTY_TRUST, this.trust);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUnincorporatedPartnership) {
+      addIfNull(nulls, JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP, this.unincorporatedPartnership);
+    }
+    if (isSetVerificationPlan) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_PLAN, this.verificationPlan);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

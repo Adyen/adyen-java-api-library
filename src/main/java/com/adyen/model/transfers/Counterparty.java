@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Counterparty {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolderId = false;
+
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccountId = false;
+
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstrumentId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Counterparty() {}
 
@@ -46,6 +63,7 @@ public class Counterparty {
    */
   public Counterparty accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
+    isSetAccountHolderId = true; // mark as set
     return this;
   }
 
@@ -75,6 +93,7 @@ public class Counterparty {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
+    isSetAccountHolderId = true; // mark as set
   }
 
   /**
@@ -86,6 +105,7 @@ public class Counterparty {
    */
   public Counterparty balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -111,6 +131,7 @@ public class Counterparty {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -123,6 +144,7 @@ public class Counterparty {
    */
   public Counterparty transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
     return this;
   }
 
@@ -150,6 +172,27 @@ public class Counterparty {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Counterparty includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Counterparty object is equal to o. */
@@ -163,13 +206,22 @@ public class Counterparty {
     }
     Counterparty counterparty = (Counterparty) o;
     return Objects.equals(this.accountHolderId, counterparty.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, counterparty.isSetAccountHolderId)
         && Objects.equals(this.balanceAccountId, counterparty.balanceAccountId)
-        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId);
+        && Objects.equals(this.isSetBalanceAccountId, counterparty.isSetBalanceAccountId)
+        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId)
+        && Objects.equals(this.isSetTransferInstrumentId, counterparty.isSetTransferInstrumentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolderId, balanceAccountId, transferInstrumentId);
+    return Objects.hash(
+        accountHolderId,
+        isSetAccountHolderId,
+        balanceAccountId,
+        isSetBalanceAccountId,
+        transferInstrumentId,
+        isSetTransferInstrumentId);
   }
 
   @Override
@@ -193,6 +245,36 @@ public class Counterparty {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolderId) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER_ID, this.accountHolderId);
+    }
+    if (isSetBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT_ID, this.balanceAccountId);
+    }
+    if (isSetTransferInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENT_ID, this.transferInstrumentId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

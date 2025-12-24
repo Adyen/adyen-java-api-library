@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class AdditionalCommission {
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccountId = false;
+
   public static final String JSON_PROPERTY_FIXED_AMOUNT = "fixedAmount";
   private Long fixedAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFixedAmount = false;
+
   public static final String JSON_PROPERTY_VARIABLE_PERCENTAGE = "variablePercentage";
   private Long variablePercentage;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVariablePercentage = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalCommission() {}
 
@@ -44,6 +61,7 @@ public class AdditionalCommission {
    */
   public AdditionalCommission balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -69,6 +87,7 @@ public class AdditionalCommission {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -79,6 +98,7 @@ public class AdditionalCommission {
    */
   public AdditionalCommission fixedAmount(Long fixedAmount) {
     this.fixedAmount = fixedAmount;
+    isSetFixedAmount = true; // mark as set
     return this;
   }
 
@@ -102,6 +122,7 @@ public class AdditionalCommission {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFixedAmount(Long fixedAmount) {
     this.fixedAmount = fixedAmount;
+    isSetFixedAmount = true; // mark as set
   }
 
   /**
@@ -112,6 +133,7 @@ public class AdditionalCommission {
    */
   public AdditionalCommission variablePercentage(Long variablePercentage) {
     this.variablePercentage = variablePercentage;
+    isSetVariablePercentage = true; // mark as set
     return this;
   }
 
@@ -135,6 +157,27 @@ public class AdditionalCommission {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariablePercentage(Long variablePercentage) {
     this.variablePercentage = variablePercentage;
+    isSetVariablePercentage = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalCommission includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalCommission object is equal to o. */
@@ -148,13 +191,23 @@ public class AdditionalCommission {
     }
     AdditionalCommission additionalCommission = (AdditionalCommission) o;
     return Objects.equals(this.balanceAccountId, additionalCommission.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, additionalCommission.isSetBalanceAccountId)
         && Objects.equals(this.fixedAmount, additionalCommission.fixedAmount)
-        && Objects.equals(this.variablePercentage, additionalCommission.variablePercentage);
+        && Objects.equals(this.isSetFixedAmount, additionalCommission.isSetFixedAmount)
+        && Objects.equals(this.variablePercentage, additionalCommission.variablePercentage)
+        && Objects.equals(
+            this.isSetVariablePercentage, additionalCommission.isSetVariablePercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balanceAccountId, fixedAmount, variablePercentage);
+    return Objects.hash(
+        balanceAccountId,
+        isSetBalanceAccountId,
+        fixedAmount,
+        isSetFixedAmount,
+        variablePercentage,
+        isSetVariablePercentage);
   }
 
   @Override
@@ -176,6 +229,36 @@ public class AdditionalCommission {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT_ID, this.balanceAccountId);
+    }
+    if (isSetFixedAmount) {
+      addIfNull(nulls, JSON_PROPERTY_FIXED_AMOUNT, this.fixedAmount);
+    }
+    if (isSetVariablePercentage) {
+      addIfNull(nulls, JSON_PROPERTY_VARIABLE_PERCENTAGE, this.variablePercentage);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

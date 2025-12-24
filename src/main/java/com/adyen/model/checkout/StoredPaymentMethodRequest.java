@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,8 +36,14 @@ public class StoredPaymentMethodRequest {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private PaymentMethodToStore paymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details.
@@ -94,14 +102,32 @@ public class StoredPaymentMethodRequest {
   public static final String JSON_PROPERTY_RECURRING_PROCESSING_MODEL = "recurringProcessingModel";
   private RecurringProcessingModelEnum recurringProcessingModel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringProcessingModel = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
   private String shopperIP;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperIP = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoredPaymentMethodRequest() {}
 
@@ -114,6 +140,7 @@ public class StoredPaymentMethodRequest {
    */
   public StoredPaymentMethodRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -139,6 +166,7 @@ public class StoredPaymentMethodRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -149,6 +177,7 @@ public class StoredPaymentMethodRequest {
    */
   public StoredPaymentMethodRequest paymentMethod(PaymentMethodToStore paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -172,6 +201,7 @@ public class StoredPaymentMethodRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(PaymentMethodToStore paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -199,6 +229,7 @@ public class StoredPaymentMethodRequest {
   public StoredPaymentMethodRequest recurringProcessingModel(
       RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
     return this;
   }
 
@@ -254,6 +285,7 @@ public class StoredPaymentMethodRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
+    isSetRecurringProcessingModel = true; // mark as set
   }
 
   /**
@@ -266,6 +298,7 @@ public class StoredPaymentMethodRequest {
    */
   public StoredPaymentMethodRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -293,6 +326,7 @@ public class StoredPaymentMethodRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -303,6 +337,7 @@ public class StoredPaymentMethodRequest {
    */
   public StoredPaymentMethodRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
     return this;
   }
 
@@ -326,6 +361,7 @@ public class StoredPaymentMethodRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
+    isSetShopperIP = true; // mark as set
   }
 
   /**
@@ -337,6 +373,7 @@ public class StoredPaymentMethodRequest {
    */
   public StoredPaymentMethodRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -362,6 +399,27 @@ public class StoredPaymentMethodRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public StoredPaymentMethodRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoredPaymentMethodRequest object is equal to o. */
@@ -375,23 +433,39 @@ public class StoredPaymentMethodRequest {
     }
     StoredPaymentMethodRequest storedPaymentMethodRequest = (StoredPaymentMethodRequest) o;
     return Objects.equals(this.merchantAccount, storedPaymentMethodRequest.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, storedPaymentMethodRequest.isSetMerchantAccount)
         && Objects.equals(this.paymentMethod, storedPaymentMethodRequest.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, storedPaymentMethodRequest.isSetPaymentMethod)
         && Objects.equals(
             this.recurringProcessingModel, storedPaymentMethodRequest.recurringProcessingModel)
+        && Objects.equals(
+            this.isSetRecurringProcessingModel,
+            storedPaymentMethodRequest.isSetRecurringProcessingModel)
         && Objects.equals(this.shopperEmail, storedPaymentMethodRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, storedPaymentMethodRequest.isSetShopperEmail)
         && Objects.equals(this.shopperIP, storedPaymentMethodRequest.shopperIP)
-        && Objects.equals(this.shopperReference, storedPaymentMethodRequest.shopperReference);
+        && Objects.equals(this.isSetShopperIP, storedPaymentMethodRequest.isSetShopperIP)
+        && Objects.equals(this.shopperReference, storedPaymentMethodRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, storedPaymentMethodRequest.isSetShopperReference);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         merchantAccount,
+        isSetMerchantAccount,
         paymentMethod,
+        isSetPaymentMethod,
         recurringProcessingModel,
+        isSetRecurringProcessingModel,
         shopperEmail,
+        isSetShopperEmail,
         shopperIP,
-        shopperReference);
+        isSetShopperIP,
+        shopperReference,
+        isSetShopperReference);
   }
 
   @Override
@@ -418,6 +492,45 @@ public class StoredPaymentMethodRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetRecurringProcessingModel) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_PROCESSING_MODEL, this.recurringProcessingModel);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperIP) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_I_P, this.shopperIP);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

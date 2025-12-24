@@ -8,6 +8,7 @@ import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
 import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
 import com.adyen.model.balancewebhooks.BalanceAccountBalanceNotificationRequest;
 import com.adyen.model.balancewebhooks.BalanceWebhooksHandler;
+import com.adyen.model.balancewebhooks.ReleasedBlockedBalanceNotificationRequest;
 import com.adyen.model.configurationwebhooks.*;
 import com.adyen.model.disputewebhooks.DisputeNotificationRequest;
 import com.adyen.model.disputewebhooks.DisputeWebhooksHandler;
@@ -326,6 +327,34 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         balanceAccountBalanceNotificationRequest.getData().getBalanceAccountId());
     assertNotNull(balanceAccountBalanceNotificationRequest.getData().getBalances());
     assertFalse(balanceAccountBalanceNotificationRequest.getData().getSettingIds().isEmpty());
+  }
+
+  @Test
+  public void testBalanceAccountBalanceBlockReleasedNotificationRequest() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/balancePlatform-balanceAccount-balance-block-released.json");
+
+    Optional<ReleasedBlockedBalanceNotificationRequest>
+        releasedBlockedBalanceNotificationRequestOptional =
+            new BalanceWebhooksHandler(json).getReleasedBlockedBalanceNotificationRequest();
+    assertTrue(releasedBlockedBalanceNotificationRequestOptional.isPresent());
+
+    ReleasedBlockedBalanceNotificationRequest releasedBlockedBalanceNotificationRequest =
+        releasedBlockedBalanceNotificationRequestOptional.get();
+    assertNotNull(releasedBlockedBalanceNotificationRequest.getData());
+
+    assertEquals(
+        ReleasedBlockedBalanceNotificationRequest.TypeEnum
+            .BALANCEPLATFORM_BALANCEACCOUNT_BALANCE_BLOCK_RELEASED,
+        releasedBlockedBalanceNotificationRequest.getType());
+    assertEquals(
+        "BATCH_REF_20250925",
+        releasedBlockedBalanceNotificationRequest.getData().getBatchReference());
+    assertNotNull(releasedBlockedBalanceNotificationRequest.getData().getBalanceAccount());
+    assertEquals(
+        "BA00000000000000000001",
+        releasedBlockedBalanceNotificationRequest.getData().getBalanceAccount().getId());
   }
 
   @Test

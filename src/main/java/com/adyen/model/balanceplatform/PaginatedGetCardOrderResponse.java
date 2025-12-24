@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,11 +31,26 @@ public class PaginatedGetCardOrderResponse {
   public static final String JSON_PROPERTY_CARD_ORDERS = "cardOrders";
   private List<CardOrder> cardOrders;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardOrders = false;
+
   public static final String JSON_PROPERTY_HAS_NEXT = "hasNext";
   private Boolean hasNext;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHasNext = false;
+
   public static final String JSON_PROPERTY_HAS_PREVIOUS = "hasPrevious";
   private Boolean hasPrevious;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHasPrevious = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaginatedGetCardOrderResponse() {}
 
@@ -46,6 +63,7 @@ public class PaginatedGetCardOrderResponse {
    */
   public PaginatedGetCardOrderResponse cardOrders(List<CardOrder> cardOrders) {
     this.cardOrders = cardOrders;
+    isSetCardOrders = true; // mark as set
     return this;
   }
 
@@ -77,6 +95,7 @@ public class PaginatedGetCardOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardOrders(List<CardOrder> cardOrders) {
     this.cardOrders = cardOrders;
+    isSetCardOrders = true; // mark as set
   }
 
   /**
@@ -88,6 +107,7 @@ public class PaginatedGetCardOrderResponse {
    */
   public PaginatedGetCardOrderResponse hasNext(Boolean hasNext) {
     this.hasNext = hasNext;
+    isSetHasNext = true; // mark as set
     return this;
   }
 
@@ -111,6 +131,7 @@ public class PaginatedGetCardOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
+    isSetHasNext = true; // mark as set
   }
 
   /**
@@ -122,6 +143,7 @@ public class PaginatedGetCardOrderResponse {
    */
   public PaginatedGetCardOrderResponse hasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
+    isSetHasPrevious = true; // mark as set
     return this;
   }
 
@@ -145,6 +167,27 @@ public class PaginatedGetCardOrderResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
+    isSetHasPrevious = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaginatedGetCardOrderResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaginatedGetCardOrderResponse object is equal to o. */
@@ -158,13 +201,17 @@ public class PaginatedGetCardOrderResponse {
     }
     PaginatedGetCardOrderResponse paginatedGetCardOrderResponse = (PaginatedGetCardOrderResponse) o;
     return Objects.equals(this.cardOrders, paginatedGetCardOrderResponse.cardOrders)
+        && Objects.equals(this.isSetCardOrders, paginatedGetCardOrderResponse.isSetCardOrders)
         && Objects.equals(this.hasNext, paginatedGetCardOrderResponse.hasNext)
-        && Objects.equals(this.hasPrevious, paginatedGetCardOrderResponse.hasPrevious);
+        && Objects.equals(this.isSetHasNext, paginatedGetCardOrderResponse.isSetHasNext)
+        && Objects.equals(this.hasPrevious, paginatedGetCardOrderResponse.hasPrevious)
+        && Objects.equals(this.isSetHasPrevious, paginatedGetCardOrderResponse.isSetHasPrevious);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardOrders, hasNext, hasPrevious);
+    return Objects.hash(
+        cardOrders, isSetCardOrders, hasNext, isSetHasNext, hasPrevious, isSetHasPrevious);
   }
 
   @Override
@@ -186,6 +233,36 @@ public class PaginatedGetCardOrderResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardOrders) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_ORDERS, this.cardOrders);
+    }
+    if (isSetHasNext) {
+      addIfNull(nulls, JSON_PROPERTY_HAS_NEXT, this.hasNext);
+    }
+    if (isSetHasPrevious) {
+      addIfNull(nulls, JSON_PROPERTY_HAS_PREVIOUS, this.hasPrevious);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

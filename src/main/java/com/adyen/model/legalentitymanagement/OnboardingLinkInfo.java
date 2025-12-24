@@ -11,6 +11,8 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class OnboardingLinkInfo {
   public static final String JSON_PROPERTY_LOCALE = "locale";
   private String locale;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocale = false;
+
   public static final String JSON_PROPERTY_REDIRECT_URL = "redirectUrl";
   private String redirectUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRedirectUrl = false;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
   private OnboardingLinkSettings settings;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSettings = false;
+
   public static final String JSON_PROPERTY_THEME_ID = "themeId";
   private String themeId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThemeId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public OnboardingLinkInfo() {}
 
@@ -62,6 +82,7 @@ public class OnboardingLinkInfo {
    */
   public OnboardingLinkInfo locale(String locale) {
     this.locale = locale;
+    isSetLocale = true; // mark as set
     return this;
   }
 
@@ -115,6 +136,7 @@ public class OnboardingLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
     this.locale = locale;
+    isSetLocale = true; // mark as set
   }
 
   /**
@@ -125,6 +147,7 @@ public class OnboardingLinkInfo {
    */
   public OnboardingLinkInfo redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
+    isSetRedirectUrl = true; // mark as set
     return this;
   }
 
@@ -148,6 +171,7 @@ public class OnboardingLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
+    isSetRedirectUrl = true; // mark as set
   }
 
   /**
@@ -158,6 +182,7 @@ public class OnboardingLinkInfo {
    */
   public OnboardingLinkInfo settings(OnboardingLinkSettings settings) {
     this.settings = settings;
+    isSetSettings = true; // mark as set
     return this;
   }
 
@@ -181,6 +206,7 @@ public class OnboardingLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(OnboardingLinkSettings settings) {
     this.settings = settings;
+    isSetSettings = true; // mark as set
   }
 
   /**
@@ -191,6 +217,7 @@ public class OnboardingLinkInfo {
    */
   public OnboardingLinkInfo themeId(String themeId) {
     this.themeId = themeId;
+    isSetThemeId = true; // mark as set
     return this;
   }
 
@@ -214,6 +241,27 @@ public class OnboardingLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {
     this.themeId = themeId;
+    isSetThemeId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public OnboardingLinkInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this OnboardingLinkInfo object is equal to o. */
@@ -227,14 +275,26 @@ public class OnboardingLinkInfo {
     }
     OnboardingLinkInfo onboardingLinkInfo = (OnboardingLinkInfo) o;
     return Objects.equals(this.locale, onboardingLinkInfo.locale)
+        && Objects.equals(this.isSetLocale, onboardingLinkInfo.isSetLocale)
         && Objects.equals(this.redirectUrl, onboardingLinkInfo.redirectUrl)
+        && Objects.equals(this.isSetRedirectUrl, onboardingLinkInfo.isSetRedirectUrl)
         && Objects.equals(this.settings, onboardingLinkInfo.settings)
-        && Objects.equals(this.themeId, onboardingLinkInfo.themeId);
+        && Objects.equals(this.isSetSettings, onboardingLinkInfo.isSetSettings)
+        && Objects.equals(this.themeId, onboardingLinkInfo.themeId)
+        && Objects.equals(this.isSetThemeId, onboardingLinkInfo.isSetThemeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locale, redirectUrl, settings, themeId);
+    return Objects.hash(
+        locale,
+        isSetLocale,
+        redirectUrl,
+        isSetRedirectUrl,
+        settings,
+        isSetSettings,
+        themeId,
+        isSetThemeId);
   }
 
   @Override
@@ -257,6 +317,39 @@ public class OnboardingLinkInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLocale) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALE, this.locale);
+    }
+    if (isSetRedirectUrl) {
+      addIfNull(nulls, JSON_PROPERTY_REDIRECT_URL, this.redirectUrl);
+    }
+    if (isSetSettings) {
+      addIfNull(nulls, JSON_PROPERTY_SETTINGS, this.settings);
+    }
+    if (isSetThemeId) {
+      addIfNull(nulls, JSON_PROPERTY_THEME_ID, this.themeId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

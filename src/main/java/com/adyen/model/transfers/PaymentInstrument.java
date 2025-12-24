@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class PaymentInstrument {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_TOKEN_TYPE = "tokenType";
   private String tokenType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentInstrument() {}
 
@@ -47,6 +67,7 @@ public class PaymentInstrument {
    */
   public PaymentInstrument description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class PaymentInstrument {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class PaymentInstrument {
    */
   public PaymentInstrument id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class PaymentInstrument {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class PaymentInstrument {
    */
   public PaymentInstrument reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class PaymentInstrument {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class PaymentInstrument {
    */
   public PaymentInstrument tokenType(String tokenType) {
     this.tokenType = tokenType;
+    isSetTokenType = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class PaymentInstrument {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenType(String tokenType) {
     this.tokenType = tokenType;
+    isSetTokenType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentInstrument includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaymentInstrument object is equal to o. */
@@ -182,14 +230,26 @@ public class PaymentInstrument {
     }
     PaymentInstrument paymentInstrument = (PaymentInstrument) o;
     return Objects.equals(this.description, paymentInstrument.description)
+        && Objects.equals(this.isSetDescription, paymentInstrument.isSetDescription)
         && Objects.equals(this.id, paymentInstrument.id)
+        && Objects.equals(this.isSetId, paymentInstrument.isSetId)
         && Objects.equals(this.reference, paymentInstrument.reference)
-        && Objects.equals(this.tokenType, paymentInstrument.tokenType);
+        && Objects.equals(this.isSetReference, paymentInstrument.isSetReference)
+        && Objects.equals(this.tokenType, paymentInstrument.tokenType)
+        && Objects.equals(this.isSetTokenType, paymentInstrument.isSetTokenType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, reference, tokenType);
+    return Objects.hash(
+        description,
+        isSetDescription,
+        id,
+        isSetId,
+        reference,
+        isSetReference,
+        tokenType,
+        isSetTokenType);
   }
 
   @Override
@@ -212,6 +272,39 @@ public class PaymentInstrument {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetTokenType) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_TYPE, this.tokenType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

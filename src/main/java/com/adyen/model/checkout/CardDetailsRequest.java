@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,17 +33,38 @@ public class CardDetailsRequest {
   public static final String JSON_PROPERTY_CARD_NUMBER = "cardNumber";
   private String cardNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardNumber = false;
+
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
 
   public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptedCardNumber = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_SUPPORTED_BRANDS = "supportedBrands";
   private List<String> supportedBrands;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupportedBrands = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CardDetailsRequest() {}
 
@@ -60,6 +83,7 @@ public class CardDetailsRequest {
    */
   public CardDetailsRequest cardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
+    isSetCardNumber = true; // mark as set
     return this;
   }
 
@@ -97,6 +121,7 @@ public class CardDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
+    isSetCardNumber = true; // mark as set
   }
 
   /**
@@ -109,6 +134,7 @@ public class CardDetailsRequest {
    */
   public CardDetailsRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -136,6 +162,7 @@ public class CardDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -146,6 +173,7 @@ public class CardDetailsRequest {
    */
   public CardDetailsRequest encryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
+    isSetEncryptedCardNumber = true; // mark as set
     return this;
   }
 
@@ -169,6 +197,7 @@ public class CardDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
     this.encryptedCardNumber = encryptedCardNumber;
+    isSetEncryptedCardNumber = true; // mark as set
   }
 
   /**
@@ -180,6 +209,7 @@ public class CardDetailsRequest {
    */
   public CardDetailsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -205,6 +235,7 @@ public class CardDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -225,6 +256,7 @@ public class CardDetailsRequest {
    */
   public CardDetailsRequest supportedBrands(List<String> supportedBrands) {
     this.supportedBrands = supportedBrands;
+    isSetSupportedBrands = true; // mark as set
     return this;
   }
 
@@ -276,6 +308,27 @@ public class CardDetailsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedBrands(List<String> supportedBrands) {
     this.supportedBrands = supportedBrands;
+    isSetSupportedBrands = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CardDetailsRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CardDetailsRequest object is equal to o. */
@@ -289,16 +342,31 @@ public class CardDetailsRequest {
     }
     CardDetailsRequest cardDetailsRequest = (CardDetailsRequest) o;
     return Objects.equals(this.cardNumber, cardDetailsRequest.cardNumber)
+        && Objects.equals(this.isSetCardNumber, cardDetailsRequest.isSetCardNumber)
         && Objects.equals(this.countryCode, cardDetailsRequest.countryCode)
+        && Objects.equals(this.isSetCountryCode, cardDetailsRequest.isSetCountryCode)
         && Objects.equals(this.encryptedCardNumber, cardDetailsRequest.encryptedCardNumber)
+        && Objects.equals(
+            this.isSetEncryptedCardNumber, cardDetailsRequest.isSetEncryptedCardNumber)
         && Objects.equals(this.merchantAccount, cardDetailsRequest.merchantAccount)
-        && Objects.equals(this.supportedBrands, cardDetailsRequest.supportedBrands);
+        && Objects.equals(this.isSetMerchantAccount, cardDetailsRequest.isSetMerchantAccount)
+        && Objects.equals(this.supportedBrands, cardDetailsRequest.supportedBrands)
+        && Objects.equals(this.isSetSupportedBrands, cardDetailsRequest.isSetSupportedBrands);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cardNumber, countryCode, encryptedCardNumber, merchantAccount, supportedBrands);
+        cardNumber,
+        isSetCardNumber,
+        countryCode,
+        isSetCountryCode,
+        encryptedCardNumber,
+        isSetEncryptedCardNumber,
+        merchantAccount,
+        isSetMerchantAccount,
+        supportedBrands,
+        isSetSupportedBrands);
   }
 
   @Override
@@ -324,6 +392,42 @@ public class CardDetailsRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardNumber) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_NUMBER, this.cardNumber);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetEncryptedCardNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTED_CARD_NUMBER, this.encryptedCardNumber);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetSupportedBrands) {
+      addIfNull(nulls, JSON_PROPERTY_SUPPORTED_BRANDS, this.supportedBrands);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -21,16 +23,19 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** ValueLinkInfo */
+/** ValuelinkInfo */
 @JsonPropertyOrder({
-  ValueLinkInfo.JSON_PROPERTY_AUTHORISATION_MID,
-  ValueLinkInfo.JSON_PROPERTY_PIN_SUPPORT,
-  ValueLinkInfo.JSON_PROPERTY_SUBMITTER_ID,
-  ValueLinkInfo.JSON_PROPERTY_TERMINAL_ID
+  ValuelinkInfo.JSON_PROPERTY_AUTHORISATION_MID,
+  ValuelinkInfo.JSON_PROPERTY_PIN_SUPPORT,
+  ValuelinkInfo.JSON_PROPERTY_SUBMITTER_ID,
+  ValuelinkInfo.JSON_PROPERTY_TERMINAL_ID
 })
-public class ValueLinkInfo {
+public class ValuelinkInfo {
   public static final String JSON_PROPERTY_AUTHORISATION_MID = "authorisationMid";
   private String authorisationMid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorisationMid = false;
 
   /** PIN Support. For ecommerce, PIN is required. */
   public enum PinSupportEnum {
@@ -76,22 +81,38 @@ public class ValueLinkInfo {
   public static final String JSON_PROPERTY_PIN_SUPPORT = "pinSupport";
   private PinSupportEnum pinSupport;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPinSupport = false;
+
   public static final String JSON_PROPERTY_SUBMITTER_ID = "submitterId";
   private String submitterId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubmitterId = false;
 
   public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
   private String terminalId;
 
-  public ValueLinkInfo() {}
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
+  public ValuelinkInfo() {}
 
   /**
    * Authorisation Mid
    *
    * @param authorisationMid Authorisation Mid
-   * @return the current {@code ValueLinkInfo} instance, allowing for method chaining
+   * @return the current {@code ValuelinkInfo} instance, allowing for method chaining
    */
-  public ValueLinkInfo authorisationMid(String authorisationMid) {
+  public ValuelinkInfo authorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
+    isSetAuthorisationMid = true; // mark as set
     return this;
   }
 
@@ -115,16 +136,18 @@ public class ValueLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
+    isSetAuthorisationMid = true; // mark as set
   }
 
   /**
    * PIN Support. For ecommerce, PIN is required.
    *
    * @param pinSupport PIN Support. For ecommerce, PIN is required.
-   * @return the current {@code ValueLinkInfo} instance, allowing for method chaining
+   * @return the current {@code ValuelinkInfo} instance, allowing for method chaining
    */
-  public ValueLinkInfo pinSupport(PinSupportEnum pinSupport) {
+  public ValuelinkInfo pinSupport(PinSupportEnum pinSupport) {
     this.pinSupport = pinSupport;
+    isSetPinSupport = true; // mark as set
     return this;
   }
 
@@ -148,16 +171,18 @@ public class ValueLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPinSupport(PinSupportEnum pinSupport) {
     this.pinSupport = pinSupport;
+    isSetPinSupport = true; // mark as set
   }
 
   /**
    * Submitter ID
    *
    * @param submitterId Submitter ID
-   * @return the current {@code ValueLinkInfo} instance, allowing for method chaining
+   * @return the current {@code ValuelinkInfo} instance, allowing for method chaining
    */
-  public ValueLinkInfo submitterId(String submitterId) {
+  public ValuelinkInfo submitterId(String submitterId) {
     this.submitterId = submitterId;
+    isSetSubmitterId = true; // mark as set
     return this;
   }
 
@@ -181,16 +206,18 @@ public class ValueLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubmitterId(String submitterId) {
     this.submitterId = submitterId;
+    isSetSubmitterId = true; // mark as set
   }
 
   /**
    * Terminal ID
    *
    * @param terminalId Terminal ID
-   * @return the current {@code ValueLinkInfo} instance, allowing for method chaining
+   * @return the current {@code ValuelinkInfo} instance, allowing for method chaining
    */
-  public ValueLinkInfo terminalId(String terminalId) {
+  public ValuelinkInfo terminalId(String terminalId) {
     this.terminalId = terminalId;
+    isSetTerminalId = true; // mark as set
     return this;
   }
 
@@ -214,9 +241,30 @@ public class ValueLinkInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
+    isSetTerminalId = true; // mark as set
   }
 
-  /** Return true if this ValueLinkInfo object is equal to o. */
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ValuelinkInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Return true if this ValuelinkInfo object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -225,22 +273,34 @@ public class ValueLinkInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValueLinkInfo valueLinkInfo = (ValueLinkInfo) o;
-    return Objects.equals(this.authorisationMid, valueLinkInfo.authorisationMid)
-        && Objects.equals(this.pinSupport, valueLinkInfo.pinSupport)
-        && Objects.equals(this.submitterId, valueLinkInfo.submitterId)
-        && Objects.equals(this.terminalId, valueLinkInfo.terminalId);
+    ValuelinkInfo valuelinkInfo = (ValuelinkInfo) o;
+    return Objects.equals(this.authorisationMid, valuelinkInfo.authorisationMid)
+        && Objects.equals(this.isSetAuthorisationMid, valuelinkInfo.isSetAuthorisationMid)
+        && Objects.equals(this.pinSupport, valuelinkInfo.pinSupport)
+        && Objects.equals(this.isSetPinSupport, valuelinkInfo.isSetPinSupport)
+        && Objects.equals(this.submitterId, valuelinkInfo.submitterId)
+        && Objects.equals(this.isSetSubmitterId, valuelinkInfo.isSetSubmitterId)
+        && Objects.equals(this.terminalId, valuelinkInfo.terminalId)
+        && Objects.equals(this.isSetTerminalId, valuelinkInfo.isSetTerminalId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorisationMid, pinSupport, submitterId, terminalId);
+    return Objects.hash(
+        authorisationMid,
+        isSetAuthorisationMid,
+        pinSupport,
+        isSetPinSupport,
+        submitterId,
+        isSetSubmitterId,
+        terminalId,
+        isSetTerminalId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValueLinkInfo {\n");
+    sb.append("class ValuelinkInfo {\n");
     sb.append("    authorisationMid: ").append(toIndentedString(authorisationMid)).append("\n");
     sb.append("    pinSupport: ").append(toIndentedString(pinSupport)).append("\n");
     sb.append("    submitterId: ").append(toIndentedString(submitterId)).append("\n");
@@ -259,19 +319,52 @@ public class ValueLinkInfo {
     return o.toString().replace("\n", "\n    ");
   }
 
-  /**
-   * Create an instance of ValueLinkInfo given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ValueLinkInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ValueLinkInfo
-   */
-  public static ValueLinkInfo fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, ValueLinkInfo.class);
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthorisationMid) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_MID, this.authorisationMid);
+    }
+    if (isSetPinSupport) {
+      addIfNull(nulls, JSON_PROPERTY_PIN_SUPPORT, this.pinSupport);
+    }
+    if (isSetSubmitterId) {
+      addIfNull(nulls, JSON_PROPERTY_SUBMITTER_ID, this.submitterId);
+    }
+    if (isSetTerminalId) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_ID, this.terminalId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
-   * Convert an instance of ValueLinkInfo to an JSON string
+   * Create an instance of ValuelinkInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ValuelinkInfo
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ValuelinkInfo
+   */
+  public static ValuelinkInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ValuelinkInfo.class);
+  }
+
+  /**
+   * Convert an instance of ValuelinkInfo to an JSON string
    *
    * @return JSON string
    */

@@ -11,7 +11,9 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,33 +44,63 @@ public class PayoutRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
 
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
+
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudOffset = false;
 
   public static final String JSON_PROPERTY_FUND_SOURCE = "fundSource";
   private FundSource fundSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundSource = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurring = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE =
       "selectedRecurringDetailReference";
   private String selectedRecurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelectedRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether
@@ -130,14 +162,32 @@ public class PayoutRequest {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PayoutRequest() {}
 
@@ -149,6 +199,7 @@ public class PayoutRequest {
    */
   public PayoutRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -172,6 +223,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -182,6 +234,7 @@ public class PayoutRequest {
    */
   public PayoutRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -205,6 +258,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -215,6 +269,7 @@ public class PayoutRequest {
    */
   public PayoutRequest card(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -238,6 +293,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -250,6 +306,7 @@ public class PayoutRequest {
    */
   public PayoutRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
     return this;
   }
 
@@ -277,6 +334,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
   }
 
   /**
@@ -287,6 +345,7 @@ public class PayoutRequest {
    */
   public PayoutRequest fundSource(FundSource fundSource) {
     this.fundSource = fundSource;
+    isSetFundSource = true; // mark as set
     return this;
   }
 
@@ -310,6 +369,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundSource(FundSource fundSource) {
     this.fundSource = fundSource;
+    isSetFundSource = true; // mark as set
   }
 
   /**
@@ -321,6 +381,7 @@ public class PayoutRequest {
    */
   public PayoutRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -346,6 +407,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -356,6 +418,7 @@ public class PayoutRequest {
    */
   public PayoutRequest recurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
     return this;
   }
 
@@ -379,6 +442,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
   }
 
   /**
@@ -395,6 +459,7 @@ public class PayoutRequest {
    */
   public PayoutRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -430,6 +495,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -443,6 +509,7 @@ public class PayoutRequest {
    */
   public PayoutRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -472,6 +539,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -486,6 +554,7 @@ public class PayoutRequest {
    */
   public PayoutRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -517,6 +586,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -548,6 +618,7 @@ public class PayoutRequest {
    */
   public PayoutRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -613,6 +684,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
@@ -623,6 +695,7 @@ public class PayoutRequest {
    */
   public PayoutRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -646,6 +719,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -662,6 +736,7 @@ public class PayoutRequest {
    */
   public PayoutRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -697,6 +772,7 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -715,6 +791,7 @@ public class PayoutRequest {
    */
   public PayoutRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -754,6 +831,27 @@ public class PayoutRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PayoutRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PayoutRequest object is equal to o. */
@@ -767,39 +865,69 @@ public class PayoutRequest {
     }
     PayoutRequest payoutRequest = (PayoutRequest) o;
     return Objects.equals(this.amount, payoutRequest.amount)
+        && Objects.equals(this.isSetAmount, payoutRequest.isSetAmount)
         && Objects.equals(this.billingAddress, payoutRequest.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, payoutRequest.isSetBillingAddress)
         && Objects.equals(this.card, payoutRequest.card)
+        && Objects.equals(this.isSetCard, payoutRequest.isSetCard)
         && Objects.equals(this.fraudOffset, payoutRequest.fraudOffset)
+        && Objects.equals(this.isSetFraudOffset, payoutRequest.isSetFraudOffset)
         && Objects.equals(this.fundSource, payoutRequest.fundSource)
+        && Objects.equals(this.isSetFundSource, payoutRequest.isSetFundSource)
         && Objects.equals(this.merchantAccount, payoutRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, payoutRequest.isSetMerchantAccount)
         && Objects.equals(this.recurring, payoutRequest.recurring)
+        && Objects.equals(this.isSetRecurring, payoutRequest.isSetRecurring)
         && Objects.equals(this.reference, payoutRequest.reference)
+        && Objects.equals(this.isSetReference, payoutRequest.isSetReference)
         && Objects.equals(
             this.selectedRecurringDetailReference, payoutRequest.selectedRecurringDetailReference)
+        && Objects.equals(
+            this.isSetSelectedRecurringDetailReference,
+            payoutRequest.isSetSelectedRecurringDetailReference)
         && Objects.equals(this.shopperEmail, payoutRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, payoutRequest.isSetShopperEmail)
         && Objects.equals(this.shopperInteraction, payoutRequest.shopperInteraction)
+        && Objects.equals(this.isSetShopperInteraction, payoutRequest.isSetShopperInteraction)
         && Objects.equals(this.shopperName, payoutRequest.shopperName)
+        && Objects.equals(this.isSetShopperName, payoutRequest.isSetShopperName)
         && Objects.equals(this.shopperReference, payoutRequest.shopperReference)
-        && Objects.equals(this.telephoneNumber, payoutRequest.telephoneNumber);
+        && Objects.equals(this.isSetShopperReference, payoutRequest.isSetShopperReference)
+        && Objects.equals(this.telephoneNumber, payoutRequest.telephoneNumber)
+        && Objects.equals(this.isSetTelephoneNumber, payoutRequest.isSetTelephoneNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         amount,
+        isSetAmount,
         billingAddress,
+        isSetBillingAddress,
         card,
+        isSetCard,
         fraudOffset,
+        isSetFraudOffset,
         fundSource,
+        isSetFundSource,
         merchantAccount,
+        isSetMerchantAccount,
         recurring,
+        isSetRecurring,
         reference,
+        isSetReference,
         selectedRecurringDetailReference,
+        isSetSelectedRecurringDetailReference,
         shopperEmail,
+        isSetShopperEmail,
         shopperInteraction,
+        isSetShopperInteraction,
         shopperName,
+        isSetShopperName,
         shopperReference,
-        telephoneNumber);
+        isSetShopperReference,
+        telephoneNumber,
+        isSetTelephoneNumber);
   }
 
   @Override
@@ -834,6 +962,72 @@ public class PayoutRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetFraudOffset) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_OFFSET, this.fraudOffset);
+    }
+    if (isSetFundSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUND_SOURCE, this.fundSource);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetRecurring) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING, this.recurring);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSelectedRecurringDetailReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+          this.selectedRecurringDetailReference);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,18 +36,33 @@ public class AcceptTermsOfServiceResponse {
   public static final String JSON_PROPERTY_ACCEPTED_BY = "acceptedBy";
   private String acceptedBy;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptedBy = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_IP_ADDRESS = "ipAddress";
   private String ipAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIpAddress = false;
+
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLanguage = false;
 
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID =
       "termsOfServiceDocumentId";
   private String termsOfServiceDocumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTermsOfServiceDocumentId = false;
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
@@ -111,6 +128,15 @@ public class AcceptTermsOfServiceResponse {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AcceptTermsOfServiceResponse() {}
 
   /**
@@ -121,6 +147,7 @@ public class AcceptTermsOfServiceResponse {
    */
   public AcceptTermsOfServiceResponse acceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
+    isSetAcceptedBy = true; // mark as set
     return this;
   }
 
@@ -144,6 +171,7 @@ public class AcceptTermsOfServiceResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
+    isSetAcceptedBy = true; // mark as set
   }
 
   /**
@@ -154,6 +182,7 @@ public class AcceptTermsOfServiceResponse {
    */
   public AcceptTermsOfServiceResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -177,6 +206,7 @@ public class AcceptTermsOfServiceResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -187,6 +217,7 @@ public class AcceptTermsOfServiceResponse {
    */
   public AcceptTermsOfServiceResponse ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+    isSetIpAddress = true; // mark as set
     return this;
   }
 
@@ -210,6 +241,7 @@ public class AcceptTermsOfServiceResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+    isSetIpAddress = true; // mark as set
   }
 
   /**
@@ -228,6 +260,7 @@ public class AcceptTermsOfServiceResponse {
    */
   public AcceptTermsOfServiceResponse language(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
     return this;
   }
 
@@ -267,6 +300,7 @@ public class AcceptTermsOfServiceResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
   }
 
   /**
@@ -277,6 +311,7 @@ public class AcceptTermsOfServiceResponse {
    */
   public AcceptTermsOfServiceResponse termsOfServiceDocumentId(String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
+    isSetTermsOfServiceDocumentId = true; // mark as set
     return this;
   }
 
@@ -300,6 +335,7 @@ public class AcceptTermsOfServiceResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentId(String termsOfServiceDocumentId) {
     this.termsOfServiceDocumentId = termsOfServiceDocumentId;
+    isSetTermsOfServiceDocumentId = true; // mark as set
   }
 
   /**
@@ -314,6 +350,7 @@ public class AcceptTermsOfServiceResponse {
    */
   public AcceptTermsOfServiceResponse type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -345,6 +382,27 @@ public class AcceptTermsOfServiceResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AcceptTermsOfServiceResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AcceptTermsOfServiceResponse object is equal to o. */
@@ -358,17 +416,37 @@ public class AcceptTermsOfServiceResponse {
     }
     AcceptTermsOfServiceResponse acceptTermsOfServiceResponse = (AcceptTermsOfServiceResponse) o;
     return Objects.equals(this.acceptedBy, acceptTermsOfServiceResponse.acceptedBy)
+        && Objects.equals(this.isSetAcceptedBy, acceptTermsOfServiceResponse.isSetAcceptedBy)
         && Objects.equals(this.id, acceptTermsOfServiceResponse.id)
+        && Objects.equals(this.isSetId, acceptTermsOfServiceResponse.isSetId)
         && Objects.equals(this.ipAddress, acceptTermsOfServiceResponse.ipAddress)
+        && Objects.equals(this.isSetIpAddress, acceptTermsOfServiceResponse.isSetIpAddress)
         && Objects.equals(this.language, acceptTermsOfServiceResponse.language)
+        && Objects.equals(this.isSetLanguage, acceptTermsOfServiceResponse.isSetLanguage)
         && Objects.equals(
             this.termsOfServiceDocumentId, acceptTermsOfServiceResponse.termsOfServiceDocumentId)
-        && Objects.equals(this.type, acceptTermsOfServiceResponse.type);
+        && Objects.equals(
+            this.isSetTermsOfServiceDocumentId,
+            acceptTermsOfServiceResponse.isSetTermsOfServiceDocumentId)
+        && Objects.equals(this.type, acceptTermsOfServiceResponse.type)
+        && Objects.equals(this.isSetType, acceptTermsOfServiceResponse.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedBy, id, ipAddress, language, termsOfServiceDocumentId, type);
+    return Objects.hash(
+        acceptedBy,
+        isSetAcceptedBy,
+        id,
+        isSetId,
+        ipAddress,
+        isSetIpAddress,
+        language,
+        isSetLanguage,
+        termsOfServiceDocumentId,
+        isSetTermsOfServiceDocumentId,
+        type,
+        isSetType);
   }
 
   @Override
@@ -395,6 +473,45 @@ public class AcceptTermsOfServiceResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcceptedBy) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTED_BY, this.acceptedBy);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetIpAddress) {
+      addIfNull(nulls, JSON_PROPERTY_IP_ADDRESS, this.ipAddress);
+    }
+    if (isSetLanguage) {
+      addIfNull(nulls, JSON_PROPERTY_LANGUAGE, this.language);
+    }
+    if (isSetTermsOfServiceDocumentId) {
+      addIfNull(nulls, JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID, this.termsOfServiceDocumentId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +28,9 @@ import java.util.logging.Logger;
 public class Phone {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
 
   /** Type of phone number. Possible values: **Landline**, **Mobile**. */
   public enum TypeEnum {
@@ -71,6 +76,15 @@ public class Phone {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Phone() {}
 
   /**
@@ -84,6 +98,7 @@ public class Phone {
    */
   public Phone number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -113,6 +128,7 @@ public class Phone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -123,6 +139,7 @@ public class Phone {
    */
   public Phone type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -146,6 +163,27 @@ public class Phone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Phone includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Phone object is equal to o. */
@@ -158,12 +196,15 @@ public class Phone {
       return false;
     }
     Phone phone = (Phone) o;
-    return Objects.equals(this.number, phone.number) && Objects.equals(this.type, phone.type);
+    return Objects.equals(this.number, phone.number)
+        && Objects.equals(this.isSetNumber, phone.isSetNumber)
+        && Objects.equals(this.type, phone.type)
+        && Objects.equals(this.isSetType, phone.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, type);
+    return Objects.hash(number, isSetNumber, type, isSetType);
   }
 
   @Override
@@ -184,6 +225,33 @@ public class Phone {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

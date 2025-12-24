@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,17 +31,38 @@ public class FundOrigin {
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
   public static final String JSON_PROPERTY_WALLET_IDENTIFIER = "walletIdentifier";
   private String walletIdentifier;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWalletIdentifier = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public FundOrigin() {}
 
@@ -51,6 +74,7 @@ public class FundOrigin {
    */
   public FundOrigin billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -74,6 +98,7 @@ public class FundOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -84,6 +109,7 @@ public class FundOrigin {
    */
   public FundOrigin shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -107,6 +133,7 @@ public class FundOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -117,6 +144,7 @@ public class FundOrigin {
    */
   public FundOrigin shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -140,6 +168,7 @@ public class FundOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -150,6 +179,7 @@ public class FundOrigin {
    */
   public FundOrigin telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -173,6 +203,7 @@ public class FundOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -183,6 +214,7 @@ public class FundOrigin {
    */
   public FundOrigin walletIdentifier(String walletIdentifier) {
     this.walletIdentifier = walletIdentifier;
+    isSetWalletIdentifier = true; // mark as set
     return this;
   }
 
@@ -206,6 +238,27 @@ public class FundOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletIdentifier(String walletIdentifier) {
     this.walletIdentifier = walletIdentifier;
+    isSetWalletIdentifier = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public FundOrigin includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this FundOrigin object is equal to o. */
@@ -219,16 +272,30 @@ public class FundOrigin {
     }
     FundOrigin fundOrigin = (FundOrigin) o;
     return Objects.equals(this.billingAddress, fundOrigin.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, fundOrigin.isSetBillingAddress)
         && Objects.equals(this.shopperEmail, fundOrigin.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, fundOrigin.isSetShopperEmail)
         && Objects.equals(this.shopperName, fundOrigin.shopperName)
+        && Objects.equals(this.isSetShopperName, fundOrigin.isSetShopperName)
         && Objects.equals(this.telephoneNumber, fundOrigin.telephoneNumber)
-        && Objects.equals(this.walletIdentifier, fundOrigin.walletIdentifier);
+        && Objects.equals(this.isSetTelephoneNumber, fundOrigin.isSetTelephoneNumber)
+        && Objects.equals(this.walletIdentifier, fundOrigin.walletIdentifier)
+        && Objects.equals(this.isSetWalletIdentifier, fundOrigin.isSetWalletIdentifier);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        billingAddress, shopperEmail, shopperName, telephoneNumber, walletIdentifier);
+        billingAddress,
+        isSetBillingAddress,
+        shopperEmail,
+        isSetShopperEmail,
+        shopperName,
+        isSetShopperName,
+        telephoneNumber,
+        isSetTelephoneNumber,
+        walletIdentifier,
+        isSetWalletIdentifier);
   }
 
   @Override
@@ -252,6 +319,42 @@ public class FundOrigin {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetWalletIdentifier) {
+      addIfNull(nulls, JSON_PROPERTY_WALLET_IDENTIFIER, this.walletIdentifier);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

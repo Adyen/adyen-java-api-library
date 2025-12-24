@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,50 +42,104 @@ public class ReceiptPrinting {
   public static final String JSON_PROPERTY_MERCHANT_APPROVED = "merchantApproved";
   private Boolean merchantApproved;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantApproved = false;
+
   public static final String JSON_PROPERTY_MERCHANT_CANCELLED = "merchantCancelled";
   private Boolean merchantCancelled;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantCancelled = false;
 
   public static final String JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED = "merchantCaptureApproved";
   private Boolean merchantCaptureApproved;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantCaptureApproved = false;
+
   public static final String JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED = "merchantCaptureRefused";
   private Boolean merchantCaptureRefused;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantCaptureRefused = false;
 
   public static final String JSON_PROPERTY_MERCHANT_REFUND_APPROVED = "merchantRefundApproved";
   private Boolean merchantRefundApproved;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantRefundApproved = false;
+
   public static final String JSON_PROPERTY_MERCHANT_REFUND_REFUSED = "merchantRefundRefused";
   private Boolean merchantRefundRefused;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantRefundRefused = false;
 
   public static final String JSON_PROPERTY_MERCHANT_REFUSED = "merchantRefused";
   private Boolean merchantRefused;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantRefused = false;
+
   public static final String JSON_PROPERTY_MERCHANT_VOID = "merchantVoid";
   private Boolean merchantVoid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantVoid = false;
 
   public static final String JSON_PROPERTY_SHOPPER_APPROVED = "shopperApproved";
   private Boolean shopperApproved;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperApproved = false;
+
   public static final String JSON_PROPERTY_SHOPPER_CANCELLED = "shopperCancelled";
   private Boolean shopperCancelled;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperCancelled = false;
 
   public static final String JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED = "shopperCaptureApproved";
   private Boolean shopperCaptureApproved;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperCaptureApproved = false;
+
   public static final String JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED = "shopperCaptureRefused";
   private Boolean shopperCaptureRefused;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperCaptureRefused = false;
 
   public static final String JSON_PROPERTY_SHOPPER_REFUND_APPROVED = "shopperRefundApproved";
   private Boolean shopperRefundApproved;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperRefundApproved = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFUND_REFUSED = "shopperRefundRefused";
   private Boolean shopperRefundRefused;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperRefundRefused = false;
 
   public static final String JSON_PROPERTY_SHOPPER_REFUSED = "shopperRefused";
   private Boolean shopperRefused;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperRefused = false;
+
   public static final String JSON_PROPERTY_SHOPPER_VOID = "shopperVoid";
   private Boolean shopperVoid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperVoid = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ReceiptPrinting() {}
 
@@ -95,6 +151,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantApproved(Boolean merchantApproved) {
     this.merchantApproved = merchantApproved;
+    isSetMerchantApproved = true; // mark as set
     return this;
   }
 
@@ -118,6 +175,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApproved(Boolean merchantApproved) {
     this.merchantApproved = merchantApproved;
+    isSetMerchantApproved = true; // mark as set
   }
 
   /**
@@ -128,6 +186,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantCancelled(Boolean merchantCancelled) {
     this.merchantCancelled = merchantCancelled;
+    isSetMerchantCancelled = true; // mark as set
     return this;
   }
 
@@ -151,6 +210,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCancelled(Boolean merchantCancelled) {
     this.merchantCancelled = merchantCancelled;
+    isSetMerchantCancelled = true; // mark as set
   }
 
   /**
@@ -161,6 +221,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantCaptureApproved(Boolean merchantCaptureApproved) {
     this.merchantCaptureApproved = merchantCaptureApproved;
+    isSetMerchantCaptureApproved = true; // mark as set
     return this;
   }
 
@@ -185,6 +246,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureApproved(Boolean merchantCaptureApproved) {
     this.merchantCaptureApproved = merchantCaptureApproved;
+    isSetMerchantCaptureApproved = true; // mark as set
   }
 
   /**
@@ -195,6 +257,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantCaptureRefused(Boolean merchantCaptureRefused) {
     this.merchantCaptureRefused = merchantCaptureRefused;
+    isSetMerchantCaptureRefused = true; // mark as set
     return this;
   }
 
@@ -218,6 +281,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCaptureRefused(Boolean merchantCaptureRefused) {
     this.merchantCaptureRefused = merchantCaptureRefused;
+    isSetMerchantCaptureRefused = true; // mark as set
   }
 
   /**
@@ -228,6 +292,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantRefundApproved(Boolean merchantRefundApproved) {
     this.merchantRefundApproved = merchantRefundApproved;
+    isSetMerchantRefundApproved = true; // mark as set
     return this;
   }
 
@@ -251,6 +316,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundApproved(Boolean merchantRefundApproved) {
     this.merchantRefundApproved = merchantRefundApproved;
+    isSetMerchantRefundApproved = true; // mark as set
   }
 
   /**
@@ -261,6 +327,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantRefundRefused(Boolean merchantRefundRefused) {
     this.merchantRefundRefused = merchantRefundRefused;
+    isSetMerchantRefundRefused = true; // mark as set
     return this;
   }
 
@@ -284,6 +351,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefundRefused(Boolean merchantRefundRefused) {
     this.merchantRefundRefused = merchantRefundRefused;
+    isSetMerchantRefundRefused = true; // mark as set
   }
 
   /**
@@ -294,6 +362,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantRefused(Boolean merchantRefused) {
     this.merchantRefused = merchantRefused;
+    isSetMerchantRefused = true; // mark as set
     return this;
   }
 
@@ -317,6 +386,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantRefused(Boolean merchantRefused) {
     this.merchantRefused = merchantRefused;
+    isSetMerchantRefused = true; // mark as set
   }
 
   /**
@@ -327,6 +397,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting merchantVoid(Boolean merchantVoid) {
     this.merchantVoid = merchantVoid;
+    isSetMerchantVoid = true; // mark as set
     return this;
   }
 
@@ -350,6 +421,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantVoid(Boolean merchantVoid) {
     this.merchantVoid = merchantVoid;
+    isSetMerchantVoid = true; // mark as set
   }
 
   /**
@@ -360,6 +432,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperApproved(Boolean shopperApproved) {
     this.shopperApproved = shopperApproved;
+    isSetShopperApproved = true; // mark as set
     return this;
   }
 
@@ -383,6 +456,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperApproved(Boolean shopperApproved) {
     this.shopperApproved = shopperApproved;
+    isSetShopperApproved = true; // mark as set
   }
 
   /**
@@ -393,6 +467,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperCancelled(Boolean shopperCancelled) {
     this.shopperCancelled = shopperCancelled;
+    isSetShopperCancelled = true; // mark as set
     return this;
   }
 
@@ -416,6 +491,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCancelled(Boolean shopperCancelled) {
     this.shopperCancelled = shopperCancelled;
+    isSetShopperCancelled = true; // mark as set
   }
 
   /**
@@ -426,6 +502,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperCaptureApproved(Boolean shopperCaptureApproved) {
     this.shopperCaptureApproved = shopperCaptureApproved;
+    isSetShopperCaptureApproved = true; // mark as set
     return this;
   }
 
@@ -449,6 +526,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureApproved(Boolean shopperCaptureApproved) {
     this.shopperCaptureApproved = shopperCaptureApproved;
+    isSetShopperCaptureApproved = true; // mark as set
   }
 
   /**
@@ -459,6 +537,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperCaptureRefused(Boolean shopperCaptureRefused) {
     this.shopperCaptureRefused = shopperCaptureRefused;
+    isSetShopperCaptureRefused = true; // mark as set
     return this;
   }
 
@@ -482,6 +561,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperCaptureRefused(Boolean shopperCaptureRefused) {
     this.shopperCaptureRefused = shopperCaptureRefused;
+    isSetShopperCaptureRefused = true; // mark as set
   }
 
   /**
@@ -492,6 +572,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperRefundApproved(Boolean shopperRefundApproved) {
     this.shopperRefundApproved = shopperRefundApproved;
+    isSetShopperRefundApproved = true; // mark as set
     return this;
   }
 
@@ -515,6 +596,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundApproved(Boolean shopperRefundApproved) {
     this.shopperRefundApproved = shopperRefundApproved;
+    isSetShopperRefundApproved = true; // mark as set
   }
 
   /**
@@ -525,6 +607,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperRefundRefused(Boolean shopperRefundRefused) {
     this.shopperRefundRefused = shopperRefundRefused;
+    isSetShopperRefundRefused = true; // mark as set
     return this;
   }
 
@@ -548,6 +631,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefundRefused(Boolean shopperRefundRefused) {
     this.shopperRefundRefused = shopperRefundRefused;
+    isSetShopperRefundRefused = true; // mark as set
   }
 
   /**
@@ -558,6 +642,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperRefused(Boolean shopperRefused) {
     this.shopperRefused = shopperRefused;
+    isSetShopperRefused = true; // mark as set
     return this;
   }
 
@@ -581,6 +666,7 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperRefused(Boolean shopperRefused) {
     this.shopperRefused = shopperRefused;
+    isSetShopperRefused = true; // mark as set
   }
 
   /**
@@ -591,6 +677,7 @@ public class ReceiptPrinting {
    */
   public ReceiptPrinting shopperVoid(Boolean shopperVoid) {
     this.shopperVoid = shopperVoid;
+    isSetShopperVoid = true; // mark as set
     return this;
   }
 
@@ -614,6 +701,27 @@ public class ReceiptPrinting {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperVoid(Boolean shopperVoid) {
     this.shopperVoid = shopperVoid;
+    isSetShopperVoid = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ReceiptPrinting includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ReceiptPrinting object is equal to o. */
@@ -627,42 +735,81 @@ public class ReceiptPrinting {
     }
     ReceiptPrinting receiptPrinting = (ReceiptPrinting) o;
     return Objects.equals(this.merchantApproved, receiptPrinting.merchantApproved)
+        && Objects.equals(this.isSetMerchantApproved, receiptPrinting.isSetMerchantApproved)
         && Objects.equals(this.merchantCancelled, receiptPrinting.merchantCancelled)
+        && Objects.equals(this.isSetMerchantCancelled, receiptPrinting.isSetMerchantCancelled)
         && Objects.equals(this.merchantCaptureApproved, receiptPrinting.merchantCaptureApproved)
+        && Objects.equals(
+            this.isSetMerchantCaptureApproved, receiptPrinting.isSetMerchantCaptureApproved)
         && Objects.equals(this.merchantCaptureRefused, receiptPrinting.merchantCaptureRefused)
+        && Objects.equals(
+            this.isSetMerchantCaptureRefused, receiptPrinting.isSetMerchantCaptureRefused)
         && Objects.equals(this.merchantRefundApproved, receiptPrinting.merchantRefundApproved)
+        && Objects.equals(
+            this.isSetMerchantRefundApproved, receiptPrinting.isSetMerchantRefundApproved)
         && Objects.equals(this.merchantRefundRefused, receiptPrinting.merchantRefundRefused)
+        && Objects.equals(
+            this.isSetMerchantRefundRefused, receiptPrinting.isSetMerchantRefundRefused)
         && Objects.equals(this.merchantRefused, receiptPrinting.merchantRefused)
+        && Objects.equals(this.isSetMerchantRefused, receiptPrinting.isSetMerchantRefused)
         && Objects.equals(this.merchantVoid, receiptPrinting.merchantVoid)
+        && Objects.equals(this.isSetMerchantVoid, receiptPrinting.isSetMerchantVoid)
         && Objects.equals(this.shopperApproved, receiptPrinting.shopperApproved)
+        && Objects.equals(this.isSetShopperApproved, receiptPrinting.isSetShopperApproved)
         && Objects.equals(this.shopperCancelled, receiptPrinting.shopperCancelled)
+        && Objects.equals(this.isSetShopperCancelled, receiptPrinting.isSetShopperCancelled)
         && Objects.equals(this.shopperCaptureApproved, receiptPrinting.shopperCaptureApproved)
+        && Objects.equals(
+            this.isSetShopperCaptureApproved, receiptPrinting.isSetShopperCaptureApproved)
         && Objects.equals(this.shopperCaptureRefused, receiptPrinting.shopperCaptureRefused)
+        && Objects.equals(
+            this.isSetShopperCaptureRefused, receiptPrinting.isSetShopperCaptureRefused)
         && Objects.equals(this.shopperRefundApproved, receiptPrinting.shopperRefundApproved)
+        && Objects.equals(
+            this.isSetShopperRefundApproved, receiptPrinting.isSetShopperRefundApproved)
         && Objects.equals(this.shopperRefundRefused, receiptPrinting.shopperRefundRefused)
+        && Objects.equals(this.isSetShopperRefundRefused, receiptPrinting.isSetShopperRefundRefused)
         && Objects.equals(this.shopperRefused, receiptPrinting.shopperRefused)
-        && Objects.equals(this.shopperVoid, receiptPrinting.shopperVoid);
+        && Objects.equals(this.isSetShopperRefused, receiptPrinting.isSetShopperRefused)
+        && Objects.equals(this.shopperVoid, receiptPrinting.shopperVoid)
+        && Objects.equals(this.isSetShopperVoid, receiptPrinting.isSetShopperVoid);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         merchantApproved,
+        isSetMerchantApproved,
         merchantCancelled,
+        isSetMerchantCancelled,
         merchantCaptureApproved,
+        isSetMerchantCaptureApproved,
         merchantCaptureRefused,
+        isSetMerchantCaptureRefused,
         merchantRefundApproved,
+        isSetMerchantRefundApproved,
         merchantRefundRefused,
+        isSetMerchantRefundRefused,
         merchantRefused,
+        isSetMerchantRefused,
         merchantVoid,
+        isSetMerchantVoid,
         shopperApproved,
+        isSetShopperApproved,
         shopperCancelled,
+        isSetShopperCancelled,
         shopperCaptureApproved,
+        isSetShopperCaptureApproved,
         shopperCaptureRefused,
+        isSetShopperCaptureRefused,
         shopperRefundApproved,
+        isSetShopperRefundApproved,
         shopperRefundRefused,
+        isSetShopperRefundRefused,
         shopperRefused,
-        shopperVoid);
+        isSetShopperRefused,
+        shopperVoid,
+        isSetShopperVoid);
   }
 
   @Override
@@ -713,6 +860,75 @@ public class ReceiptPrinting {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantApproved) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_APPROVED, this.merchantApproved);
+    }
+    if (isSetMerchantCancelled) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_CANCELLED, this.merchantCancelled);
+    }
+    if (isSetMerchantCaptureApproved) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_CAPTURE_APPROVED, this.merchantCaptureApproved);
+    }
+    if (isSetMerchantCaptureRefused) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_CAPTURE_REFUSED, this.merchantCaptureRefused);
+    }
+    if (isSetMerchantRefundApproved) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFUND_APPROVED, this.merchantRefundApproved);
+    }
+    if (isSetMerchantRefundRefused) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFUND_REFUSED, this.merchantRefundRefused);
+    }
+    if (isSetMerchantRefused) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFUSED, this.merchantRefused);
+    }
+    if (isSetMerchantVoid) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_VOID, this.merchantVoid);
+    }
+    if (isSetShopperApproved) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_APPROVED, this.shopperApproved);
+    }
+    if (isSetShopperCancelled) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_CANCELLED, this.shopperCancelled);
+    }
+    if (isSetShopperCaptureApproved) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_CAPTURE_APPROVED, this.shopperCaptureApproved);
+    }
+    if (isSetShopperCaptureRefused) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_CAPTURE_REFUSED, this.shopperCaptureRefused);
+    }
+    if (isSetShopperRefundApproved) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFUND_APPROVED, this.shopperRefundApproved);
+    }
+    if (isSetShopperRefundRefused) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFUND_REFUSED, this.shopperRefundRefused);
+    }
+    if (isSetShopperRefused) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFUSED, this.shopperRefused);
+    }
+    if (isSetShopperVoid) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_VOID, this.shopperVoid);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

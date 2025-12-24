@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -73,6 +75,15 @@ public class UpdateNetworkTokenRequest {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public UpdateNetworkTokenRequest() {}
 
   /**
@@ -85,6 +96,7 @@ public class UpdateNetworkTokenRequest {
    */
   public UpdateNetworkTokenRequest status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -112,6 +124,27 @@ public class UpdateNetworkTokenRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public UpdateNetworkTokenRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this UpdateNetworkTokenRequest object is equal to o. */
@@ -124,12 +157,13 @@ public class UpdateNetworkTokenRequest {
       return false;
     }
     UpdateNetworkTokenRequest updateNetworkTokenRequest = (UpdateNetworkTokenRequest) o;
-    return Objects.equals(this.status, updateNetworkTokenRequest.status);
+    return Objects.equals(this.status, updateNetworkTokenRequest.status)
+        && Objects.equals(this.isSetStatus, updateNetworkTokenRequest.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status);
+    return Objects.hash(status, isSetStatus);
   }
 
   @Override
@@ -149,6 +183,30 @@ public class UpdateNetworkTokenRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +33,9 @@ import java.util.logging.Logger;
 public class USLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountNumber = false;
 
   /**
    * The bank account type. Possible values: **checking** or **savings**. Defaults to **checking**.
@@ -78,8 +83,14 @@ public class USLocalAccountIdentification {
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private AccountTypeEnum accountType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountType = false;
+
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoutingNumber = false;
 
   /** **usLocal** */
   public enum TypeEnum {
@@ -123,6 +134,15 @@ public class USLocalAccountIdentification {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public USLocalAccountIdentification() {}
 
   /**
@@ -133,6 +153,7 @@ public class USLocalAccountIdentification {
    */
   public USLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
     return this;
   }
 
@@ -156,6 +177,7 @@ public class USLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
   }
 
   /**
@@ -167,6 +189,7 @@ public class USLocalAccountIdentification {
    */
   public USLocalAccountIdentification accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
     return this;
   }
 
@@ -192,6 +215,7 @@ public class USLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
   }
 
   /**
@@ -205,6 +229,7 @@ public class USLocalAccountIdentification {
    */
   public USLocalAccountIdentification routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+    isSetRoutingNumber = true; // mark as set
     return this;
   }
 
@@ -234,6 +259,7 @@ public class USLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+    isSetRoutingNumber = true; // mark as set
   }
 
   /**
@@ -244,6 +270,7 @@ public class USLocalAccountIdentification {
    */
   public USLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -267,6 +294,27 @@ public class USLocalAccountIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public USLocalAccountIdentification includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this USLocalAccountIdentification object is equal to o. */
@@ -280,14 +328,26 @@ public class USLocalAccountIdentification {
     }
     USLocalAccountIdentification usLocalAccountIdentification = (USLocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, usLocalAccountIdentification.accountNumber)
+        && Objects.equals(this.isSetAccountNumber, usLocalAccountIdentification.isSetAccountNumber)
         && Objects.equals(this.accountType, usLocalAccountIdentification.accountType)
+        && Objects.equals(this.isSetAccountType, usLocalAccountIdentification.isSetAccountType)
         && Objects.equals(this.routingNumber, usLocalAccountIdentification.routingNumber)
-        && Objects.equals(this.type, usLocalAccountIdentification.type);
+        && Objects.equals(this.isSetRoutingNumber, usLocalAccountIdentification.isSetRoutingNumber)
+        && Objects.equals(this.type, usLocalAccountIdentification.type)
+        && Objects.equals(this.isSetType, usLocalAccountIdentification.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, routingNumber, type);
+    return Objects.hash(
+        accountNumber,
+        isSetAccountNumber,
+        accountType,
+        isSetAccountType,
+        routingNumber,
+        isSetRoutingNumber,
+        type,
+        isSetType);
   }
 
   @Override
@@ -310,6 +370,39 @@ public class USLocalAccountIdentification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_NUMBER, this.accountNumber);
+    }
+    if (isSetAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_TYPE, this.accountType);
+    }
+    if (isSetRoutingNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ROUTING_NUMBER, this.routingNumber);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,60 +51,117 @@ public class CheckoutVoucherAction {
   public static final String JSON_PROPERTY_ALTERNATIVE_REFERENCE = "alternativeReference";
   private String alternativeReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlternativeReference = false;
+
   public static final String JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER =
       "collectionInstitutionNumber";
   private String collectionInstitutionNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCollectionInstitutionNumber = false;
+
   public static final String JSON_PROPERTY_DOWNLOAD_URL = "downloadUrl";
   private String downloadUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDownloadUrl = false;
 
   public static final String JSON_PROPERTY_ENTITY = "entity";
   private String entity;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntity = false;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private String expiresAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
 
   public static final String JSON_PROPERTY_INITIAL_AMOUNT = "initialAmount";
   private Amount initialAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInitialAmount = false;
+
   public static final String JSON_PROPERTY_INSTRUCTIONS_URL = "instructionsUrl";
   private String instructionsUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstructionsUrl = false;
 
   public static final String JSON_PROPERTY_ISSUER = "issuer";
   private String issuer;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuer = false;
+
   public static final String JSON_PROPERTY_MASKED_TELEPHONE_NUMBER = "maskedTelephoneNumber";
   private String maskedTelephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaskedTelephoneNumber = false;
 
   public static final String JSON_PROPERTY_MERCHANT_NAME = "merchantName";
   private String merchantName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantName = false;
+
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
 
   public static final String JSON_PROPERTY_PASS_CREATION_TOKEN = "passCreationToken";
   private String passCreationToken;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPassCreationToken = false;
+
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentData = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_TYPE = "paymentMethodType";
   private String paymentMethodType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethodType = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
+
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private String shopperName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
 
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private Amount surcharge;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSurcharge = false;
+
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "totalAmount";
   private Amount totalAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTotalAmount = false;
 
   /** **voucher** */
   public enum TypeEnum {
@@ -146,8 +205,20 @@ public class CheckoutVoucherAction {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutVoucherAction() {}
 
@@ -159,6 +230,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction alternativeReference(String alternativeReference) {
     this.alternativeReference = alternativeReference;
+    isSetAlternativeReference = true; // mark as set
     return this;
   }
 
@@ -182,6 +254,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlternativeReference(String alternativeReference) {
     this.alternativeReference = alternativeReference;
+    isSetAlternativeReference = true; // mark as set
   }
 
   /**
@@ -193,6 +266,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction collectionInstitutionNumber(String collectionInstitutionNumber) {
     this.collectionInstitutionNumber = collectionInstitutionNumber;
+    isSetCollectionInstitutionNumber = true; // mark as set
     return this;
   }
 
@@ -218,6 +292,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCollectionInstitutionNumber(String collectionInstitutionNumber) {
     this.collectionInstitutionNumber = collectionInstitutionNumber;
+    isSetCollectionInstitutionNumber = true; // mark as set
   }
 
   /**
@@ -228,6 +303,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
+    isSetDownloadUrl = true; // mark as set
     return this;
   }
 
@@ -251,6 +327,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
+    isSetDownloadUrl = true; // mark as set
   }
 
   /**
@@ -261,6 +338,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction entity(String entity) {
     this.entity = entity;
+    isSetEntity = true; // mark as set
     return this;
   }
 
@@ -284,6 +362,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(String entity) {
     this.entity = entity;
+    isSetEntity = true; // mark as set
   }
 
   /**
@@ -294,6 +373,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction expiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
     return this;
   }
 
@@ -317,6 +397,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
   }
 
   /**
@@ -327,6 +408,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction initialAmount(Amount initialAmount) {
     this.initialAmount = initialAmount;
+    isSetInitialAmount = true; // mark as set
     return this;
   }
 
@@ -350,6 +432,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInitialAmount(Amount initialAmount) {
     this.initialAmount = initialAmount;
+    isSetInitialAmount = true; // mark as set
   }
 
   /**
@@ -360,6 +443,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction instructionsUrl(String instructionsUrl) {
     this.instructionsUrl = instructionsUrl;
+    isSetInstructionsUrl = true; // mark as set
     return this;
   }
 
@@ -383,6 +467,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructionsUrl(String instructionsUrl) {
     this.instructionsUrl = instructionsUrl;
+    isSetInstructionsUrl = true; // mark as set
   }
 
   /**
@@ -393,6 +478,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction issuer(String issuer) {
     this.issuer = issuer;
+    isSetIssuer = true; // mark as set
     return this;
   }
 
@@ -416,6 +502,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
+    isSetIssuer = true; // mark as set
   }
 
   /**
@@ -426,6 +513,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction maskedTelephoneNumber(String maskedTelephoneNumber) {
     this.maskedTelephoneNumber = maskedTelephoneNumber;
+    isSetMaskedTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -449,6 +537,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaskedTelephoneNumber(String maskedTelephoneNumber) {
     this.maskedTelephoneNumber = maskedTelephoneNumber;
+    isSetMaskedTelephoneNumber = true; // mark as set
   }
 
   /**
@@ -459,6 +548,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction merchantName(String merchantName) {
     this.merchantName = merchantName;
+    isSetMerchantName = true; // mark as set
     return this;
   }
 
@@ -482,6 +572,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
+    isSetMerchantName = true; // mark as set
   }
 
   /**
@@ -492,6 +583,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
     return this;
   }
 
@@ -515,6 +607,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
   }
 
   /**
@@ -527,6 +620,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction passCreationToken(String passCreationToken) {
     this.passCreationToken = passCreationToken;
+    isSetPassCreationToken = true; // mark as set
     return this;
   }
 
@@ -554,6 +648,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassCreationToken(String passCreationToken) {
     this.passCreationToken = passCreationToken;
+    isSetPassCreationToken = true; // mark as set
   }
 
   /**
@@ -564,6 +659,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction paymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
     return this;
   }
 
@@ -587,6 +683,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
+    isSetPaymentData = true; // mark as set
   }
 
   /**
@@ -597,6 +694,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction paymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
     return this;
   }
 
@@ -620,6 +718,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
     this.paymentMethodType = paymentMethodType;
+    isSetPaymentMethodType = true; // mark as set
   }
 
   /**
@@ -630,6 +729,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -653,6 +753,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -663,6 +764,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -686,6 +788,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -696,6 +799,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction shopperName(String shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -719,6 +823,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(String shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -729,6 +834,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction surcharge(Amount surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
     return this;
   }
 
@@ -752,6 +858,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Amount surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
   }
 
   /**
@@ -762,6 +869,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction totalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
+    isSetTotalAmount = true; // mark as set
     return this;
   }
 
@@ -785,6 +893,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
     this.totalAmount = totalAmount;
+    isSetTotalAmount = true; // mark as set
   }
 
   /**
@@ -795,6 +904,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -818,6 +928,7 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -828,6 +939,7 @@ public class CheckoutVoucherAction {
    */
   public CheckoutVoucherAction url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -851,6 +963,27 @@ public class CheckoutVoucherAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CheckoutVoucherAction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CheckoutVoucherAction object is equal to o. */
@@ -865,52 +998,98 @@ public class CheckoutVoucherAction {
     CheckoutVoucherAction checkoutVoucherAction = (CheckoutVoucherAction) o;
     return Objects.equals(this.alternativeReference, checkoutVoucherAction.alternativeReference)
         && Objects.equals(
+            this.isSetAlternativeReference, checkoutVoucherAction.isSetAlternativeReference)
+        && Objects.equals(
             this.collectionInstitutionNumber, checkoutVoucherAction.collectionInstitutionNumber)
+        && Objects.equals(
+            this.isSetCollectionInstitutionNumber,
+            checkoutVoucherAction.isSetCollectionInstitutionNumber)
         && Objects.equals(this.downloadUrl, checkoutVoucherAction.downloadUrl)
+        && Objects.equals(this.isSetDownloadUrl, checkoutVoucherAction.isSetDownloadUrl)
         && Objects.equals(this.entity, checkoutVoucherAction.entity)
+        && Objects.equals(this.isSetEntity, checkoutVoucherAction.isSetEntity)
         && Objects.equals(this.expiresAt, checkoutVoucherAction.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, checkoutVoucherAction.isSetExpiresAt)
         && Objects.equals(this.initialAmount, checkoutVoucherAction.initialAmount)
+        && Objects.equals(this.isSetInitialAmount, checkoutVoucherAction.isSetInitialAmount)
         && Objects.equals(this.instructionsUrl, checkoutVoucherAction.instructionsUrl)
+        && Objects.equals(this.isSetInstructionsUrl, checkoutVoucherAction.isSetInstructionsUrl)
         && Objects.equals(this.issuer, checkoutVoucherAction.issuer)
+        && Objects.equals(this.isSetIssuer, checkoutVoucherAction.isSetIssuer)
         && Objects.equals(this.maskedTelephoneNumber, checkoutVoucherAction.maskedTelephoneNumber)
+        && Objects.equals(
+            this.isSetMaskedTelephoneNumber, checkoutVoucherAction.isSetMaskedTelephoneNumber)
         && Objects.equals(this.merchantName, checkoutVoucherAction.merchantName)
+        && Objects.equals(this.isSetMerchantName, checkoutVoucherAction.isSetMerchantName)
         && Objects.equals(this.merchantReference, checkoutVoucherAction.merchantReference)
+        && Objects.equals(this.isSetMerchantReference, checkoutVoucherAction.isSetMerchantReference)
         && Objects.equals(this.passCreationToken, checkoutVoucherAction.passCreationToken)
+        && Objects.equals(this.isSetPassCreationToken, checkoutVoucherAction.isSetPassCreationToken)
         && Objects.equals(this.paymentData, checkoutVoucherAction.paymentData)
+        && Objects.equals(this.isSetPaymentData, checkoutVoucherAction.isSetPaymentData)
         && Objects.equals(this.paymentMethodType, checkoutVoucherAction.paymentMethodType)
+        && Objects.equals(this.isSetPaymentMethodType, checkoutVoucherAction.isSetPaymentMethodType)
         && Objects.equals(this.reference, checkoutVoucherAction.reference)
+        && Objects.equals(this.isSetReference, checkoutVoucherAction.isSetReference)
         && Objects.equals(this.shopperEmail, checkoutVoucherAction.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, checkoutVoucherAction.isSetShopperEmail)
         && Objects.equals(this.shopperName, checkoutVoucherAction.shopperName)
+        && Objects.equals(this.isSetShopperName, checkoutVoucherAction.isSetShopperName)
         && Objects.equals(this.surcharge, checkoutVoucherAction.surcharge)
+        && Objects.equals(this.isSetSurcharge, checkoutVoucherAction.isSetSurcharge)
         && Objects.equals(this.totalAmount, checkoutVoucherAction.totalAmount)
+        && Objects.equals(this.isSetTotalAmount, checkoutVoucherAction.isSetTotalAmount)
         && Objects.equals(this.type, checkoutVoucherAction.type)
-        && Objects.equals(this.url, checkoutVoucherAction.url);
+        && Objects.equals(this.isSetType, checkoutVoucherAction.isSetType)
+        && Objects.equals(this.url, checkoutVoucherAction.url)
+        && Objects.equals(this.isSetUrl, checkoutVoucherAction.isSetUrl);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         alternativeReference,
+        isSetAlternativeReference,
         collectionInstitutionNumber,
+        isSetCollectionInstitutionNumber,
         downloadUrl,
+        isSetDownloadUrl,
         entity,
+        isSetEntity,
         expiresAt,
+        isSetExpiresAt,
         initialAmount,
+        isSetInitialAmount,
         instructionsUrl,
+        isSetInstructionsUrl,
         issuer,
+        isSetIssuer,
         maskedTelephoneNumber,
+        isSetMaskedTelephoneNumber,
         merchantName,
+        isSetMerchantName,
         merchantReference,
+        isSetMerchantReference,
         passCreationToken,
+        isSetPassCreationToken,
         paymentData,
+        isSetPaymentData,
         paymentMethodType,
+        isSetPaymentMethodType,
         reference,
+        isSetReference,
         shopperEmail,
+        isSetShopperEmail,
         shopperName,
+        isSetShopperName,
         surcharge,
+        isSetSurcharge,
         totalAmount,
+        isSetTotalAmount,
         type,
-        url);
+        isSetType,
+        url,
+        isSetUrl);
   }
 
   @Override
@@ -956,6 +1135,91 @@ public class CheckoutVoucherAction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAlternativeReference) {
+      addIfNull(nulls, JSON_PROPERTY_ALTERNATIVE_REFERENCE, this.alternativeReference);
+    }
+    if (isSetCollectionInstitutionNumber) {
+      addIfNull(
+          nulls, JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER, this.collectionInstitutionNumber);
+    }
+    if (isSetDownloadUrl) {
+      addIfNull(nulls, JSON_PROPERTY_DOWNLOAD_URL, this.downloadUrl);
+    }
+    if (isSetEntity) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY, this.entity);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+    if (isSetInitialAmount) {
+      addIfNull(nulls, JSON_PROPERTY_INITIAL_AMOUNT, this.initialAmount);
+    }
+    if (isSetInstructionsUrl) {
+      addIfNull(nulls, JSON_PROPERTY_INSTRUCTIONS_URL, this.instructionsUrl);
+    }
+    if (isSetIssuer) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER, this.issuer);
+    }
+    if (isSetMaskedTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_MASKED_TELEPHONE_NUMBER, this.maskedTelephoneNumber);
+    }
+    if (isSetMerchantName) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_NAME, this.merchantName);
+    }
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetPassCreationToken) {
+      addIfNull(nulls, JSON_PROPERTY_PASS_CREATION_TOKEN, this.passCreationToken);
+    }
+    if (isSetPaymentData) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_DATA, this.paymentData);
+    }
+    if (isSetPaymentMethodType) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD_TYPE, this.paymentMethodType);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetSurcharge) {
+      addIfNull(nulls, JSON_PROPERTY_SURCHARGE, this.surcharge);
+    }
+    if (isSetTotalAmount) {
+      addIfNull(nulls, JSON_PROPERTY_TOTAL_AMOUNT, this.totalAmount);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

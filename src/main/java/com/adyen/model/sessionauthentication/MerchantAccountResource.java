@@ -11,6 +11,8 @@
 
 package com.adyen.model.sessionauthentication;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +38,15 @@ public class MerchantAccountResource extends Resource {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT_CODE = "merchantAccountCode";
   private String merchantAccountCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccountCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public MerchantAccountResource() {}
 
   /**
@@ -46,6 +57,7 @@ public class MerchantAccountResource extends Resource {
    */
   public MerchantAccountResource merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
+    isSetMerchantAccountCode = true; // mark as set
     return this;
   }
 
@@ -69,6 +81,27 @@ public class MerchantAccountResource extends Resource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
+    isSetMerchantAccountCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public MerchantAccountResource includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this MerchantAccountResource object is equal to o. */
@@ -82,12 +115,14 @@ public class MerchantAccountResource extends Resource {
     }
     MerchantAccountResource merchantAccountResource = (MerchantAccountResource) o;
     return Objects.equals(this.merchantAccountCode, merchantAccountResource.merchantAccountCode)
+        && Objects.equals(
+            this.isSetMerchantAccountCode, merchantAccountResource.isSetMerchantAccountCode)
         && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccountCode, super.hashCode());
+    return Objects.hash(merchantAccountCode, isSetMerchantAccountCode, super.hashCode());
   }
 
   @Override
@@ -117,6 +152,30 @@ public class MerchantAccountResource extends Resource {
     Map<String, Class<?>> mappings = new HashMap<>();
     mappings.put("MerchantAccountResource", MerchantAccountResource.class);
     JSON.registerDiscriminator(MerchantAccountResource.class, "type", mappings);
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantAccountCode) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT_CODE, this.merchantAccountCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

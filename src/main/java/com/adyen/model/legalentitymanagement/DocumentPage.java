@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class DocumentPage {
   public static final String JSON_PROPERTY_PAGE_NAME = "pageName";
   private String pageName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPageName = false;
+
   public static final String JSON_PROPERTY_PAGE_NUMBER = "pageNumber";
   private Integer pageNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPageNumber = false;
 
   /** Gets or Sets type */
   public enum TypeEnum {
@@ -80,6 +88,15 @@ public class DocumentPage {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public DocumentPage() {}
 
   /**
@@ -90,6 +107,7 @@ public class DocumentPage {
    */
   public DocumentPage pageName(String pageName) {
     this.pageName = pageName;
+    isSetPageName = true; // mark as set
     return this;
   }
 
@@ -113,6 +131,7 @@ public class DocumentPage {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
     this.pageName = pageName;
+    isSetPageName = true; // mark as set
   }
 
   /**
@@ -123,6 +142,7 @@ public class DocumentPage {
    */
   public DocumentPage pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
+    isSetPageNumber = true; // mark as set
     return this;
   }
 
@@ -146,6 +166,7 @@ public class DocumentPage {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
+    isSetPageNumber = true; // mark as set
   }
 
   /**
@@ -156,6 +177,7 @@ public class DocumentPage {
    */
   public DocumentPage type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -179,6 +201,27 @@ public class DocumentPage {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DocumentPage includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DocumentPage object is equal to o. */
@@ -192,13 +235,16 @@ public class DocumentPage {
     }
     DocumentPage documentPage = (DocumentPage) o;
     return Objects.equals(this.pageName, documentPage.pageName)
+        && Objects.equals(this.isSetPageName, documentPage.isSetPageName)
         && Objects.equals(this.pageNumber, documentPage.pageNumber)
-        && Objects.equals(this.type, documentPage.type);
+        && Objects.equals(this.isSetPageNumber, documentPage.isSetPageNumber)
+        && Objects.equals(this.type, documentPage.type)
+        && Objects.equals(this.isSetType, documentPage.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageName, pageNumber, type);
+    return Objects.hash(pageName, isSetPageName, pageNumber, isSetPageNumber, type, isSetType);
   }
 
   @Override
@@ -220,6 +266,36 @@ public class DocumentPage {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPageName) {
+      addIfNull(nulls, JSON_PROPERTY_PAGE_NAME, this.pageName);
+    }
+    if (isSetPageNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PAGE_NUMBER, this.pageNumber);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,59 +45,122 @@ public class ThreeDS2ResponseData {
   public static final String JSON_PROPERTY_ACS_CHALLENGE_MANDATED = "acsChallengeMandated";
   private String acsChallengeMandated;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsChallengeMandated = false;
+
   public static final String JSON_PROPERTY_ACS_OPERATOR_I_D = "acsOperatorID";
   private String acsOperatorID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsOperatorID = false;
 
   public static final String JSON_PROPERTY_ACS_REFERENCE_NUMBER = "acsReferenceNumber";
   private String acsReferenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsReferenceNumber = false;
+
   public static final String JSON_PROPERTY_ACS_SIGNED_CONTENT = "acsSignedContent";
   private String acsSignedContent;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsSignedContent = false;
 
   public static final String JSON_PROPERTY_ACS_TRANS_I_D = "acsTransID";
   private String acsTransID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsTransID = false;
+
   public static final String JSON_PROPERTY_ACS_U_R_L = "acsURL";
   private String acsURL;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsURL = false;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_TYPE = "authenticationType";
   private String authenticationType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationType = false;
+
   public static final String JSON_PROPERTY_CARD_HOLDER_INFO = "cardHolderInfo";
   private String cardHolderInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardHolderInfo = false;
 
   public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavvAlgorithm = false;
+
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
   private String challengeIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeIndicator = false;
 
   public static final String JSON_PROPERTY_DS_REFERENCE_NUMBER = "dsReferenceNumber";
   private String dsReferenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsReferenceNumber = false;
+
   public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsTransID = false;
 
   public static final String JSON_PROPERTY_EXEMPTION_INDICATOR = "exemptionIndicator";
   private String exemptionIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExemptionIndicator = false;
+
   public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
   private String messageVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessageVersion = false;
 
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private String riskScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskScore = false;
+
   public static final String JSON_PROPERTY_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
   private String sdkEphemPubKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkEphemPubKey = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D = "threeDSServerTransID";
   private String threeDSServerTransID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSServerTransID = false;
+
   public static final String JSON_PROPERTY_TRANS_STATUS = "transStatus";
   private String transStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatus = false;
+
   public static final String JSON_PROPERTY_TRANS_STATUS_REASON = "transStatusReason";
   private String transStatusReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatusReason = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDS2ResponseData() {}
 
@@ -107,6 +172,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData acsChallengeMandated(String acsChallengeMandated) {
     this.acsChallengeMandated = acsChallengeMandated;
+    isSetAcsChallengeMandated = true; // mark as set
     return this;
   }
 
@@ -130,6 +196,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsChallengeMandated(String acsChallengeMandated) {
     this.acsChallengeMandated = acsChallengeMandated;
+    isSetAcsChallengeMandated = true; // mark as set
   }
 
   /**
@@ -140,6 +207,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData acsOperatorID(String acsOperatorID) {
     this.acsOperatorID = acsOperatorID;
+    isSetAcsOperatorID = true; // mark as set
     return this;
   }
 
@@ -163,6 +231,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsOperatorID(String acsOperatorID) {
     this.acsOperatorID = acsOperatorID;
+    isSetAcsOperatorID = true; // mark as set
   }
 
   /**
@@ -173,6 +242,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData acsReferenceNumber(String acsReferenceNumber) {
     this.acsReferenceNumber = acsReferenceNumber;
+    isSetAcsReferenceNumber = true; // mark as set
     return this;
   }
 
@@ -196,6 +266,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsReferenceNumber(String acsReferenceNumber) {
     this.acsReferenceNumber = acsReferenceNumber;
+    isSetAcsReferenceNumber = true; // mark as set
   }
 
   /**
@@ -206,6 +277,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData acsSignedContent(String acsSignedContent) {
     this.acsSignedContent = acsSignedContent;
+    isSetAcsSignedContent = true; // mark as set
     return this;
   }
 
@@ -229,6 +301,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsSignedContent(String acsSignedContent) {
     this.acsSignedContent = acsSignedContent;
+    isSetAcsSignedContent = true; // mark as set
   }
 
   /**
@@ -239,6 +312,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData acsTransID(String acsTransID) {
     this.acsTransID = acsTransID;
+    isSetAcsTransID = true; // mark as set
     return this;
   }
 
@@ -262,6 +336,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsTransID(String acsTransID) {
     this.acsTransID = acsTransID;
+    isSetAcsTransID = true; // mark as set
   }
 
   /**
@@ -272,6 +347,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData acsURL(String acsURL) {
     this.acsURL = acsURL;
+    isSetAcsURL = true; // mark as set
     return this;
   }
 
@@ -295,6 +371,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsURL(String acsURL) {
     this.acsURL = acsURL;
+    isSetAcsURL = true; // mark as set
   }
 
   /**
@@ -305,6 +382,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData authenticationType(String authenticationType) {
     this.authenticationType = authenticationType;
+    isSetAuthenticationType = true; // mark as set
     return this;
   }
 
@@ -328,6 +406,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationType(String authenticationType) {
     this.authenticationType = authenticationType;
+    isSetAuthenticationType = true; // mark as set
   }
 
   /**
@@ -338,6 +417,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData cardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
+    isSetCardHolderInfo = true; // mark as set
     return this;
   }
 
@@ -361,6 +441,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
+    isSetCardHolderInfo = true; // mark as set
   }
 
   /**
@@ -371,6 +452,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
     return this;
   }
 
@@ -394,6 +476,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
   }
 
   /**
@@ -404,6 +487,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData challengeIndicator(String challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
+    isSetChallengeIndicator = true; // mark as set
     return this;
   }
 
@@ -427,6 +511,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(String challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
+    isSetChallengeIndicator = true; // mark as set
   }
 
   /**
@@ -437,6 +522,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData dsReferenceNumber(String dsReferenceNumber) {
     this.dsReferenceNumber = dsReferenceNumber;
+    isSetDsReferenceNumber = true; // mark as set
     return this;
   }
 
@@ -460,6 +546,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsReferenceNumber(String dsReferenceNumber) {
     this.dsReferenceNumber = dsReferenceNumber;
+    isSetDsReferenceNumber = true; // mark as set
   }
 
   /**
@@ -470,6 +557,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
     return this;
   }
 
@@ -493,6 +581,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
   }
 
   /**
@@ -503,6 +592,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData exemptionIndicator(String exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
+    isSetExemptionIndicator = true; // mark as set
     return this;
   }
 
@@ -526,6 +616,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemptionIndicator(String exemptionIndicator) {
     this.exemptionIndicator = exemptionIndicator;
+    isSetExemptionIndicator = true; // mark as set
   }
 
   /**
@@ -536,6 +627,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData messageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
     return this;
   }
 
@@ -559,6 +651,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
   }
 
   /**
@@ -569,6 +662,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData riskScore(String riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
     return this;
   }
 
@@ -592,6 +686,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
   }
 
   /**
@@ -602,6 +697,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData sdkEphemPubKey(String sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
+    isSetSdkEphemPubKey = true; // mark as set
     return this;
   }
 
@@ -625,6 +721,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEphemPubKey(String sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
+    isSetSdkEphemPubKey = true; // mark as set
   }
 
   /**
@@ -635,6 +732,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData threeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
+    isSetThreeDSServerTransID = true; // mark as set
     return this;
   }
 
@@ -658,6 +756,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
+    isSetThreeDSServerTransID = true; // mark as set
   }
 
   /**
@@ -668,6 +767,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData transStatus(String transStatus) {
     this.transStatus = transStatus;
+    isSetTransStatus = true; // mark as set
     return this;
   }
 
@@ -691,6 +791,7 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(String transStatus) {
     this.transStatus = transStatus;
+    isSetTransStatus = true; // mark as set
   }
 
   /**
@@ -701,6 +802,7 @@ public class ThreeDS2ResponseData {
    */
   public ThreeDS2ResponseData transStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
     return this;
   }
 
@@ -724,6 +826,27 @@ public class ThreeDS2ResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDS2ResponseData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDS2ResponseData object is equal to o. */
@@ -737,48 +860,92 @@ public class ThreeDS2ResponseData {
     }
     ThreeDS2ResponseData threeDS2ResponseData = (ThreeDS2ResponseData) o;
     return Objects.equals(this.acsChallengeMandated, threeDS2ResponseData.acsChallengeMandated)
+        && Objects.equals(
+            this.isSetAcsChallengeMandated, threeDS2ResponseData.isSetAcsChallengeMandated)
         && Objects.equals(this.acsOperatorID, threeDS2ResponseData.acsOperatorID)
+        && Objects.equals(this.isSetAcsOperatorID, threeDS2ResponseData.isSetAcsOperatorID)
         && Objects.equals(this.acsReferenceNumber, threeDS2ResponseData.acsReferenceNumber)
+        && Objects.equals(
+            this.isSetAcsReferenceNumber, threeDS2ResponseData.isSetAcsReferenceNumber)
         && Objects.equals(this.acsSignedContent, threeDS2ResponseData.acsSignedContent)
+        && Objects.equals(this.isSetAcsSignedContent, threeDS2ResponseData.isSetAcsSignedContent)
         && Objects.equals(this.acsTransID, threeDS2ResponseData.acsTransID)
+        && Objects.equals(this.isSetAcsTransID, threeDS2ResponseData.isSetAcsTransID)
         && Objects.equals(this.acsURL, threeDS2ResponseData.acsURL)
+        && Objects.equals(this.isSetAcsURL, threeDS2ResponseData.isSetAcsURL)
         && Objects.equals(this.authenticationType, threeDS2ResponseData.authenticationType)
+        && Objects.equals(
+            this.isSetAuthenticationType, threeDS2ResponseData.isSetAuthenticationType)
         && Objects.equals(this.cardHolderInfo, threeDS2ResponseData.cardHolderInfo)
+        && Objects.equals(this.isSetCardHolderInfo, threeDS2ResponseData.isSetCardHolderInfo)
         && Objects.equals(this.cavvAlgorithm, threeDS2ResponseData.cavvAlgorithm)
+        && Objects.equals(this.isSetCavvAlgorithm, threeDS2ResponseData.isSetCavvAlgorithm)
         && Objects.equals(this.challengeIndicator, threeDS2ResponseData.challengeIndicator)
+        && Objects.equals(
+            this.isSetChallengeIndicator, threeDS2ResponseData.isSetChallengeIndicator)
         && Objects.equals(this.dsReferenceNumber, threeDS2ResponseData.dsReferenceNumber)
+        && Objects.equals(this.isSetDsReferenceNumber, threeDS2ResponseData.isSetDsReferenceNumber)
         && Objects.equals(this.dsTransID, threeDS2ResponseData.dsTransID)
+        && Objects.equals(this.isSetDsTransID, threeDS2ResponseData.isSetDsTransID)
         && Objects.equals(this.exemptionIndicator, threeDS2ResponseData.exemptionIndicator)
+        && Objects.equals(
+            this.isSetExemptionIndicator, threeDS2ResponseData.isSetExemptionIndicator)
         && Objects.equals(this.messageVersion, threeDS2ResponseData.messageVersion)
+        && Objects.equals(this.isSetMessageVersion, threeDS2ResponseData.isSetMessageVersion)
         && Objects.equals(this.riskScore, threeDS2ResponseData.riskScore)
+        && Objects.equals(this.isSetRiskScore, threeDS2ResponseData.isSetRiskScore)
         && Objects.equals(this.sdkEphemPubKey, threeDS2ResponseData.sdkEphemPubKey)
+        && Objects.equals(this.isSetSdkEphemPubKey, threeDS2ResponseData.isSetSdkEphemPubKey)
         && Objects.equals(this.threeDSServerTransID, threeDS2ResponseData.threeDSServerTransID)
+        && Objects.equals(
+            this.isSetThreeDSServerTransID, threeDS2ResponseData.isSetThreeDSServerTransID)
         && Objects.equals(this.transStatus, threeDS2ResponseData.transStatus)
-        && Objects.equals(this.transStatusReason, threeDS2ResponseData.transStatusReason);
+        && Objects.equals(this.isSetTransStatus, threeDS2ResponseData.isSetTransStatus)
+        && Objects.equals(this.transStatusReason, threeDS2ResponseData.transStatusReason)
+        && Objects.equals(this.isSetTransStatusReason, threeDS2ResponseData.isSetTransStatusReason);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acsChallengeMandated,
+        isSetAcsChallengeMandated,
         acsOperatorID,
+        isSetAcsOperatorID,
         acsReferenceNumber,
+        isSetAcsReferenceNumber,
         acsSignedContent,
+        isSetAcsSignedContent,
         acsTransID,
+        isSetAcsTransID,
         acsURL,
+        isSetAcsURL,
         authenticationType,
+        isSetAuthenticationType,
         cardHolderInfo,
+        isSetCardHolderInfo,
         cavvAlgorithm,
+        isSetCavvAlgorithm,
         challengeIndicator,
+        isSetChallengeIndicator,
         dsReferenceNumber,
+        isSetDsReferenceNumber,
         dsTransID,
+        isSetDsTransID,
         exemptionIndicator,
+        isSetExemptionIndicator,
         messageVersion,
+        isSetMessageVersion,
         riskScore,
+        isSetRiskScore,
         sdkEphemPubKey,
+        isSetSdkEphemPubKey,
         threeDSServerTransID,
+        isSetThreeDSServerTransID,
         transStatus,
-        transStatusReason);
+        isSetTransStatus,
+        transStatusReason,
+        isSetTransStatusReason);
   }
 
   @Override
@@ -820,6 +987,84 @@ public class ThreeDS2ResponseData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcsChallengeMandated) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_CHALLENGE_MANDATED, this.acsChallengeMandated);
+    }
+    if (isSetAcsOperatorID) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_OPERATOR_I_D, this.acsOperatorID);
+    }
+    if (isSetAcsReferenceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_REFERENCE_NUMBER, this.acsReferenceNumber);
+    }
+    if (isSetAcsSignedContent) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_SIGNED_CONTENT, this.acsSignedContent);
+    }
+    if (isSetAcsTransID) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_TRANS_I_D, this.acsTransID);
+    }
+    if (isSetAcsURL) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_U_R_L, this.acsURL);
+    }
+    if (isSetAuthenticationType) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_TYPE, this.authenticationType);
+    }
+    if (isSetCardHolderInfo) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_HOLDER_INFO, this.cardHolderInfo);
+    }
+    if (isSetCavvAlgorithm) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV_ALGORITHM, this.cavvAlgorithm);
+    }
+    if (isSetChallengeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_INDICATOR, this.challengeIndicator);
+    }
+    if (isSetDsReferenceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_DS_REFERENCE_NUMBER, this.dsReferenceNumber);
+    }
+    if (isSetDsTransID) {
+      addIfNull(nulls, JSON_PROPERTY_DS_TRANS_I_D, this.dsTransID);
+    }
+    if (isSetExemptionIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_EXEMPTION_INDICATOR, this.exemptionIndicator);
+    }
+    if (isSetMessageVersion) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE_VERSION, this.messageVersion);
+    }
+    if (isSetRiskScore) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SCORE, this.riskScore);
+    }
+    if (isSetSdkEphemPubKey) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_EPHEM_PUB_KEY, this.sdkEphemPubKey);
+    }
+    if (isSetThreeDSServerTransID) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D, this.threeDSServerTransID);
+    }
+    if (isSetTransStatus) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS, this.transStatus);
+    }
+    if (isSetTransStatusReason) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS_REASON, this.transStatusReason);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

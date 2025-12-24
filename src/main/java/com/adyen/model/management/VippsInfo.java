@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,8 +25,20 @@ public class VippsInfo {
   public static final String JSON_PROPERTY_LOGO = "logo";
   private String logo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLogo = false;
+
   public static final String JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL = "subscriptionCancelUrl";
   private String subscriptionCancelUrl;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubscriptionCancelUrl = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public VippsInfo() {}
 
@@ -36,6 +50,7 @@ public class VippsInfo {
    */
   public VippsInfo logo(String logo) {
     this.logo = logo;
+    isSetLogo = true; // mark as set
     return this;
   }
 
@@ -59,6 +74,7 @@ public class VippsInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
+    isSetLogo = true; // mark as set
   }
 
   /**
@@ -71,6 +87,7 @@ public class VippsInfo {
    */
   public VippsInfo subscriptionCancelUrl(String subscriptionCancelUrl) {
     this.subscriptionCancelUrl = subscriptionCancelUrl;
+    isSetSubscriptionCancelUrl = true; // mark as set
     return this;
   }
 
@@ -98,6 +115,27 @@ public class VippsInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriptionCancelUrl(String subscriptionCancelUrl) {
     this.subscriptionCancelUrl = subscriptionCancelUrl;
+    isSetSubscriptionCancelUrl = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public VippsInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this VippsInfo object is equal to o. */
@@ -111,12 +149,14 @@ public class VippsInfo {
     }
     VippsInfo vippsInfo = (VippsInfo) o;
     return Objects.equals(this.logo, vippsInfo.logo)
-        && Objects.equals(this.subscriptionCancelUrl, vippsInfo.subscriptionCancelUrl);
+        && Objects.equals(this.isSetLogo, vippsInfo.isSetLogo)
+        && Objects.equals(this.subscriptionCancelUrl, vippsInfo.subscriptionCancelUrl)
+        && Objects.equals(this.isSetSubscriptionCancelUrl, vippsInfo.isSetSubscriptionCancelUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo, subscriptionCancelUrl);
+    return Objects.hash(logo, isSetLogo, subscriptionCancelUrl, isSetSubscriptionCancelUrl);
   }
 
   @Override
@@ -139,6 +179,33 @@ public class VippsInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLogo) {
+      addIfNull(nulls, JSON_PROPERTY_LOGO, this.logo);
+    }
+    if (isSetSubscriptionCancelUrl) {
+      addIfNull(nulls, JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL, this.subscriptionCancelUrl);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

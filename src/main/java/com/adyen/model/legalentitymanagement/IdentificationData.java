@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,21 +37,39 @@ public class IdentificationData {
   public static final String JSON_PROPERTY_CARD_NUMBER = "cardNumber";
   private String cardNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardNumber = false;
+
   public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
   private String expiryDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryDate = false;
 
   public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
   @Deprecated // deprecated since Legal Entity Management API v1
   private String issuerCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerCountry = false;
+
   public static final String JSON_PROPERTY_ISSUER_STATE = "issuerState";
   private String issuerState;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerState = false;
 
   public static final String JSON_PROPERTY_NATIONAL_ID_EXEMPT = "nationalIdExempt";
   private Boolean nationalIdExempt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNationalIdExempt = false;
+
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
 
   /**
    * Type of identity data. For individuals, the following types are supported. See our [onboarding
@@ -106,6 +126,15 @@ public class IdentificationData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public IdentificationData() {}
 
   /**
@@ -116,6 +145,7 @@ public class IdentificationData {
    */
   public IdentificationData cardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
+    isSetCardNumber = true; // mark as set
     return this;
   }
 
@@ -139,6 +169,7 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
+    isSetCardNumber = true; // mark as set
   }
 
   /**
@@ -149,6 +180,7 @@ public class IdentificationData {
    */
   public IdentificationData expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
+    isSetExpiryDate = true; // mark as set
     return this;
   }
 
@@ -172,6 +204,7 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
+    isSetExpiryDate = true; // mark as set
   }
 
   /**
@@ -187,6 +220,7 @@ public class IdentificationData {
   @Deprecated // deprecated since Legal Entity Management API v1
   public IdentificationData issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
+    isSetIssuerCountry = true; // mark as set
     return this;
   }
 
@@ -220,6 +254,7 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
+    isSetIssuerCountry = true; // mark as set
   }
 
   /**
@@ -230,6 +265,7 @@ public class IdentificationData {
    */
   public IdentificationData issuerState(String issuerState) {
     this.issuerState = issuerState;
+    isSetIssuerState = true; // mark as set
     return this;
   }
 
@@ -253,6 +289,7 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerState(String issuerState) {
     this.issuerState = issuerState;
+    isSetIssuerState = true; // mark as set
   }
 
   /**
@@ -266,6 +303,7 @@ public class IdentificationData {
    */
   public IdentificationData nationalIdExempt(Boolean nationalIdExempt) {
     this.nationalIdExempt = nationalIdExempt;
+    isSetNationalIdExempt = true; // mark as set
     return this;
   }
 
@@ -295,6 +333,7 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationalIdExempt(Boolean nationalIdExempt) {
     this.nationalIdExempt = nationalIdExempt;
+    isSetNationalIdExempt = true; // mark as set
   }
 
   /**
@@ -305,6 +344,7 @@ public class IdentificationData {
    */
   public IdentificationData number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -328,6 +368,7 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -349,6 +390,7 @@ public class IdentificationData {
    */
   public IdentificationData type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -394,6 +436,27 @@ public class IdentificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public IdentificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this IdentificationData object is equal to o. */
@@ -407,18 +470,38 @@ public class IdentificationData {
     }
     IdentificationData identificationData = (IdentificationData) o;
     return Objects.equals(this.cardNumber, identificationData.cardNumber)
+        && Objects.equals(this.isSetCardNumber, identificationData.isSetCardNumber)
         && Objects.equals(this.expiryDate, identificationData.expiryDate)
+        && Objects.equals(this.isSetExpiryDate, identificationData.isSetExpiryDate)
         && Objects.equals(this.issuerCountry, identificationData.issuerCountry)
+        && Objects.equals(this.isSetIssuerCountry, identificationData.isSetIssuerCountry)
         && Objects.equals(this.issuerState, identificationData.issuerState)
+        && Objects.equals(this.isSetIssuerState, identificationData.isSetIssuerState)
         && Objects.equals(this.nationalIdExempt, identificationData.nationalIdExempt)
+        && Objects.equals(this.isSetNationalIdExempt, identificationData.isSetNationalIdExempt)
         && Objects.equals(this.number, identificationData.number)
-        && Objects.equals(this.type, identificationData.type);
+        && Objects.equals(this.isSetNumber, identificationData.isSetNumber)
+        && Objects.equals(this.type, identificationData.type)
+        && Objects.equals(this.isSetType, identificationData.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cardNumber, expiryDate, issuerCountry, issuerState, nationalIdExempt, number, type);
+        cardNumber,
+        isSetCardNumber,
+        expiryDate,
+        isSetExpiryDate,
+        issuerCountry,
+        isSetIssuerCountry,
+        issuerState,
+        isSetIssuerState,
+        nationalIdExempt,
+        isSetNationalIdExempt,
+        number,
+        isSetNumber,
+        type,
+        isSetType);
   }
 
   @Override
@@ -444,6 +527,48 @@ public class IdentificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardNumber) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_NUMBER, this.cardNumber);
+    }
+    if (isSetExpiryDate) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_DATE, this.expiryDate);
+    }
+    if (isSetIssuerCountry) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_COUNTRY, this.issuerCountry);
+    }
+    if (isSetIssuerState) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_STATE, this.issuerState);
+    }
+    if (isSetNationalIdExempt) {
+      addIfNull(nulls, JSON_PROPERTY_NATIONAL_ID_EXEMPT, this.nationalIdExempt);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

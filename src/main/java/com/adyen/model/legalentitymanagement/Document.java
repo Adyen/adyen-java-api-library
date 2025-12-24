@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,41 +46,77 @@ public class Document {
   public static final String JSON_PROPERTY_ATTACHMENT = "attachment";
   private Attachment attachment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAttachment = false;
+
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<Attachment> attachments;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAttachments = false;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
   @Deprecated // deprecated since Legal Entity Management API v1
   private String expiryDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiryDate = false;
+
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
   private String fileName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFileName = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
   @Deprecated // deprecated since Legal Entity Management API v1
   private String issuerCountry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerCountry = false;
+
   public static final String JSON_PROPERTY_ISSUER_STATE = "issuerState";
   @Deprecated // deprecated since Legal Entity Management API v1
   private String issuerState;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuerState = false;
+
   public static final String JSON_PROPERTY_MODIFICATION_DATE = "modificationDate";
   private OffsetDateTime modificationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModificationDate = false;
 
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNumber = false;
+
   public static final String JSON_PROPERTY_OWNER = "owner";
   private OwnerEntity owner;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwner = false;
 
   /**
    * Type of document, used when providing an ID number or uploading a document. The possible values
@@ -174,6 +212,15 @@ public class Document {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Document() {}
 
   @JsonCreator
@@ -195,6 +242,7 @@ public class Document {
    */
   public Document attachment(Attachment attachment) {
     this.attachment = attachment;
+    isSetAttachment = true; // mark as set
     return this;
   }
 
@@ -218,6 +266,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachment(Attachment attachment) {
     this.attachment = attachment;
+    isSetAttachment = true; // mark as set
   }
 
   /**
@@ -230,6 +279,7 @@ public class Document {
    */
   public Document attachments(List<Attachment> attachments) {
     this.attachments = attachments;
+    isSetAttachments = true; // mark as set
     return this;
   }
 
@@ -265,6 +315,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachments(List<Attachment> attachments) {
     this.attachments = attachments;
+    isSetAttachments = true; // mark as set
   }
 
   /**
@@ -286,6 +337,7 @@ public class Document {
    */
   public Document description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -309,6 +361,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -321,6 +374,7 @@ public class Document {
   @Deprecated // deprecated since Legal Entity Management API v1
   public Document expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
+    isSetExpiryDate = true; // mark as set
     return this;
   }
 
@@ -348,6 +402,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
+    isSetExpiryDate = true; // mark as set
   }
 
   /**
@@ -358,6 +413,7 @@ public class Document {
    */
   public Document fileName(String fileName) {
     this.fileName = fileName;
+    isSetFileName = true; // mark as set
     return this;
   }
 
@@ -381,6 +437,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
     this.fileName = fileName;
+    isSetFileName = true; // mark as set
   }
 
   /**
@@ -407,6 +464,7 @@ public class Document {
   @Deprecated // deprecated since Legal Entity Management API v1
   public Document issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
+    isSetIssuerCountry = true; // mark as set
     return this;
   }
 
@@ -440,6 +498,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
+    isSetIssuerCountry = true; // mark as set
   }
 
   /**
@@ -452,6 +511,7 @@ public class Document {
   @Deprecated // deprecated since Legal Entity Management API v1
   public Document issuerState(String issuerState) {
     this.issuerState = issuerState;
+    isSetIssuerState = true; // mark as set
     return this;
   }
 
@@ -479,6 +539,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerState(String issuerState) {
     this.issuerState = issuerState;
+    isSetIssuerState = true; // mark as set
   }
 
   /**
@@ -500,6 +561,7 @@ public class Document {
    */
   public Document number(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
     return this;
   }
 
@@ -523,6 +585,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+    isSetNumber = true; // mark as set
   }
 
   /**
@@ -533,6 +596,7 @@ public class Document {
    */
   public Document owner(OwnerEntity owner) {
     this.owner = owner;
+    isSetOwner = true; // mark as set
     return this;
   }
 
@@ -556,6 +620,7 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(OwnerEntity owner) {
     this.owner = owner;
+    isSetOwner = true; // mark as set
   }
 
   /**
@@ -591,6 +656,7 @@ public class Document {
    */
   public Document type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -664,6 +730,27 @@ public class Document {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Document includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Document object is equal to o. */
@@ -677,36 +764,62 @@ public class Document {
     }
     Document document = (Document) o;
     return Objects.equals(this.attachment, document.attachment)
+        && Objects.equals(this.isSetAttachment, document.isSetAttachment)
         && Objects.equals(this.attachments, document.attachments)
+        && Objects.equals(this.isSetAttachments, document.isSetAttachments)
         && Objects.equals(this.creationDate, document.creationDate)
+        && Objects.equals(this.isSetCreationDate, document.isSetCreationDate)
         && Objects.equals(this.description, document.description)
+        && Objects.equals(this.isSetDescription, document.isSetDescription)
         && Objects.equals(this.expiryDate, document.expiryDate)
+        && Objects.equals(this.isSetExpiryDate, document.isSetExpiryDate)
         && Objects.equals(this.fileName, document.fileName)
+        && Objects.equals(this.isSetFileName, document.isSetFileName)
         && Objects.equals(this.id, document.id)
+        && Objects.equals(this.isSetId, document.isSetId)
         && Objects.equals(this.issuerCountry, document.issuerCountry)
+        && Objects.equals(this.isSetIssuerCountry, document.isSetIssuerCountry)
         && Objects.equals(this.issuerState, document.issuerState)
+        && Objects.equals(this.isSetIssuerState, document.isSetIssuerState)
         && Objects.equals(this.modificationDate, document.modificationDate)
+        && Objects.equals(this.isSetModificationDate, document.isSetModificationDate)
         && Objects.equals(this.number, document.number)
+        && Objects.equals(this.isSetNumber, document.isSetNumber)
         && Objects.equals(this.owner, document.owner)
-        && Objects.equals(this.type, document.type);
+        && Objects.equals(this.isSetOwner, document.isSetOwner)
+        && Objects.equals(this.type, document.type)
+        && Objects.equals(this.isSetType, document.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         attachment,
+        isSetAttachment,
         attachments,
+        isSetAttachments,
         creationDate,
+        isSetCreationDate,
         description,
+        isSetDescription,
         expiryDate,
+        isSetExpiryDate,
         fileName,
+        isSetFileName,
         id,
+        isSetId,
         issuerCountry,
+        isSetIssuerCountry,
         issuerState,
+        isSetIssuerState,
         modificationDate,
+        isSetModificationDate,
         number,
+        isSetNumber,
         owner,
-        type);
+        isSetOwner,
+        type,
+        isSetType);
   }
 
   @Override
@@ -738,6 +851,66 @@ public class Document {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAttachment) {
+      addIfNull(nulls, JSON_PROPERTY_ATTACHMENT, this.attachment);
+    }
+    if (isSetAttachments) {
+      addIfNull(nulls, JSON_PROPERTY_ATTACHMENTS, this.attachments);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetExpiryDate) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRY_DATE, this.expiryDate);
+    }
+    if (isSetFileName) {
+      addIfNull(nulls, JSON_PROPERTY_FILE_NAME, this.fileName);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetIssuerCountry) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_COUNTRY, this.issuerCountry);
+    }
+    if (isSetIssuerState) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER_STATE, this.issuerState);
+    }
+    if (isSetModificationDate) {
+      addIfNull(nulls, JSON_PROPERTY_MODIFICATION_DATE, this.modificationDate);
+    }
+    if (isSetNumber) {
+      addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetOwner) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER, this.owner);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.payout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,11 +48,20 @@ public class SubmitRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDateOfBirth = false;
 
   /**
    * The type of the entity the payout is processed for. Allowed values: * NaturalPerson * Company
@@ -100,39 +111,81 @@ public class SubmitRequest {
   public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
   private EntityTypeEnum entityType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityType = false;
+
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFraudOffset = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
+
   public static final String JSON_PROPERTY_NATIONALITY = "nationality";
   private String nationality;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNationality = false;
 
   public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurring = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE =
       "selectedRecurringDetailReference";
   private String selectedRecurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelectedRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
 
   public static final String JSON_PROPERTY_SHOPPER_STATEMENT = "shopperStatement";
   private String shopperStatement;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperStatement = false;
+
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSocialSecurityNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SubmitRequest() {}
 
@@ -145,6 +198,7 @@ public class SubmitRequest {
    */
   public SubmitRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -178,6 +232,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -188,6 +243,7 @@ public class SubmitRequest {
    */
   public SubmitRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -211,6 +267,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -227,6 +284,7 @@ public class SubmitRequest {
    */
   public SubmitRequest dateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -262,6 +320,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+    isSetDateOfBirth = true; // mark as set
   }
 
   /**
@@ -276,6 +335,7 @@ public class SubmitRequest {
    */
   public SubmitRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
+    isSetEntityType = true; // mark as set
     return this;
   }
 
@@ -307,6 +367,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
+    isSetEntityType = true; // mark as set
   }
 
   /**
@@ -319,6 +380,7 @@ public class SubmitRequest {
    */
   public SubmitRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
     return this;
   }
 
@@ -346,6 +408,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
+    isSetFraudOffset = true; // mark as set
   }
 
   /**
@@ -357,6 +420,7 @@ public class SubmitRequest {
    */
   public SubmitRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -382,6 +446,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -396,6 +461,7 @@ public class SubmitRequest {
    */
   public SubmitRequest nationality(String nationality) {
     this.nationality = nationality;
+    isSetNationality = true; // mark as set
     return this;
   }
 
@@ -427,6 +493,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
     this.nationality = nationality;
+    isSetNationality = true; // mark as set
   }
 
   /**
@@ -437,6 +504,7 @@ public class SubmitRequest {
    */
   public SubmitRequest recurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
     return this;
   }
 
@@ -460,6 +528,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
+    isSetRecurring = true; // mark as set
   }
 
   /**
@@ -474,6 +543,7 @@ public class SubmitRequest {
    */
   public SubmitRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -505,6 +575,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -518,6 +589,7 @@ public class SubmitRequest {
    */
   public SubmitRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -547,6 +619,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
+    isSetSelectedRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -557,6 +630,7 @@ public class SubmitRequest {
    */
   public SubmitRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -580,6 +654,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -590,6 +665,7 @@ public class SubmitRequest {
    */
   public SubmitRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -613,6 +689,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -623,6 +700,7 @@ public class SubmitRequest {
    */
   public SubmitRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
     return this;
   }
 
@@ -646,6 +724,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
   }
 
   /**
@@ -658,6 +737,7 @@ public class SubmitRequest {
    */
   public SubmitRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
     return this;
   }
 
@@ -685,6 +765,7 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
+    isSetShopperStatement = true; // mark as set
   }
 
   /**
@@ -695,6 +776,7 @@ public class SubmitRequest {
    */
   public SubmitRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
     return this;
   }
 
@@ -718,6 +800,27 @@ public class SubmitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
+    isSetSocialSecurityNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SubmitRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SubmitRequest object is equal to o. */
@@ -731,41 +834,73 @@ public class SubmitRequest {
     }
     SubmitRequest submitRequest = (SubmitRequest) o;
     return Objects.equals(this.additionalData, submitRequest.additionalData)
+        && Objects.equals(this.isSetAdditionalData, submitRequest.isSetAdditionalData)
         && Objects.equals(this.amount, submitRequest.amount)
+        && Objects.equals(this.isSetAmount, submitRequest.isSetAmount)
         && Objects.equals(this.dateOfBirth, submitRequest.dateOfBirth)
+        && Objects.equals(this.isSetDateOfBirth, submitRequest.isSetDateOfBirth)
         && Objects.equals(this.entityType, submitRequest.entityType)
+        && Objects.equals(this.isSetEntityType, submitRequest.isSetEntityType)
         && Objects.equals(this.fraudOffset, submitRequest.fraudOffset)
+        && Objects.equals(this.isSetFraudOffset, submitRequest.isSetFraudOffset)
         && Objects.equals(this.merchantAccount, submitRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, submitRequest.isSetMerchantAccount)
         && Objects.equals(this.nationality, submitRequest.nationality)
+        && Objects.equals(this.isSetNationality, submitRequest.isSetNationality)
         && Objects.equals(this.recurring, submitRequest.recurring)
+        && Objects.equals(this.isSetRecurring, submitRequest.isSetRecurring)
         && Objects.equals(this.reference, submitRequest.reference)
+        && Objects.equals(this.isSetReference, submitRequest.isSetReference)
         && Objects.equals(
             this.selectedRecurringDetailReference, submitRequest.selectedRecurringDetailReference)
+        && Objects.equals(
+            this.isSetSelectedRecurringDetailReference,
+            submitRequest.isSetSelectedRecurringDetailReference)
         && Objects.equals(this.shopperEmail, submitRequest.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, submitRequest.isSetShopperEmail)
         && Objects.equals(this.shopperName, submitRequest.shopperName)
+        && Objects.equals(this.isSetShopperName, submitRequest.isSetShopperName)
         && Objects.equals(this.shopperReference, submitRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, submitRequest.isSetShopperReference)
         && Objects.equals(this.shopperStatement, submitRequest.shopperStatement)
-        && Objects.equals(this.socialSecurityNumber, submitRequest.socialSecurityNumber);
+        && Objects.equals(this.isSetShopperStatement, submitRequest.isSetShopperStatement)
+        && Objects.equals(this.socialSecurityNumber, submitRequest.socialSecurityNumber)
+        && Objects.equals(this.isSetSocialSecurityNumber, submitRequest.isSetSocialSecurityNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         amount,
+        isSetAmount,
         dateOfBirth,
+        isSetDateOfBirth,
         entityType,
+        isSetEntityType,
         fraudOffset,
+        isSetFraudOffset,
         merchantAccount,
+        isSetMerchantAccount,
         nationality,
+        isSetNationality,
         recurring,
+        isSetRecurring,
         reference,
+        isSetReference,
         selectedRecurringDetailReference,
+        isSetSelectedRecurringDetailReference,
         shopperEmail,
+        isSetShopperEmail,
         shopperName,
+        isSetShopperName,
         shopperReference,
+        isSetShopperReference,
         shopperStatement,
-        socialSecurityNumber);
+        isSetShopperStatement,
+        socialSecurityNumber,
+        isSetSocialSecurityNumber);
   }
 
   @Override
@@ -803,6 +938,75 @@ public class SubmitRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetDateOfBirth) {
+      addIfNull(nulls, JSON_PROPERTY_DATE_OF_BIRTH, this.dateOfBirth);
+    }
+    if (isSetEntityType) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_TYPE, this.entityType);
+    }
+    if (isSetFraudOffset) {
+      addIfNull(nulls, JSON_PROPERTY_FRAUD_OFFSET, this.fraudOffset);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetNationality) {
+      addIfNull(nulls, JSON_PROPERTY_NATIONALITY, this.nationality);
+    }
+    if (isSetRecurring) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING, this.recurring);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSelectedRecurringDetailReference) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE,
+          this.selectedRecurringDetailReference);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetShopperStatement) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetSocialSecurityNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

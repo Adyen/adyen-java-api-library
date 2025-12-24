@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,14 +22,33 @@ import java.util.*;
 /** BankAccountV3 */
 @JsonPropertyOrder({
   BankAccountV3.JSON_PROPERTY_ACCOUNT_HOLDER,
-  BankAccountV3.JSON_PROPERTY_ACCOUNT_IDENTIFICATION
+  BankAccountV3.JSON_PROPERTY_ACCOUNT_IDENTIFICATION,
+  BankAccountV3.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
 })
 public class BankAccountV3 {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private PartyIdentification accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_IDENTIFICATION = "accountIdentification";
   private BankAccountV3AccountIdentification accountIdentification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountIdentification = false;
+
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
+  private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BankAccountV3() {}
 
@@ -39,6 +60,7 @@ public class BankAccountV3 {
    */
   public BankAccountV3 accountHolder(PartyIdentification accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -62,6 +84,7 @@ public class BankAccountV3 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(PartyIdentification accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -73,6 +96,7 @@ public class BankAccountV3 {
   public BankAccountV3 accountIdentification(
       BankAccountV3AccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
+    isSetAccountIdentification = true; // mark as set
     return this;
   }
 
@@ -96,6 +120,68 @@ public class BankAccountV3 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountV3AccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
+    isSetAccountIdentification = true; // mark as set
+  }
+
+  /**
+   * The unique token that identifies the stored bank account details of the counterparty for a
+   * payout.
+   *
+   * @param storedPaymentMethodId The unique token that identifies the stored bank account details
+   *     of the counterparty for a payout.
+   * @return the current {@code BankAccountV3} instance, allowing for method chaining
+   */
+  public BankAccountV3 storedPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The unique token that identifies the stored bank account details of the counterparty for a
+   * payout.
+   *
+   * @return storedPaymentMethodId The unique token that identifies the stored bank account details
+   *     of the counterparty for a payout.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStoredPaymentMethodId() {
+    return storedPaymentMethodId;
+  }
+
+  /**
+   * The unique token that identifies the stored bank account details of the counterparty for a
+   * payout.
+   *
+   * @param storedPaymentMethodId The unique token that identifies the stored bank account details
+   *     of the counterparty for a payout.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BankAccountV3 includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BankAccountV3 object is equal to o. */
@@ -109,12 +195,23 @@ public class BankAccountV3 {
     }
     BankAccountV3 bankAccountV3 = (BankAccountV3) o;
     return Objects.equals(this.accountHolder, bankAccountV3.accountHolder)
-        && Objects.equals(this.accountIdentification, bankAccountV3.accountIdentification);
+        && Objects.equals(this.isSetAccountHolder, bankAccountV3.isSetAccountHolder)
+        && Objects.equals(this.accountIdentification, bankAccountV3.accountIdentification)
+        && Objects.equals(this.isSetAccountIdentification, bankAccountV3.isSetAccountIdentification)
+        && Objects.equals(this.storedPaymentMethodId, bankAccountV3.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, bankAccountV3.isSetStoredPaymentMethodId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, accountIdentification);
+    return Objects.hash(
+        accountHolder,
+        isSetAccountHolder,
+        accountIdentification,
+        isSetAccountIdentification,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId);
   }
 
   @Override
@@ -124,6 +221,9 @@ public class BankAccountV3 {
     sb.append("    accountHolder: ").append(toIndentedString(accountHolder)).append("\n");
     sb.append("    accountIdentification: ")
         .append(toIndentedString(accountIdentification))
+        .append("\n");
+    sb.append("    storedPaymentMethodId: ")
+        .append(toIndentedString(storedPaymentMethodId))
         .append("\n");
     sb.append("}");
     return sb.toString();
@@ -137,6 +237,36 @@ public class BankAccountV3 {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetAccountIdentification) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_IDENTIFICATION, this.accountIdentification);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

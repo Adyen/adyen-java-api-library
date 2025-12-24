@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,9 +30,21 @@ public class Payment {
   public static final String JSON_PROPERTY_CONTACTLESS_CURRENCY = "contactlessCurrency";
   private String contactlessCurrency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContactlessCurrency = false;
+
   public static final String JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES =
       "hideMinorUnitsInCurrencies";
   private List<String> hideMinorUnitsInCurrencies;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHideMinorUnitsInCurrencies = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Payment() {}
 
@@ -45,6 +59,7 @@ public class Payment {
    */
   public Payment contactlessCurrency(String contactlessCurrency) {
     this.contactlessCurrency = contactlessCurrency;
+    isSetContactlessCurrency = true; // mark as set
     return this;
   }
 
@@ -74,6 +89,7 @@ public class Payment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactlessCurrency(String contactlessCurrency) {
     this.contactlessCurrency = contactlessCurrency;
+    isSetContactlessCurrency = true; // mark as set
   }
 
   /**
@@ -86,6 +102,7 @@ public class Payment {
    */
   public Payment hideMinorUnitsInCurrencies(List<String> hideMinorUnitsInCurrencies) {
     this.hideMinorUnitsInCurrencies = hideMinorUnitsInCurrencies;
+    isSetHideMinorUnitsInCurrencies = true; // mark as set
     return this;
   }
 
@@ -121,6 +138,27 @@ public class Payment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideMinorUnitsInCurrencies(List<String> hideMinorUnitsInCurrencies) {
     this.hideMinorUnitsInCurrencies = hideMinorUnitsInCurrencies;
+    isSetHideMinorUnitsInCurrencies = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Payment includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Payment object is equal to o. */
@@ -134,12 +172,19 @@ public class Payment {
     }
     Payment payment = (Payment) o;
     return Objects.equals(this.contactlessCurrency, payment.contactlessCurrency)
-        && Objects.equals(this.hideMinorUnitsInCurrencies, payment.hideMinorUnitsInCurrencies);
+        && Objects.equals(this.isSetContactlessCurrency, payment.isSetContactlessCurrency)
+        && Objects.equals(this.hideMinorUnitsInCurrencies, payment.hideMinorUnitsInCurrencies)
+        && Objects.equals(
+            this.isSetHideMinorUnitsInCurrencies, payment.isSetHideMinorUnitsInCurrencies);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactlessCurrency, hideMinorUnitsInCurrencies);
+    return Objects.hash(
+        contactlessCurrency,
+        isSetContactlessCurrency,
+        hideMinorUnitsInCurrencies,
+        isSetHideMinorUnitsInCurrencies);
   }
 
   @Override
@@ -164,6 +209,34 @@ public class Payment {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetContactlessCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CONTACTLESS_CURRENCY, this.contactlessCurrency);
+    }
+    if (isSetHideMinorUnitsInCurrencies) {
+      addIfNull(
+          nulls, JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES, this.hideMinorUnitsInCurrencies);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

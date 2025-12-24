@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +27,15 @@ public class ApproveTransferLimitRequest {
   public static final String JSON_PROPERTY_TRANSFER_LIMIT_IDS = "transferLimitIds";
   private List<String> transferLimitIds;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferLimitIds = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public ApproveTransferLimitRequest() {}
 
   /**
@@ -37,6 +48,7 @@ public class ApproveTransferLimitRequest {
    */
   public ApproveTransferLimitRequest transferLimitIds(List<String> transferLimitIds) {
     this.transferLimitIds = transferLimitIds;
+    isSetTransferLimitIds = true; // mark as set
     return this;
   }
 
@@ -72,6 +84,27 @@ public class ApproveTransferLimitRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferLimitIds(List<String> transferLimitIds) {
     this.transferLimitIds = transferLimitIds;
+    isSetTransferLimitIds = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ApproveTransferLimitRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ApproveTransferLimitRequest object is equal to o. */
@@ -84,12 +117,14 @@ public class ApproveTransferLimitRequest {
       return false;
     }
     ApproveTransferLimitRequest approveTransferLimitRequest = (ApproveTransferLimitRequest) o;
-    return Objects.equals(this.transferLimitIds, approveTransferLimitRequest.transferLimitIds);
+    return Objects.equals(this.transferLimitIds, approveTransferLimitRequest.transferLimitIds)
+        && Objects.equals(
+            this.isSetTransferLimitIds, approveTransferLimitRequest.isSetTransferLimitIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transferLimitIds);
+    return Objects.hash(transferLimitIds, isSetTransferLimitIds);
   }
 
   @Override
@@ -109,6 +144,30 @@ public class ApproveTransferLimitRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetTransferLimitIds) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_LIMIT_IDS, this.transferLimitIds);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

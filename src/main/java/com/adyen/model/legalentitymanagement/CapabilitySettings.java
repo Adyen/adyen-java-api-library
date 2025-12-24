@@ -11,7 +11,9 @@
 
 package com.adyen.model.legalentitymanagement;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,8 +39,14 @@ public class CapabilitySettings {
   public static final String JSON_PROPERTY_AMOUNT_PER_INDUSTRY = "amountPerIndustry";
   private Map<String, Amount> amountPerIndustry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmountPerIndustry = false;
+
   public static final String JSON_PROPERTY_AUTHORIZED_CARD_USERS = "authorizedCardUsers";
   private Boolean authorizedCardUsers;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthorizedCardUsers = false;
 
   /** Gets or Sets fundingSource */
   public enum FundingSourceEnum {
@@ -86,6 +94,9 @@ public class CapabilitySettings {
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private List<FundingSourceEnum> fundingSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
+
   /** The period when the rule conditions apply. */
   public enum IntervalEnum {
     DAILY(String.valueOf("daily")),
@@ -132,8 +143,20 @@ public class CapabilitySettings {
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private IntervalEnum interval;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInterval = false;
+
   public static final String JSON_PROPERTY_MAX_AMOUNT = "maxAmount";
   private Amount maxAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaxAmount = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CapabilitySettings() {}
 
@@ -145,6 +168,7 @@ public class CapabilitySettings {
    */
   public CapabilitySettings amountPerIndustry(Map<String, Amount> amountPerIndustry) {
     this.amountPerIndustry = amountPerIndustry;
+    isSetAmountPerIndustry = true; // mark as set
     return this;
   }
 
@@ -176,6 +200,7 @@ public class CapabilitySettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountPerIndustry(Map<String, Amount> amountPerIndustry) {
     this.amountPerIndustry = amountPerIndustry;
+    isSetAmountPerIndustry = true; // mark as set
   }
 
   /**
@@ -186,6 +211,7 @@ public class CapabilitySettings {
    */
   public CapabilitySettings authorizedCardUsers(Boolean authorizedCardUsers) {
     this.authorizedCardUsers = authorizedCardUsers;
+    isSetAuthorizedCardUsers = true; // mark as set
     return this;
   }
 
@@ -209,6 +235,7 @@ public class CapabilitySettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorizedCardUsers(Boolean authorizedCardUsers) {
     this.authorizedCardUsers = authorizedCardUsers;
+    isSetAuthorizedCardUsers = true; // mark as set
   }
 
   /**
@@ -219,6 +246,7 @@ public class CapabilitySettings {
    */
   public CapabilitySettings fundingSource(List<FundingSourceEnum> fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -250,6 +278,7 @@ public class CapabilitySettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(List<FundingSourceEnum> fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -260,6 +289,7 @@ public class CapabilitySettings {
    */
   public CapabilitySettings interval(IntervalEnum interval) {
     this.interval = interval;
+    isSetInterval = true; // mark as set
     return this;
   }
 
@@ -283,6 +313,7 @@ public class CapabilitySettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(IntervalEnum interval) {
     this.interval = interval;
+    isSetInterval = true; // mark as set
   }
 
   /**
@@ -293,6 +324,7 @@ public class CapabilitySettings {
    */
   public CapabilitySettings maxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
+    isSetMaxAmount = true; // mark as set
     return this;
   }
 
@@ -316,6 +348,27 @@ public class CapabilitySettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
+    isSetMaxAmount = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CapabilitySettings includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CapabilitySettings object is equal to o. */
@@ -329,15 +382,31 @@ public class CapabilitySettings {
     }
     CapabilitySettings capabilitySettings = (CapabilitySettings) o;
     return Objects.equals(this.amountPerIndustry, capabilitySettings.amountPerIndustry)
+        && Objects.equals(this.isSetAmountPerIndustry, capabilitySettings.isSetAmountPerIndustry)
         && Objects.equals(this.authorizedCardUsers, capabilitySettings.authorizedCardUsers)
+        && Objects.equals(
+            this.isSetAuthorizedCardUsers, capabilitySettings.isSetAuthorizedCardUsers)
         && Objects.equals(this.fundingSource, capabilitySettings.fundingSource)
+        && Objects.equals(this.isSetFundingSource, capabilitySettings.isSetFundingSource)
         && Objects.equals(this.interval, capabilitySettings.interval)
-        && Objects.equals(this.maxAmount, capabilitySettings.maxAmount);
+        && Objects.equals(this.isSetInterval, capabilitySettings.isSetInterval)
+        && Objects.equals(this.maxAmount, capabilitySettings.maxAmount)
+        && Objects.equals(this.isSetMaxAmount, capabilitySettings.isSetMaxAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountPerIndustry, authorizedCardUsers, fundingSource, interval, maxAmount);
+    return Objects.hash(
+        amountPerIndustry,
+        isSetAmountPerIndustry,
+        authorizedCardUsers,
+        isSetAuthorizedCardUsers,
+        fundingSource,
+        isSetFundingSource,
+        interval,
+        isSetInterval,
+        maxAmount,
+        isSetMaxAmount);
   }
 
   @Override
@@ -363,6 +432,42 @@ public class CapabilitySettings {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmountPerIndustry) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT_PER_INDUSTRY, this.amountPerIndustry);
+    }
+    if (isSetAuthorizedCardUsers) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHORIZED_CARD_USERS, this.authorizedCardUsers);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetInterval) {
+      addIfNull(nulls, JSON_PROPERTY_INTERVAL, this.interval);
+    }
+    if (isSetMaxAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MAX_AMOUNT, this.maxAmount);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

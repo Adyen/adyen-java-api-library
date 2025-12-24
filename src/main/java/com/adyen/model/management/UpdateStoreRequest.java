@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,20 +40,38 @@ public class UpdateStoreRequest {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private UpdatableAddress address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_BUSINESS_LINE_IDS = "businessLineIds";
   private List<String> businessLineIds;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBusinessLineIds = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_EXTERNAL_REFERENCE_ID = "externalReferenceId";
   private String externalReferenceId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExternalReferenceId = false;
 
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
+
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION = "splitConfiguration";
   private StoreSplitConfiguration splitConfiguration;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitConfiguration = false;
 
   /**
    * The status of the store. Possible values are: - **active**: This value is assigned
@@ -108,8 +128,20 @@ public class UpdateStoreRequest {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
   private SubMerchantData subMerchantData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public UpdateStoreRequest() {}
 
@@ -121,6 +153,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest address(UpdatableAddress address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
@@ -144,6 +177,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(UpdatableAddress address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -158,6 +192,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest businessLineIds(List<String> businessLineIds) {
     this.businessLineIds = businessLineIds;
+    isSetBusinessLineIds = true; // mark as set
     return this;
   }
 
@@ -197,6 +232,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
     this.businessLineIds = businessLineIds;
+    isSetBusinessLineIds = true; // mark as set
   }
 
   /**
@@ -207,6 +243,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -230,6 +267,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -246,6 +284,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest externalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
+    isSetExternalReferenceId = true; // mark as set
     return this;
   }
 
@@ -281,6 +320,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
+    isSetExternalReferenceId = true; // mark as set
   }
 
   /**
@@ -295,6 +335,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -326,6 +367,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -336,6 +378,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest splitConfiguration(StoreSplitConfiguration splitConfiguration) {
     this.splitConfiguration = splitConfiguration;
+    isSetSplitConfiguration = true; // mark as set
     return this;
   }
 
@@ -359,6 +402,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {
     this.splitConfiguration = splitConfiguration;
+    isSetSplitConfiguration = true; // mark as set
   }
 
   /**
@@ -384,6 +428,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -437,6 +482,7 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -447,6 +493,7 @@ public class UpdateStoreRequest {
    */
   public UpdateStoreRequest subMerchantData(SubMerchantData subMerchantData) {
     this.subMerchantData = subMerchantData;
+    isSetSubMerchantData = true; // mark as set
     return this;
   }
 
@@ -470,6 +517,27 @@ public class UpdateStoreRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantData(SubMerchantData subMerchantData) {
     this.subMerchantData = subMerchantData;
+    isSetSubMerchantData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public UpdateStoreRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this UpdateStoreRequest object is equal to o. */
@@ -483,26 +551,43 @@ public class UpdateStoreRequest {
     }
     UpdateStoreRequest updateStoreRequest = (UpdateStoreRequest) o;
     return Objects.equals(this.address, updateStoreRequest.address)
+        && Objects.equals(this.isSetAddress, updateStoreRequest.isSetAddress)
         && Objects.equals(this.businessLineIds, updateStoreRequest.businessLineIds)
+        && Objects.equals(this.isSetBusinessLineIds, updateStoreRequest.isSetBusinessLineIds)
         && Objects.equals(this.description, updateStoreRequest.description)
+        && Objects.equals(this.isSetDescription, updateStoreRequest.isSetDescription)
         && Objects.equals(this.externalReferenceId, updateStoreRequest.externalReferenceId)
+        && Objects.equals(
+            this.isSetExternalReferenceId, updateStoreRequest.isSetExternalReferenceId)
         && Objects.equals(this.phoneNumber, updateStoreRequest.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, updateStoreRequest.isSetPhoneNumber)
         && Objects.equals(this.splitConfiguration, updateStoreRequest.splitConfiguration)
+        && Objects.equals(this.isSetSplitConfiguration, updateStoreRequest.isSetSplitConfiguration)
         && Objects.equals(this.status, updateStoreRequest.status)
-        && Objects.equals(this.subMerchantData, updateStoreRequest.subMerchantData);
+        && Objects.equals(this.isSetStatus, updateStoreRequest.isSetStatus)
+        && Objects.equals(this.subMerchantData, updateStoreRequest.subMerchantData)
+        && Objects.equals(this.isSetSubMerchantData, updateStoreRequest.isSetSubMerchantData);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         address,
+        isSetAddress,
         businessLineIds,
+        isSetBusinessLineIds,
         description,
+        isSetDescription,
         externalReferenceId,
+        isSetExternalReferenceId,
         phoneNumber,
+        isSetPhoneNumber,
         splitConfiguration,
+        isSetSplitConfiguration,
         status,
-        subMerchantData);
+        isSetStatus,
+        subMerchantData,
+        isSetSubMerchantData);
   }
 
   @Override
@@ -531,6 +616,51 @@ public class UpdateStoreRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetBusinessLineIds) {
+      addIfNull(nulls, JSON_PROPERTY_BUSINESS_LINE_IDS, this.businessLineIds);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetExternalReferenceId) {
+      addIfNull(nulls, JSON_PROPERTY_EXTERNAL_REFERENCE_ID, this.externalReferenceId);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetSplitConfiguration) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_CONFIGURATION, this.splitConfiguration);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetSubMerchantData) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_DATA, this.subMerchantData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

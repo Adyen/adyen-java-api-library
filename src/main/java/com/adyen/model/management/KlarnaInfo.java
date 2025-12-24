@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,8 +34,14 @@ public class KlarnaInfo {
   public static final String JSON_PROPERTY_AUTO_CAPTURE = "autoCapture";
   private Boolean autoCapture;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAutoCapture = false;
+
   public static final String JSON_PROPERTY_DISPUTE_EMAIL = "disputeEmail";
   private String disputeEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisputeEmail = false;
 
   /** The region of operation. For example, **NA**, **EU**, **CH**, **AU**. */
   public enum RegionEnum {
@@ -83,8 +91,20 @@ public class KlarnaInfo {
   public static final String JSON_PROPERTY_REGION = "region";
   private RegionEnum region;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRegion = false;
+
   public static final String JSON_PROPERTY_SUPPORT_EMAIL = "supportEmail";
   private String supportEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSupportEmail = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public KlarnaInfo() {}
 
@@ -100,6 +120,7 @@ public class KlarnaInfo {
    */
   public KlarnaInfo autoCapture(Boolean autoCapture) {
     this.autoCapture = autoCapture;
+    isSetAutoCapture = true; // mark as set
     return this;
   }
 
@@ -131,6 +152,7 @@ public class KlarnaInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoCapture(Boolean autoCapture) {
     this.autoCapture = autoCapture;
+    isSetAutoCapture = true; // mark as set
   }
 
   /**
@@ -141,6 +163,7 @@ public class KlarnaInfo {
    */
   public KlarnaInfo disputeEmail(String disputeEmail) {
     this.disputeEmail = disputeEmail;
+    isSetDisputeEmail = true; // mark as set
     return this;
   }
 
@@ -164,6 +187,7 @@ public class KlarnaInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeEmail(String disputeEmail) {
     this.disputeEmail = disputeEmail;
+    isSetDisputeEmail = true; // mark as set
   }
 
   /**
@@ -174,6 +198,7 @@ public class KlarnaInfo {
    */
   public KlarnaInfo region(RegionEnum region) {
     this.region = region;
+    isSetRegion = true; // mark as set
     return this;
   }
 
@@ -197,6 +222,7 @@ public class KlarnaInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegion(RegionEnum region) {
     this.region = region;
+    isSetRegion = true; // mark as set
   }
 
   /**
@@ -207,6 +233,7 @@ public class KlarnaInfo {
    */
   public KlarnaInfo supportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
+    isSetSupportEmail = true; // mark as set
     return this;
   }
 
@@ -230,6 +257,27 @@ public class KlarnaInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
+    isSetSupportEmail = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public KlarnaInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this KlarnaInfo object is equal to o. */
@@ -243,14 +291,26 @@ public class KlarnaInfo {
     }
     KlarnaInfo klarnaInfo = (KlarnaInfo) o;
     return Objects.equals(this.autoCapture, klarnaInfo.autoCapture)
+        && Objects.equals(this.isSetAutoCapture, klarnaInfo.isSetAutoCapture)
         && Objects.equals(this.disputeEmail, klarnaInfo.disputeEmail)
+        && Objects.equals(this.isSetDisputeEmail, klarnaInfo.isSetDisputeEmail)
         && Objects.equals(this.region, klarnaInfo.region)
-        && Objects.equals(this.supportEmail, klarnaInfo.supportEmail);
+        && Objects.equals(this.isSetRegion, klarnaInfo.isSetRegion)
+        && Objects.equals(this.supportEmail, klarnaInfo.supportEmail)
+        && Objects.equals(this.isSetSupportEmail, klarnaInfo.isSetSupportEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoCapture, disputeEmail, region, supportEmail);
+    return Objects.hash(
+        autoCapture,
+        isSetAutoCapture,
+        disputeEmail,
+        isSetDisputeEmail,
+        region,
+        isSetRegion,
+        supportEmail,
+        isSetSupportEmail);
   }
 
   @Override
@@ -273,6 +333,39 @@ public class KlarnaInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAutoCapture) {
+      addIfNull(nulls, JSON_PROPERTY_AUTO_CAPTURE, this.autoCapture);
+    }
+    if (isSetDisputeEmail) {
+      addIfNull(nulls, JSON_PROPERTY_DISPUTE_EMAIL, this.disputeEmail);
+    }
+    if (isSetRegion) {
+      addIfNull(nulls, JSON_PROPERTY_REGION, this.region);
+    }
+    if (isSetSupportEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SUPPORT_EMAIL, this.supportEmail);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

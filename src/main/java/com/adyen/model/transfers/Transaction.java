@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,32 +44,62 @@ public class Transaction {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT = "balanceAccount";
   private ResourceReference balanceAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccount = false;
+
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
 
   public static final String JSON_PROPERTY_BOOKING_DATE = "bookingDate";
   private OffsetDateTime bookingDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBookingDate = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT = "paymentInstrument";
   private PaymentInstrument paymentInstrument;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrument = false;
+
   public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReferenceForBeneficiary = false;
 
   /**
    * The status of the transaction. Possible values: * **pending**: The transaction is still
@@ -116,11 +148,26 @@ public class Transaction {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_TRANSFER = "transfer";
   private TransferView transfer;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransfer = false;
+
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValueDate = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Transaction() {}
 
@@ -132,6 +179,7 @@ public class Transaction {
    */
   public Transaction accountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -155,6 +203,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -165,6 +214,7 @@ public class Transaction {
    */
   public Transaction amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -188,6 +238,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -198,6 +249,7 @@ public class Transaction {
    */
   public Transaction balanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
     return this;
   }
 
@@ -221,6 +273,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
   }
 
   /**
@@ -231,6 +284,7 @@ public class Transaction {
    */
   public Transaction balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -254,6 +308,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -264,6 +319,7 @@ public class Transaction {
    */
   public Transaction bookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
+    isSetBookingDate = true; // mark as set
     return this;
   }
 
@@ -287,6 +343,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
+    isSetBookingDate = true; // mark as set
   }
 
   /**
@@ -299,6 +356,7 @@ public class Transaction {
    */
   public Transaction creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -326,6 +384,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -336,6 +395,7 @@ public class Transaction {
    */
   public Transaction description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -359,6 +419,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -369,6 +430,7 @@ public class Transaction {
    */
   public Transaction id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -392,6 +454,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -402,6 +465,7 @@ public class Transaction {
    */
   public Transaction paymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
+    isSetPaymentInstrument = true; // mark as set
     return this;
   }
 
@@ -425,6 +489,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
+    isSetPaymentInstrument = true; // mark as set
   }
 
   /**
@@ -444,6 +509,7 @@ public class Transaction {
    */
   public Transaction referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
     return this;
   }
 
@@ -485,6 +551,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
   }
 
   /**
@@ -497,6 +564,7 @@ public class Transaction {
    */
   public Transaction status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -524,6 +592,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -534,6 +603,7 @@ public class Transaction {
    */
   public Transaction transfer(TransferView transfer) {
     this.transfer = transfer;
+    isSetTransfer = true; // mark as set
     return this;
   }
 
@@ -557,6 +627,7 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransfer(TransferView transfer) {
     this.transfer = transfer;
+    isSetTransfer = true; // mark as set
   }
 
   /**
@@ -567,6 +638,7 @@ public class Transaction {
    */
   public Transaction valueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
+    isSetValueDate = true; // mark as set
     return this;
   }
 
@@ -590,6 +662,27 @@ public class Transaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
+    isSetValueDate = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Transaction includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Transaction object is equal to o. */
@@ -603,36 +696,63 @@ public class Transaction {
     }
     Transaction transaction = (Transaction) o;
     return Objects.equals(this.accountHolder, transaction.accountHolder)
+        && Objects.equals(this.isSetAccountHolder, transaction.isSetAccountHolder)
         && Objects.equals(this.amount, transaction.amount)
+        && Objects.equals(this.isSetAmount, transaction.isSetAmount)
         && Objects.equals(this.balanceAccount, transaction.balanceAccount)
+        && Objects.equals(this.isSetBalanceAccount, transaction.isSetBalanceAccount)
         && Objects.equals(this.balancePlatform, transaction.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, transaction.isSetBalancePlatform)
         && Objects.equals(this.bookingDate, transaction.bookingDate)
+        && Objects.equals(this.isSetBookingDate, transaction.isSetBookingDate)
         && Objects.equals(this.creationDate, transaction.creationDate)
+        && Objects.equals(this.isSetCreationDate, transaction.isSetCreationDate)
         && Objects.equals(this.description, transaction.description)
+        && Objects.equals(this.isSetDescription, transaction.isSetDescription)
         && Objects.equals(this.id, transaction.id)
+        && Objects.equals(this.isSetId, transaction.isSetId)
         && Objects.equals(this.paymentInstrument, transaction.paymentInstrument)
+        && Objects.equals(this.isSetPaymentInstrument, transaction.isSetPaymentInstrument)
         && Objects.equals(this.referenceForBeneficiary, transaction.referenceForBeneficiary)
+        && Objects.equals(
+            this.isSetReferenceForBeneficiary, transaction.isSetReferenceForBeneficiary)
         && Objects.equals(this.status, transaction.status)
+        && Objects.equals(this.isSetStatus, transaction.isSetStatus)
         && Objects.equals(this.transfer, transaction.transfer)
-        && Objects.equals(this.valueDate, transaction.valueDate);
+        && Objects.equals(this.isSetTransfer, transaction.isSetTransfer)
+        && Objects.equals(this.valueDate, transaction.valueDate)
+        && Objects.equals(this.isSetValueDate, transaction.isSetValueDate);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolder,
+        isSetAccountHolder,
         amount,
+        isSetAmount,
         balanceAccount,
+        isSetBalanceAccount,
         balancePlatform,
+        isSetBalancePlatform,
         bookingDate,
+        isSetBookingDate,
         creationDate,
+        isSetCreationDate,
         description,
+        isSetDescription,
         id,
+        isSetId,
         paymentInstrument,
+        isSetPaymentInstrument,
         referenceForBeneficiary,
+        isSetReferenceForBeneficiary,
         status,
+        isSetStatus,
         transfer,
-        valueDate);
+        isSetTransfer,
+        valueDate,
+        isSetValueDate);
   }
 
   @Override
@@ -666,6 +786,66 @@ public class Transaction {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBalanceAccount) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT, this.balanceAccount);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetBookingDate) {
+      addIfNull(nulls, JSON_PROPERTY_BOOKING_DATE, this.bookingDate);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPaymentInstrument) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT, this.paymentInstrument);
+    }
+    if (isSetReferenceForBeneficiary) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY, this.referenceForBeneficiary);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTransfer) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER, this.transfer);
+    }
+    if (isSetValueDate) {
+      addIfNull(nulls, JSON_PROPERTY_VALUE_DATE, this.valueDate);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

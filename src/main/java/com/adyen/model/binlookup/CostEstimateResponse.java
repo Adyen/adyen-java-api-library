@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class CostEstimateResponse {
   public static final String JSON_PROPERTY_CARD_BIN = "cardBin";
   private CardBin cardBin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardBin = false;
+
   public static final String JSON_PROPERTY_COST_ESTIMATE_AMOUNT = "costEstimateAmount";
   private Amount costEstimateAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCostEstimateAmount = false;
 
   public static final String JSON_PROPERTY_COST_ESTIMATE_REFERENCE = "costEstimateReference";
   private String costEstimateReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCostEstimateReference = false;
+
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResultCode = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CostEstimateResponse() {}
 
@@ -47,6 +67,7 @@ public class CostEstimateResponse {
    */
   public CostEstimateResponse cardBin(CardBin cardBin) {
     this.cardBin = cardBin;
+    isSetCardBin = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class CostEstimateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(CardBin cardBin) {
     this.cardBin = cardBin;
+    isSetCardBin = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class CostEstimateResponse {
    */
   public CostEstimateResponse costEstimateAmount(Amount costEstimateAmount) {
     this.costEstimateAmount = costEstimateAmount;
+    isSetCostEstimateAmount = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class CostEstimateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateAmount(Amount costEstimateAmount) {
     this.costEstimateAmount = costEstimateAmount;
+    isSetCostEstimateAmount = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class CostEstimateResponse {
    */
   public CostEstimateResponse costEstimateReference(String costEstimateReference) {
     this.costEstimateReference = costEstimateReference;
+    isSetCostEstimateReference = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class CostEstimateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateReference(String costEstimateReference) {
     this.costEstimateReference = costEstimateReference;
+    isSetCostEstimateReference = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class CostEstimateResponse {
    */
   public CostEstimateResponse resultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class CostEstimateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
+    isSetResultCode = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CostEstimateResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CostEstimateResponse object is equal to o. */
@@ -182,14 +230,28 @@ public class CostEstimateResponse {
     }
     CostEstimateResponse costEstimateResponse = (CostEstimateResponse) o;
     return Objects.equals(this.cardBin, costEstimateResponse.cardBin)
+        && Objects.equals(this.isSetCardBin, costEstimateResponse.isSetCardBin)
         && Objects.equals(this.costEstimateAmount, costEstimateResponse.costEstimateAmount)
+        && Objects.equals(
+            this.isSetCostEstimateAmount, costEstimateResponse.isSetCostEstimateAmount)
         && Objects.equals(this.costEstimateReference, costEstimateResponse.costEstimateReference)
-        && Objects.equals(this.resultCode, costEstimateResponse.resultCode);
+        && Objects.equals(
+            this.isSetCostEstimateReference, costEstimateResponse.isSetCostEstimateReference)
+        && Objects.equals(this.resultCode, costEstimateResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, costEstimateResponse.isSetResultCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardBin, costEstimateAmount, costEstimateReference, resultCode);
+    return Objects.hash(
+        cardBin,
+        isSetCardBin,
+        costEstimateAmount,
+        isSetCostEstimateAmount,
+        costEstimateReference,
+        isSetCostEstimateReference,
+        resultCode,
+        isSetResultCode);
   }
 
   @Override
@@ -214,6 +276,39 @@ public class CostEstimateResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardBin) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_BIN, this.cardBin);
+    }
+    if (isSetCostEstimateAmount) {
+      addIfNull(nulls, JSON_PROPERTY_COST_ESTIMATE_AMOUNT, this.costEstimateAmount);
+    }
+    if (isSetCostEstimateReference) {
+      addIfNull(nulls, JSON_PROPERTY_COST_ESTIMATE_REFERENCE, this.costEstimateReference);
+    }
+    if (isSetResultCode) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_CODE, this.resultCode);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

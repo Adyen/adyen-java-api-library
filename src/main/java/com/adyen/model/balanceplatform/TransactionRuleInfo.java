@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,17 +43,32 @@ public class TransactionRuleInfo {
   public static final String JSON_PROPERTY_AGGREGATION_LEVEL = "aggregationLevel";
   private String aggregationLevel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAggregationLevel = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_END_DATE = "endDate";
   private String endDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndDate = false;
+
   public static final String JSON_PROPERTY_ENTITY_KEY = "entityKey";
   private TransactionRuleEntityKey entityKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityKey = false;
+
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private TransactionRuleInterval interval;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInterval = false;
 
   /**
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied
@@ -111,8 +128,14 @@ public class TransactionRuleInfo {
   public static final String JSON_PROPERTY_OUTCOME_TYPE = "outcomeType";
   private OutcomeTypeEnum outcomeType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOutcomeType = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * Indicates the type of request to which the rule applies. If not provided, by default, this is
@@ -166,14 +189,26 @@ public class TransactionRuleInfo {
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
   private RequestTypeEnum requestType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestType = false;
+
   public static final String JSON_PROPERTY_RULE_RESTRICTIONS = "ruleRestrictions";
   private TransactionRuleRestrictions ruleRestrictions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRuleRestrictions = false;
 
   public static final String JSON_PROPERTY_SCORE = "score";
   private Integer score;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScore = false;
+
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   private String startDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartDate = false;
 
   /**
    * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the
@@ -222,6 +257,9 @@ public class TransactionRuleInfo {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
 
   /**
    * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines
@@ -279,6 +317,15 @@ public class TransactionRuleInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TransactionRuleInfo() {}
 
   /**
@@ -299,6 +346,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo aggregationLevel(String aggregationLevel) {
     this.aggregationLevel = aggregationLevel;
+    isSetAggregationLevel = true; // mark as set
     return this;
   }
 
@@ -342,6 +390,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAggregationLevel(String aggregationLevel) {
     this.aggregationLevel = aggregationLevel;
+    isSetAggregationLevel = true; // mark as set
   }
 
   /**
@@ -352,6 +401,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -375,6 +425,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -389,6 +440,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo endDate(String endDate) {
     this.endDate = endDate;
+    isSetEndDate = true; // mark as set
     return this;
   }
 
@@ -420,6 +472,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndDate(String endDate) {
     this.endDate = endDate;
+    isSetEndDate = true; // mark as set
   }
 
   /**
@@ -430,6 +483,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo entityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
+    isSetEntityKey = true; // mark as set
     return this;
   }
 
@@ -453,6 +507,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
+    isSetEntityKey = true; // mark as set
   }
 
   /**
@@ -463,6 +518,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo interval(TransactionRuleInterval interval) {
     this.interval = interval;
+    isSetInterval = true; // mark as set
     return this;
   }
 
@@ -486,6 +542,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(TransactionRuleInterval interval) {
     this.interval = interval;
+    isSetInterval = true; // mark as set
   }
 
   /**
@@ -513,6 +570,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo outcomeType(OutcomeTypeEnum outcomeType) {
     this.outcomeType = outcomeType;
+    isSetOutcomeType = true; // mark as set
     return this;
   }
 
@@ -570,6 +628,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(OutcomeTypeEnum outcomeType) {
     this.outcomeType = outcomeType;
+    isSetOutcomeType = true; // mark as set
   }
 
   /**
@@ -580,6 +639,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -603,6 +663,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -617,6 +678,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo requestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
+    isSetRequestType = true; // mark as set
     return this;
   }
 
@@ -648,6 +710,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
+    isSetRequestType = true; // mark as set
   }
 
   /**
@@ -658,6 +721,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo ruleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
+    isSetRuleRestrictions = true; // mark as set
     return this;
   }
 
@@ -681,6 +745,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRuleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
+    isSetRuleRestrictions = true; // mark as set
   }
 
   /**
@@ -695,6 +760,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo score(Integer score) {
     this.score = score;
+    isSetScore = true; // mark as set
     return this;
   }
 
@@ -726,6 +792,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
     this.score = score;
+    isSetScore = true; // mark as set
   }
 
   /**
@@ -741,6 +808,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo startDate(String startDate) {
     this.startDate = startDate;
+    isSetStartDate = true; // mark as set
     return this;
   }
 
@@ -774,6 +842,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartDate(String startDate) {
     this.startDate = startDate;
+    isSetStartDate = true; // mark as set
   }
 
   /**
@@ -788,6 +857,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -819,6 +889,7 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -841,6 +912,7 @@ public class TransactionRuleInfo {
    */
   public TransactionRuleInfo type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -888,6 +960,27 @@ public class TransactionRuleInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public TransactionRuleInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TransactionRuleInfo object is equal to o. */
@@ -901,36 +994,62 @@ public class TransactionRuleInfo {
     }
     TransactionRuleInfo transactionRuleInfo = (TransactionRuleInfo) o;
     return Objects.equals(this.aggregationLevel, transactionRuleInfo.aggregationLevel)
+        && Objects.equals(this.isSetAggregationLevel, transactionRuleInfo.isSetAggregationLevel)
         && Objects.equals(this.description, transactionRuleInfo.description)
+        && Objects.equals(this.isSetDescription, transactionRuleInfo.isSetDescription)
         && Objects.equals(this.endDate, transactionRuleInfo.endDate)
+        && Objects.equals(this.isSetEndDate, transactionRuleInfo.isSetEndDate)
         && Objects.equals(this.entityKey, transactionRuleInfo.entityKey)
+        && Objects.equals(this.isSetEntityKey, transactionRuleInfo.isSetEntityKey)
         && Objects.equals(this.interval, transactionRuleInfo.interval)
+        && Objects.equals(this.isSetInterval, transactionRuleInfo.isSetInterval)
         && Objects.equals(this.outcomeType, transactionRuleInfo.outcomeType)
+        && Objects.equals(this.isSetOutcomeType, transactionRuleInfo.isSetOutcomeType)
         && Objects.equals(this.reference, transactionRuleInfo.reference)
+        && Objects.equals(this.isSetReference, transactionRuleInfo.isSetReference)
         && Objects.equals(this.requestType, transactionRuleInfo.requestType)
+        && Objects.equals(this.isSetRequestType, transactionRuleInfo.isSetRequestType)
         && Objects.equals(this.ruleRestrictions, transactionRuleInfo.ruleRestrictions)
+        && Objects.equals(this.isSetRuleRestrictions, transactionRuleInfo.isSetRuleRestrictions)
         && Objects.equals(this.score, transactionRuleInfo.score)
+        && Objects.equals(this.isSetScore, transactionRuleInfo.isSetScore)
         && Objects.equals(this.startDate, transactionRuleInfo.startDate)
+        && Objects.equals(this.isSetStartDate, transactionRuleInfo.isSetStartDate)
         && Objects.equals(this.status, transactionRuleInfo.status)
-        && Objects.equals(this.type, transactionRuleInfo.type);
+        && Objects.equals(this.isSetStatus, transactionRuleInfo.isSetStatus)
+        && Objects.equals(this.type, transactionRuleInfo.type)
+        && Objects.equals(this.isSetType, transactionRuleInfo.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         aggregationLevel,
+        isSetAggregationLevel,
         description,
+        isSetDescription,
         endDate,
+        isSetEndDate,
         entityKey,
+        isSetEntityKey,
         interval,
+        isSetInterval,
         outcomeType,
+        isSetOutcomeType,
         reference,
+        isSetReference,
         requestType,
+        isSetRequestType,
         ruleRestrictions,
+        isSetRuleRestrictions,
         score,
+        isSetScore,
         startDate,
+        isSetStartDate,
         status,
-        type);
+        isSetStatus,
+        type,
+        isSetType);
   }
 
   @Override
@@ -962,6 +1081,66 @@ public class TransactionRuleInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAggregationLevel) {
+      addIfNull(nulls, JSON_PROPERTY_AGGREGATION_LEVEL, this.aggregationLevel);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetEndDate) {
+      addIfNull(nulls, JSON_PROPERTY_END_DATE, this.endDate);
+    }
+    if (isSetEntityKey) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_KEY, this.entityKey);
+    }
+    if (isSetInterval) {
+      addIfNull(nulls, JSON_PROPERTY_INTERVAL, this.interval);
+    }
+    if (isSetOutcomeType) {
+      addIfNull(nulls, JSON_PROPERTY_OUTCOME_TYPE, this.outcomeType);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetRequestType) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_TYPE, this.requestType);
+    }
+    if (isSetRuleRestrictions) {
+      addIfNull(nulls, JSON_PROPERTY_RULE_RESTRICTIONS, this.ruleRestrictions);
+    }
+    if (isSetScore) {
+      addIfNull(nulls, JSON_PROPERTY_SCORE, this.score);
+    }
+    if (isSetStartDate) {
+      addIfNull(nulls, JSON_PROPERTY_START_DATE, this.startDate);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

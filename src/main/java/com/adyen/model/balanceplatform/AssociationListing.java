@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,23 +34,50 @@ public class AssociationListing {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
   private String entityId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityId = false;
 
   public static final String JSON_PROPERTY_ENTITY_TYPE = "entityType";
   private ScaEntityType entityType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEntityType = false;
+
   public static final String JSON_PROPERTY_SCA_DEVICE_ID = "scaDeviceId";
   private String scaDeviceId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaDeviceId = false;
 
   public static final String JSON_PROPERTY_SCA_DEVICE_NAME = "scaDeviceName";
   private String scaDeviceName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaDeviceName = false;
+
   public static final String JSON_PROPERTY_SCA_DEVICE_TYPE = "scaDeviceType";
   private ScaDeviceType scaDeviceType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaDeviceType = false;
+
   public static final String JSON_PROPERTY_STATUS = "status";
   private AssociationStatus status;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AssociationListing() {}
 
@@ -60,6 +89,7 @@ public class AssociationListing {
    */
   public AssociationListing createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -83,6 +113,7 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -93,6 +124,7 @@ public class AssociationListing {
    */
   public AssociationListing entityId(String entityId) {
     this.entityId = entityId;
+    isSetEntityId = true; // mark as set
     return this;
   }
 
@@ -116,6 +148,7 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityId(String entityId) {
     this.entityId = entityId;
+    isSetEntityId = true; // mark as set
   }
 
   /**
@@ -126,6 +159,7 @@ public class AssociationListing {
    */
   public AssociationListing entityType(ScaEntityType entityType) {
     this.entityType = entityType;
+    isSetEntityType = true; // mark as set
     return this;
   }
 
@@ -149,6 +183,7 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(ScaEntityType entityType) {
     this.entityType = entityType;
+    isSetEntityType = true; // mark as set
   }
 
   /**
@@ -159,6 +194,7 @@ public class AssociationListing {
    */
   public AssociationListing scaDeviceId(String scaDeviceId) {
     this.scaDeviceId = scaDeviceId;
+    isSetScaDeviceId = true; // mark as set
     return this;
   }
 
@@ -182,6 +218,7 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaDeviceId(String scaDeviceId) {
     this.scaDeviceId = scaDeviceId;
+    isSetScaDeviceId = true; // mark as set
   }
 
   /**
@@ -192,6 +229,7 @@ public class AssociationListing {
    */
   public AssociationListing scaDeviceName(String scaDeviceName) {
     this.scaDeviceName = scaDeviceName;
+    isSetScaDeviceName = true; // mark as set
     return this;
   }
 
@@ -215,6 +253,7 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaDeviceName(String scaDeviceName) {
     this.scaDeviceName = scaDeviceName;
+    isSetScaDeviceName = true; // mark as set
   }
 
   /**
@@ -225,6 +264,7 @@ public class AssociationListing {
    */
   public AssociationListing scaDeviceType(ScaDeviceType scaDeviceType) {
     this.scaDeviceType = scaDeviceType;
+    isSetScaDeviceType = true; // mark as set
     return this;
   }
 
@@ -248,6 +288,7 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaDeviceType(ScaDeviceType scaDeviceType) {
     this.scaDeviceType = scaDeviceType;
+    isSetScaDeviceType = true; // mark as set
   }
 
   /**
@@ -258,6 +299,7 @@ public class AssociationListing {
    */
   public AssociationListing status(AssociationStatus status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -281,6 +323,27 @@ public class AssociationListing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(AssociationStatus status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AssociationListing includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AssociationListing object is equal to o. */
@@ -294,18 +357,38 @@ public class AssociationListing {
     }
     AssociationListing associationListing = (AssociationListing) o;
     return Objects.equals(this.createdAt, associationListing.createdAt)
+        && Objects.equals(this.isSetCreatedAt, associationListing.isSetCreatedAt)
         && Objects.equals(this.entityId, associationListing.entityId)
+        && Objects.equals(this.isSetEntityId, associationListing.isSetEntityId)
         && Objects.equals(this.entityType, associationListing.entityType)
+        && Objects.equals(this.isSetEntityType, associationListing.isSetEntityType)
         && Objects.equals(this.scaDeviceId, associationListing.scaDeviceId)
+        && Objects.equals(this.isSetScaDeviceId, associationListing.isSetScaDeviceId)
         && Objects.equals(this.scaDeviceName, associationListing.scaDeviceName)
+        && Objects.equals(this.isSetScaDeviceName, associationListing.isSetScaDeviceName)
         && Objects.equals(this.scaDeviceType, associationListing.scaDeviceType)
-        && Objects.equals(this.status, associationListing.status);
+        && Objects.equals(this.isSetScaDeviceType, associationListing.isSetScaDeviceType)
+        && Objects.equals(this.status, associationListing.status)
+        && Objects.equals(this.isSetStatus, associationListing.isSetStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        createdAt, entityId, entityType, scaDeviceId, scaDeviceName, scaDeviceType, status);
+        createdAt,
+        isSetCreatedAt,
+        entityId,
+        isSetEntityId,
+        entityType,
+        isSetEntityType,
+        scaDeviceId,
+        isSetScaDeviceId,
+        scaDeviceName,
+        isSetScaDeviceName,
+        scaDeviceType,
+        isSetScaDeviceType,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -331,6 +414,48 @@ public class AssociationListing {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_ID, this.entityId);
+    }
+    if (isSetEntityType) {
+      addIfNull(nulls, JSON_PROPERTY_ENTITY_TYPE, this.entityType);
+    }
+    if (isSetScaDeviceId) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_DEVICE_ID, this.scaDeviceId);
+    }
+    if (isSetScaDeviceName) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_DEVICE_NAME, this.scaDeviceName);
+    }
+    if (isSetScaDeviceType) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_DEVICE_TYPE, this.scaDeviceType);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

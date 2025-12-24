@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,14 +39,26 @@ public class SessionResultResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_PAYMENTS = "payments";
   private List<Payment> payments;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayments = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   /**
    * The status of the session. The status included in the response doesn&#39;t get updated.
@@ -109,6 +123,15 @@ public class SessionResultResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public SessionResultResponse() {}
 
   /**
@@ -123,6 +146,7 @@ public class SessionResultResponse {
    */
   public SessionResultResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -162,6 +186,7 @@ public class SessionResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -172,6 +197,7 @@ public class SessionResultResponse {
    */
   public SessionResultResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -195,6 +221,7 @@ public class SessionResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -205,6 +232,7 @@ public class SessionResultResponse {
    */
   public SessionResultResponse payments(List<Payment> payments) {
     this.payments = payments;
+    isSetPayments = true; // mark as set
     return this;
   }
 
@@ -236,6 +264,7 @@ public class SessionResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayments(List<Payment> payments) {
     this.payments = payments;
+    isSetPayments = true; // mark as set
   }
 
   /**
@@ -249,6 +278,7 @@ public class SessionResultResponse {
    */
   public SessionResultResponse reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -278,6 +308,7 @@ public class SessionResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -306,6 +337,7 @@ public class SessionResultResponse {
    */
   public SessionResultResponse status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -365,6 +397,27 @@ public class SessionResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SessionResultResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SessionResultResponse object is equal to o. */
@@ -378,15 +431,30 @@ public class SessionResultResponse {
     }
     SessionResultResponse sessionResultResponse = (SessionResultResponse) o;
     return Objects.equals(this.additionalData, sessionResultResponse.additionalData)
+        && Objects.equals(this.isSetAdditionalData, sessionResultResponse.isSetAdditionalData)
         && Objects.equals(this.id, sessionResultResponse.id)
+        && Objects.equals(this.isSetId, sessionResultResponse.isSetId)
         && Objects.equals(this.payments, sessionResultResponse.payments)
+        && Objects.equals(this.isSetPayments, sessionResultResponse.isSetPayments)
         && Objects.equals(this.reference, sessionResultResponse.reference)
-        && Objects.equals(this.status, sessionResultResponse.status);
+        && Objects.equals(this.isSetReference, sessionResultResponse.isSetReference)
+        && Objects.equals(this.status, sessionResultResponse.status)
+        && Objects.equals(this.isSetStatus, sessionResultResponse.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, id, payments, reference, status);
+    return Objects.hash(
+        additionalData,
+        isSetAdditionalData,
+        id,
+        isSetId,
+        payments,
+        isSetPayments,
+        reference,
+        isSetReference,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -410,6 +478,42 @@ public class SessionResultResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPayments) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENTS, this.payments);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,33 +41,63 @@ public class CashAppDetails {
   public static final String JSON_PROPERTY_CASHTAG = "cashtag";
   private String cashtag;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCashtag = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
   private String customerId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCustomerId = false;
+
   public static final String JSON_PROPERTY_GRANT_ID = "grantId";
   private String grantId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGrantId = false;
+
   public static final String JSON_PROPERTY_ON_FILE_GRANT_ID = "onFileGrantId";
   private String onFileGrantId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOnFileGrantId = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringDetailReference = false;
+
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestId = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkData = false;
+
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private String subtype;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubtype = false;
 
   /** cashapp */
   public enum TypeEnum {
@@ -109,6 +141,15 @@ public class CashAppDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CashAppDetails() {}
 
   /**
@@ -119,6 +160,7 @@ public class CashAppDetails {
    */
   public CashAppDetails cashtag(String cashtag) {
     this.cashtag = cashtag;
+    isSetCashtag = true; // mark as set
     return this;
   }
 
@@ -142,6 +184,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCashtag(String cashtag) {
     this.cashtag = cashtag;
+    isSetCashtag = true; // mark as set
   }
 
   /**
@@ -152,6 +195,7 @@ public class CashAppDetails {
    */
   public CashAppDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
     return this;
   }
 
@@ -175,6 +219,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+    isSetCheckoutAttemptId = true; // mark as set
   }
 
   /**
@@ -185,6 +230,7 @@ public class CashAppDetails {
    */
   public CashAppDetails customerId(String customerId) {
     this.customerId = customerId;
+    isSetCustomerId = true; // mark as set
     return this;
   }
 
@@ -208,6 +254,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+    isSetCustomerId = true; // mark as set
   }
 
   /**
@@ -218,6 +265,7 @@ public class CashAppDetails {
    */
   public CashAppDetails grantId(String grantId) {
     this.grantId = grantId;
+    isSetGrantId = true; // mark as set
     return this;
   }
 
@@ -241,6 +289,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantId(String grantId) {
     this.grantId = grantId;
+    isSetGrantId = true; // mark as set
   }
 
   /**
@@ -251,6 +300,7 @@ public class CashAppDetails {
    */
   public CashAppDetails onFileGrantId(String onFileGrantId) {
     this.onFileGrantId = onFileGrantId;
+    isSetOnFileGrantId = true; // mark as set
     return this;
   }
 
@@ -274,6 +324,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnFileGrantId(String onFileGrantId) {
     this.onFileGrantId = onFileGrantId;
+    isSetOnFileGrantId = true; // mark as set
   }
 
   /**
@@ -288,6 +339,7 @@ public class CashAppDetails {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public CashAppDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
@@ -319,6 +371,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
@@ -329,6 +382,7 @@ public class CashAppDetails {
    */
   public CashAppDetails requestId(String requestId) {
     this.requestId = requestId;
+    isSetRequestId = true; // mark as set
     return this;
   }
 
@@ -352,6 +406,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+    isSetRequestId = true; // mark as set
   }
 
   /**
@@ -362,6 +417,7 @@ public class CashAppDetails {
    */
   public CashAppDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
     return this;
   }
 
@@ -386,6 +442,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(String sdkData) {
     this.sdkData = sdkData;
+    isSetSdkData = true; // mark as set
   }
 
   /**
@@ -398,6 +455,7 @@ public class CashAppDetails {
    */
   public CashAppDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
     return this;
   }
 
@@ -425,6 +483,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
   }
 
   /**
@@ -435,6 +494,7 @@ public class CashAppDetails {
    */
   public CashAppDetails subtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
     return this;
   }
 
@@ -458,6 +518,7 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
     this.subtype = subtype;
+    isSetSubtype = true; // mark as set
   }
 
   /**
@@ -468,6 +529,7 @@ public class CashAppDetails {
    */
   public CashAppDetails type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -491,6 +553,27 @@ public class CashAppDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CashAppDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CashAppDetails object is equal to o. */
@@ -504,32 +587,56 @@ public class CashAppDetails {
     }
     CashAppDetails cashAppDetails = (CashAppDetails) o;
     return Objects.equals(this.cashtag, cashAppDetails.cashtag)
+        && Objects.equals(this.isSetCashtag, cashAppDetails.isSetCashtag)
         && Objects.equals(this.checkoutAttemptId, cashAppDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, cashAppDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.customerId, cashAppDetails.customerId)
+        && Objects.equals(this.isSetCustomerId, cashAppDetails.isSetCustomerId)
         && Objects.equals(this.grantId, cashAppDetails.grantId)
+        && Objects.equals(this.isSetGrantId, cashAppDetails.isSetGrantId)
         && Objects.equals(this.onFileGrantId, cashAppDetails.onFileGrantId)
+        && Objects.equals(this.isSetOnFileGrantId, cashAppDetails.isSetOnFileGrantId)
         && Objects.equals(this.recurringDetailReference, cashAppDetails.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference, cashAppDetails.isSetRecurringDetailReference)
         && Objects.equals(this.requestId, cashAppDetails.requestId)
+        && Objects.equals(this.isSetRequestId, cashAppDetails.isSetRequestId)
         && Objects.equals(this.sdkData, cashAppDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, cashAppDetails.isSetSdkData)
         && Objects.equals(this.storedPaymentMethodId, cashAppDetails.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, cashAppDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.subtype, cashAppDetails.subtype)
-        && Objects.equals(this.type, cashAppDetails.type);
+        && Objects.equals(this.isSetSubtype, cashAppDetails.isSetSubtype)
+        && Objects.equals(this.type, cashAppDetails.type)
+        && Objects.equals(this.isSetType, cashAppDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         cashtag,
+        isSetCashtag,
         checkoutAttemptId,
+        isSetCheckoutAttemptId,
         customerId,
+        isSetCustomerId,
         grantId,
+        isSetGrantId,
         onFileGrantId,
+        isSetOnFileGrantId,
         recurringDetailReference,
+        isSetRecurringDetailReference,
         requestId,
+        isSetRequestId,
         sdkData,
+        isSetSdkData,
         storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         subtype,
-        type);
+        isSetSubtype,
+        type,
+        isSetType);
   }
 
   @Override
@@ -563,6 +670,60 @@ public class CashAppDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCashtag) {
+      addIfNull(nulls, JSON_PROPERTY_CASHTAG, this.cashtag);
+    }
+    if (isSetCheckoutAttemptId) {
+      addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetCustomerId) {
+      addIfNull(nulls, JSON_PROPERTY_CUSTOMER_ID, this.customerId);
+    }
+    if (isSetGrantId) {
+      addIfNull(nulls, JSON_PROPERTY_GRANT_ID, this.grantId);
+    }
+    if (isSetOnFileGrantId) {
+      addIfNull(nulls, JSON_PROPERTY_ON_FILE_GRANT_ID, this.onFileGrantId);
+    }
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetRequestId) {
+      addIfNull(nulls, JSON_PROPERTY_REQUEST_ID, this.requestId);
+    }
+    if (isSetSdkData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetSubtype) {
+      addIfNull(nulls, JSON_PROPERTY_SUBTYPE, this.subtype);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

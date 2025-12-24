@@ -11,145 +11,53 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /** DeviceInfo */
-@JsonPropertyOrder({
-  DeviceInfo.JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY,
-  DeviceInfo.JSON_PROPERTY_DEVICE_NAME,
-  DeviceInfo.JSON_PROPERTY_FORM_FACTOR,
-  DeviceInfo.JSON_PROPERTY_IMEI,
-  DeviceInfo.JSON_PROPERTY_ISO_DEVICE_TYPE,
-  DeviceInfo.JSON_PROPERTY_MSISDN,
-  DeviceInfo.JSON_PROPERTY_OS_NAME,
-  DeviceInfo.JSON_PROPERTY_OS_VERSION,
-  DeviceInfo.JSON_PROPERTY_PAYMENT_TYPES,
-  DeviceInfo.JSON_PROPERTY_SERIAL_NUMBER,
-  DeviceInfo.JSON_PROPERTY_STORAGE_TECHNOLOGY
-})
+@JsonPropertyOrder({DeviceInfo.JSON_PROPERTY_FORM_FACTOR, DeviceInfo.JSON_PROPERTY_OS_NAME})
 public class DeviceInfo {
-  public static final String JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY = "cardCaptureTechnology";
-  private String cardCaptureTechnology;
-
-  public static final String JSON_PROPERTY_DEVICE_NAME = "deviceName";
-  private String deviceName;
-
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private String formFactor;
 
-  public static final String JSON_PROPERTY_IMEI = "imei";
-  private String imei;
-
-  public static final String JSON_PROPERTY_ISO_DEVICE_TYPE = "isoDeviceType";
-  private String isoDeviceType;
-
-  public static final String JSON_PROPERTY_MSISDN = "msisdn";
-  private String msisdn;
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFormFactor = false;
 
   public static final String JSON_PROPERTY_OS_NAME = "osName";
   private String osName;
 
-  public static final String JSON_PROPERTY_OS_VERSION = "osVersion";
-  private String osVersion;
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOsName = false;
 
-  public static final String JSON_PROPERTY_PAYMENT_TYPES = "paymentTypes";
-  private List<String> paymentTypes;
-
-  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
-  private String serialNumber;
-
-  public static final String JSON_PROPERTY_STORAGE_TECHNOLOGY = "storageTechnology";
-  private String storageTechnology;
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DeviceInfo() {}
 
   /**
-   * The technology used to capture the card details.
+   * The type of device used to provision the network token.
    *
-   * @param cardCaptureTechnology The technology used to capture the card details.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo cardCaptureTechnology(String cardCaptureTechnology) {
-    this.cardCaptureTechnology = cardCaptureTechnology;
-    return this;
-  }
-
-  /**
-   * The technology used to capture the card details.
-   *
-   * @return cardCaptureTechnology The technology used to capture the card details.
-   */
-  @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCardCaptureTechnology() {
-    return cardCaptureTechnology;
-  }
-
-  /**
-   * The technology used to capture the card details.
-   *
-   * @param cardCaptureTechnology The technology used to capture the card details.
-   */
-  @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardCaptureTechnology(String cardCaptureTechnology) {
-    this.cardCaptureTechnology = cardCaptureTechnology;
-  }
-
-  /**
-   * The name of the device.
-   *
-   * @param deviceName The name of the device.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo deviceName(String deviceName) {
-    this.deviceName = deviceName;
-    return this;
-  }
-
-  /**
-   * The name of the device.
-   *
-   * @return deviceName The name of the device.
-   */
-  @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDeviceName() {
-    return deviceName;
-  }
-
-  /**
-   * The name of the device.
-   *
-   * @param deviceName The name of the device.
-   */
-  @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeviceName(String deviceName) {
-    this.deviceName = deviceName;
-  }
-
-  /**
-   * The form factor of the device to be provisioned.
-   *
-   * @param formFactor The form factor of the device to be provisioned.
+   * @param formFactor The type of device used to provision the network token.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo formFactor(String formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
     return this;
   }
 
   /**
-   * The form factor of the device to be provisioned.
+   * The type of device used to provision the network token.
    *
-   * @return formFactor The form factor of the device to be provisioned.
+   * @return formFactor The type of device used to provision the network token.
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,133 +66,33 @@ public class DeviceInfo {
   }
 
   /**
-   * The form factor of the device to be provisioned.
+   * The type of device used to provision the network token.
    *
-   * @param formFactor The form factor of the device to be provisioned.
+   * @param formFactor The type of device used to provision the network token.
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
   }
 
   /**
-   * The IMEI number of the device being provisioned.
+   * The operating system of the device used to provision the network token.
    *
-   * @param imei The IMEI number of the device being provisioned.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo imei(String imei) {
-    this.imei = imei;
-    return this;
-  }
-
-  /**
-   * The IMEI number of the device being provisioned.
-   *
-   * @return imei The IMEI number of the device being provisioned.
-   */
-  @JsonProperty(JSON_PROPERTY_IMEI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getImei() {
-    return imei;
-  }
-
-  /**
-   * The IMEI number of the device being provisioned.
-   *
-   * @param imei The IMEI number of the device being provisioned.
-   */
-  @JsonProperty(JSON_PROPERTY_IMEI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setImei(String imei) {
-    this.imei = imei;
-  }
-
-  /**
-   * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
-   *
-   * @param isoDeviceType The 2-digit device type provided on the ISO messages that the token is
-   *     being provisioned to.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo isoDeviceType(String isoDeviceType) {
-    this.isoDeviceType = isoDeviceType;
-    return this;
-  }
-
-  /**
-   * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
-   *
-   * @return isoDeviceType The 2-digit device type provided on the ISO messages that the token is
-   *     being provisioned to.
-   */
-  @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIsoDeviceType() {
-    return isoDeviceType;
-  }
-
-  /**
-   * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
-   *
-   * @param isoDeviceType The 2-digit device type provided on the ISO messages that the token is
-   *     being provisioned to.
-   */
-  @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsoDeviceType(String isoDeviceType) {
-    this.isoDeviceType = isoDeviceType;
-  }
-
-  /**
-   * The MSISDN of the device being provisioned.
-   *
-   * @param msisdn The MSISDN of the device being provisioned.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo msisdn(String msisdn) {
-    this.msisdn = msisdn;
-    return this;
-  }
-
-  /**
-   * The MSISDN of the device being provisioned.
-   *
-   * @return msisdn The MSISDN of the device being provisioned.
-   */
-  @JsonProperty(JSON_PROPERTY_MSISDN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMsisdn() {
-    return msisdn;
-  }
-
-  /**
-   * The MSISDN of the device being provisioned.
-   *
-   * @param msisdn The MSISDN of the device being provisioned.
-   */
-  @JsonProperty(JSON_PROPERTY_MSISDN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMsisdn(String msisdn) {
-    this.msisdn = msisdn;
-  }
-
-  /**
-   * The name of the device operating system.
-   *
-   * @param osName The name of the device operating system.
+   * @param osName The operating system of the device used to provision the network token.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo osName(String osName) {
     this.osName = osName;
+    isSetOsName = true; // mark as set
     return this;
   }
 
   /**
-   * The name of the device operating system.
+   * The operating system of the device used to provision the network token.
    *
-   * @return osName The name of the device operating system.
+   * @return osName The operating system of the device used to provision the network token.
    */
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,154 +101,35 @@ public class DeviceInfo {
   }
 
   /**
-   * The name of the device operating system.
+   * The operating system of the device used to provision the network token.
    *
-   * @param osName The name of the device operating system.
+   * @param osName The operating system of the device used to provision the network token.
    */
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsName(String osName) {
     this.osName = osName;
+    isSetOsName = true; // mark as set
   }
 
   /**
-   * The version of the device operating system.
-   *
-   * @param osVersion The version of the device operating system.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public DeviceInfo osVersion(String osVersion) {
-    this.osVersion = osVersion;
+  public DeviceInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
     return this;
   }
 
-  /**
-   * The version of the device operating system.
-   *
-   * @return osVersion The version of the device operating system.
-   */
-  @JsonProperty(JSON_PROPERTY_OS_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOsVersion() {
-    return osVersion;
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
   }
 
   /**
-   * The version of the device operating system.
-   *
-   * @param osVersion The version of the device operating system.
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
    */
-  @JsonProperty(JSON_PROPERTY_OS_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOsVersion(String osVersion) {
-    this.osVersion = osVersion;
-  }
-
-  /**
-   * Different types of payments supported for the network token.
-   *
-   * @param paymentTypes Different types of payments supported for the network token.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo paymentTypes(List<String> paymentTypes) {
-    this.paymentTypes = paymentTypes;
-    return this;
-  }
-
-  public DeviceInfo addPaymentTypesItem(String paymentTypesItem) {
-    if (this.paymentTypes == null) {
-      this.paymentTypes = new ArrayList<>();
-    }
-    this.paymentTypes.add(paymentTypesItem);
-    return this;
-  }
-
-  /**
-   * Different types of payments supported for the network token.
-   *
-   * @return paymentTypes Different types of payments supported for the network token.
-   */
-  @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getPaymentTypes() {
-    return paymentTypes;
-  }
-
-  /**
-   * Different types of payments supported for the network token.
-   *
-   * @param paymentTypes Different types of payments supported for the network token.
-   */
-  @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentTypes(List<String> paymentTypes) {
-    this.paymentTypes = paymentTypes;
-  }
-
-  /**
-   * The serial number of the device.
-   *
-   * @param serialNumber The serial number of the device.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo serialNumber(String serialNumber) {
-    this.serialNumber = serialNumber;
-    return this;
-  }
-
-  /**
-   * The serial number of the device.
-   *
-   * @return serialNumber The serial number of the device.
-   */
-  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSerialNumber() {
-    return serialNumber;
-  }
-
-  /**
-   * The serial number of the device.
-   *
-   * @param serialNumber The serial number of the device.
-   */
-  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSerialNumber(String serialNumber) {
-    this.serialNumber = serialNumber;
-  }
-
-  /**
-   * The architecture or technology used for network token storage.
-   *
-   * @param storageTechnology The architecture or technology used for network token storage.
-   * @return the current {@code DeviceInfo} instance, allowing for method chaining
-   */
-  public DeviceInfo storageTechnology(String storageTechnology) {
-    this.storageTechnology = storageTechnology;
-    return this;
-  }
-
-  /**
-   * The architecture or technology used for network token storage.
-   *
-   * @return storageTechnology The architecture or technology used for network token storage.
-   */
-  @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStorageTechnology() {
-    return storageTechnology;
-  }
-
-  /**
-   * The architecture or technology used for network token storage.
-   *
-   * @param storageTechnology The architecture or technology used for network token storage.
-   */
-  @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStorageTechnology(String storageTechnology) {
-    this.storageTechnology = storageTechnology;
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DeviceInfo object is equal to o. */
@@ -453,52 +142,23 @@ public class DeviceInfo {
       return false;
     }
     DeviceInfo deviceInfo = (DeviceInfo) o;
-    return Objects.equals(this.cardCaptureTechnology, deviceInfo.cardCaptureTechnology)
-        && Objects.equals(this.deviceName, deviceInfo.deviceName)
-        && Objects.equals(this.formFactor, deviceInfo.formFactor)
-        && Objects.equals(this.imei, deviceInfo.imei)
-        && Objects.equals(this.isoDeviceType, deviceInfo.isoDeviceType)
-        && Objects.equals(this.msisdn, deviceInfo.msisdn)
+    return Objects.equals(this.formFactor, deviceInfo.formFactor)
+        && Objects.equals(this.isSetFormFactor, deviceInfo.isSetFormFactor)
         && Objects.equals(this.osName, deviceInfo.osName)
-        && Objects.equals(this.osVersion, deviceInfo.osVersion)
-        && Objects.equals(this.paymentTypes, deviceInfo.paymentTypes)
-        && Objects.equals(this.serialNumber, deviceInfo.serialNumber)
-        && Objects.equals(this.storageTechnology, deviceInfo.storageTechnology);
+        && Objects.equals(this.isSetOsName, deviceInfo.isSetOsName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        cardCaptureTechnology,
-        deviceName,
-        formFactor,
-        imei,
-        isoDeviceType,
-        msisdn,
-        osName,
-        osVersion,
-        paymentTypes,
-        serialNumber,
-        storageTechnology);
+    return Objects.hash(formFactor, isSetFormFactor, osName, isSetOsName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeviceInfo {\n");
-    sb.append("    cardCaptureTechnology: ")
-        .append(toIndentedString(cardCaptureTechnology))
-        .append("\n");
-    sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
-    sb.append("    imei: ").append(toIndentedString(imei)).append("\n");
-    sb.append("    isoDeviceType: ").append(toIndentedString(isoDeviceType)).append("\n");
-    sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
-    sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
-    sb.append("    paymentTypes: ").append(toIndentedString(paymentTypes)).append("\n");
-    sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
-    sb.append("    storageTechnology: ").append(toIndentedString(storageTechnology)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -511,6 +171,33 @@ public class DeviceInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetFormFactor) {
+      addIfNull(nulls, JSON_PROPERTY_FORM_FACTOR, this.formFactor);
+    }
+    if (isSetOsName) {
+      addIfNull(nulls, JSON_PROPERTY_OS_NAME, this.osName);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

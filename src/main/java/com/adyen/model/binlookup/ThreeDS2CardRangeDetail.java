@@ -11,6 +11,8 @@
 
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,20 +34,44 @@ public class ThreeDS2CardRangeDetail {
   public static final String JSON_PROPERTY_ACS_INFO_IND = "acsInfoInd";
   private List<String> acsInfoInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcsInfoInd = false;
+
   public static final String JSON_PROPERTY_BRAND_CODE = "brandCode";
   private String brandCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrandCode = false;
 
   public static final String JSON_PROPERTY_END_RANGE = "endRange";
   private String endRange;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEndRange = false;
+
   public static final String JSON_PROPERTY_START_RANGE = "startRange";
   private String startRange;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartRange = false;
 
   public static final String JSON_PROPERTY_THREE_D_S2_VERSIONS = "threeDS2Versions";
   private List<String> threeDS2Versions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2Versions = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_METHOD_U_R_L = "threeDSMethodURL";
   private String threeDSMethodURL;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSMethodURL = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDS2CardRangeDetail() {}
 
@@ -61,6 +87,7 @@ public class ThreeDS2CardRangeDetail {
    */
   public ThreeDS2CardRangeDetail acsInfoInd(List<String> acsInfoInd) {
     this.acsInfoInd = acsInfoInd;
+    isSetAcsInfoInd = true; // mark as set
     return this;
   }
 
@@ -100,6 +127,7 @@ public class ThreeDS2CardRangeDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsInfoInd(List<String> acsInfoInd) {
     this.acsInfoInd = acsInfoInd;
+    isSetAcsInfoInd = true; // mark as set
   }
 
   /**
@@ -110,6 +138,7 @@ public class ThreeDS2CardRangeDetail {
    */
   public ThreeDS2CardRangeDetail brandCode(String brandCode) {
     this.brandCode = brandCode;
+    isSetBrandCode = true; // mark as set
     return this;
   }
 
@@ -133,6 +162,7 @@ public class ThreeDS2CardRangeDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandCode(String brandCode) {
     this.brandCode = brandCode;
+    isSetBrandCode = true; // mark as set
   }
 
   /**
@@ -143,6 +173,7 @@ public class ThreeDS2CardRangeDetail {
    */
   public ThreeDS2CardRangeDetail endRange(String endRange) {
     this.endRange = endRange;
+    isSetEndRange = true; // mark as set
     return this;
   }
 
@@ -166,6 +197,7 @@ public class ThreeDS2CardRangeDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndRange(String endRange) {
     this.endRange = endRange;
+    isSetEndRange = true; // mark as set
   }
 
   /**
@@ -176,6 +208,7 @@ public class ThreeDS2CardRangeDetail {
    */
   public ThreeDS2CardRangeDetail startRange(String startRange) {
     this.startRange = startRange;
+    isSetStartRange = true; // mark as set
     return this;
   }
 
@@ -199,6 +232,7 @@ public class ThreeDS2CardRangeDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartRange(String startRange) {
     this.startRange = startRange;
+    isSetStartRange = true; // mark as set
   }
 
   /**
@@ -209,6 +243,7 @@ public class ThreeDS2CardRangeDetail {
    */
   public ThreeDS2CardRangeDetail threeDS2Versions(List<String> threeDS2Versions) {
     this.threeDS2Versions = threeDS2Versions;
+    isSetThreeDS2Versions = true; // mark as set
     return this;
   }
 
@@ -240,6 +275,7 @@ public class ThreeDS2CardRangeDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Versions(List<String> threeDS2Versions) {
     this.threeDS2Versions = threeDS2Versions;
+    isSetThreeDS2Versions = true; // mark as set
   }
 
   /**
@@ -252,6 +288,7 @@ public class ThreeDS2CardRangeDetail {
    */
   public ThreeDS2CardRangeDetail threeDSMethodURL(String threeDSMethodURL) {
     this.threeDSMethodURL = threeDSMethodURL;
+    isSetThreeDSMethodURL = true; // mark as set
     return this;
   }
 
@@ -279,6 +316,27 @@ public class ThreeDS2CardRangeDetail {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSMethodURL(String threeDSMethodURL) {
     this.threeDSMethodURL = threeDSMethodURL;
+    isSetThreeDSMethodURL = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDS2CardRangeDetail includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDS2CardRangeDetail object is equal to o. */
@@ -292,17 +350,35 @@ public class ThreeDS2CardRangeDetail {
     }
     ThreeDS2CardRangeDetail threeDS2CardRangeDetail = (ThreeDS2CardRangeDetail) o;
     return Objects.equals(this.acsInfoInd, threeDS2CardRangeDetail.acsInfoInd)
+        && Objects.equals(this.isSetAcsInfoInd, threeDS2CardRangeDetail.isSetAcsInfoInd)
         && Objects.equals(this.brandCode, threeDS2CardRangeDetail.brandCode)
+        && Objects.equals(this.isSetBrandCode, threeDS2CardRangeDetail.isSetBrandCode)
         && Objects.equals(this.endRange, threeDS2CardRangeDetail.endRange)
+        && Objects.equals(this.isSetEndRange, threeDS2CardRangeDetail.isSetEndRange)
         && Objects.equals(this.startRange, threeDS2CardRangeDetail.startRange)
+        && Objects.equals(this.isSetStartRange, threeDS2CardRangeDetail.isSetStartRange)
         && Objects.equals(this.threeDS2Versions, threeDS2CardRangeDetail.threeDS2Versions)
-        && Objects.equals(this.threeDSMethodURL, threeDS2CardRangeDetail.threeDSMethodURL);
+        && Objects.equals(this.isSetThreeDS2Versions, threeDS2CardRangeDetail.isSetThreeDS2Versions)
+        && Objects.equals(this.threeDSMethodURL, threeDS2CardRangeDetail.threeDSMethodURL)
+        && Objects.equals(
+            this.isSetThreeDSMethodURL, threeDS2CardRangeDetail.isSetThreeDSMethodURL);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        acsInfoInd, brandCode, endRange, startRange, threeDS2Versions, threeDSMethodURL);
+        acsInfoInd,
+        isSetAcsInfoInd,
+        brandCode,
+        isSetBrandCode,
+        endRange,
+        isSetEndRange,
+        startRange,
+        isSetStartRange,
+        threeDS2Versions,
+        isSetThreeDS2Versions,
+        threeDSMethodURL,
+        isSetThreeDSMethodURL);
   }
 
   @Override
@@ -327,6 +403,45 @@ public class ThreeDS2CardRangeDetail {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcsInfoInd) {
+      addIfNull(nulls, JSON_PROPERTY_ACS_INFO_IND, this.acsInfoInd);
+    }
+    if (isSetBrandCode) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND_CODE, this.brandCode);
+    }
+    if (isSetEndRange) {
+      addIfNull(nulls, JSON_PROPERTY_END_RANGE, this.endRange);
+    }
+    if (isSetStartRange) {
+      addIfNull(nulls, JSON_PROPERTY_START_RANGE, this.startRange);
+    }
+    if (isSetThreeDS2Versions) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_VERSIONS, this.threeDS2Versions);
+    }
+    if (isSetThreeDSMethodURL) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_METHOD_U_R_L, this.threeDSMethodURL);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

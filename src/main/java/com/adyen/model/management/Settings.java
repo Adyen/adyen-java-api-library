@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Settings {
   public static final String JSON_PROPERTY_BAND = "band";
   private String band;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBand = false;
+
   public static final String JSON_PROPERTY_ROAMING = "roaming";
   private Boolean roaming;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoaming = false;
+
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
   private Integer timeout;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeout = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Settings() {}
 
@@ -45,6 +62,7 @@ public class Settings {
    */
   public Settings band(String band) {
     this.band = band;
+    isSetBand = true; // mark as set
     return this;
   }
 
@@ -72,6 +90,7 @@ public class Settings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBand(String band) {
     this.band = band;
+    isSetBand = true; // mark as set
   }
 
   /**
@@ -82,6 +101,7 @@ public class Settings {
    */
   public Settings roaming(Boolean roaming) {
     this.roaming = roaming;
+    isSetRoaming = true; // mark as set
     return this;
   }
 
@@ -105,6 +125,7 @@ public class Settings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoaming(Boolean roaming) {
     this.roaming = roaming;
+    isSetRoaming = true; // mark as set
   }
 
   /**
@@ -115,6 +136,7 @@ public class Settings {
    */
   public Settings timeout(Integer timeout) {
     this.timeout = timeout;
+    isSetTimeout = true; // mark as set
     return this;
   }
 
@@ -138,6 +160,27 @@ public class Settings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeout(Integer timeout) {
     this.timeout = timeout;
+    isSetTimeout = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Settings includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Settings object is equal to o. */
@@ -151,13 +194,16 @@ public class Settings {
     }
     Settings settings = (Settings) o;
     return Objects.equals(this.band, settings.band)
+        && Objects.equals(this.isSetBand, settings.isSetBand)
         && Objects.equals(this.roaming, settings.roaming)
-        && Objects.equals(this.timeout, settings.timeout);
+        && Objects.equals(this.isSetRoaming, settings.isSetRoaming)
+        && Objects.equals(this.timeout, settings.timeout)
+        && Objects.equals(this.isSetTimeout, settings.isSetTimeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(band, roaming, timeout);
+    return Objects.hash(band, isSetBand, roaming, isSetRoaming, timeout, isSetTimeout);
   }
 
   @Override
@@ -179,6 +225,36 @@ public class Settings {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBand) {
+      addIfNull(nulls, JSON_PROPERTY_BAND, this.band);
+    }
+    if (isSetRoaming) {
+      addIfNull(nulls, JSON_PROPERTY_ROAMING, this.roaming);
+    }
+    if (isSetTimeout) {
+      addIfNull(nulls, JSON_PROPERTY_TIMEOUT, this.timeout);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
