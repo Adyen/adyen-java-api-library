@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,29 +35,62 @@ public class BankAccount {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountNumber = false;
+
   public static final String JSON_PROPERTY_BANK_CITY = "bankCity";
   private String bankCity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankCity = false;
 
   public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
   private String bankLocationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankLocationId = false;
+
   public static final String JSON_PROPERTY_BANK_NAME = "bankName";
   private String bankName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankName = false;
 
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBic = false;
+
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
   private String countryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
+
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwnerName = false;
+
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BankAccount() {}
 
@@ -67,6 +102,7 @@ public class BankAccount {
    */
   public BankAccount bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
     return this;
   }
 
@@ -90,6 +126,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
   }
 
   /**
@@ -100,6 +137,7 @@ public class BankAccount {
    */
   public BankAccount bankCity(String bankCity) {
     this.bankCity = bankCity;
+    isSetBankCity = true; // mark as set
     return this;
   }
 
@@ -123,6 +161,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCity(String bankCity) {
     this.bankCity = bankCity;
+    isSetBankCity = true; // mark as set
   }
 
   /**
@@ -134,6 +173,7 @@ public class BankAccount {
    */
   public BankAccount bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
     return this;
   }
 
@@ -159,6 +199,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
+    isSetBankLocationId = true; // mark as set
   }
 
   /**
@@ -169,6 +210,7 @@ public class BankAccount {
    */
   public BankAccount bankName(String bankName) {
     this.bankName = bankName;
+    isSetBankName = true; // mark as set
     return this;
   }
 
@@ -192,6 +234,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
     this.bankName = bankName;
+    isSetBankName = true; // mark as set
   }
 
   /**
@@ -204,6 +247,7 @@ public class BankAccount {
    */
   public BankAccount bic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
     return this;
   }
 
@@ -231,6 +275,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
+    isSetBic = true; // mark as set
   }
 
   /**
@@ -243,6 +288,7 @@ public class BankAccount {
    */
   public BankAccount countryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
     return this;
   }
 
@@ -270,6 +316,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -282,6 +329,7 @@ public class BankAccount {
    */
   public BankAccount iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -309,6 +357,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -335,6 +384,7 @@ public class BankAccount {
    */
   public BankAccount ownerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
     return this;
   }
 
@@ -390,6 +440,7 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
+    isSetOwnerName = true; // mark as set
   }
 
   /**
@@ -400,6 +451,7 @@ public class BankAccount {
    */
   public BankAccount taxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
     return this;
   }
 
@@ -423,6 +475,27 @@ public class BankAccount {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BankAccount includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BankAccount object is equal to o. */
@@ -436,28 +509,46 @@ public class BankAccount {
     }
     BankAccount bankAccount = (BankAccount) o;
     return Objects.equals(this.bankAccountNumber, bankAccount.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, bankAccount.isSetBankAccountNumber)
         && Objects.equals(this.bankCity, bankAccount.bankCity)
+        && Objects.equals(this.isSetBankCity, bankAccount.isSetBankCity)
         && Objects.equals(this.bankLocationId, bankAccount.bankLocationId)
+        && Objects.equals(this.isSetBankLocationId, bankAccount.isSetBankLocationId)
         && Objects.equals(this.bankName, bankAccount.bankName)
+        && Objects.equals(this.isSetBankName, bankAccount.isSetBankName)
         && Objects.equals(this.bic, bankAccount.bic)
+        && Objects.equals(this.isSetBic, bankAccount.isSetBic)
         && Objects.equals(this.countryCode, bankAccount.countryCode)
+        && Objects.equals(this.isSetCountryCode, bankAccount.isSetCountryCode)
         && Objects.equals(this.iban, bankAccount.iban)
+        && Objects.equals(this.isSetIban, bankAccount.isSetIban)
         && Objects.equals(this.ownerName, bankAccount.ownerName)
-        && Objects.equals(this.taxId, bankAccount.taxId);
+        && Objects.equals(this.isSetOwnerName, bankAccount.isSetOwnerName)
+        && Objects.equals(this.taxId, bankAccount.taxId)
+        && Objects.equals(this.isSetTaxId, bankAccount.isSetTaxId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         bankAccountNumber,
+        isSetBankAccountNumber,
         bankCity,
+        isSetBankCity,
         bankLocationId,
+        isSetBankLocationId,
         bankName,
+        isSetBankName,
         bic,
+        isSetBic,
         countryCode,
+        isSetCountryCode,
         iban,
+        isSetIban,
         ownerName,
-        taxId);
+        isSetOwnerName,
+        taxId,
+        isSetTaxId);
   }
 
   @Override
@@ -485,6 +576,54 @@ public class BankAccount {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBankAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
+    }
+    if (isSetBankCity) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_CITY, this.bankCity);
+    }
+    if (isSetBankLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_LOCATION_ID, this.bankLocationId);
+    }
+    if (isSetBankName) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_NAME, this.bankName);
+    }
+    if (isSetBic) {
+      addIfNull(nulls, JSON_PROPERTY_BIC, this.bic);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetOwnerName) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
+    }
+    if (isSetTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
