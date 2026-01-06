@@ -1,6 +1,7 @@
 name: Java Code Format
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'sdk-automation/*'
