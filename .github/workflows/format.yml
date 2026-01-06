@@ -3,7 +3,7 @@ name: Java Code Format
 on:
   push:
     branches:
-      - 'sdk-automation/models'
+      - 'sdk-automation/*'
 
 permissions:
   contents: write
