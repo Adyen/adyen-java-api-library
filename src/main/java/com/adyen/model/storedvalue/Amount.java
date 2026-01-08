@@ -44,10 +44,12 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount currency(String currency) {
@@ -58,10 +60,12 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @return currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,10 +75,12 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,11 +90,11 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
-   * units](https://docs.adyen.com/development-resources/currency-codes).
+   * The numeric value of the amount, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount of the transaction, in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @param value The numeric value of the amount, in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount value(Long value) {
@@ -98,11 +104,11 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
-   * units](https://docs.adyen.com/development-resources/currency-codes).
+   * The numeric value of the amount, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @return value The amount of the transaction, in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @return value The numeric value of the amount, in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,11 +117,11 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
-   * units](https://docs.adyen.com/development-resources/currency-codes).
+   * The numeric value of the amount, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount of the transaction, in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @param value The numeric value of the amount, in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
