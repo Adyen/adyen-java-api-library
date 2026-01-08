@@ -16,85 +16,112 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import java.util.*;
 import java.util.logging.Logger;
-import com.adyen.model.management.AndroidCertificate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * AndroidCertificatesResponse
+ * ForceRebootDetails
  */
 @JsonPropertyOrder({
-  AndroidCertificatesResponse.JSON_PROPERTY_DATA
+  ForceRebootDetails.JSON_PROPERTY_TYPE
 })
 
-public class AndroidCertificatesResponse {
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<AndroidCertificate> data;
+public class ForceRebootDetails {
+  /**
+   * Type of terminal action: Force Reboot.
+   */
+  public enum TypeEnum {
+
+    FORCEREBOOT(String.valueOf("ForceReboot"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
+    private String value;
+
+    TypeEnum(String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning("TypeEnum: unexpected enum value '" + value + "' - Supported values are "+ Arrays.toString(TypeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetData = false;
+  private boolean isSetType = false;
 
    
   /** Sets whether attributes with null values should be explicitly included in the JSON payload. Default is false. */
   @JsonIgnore
   private boolean includeNullValues = false;
 
-  public AndroidCertificatesResponse() { 
+  public ForceRebootDetails() { 
   }
 
   /**
-   * Uploaded Android certificates for Android payment terminals.
+   * Type of terminal action: Force Reboot.
    *
-   * @param data Uploaded Android certificates for Android payment terminals.
-   * @return the current {@code AndroidCertificatesResponse} instance, allowing for method chaining
+   * @param type Type of terminal action: Force Reboot.
+   * @return the current {@code ForceRebootDetails} instance, allowing for method chaining
    */
-  public AndroidCertificatesResponse data(List<AndroidCertificate> data) {
-    this.data = data;
-    isSetData = true; // mark as set
-    return this;
-  }
-
-  public AndroidCertificatesResponse addDataItem(AndroidCertificate dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
+  public ForceRebootDetails type(TypeEnum type) {
+    this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * Uploaded Android certificates for Android payment terminals.
-   * @return data Uploaded Android certificates for Android payment terminals.
+   * Type of terminal action: Force Reboot.
+   * @return type Type of terminal action: Force Reboot.
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AndroidCertificate> getData() {
-    return data;
+  public TypeEnum getType() {
+    return type;
   }
 
   /**
-   * Uploaded Android certificates for Android payment terminals.
+   * Type of terminal action: Force Reboot.
    *
-   * @param data Uploaded Android certificates for Android payment terminals.
+   * @param type Type of terminal action: Force Reboot.
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(List<AndroidCertificate> data) {
-    this.data = data;
-    isSetData = true; // mark as set
+  public void setType(TypeEnum type) {
+    this.type = type;
+    isSetType = true; // mark as set
   }
   
 
   /** Configures whether null values are explicitly serialized in the JSON payload. Default is false. */
-  public AndroidCertificatesResponse includeNullValues(boolean includeNullValues) {
+  public ForceRebootDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -111,7 +138,7 @@ public class AndroidCertificatesResponse {
 
 
   /**
-   * Return true if this AndroidCertificatesResponse object is equal to o.
+   * Return true if this ForceRebootDetails object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -121,22 +148,22 @@ public class AndroidCertificatesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AndroidCertificatesResponse androidCertificatesResponse = (AndroidCertificatesResponse) o;
-    return Objects.equals(this.data, androidCertificatesResponse.data) &&
-        Objects.equals(this.isSetData, androidCertificatesResponse.isSetData)
+    ForceRebootDetails forceRebootDetails = (ForceRebootDetails) o;
+    return Objects.equals(this.type, forceRebootDetails.type) &&
+        Objects.equals(this.isSetType, forceRebootDetails.isSetType)
     ;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, isSetData);
+    return Objects.hash(type, isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AndroidCertificatesResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ForceRebootDetails {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -163,8 +190,8 @@ public class AndroidCertificatesResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetData) {
-      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
     }
 
     return nulls;
@@ -178,17 +205,17 @@ public class AndroidCertificatesResponse {
   }
 
 /**
-   * Create an instance of AndroidCertificatesResponse given an JSON string
+   * Create an instance of ForceRebootDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AndroidCertificatesResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AndroidCertificatesResponse
+   * @return An instance of ForceRebootDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to ForceRebootDetails
    */
-  public static AndroidCertificatesResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, AndroidCertificatesResponse.class);
+  public static ForceRebootDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, ForceRebootDetails.class);
   }
 /**
-  * Convert an instance of AndroidCertificatesResponse to an JSON string
+  * Convert an instance of ForceRebootDetails to an JSON string
   *
   * @return JSON string
   */
