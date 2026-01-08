@@ -889,7 +889,7 @@ public class CheckoutTest extends BaseTest {
 
     CheckoutForwardResponse response = recurringApi.forward(checkoutForwardRequest);
 
-	  assertNull(response.getStoredPaymentMethodId());  // card is not tokenized
+    assertNull(response.getStoredPaymentMethodId()); // card is not tokenized
     assertNotNull(response.getResponse());
     assertEquals(200, (int) response.getResponse().getStatus());
     assertTrue(response.getResponse().getBody().contains("PAYMENT_METHOD_ID"));
