@@ -23,6 +23,7 @@ import java.util.*;
 @JsonPropertyOrder({
   CheckoutForwardRequest.JSON_PROPERTY_BASE_URL,
   CheckoutForwardRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CheckoutForwardRequest.JSON_PROPERTY_MERCHANT_REFERENCE,
   CheckoutForwardRequest.JSON_PROPERTY_OPTIONS,
   CheckoutForwardRequest.JSON_PROPERTY_PAYMENT_METHOD,
   CheckoutForwardRequest.JSON_PROPERTY_REQUEST,
@@ -41,6 +42,12 @@ public class CheckoutForwardRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantAccount = false;
+
+  public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  private String merchantReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
   private CheckoutForwardRequestOptions options;
@@ -154,6 +161,41 @@ public class CheckoutForwardRequest {
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     isSetMerchantAccount = true; // mark as set
+  }
+
+  /**
+   * Merchant defined payment reference.
+   *
+   * @param merchantReference Merchant defined payment reference.
+   * @return the current {@code CheckoutForwardRequest} instance, allowing for method chaining
+   */
+  public CheckoutForwardRequest merchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Merchant defined payment reference.
+   *
+   * @return merchantReference Merchant defined payment reference.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantReference() {
+    return merchantReference;
+  }
+
+  /**
+   * Merchant defined payment reference.
+   *
+   * @param merchantReference Merchant defined payment reference.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
   }
 
   /**
@@ -389,6 +431,9 @@ public class CheckoutForwardRequest {
         && Objects.equals(this.isSetBaseUrl, checkoutForwardRequest.isSetBaseUrl)
         && Objects.equals(this.merchantAccount, checkoutForwardRequest.merchantAccount)
         && Objects.equals(this.isSetMerchantAccount, checkoutForwardRequest.isSetMerchantAccount)
+        && Objects.equals(this.merchantReference, checkoutForwardRequest.merchantReference)
+        && Objects.equals(
+            this.isSetMerchantReference, checkoutForwardRequest.isSetMerchantReference)
         && Objects.equals(this.options, checkoutForwardRequest.options)
         && Objects.equals(this.isSetOptions, checkoutForwardRequest.isSetOptions)
         && Objects.equals(this.paymentMethod, checkoutForwardRequest.paymentMethod)
@@ -409,6 +454,8 @@ public class CheckoutForwardRequest {
         isSetBaseUrl,
         merchantAccount,
         isSetMerchantAccount,
+        merchantReference,
+        isSetMerchantReference,
         options,
         isSetOptions,
         paymentMethod,
@@ -427,6 +474,7 @@ public class CheckoutForwardRequest {
     sb.append("class CheckoutForwardRequest {\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
@@ -463,6 +511,9 @@ public class CheckoutForwardRequest {
     }
     if (isSetMerchantAccount) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
     }
     if (isSetOptions) {
       addIfNull(nulls, JSON_PROPERTY_OPTIONS, this.options);

@@ -59,6 +59,30 @@ public class StoredPaymentMethodDetails {
 
   /** The payment method type. */
   public enum TypeEnum {
+    ALIPAY_PLUS(String.valueOf("alipay_plus")),
+
+    ALIPAY_PLUS_ALIPAY_CN(String.valueOf("alipay_plus_alipay_cn")),
+
+    ALIPAY_PLUS_ALIPAY_HK(String.valueOf("alipay_plus_alipay_hk")),
+
+    ALIPAY_PLUS_DANA(String.valueOf("alipay_plus_dana")),
+
+    ALIPAY_PLUS_GCASH(String.valueOf("alipay_plus_gcash")),
+
+    ALIPAY_PLUS_KAKAOPAY(String.valueOf("alipay_plus_kakaopay")),
+
+    ALIPAY_PLUS_KPLUS(String.valueOf("alipay_plus_kplus")),
+
+    ALIPAY_PLUS_NAVERPAY(String.valueOf("alipay_plus_naverpay")),
+
+    ALIPAY_PLUS_RABBITLINEPAY(String.valueOf("alipay_plus_rabbitlinepay")),
+
+    ALIPAY_PLUS_TOSSPAY(String.valueOf("alipay_plus_tosspay")),
+
+    ALIPAY_PLUS_TOUCHNGO(String.valueOf("alipay_plus_touchngo")),
+
+    ALIPAY_PLUS_TRUEMONEY(String.valueOf("alipay_plus_truemoney")),
+
     BCMC_MOBILE(String.valueOf("bcmc_mobile")),
 
     BCMC_MOBILE_QR(String.valueOf("bcmc_mobile_QR")),
