@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +32,9 @@ import java.util.logging.Logger;
 public class ThreeDSRequestorAuthenticationInfo {
   public static final String JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA = "threeDSReqAuthData";
   private String threeDSReqAuthData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSReqAuthData = false;
 
   /**
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01**
@@ -92,8 +97,20 @@ public class ThreeDSRequestorAuthenticationInfo {
   public static final String JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD = "threeDSReqAuthMethod";
   private ThreeDSReqAuthMethodEnum threeDSReqAuthMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSReqAuthMethod = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP = "threeDSReqAuthTimestamp";
   private String threeDSReqAuthTimestamp;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSReqAuthTimestamp = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDSRequestorAuthenticationInfo() {}
 
@@ -107,6 +124,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    */
   public ThreeDSRequestorAuthenticationInfo threeDSReqAuthData(String threeDSReqAuthData) {
     this.threeDSReqAuthData = threeDSReqAuthData;
+    isSetThreeDSReqAuthData = true; // mark as set
     return this;
   }
 
@@ -132,6 +150,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthData(String threeDSReqAuthData) {
     this.threeDSReqAuthData = threeDSReqAuthData;
+    isSetThreeDSReqAuthData = true; // mark as set
   }
 
   /**
@@ -159,6 +178,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   public ThreeDSRequestorAuthenticationInfo threeDSReqAuthMethod(
       ThreeDSReqAuthMethodEnum threeDSReqAuthMethod) {
     this.threeDSReqAuthMethod = threeDSReqAuthMethod;
+    isSetThreeDSReqAuthMethod = true; // mark as set
     return this;
   }
 
@@ -212,6 +232,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthMethod(ThreeDSReqAuthMethodEnum threeDSReqAuthMethod) {
     this.threeDSReqAuthMethod = threeDSReqAuthMethod;
+    isSetThreeDSReqAuthMethod = true; // mark as set
   }
 
   /**
@@ -225,6 +246,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   public ThreeDSRequestorAuthenticationInfo threeDSReqAuthTimestamp(
       String threeDSReqAuthTimestamp) {
     this.threeDSReqAuthTimestamp = threeDSReqAuthTimestamp;
+    isSetThreeDSReqAuthTimestamp = true; // mark as set
     return this;
   }
 
@@ -250,6 +272,27 @@ public class ThreeDSRequestorAuthenticationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthTimestamp(String threeDSReqAuthTimestamp) {
     this.threeDSReqAuthTimestamp = threeDSReqAuthTimestamp;
+    isSetThreeDSReqAuthTimestamp = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDSRequestorAuthenticationInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDSRequestorAuthenticationInfo object is equal to o. */
@@ -266,15 +309,30 @@ public class ThreeDSRequestorAuthenticationInfo {
     return Objects.equals(
             this.threeDSReqAuthData, threeDSRequestorAuthenticationInfo.threeDSReqAuthData)
         && Objects.equals(
+            this.isSetThreeDSReqAuthData,
+            threeDSRequestorAuthenticationInfo.isSetThreeDSReqAuthData)
+        && Objects.equals(
             this.threeDSReqAuthMethod, threeDSRequestorAuthenticationInfo.threeDSReqAuthMethod)
         && Objects.equals(
+            this.isSetThreeDSReqAuthMethod,
+            threeDSRequestorAuthenticationInfo.isSetThreeDSReqAuthMethod)
+        && Objects.equals(
             this.threeDSReqAuthTimestamp,
-            threeDSRequestorAuthenticationInfo.threeDSReqAuthTimestamp);
+            threeDSRequestorAuthenticationInfo.threeDSReqAuthTimestamp)
+        && Objects.equals(
+            this.isSetThreeDSReqAuthTimestamp,
+            threeDSRequestorAuthenticationInfo.isSetThreeDSReqAuthTimestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(threeDSReqAuthData, threeDSReqAuthMethod, threeDSReqAuthTimestamp);
+    return Objects.hash(
+        threeDSReqAuthData,
+        isSetThreeDSReqAuthData,
+        threeDSReqAuthMethod,
+        isSetThreeDSReqAuthMethod,
+        threeDSReqAuthTimestamp,
+        isSetThreeDSReqAuthTimestamp);
   }
 
   @Override
@@ -300,6 +358,36 @@ public class ThreeDSRequestorAuthenticationInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetThreeDSReqAuthData) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA, this.threeDSReqAuthData);
+    }
+    if (isSetThreeDSReqAuthMethod) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD, this.threeDSReqAuthMethod);
+    }
+    if (isSetThreeDSReqAuthTimestamp) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP, this.threeDSReqAuthTimestamp);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
