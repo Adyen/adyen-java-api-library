@@ -24,6 +24,7 @@ import java.util.List;
 /** StoredPaymentMethodResource */
 @JsonPropertyOrder({
   StoredPaymentMethodResource.JSON_PROPERTY_BRAND,
+  StoredPaymentMethodResource.JSON_PROPERTY_CARD_BIN,
   StoredPaymentMethodResource.JSON_PROPERTY_EXPIRY_MONTH,
   StoredPaymentMethodResource.JSON_PROPERTY_EXPIRY_YEAR,
   StoredPaymentMethodResource.JSON_PROPERTY_EXTERNAL_RESPONSE_CODE,
@@ -48,6 +49,12 @@ public class StoredPaymentMethodResource {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBrand = false;
+
+  public static final String JSON_PROPERTY_CARD_BIN = "cardBin";
+  private String cardBin;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardBin = false;
 
   public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
@@ -193,6 +200,41 @@ public class StoredPaymentMethodResource {
   public void setBrand(String brand) {
     this.brand = brand;
     isSetBrand = true; // mark as set
+  }
+
+  /**
+   * The bank identification number (BIN) of the card.
+   *
+   * @param cardBin The bank identification number (BIN) of the card.
+   * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
+   */
+  public StoredPaymentMethodResource cardBin(String cardBin) {
+    this.cardBin = cardBin;
+    isSetCardBin = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The bank identification number (BIN) of the card.
+   *
+   * @return cardBin The bank identification number (BIN) of the card.
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCardBin() {
+    return cardBin;
+  }
+
+  /**
+   * The bank identification number (BIN) of the card.
+   *
+   * @param cardBin The bank identification number (BIN) of the card.
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_BIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardBin(String cardBin) {
+    this.cardBin = cardBin;
+    isSetCardBin = true; // mark as set
   }
 
   /**
@@ -917,6 +959,8 @@ public class StoredPaymentMethodResource {
     StoredPaymentMethodResource storedPaymentMethodResource = (StoredPaymentMethodResource) o;
     return Objects.equals(this.brand, storedPaymentMethodResource.brand)
         && Objects.equals(this.isSetBrand, storedPaymentMethodResource.isSetBrand)
+        && Objects.equals(this.cardBin, storedPaymentMethodResource.cardBin)
+        && Objects.equals(this.isSetCardBin, storedPaymentMethodResource.isSetCardBin)
         && Objects.equals(this.expiryMonth, storedPaymentMethodResource.expiryMonth)
         && Objects.equals(this.isSetExpiryMonth, storedPaymentMethodResource.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, storedPaymentMethodResource.expiryYear)
@@ -969,6 +1013,8 @@ public class StoredPaymentMethodResource {
     return Objects.hash(
         brand,
         isSetBrand,
+        cardBin,
+        isSetCardBin,
         expiryMonth,
         isSetExpiryMonth,
         expiryYear,
@@ -1010,6 +1056,7 @@ public class StoredPaymentMethodResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoredPaymentMethodResource {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+    sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
     sb.append("    externalResponseCode: ")
@@ -1059,6 +1106,9 @@ public class StoredPaymentMethodResource {
 
     if (isSetBrand) {
       addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetCardBin) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_BIN, this.cardBin);
     }
     if (isSetExpiryMonth) {
       addIfNull(nulls, JSON_PROPERTY_EXPIRY_MONTH, this.expiryMonth);
