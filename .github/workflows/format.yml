@@ -1,12 +1,7 @@
-# Deprecated
-
 name: Format and Commit Java Code
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'sdk-automation/*'
 
 permissions:
   contents: write
