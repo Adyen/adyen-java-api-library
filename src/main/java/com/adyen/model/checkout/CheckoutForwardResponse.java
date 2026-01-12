@@ -21,11 +21,18 @@ import java.util.*;
 
 /** CheckoutForwardResponse */
 @JsonPropertyOrder({
+  CheckoutForwardResponse.JSON_PROPERTY_MERCHANT_REFERENCE,
   CheckoutForwardResponse.JSON_PROPERTY_PSP_REFERENCE,
   CheckoutForwardResponse.JSON_PROPERTY_RESPONSE,
   CheckoutForwardResponse.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
 })
 public class CheckoutForwardResponse {
+  public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  private String merchantReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
@@ -51,6 +58,41 @@ public class CheckoutForwardResponse {
   @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutForwardResponse() {}
+
+  /**
+   * Merchant defined payment reference.
+   *
+   * @param merchantReference Merchant defined payment reference.
+   * @return the current {@code CheckoutForwardResponse} instance, allowing for method chaining
+   */
+  public CheckoutForwardResponse merchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Merchant defined payment reference.
+   *
+   * @return merchantReference Merchant defined payment reference.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantReference() {
+    return merchantReference;
+  }
+
+  /**
+   * Merchant defined payment reference.
+   *
+   * @param merchantReference Merchant defined payment reference.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
+  }
 
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is
@@ -196,7 +238,10 @@ public class CheckoutForwardResponse {
       return false;
     }
     CheckoutForwardResponse checkoutForwardResponse = (CheckoutForwardResponse) o;
-    return Objects.equals(this.pspReference, checkoutForwardResponse.pspReference)
+    return Objects.equals(this.merchantReference, checkoutForwardResponse.merchantReference)
+        && Objects.equals(
+            this.isSetMerchantReference, checkoutForwardResponse.isSetMerchantReference)
+        && Objects.equals(this.pspReference, checkoutForwardResponse.pspReference)
         && Objects.equals(this.isSetPspReference, checkoutForwardResponse.isSetPspReference)
         && Objects.equals(this.response, checkoutForwardResponse.response)
         && Objects.equals(this.isSetResponse, checkoutForwardResponse.isSetResponse)
@@ -208,6 +253,8 @@ public class CheckoutForwardResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        merchantReference,
+        isSetMerchantReference,
         pspReference,
         isSetPspReference,
         response,
@@ -220,6 +267,7 @@ public class CheckoutForwardResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckoutForwardResponse {\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    storedPaymentMethodId: ")
@@ -249,6 +297,9 @@ public class CheckoutForwardResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
     if (isSetPspReference) {
       addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
     }
