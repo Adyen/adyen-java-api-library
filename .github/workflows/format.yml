@@ -1,4 +1,6 @@
-name: Java Code Format
+# Deprecated
+
+name: Format and Commit Java Code
 
 on:
   workflow_dispatch:
@@ -19,22 +21,10 @@ jobs:
         with:
           token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
 
-      - name: Set up JDK
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165
+      - name: Format Java Code
+        uses: ./.github/actions/format
         with:
-          java-version: '20'
-          distribution: 'adopt'
-
-      - name: Cache Maven packages
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2-
-
-      - name: Run Spotless Apply
-        run: mvn spotless:apply
+          path: .
 
       - name: Commit and Push Changes
         env:
