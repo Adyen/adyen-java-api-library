@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -77,11 +79,26 @@ public class PlatformChargebackLogic {
   public static final String JSON_PROPERTY_BEHAVIOR = "behavior";
   private BehaviorEnum behavior;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBehavior = false;
+
   public static final String JSON_PROPERTY_COST_ALLOCATION_ACCOUNT = "costAllocationAccount";
   private String costAllocationAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCostAllocationAccount = false;
+
   public static final String JSON_PROPERTY_TARGET_ACCOUNT = "targetAccount";
   private String targetAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTargetAccount = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PlatformChargebackLogic() {}
 
@@ -96,6 +113,7 @@ public class PlatformChargebackLogic {
    */
   public PlatformChargebackLogic behavior(BehaviorEnum behavior) {
     this.behavior = behavior;
+    isSetBehavior = true; // mark as set
     return this;
   }
 
@@ -125,6 +143,7 @@ public class PlatformChargebackLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBehavior(BehaviorEnum behavior) {
     this.behavior = behavior;
+    isSetBehavior = true; // mark as set
   }
 
   /**
@@ -138,6 +157,7 @@ public class PlatformChargebackLogic {
    */
   public PlatformChargebackLogic costAllocationAccount(String costAllocationAccount) {
     this.costAllocationAccount = costAllocationAccount;
+    isSetCostAllocationAccount = true; // mark as set
     return this;
   }
 
@@ -167,6 +187,7 @@ public class PlatformChargebackLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostAllocationAccount(String costAllocationAccount) {
     this.costAllocationAccount = costAllocationAccount;
+    isSetCostAllocationAccount = true; // mark as set
   }
 
   /**
@@ -179,6 +200,7 @@ public class PlatformChargebackLogic {
    */
   public PlatformChargebackLogic targetAccount(String targetAccount) {
     this.targetAccount = targetAccount;
+    isSetTargetAccount = true; // mark as set
     return this;
   }
 
@@ -206,6 +228,27 @@ public class PlatformChargebackLogic {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAccount(String targetAccount) {
     this.targetAccount = targetAccount;
+    isSetTargetAccount = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PlatformChargebackLogic includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PlatformChargebackLogic object is equal to o. */
@@ -219,13 +262,23 @@ public class PlatformChargebackLogic {
     }
     PlatformChargebackLogic platformChargebackLogic = (PlatformChargebackLogic) o;
     return Objects.equals(this.behavior, platformChargebackLogic.behavior)
+        && Objects.equals(this.isSetBehavior, platformChargebackLogic.isSetBehavior)
         && Objects.equals(this.costAllocationAccount, platformChargebackLogic.costAllocationAccount)
-        && Objects.equals(this.targetAccount, platformChargebackLogic.targetAccount);
+        && Objects.equals(
+            this.isSetCostAllocationAccount, platformChargebackLogic.isSetCostAllocationAccount)
+        && Objects.equals(this.targetAccount, platformChargebackLogic.targetAccount)
+        && Objects.equals(this.isSetTargetAccount, platformChargebackLogic.isSetTargetAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(behavior, costAllocationAccount, targetAccount);
+    return Objects.hash(
+        behavior,
+        isSetBehavior,
+        costAllocationAccount,
+        isSetCostAllocationAccount,
+        targetAccount,
+        isSetTargetAccount);
   }
 
   @Override
@@ -249,6 +302,36 @@ public class PlatformChargebackLogic {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBehavior) {
+      addIfNull(nulls, JSON_PROPERTY_BEHAVIOR, this.behavior);
+    }
+    if (isSetCostAllocationAccount) {
+      addIfNull(nulls, JSON_PROPERTY_COST_ALLOCATION_ACCOUNT, this.costAllocationAccount);
+    }
+    if (isSetTargetAccount) {
+      addIfNull(nulls, JSON_PROPERTY_TARGET_ACCOUNT, this.targetAccount);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

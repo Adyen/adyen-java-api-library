@@ -43,9 +43,10 @@ public class Support {
   public Support() {}
 
   /**
-   * The support email address of the legal entity.
+   * The support email address of the legal entity. Required if you have a platform setup.
    *
-   * @param email The support email address of the legal entity.
+   * @param email The support email address of the legal entity. Required if you have a platform
+   *     setup.
    * @return the current {@code Support} instance, allowing for method chaining
    */
   public Support email(String email) {
@@ -55,9 +56,10 @@ public class Support {
   }
 
   /**
-   * The support email address of the legal entity.
+   * The support email address of the legal entity. Required if you have a platform setup.
    *
-   * @return email The support email address of the legal entity.
+   * @return email The support email address of the legal entity. Required if you have a platform
+   *     setup.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -66,9 +68,10 @@ public class Support {
   }
 
   /**
-   * The support email address of the legal entity.
+   * The support email address of the legal entity. Required if you have a platform setup.
    *
-   * @param email The support email address of the legal entity.
+   * @param email The support email address of the legal entity. Required if you have a platform
+   *     setup.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,55 +48,97 @@ public class ResponseAdditionalDataInstallments {
       "installmentPaymentData.installmentType";
   private String installmentPaymentDataInstallmentType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataInstallmentType = false;
+
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE =
           "installmentPaymentData.option[itemNr].annualPercentageRate";
   private String installmentPaymentDataOptionItemNrAnnualPercentageRate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate = false;
 
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT =
           "installmentPaymentData.option[itemNr].firstInstallmentAmount";
   private String installmentPaymentDataOptionItemNrFirstInstallmentAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount = false;
+
   public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE =
       "installmentPaymentData.option[itemNr].installmentFee";
   private String installmentPaymentDataOptionItemNrInstallmentFee;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrInstallmentFee = false;
+
   public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE =
       "installmentPaymentData.option[itemNr].interestRate";
   private String installmentPaymentDataOptionItemNrInterestRate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrInterestRate = false;
 
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS =
           "installmentPaymentData.option[itemNr].maximumNumberOfInstallments";
   private String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments = false;
+
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS =
           "installmentPaymentData.option[itemNr].minimumNumberOfInstallments";
   private String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments = false;
 
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS =
           "installmentPaymentData.option[itemNr].numberOfInstallments";
   private String installmentPaymentDataOptionItemNrNumberOfInstallments;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments = false;
+
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT =
           "installmentPaymentData.option[itemNr].subsequentInstallmentAmount";
   private String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount = false;
 
   public static final String
       JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE =
           "installmentPaymentData.option[itemNr].totalAmountDue";
   private String installmentPaymentDataOptionItemNrTotalAmountDue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataOptionItemNrTotalAmountDue = false;
+
   public static final String JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS =
       "installmentPaymentData.paymentOptions";
   private String installmentPaymentDataPaymentOptions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentPaymentDataPaymentOptions = false;
+
   public static final String JSON_PROPERTY_INSTALLMENTS_VALUE = "installments.value";
   private String installmentsValue;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstallmentsValue = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ResponseAdditionalDataInstallments() {}
 
@@ -109,6 +153,7 @@ public class ResponseAdditionalDataInstallments {
   public ResponseAdditionalDataInstallments installmentPaymentDataInstallmentType(
       String installmentPaymentDataInstallmentType) {
     this.installmentPaymentDataInstallmentType = installmentPaymentDataInstallmentType;
+    isSetInstallmentPaymentDataInstallmentType = true; // mark as set
     return this;
   }
 
@@ -135,6 +180,7 @@ public class ResponseAdditionalDataInstallments {
   public void setInstallmentPaymentDataInstallmentType(
       String installmentPaymentDataInstallmentType) {
     this.installmentPaymentDataInstallmentType = installmentPaymentDataInstallmentType;
+    isSetInstallmentPaymentDataInstallmentType = true; // mark as set
   }
 
   /**
@@ -148,6 +194,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrAnnualPercentageRate) {
     this.installmentPaymentDataOptionItemNrAnnualPercentageRate =
         installmentPaymentDataOptionItemNrAnnualPercentageRate;
+    isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate = true; // mark as set
     return this;
   }
 
@@ -173,6 +220,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrAnnualPercentageRate) {
     this.installmentPaymentDataOptionItemNrAnnualPercentageRate =
         installmentPaymentDataOptionItemNrAnnualPercentageRate;
+    isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate = true; // mark as set
   }
 
   /**
@@ -188,6 +236,7 @@ public class ResponseAdditionalDataInstallments {
           String installmentPaymentDataOptionItemNrFirstInstallmentAmount) {
     this.installmentPaymentDataOptionItemNrFirstInstallmentAmount =
         installmentPaymentDataOptionItemNrFirstInstallmentAmount;
+    isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount = true; // mark as set
     return this;
   }
 
@@ -215,6 +264,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrFirstInstallmentAmount) {
     this.installmentPaymentDataOptionItemNrFirstInstallmentAmount =
         installmentPaymentDataOptionItemNrFirstInstallmentAmount;
+    isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount = true; // mark as set
   }
 
   /**
@@ -228,6 +278,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrInstallmentFee) {
     this.installmentPaymentDataOptionItemNrInstallmentFee =
         installmentPaymentDataOptionItemNrInstallmentFee;
+    isSetInstallmentPaymentDataOptionItemNrInstallmentFee = true; // mark as set
     return this;
   }
 
@@ -253,6 +304,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrInstallmentFee) {
     this.installmentPaymentDataOptionItemNrInstallmentFee =
         installmentPaymentDataOptionItemNrInstallmentFee;
+    isSetInstallmentPaymentDataOptionItemNrInstallmentFee = true; // mark as set
   }
 
   /**
@@ -266,6 +318,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrInterestRate) {
     this.installmentPaymentDataOptionItemNrInterestRate =
         installmentPaymentDataOptionItemNrInterestRate;
+    isSetInstallmentPaymentDataOptionItemNrInterestRate = true; // mark as set
     return this;
   }
 
@@ -292,6 +345,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrInterestRate) {
     this.installmentPaymentDataOptionItemNrInterestRate =
         installmentPaymentDataOptionItemNrInterestRate;
+    isSetInstallmentPaymentDataOptionItemNrInterestRate = true; // mark as set
   }
 
   /**
@@ -307,6 +361,7 @@ public class ResponseAdditionalDataInstallments {
           String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrMaximumNumberOfInstallments =
         installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
+    isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments = true; // mark as set
     return this;
   }
 
@@ -336,6 +391,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrMaximumNumberOfInstallments =
         installmentPaymentDataOptionItemNrMaximumNumberOfInstallments;
+    isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments = true; // mark as set
   }
 
   /**
@@ -351,6 +407,7 @@ public class ResponseAdditionalDataInstallments {
           String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrMinimumNumberOfInstallments =
         installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
+    isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments = true; // mark as set
     return this;
   }
 
@@ -380,6 +437,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrMinimumNumberOfInstallments =
         installmentPaymentDataOptionItemNrMinimumNumberOfInstallments;
+    isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments = true; // mark as set
   }
 
   /**
@@ -394,6 +452,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrNumberOfInstallments =
         installmentPaymentDataOptionItemNrNumberOfInstallments;
+    isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments = true; // mark as set
     return this;
   }
 
@@ -421,6 +480,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrNumberOfInstallments) {
     this.installmentPaymentDataOptionItemNrNumberOfInstallments =
         installmentPaymentDataOptionItemNrNumberOfInstallments;
+    isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments = true; // mark as set
   }
 
   /**
@@ -436,6 +496,7 @@ public class ResponseAdditionalDataInstallments {
           String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
     this.installmentPaymentDataOptionItemNrSubsequentInstallmentAmount =
         installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
+    isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount = true; // mark as set
     return this;
   }
 
@@ -463,6 +524,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
     this.installmentPaymentDataOptionItemNrSubsequentInstallmentAmount =
         installmentPaymentDataOptionItemNrSubsequentInstallmentAmount;
+    isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount = true; // mark as set
   }
 
   /**
@@ -476,6 +538,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrTotalAmountDue) {
     this.installmentPaymentDataOptionItemNrTotalAmountDue =
         installmentPaymentDataOptionItemNrTotalAmountDue;
+    isSetInstallmentPaymentDataOptionItemNrTotalAmountDue = true; // mark as set
     return this;
   }
 
@@ -501,6 +564,7 @@ public class ResponseAdditionalDataInstallments {
       String installmentPaymentDataOptionItemNrTotalAmountDue) {
     this.installmentPaymentDataOptionItemNrTotalAmountDue =
         installmentPaymentDataOptionItemNrTotalAmountDue;
+    isSetInstallmentPaymentDataOptionItemNrTotalAmountDue = true; // mark as set
   }
 
   /**
@@ -514,6 +578,7 @@ public class ResponseAdditionalDataInstallments {
   public ResponseAdditionalDataInstallments installmentPaymentDataPaymentOptions(
       String installmentPaymentDataPaymentOptions) {
     this.installmentPaymentDataPaymentOptions = installmentPaymentDataPaymentOptions;
+    isSetInstallmentPaymentDataPaymentOptions = true; // mark as set
     return this;
   }
 
@@ -539,6 +604,7 @@ public class ResponseAdditionalDataInstallments {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataPaymentOptions(String installmentPaymentDataPaymentOptions) {
     this.installmentPaymentDataPaymentOptions = installmentPaymentDataPaymentOptions;
+    isSetInstallmentPaymentDataPaymentOptions = true; // mark as set
   }
 
   /**
@@ -553,6 +619,7 @@ public class ResponseAdditionalDataInstallments {
    */
   public ResponseAdditionalDataInstallments installmentsValue(String installmentsValue) {
     this.installmentsValue = installmentsValue;
+    isSetInstallmentsValue = true; // mark as set
     return this;
   }
 
@@ -582,6 +649,27 @@ public class ResponseAdditionalDataInstallments {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentsValue(String installmentsValue) {
     this.installmentsValue = installmentsValue;
+    isSetInstallmentsValue = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ResponseAdditionalDataInstallments includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ResponseAdditionalDataInstallments object is equal to o. */
@@ -599,60 +687,115 @@ public class ResponseAdditionalDataInstallments {
             this.installmentPaymentDataInstallmentType,
             responseAdditionalDataInstallments.installmentPaymentDataInstallmentType)
         && Objects.equals(
+            this.isSetInstallmentPaymentDataInstallmentType,
+            responseAdditionalDataInstallments.isSetInstallmentPaymentDataInstallmentType)
+        && Objects.equals(
             this.installmentPaymentDataOptionItemNrAnnualPercentageRate,
             responseAdditionalDataInstallments
                 .installmentPaymentDataOptionItemNrAnnualPercentageRate)
+        && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate)
         && Objects.equals(
             this.installmentPaymentDataOptionItemNrFirstInstallmentAmount,
             responseAdditionalDataInstallments
                 .installmentPaymentDataOptionItemNrFirstInstallmentAmount)
         && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount)
+        && Objects.equals(
             this.installmentPaymentDataOptionItemNrInstallmentFee,
             responseAdditionalDataInstallments.installmentPaymentDataOptionItemNrInstallmentFee)
         && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrInstallmentFee,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrInstallmentFee)
+        && Objects.equals(
             this.installmentPaymentDataOptionItemNrInterestRate,
             responseAdditionalDataInstallments.installmentPaymentDataOptionItemNrInterestRate)
+        && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrInterestRate,
+            responseAdditionalDataInstallments.isSetInstallmentPaymentDataOptionItemNrInterestRate)
         && Objects.equals(
             this.installmentPaymentDataOptionItemNrMaximumNumberOfInstallments,
             responseAdditionalDataInstallments
                 .installmentPaymentDataOptionItemNrMaximumNumberOfInstallments)
         && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments)
+        && Objects.equals(
             this.installmentPaymentDataOptionItemNrMinimumNumberOfInstallments,
             responseAdditionalDataInstallments
                 .installmentPaymentDataOptionItemNrMinimumNumberOfInstallments)
+        && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments)
         && Objects.equals(
             this.installmentPaymentDataOptionItemNrNumberOfInstallments,
             responseAdditionalDataInstallments
                 .installmentPaymentDataOptionItemNrNumberOfInstallments)
         && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments)
+        && Objects.equals(
             this.installmentPaymentDataOptionItemNrSubsequentInstallmentAmount,
             responseAdditionalDataInstallments
                 .installmentPaymentDataOptionItemNrSubsequentInstallmentAmount)
         && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount)
+        && Objects.equals(
             this.installmentPaymentDataOptionItemNrTotalAmountDue,
             responseAdditionalDataInstallments.installmentPaymentDataOptionItemNrTotalAmountDue)
+        && Objects.equals(
+            this.isSetInstallmentPaymentDataOptionItemNrTotalAmountDue,
+            responseAdditionalDataInstallments
+                .isSetInstallmentPaymentDataOptionItemNrTotalAmountDue)
         && Objects.equals(
             this.installmentPaymentDataPaymentOptions,
             responseAdditionalDataInstallments.installmentPaymentDataPaymentOptions)
         && Objects.equals(
-            this.installmentsValue, responseAdditionalDataInstallments.installmentsValue);
+            this.isSetInstallmentPaymentDataPaymentOptions,
+            responseAdditionalDataInstallments.isSetInstallmentPaymentDataPaymentOptions)
+        && Objects.equals(
+            this.installmentsValue, responseAdditionalDataInstallments.installmentsValue)
+        && Objects.equals(
+            this.isSetInstallmentsValue, responseAdditionalDataInstallments.isSetInstallmentsValue);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         installmentPaymentDataInstallmentType,
+        isSetInstallmentPaymentDataInstallmentType,
         installmentPaymentDataOptionItemNrAnnualPercentageRate,
+        isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate,
         installmentPaymentDataOptionItemNrFirstInstallmentAmount,
+        isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount,
         installmentPaymentDataOptionItemNrInstallmentFee,
+        isSetInstallmentPaymentDataOptionItemNrInstallmentFee,
         installmentPaymentDataOptionItemNrInterestRate,
+        isSetInstallmentPaymentDataOptionItemNrInterestRate,
         installmentPaymentDataOptionItemNrMaximumNumberOfInstallments,
+        isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments,
         installmentPaymentDataOptionItemNrMinimumNumberOfInstallments,
+        isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments,
         installmentPaymentDataOptionItemNrNumberOfInstallments,
+        isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments,
         installmentPaymentDataOptionItemNrSubsequentInstallmentAmount,
+        isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount,
         installmentPaymentDataOptionItemNrTotalAmountDue,
+        isSetInstallmentPaymentDataOptionItemNrTotalAmountDue,
         installmentPaymentDataPaymentOptions,
-        installmentsValue);
+        isSetInstallmentPaymentDataPaymentOptions,
+        installmentsValue,
+        isSetInstallmentsValue);
   }
 
   @Override
@@ -705,6 +848,96 @@ public class ResponseAdditionalDataInstallments {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetInstallmentPaymentDataInstallmentType) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE,
+          this.installmentPaymentDataInstallmentType);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrAnnualPercentageRate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE,
+          this.installmentPaymentDataOptionItemNrAnnualPercentageRate);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrFirstInstallmentAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT,
+          this.installmentPaymentDataOptionItemNrFirstInstallmentAmount);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrInstallmentFee) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE,
+          this.installmentPaymentDataOptionItemNrInstallmentFee);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrInterestRate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE,
+          this.installmentPaymentDataOptionItemNrInterestRate);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS,
+          this.installmentPaymentDataOptionItemNrMaximumNumberOfInstallments);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS,
+          this.installmentPaymentDataOptionItemNrMinimumNumberOfInstallments);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrNumberOfInstallments) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS,
+          this.installmentPaymentDataOptionItemNrNumberOfInstallments);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT,
+          this.installmentPaymentDataOptionItemNrSubsequentInstallmentAmount);
+    }
+    if (isSetInstallmentPaymentDataOptionItemNrTotalAmountDue) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE,
+          this.installmentPaymentDataOptionItemNrTotalAmountDue);
+    }
+    if (isSetInstallmentPaymentDataPaymentOptions) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS,
+          this.installmentPaymentDataPaymentOptions);
+    }
+    if (isSetInstallmentsValue) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLMENTS_VALUE, this.installmentsValue);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
