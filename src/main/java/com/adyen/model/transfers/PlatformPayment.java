@@ -66,14 +66,14 @@ public class PlatformPayment {
    * Adyen&#39;s commission and markup. * **AdyenMarkup**: The transaction fee due to Adyen under
    * [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The amount booked
    * to your user after the deduction of the relevant fees. * **Commission**: Your platform&#39;s or
-   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: The Dynamic
-   * Currency Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee
-   * paid to the issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all
-   * transaction fees. * **Remainder**: The leftover amount after currency conversion. *
-   * **SchemeFee**: The scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by
-   * the customer on a transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An
-   * incoming transfer to top up your user&#39;s balance account. * **VAT**: The value-added tax
-   * charged on the payment.
+   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: **deprecated** The
+   * Dynamic Currency Conversion (DCC) fee on a transaction. * **DCCMarkup**: The Dynamic Currency
+   * Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee paid to the
+   * issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all transaction
+   * fees. * **Remainder**: The leftover amount after currency conversion. * **SchemeFee**: The
+   * scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by the customer on a
+   * transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An incoming transfer to top
+   * up your user&#39;s balance account. * **VAT**: The value-added tax charged on the payment.
    */
   public enum PlatformPaymentTypeEnum {
     ACQUIRINGFEES(String.valueOf("AcquiringFees")),
@@ -89,6 +89,8 @@ public class PlatformPayment {
     CHARGEBACKREMAINDER(String.valueOf("ChargebackRemainder")),
 
     COMMISSION(String.valueOf("Commission")),
+
+    DCCMARKUP(String.valueOf("DCCMarkup")),
 
     DCCPLATFORMCOMMISSION(String.valueOf("DCCPlatformCommission")),
 
@@ -332,14 +334,14 @@ public class PlatformPayment {
    * Adyen&#39;s commission and markup. * **AdyenMarkup**: The transaction fee due to Adyen under
    * [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The amount booked
    * to your user after the deduction of the relevant fees. * **Commission**: Your platform&#39;s or
-   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: The Dynamic
-   * Currency Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee
-   * paid to the issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all
-   * transaction fees. * **Remainder**: The leftover amount after currency conversion. *
-   * **SchemeFee**: The scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by
-   * the customer on a transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An
-   * incoming transfer to top up your user&#39;s balance account. * **VAT**: The value-added tax
-   * charged on the payment.
+   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: **deprecated** The
+   * Dynamic Currency Conversion (DCC) fee on a transaction. * **DCCMarkup**: The Dynamic Currency
+   * Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee paid to the
+   * issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all transaction
+   * fees. * **Remainder**: The leftover amount after currency conversion. * **SchemeFee**: The
+   * scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by the customer on a
+   * transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An incoming transfer to top
+   * up your user&#39;s balance account. * **VAT**: The value-added tax charged on the payment.
    *
    * @param platformPaymentType Specifies the nature of the transfer. This parameter helps
    *     categorize transfers so you can reconcile transactions at a later time, using the Balance
@@ -356,7 +358,8 @@ public class PlatformPayment {
    *     under [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The
    *     amount booked to your user after the deduction of the relevant fees. * **Commission**: Your
    *     platform&#39;s or marketplace&#39;s commission on a transaction. *
-   *     **DCCPlatformCommission**: The Dynamic Currency Conversion (DCC) fee on a transaction. *
+   *     **DCCPlatformCommission**: **deprecated** The Dynamic Currency Conversion (DCC) fee on a
+   *     transaction. * **DCCMarkup**: The Dynamic Currency Conversion (DCC) fee on a transaction. *
    *     **Interchange**: The interchange fee (fee paid to the issuer) incurred on a transaction. *
    *     **PaymentFee**: The aggregated amount of all transaction fees. * **Remainder**: The
    *     leftover amount after currency conversion. * **SchemeFee**: The scheme fee incurred on a
@@ -385,14 +388,14 @@ public class PlatformPayment {
    * Adyen&#39;s commission and markup. * **AdyenMarkup**: The transaction fee due to Adyen under
    * [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The amount booked
    * to your user after the deduction of the relevant fees. * **Commission**: Your platform&#39;s or
-   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: The Dynamic
-   * Currency Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee
-   * paid to the issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all
-   * transaction fees. * **Remainder**: The leftover amount after currency conversion. *
-   * **SchemeFee**: The scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by
-   * the customer on a transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An
-   * incoming transfer to top up your user&#39;s balance account. * **VAT**: The value-added tax
-   * charged on the payment.
+   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: **deprecated** The
+   * Dynamic Currency Conversion (DCC) fee on a transaction. * **DCCMarkup**: The Dynamic Currency
+   * Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee paid to the
+   * issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all transaction
+   * fees. * **Remainder**: The leftover amount after currency conversion. * **SchemeFee**: The
+   * scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by the customer on a
+   * transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An incoming transfer to top
+   * up your user&#39;s balance account. * **VAT**: The value-added tax charged on the payment.
    *
    * @return platformPaymentType Specifies the nature of the transfer. This parameter helps
    *     categorize transfers so you can reconcile transactions at a later time, using the Balance
@@ -409,7 +412,8 @@ public class PlatformPayment {
    *     under [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The
    *     amount booked to your user after the deduction of the relevant fees. * **Commission**: Your
    *     platform&#39;s or marketplace&#39;s commission on a transaction. *
-   *     **DCCPlatformCommission**: The Dynamic Currency Conversion (DCC) fee on a transaction. *
+   *     **DCCPlatformCommission**: **deprecated** The Dynamic Currency Conversion (DCC) fee on a
+   *     transaction. * **DCCMarkup**: The Dynamic Currency Conversion (DCC) fee on a transaction. *
    *     **Interchange**: The interchange fee (fee paid to the issuer) incurred on a transaction. *
    *     **PaymentFee**: The aggregated amount of all transaction fees. * **Remainder**: The
    *     leftover amount after currency conversion. * **SchemeFee**: The scheme fee incurred on a
@@ -437,14 +441,14 @@ public class PlatformPayment {
    * Adyen&#39;s commission and markup. * **AdyenMarkup**: The transaction fee due to Adyen under
    * [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The amount booked
    * to your user after the deduction of the relevant fees. * **Commission**: Your platform&#39;s or
-   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: The Dynamic
-   * Currency Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee
-   * paid to the issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all
-   * transaction fees. * **Remainder**: The leftover amount after currency conversion. *
-   * **SchemeFee**: The scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by
-   * the customer on a transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An
-   * incoming transfer to top up your user&#39;s balance account. * **VAT**: The value-added tax
-   * charged on the payment.
+   * marketplace&#39;s commission on a transaction. * **DCCPlatformCommission**: **deprecated** The
+   * Dynamic Currency Conversion (DCC) fee on a transaction. * **DCCMarkup**: The Dynamic Currency
+   * Conversion (DCC) fee on a transaction. * **Interchange**: The interchange fee (fee paid to the
+   * issuer) incurred on a transaction. * **PaymentFee**: The aggregated amount of all transaction
+   * fees. * **Remainder**: The leftover amount after currency conversion. * **SchemeFee**: The
+   * scheme fee incurred on a transaction. * **Surcharge**: The surcharge paid by the customer on a
+   * transaction. * **Tip**: The tip paid by the customer. * **TopUp**: An incoming transfer to top
+   * up your user&#39;s balance account. * **VAT**: The value-added tax charged on the payment.
    *
    * @param platformPaymentType Specifies the nature of the transfer. This parameter helps
    *     categorize transfers so you can reconcile transactions at a later time, using the Balance
@@ -461,7 +465,8 @@ public class PlatformPayment {
    *     under [Interchange++ pricing](https://www.adyen.com/pricing). * **BalanceAccount**: The
    *     amount booked to your user after the deduction of the relevant fees. * **Commission**: Your
    *     platform&#39;s or marketplace&#39;s commission on a transaction. *
-   *     **DCCPlatformCommission**: The Dynamic Currency Conversion (DCC) fee on a transaction. *
+   *     **DCCPlatformCommission**: **deprecated** The Dynamic Currency Conversion (DCC) fee on a
+   *     transaction. * **DCCMarkup**: The Dynamic Currency Conversion (DCC) fee on a transaction. *
    *     **Interchange**: The interchange fee (fee paid to the issuer) incurred on a transaction. *
    *     **PaymentFee**: The aggregated amount of all transaction fees. * **Remainder**: The
    *     leftover amount after currency conversion. * **SchemeFee**: The scheme fee incurred on a
