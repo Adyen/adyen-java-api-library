@@ -28,6 +28,7 @@ import java.util.*;
   BulkAddress.JSON_PROPERTY_LINE2,
   BulkAddress.JSON_PROPERTY_LINE3,
   BulkAddress.JSON_PROPERTY_MOBILE,
+  BulkAddress.JSON_PROPERTY_NAME,
   BulkAddress.JSON_PROPERTY_POSTAL_CODE,
   BulkAddress.JSON_PROPERTY_STATE_OR_PROVINCE,
   BulkAddress.JSON_PROPERTY_STREET
@@ -59,6 +60,9 @@ public class BulkAddress {
 
   public static final String JSON_PROPERTY_MOBILE = "mobile";
   private String mobile;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
@@ -378,6 +382,39 @@ public class BulkAddress {
   }
 
   /**
+   * The recipient’s name (person or contact), for example ‘John Doe’.
+   *
+   * @param name The recipient’s name (person or contact), for example ‘John Doe’.
+   * @return the current {@code BulkAddress} instance, allowing for method chaining
+   */
+  public BulkAddress name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The recipient’s name (person or contact), for example ‘John Doe’.
+   *
+   * @return name The recipient’s name (person or contact), for example ‘John Doe’.
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * The recipient’s name (person or contact), for example ‘John Doe’.
+   *
+   * @param name The recipient’s name (person or contact), for example ‘John Doe’.
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
    * The postal code. Maximum length: * 5 digits for addresses in the US. * 10 characters for all
    * other countries.
    *
@@ -507,6 +544,7 @@ public class BulkAddress {
         && Objects.equals(this.line2, bulkAddress.line2)
         && Objects.equals(this.line3, bulkAddress.line3)
         && Objects.equals(this.mobile, bulkAddress.mobile)
+        && Objects.equals(this.name, bulkAddress.name)
         && Objects.equals(this.postalCode, bulkAddress.postalCode)
         && Objects.equals(this.stateOrProvince, bulkAddress.stateOrProvince)
         && Objects.equals(this.street, bulkAddress.street);
@@ -524,6 +562,7 @@ public class BulkAddress {
         line2,
         line3,
         mobile,
+        name,
         postalCode,
         stateOrProvince,
         street);
@@ -542,6 +581,7 @@ public class BulkAddress {
     sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
     sb.append("    line3: ").append(toIndentedString(line3)).append("\n");
     sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
