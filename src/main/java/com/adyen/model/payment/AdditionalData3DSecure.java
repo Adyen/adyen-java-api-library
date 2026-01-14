@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +35,9 @@ import java.util.logging.Logger;
 public class AdditionalData3DSecure {
   public static final String JSON_PROPERTY_ALLOW3_D_S2 = "allow3DS2";
   private String allow3DS2;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllow3DS2 = false;
 
   /**
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder. Possible values: *
@@ -88,17 +93,38 @@ public class AdditionalData3DSecure {
   public static final String JSON_PROPERTY_CHALLENGE_WINDOW_SIZE = "challengeWindowSize";
   private ChallengeWindowSizeEnum challengeWindowSize;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeWindowSize = false;
+
   public static final String JSON_PROPERTY_EXECUTE_THREE_D = "executeThreeD";
   private String executeThreeD;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExecuteThreeD = false;
 
   public static final String JSON_PROPERTY_MPI_IMPLEMENTATION_TYPE = "mpiImplementationType";
   private String mpiImplementationType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMpiImplementationType = false;
+
   public static final String JSON_PROPERTY_SCA_EXEMPTION = "scaExemption";
   private String scaExemption;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaExemption = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private String threeDSVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalData3DSecure() {}
 
@@ -132,6 +158,7 @@ public class AdditionalData3DSecure {
    */
   public AdditionalData3DSecure allow3DS2(String allow3DS2) {
     this.allow3DS2 = allow3DS2;
+    isSetAllow3DS2 = true; // mark as set
     return this;
   }
 
@@ -199,6 +226,7 @@ public class AdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllow3DS2(String allow3DS2) {
     this.allow3DS2 = allow3DS2;
+    isSetAllow3DS2 = true; // mark as set
   }
 
   /**
@@ -213,6 +241,7 @@ public class AdditionalData3DSecure {
    */
   public AdditionalData3DSecure challengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
     this.challengeWindowSize = challengeWindowSize;
+    isSetChallengeWindowSize = true; // mark as set
     return this;
   }
 
@@ -244,6 +273,7 @@ public class AdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
     this.challengeWindowSize = challengeWindowSize;
+    isSetChallengeWindowSize = true; // mark as set
   }
 
   /**
@@ -263,6 +293,7 @@ public class AdditionalData3DSecure {
    */
   public AdditionalData3DSecure executeThreeD(String executeThreeD) {
     this.executeThreeD = executeThreeD;
+    isSetExecuteThreeD = true; // mark as set
     return this;
   }
 
@@ -304,6 +335,7 @@ public class AdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExecuteThreeD(String executeThreeD) {
     this.executeThreeD = executeThreeD;
+    isSetExecuteThreeD = true; // mark as set
   }
 
   /**
@@ -314,6 +346,7 @@ public class AdditionalData3DSecure {
    */
   public AdditionalData3DSecure mpiImplementationType(String mpiImplementationType) {
     this.mpiImplementationType = mpiImplementationType;
+    isSetMpiImplementationType = true; // mark as set
     return this;
   }
 
@@ -337,6 +370,7 @@ public class AdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiImplementationType(String mpiImplementationType) {
     this.mpiImplementationType = mpiImplementationType;
+    isSetMpiImplementationType = true; // mark as set
   }
 
   /**
@@ -353,6 +387,7 @@ public class AdditionalData3DSecure {
    */
   public AdditionalData3DSecure scaExemption(String scaExemption) {
     this.scaExemption = scaExemption;
+    isSetScaExemption = true; // mark as set
     return this;
   }
 
@@ -388,6 +423,7 @@ public class AdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaExemption(String scaExemption) {
     this.scaExemption = scaExemption;
+    isSetScaExemption = true; // mark as set
   }
 
   /**
@@ -412,6 +448,7 @@ public class AdditionalData3DSecure {
    */
   public AdditionalData3DSecure threeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
     return this;
   }
 
@@ -463,6 +500,27 @@ public class AdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalData3DSecure includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalData3DSecure object is equal to o. */
@@ -476,22 +534,36 @@ public class AdditionalData3DSecure {
     }
     AdditionalData3DSecure additionalData3DSecure = (AdditionalData3DSecure) o;
     return Objects.equals(this.allow3DS2, additionalData3DSecure.allow3DS2)
+        && Objects.equals(this.isSetAllow3DS2, additionalData3DSecure.isSetAllow3DS2)
         && Objects.equals(this.challengeWindowSize, additionalData3DSecure.challengeWindowSize)
+        && Objects.equals(
+            this.isSetChallengeWindowSize, additionalData3DSecure.isSetChallengeWindowSize)
         && Objects.equals(this.executeThreeD, additionalData3DSecure.executeThreeD)
+        && Objects.equals(this.isSetExecuteThreeD, additionalData3DSecure.isSetExecuteThreeD)
         && Objects.equals(this.mpiImplementationType, additionalData3DSecure.mpiImplementationType)
+        && Objects.equals(
+            this.isSetMpiImplementationType, additionalData3DSecure.isSetMpiImplementationType)
         && Objects.equals(this.scaExemption, additionalData3DSecure.scaExemption)
-        && Objects.equals(this.threeDSVersion, additionalData3DSecure.threeDSVersion);
+        && Objects.equals(this.isSetScaExemption, additionalData3DSecure.isSetScaExemption)
+        && Objects.equals(this.threeDSVersion, additionalData3DSecure.threeDSVersion)
+        && Objects.equals(this.isSetThreeDSVersion, additionalData3DSecure.isSetThreeDSVersion);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         allow3DS2,
+        isSetAllow3DS2,
         challengeWindowSize,
+        isSetChallengeWindowSize,
         executeThreeD,
+        isSetExecuteThreeD,
         mpiImplementationType,
+        isSetMpiImplementationType,
         scaExemption,
-        threeDSVersion);
+        isSetScaExemption,
+        threeDSVersion,
+        isSetThreeDSVersion);
   }
 
   @Override
@@ -520,6 +592,45 @@ public class AdditionalData3DSecure {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllow3DS2) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOW3_D_S2, this.allow3DS2);
+    }
+    if (isSetChallengeWindowSize) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_WINDOW_SIZE, this.challengeWindowSize);
+    }
+    if (isSetExecuteThreeD) {
+      addIfNull(nulls, JSON_PROPERTY_EXECUTE_THREE_D, this.executeThreeD);
+    }
+    if (isSetMpiImplementationType) {
+      addIfNull(nulls, JSON_PROPERTY_MPI_IMPLEMENTATION_TYPE, this.mpiImplementationType);
+    }
+    if (isSetScaExemption) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_EXEMPTION, this.scaExemption);
+    }
+    if (isSetThreeDSVersion) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_VERSION, this.threeDSVersion);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
