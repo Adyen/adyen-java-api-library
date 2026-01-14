@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,73 +45,133 @@ public class AdditionalDataOpenInvoice {
       "openinvoicedata.merchantData";
   private String openinvoicedataMerchantData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataMerchantData = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES =
       "openinvoicedata.numberOfLines";
   private String openinvoicedataNumberOfLines;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataNumberOfLines = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME =
       "openinvoicedata.recipientFirstName";
   private String openinvoicedataRecipientFirstName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataRecipientFirstName = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME =
       "openinvoicedata.recipientLastName";
   private String openinvoicedataRecipientLastName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataRecipientLastName = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE =
       "openinvoicedataLine[itemNr].currencyCode";
   private String openinvoicedataLineItemNrCurrencyCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrCurrencyCode = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION =
       "openinvoicedataLine[itemNr].description";
   private String openinvoicedataLineItemNrDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrDescription = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT =
       "openinvoicedataLine[itemNr].itemAmount";
   private String openinvoicedataLineItemNrItemAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrItemAmount = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID =
       "openinvoicedataLine[itemNr].itemId";
   private String openinvoicedataLineItemNrItemId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrItemId = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT =
       "openinvoicedataLine[itemNr].itemVatAmount";
   private String openinvoicedataLineItemNrItemVatAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrItemVatAmount = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE =
       "openinvoicedataLine[itemNr].itemVatPercentage";
   private String openinvoicedataLineItemNrItemVatPercentage;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrItemVatPercentage = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS =
       "openinvoicedataLine[itemNr].numberOfItems";
   private String openinvoicedataLineItemNrNumberOfItems;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrNumberOfItems = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY =
       "openinvoicedataLine[itemNr].returnShippingCompany";
   private String openinvoicedataLineItemNrReturnShippingCompany;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrReturnShippingCompany = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER =
       "openinvoicedataLine[itemNr].returnTrackingNumber";
   private String openinvoicedataLineItemNrReturnTrackingNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrReturnTrackingNumber = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI =
       "openinvoicedataLine[itemNr].returnTrackingUri";
   private String openinvoicedataLineItemNrReturnTrackingUri;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrReturnTrackingUri = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY =
       "openinvoicedataLine[itemNr].shippingCompany";
   private String openinvoicedataLineItemNrShippingCompany;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrShippingCompany = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD =
       "openinvoicedataLine[itemNr].shippingMethod";
   private String openinvoicedataLineItemNrShippingMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrShippingMethod = false;
 
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER =
       "openinvoicedataLine[itemNr].trackingNumber";
   private String openinvoicedataLineItemNrTrackingNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrTrackingNumber = false;
+
   public static final String JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI =
       "openinvoicedataLine[itemNr].trackingUri";
   private String openinvoicedataLineItemNrTrackingUri;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpeninvoicedataLineItemNrTrackingUri = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataOpenInvoice() {}
 
@@ -130,6 +192,7 @@ public class AdditionalDataOpenInvoice {
    */
   public AdditionalDataOpenInvoice openinvoicedataMerchantData(String openinvoicedataMerchantData) {
     this.openinvoicedataMerchantData = openinvoicedataMerchantData;
+    isSetOpeninvoicedataMerchantData = true; // mark as set
     return this;
   }
 
@@ -171,6 +234,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataMerchantData(String openinvoicedataMerchantData) {
     this.openinvoicedataMerchantData = openinvoicedataMerchantData;
+    isSetOpeninvoicedataMerchantData = true; // mark as set
   }
 
   /**
@@ -185,6 +249,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataNumberOfLines(
       String openinvoicedataNumberOfLines) {
     this.openinvoicedataNumberOfLines = openinvoicedataNumberOfLines;
+    isSetOpeninvoicedataNumberOfLines = true; // mark as set
     return this;
   }
 
@@ -214,6 +279,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataNumberOfLines(String openinvoicedataNumberOfLines) {
     this.openinvoicedataNumberOfLines = openinvoicedataNumberOfLines;
+    isSetOpeninvoicedataNumberOfLines = true; // mark as set
   }
 
   /**
@@ -230,6 +296,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataRecipientFirstName(
       String openinvoicedataRecipientFirstName) {
     this.openinvoicedataRecipientFirstName = openinvoicedataRecipientFirstName;
+    isSetOpeninvoicedataRecipientFirstName = true; // mark as set
     return this;
   }
 
@@ -263,6 +330,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataRecipientFirstName(String openinvoicedataRecipientFirstName) {
     this.openinvoicedataRecipientFirstName = openinvoicedataRecipientFirstName;
+    isSetOpeninvoicedataRecipientFirstName = true; // mark as set
   }
 
   /**
@@ -279,6 +347,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataRecipientLastName(
       String openinvoicedataRecipientLastName) {
     this.openinvoicedataRecipientLastName = openinvoicedataRecipientLastName;
+    isSetOpeninvoicedataRecipientLastName = true; // mark as set
     return this;
   }
 
@@ -312,6 +381,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataRecipientLastName(String openinvoicedataRecipientLastName) {
     this.openinvoicedataRecipientLastName = openinvoicedataRecipientLastName;
+    isSetOpeninvoicedataRecipientLastName = true; // mark as set
   }
 
   /**
@@ -323,6 +393,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrCurrencyCode(
       String openinvoicedataLineItemNrCurrencyCode) {
     this.openinvoicedataLineItemNrCurrencyCode = openinvoicedataLineItemNrCurrencyCode;
+    isSetOpeninvoicedataLineItemNrCurrencyCode = true; // mark as set
     return this;
   }
 
@@ -347,6 +418,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrCurrencyCode(
       String openinvoicedataLineItemNrCurrencyCode) {
     this.openinvoicedataLineItemNrCurrencyCode = openinvoicedataLineItemNrCurrencyCode;
+    isSetOpeninvoicedataLineItemNrCurrencyCode = true; // mark as set
   }
 
   /**
@@ -359,6 +431,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrDescription(
       String openinvoicedataLineItemNrDescription) {
     this.openinvoicedataLineItemNrDescription = openinvoicedataLineItemNrDescription;
+    isSetOpeninvoicedataLineItemNrDescription = true; // mark as set
     return this;
   }
 
@@ -384,6 +457,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrDescription(String openinvoicedataLineItemNrDescription) {
     this.openinvoicedataLineItemNrDescription = openinvoicedataLineItemNrDescription;
+    isSetOpeninvoicedataLineItemNrDescription = true; // mark as set
   }
 
   /**
@@ -397,6 +471,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemAmount(
       String openinvoicedataLineItemNrItemAmount) {
     this.openinvoicedataLineItemNrItemAmount = openinvoicedataLineItemNrItemAmount;
+    isSetOpeninvoicedataLineItemNrItemAmount = true; // mark as set
     return this;
   }
 
@@ -424,6 +499,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemAmount(String openinvoicedataLineItemNrItemAmount) {
     this.openinvoicedataLineItemNrItemAmount = openinvoicedataLineItemNrItemAmount;
+    isSetOpeninvoicedataLineItemNrItemAmount = true; // mark as set
   }
 
   /**
@@ -436,6 +512,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemId(
       String openinvoicedataLineItemNrItemId) {
     this.openinvoicedataLineItemNrItemId = openinvoicedataLineItemNrItemId;
+    isSetOpeninvoicedataLineItemNrItemId = true; // mark as set
     return this;
   }
 
@@ -461,6 +538,7 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemId(String openinvoicedataLineItemNrItemId) {
     this.openinvoicedataLineItemNrItemId = openinvoicedataLineItemNrItemId;
+    isSetOpeninvoicedataLineItemNrItemId = true; // mark as set
   }
 
   /**
@@ -473,6 +551,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemVatAmount(
       String openinvoicedataLineItemNrItemVatAmount) {
     this.openinvoicedataLineItemNrItemVatAmount = openinvoicedataLineItemNrItemVatAmount;
+    isSetOpeninvoicedataLineItemNrItemVatAmount = true; // mark as set
     return this;
   }
 
@@ -499,6 +578,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrItemVatAmount(
       String openinvoicedataLineItemNrItemVatAmount) {
     this.openinvoicedataLineItemNrItemVatAmount = openinvoicedataLineItemNrItemVatAmount;
+    isSetOpeninvoicedataLineItemNrItemVatAmount = true; // mark as set
   }
 
   /**
@@ -512,6 +592,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrItemVatPercentage(
       String openinvoicedataLineItemNrItemVatPercentage) {
     this.openinvoicedataLineItemNrItemVatPercentage = openinvoicedataLineItemNrItemVatPercentage;
+    isSetOpeninvoicedataLineItemNrItemVatPercentage = true; // mark as set
     return this;
   }
 
@@ -540,6 +621,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrItemVatPercentage(
       String openinvoicedataLineItemNrItemVatPercentage) {
     this.openinvoicedataLineItemNrItemVatPercentage = openinvoicedataLineItemNrItemVatPercentage;
+    isSetOpeninvoicedataLineItemNrItemVatPercentage = true; // mark as set
   }
 
   /**
@@ -552,6 +634,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrNumberOfItems(
       String openinvoicedataLineItemNrNumberOfItems) {
     this.openinvoicedataLineItemNrNumberOfItems = openinvoicedataLineItemNrNumberOfItems;
+    isSetOpeninvoicedataLineItemNrNumberOfItems = true; // mark as set
     return this;
   }
 
@@ -578,6 +661,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrNumberOfItems(
       String openinvoicedataLineItemNrNumberOfItems) {
     this.openinvoicedataLineItemNrNumberOfItems = openinvoicedataLineItemNrNumberOfItems;
+    isSetOpeninvoicedataLineItemNrNumberOfItems = true; // mark as set
   }
 
   /**
@@ -591,6 +675,7 @@ public class AdditionalDataOpenInvoice {
       String openinvoicedataLineItemNrReturnShippingCompany) {
     this.openinvoicedataLineItemNrReturnShippingCompany =
         openinvoicedataLineItemNrReturnShippingCompany;
+    isSetOpeninvoicedataLineItemNrReturnShippingCompany = true; // mark as set
     return this;
   }
 
@@ -618,6 +703,7 @@ public class AdditionalDataOpenInvoice {
       String openinvoicedataLineItemNrReturnShippingCompany) {
     this.openinvoicedataLineItemNrReturnShippingCompany =
         openinvoicedataLineItemNrReturnShippingCompany;
+    isSetOpeninvoicedataLineItemNrReturnShippingCompany = true; // mark as set
   }
 
   /**
@@ -631,6 +717,7 @@ public class AdditionalDataOpenInvoice {
       String openinvoicedataLineItemNrReturnTrackingNumber) {
     this.openinvoicedataLineItemNrReturnTrackingNumber =
         openinvoicedataLineItemNrReturnTrackingNumber;
+    isSetOpeninvoicedataLineItemNrReturnTrackingNumber = true; // mark as set
     return this;
   }
 
@@ -658,6 +745,7 @@ public class AdditionalDataOpenInvoice {
       String openinvoicedataLineItemNrReturnTrackingNumber) {
     this.openinvoicedataLineItemNrReturnTrackingNumber =
         openinvoicedataLineItemNrReturnTrackingNumber;
+    isSetOpeninvoicedataLineItemNrReturnTrackingNumber = true; // mark as set
   }
 
   /**
@@ -670,6 +758,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrReturnTrackingUri(
       String openinvoicedataLineItemNrReturnTrackingUri) {
     this.openinvoicedataLineItemNrReturnTrackingUri = openinvoicedataLineItemNrReturnTrackingUri;
+    isSetOpeninvoicedataLineItemNrReturnTrackingUri = true; // mark as set
     return this;
   }
 
@@ -696,6 +785,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrReturnTrackingUri(
       String openinvoicedataLineItemNrReturnTrackingUri) {
     this.openinvoicedataLineItemNrReturnTrackingUri = openinvoicedataLineItemNrReturnTrackingUri;
+    isSetOpeninvoicedataLineItemNrReturnTrackingUri = true; // mark as set
   }
 
   /**
@@ -708,6 +798,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrShippingCompany(
       String openinvoicedataLineItemNrShippingCompany) {
     this.openinvoicedataLineItemNrShippingCompany = openinvoicedataLineItemNrShippingCompany;
+    isSetOpeninvoicedataLineItemNrShippingCompany = true; // mark as set
     return this;
   }
 
@@ -734,6 +825,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrShippingCompany(
       String openinvoicedataLineItemNrShippingCompany) {
     this.openinvoicedataLineItemNrShippingCompany = openinvoicedataLineItemNrShippingCompany;
+    isSetOpeninvoicedataLineItemNrShippingCompany = true; // mark as set
   }
 
   /**
@@ -745,6 +837,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrShippingMethod(
       String openinvoicedataLineItemNrShippingMethod) {
     this.openinvoicedataLineItemNrShippingMethod = openinvoicedataLineItemNrShippingMethod;
+    isSetOpeninvoicedataLineItemNrShippingMethod = true; // mark as set
     return this;
   }
 
@@ -769,6 +862,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrShippingMethod(
       String openinvoicedataLineItemNrShippingMethod) {
     this.openinvoicedataLineItemNrShippingMethod = openinvoicedataLineItemNrShippingMethod;
+    isSetOpeninvoicedataLineItemNrShippingMethod = true; // mark as set
   }
 
   /**
@@ -780,6 +874,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrTrackingNumber(
       String openinvoicedataLineItemNrTrackingNumber) {
     this.openinvoicedataLineItemNrTrackingNumber = openinvoicedataLineItemNrTrackingNumber;
+    isSetOpeninvoicedataLineItemNrTrackingNumber = true; // mark as set
     return this;
   }
 
@@ -804,6 +899,7 @@ public class AdditionalDataOpenInvoice {
   public void setOpeninvoicedataLineItemNrTrackingNumber(
       String openinvoicedataLineItemNrTrackingNumber) {
     this.openinvoicedataLineItemNrTrackingNumber = openinvoicedataLineItemNrTrackingNumber;
+    isSetOpeninvoicedataLineItemNrTrackingNumber = true; // mark as set
   }
 
   /**
@@ -815,6 +911,7 @@ public class AdditionalDataOpenInvoice {
   public AdditionalDataOpenInvoice openinvoicedataLineItemNrTrackingUri(
       String openinvoicedataLineItemNrTrackingUri) {
     this.openinvoicedataLineItemNrTrackingUri = openinvoicedataLineItemNrTrackingUri;
+    isSetOpeninvoicedataLineItemNrTrackingUri = true; // mark as set
     return this;
   }
 
@@ -838,6 +935,27 @@ public class AdditionalDataOpenInvoice {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrTrackingUri(String openinvoicedataLineItemNrTrackingUri) {
     this.openinvoicedataLineItemNrTrackingUri = openinvoicedataLineItemNrTrackingUri;
+    isSetOpeninvoicedataLineItemNrTrackingUri = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataOpenInvoice includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataOpenInvoice object is equal to o. */
@@ -853,79 +971,151 @@ public class AdditionalDataOpenInvoice {
     return Objects.equals(
             this.openinvoicedataMerchantData, additionalDataOpenInvoice.openinvoicedataMerchantData)
         && Objects.equals(
+            this.isSetOpeninvoicedataMerchantData,
+            additionalDataOpenInvoice.isSetOpeninvoicedataMerchantData)
+        && Objects.equals(
             this.openinvoicedataNumberOfLines,
             additionalDataOpenInvoice.openinvoicedataNumberOfLines)
+        && Objects.equals(
+            this.isSetOpeninvoicedataNumberOfLines,
+            additionalDataOpenInvoice.isSetOpeninvoicedataNumberOfLines)
         && Objects.equals(
             this.openinvoicedataRecipientFirstName,
             additionalDataOpenInvoice.openinvoicedataRecipientFirstName)
         && Objects.equals(
+            this.isSetOpeninvoicedataRecipientFirstName,
+            additionalDataOpenInvoice.isSetOpeninvoicedataRecipientFirstName)
+        && Objects.equals(
             this.openinvoicedataRecipientLastName,
             additionalDataOpenInvoice.openinvoicedataRecipientLastName)
+        && Objects.equals(
+            this.isSetOpeninvoicedataRecipientLastName,
+            additionalDataOpenInvoice.isSetOpeninvoicedataRecipientLastName)
         && Objects.equals(
             this.openinvoicedataLineItemNrCurrencyCode,
             additionalDataOpenInvoice.openinvoicedataLineItemNrCurrencyCode)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrCurrencyCode,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrCurrencyCode)
+        && Objects.equals(
             this.openinvoicedataLineItemNrDescription,
             additionalDataOpenInvoice.openinvoicedataLineItemNrDescription)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrDescription,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrDescription)
         && Objects.equals(
             this.openinvoicedataLineItemNrItemAmount,
             additionalDataOpenInvoice.openinvoicedataLineItemNrItemAmount)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrItemAmount,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrItemAmount)
+        && Objects.equals(
             this.openinvoicedataLineItemNrItemId,
             additionalDataOpenInvoice.openinvoicedataLineItemNrItemId)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrItemId,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrItemId)
         && Objects.equals(
             this.openinvoicedataLineItemNrItemVatAmount,
             additionalDataOpenInvoice.openinvoicedataLineItemNrItemVatAmount)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrItemVatAmount,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrItemVatAmount)
+        && Objects.equals(
             this.openinvoicedataLineItemNrItemVatPercentage,
             additionalDataOpenInvoice.openinvoicedataLineItemNrItemVatPercentage)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrItemVatPercentage,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrItemVatPercentage)
         && Objects.equals(
             this.openinvoicedataLineItemNrNumberOfItems,
             additionalDataOpenInvoice.openinvoicedataLineItemNrNumberOfItems)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrNumberOfItems,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrNumberOfItems)
+        && Objects.equals(
             this.openinvoicedataLineItemNrReturnShippingCompany,
             additionalDataOpenInvoice.openinvoicedataLineItemNrReturnShippingCompany)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrReturnShippingCompany,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrReturnShippingCompany)
         && Objects.equals(
             this.openinvoicedataLineItemNrReturnTrackingNumber,
             additionalDataOpenInvoice.openinvoicedataLineItemNrReturnTrackingNumber)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrReturnTrackingNumber,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrReturnTrackingNumber)
+        && Objects.equals(
             this.openinvoicedataLineItemNrReturnTrackingUri,
             additionalDataOpenInvoice.openinvoicedataLineItemNrReturnTrackingUri)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrReturnTrackingUri,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrReturnTrackingUri)
         && Objects.equals(
             this.openinvoicedataLineItemNrShippingCompany,
             additionalDataOpenInvoice.openinvoicedataLineItemNrShippingCompany)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrShippingCompany,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrShippingCompany)
+        && Objects.equals(
             this.openinvoicedataLineItemNrShippingMethod,
             additionalDataOpenInvoice.openinvoicedataLineItemNrShippingMethod)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrShippingMethod,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrShippingMethod)
         && Objects.equals(
             this.openinvoicedataLineItemNrTrackingNumber,
             additionalDataOpenInvoice.openinvoicedataLineItemNrTrackingNumber)
         && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrTrackingNumber,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrTrackingNumber)
+        && Objects.equals(
             this.openinvoicedataLineItemNrTrackingUri,
-            additionalDataOpenInvoice.openinvoicedataLineItemNrTrackingUri);
+            additionalDataOpenInvoice.openinvoicedataLineItemNrTrackingUri)
+        && Objects.equals(
+            this.isSetOpeninvoicedataLineItemNrTrackingUri,
+            additionalDataOpenInvoice.isSetOpeninvoicedataLineItemNrTrackingUri);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         openinvoicedataMerchantData,
+        isSetOpeninvoicedataMerchantData,
         openinvoicedataNumberOfLines,
+        isSetOpeninvoicedataNumberOfLines,
         openinvoicedataRecipientFirstName,
+        isSetOpeninvoicedataRecipientFirstName,
         openinvoicedataRecipientLastName,
+        isSetOpeninvoicedataRecipientLastName,
         openinvoicedataLineItemNrCurrencyCode,
+        isSetOpeninvoicedataLineItemNrCurrencyCode,
         openinvoicedataLineItemNrDescription,
+        isSetOpeninvoicedataLineItemNrDescription,
         openinvoicedataLineItemNrItemAmount,
+        isSetOpeninvoicedataLineItemNrItemAmount,
         openinvoicedataLineItemNrItemId,
+        isSetOpeninvoicedataLineItemNrItemId,
         openinvoicedataLineItemNrItemVatAmount,
+        isSetOpeninvoicedataLineItemNrItemVatAmount,
         openinvoicedataLineItemNrItemVatPercentage,
+        isSetOpeninvoicedataLineItemNrItemVatPercentage,
         openinvoicedataLineItemNrNumberOfItems,
+        isSetOpeninvoicedataLineItemNrNumberOfItems,
         openinvoicedataLineItemNrReturnShippingCompany,
+        isSetOpeninvoicedataLineItemNrReturnShippingCompany,
         openinvoicedataLineItemNrReturnTrackingNumber,
+        isSetOpeninvoicedataLineItemNrReturnTrackingNumber,
         openinvoicedataLineItemNrReturnTrackingUri,
+        isSetOpeninvoicedataLineItemNrReturnTrackingUri,
         openinvoicedataLineItemNrShippingCompany,
+        isSetOpeninvoicedataLineItemNrShippingCompany,
         openinvoicedataLineItemNrShippingMethod,
+        isSetOpeninvoicedataLineItemNrShippingMethod,
         openinvoicedataLineItemNrTrackingNumber,
-        openinvoicedataLineItemNrTrackingUri);
+        isSetOpeninvoicedataLineItemNrTrackingNumber,
+        openinvoicedataLineItemNrTrackingUri,
+        isSetOpeninvoicedataLineItemNrTrackingUri);
   }
 
   @Override
@@ -998,6 +1188,131 @@ public class AdditionalDataOpenInvoice {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetOpeninvoicedataMerchantData) {
+      addIfNull(
+          nulls, JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA, this.openinvoicedataMerchantData);
+    }
+    if (isSetOpeninvoicedataNumberOfLines) {
+      addIfNull(
+          nulls, JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES, this.openinvoicedataNumberOfLines);
+    }
+    if (isSetOpeninvoicedataRecipientFirstName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME,
+          this.openinvoicedataRecipientFirstName);
+    }
+    if (isSetOpeninvoicedataRecipientLastName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME,
+          this.openinvoicedataRecipientLastName);
+    }
+    if (isSetOpeninvoicedataLineItemNrCurrencyCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE,
+          this.openinvoicedataLineItemNrCurrencyCode);
+    }
+    if (isSetOpeninvoicedataLineItemNrDescription) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION,
+          this.openinvoicedataLineItemNrDescription);
+    }
+    if (isSetOpeninvoicedataLineItemNrItemAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT,
+          this.openinvoicedataLineItemNrItemAmount);
+    }
+    if (isSetOpeninvoicedataLineItemNrItemId) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID,
+          this.openinvoicedataLineItemNrItemId);
+    }
+    if (isSetOpeninvoicedataLineItemNrItemVatAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT,
+          this.openinvoicedataLineItemNrItemVatAmount);
+    }
+    if (isSetOpeninvoicedataLineItemNrItemVatPercentage) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE,
+          this.openinvoicedataLineItemNrItemVatPercentage);
+    }
+    if (isSetOpeninvoicedataLineItemNrNumberOfItems) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS,
+          this.openinvoicedataLineItemNrNumberOfItems);
+    }
+    if (isSetOpeninvoicedataLineItemNrReturnShippingCompany) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY,
+          this.openinvoicedataLineItemNrReturnShippingCompany);
+    }
+    if (isSetOpeninvoicedataLineItemNrReturnTrackingNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER,
+          this.openinvoicedataLineItemNrReturnTrackingNumber);
+    }
+    if (isSetOpeninvoicedataLineItemNrReturnTrackingUri) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI,
+          this.openinvoicedataLineItemNrReturnTrackingUri);
+    }
+    if (isSetOpeninvoicedataLineItemNrShippingCompany) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY,
+          this.openinvoicedataLineItemNrShippingCompany);
+    }
+    if (isSetOpeninvoicedataLineItemNrShippingMethod) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD,
+          this.openinvoicedataLineItemNrShippingMethod);
+    }
+    if (isSetOpeninvoicedataLineItemNrTrackingNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER,
+          this.openinvoicedataLineItemNrTrackingNumber);
+    }
+    if (isSetOpeninvoicedataLineItemNrTrackingUri) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI,
+          this.openinvoicedataLineItemNrTrackingUri);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
