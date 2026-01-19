@@ -70,10 +70,24 @@ public class {{classname}} extends Service {
         {{#hasQueryParams}}
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
+
+        {{! Add first all required query params }}
         {{#queryParams}}
-        if ({{{paramName}}} != null) {
-        queryParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
+        {{#required}}
+        if ({{{paramName}}} == null) {
+            throw new IllegalArgumentException("Please provide the {{{paramName}}} query parameter");
         }
+        queryParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
+        {{/required}}
+        {{/queryParams}}
+
+        {{! Then, add all the optional query params }}
+        {{#queryParams}}
+        {{^required}}
+        if ({{{paramName}}} != null) {
+            queryParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
+        }
+        {{/required}}
         {{/queryParams}}
 
         {{/hasQueryParams}}
