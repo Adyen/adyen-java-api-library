@@ -1,0 +1,19 @@
+{
+  "grantOffers": [
+    {
+      "id": "GO00000000000000000000001",
+      "amount": {
+        "currency": "EUR",
+        "value": 10000
+      },
+      "fee": {
+        "currency": "EUR",
+        "value": 100
+      },
+      "repayment": {
+        "currency": "EUR",
+        "value": 10100
+      }
+    }
+  ]
+}

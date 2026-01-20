@@ -1,0 +1,23 @@
+
+{
+  "id": "GR00000000000000000000001",
+  "grantAccountId": "CG00000000000000000000001",
+  "grantOfferId": "GO00000000000000000000001",
+  "counterparty": {
+    "accountHolderId": "AH00000000000000000000001",
+    "balanceAccountId": "BA00000000000000000000001"
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": 10000
+  },
+  "balances": {
+    "currency": "EUR",
+    "principal": 10000,
+    "fee": 1000,
+    "total": 11000
+  },
+  "status": {
+    "code": "Active"
+  }
+}
