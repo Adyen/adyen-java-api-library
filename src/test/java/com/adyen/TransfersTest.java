@@ -49,7 +49,7 @@ public class TransfersTest extends BaseTest {
 
   @Test
   public void TestGetCapitalAccounts() throws Exception {
-    Client client = createMockClientFromFile("mocks/capital/get-capital-account.json");
+    Client client = createMockClientFromFile("mocks/transfers/get-capital-account.json");
     CapitalApi capital = new CapitalApi(client);
     CapitalGrants response = capital.getCapitalAccount();
     assertEquals(response.getGrants().get(0).getGrantOfferId(), "string");
@@ -66,7 +66,7 @@ public class TransfersTest extends BaseTest {
 
   @Test
   public void TestRequestGrant() throws Exception {
-    Client client = createMockClientFromFile("mocks/capital/request-grant.json");
+    Client client = createMockClientFromFile("mocks/transfers/request-grant.json");
     CapitalApi capital = new CapitalApi(client);
     CapitalGrant response = capital.requestGrantPayout(new CapitalGrantInfo());
     assertEquals(response.getGrantAccountId(), "CG00000000000000000000001");
