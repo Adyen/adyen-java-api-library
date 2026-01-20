@@ -1,0 +1,21 @@
+
+{
+  "id": "CG00000000000000000000001",
+  "fundingBalanceAccountId": "BA00000000000000000000001",
+  "limits": [
+    {
+      "amount": {
+        "currency": "EUR",
+        "value": 100000
+      }
+    }
+  ],
+  "balances": [
+    {
+      "currency": "EUR",
+      "principal": 10000,
+      "fee": 1000,
+      "total": 11000
+    }
+  ]
+}

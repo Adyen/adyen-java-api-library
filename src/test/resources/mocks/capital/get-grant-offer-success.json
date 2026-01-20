@@ -1,0 +1,32 @@
+
+{
+  "id": "GO00000000000000000000001",
+  "accountHolderId": "AH00000000000000000000001",
+  "contractType": "cashAdvance",
+  "amount": {
+    "currency": "EUR",
+    "value": 10000
+  },
+  "fee": {
+    "amount": {
+      "currency": "EUR",
+      "value": 1000
+    },
+    "aprBasisPoints": 1200
+  },
+  "repayment": {
+    "basisPoints": 1000,
+    "term": {
+      "estimatedDays": 180,
+      "maximumDays": 365
+    },
+    "threshold": {
+      "amount": {
+        "currency": "EUR",
+        "value": 1000
+      }
+    }
+  },
+  "startsAt": "2024-01-01T00:00:00Z",
+  "expiresAt": "2024-01-31T23:59:59Z"
+}
