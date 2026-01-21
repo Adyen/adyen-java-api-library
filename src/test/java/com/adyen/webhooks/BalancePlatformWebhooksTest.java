@@ -14,6 +14,8 @@ import com.adyen.model.disputewebhooks.DisputeNotificationRequest;
 import com.adyen.model.disputewebhooks.DisputeWebhooksHandler;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceWarningWebhooksHandler;
+import com.adyen.model.relayedauthorisationwebhooks.RelayedAuthorisationRequest;
+import com.adyen.model.relayedauthorisationwebhooks.RelayedAuthorisationWebhooksHandler;
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
@@ -494,5 +496,27 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(2, data.getScoreSignalsTriggered().size());
     assertEquals("ChargebackCardholderDispute", data.getScoreSignalsTriggered().get(0));
     assertEquals("ChargebackNonReceipt", data.getScoreSignalsTriggered().get(1));
+  }
+
+  @Test
+  public void testRelayedAuthorisationRequest() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/balanceplatform-relayed-authorisation-request.json");
+
+    Optional<RelayedAuthorisationRequest> relayedAuthorisationRequestOptional =
+        new RelayedAuthorisationWebhooksHandler(json).getRelayedAuthorisationRequest();
+    assertTrue(relayedAuthorisationRequestOptional.isPresent());
+
+    RelayedAuthorisationRequest relayedAuthorisationRequest =
+        relayedAuthorisationRequestOptional.get();
+
+    assertEquals(
+        RelayedAuthorisationRequest.TypeEnum.BALANCEPLATFORM_AUTHORISATION_RELAYED,
+        relayedAuthorisationRequest.getType());
+    assertEquals(
+        "AH123ABCDEFGHIJKLMN456789", relayedAuthorisationRequest.getAccountHolder().getId());
+    assertNotNull(relayedAuthorisationRequest.getBalanceMutations());
+    assertEquals(1, relayedAuthorisationRequest.getBalanceMutations().size());
   }
 }
