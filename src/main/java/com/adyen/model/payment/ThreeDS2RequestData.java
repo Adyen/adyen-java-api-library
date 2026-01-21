@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -67,6 +69,9 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_ACCT_INFO = "acctInfo";
   private AcctInfo acctInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcctInfo = false;
+
   /**
    * Indicates the type of account. For example, for a multi-account card product. Length: 2
    * characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
@@ -116,11 +121,20 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_ACCT_TYPE = "acctType";
   private AcctTypeEnum acctType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcctType = false;
+
   public static final String JSON_PROPERTY_ACQUIRER_B_I_N = "acquirerBIN";
   private String acquirerBIN;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcquirerBIN = false;
+
   public static final String JSON_PROPERTY_ACQUIRER_MERCHANT_I_D = "acquirerMerchantID";
   private String acquirerMerchantID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcquirerMerchantID = false;
 
   /**
    * Indicates whether the cardholder shipping address and cardholder billing address are the same.
@@ -170,9 +184,15 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_ADDR_MATCH = "addrMatch";
   private AddrMatchEnum addrMatch;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddrMatch = false;
+
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
   @Deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
   private Boolean authenticationOnly;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationOnly = false;
 
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values:
@@ -227,77 +247,149 @@ public class ThreeDS2RequestData {
   @Deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead.
   private ChallengeIndicatorEnum challengeIndicator;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeIndicator = false;
+
   public static final String JSON_PROPERTY_DEVICE_CHANNEL = "deviceChannel";
   private String deviceChannel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceChannel = false;
 
   public static final String JSON_PROPERTY_DEVICE_RENDER_OPTIONS = "deviceRenderOptions";
   private DeviceRenderOptions deviceRenderOptions;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceRenderOptions = false;
+
   public static final String JSON_PROPERTY_HOME_PHONE = "homePhone";
   private Phone homePhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHomePhone = false;
 
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMcc = false;
+
   public static final String JSON_PROPERTY_MERCHANT_NAME = "merchantName";
   private String merchantName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantName = false;
 
   public static final String JSON_PROPERTY_MESSAGE_VERSION = "messageVersion";
   private String messageVersion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessageVersion = false;
+
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
   private Phone mobilePhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMobilePhone = false;
 
   public static final String JSON_PROPERTY_NOTIFICATION_U_R_L = "notificationURL";
   private String notificationURL;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNotificationURL = false;
+
   public static final String JSON_PROPERTY_PAY_TOKEN_IND = "payTokenInd";
   private Boolean payTokenInd;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayTokenInd = false;
 
   public static final String JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE =
       "paymentAuthenticationUseCase";
   private String paymentAuthenticationUseCase;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentAuthenticationUseCase = false;
+
   public static final String JSON_PROPERTY_PURCHASE_INSTAL_DATA = "purchaseInstalData";
   private String purchaseInstalData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPurchaseInstalData = false;
 
   public static final String JSON_PROPERTY_RECURRING_EXPIRY = "recurringExpiry";
   private String recurringExpiry;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringExpiry = false;
+
   public static final String JSON_PROPERTY_RECURRING_FREQUENCY = "recurringFrequency";
   private String recurringFrequency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringFrequency = false;
 
   public static final String JSON_PROPERTY_SDK_APP_I_D = "sdkAppID";
   private String sdkAppID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkAppID = false;
+
   public static final String JSON_PROPERTY_SDK_ENC_DATA = "sdkEncData";
   private String sdkEncData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkEncData = false;
 
   public static final String JSON_PROPERTY_SDK_EPHEM_PUB_KEY = "sdkEphemPubKey";
   private SDKEphemPubKey sdkEphemPubKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkEphemPubKey = false;
+
   public static final String JSON_PROPERTY_SDK_MAX_TIMEOUT = "sdkMaxTimeout";
   private Integer sdkMaxTimeout;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkMaxTimeout = false;
 
   public static final String JSON_PROPERTY_SDK_REFERENCE_NUMBER = "sdkReferenceNumber";
   private String sdkReferenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkReferenceNumber = false;
+
   public static final String JSON_PROPERTY_SDK_TRANS_I_D = "sdkTransID";
   private String sdkTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkTransID = false;
 
   public static final String JSON_PROPERTY_SDK_VERSION = "sdkVersion";
   private String sdkVersion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkVersion = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_COMP_IND = "threeDSCompInd";
   private String threeDSCompInd;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSCompInd = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND =
       "threeDSRequestorAuthenticationInd";
   private String threeDSRequestorAuthenticationInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorAuthenticationInd = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO =
       "threeDSRequestorAuthenticationInfo";
   private ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorAuthenticationInfo = false;
 
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No
@@ -358,18 +450,33 @@ public class ThreeDS2RequestData {
       "threeDSRequestorChallengeInd";
   private ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorChallengeInd = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D = "threeDSRequestorID";
   private String threeDSRequestorID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorID = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME = "threeDSRequestorName";
   private String threeDSRequestorName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorName = false;
 
   public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO =
       "threeDSRequestorPriorAuthenticationInfo";
   private ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorPriorAuthenticationInfo = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L = "threeDSRequestorURL";
   private String threeDSRequestorURL;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSRequestorURL = false;
 
   /**
    * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: *
@@ -425,6 +532,9 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_TRANS_TYPE = "transType";
   private TransTypeEnum transType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransType = false;
+
   /** Identify the type of the transaction being authenticated. */
   public enum TransactionTypeEnum {
     GOODSORSERVICEPURCHASE(String.valueOf("goodsOrServicePurchase")),
@@ -475,11 +585,26 @@ public class ThreeDS2RequestData {
   public static final String JSON_PROPERTY_TRANSACTION_TYPE = "transactionType";
   private TransactionTypeEnum transactionType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionType = false;
+
   public static final String JSON_PROPERTY_WHITE_LIST_STATUS = "whiteListStatus";
   private String whiteListStatus;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWhiteListStatus = false;
+
   public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
   private Phone workPhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWorkPhone = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDS2RequestData() {}
 
@@ -491,6 +616,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData acctInfo(AcctInfo acctInfo) {
     this.acctInfo = acctInfo;
+    isSetAcctInfo = true; // mark as set
     return this;
   }
 
@@ -514,6 +640,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcctInfo(AcctInfo acctInfo) {
     this.acctInfo = acctInfo;
+    isSetAcctInfo = true; // mark as set
   }
 
   /**
@@ -527,6 +654,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData acctType(AcctTypeEnum acctType) {
     this.acctType = acctType;
+    isSetAcctType = true; // mark as set
     return this;
   }
 
@@ -556,6 +684,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcctType(AcctTypeEnum acctType) {
     this.acctType = acctType;
+    isSetAcctType = true; // mark as set
   }
 
   /**
@@ -572,6 +701,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData acquirerBIN(String acquirerBIN) {
     this.acquirerBIN = acquirerBIN;
+    isSetAcquirerBIN = true; // mark as set
     return this;
   }
 
@@ -607,6 +737,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerBIN(String acquirerBIN) {
     this.acquirerBIN = acquirerBIN;
+    isSetAcquirerBIN = true; // mark as set
   }
 
   /**
@@ -624,6 +755,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData acquirerMerchantID(String acquirerMerchantID) {
     this.acquirerMerchantID = acquirerMerchantID;
+    isSetAcquirerMerchantID = true; // mark as set
     return this;
   }
 
@@ -661,6 +793,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerMerchantID(String acquirerMerchantID) {
     this.acquirerMerchantID = acquirerMerchantID;
+    isSetAcquirerMerchantID = true; // mark as set
   }
 
   /**
@@ -675,6 +808,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData addrMatch(AddrMatchEnum addrMatch) {
     this.addrMatch = addrMatch;
+    isSetAddrMatch = true; // mark as set
     return this;
   }
 
@@ -706,6 +840,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddrMatch(AddrMatchEnum addrMatch) {
     this.addrMatch = addrMatch;
+    isSetAddrMatch = true; // mark as set
   }
 
   /**
@@ -722,6 +857,7 @@ public class ThreeDS2RequestData {
   @Deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
   public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
+    isSetAuthenticationOnly = true; // mark as set
     return this;
   }
 
@@ -757,6 +893,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
+    isSetAuthenticationOnly = true; // mark as set
   }
 
   /**
@@ -773,6 +910,7 @@ public class ThreeDS2RequestData {
   @Deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead.
   public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
+    isSetChallengeIndicator = true; // mark as set
     return this;
   }
 
@@ -809,6 +947,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
+    isSetChallengeIndicator = true; // mark as set
   }
 
   /**
@@ -820,6 +959,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData deviceChannel(String deviceChannel) {
     this.deviceChannel = deviceChannel;
+    isSetDeviceChannel = true; // mark as set
     return this;
   }
 
@@ -845,6 +985,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceChannel(String deviceChannel) {
     this.deviceChannel = deviceChannel;
+    isSetDeviceChannel = true; // mark as set
   }
 
   /**
@@ -855,6 +996,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData deviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
     this.deviceRenderOptions = deviceRenderOptions;
+    isSetDeviceRenderOptions = true; // mark as set
     return this;
   }
 
@@ -878,6 +1020,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
     this.deviceRenderOptions = deviceRenderOptions;
+    isSetDeviceRenderOptions = true; // mark as set
   }
 
   /**
@@ -888,6 +1031,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData homePhone(Phone homePhone) {
     this.homePhone = homePhone;
+    isSetHomePhone = true; // mark as set
     return this;
   }
 
@@ -911,6 +1055,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(Phone homePhone) {
     this.homePhone = homePhone;
+    isSetHomePhone = true; // mark as set
   }
 
   /**
@@ -929,6 +1074,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData mcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
     return this;
   }
 
@@ -968,6 +1114,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
+    isSetMcc = true; // mark as set
   }
 
   /**
@@ -992,6 +1139,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData merchantName(String merchantName) {
     this.merchantName = merchantName;
+    isSetMerchantName = true; // mark as set
     return this;
   }
 
@@ -1043,6 +1191,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
+    isSetMerchantName = true; // mark as set
   }
 
   /**
@@ -1054,6 +1203,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData messageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
     return this;
   }
 
@@ -1079,6 +1229,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
+    isSetMessageVersion = true; // mark as set
   }
 
   /**
@@ -1089,6 +1240,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData mobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
+    isSetMobilePhone = true; // mark as set
     return this;
   }
 
@@ -1112,6 +1264,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(Phone mobilePhone) {
     this.mobilePhone = mobilePhone;
+    isSetMobilePhone = true; // mark as set
   }
 
   /**
@@ -1126,6 +1279,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData notificationURL(String notificationURL) {
     this.notificationURL = notificationURL;
+    isSetNotificationURL = true; // mark as set
     return this;
   }
 
@@ -1157,6 +1311,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotificationURL(String notificationURL) {
     this.notificationURL = notificationURL;
+    isSetNotificationURL = true; // mark as set
   }
 
   /**
@@ -1169,6 +1324,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData payTokenInd(Boolean payTokenInd) {
     this.payTokenInd = payTokenInd;
+    isSetPayTokenInd = true; // mark as set
     return this;
   }
 
@@ -1196,6 +1352,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayTokenInd(Boolean payTokenInd) {
     this.payTokenInd = payTokenInd;
+    isSetPayTokenInd = true; // mark as set
   }
 
   /**
@@ -1207,6 +1364,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData paymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
     this.paymentAuthenticationUseCase = paymentAuthenticationUseCase;
+    isSetPaymentAuthenticationUseCase = true; // mark as set
     return this;
   }
 
@@ -1232,6 +1390,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
     this.paymentAuthenticationUseCase = paymentAuthenticationUseCase;
+    isSetPaymentAuthenticationUseCase = true; // mark as set
   }
 
   /**
@@ -1244,6 +1403,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData purchaseInstalData(String purchaseInstalData) {
     this.purchaseInstalData = purchaseInstalData;
+    isSetPurchaseInstalData = true; // mark as set
     return this;
   }
 
@@ -1271,6 +1431,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchaseInstalData(String purchaseInstalData) {
     this.purchaseInstalData = purchaseInstalData;
+    isSetPurchaseInstalData = true; // mark as set
   }
 
   /**
@@ -1282,6 +1443,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData recurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
+    isSetRecurringExpiry = true; // mark as set
     return this;
   }
 
@@ -1307,6 +1469,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringExpiry(String recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
+    isSetRecurringExpiry = true; // mark as set
   }
 
   /**
@@ -1318,6 +1481,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData recurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
+    isSetRecurringFrequency = true; // mark as set
     return this;
   }
 
@@ -1343,6 +1507,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFrequency(String recurringFrequency) {
     this.recurringFrequency = recurringFrequency;
+    isSetRecurringFrequency = true; // mark as set
   }
 
   /**
@@ -1355,6 +1520,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkAppID(String sdkAppID) {
     this.sdkAppID = sdkAppID;
+    isSetSdkAppID = true; // mark as set
     return this;
   }
 
@@ -1382,6 +1548,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkAppID(String sdkAppID) {
     this.sdkAppID = sdkAppID;
+    isSetSdkAppID = true; // mark as set
   }
 
   /**
@@ -1394,6 +1561,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkEncData(String sdkEncData) {
     this.sdkEncData = sdkEncData;
+    isSetSdkEncData = true; // mark as set
     return this;
   }
 
@@ -1421,6 +1589,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEncData(String sdkEncData) {
     this.sdkEncData = sdkEncData;
+    isSetSdkEncData = true; // mark as set
   }
 
   /**
@@ -1431,6 +1600,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
+    isSetSdkEphemPubKey = true; // mark as set
     return this;
   }
 
@@ -1454,6 +1624,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
     this.sdkEphemPubKey = sdkEphemPubKey;
+    isSetSdkEphemPubKey = true; // mark as set
   }
 
   /**
@@ -1467,6 +1638,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkMaxTimeout(Integer sdkMaxTimeout) {
     this.sdkMaxTimeout = sdkMaxTimeout;
+    isSetSdkMaxTimeout = true; // mark as set
     return this;
   }
 
@@ -1496,6 +1668,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkMaxTimeout(Integer sdkMaxTimeout) {
     this.sdkMaxTimeout = sdkMaxTimeout;
+    isSetSdkMaxTimeout = true; // mark as set
   }
 
   /**
@@ -1508,6 +1681,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkReferenceNumber(String sdkReferenceNumber) {
     this.sdkReferenceNumber = sdkReferenceNumber;
+    isSetSdkReferenceNumber = true; // mark as set
     return this;
   }
 
@@ -1535,6 +1709,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkReferenceNumber(String sdkReferenceNumber) {
     this.sdkReferenceNumber = sdkReferenceNumber;
+    isSetSdkReferenceNumber = true; // mark as set
   }
 
   /**
@@ -1547,6 +1722,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkTransID(String sdkTransID) {
     this.sdkTransID = sdkTransID;
+    isSetSdkTransID = true; // mark as set
     return this;
   }
 
@@ -1574,6 +1750,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkTransID(String sdkTransID) {
     this.sdkTransID = sdkTransID;
+    isSetSdkTransID = true; // mark as set
   }
 
   /**
@@ -1585,6 +1762,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData sdkVersion(String sdkVersion) {
     this.sdkVersion = sdkVersion;
+    isSetSdkVersion = true; // mark as set
     return this;
   }
 
@@ -1610,6 +1788,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkVersion(String sdkVersion) {
     this.sdkVersion = sdkVersion;
+    isSetSdkVersion = true; // mark as set
   }
 
   /**
@@ -1620,6 +1799,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData threeDSCompInd(String threeDSCompInd) {
     this.threeDSCompInd = threeDSCompInd;
+    isSetThreeDSCompInd = true; // mark as set
     return this;
   }
 
@@ -1643,6 +1823,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSCompInd(String threeDSCompInd) {
     this.threeDSCompInd = threeDSCompInd;
+    isSetThreeDSCompInd = true; // mark as set
   }
 
   /**
@@ -1654,6 +1835,7 @@ public class ThreeDS2RequestData {
   public ThreeDS2RequestData threeDSRequestorAuthenticationInd(
       String threeDSRequestorAuthenticationInd) {
     this.threeDSRequestorAuthenticationInd = threeDSRequestorAuthenticationInd;
+    isSetThreeDSRequestorAuthenticationInd = true; // mark as set
     return this;
   }
 
@@ -1677,6 +1859,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
     this.threeDSRequestorAuthenticationInd = threeDSRequestorAuthenticationInd;
+    isSetThreeDSRequestorAuthenticationInd = true; // mark as set
   }
 
   /**
@@ -1688,6 +1871,7 @@ public class ThreeDS2RequestData {
   public ThreeDS2RequestData threeDSRequestorAuthenticationInfo(
       ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
     this.threeDSRequestorAuthenticationInfo = threeDSRequestorAuthenticationInfo;
+    isSetThreeDSRequestorAuthenticationInfo = true; // mark as set
     return this;
   }
 
@@ -1712,6 +1896,7 @@ public class ThreeDS2RequestData {
   public void setThreeDSRequestorAuthenticationInfo(
       ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
     this.threeDSRequestorAuthenticationInfo = threeDSRequestorAuthenticationInfo;
+    isSetThreeDSRequestorAuthenticationInfo = true; // mark as set
   }
 
   /**
@@ -1730,6 +1915,7 @@ public class ThreeDS2RequestData {
   public ThreeDS2RequestData threeDSRequestorChallengeInd(
       ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    isSetThreeDSRequestorChallengeInd = true; // mark as set
     return this;
   }
 
@@ -1768,6 +1954,7 @@ public class ThreeDS2RequestData {
   public void setThreeDSRequestorChallengeInd(
       ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
     this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    isSetThreeDSRequestorChallengeInd = true; // mark as set
   }
 
   /**
@@ -1784,6 +1971,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData threeDSRequestorID(String threeDSRequestorID) {
     this.threeDSRequestorID = threeDSRequestorID;
+    isSetThreeDSRequestorID = true; // mark as set
     return this;
   }
 
@@ -1819,6 +2007,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorID(String threeDSRequestorID) {
     this.threeDSRequestorID = threeDSRequestorID;
+    isSetThreeDSRequestorID = true; // mark as set
   }
 
   /**
@@ -1835,6 +2024,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData threeDSRequestorName(String threeDSRequestorName) {
     this.threeDSRequestorName = threeDSRequestorName;
+    isSetThreeDSRequestorName = true; // mark as set
     return this;
   }
 
@@ -1870,6 +2060,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorName(String threeDSRequestorName) {
     this.threeDSRequestorName = threeDSRequestorName;
+    isSetThreeDSRequestorName = true; // mark as set
   }
 
   /**
@@ -1881,6 +2072,7 @@ public class ThreeDS2RequestData {
   public ThreeDS2RequestData threeDSRequestorPriorAuthenticationInfo(
       ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
     this.threeDSRequestorPriorAuthenticationInfo = threeDSRequestorPriorAuthenticationInfo;
+    isSetThreeDSRequestorPriorAuthenticationInfo = true; // mark as set
     return this;
   }
 
@@ -1905,6 +2097,7 @@ public class ThreeDS2RequestData {
   public void setThreeDSRequestorPriorAuthenticationInfo(
       ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
     this.threeDSRequestorPriorAuthenticationInfo = threeDSRequestorPriorAuthenticationInfo;
+    isSetThreeDSRequestorPriorAuthenticationInfo = true; // mark as set
   }
 
   /**
@@ -1917,6 +2110,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData threeDSRequestorURL(String threeDSRequestorURL) {
     this.threeDSRequestorURL = threeDSRequestorURL;
+    isSetThreeDSRequestorURL = true; // mark as set
     return this;
   }
 
@@ -1944,6 +2138,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorURL(String threeDSRequestorURL) {
     this.threeDSRequestorURL = threeDSRequestorURL;
+    isSetThreeDSRequestorURL = true; // mark as set
   }
 
   /**
@@ -1958,6 +2153,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData transType(TransTypeEnum transType) {
     this.transType = transType;
+    isSetTransType = true; // mark as set
     return this;
   }
 
@@ -1989,6 +2185,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransType(TransTypeEnum transType) {
     this.transType = transType;
+    isSetTransType = true; // mark as set
   }
 
   /**
@@ -1999,6 +2196,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData transactionType(TransactionTypeEnum transactionType) {
     this.transactionType = transactionType;
+    isSetTransactionType = true; // mark as set
     return this;
   }
 
@@ -2022,6 +2220,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionType(TransactionTypeEnum transactionType) {
     this.transactionType = transactionType;
+    isSetTransactionType = true; // mark as set
   }
 
   /**
@@ -2034,6 +2233,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData whiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
+    isSetWhiteListStatus = true; // mark as set
     return this;
   }
 
@@ -2061,6 +2261,7 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteListStatus(String whiteListStatus) {
     this.whiteListStatus = whiteListStatus;
+    isSetWhiteListStatus = true; // mark as set
   }
 
   /**
@@ -2071,6 +2272,7 @@ public class ThreeDS2RequestData {
    */
   public ThreeDS2RequestData workPhone(Phone workPhone) {
     this.workPhone = workPhone;
+    isSetWorkPhone = true; // mark as set
     return this;
   }
 
@@ -2094,6 +2296,27 @@ public class ThreeDS2RequestData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(Phone workPhone) {
     this.workPhone = workPhone;
+    isSetWorkPhone = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDS2RequestData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDS2RequestData object is equal to o. */
@@ -2107,96 +2330,187 @@ public class ThreeDS2RequestData {
     }
     ThreeDS2RequestData threeDS2RequestData = (ThreeDS2RequestData) o;
     return Objects.equals(this.acctInfo, threeDS2RequestData.acctInfo)
+        && Objects.equals(this.isSetAcctInfo, threeDS2RequestData.isSetAcctInfo)
         && Objects.equals(this.acctType, threeDS2RequestData.acctType)
+        && Objects.equals(this.isSetAcctType, threeDS2RequestData.isSetAcctType)
         && Objects.equals(this.acquirerBIN, threeDS2RequestData.acquirerBIN)
+        && Objects.equals(this.isSetAcquirerBIN, threeDS2RequestData.isSetAcquirerBIN)
         && Objects.equals(this.acquirerMerchantID, threeDS2RequestData.acquirerMerchantID)
+        && Objects.equals(this.isSetAcquirerMerchantID, threeDS2RequestData.isSetAcquirerMerchantID)
         && Objects.equals(this.addrMatch, threeDS2RequestData.addrMatch)
+        && Objects.equals(this.isSetAddrMatch, threeDS2RequestData.isSetAddrMatch)
         && Objects.equals(this.authenticationOnly, threeDS2RequestData.authenticationOnly)
+        && Objects.equals(this.isSetAuthenticationOnly, threeDS2RequestData.isSetAuthenticationOnly)
         && Objects.equals(this.challengeIndicator, threeDS2RequestData.challengeIndicator)
+        && Objects.equals(this.isSetChallengeIndicator, threeDS2RequestData.isSetChallengeIndicator)
         && Objects.equals(this.deviceChannel, threeDS2RequestData.deviceChannel)
+        && Objects.equals(this.isSetDeviceChannel, threeDS2RequestData.isSetDeviceChannel)
         && Objects.equals(this.deviceRenderOptions, threeDS2RequestData.deviceRenderOptions)
+        && Objects.equals(
+            this.isSetDeviceRenderOptions, threeDS2RequestData.isSetDeviceRenderOptions)
         && Objects.equals(this.homePhone, threeDS2RequestData.homePhone)
+        && Objects.equals(this.isSetHomePhone, threeDS2RequestData.isSetHomePhone)
         && Objects.equals(this.mcc, threeDS2RequestData.mcc)
+        && Objects.equals(this.isSetMcc, threeDS2RequestData.isSetMcc)
         && Objects.equals(this.merchantName, threeDS2RequestData.merchantName)
+        && Objects.equals(this.isSetMerchantName, threeDS2RequestData.isSetMerchantName)
         && Objects.equals(this.messageVersion, threeDS2RequestData.messageVersion)
+        && Objects.equals(this.isSetMessageVersion, threeDS2RequestData.isSetMessageVersion)
         && Objects.equals(this.mobilePhone, threeDS2RequestData.mobilePhone)
+        && Objects.equals(this.isSetMobilePhone, threeDS2RequestData.isSetMobilePhone)
         && Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL)
+        && Objects.equals(this.isSetNotificationURL, threeDS2RequestData.isSetNotificationURL)
         && Objects.equals(this.payTokenInd, threeDS2RequestData.payTokenInd)
+        && Objects.equals(this.isSetPayTokenInd, threeDS2RequestData.isSetPayTokenInd)
         && Objects.equals(
             this.paymentAuthenticationUseCase, threeDS2RequestData.paymentAuthenticationUseCase)
+        && Objects.equals(
+            this.isSetPaymentAuthenticationUseCase,
+            threeDS2RequestData.isSetPaymentAuthenticationUseCase)
         && Objects.equals(this.purchaseInstalData, threeDS2RequestData.purchaseInstalData)
+        && Objects.equals(this.isSetPurchaseInstalData, threeDS2RequestData.isSetPurchaseInstalData)
         && Objects.equals(this.recurringExpiry, threeDS2RequestData.recurringExpiry)
+        && Objects.equals(this.isSetRecurringExpiry, threeDS2RequestData.isSetRecurringExpiry)
         && Objects.equals(this.recurringFrequency, threeDS2RequestData.recurringFrequency)
+        && Objects.equals(this.isSetRecurringFrequency, threeDS2RequestData.isSetRecurringFrequency)
         && Objects.equals(this.sdkAppID, threeDS2RequestData.sdkAppID)
+        && Objects.equals(this.isSetSdkAppID, threeDS2RequestData.isSetSdkAppID)
         && Objects.equals(this.sdkEncData, threeDS2RequestData.sdkEncData)
+        && Objects.equals(this.isSetSdkEncData, threeDS2RequestData.isSetSdkEncData)
         && Objects.equals(this.sdkEphemPubKey, threeDS2RequestData.sdkEphemPubKey)
+        && Objects.equals(this.isSetSdkEphemPubKey, threeDS2RequestData.isSetSdkEphemPubKey)
         && Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout)
+        && Objects.equals(this.isSetSdkMaxTimeout, threeDS2RequestData.isSetSdkMaxTimeout)
         && Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber)
+        && Objects.equals(this.isSetSdkReferenceNumber, threeDS2RequestData.isSetSdkReferenceNumber)
         && Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID)
+        && Objects.equals(this.isSetSdkTransID, threeDS2RequestData.isSetSdkTransID)
         && Objects.equals(this.sdkVersion, threeDS2RequestData.sdkVersion)
+        && Objects.equals(this.isSetSdkVersion, threeDS2RequestData.isSetSdkVersion)
         && Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd)
+        && Objects.equals(this.isSetThreeDSCompInd, threeDS2RequestData.isSetThreeDSCompInd)
         && Objects.equals(
             this.threeDSRequestorAuthenticationInd,
             threeDS2RequestData.threeDSRequestorAuthenticationInd)
         && Objects.equals(
+            this.isSetThreeDSRequestorAuthenticationInd,
+            threeDS2RequestData.isSetThreeDSRequestorAuthenticationInd)
+        && Objects.equals(
             this.threeDSRequestorAuthenticationInfo,
             threeDS2RequestData.threeDSRequestorAuthenticationInfo)
         && Objects.equals(
+            this.isSetThreeDSRequestorAuthenticationInfo,
+            threeDS2RequestData.isSetThreeDSRequestorAuthenticationInfo)
+        && Objects.equals(
             this.threeDSRequestorChallengeInd, threeDS2RequestData.threeDSRequestorChallengeInd)
+        && Objects.equals(
+            this.isSetThreeDSRequestorChallengeInd,
+            threeDS2RequestData.isSetThreeDSRequestorChallengeInd)
         && Objects.equals(this.threeDSRequestorID, threeDS2RequestData.threeDSRequestorID)
+        && Objects.equals(this.isSetThreeDSRequestorID, threeDS2RequestData.isSetThreeDSRequestorID)
         && Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName)
+        && Objects.equals(
+            this.isSetThreeDSRequestorName, threeDS2RequestData.isSetThreeDSRequestorName)
         && Objects.equals(
             this.threeDSRequestorPriorAuthenticationInfo,
             threeDS2RequestData.threeDSRequestorPriorAuthenticationInfo)
+        && Objects.equals(
+            this.isSetThreeDSRequestorPriorAuthenticationInfo,
+            threeDS2RequestData.isSetThreeDSRequestorPriorAuthenticationInfo)
         && Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL)
+        && Objects.equals(
+            this.isSetThreeDSRequestorURL, threeDS2RequestData.isSetThreeDSRequestorURL)
         && Objects.equals(this.transType, threeDS2RequestData.transType)
+        && Objects.equals(this.isSetTransType, threeDS2RequestData.isSetTransType)
         && Objects.equals(this.transactionType, threeDS2RequestData.transactionType)
+        && Objects.equals(this.isSetTransactionType, threeDS2RequestData.isSetTransactionType)
         && Objects.equals(this.whiteListStatus, threeDS2RequestData.whiteListStatus)
-        && Objects.equals(this.workPhone, threeDS2RequestData.workPhone);
+        && Objects.equals(this.isSetWhiteListStatus, threeDS2RequestData.isSetWhiteListStatus)
+        && Objects.equals(this.workPhone, threeDS2RequestData.workPhone)
+        && Objects.equals(this.isSetWorkPhone, threeDS2RequestData.isSetWorkPhone);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acctInfo,
+        isSetAcctInfo,
         acctType,
+        isSetAcctType,
         acquirerBIN,
+        isSetAcquirerBIN,
         acquirerMerchantID,
+        isSetAcquirerMerchantID,
         addrMatch,
+        isSetAddrMatch,
         authenticationOnly,
+        isSetAuthenticationOnly,
         challengeIndicator,
+        isSetChallengeIndicator,
         deviceChannel,
+        isSetDeviceChannel,
         deviceRenderOptions,
+        isSetDeviceRenderOptions,
         homePhone,
+        isSetHomePhone,
         mcc,
+        isSetMcc,
         merchantName,
+        isSetMerchantName,
         messageVersion,
+        isSetMessageVersion,
         mobilePhone,
+        isSetMobilePhone,
         notificationURL,
+        isSetNotificationURL,
         payTokenInd,
+        isSetPayTokenInd,
         paymentAuthenticationUseCase,
+        isSetPaymentAuthenticationUseCase,
         purchaseInstalData,
+        isSetPurchaseInstalData,
         recurringExpiry,
+        isSetRecurringExpiry,
         recurringFrequency,
+        isSetRecurringFrequency,
         sdkAppID,
+        isSetSdkAppID,
         sdkEncData,
+        isSetSdkEncData,
         sdkEphemPubKey,
+        isSetSdkEphemPubKey,
         sdkMaxTimeout,
+        isSetSdkMaxTimeout,
         sdkReferenceNumber,
+        isSetSdkReferenceNumber,
         sdkTransID,
+        isSetSdkTransID,
         sdkVersion,
+        isSetSdkVersion,
         threeDSCompInd,
+        isSetThreeDSCompInd,
         threeDSRequestorAuthenticationInd,
+        isSetThreeDSRequestorAuthenticationInd,
         threeDSRequestorAuthenticationInfo,
+        isSetThreeDSRequestorAuthenticationInfo,
         threeDSRequestorChallengeInd,
+        isSetThreeDSRequestorChallengeInd,
         threeDSRequestorID,
+        isSetThreeDSRequestorID,
         threeDSRequestorName,
+        isSetThreeDSRequestorName,
         threeDSRequestorPriorAuthenticationInfo,
+        isSetThreeDSRequestorPriorAuthenticationInfo,
         threeDSRequestorURL,
+        isSetThreeDSRequestorURL,
         transType,
+        isSetTransType,
         transactionType,
+        isSetTransactionType,
         whiteListStatus,
-        workPhone);
+        isSetWhiteListStatus,
+        workPhone,
+        isSetWorkPhone);
   }
 
   @Override
@@ -2270,6 +2584,157 @@ public class ThreeDS2RequestData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcctInfo) {
+      addIfNull(nulls, JSON_PROPERTY_ACCT_INFO, this.acctInfo);
+    }
+    if (isSetAcctType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCT_TYPE, this.acctType);
+    }
+    if (isSetAcquirerBIN) {
+      addIfNull(nulls, JSON_PROPERTY_ACQUIRER_B_I_N, this.acquirerBIN);
+    }
+    if (isSetAcquirerMerchantID) {
+      addIfNull(nulls, JSON_PROPERTY_ACQUIRER_MERCHANT_I_D, this.acquirerMerchantID);
+    }
+    if (isSetAddrMatch) {
+      addIfNull(nulls, JSON_PROPERTY_ADDR_MATCH, this.addrMatch);
+    }
+    if (isSetAuthenticationOnly) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_ONLY, this.authenticationOnly);
+    }
+    if (isSetChallengeIndicator) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_INDICATOR, this.challengeIndicator);
+    }
+    if (isSetDeviceChannel) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_CHANNEL, this.deviceChannel);
+    }
+    if (isSetDeviceRenderOptions) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_RENDER_OPTIONS, this.deviceRenderOptions);
+    }
+    if (isSetHomePhone) {
+      addIfNull(nulls, JSON_PROPERTY_HOME_PHONE, this.homePhone);
+    }
+    if (isSetMcc) {
+      addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
+    }
+    if (isSetMerchantName) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_NAME, this.merchantName);
+    }
+    if (isSetMessageVersion) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE_VERSION, this.messageVersion);
+    }
+    if (isSetMobilePhone) {
+      addIfNull(nulls, JSON_PROPERTY_MOBILE_PHONE, this.mobilePhone);
+    }
+    if (isSetNotificationURL) {
+      addIfNull(nulls, JSON_PROPERTY_NOTIFICATION_U_R_L, this.notificationURL);
+    }
+    if (isSetPayTokenInd) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_TOKEN_IND, this.payTokenInd);
+    }
+    if (isSetPaymentAuthenticationUseCase) {
+      addIfNull(
+          nulls, JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE, this.paymentAuthenticationUseCase);
+    }
+    if (isSetPurchaseInstalData) {
+      addIfNull(nulls, JSON_PROPERTY_PURCHASE_INSTAL_DATA, this.purchaseInstalData);
+    }
+    if (isSetRecurringExpiry) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_EXPIRY, this.recurringExpiry);
+    }
+    if (isSetRecurringFrequency) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_FREQUENCY, this.recurringFrequency);
+    }
+    if (isSetSdkAppID) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_APP_I_D, this.sdkAppID);
+    }
+    if (isSetSdkEncData) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_ENC_DATA, this.sdkEncData);
+    }
+    if (isSetSdkEphemPubKey) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_EPHEM_PUB_KEY, this.sdkEphemPubKey);
+    }
+    if (isSetSdkMaxTimeout) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_MAX_TIMEOUT, this.sdkMaxTimeout);
+    }
+    if (isSetSdkReferenceNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_REFERENCE_NUMBER, this.sdkReferenceNumber);
+    }
+    if (isSetSdkTransID) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_TRANS_I_D, this.sdkTransID);
+    }
+    if (isSetSdkVersion) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_VERSION, this.sdkVersion);
+    }
+    if (isSetThreeDSCompInd) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_COMP_IND, this.threeDSCompInd);
+    }
+    if (isSetThreeDSRequestorAuthenticationInd) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND,
+          this.threeDSRequestorAuthenticationInd);
+    }
+    if (isSetThreeDSRequestorAuthenticationInfo) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO,
+          this.threeDSRequestorAuthenticationInfo);
+    }
+    if (isSetThreeDSRequestorChallengeInd) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND,
+          this.threeDSRequestorChallengeInd);
+    }
+    if (isSetThreeDSRequestorID) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D, this.threeDSRequestorID);
+    }
+    if (isSetThreeDSRequestorName) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME, this.threeDSRequestorName);
+    }
+    if (isSetThreeDSRequestorPriorAuthenticationInfo) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO,
+          this.threeDSRequestorPriorAuthenticationInfo);
+    }
+    if (isSetThreeDSRequestorURL) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L, this.threeDSRequestorURL);
+    }
+    if (isSetTransType) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_TYPE, this.transType);
+    }
+    if (isSetTransactionType) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_TYPE, this.transactionType);
+    }
+    if (isSetWhiteListStatus) {
+      addIfNull(nulls, JSON_PROPERTY_WHITE_LIST_STATUS, this.whiteListStatus);
+    }
+    if (isSetWorkPhone) {
+      addIfNull(nulls, JSON_PROPERTY_WORK_PHONE, this.workPhone);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

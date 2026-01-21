@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,48 +41,99 @@ public class AdditionalDataRiskStandalone {
   public static final String JSON_PROPERTY_PAY_PAL_COUNTRY_CODE = "PayPal.CountryCode";
   private String payPalCountryCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalCountryCode = false;
+
   public static final String JSON_PROPERTY_PAY_PAL_EMAIL_ID = "PayPal.EmailId";
   private String payPalEmailId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalEmailId = false;
 
   public static final String JSON_PROPERTY_PAY_PAL_FIRST_NAME = "PayPal.FirstName";
   private String payPalFirstName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalFirstName = false;
+
   public static final String JSON_PROPERTY_PAY_PAL_LAST_NAME = "PayPal.LastName";
   private String payPalLastName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalLastName = false;
 
   public static final String JSON_PROPERTY_PAY_PAL_PAYER_ID = "PayPal.PayerId";
   private String payPalPayerId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalPayerId = false;
+
   public static final String JSON_PROPERTY_PAY_PAL_PHONE = "PayPal.Phone";
   private String payPalPhone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalPhone = false;
 
   public static final String JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY =
       "PayPal.ProtectionEligibility";
   private String payPalProtectionEligibility;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalProtectionEligibility = false;
+
   public static final String JSON_PROPERTY_PAY_PAL_TRANSACTION_ID = "PayPal.TransactionId";
   private String payPalTransactionId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayPalTransactionId = false;
 
   public static final String JSON_PROPERTY_AVS_RESULT_RAW = "avsResultRaw";
   private String avsResultRaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAvsResultRaw = false;
+
   public static final String JSON_PROPERTY_BIN = "bin";
   private String bin;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBin = false;
 
   public static final String JSON_PROPERTY_CVC_RESULT_RAW = "cvcResultRaw";
   private String cvcResultRaw;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCvcResultRaw = false;
+
   public static final String JSON_PROPERTY_RISK_TOKEN = "riskToken";
   private String riskToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskToken = false;
 
   public static final String JSON_PROPERTY_THREE_D_AUTHENTICATED = "threeDAuthenticated";
   private String threeDAuthenticated;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDAuthenticated = false;
+
   public static final String JSON_PROPERTY_THREE_D_OFFERED = "threeDOffered";
   private String threeDOffered;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDOffered = false;
+
   public static final String JSON_PROPERTY_TOKEN_DATA_TYPE = "tokenDataType";
   private String tokenDataType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenDataType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataRiskStandalone() {}
 
@@ -93,6 +146,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalCountryCode(String payPalCountryCode) {
     this.payPalCountryCode = payPalCountryCode;
+    isSetPayPalCountryCode = true; // mark as set
     return this;
   }
 
@@ -118,6 +172,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalCountryCode(String payPalCountryCode) {
     this.payPalCountryCode = payPalCountryCode;
+    isSetPayPalCountryCode = true; // mark as set
   }
 
   /**
@@ -128,6 +183,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalEmailId(String payPalEmailId) {
     this.payPalEmailId = payPalEmailId;
+    isSetPayPalEmailId = true; // mark as set
     return this;
   }
 
@@ -151,6 +207,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalEmailId(String payPalEmailId) {
     this.payPalEmailId = payPalEmailId;
+    isSetPayPalEmailId = true; // mark as set
   }
 
   /**
@@ -161,6 +218,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalFirstName(String payPalFirstName) {
     this.payPalFirstName = payPalFirstName;
+    isSetPayPalFirstName = true; // mark as set
     return this;
   }
 
@@ -184,6 +242,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalFirstName(String payPalFirstName) {
     this.payPalFirstName = payPalFirstName;
+    isSetPayPalFirstName = true; // mark as set
   }
 
   /**
@@ -194,6 +253,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalLastName(String payPalLastName) {
     this.payPalLastName = payPalLastName;
+    isSetPayPalLastName = true; // mark as set
     return this;
   }
 
@@ -217,6 +277,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalLastName(String payPalLastName) {
     this.payPalLastName = payPalLastName;
+    isSetPayPalLastName = true; // mark as set
   }
 
   /**
@@ -229,6 +290,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalPayerId(String payPalPayerId) {
     this.payPalPayerId = payPalPayerId;
+    isSetPayPalPayerId = true; // mark as set
     return this;
   }
 
@@ -256,6 +318,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalPayerId(String payPalPayerId) {
     this.payPalPayerId = payPalPayerId;
+    isSetPayPalPayerId = true; // mark as set
   }
 
   /**
@@ -266,6 +329,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalPhone(String payPalPhone) {
     this.payPalPhone = payPalPhone;
+    isSetPayPalPhone = true; // mark as set
     return this;
   }
 
@@ -289,6 +353,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalPhone(String payPalPhone) {
     this.payPalPhone = payPalPhone;
+    isSetPayPalPhone = true; // mark as set
   }
 
   /**
@@ -307,6 +372,7 @@ public class AdditionalDataRiskStandalone {
   public AdditionalDataRiskStandalone payPalProtectionEligibility(
       String payPalProtectionEligibility) {
     this.payPalProtectionEligibility = payPalProtectionEligibility;
+    isSetPayPalProtectionEligibility = true; // mark as set
     return this;
   }
 
@@ -344,6 +410,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalProtectionEligibility(String payPalProtectionEligibility) {
     this.payPalProtectionEligibility = payPalProtectionEligibility;
+    isSetPayPalProtectionEligibility = true; // mark as set
   }
 
   /**
@@ -354,6 +421,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone payPalTransactionId(String payPalTransactionId) {
     this.payPalTransactionId = payPalTransactionId;
+    isSetPayPalTransactionId = true; // mark as set
     return this;
   }
 
@@ -377,6 +445,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalTransactionId(String payPalTransactionId) {
     this.payPalTransactionId = payPalTransactionId;
+    isSetPayPalTransactionId = true; // mark as set
   }
 
   /**
@@ -387,6 +456,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone avsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
+    isSetAvsResultRaw = true; // mark as set
     return this;
   }
 
@@ -410,6 +480,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
+    isSetAvsResultRaw = true; // mark as set
   }
 
   /**
@@ -424,6 +495,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone bin(String bin) {
     this.bin = bin;
+    isSetBin = true; // mark as set
     return this;
   }
 
@@ -455,6 +527,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
     this.bin = bin;
+    isSetBin = true; // mark as set
   }
 
   /**
@@ -465,6 +538,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone cvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
+    isSetCvcResultRaw = true; // mark as set
     return this;
   }
 
@@ -488,6 +562,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
+    isSetCvcResultRaw = true; // mark as set
   }
 
   /**
@@ -498,6 +573,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone riskToken(String riskToken) {
     this.riskToken = riskToken;
+    isSetRiskToken = true; // mark as set
     return this;
   }
 
@@ -521,6 +597,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskToken(String riskToken) {
     this.riskToken = riskToken;
+    isSetRiskToken = true; // mark as set
   }
 
   /**
@@ -533,6 +610,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone threeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
+    isSetThreeDAuthenticated = true; // mark as set
     return this;
   }
 
@@ -560,6 +638,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
+    isSetThreeDAuthenticated = true; // mark as set
   }
 
   /**
@@ -571,6 +650,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone threeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
+    isSetThreeDOffered = true; // mark as set
     return this;
   }
 
@@ -596,6 +676,7 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
+    isSetThreeDOffered = true; // mark as set
   }
 
   /**
@@ -607,6 +688,7 @@ public class AdditionalDataRiskStandalone {
    */
   public AdditionalDataRiskStandalone tokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
+    isSetTokenDataType = true; // mark as set
     return this;
   }
 
@@ -632,6 +714,27 @@ public class AdditionalDataRiskStandalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
+    isSetTokenDataType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataRiskStandalone includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataRiskStandalone object is equal to o. */
@@ -645,44 +748,81 @@ public class AdditionalDataRiskStandalone {
     }
     AdditionalDataRiskStandalone additionalDataRiskStandalone = (AdditionalDataRiskStandalone) o;
     return Objects.equals(this.payPalCountryCode, additionalDataRiskStandalone.payPalCountryCode)
+        && Objects.equals(
+            this.isSetPayPalCountryCode, additionalDataRiskStandalone.isSetPayPalCountryCode)
         && Objects.equals(this.payPalEmailId, additionalDataRiskStandalone.payPalEmailId)
+        && Objects.equals(this.isSetPayPalEmailId, additionalDataRiskStandalone.isSetPayPalEmailId)
         && Objects.equals(this.payPalFirstName, additionalDataRiskStandalone.payPalFirstName)
+        && Objects.equals(
+            this.isSetPayPalFirstName, additionalDataRiskStandalone.isSetPayPalFirstName)
         && Objects.equals(this.payPalLastName, additionalDataRiskStandalone.payPalLastName)
+        && Objects.equals(
+            this.isSetPayPalLastName, additionalDataRiskStandalone.isSetPayPalLastName)
         && Objects.equals(this.payPalPayerId, additionalDataRiskStandalone.payPalPayerId)
+        && Objects.equals(this.isSetPayPalPayerId, additionalDataRiskStandalone.isSetPayPalPayerId)
         && Objects.equals(this.payPalPhone, additionalDataRiskStandalone.payPalPhone)
+        && Objects.equals(this.isSetPayPalPhone, additionalDataRiskStandalone.isSetPayPalPhone)
         && Objects.equals(
             this.payPalProtectionEligibility,
             additionalDataRiskStandalone.payPalProtectionEligibility)
         && Objects.equals(
+            this.isSetPayPalProtectionEligibility,
+            additionalDataRiskStandalone.isSetPayPalProtectionEligibility)
+        && Objects.equals(
             this.payPalTransactionId, additionalDataRiskStandalone.payPalTransactionId)
+        && Objects.equals(
+            this.isSetPayPalTransactionId, additionalDataRiskStandalone.isSetPayPalTransactionId)
         && Objects.equals(this.avsResultRaw, additionalDataRiskStandalone.avsResultRaw)
+        && Objects.equals(this.isSetAvsResultRaw, additionalDataRiskStandalone.isSetAvsResultRaw)
         && Objects.equals(this.bin, additionalDataRiskStandalone.bin)
+        && Objects.equals(this.isSetBin, additionalDataRiskStandalone.isSetBin)
         && Objects.equals(this.cvcResultRaw, additionalDataRiskStandalone.cvcResultRaw)
+        && Objects.equals(this.isSetCvcResultRaw, additionalDataRiskStandalone.isSetCvcResultRaw)
         && Objects.equals(this.riskToken, additionalDataRiskStandalone.riskToken)
+        && Objects.equals(this.isSetRiskToken, additionalDataRiskStandalone.isSetRiskToken)
         && Objects.equals(
             this.threeDAuthenticated, additionalDataRiskStandalone.threeDAuthenticated)
+        && Objects.equals(
+            this.isSetThreeDAuthenticated, additionalDataRiskStandalone.isSetThreeDAuthenticated)
         && Objects.equals(this.threeDOffered, additionalDataRiskStandalone.threeDOffered)
-        && Objects.equals(this.tokenDataType, additionalDataRiskStandalone.tokenDataType);
+        && Objects.equals(this.isSetThreeDOffered, additionalDataRiskStandalone.isSetThreeDOffered)
+        && Objects.equals(this.tokenDataType, additionalDataRiskStandalone.tokenDataType)
+        && Objects.equals(this.isSetTokenDataType, additionalDataRiskStandalone.isSetTokenDataType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         payPalCountryCode,
+        isSetPayPalCountryCode,
         payPalEmailId,
+        isSetPayPalEmailId,
         payPalFirstName,
+        isSetPayPalFirstName,
         payPalLastName,
+        isSetPayPalLastName,
         payPalPayerId,
+        isSetPayPalPayerId,
         payPalPhone,
+        isSetPayPalPhone,
         payPalProtectionEligibility,
+        isSetPayPalProtectionEligibility,
         payPalTransactionId,
+        isSetPayPalTransactionId,
         avsResultRaw,
+        isSetAvsResultRaw,
         bin,
+        isSetBin,
         cvcResultRaw,
+        isSetCvcResultRaw,
         riskToken,
+        isSetRiskToken,
         threeDAuthenticated,
+        isSetThreeDAuthenticated,
         threeDOffered,
-        tokenDataType);
+        isSetThreeDOffered,
+        tokenDataType,
+        isSetTokenDataType);
   }
 
   @Override
@@ -722,6 +862,73 @@ public class AdditionalDataRiskStandalone {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPayPalCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_COUNTRY_CODE, this.payPalCountryCode);
+    }
+    if (isSetPayPalEmailId) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_EMAIL_ID, this.payPalEmailId);
+    }
+    if (isSetPayPalFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_FIRST_NAME, this.payPalFirstName);
+    }
+    if (isSetPayPalLastName) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_LAST_NAME, this.payPalLastName);
+    }
+    if (isSetPayPalPayerId) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_PAYER_ID, this.payPalPayerId);
+    }
+    if (isSetPayPalPhone) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_PHONE, this.payPalPhone);
+    }
+    if (isSetPayPalProtectionEligibility) {
+      addIfNull(
+          nulls, JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY, this.payPalProtectionEligibility);
+    }
+    if (isSetPayPalTransactionId) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_PAL_TRANSACTION_ID, this.payPalTransactionId);
+    }
+    if (isSetAvsResultRaw) {
+      addIfNull(nulls, JSON_PROPERTY_AVS_RESULT_RAW, this.avsResultRaw);
+    }
+    if (isSetBin) {
+      addIfNull(nulls, JSON_PROPERTY_BIN, this.bin);
+    }
+    if (isSetCvcResultRaw) {
+      addIfNull(nulls, JSON_PROPERTY_CVC_RESULT_RAW, this.cvcResultRaw);
+    }
+    if (isSetRiskToken) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_TOKEN, this.riskToken);
+    }
+    if (isSetThreeDAuthenticated) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_AUTHENTICATED, this.threeDAuthenticated);
+    }
+    if (isSetThreeDOffered) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_OFFERED, this.threeDOffered);
+    }
+    if (isSetTokenDataType) {
+      addIfNull(nulls, JSON_PROPERTY_TOKEN_DATA_TYPE, this.tokenDataType);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
