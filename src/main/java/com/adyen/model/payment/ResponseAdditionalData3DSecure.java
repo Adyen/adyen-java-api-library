@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,17 +31,38 @@ public class ResponseAdditionalData3DSecure {
   public static final String JSON_PROPERTY_CARD_HOLDER_INFO = "cardHolderInfo";
   private String cardHolderInfo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardHolderInfo = false;
+
   public static final String JSON_PROPERTY_CAVV = "cavv";
   private String cavv;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavv = false;
 
   public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavvAlgorithm = false;
+
   public static final String JSON_PROPERTY_SCA_EXEMPTION_REQUESTED = "scaExemptionRequested";
   private String scaExemptionRequested;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaExemptionRequested = false;
+
   public static final String JSON_PROPERTY_THREEDS2_CARD_ENROLLED = "threeds2.cardEnrolled";
   private Boolean threeds2CardEnrolled;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeds2CardEnrolled = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ResponseAdditionalData3DSecure() {}
 
@@ -54,6 +77,7 @@ public class ResponseAdditionalData3DSecure {
    */
   public ResponseAdditionalData3DSecure cardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
+    isSetCardHolderInfo = true; // mark as set
     return this;
   }
 
@@ -81,6 +105,7 @@ public class ResponseAdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderInfo(String cardHolderInfo) {
     this.cardHolderInfo = cardHolderInfo;
+    isSetCardHolderInfo = true; // mark as set
   }
 
   /**
@@ -94,6 +119,7 @@ public class ResponseAdditionalData3DSecure {
    */
   public ResponseAdditionalData3DSecure cavv(String cavv) {
     this.cavv = cavv;
+    isSetCavv = true; // mark as set
     return this;
   }
 
@@ -121,6 +147,7 @@ public class ResponseAdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(String cavv) {
     this.cavv = cavv;
+    isSetCavv = true; // mark as set
   }
 
   /**
@@ -132,6 +159,7 @@ public class ResponseAdditionalData3DSecure {
    */
   public ResponseAdditionalData3DSecure cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
     return this;
   }
 
@@ -155,6 +183,7 @@ public class ResponseAdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
   }
 
   /**
@@ -172,6 +201,7 @@ public class ResponseAdditionalData3DSecure {
    */
   public ResponseAdditionalData3DSecure scaExemptionRequested(String scaExemptionRequested) {
     this.scaExemptionRequested = scaExemptionRequested;
+    isSetScaExemptionRequested = true; // mark as set
     return this;
   }
 
@@ -207,6 +237,7 @@ public class ResponseAdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaExemptionRequested(String scaExemptionRequested) {
     this.scaExemptionRequested = scaExemptionRequested;
+    isSetScaExemptionRequested = true; // mark as set
   }
 
   /**
@@ -218,6 +249,7 @@ public class ResponseAdditionalData3DSecure {
    */
   public ResponseAdditionalData3DSecure threeds2CardEnrolled(Boolean threeds2CardEnrolled) {
     this.threeds2CardEnrolled = threeds2CardEnrolled;
+    isSetThreeds2CardEnrolled = true; // mark as set
     return this;
   }
 
@@ -241,6 +273,27 @@ public class ResponseAdditionalData3DSecure {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2CardEnrolled(Boolean threeds2CardEnrolled) {
     this.threeds2CardEnrolled = threeds2CardEnrolled;
+    isSetThreeds2CardEnrolled = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ResponseAdditionalData3DSecure includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ResponseAdditionalData3DSecure object is equal to o. */
@@ -255,18 +308,38 @@ public class ResponseAdditionalData3DSecure {
     ResponseAdditionalData3DSecure responseAdditionalData3DSecure =
         (ResponseAdditionalData3DSecure) o;
     return Objects.equals(this.cardHolderInfo, responseAdditionalData3DSecure.cardHolderInfo)
+        && Objects.equals(
+            this.isSetCardHolderInfo, responseAdditionalData3DSecure.isSetCardHolderInfo)
         && Objects.equals(this.cavv, responseAdditionalData3DSecure.cavv)
+        && Objects.equals(this.isSetCavv, responseAdditionalData3DSecure.isSetCavv)
         && Objects.equals(this.cavvAlgorithm, responseAdditionalData3DSecure.cavvAlgorithm)
+        && Objects.equals(
+            this.isSetCavvAlgorithm, responseAdditionalData3DSecure.isSetCavvAlgorithm)
         && Objects.equals(
             this.scaExemptionRequested, responseAdditionalData3DSecure.scaExemptionRequested)
         && Objects.equals(
-            this.threeds2CardEnrolled, responseAdditionalData3DSecure.threeds2CardEnrolled);
+            this.isSetScaExemptionRequested,
+            responseAdditionalData3DSecure.isSetScaExemptionRequested)
+        && Objects.equals(
+            this.threeds2CardEnrolled, responseAdditionalData3DSecure.threeds2CardEnrolled)
+        && Objects.equals(
+            this.isSetThreeds2CardEnrolled,
+            responseAdditionalData3DSecure.isSetThreeds2CardEnrolled);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cardHolderInfo, cavv, cavvAlgorithm, scaExemptionRequested, threeds2CardEnrolled);
+        cardHolderInfo,
+        isSetCardHolderInfo,
+        cavv,
+        isSetCavv,
+        cavvAlgorithm,
+        isSetCavvAlgorithm,
+        scaExemptionRequested,
+        isSetScaExemptionRequested,
+        threeds2CardEnrolled,
+        isSetThreeds2CardEnrolled);
   }
 
   @Override
@@ -294,6 +367,42 @@ public class ResponseAdditionalData3DSecure {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardHolderInfo) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_HOLDER_INFO, this.cardHolderInfo);
+    }
+    if (isSetCavv) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV, this.cavv);
+    }
+    if (isSetCavvAlgorithm) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV_ALGORITHM, this.cavvAlgorithm);
+    }
+    if (isSetScaExemptionRequested) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_EXEMPTION_REQUESTED, this.scaExemptionRequested);
+    }
+    if (isSetThreeds2CardEnrolled) {
+      addIfNull(nulls, JSON_PROPERTY_THREEDS2_CARD_ENROLLED, this.threeds2CardEnrolled);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

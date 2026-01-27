@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class SDKEphemPubKey {
   public static final String JSON_PROPERTY_CRV = "crv";
   private String crv;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCrv = false;
+
   public static final String JSON_PROPERTY_KTY = "kty";
   private String kty;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetKty = false;
 
   public static final String JSON_PROPERTY_X = "x";
   private String x;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetX = false;
+
   public static final String JSON_PROPERTY_Y = "y";
   private String y;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetY = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SDKEphemPubKey() {}
 
@@ -47,6 +67,7 @@ public class SDKEphemPubKey {
    */
   public SDKEphemPubKey crv(String crv) {
     this.crv = crv;
+    isSetCrv = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class SDKEphemPubKey {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCrv(String crv) {
     this.crv = crv;
+    isSetCrv = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class SDKEphemPubKey {
    */
   public SDKEphemPubKey kty(String kty) {
     this.kty = kty;
+    isSetKty = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class SDKEphemPubKey {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKty(String kty) {
     this.kty = kty;
+    isSetKty = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class SDKEphemPubKey {
    */
   public SDKEphemPubKey x(String x) {
     this.x = x;
+    isSetX = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class SDKEphemPubKey {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(String x) {
     this.x = x;
+    isSetX = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class SDKEphemPubKey {
    */
   public SDKEphemPubKey y(String y) {
     this.y = y;
+    isSetY = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,27 @@ public class SDKEphemPubKey {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(String y) {
     this.y = y;
+    isSetY = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public SDKEphemPubKey includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SDKEphemPubKey object is equal to o. */
@@ -182,14 +230,18 @@ public class SDKEphemPubKey {
     }
     SDKEphemPubKey sdKEphemPubKey = (SDKEphemPubKey) o;
     return Objects.equals(this.crv, sdKEphemPubKey.crv)
+        && Objects.equals(this.isSetCrv, sdKEphemPubKey.isSetCrv)
         && Objects.equals(this.kty, sdKEphemPubKey.kty)
+        && Objects.equals(this.isSetKty, sdKEphemPubKey.isSetKty)
         && Objects.equals(this.x, sdKEphemPubKey.x)
-        && Objects.equals(this.y, sdKEphemPubKey.y);
+        && Objects.equals(this.isSetX, sdKEphemPubKey.isSetX)
+        && Objects.equals(this.y, sdKEphemPubKey.y)
+        && Objects.equals(this.isSetY, sdKEphemPubKey.isSetY);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crv, kty, x, y);
+    return Objects.hash(crv, isSetCrv, kty, isSetKty, x, isSetX, y, isSetY);
   }
 
   @Override
@@ -212,6 +264,39 @@ public class SDKEphemPubKey {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCrv) {
+      addIfNull(nulls, JSON_PROPERTY_CRV, this.crv);
+    }
+    if (isSetKty) {
+      addIfNull(nulls, JSON_PROPERTY_KTY, this.kty);
+    }
+    if (isSetX) {
+      addIfNull(nulls, JSON_PROPERTY_X, this.x);
+    }
+    if (isSetY) {
+      addIfNull(nulls, JSON_PROPERTY_Y, this.y);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
