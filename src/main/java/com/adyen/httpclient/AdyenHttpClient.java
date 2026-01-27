@@ -160,9 +160,11 @@ public class AdyenHttpClient implements ClientInterface {
     builder.setConnectionRequestTimeout(
         config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS);
 
-    if (config.getProtocolUpgradeEnabled() != null) {
-      builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
-    }
+    // Note: setProtocolUpgradeEnabled is not available in httpclient5 5.3.1
+    // which is the last version compatible with Android (versions 5.4+ use jdk.net.Sockets)
+    // if (config.getProtocolUpgradeEnabled() != null) {
+    //   builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
+    // }
     if (proxy != null && proxy.address() instanceof InetSocketAddress) {
       InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
       builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));
