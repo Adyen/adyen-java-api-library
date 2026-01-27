@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -48,87 +50,156 @@ public class AdditionalDataRisk {
       "riskdata.[customFieldName]";
   private String riskdataCustomFieldName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataCustomFieldName = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM =
       "riskdata.basket.item[itemNr].amountPerItem";
   private String riskdataBasketItemItemNrAmountPerItem;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrAmountPerItem = false;
 
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND =
       "riskdata.basket.item[itemNr].brand";
   private String riskdataBasketItemItemNrBrand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrBrand = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY =
       "riskdata.basket.item[itemNr].category";
   private String riskdataBasketItemItemNrCategory;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrCategory = false;
 
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR =
       "riskdata.basket.item[itemNr].color";
   private String riskdataBasketItemItemNrColor;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrColor = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY =
       "riskdata.basket.item[itemNr].currency";
   private String riskdataBasketItemItemNrCurrency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrCurrency = false;
 
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D =
       "riskdata.basket.item[itemNr].itemID";
   private String riskdataBasketItemItemNrItemID;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrItemID = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER =
       "riskdata.basket.item[itemNr].manufacturer";
   private String riskdataBasketItemItemNrManufacturer;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrManufacturer = false;
 
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE =
       "riskdata.basket.item[itemNr].productTitle";
   private String riskdataBasketItemItemNrProductTitle;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrProductTitle = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY =
       "riskdata.basket.item[itemNr].quantity";
   private String riskdataBasketItemItemNrQuantity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrQuantity = false;
 
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL =
       "riskdata.basket.item[itemNr].receiverEmail";
   private String riskdataBasketItemItemNrReceiverEmail;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrReceiverEmail = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE =
       "riskdata.basket.item[itemNr].size";
   private String riskdataBasketItemItemNrSize;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrSize = false;
 
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU =
       "riskdata.basket.item[itemNr].sku";
   private String riskdataBasketItemItemNrSku;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrSku = false;
+
   public static final String JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC =
       "riskdata.basket.item[itemNr].upc";
   private String riskdataBasketItemItemNrUpc;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataBasketItemItemNrUpc = false;
+
   public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE =
       "riskdata.promotions.promotion[itemNr].promotionCode";
   private String riskdataPromotionsPromotionItemNrPromotionCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataPromotionsPromotionItemNrPromotionCode = false;
 
   public static final String
       JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT =
           "riskdata.promotions.promotion[itemNr].promotionDiscountAmount";
   private String riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount = false;
+
   public static final String
       JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY =
           "riskdata.promotions.promotion[itemNr].promotionDiscountCurrency";
   private String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency = false;
 
   public static final String
       JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE =
           "riskdata.promotions.promotion[itemNr].promotionDiscountPercentage";
   private String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage = false;
+
   public static final String JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME =
       "riskdata.promotions.promotion[itemNr].promotionName";
   private String riskdataPromotionsPromotionItemNrPromotionName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataPromotionsPromotionItemNrPromotionName = false;
 
   public static final String JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE =
       "riskdata.riskProfileReference";
   private String riskdataRiskProfileReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataRiskProfileReference = false;
+
   public static final String JSON_PROPERTY_RISKDATA_SKIP_RISK = "riskdata.skipRisk";
   private String riskdataSkipRisk;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskdataSkipRisk = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataRisk() {}
 
@@ -143,6 +214,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataCustomFieldName(String riskdataCustomFieldName) {
     this.riskdataCustomFieldName = riskdataCustomFieldName;
+    isSetRiskdataCustomFieldName = true; // mark as set
     return this;
   }
 
@@ -172,6 +244,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataCustomFieldName(String riskdataCustomFieldName) {
     this.riskdataCustomFieldName = riskdataCustomFieldName;
+    isSetRiskdataCustomFieldName = true; // mark as set
   }
 
   /**
@@ -185,6 +258,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrAmountPerItem(
       String riskdataBasketItemItemNrAmountPerItem) {
     this.riskdataBasketItemItemNrAmountPerItem = riskdataBasketItemItemNrAmountPerItem;
+    isSetRiskdataBasketItemItemNrAmountPerItem = true; // mark as set
     return this;
   }
 
@@ -213,6 +287,7 @@ public class AdditionalDataRisk {
   public void setRiskdataBasketItemItemNrAmountPerItem(
       String riskdataBasketItemItemNrAmountPerItem) {
     this.riskdataBasketItemItemNrAmountPerItem = riskdataBasketItemItemNrAmountPerItem;
+    isSetRiskdataBasketItemItemNrAmountPerItem = true; // mark as set
   }
 
   /**
@@ -223,6 +298,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
     this.riskdataBasketItemItemNrBrand = riskdataBasketItemItemNrBrand;
+    isSetRiskdataBasketItemItemNrBrand = true; // mark as set
     return this;
   }
 
@@ -246,6 +322,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
     this.riskdataBasketItemItemNrBrand = riskdataBasketItemItemNrBrand;
+    isSetRiskdataBasketItemItemNrBrand = true; // mark as set
   }
 
   /**
@@ -257,6 +334,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrCategory(
       String riskdataBasketItemItemNrCategory) {
     this.riskdataBasketItemItemNrCategory = riskdataBasketItemItemNrCategory;
+    isSetRiskdataBasketItemItemNrCategory = true; // mark as set
     return this;
   }
 
@@ -280,6 +358,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCategory(String riskdataBasketItemItemNrCategory) {
     this.riskdataBasketItemItemNrCategory = riskdataBasketItemItemNrCategory;
+    isSetRiskdataBasketItemItemNrCategory = true; // mark as set
   }
 
   /**
@@ -290,6 +369,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
     this.riskdataBasketItemItemNrColor = riskdataBasketItemItemNrColor;
+    isSetRiskdataBasketItemItemNrColor = true; // mark as set
     return this;
   }
 
@@ -313,6 +393,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
     this.riskdataBasketItemItemNrColor = riskdataBasketItemItemNrColor;
+    isSetRiskdataBasketItemItemNrColor = true; // mark as set
   }
 
   /**
@@ -325,6 +406,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrCurrency(
       String riskdataBasketItemItemNrCurrency) {
     this.riskdataBasketItemItemNrCurrency = riskdataBasketItemItemNrCurrency;
+    isSetRiskdataBasketItemItemNrCurrency = true; // mark as set
     return this;
   }
 
@@ -350,6 +432,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCurrency(String riskdataBasketItemItemNrCurrency) {
     this.riskdataBasketItemItemNrCurrency = riskdataBasketItemItemNrCurrency;
+    isSetRiskdataBasketItemItemNrCurrency = true; // mark as set
   }
 
   /**
@@ -360,6 +443,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
     this.riskdataBasketItemItemNrItemID = riskdataBasketItemItemNrItemID;
+    isSetRiskdataBasketItemItemNrItemID = true; // mark as set
     return this;
   }
 
@@ -383,6 +467,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
     this.riskdataBasketItemItemNrItemID = riskdataBasketItemItemNrItemID;
+    isSetRiskdataBasketItemItemNrItemID = true; // mark as set
   }
 
   /**
@@ -394,6 +479,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrManufacturer(
       String riskdataBasketItemItemNrManufacturer) {
     this.riskdataBasketItemItemNrManufacturer = riskdataBasketItemItemNrManufacturer;
+    isSetRiskdataBasketItemItemNrManufacturer = true; // mark as set
     return this;
   }
 
@@ -417,6 +503,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrManufacturer(String riskdataBasketItemItemNrManufacturer) {
     this.riskdataBasketItemItemNrManufacturer = riskdataBasketItemItemNrManufacturer;
+    isSetRiskdataBasketItemItemNrManufacturer = true; // mark as set
   }
 
   /**
@@ -429,6 +516,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrProductTitle(
       String riskdataBasketItemItemNrProductTitle) {
     this.riskdataBasketItemItemNrProductTitle = riskdataBasketItemItemNrProductTitle;
+    isSetRiskdataBasketItemItemNrProductTitle = true; // mark as set
     return this;
   }
 
@@ -454,6 +542,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrProductTitle(String riskdataBasketItemItemNrProductTitle) {
     this.riskdataBasketItemItemNrProductTitle = riskdataBasketItemItemNrProductTitle;
+    isSetRiskdataBasketItemItemNrProductTitle = true; // mark as set
   }
 
   /**
@@ -465,6 +554,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrQuantity(
       String riskdataBasketItemItemNrQuantity) {
     this.riskdataBasketItemItemNrQuantity = riskdataBasketItemItemNrQuantity;
+    isSetRiskdataBasketItemItemNrQuantity = true; // mark as set
     return this;
   }
 
@@ -488,6 +578,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrQuantity(String riskdataBasketItemItemNrQuantity) {
     this.riskdataBasketItemItemNrQuantity = riskdataBasketItemItemNrQuantity;
+    isSetRiskdataBasketItemItemNrQuantity = true; // mark as set
   }
 
   /**
@@ -500,6 +591,7 @@ public class AdditionalDataRisk {
   public AdditionalDataRisk riskdataBasketItemItemNrReceiverEmail(
       String riskdataBasketItemItemNrReceiverEmail) {
     this.riskdataBasketItemItemNrReceiverEmail = riskdataBasketItemItemNrReceiverEmail;
+    isSetRiskdataBasketItemItemNrReceiverEmail = true; // mark as set
     return this;
   }
 
@@ -526,6 +618,7 @@ public class AdditionalDataRisk {
   public void setRiskdataBasketItemItemNrReceiverEmail(
       String riskdataBasketItemItemNrReceiverEmail) {
     this.riskdataBasketItemItemNrReceiverEmail = riskdataBasketItemItemNrReceiverEmail;
+    isSetRiskdataBasketItemItemNrReceiverEmail = true; // mark as set
   }
 
   /**
@@ -536,6 +629,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
     this.riskdataBasketItemItemNrSize = riskdataBasketItemItemNrSize;
+    isSetRiskdataBasketItemItemNrSize = true; // mark as set
     return this;
   }
 
@@ -559,6 +653,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
     this.riskdataBasketItemItemNrSize = riskdataBasketItemItemNrSize;
+    isSetRiskdataBasketItemItemNrSize = true; // mark as set
   }
 
   /**
@@ -570,6 +665,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
     this.riskdataBasketItemItemNrSku = riskdataBasketItemItemNrSku;
+    isSetRiskdataBasketItemItemNrSku = true; // mark as set
     return this;
   }
 
@@ -595,6 +691,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
     this.riskdataBasketItemItemNrSku = riskdataBasketItemItemNrSku;
+    isSetRiskdataBasketItemItemNrSku = true; // mark as set
   }
 
   /**
@@ -606,6 +703,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
     this.riskdataBasketItemItemNrUpc = riskdataBasketItemItemNrUpc;
+    isSetRiskdataBasketItemItemNrUpc = true; // mark as set
     return this;
   }
 
@@ -631,6 +729,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
     this.riskdataBasketItemItemNrUpc = riskdataBasketItemItemNrUpc;
+    isSetRiskdataBasketItemItemNrUpc = true; // mark as set
   }
 
   /**
@@ -643,6 +742,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionCode) {
     this.riskdataPromotionsPromotionItemNrPromotionCode =
         riskdataPromotionsPromotionItemNrPromotionCode;
+    isSetRiskdataPromotionsPromotionItemNrPromotionCode = true; // mark as set
     return this;
   }
 
@@ -668,6 +768,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionCode) {
     this.riskdataPromotionsPromotionItemNrPromotionCode =
         riskdataPromotionsPromotionItemNrPromotionCode;
+    isSetRiskdataPromotionsPromotionItemNrPromotionCode = true; // mark as set
   }
 
   /**
@@ -683,6 +784,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount =
         riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
+    isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount = true; // mark as set
     return this;
   }
 
@@ -714,6 +816,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount =
         riskdataPromotionsPromotionItemNrPromotionDiscountAmount;
+    isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount = true; // mark as set
   }
 
   /**
@@ -727,6 +830,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency =
         riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
+    isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency = true; // mark as set
     return this;
   }
 
@@ -754,6 +858,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency =
         riskdataPromotionsPromotionItemNrPromotionDiscountCurrency;
+    isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency = true; // mark as set
   }
 
   /**
@@ -771,6 +876,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage =
         riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
+    isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage = true; // mark as set
     return this;
   }
 
@@ -806,6 +912,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
     this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage =
         riskdataPromotionsPromotionItemNrPromotionDiscountPercentage;
+    isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage = true; // mark as set
   }
 
   /**
@@ -818,6 +925,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionName) {
     this.riskdataPromotionsPromotionItemNrPromotionName =
         riskdataPromotionsPromotionItemNrPromotionName;
+    isSetRiskdataPromotionsPromotionItemNrPromotionName = true; // mark as set
     return this;
   }
 
@@ -843,6 +951,7 @@ public class AdditionalDataRisk {
       String riskdataPromotionsPromotionItemNrPromotionName) {
     this.riskdataPromotionsPromotionItemNrPromotionName =
         riskdataPromotionsPromotionItemNrPromotionName;
+    isSetRiskdataPromotionsPromotionItemNrPromotionName = true; // mark as set
   }
 
   /**
@@ -860,6 +969,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataRiskProfileReference(String riskdataRiskProfileReference) {
     this.riskdataRiskProfileReference = riskdataRiskProfileReference;
+    isSetRiskdataRiskProfileReference = true; // mark as set
     return this;
   }
 
@@ -897,6 +1007,7 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataRiskProfileReference(String riskdataRiskProfileReference) {
     this.riskdataRiskProfileReference = riskdataRiskProfileReference;
+    isSetRiskdataRiskProfileReference = true; // mark as set
   }
 
   /**
@@ -909,6 +1020,7 @@ public class AdditionalDataRisk {
    */
   public AdditionalDataRisk riskdataSkipRisk(String riskdataSkipRisk) {
     this.riskdataSkipRisk = riskdataSkipRisk;
+    isSetRiskdataSkipRisk = true; // mark as set
     return this;
   }
 
@@ -936,6 +1048,27 @@ public class AdditionalDataRisk {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataSkipRisk(String riskdataSkipRisk) {
     this.riskdataSkipRisk = riskdataSkipRisk;
+    isSetRiskdataSkipRisk = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataRisk includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataRisk object is equal to o. */
@@ -950,82 +1083,163 @@ public class AdditionalDataRisk {
     AdditionalDataRisk additionalDataRisk = (AdditionalDataRisk) o;
     return Objects.equals(this.riskdataCustomFieldName, additionalDataRisk.riskdataCustomFieldName)
         && Objects.equals(
+            this.isSetRiskdataCustomFieldName, additionalDataRisk.isSetRiskdataCustomFieldName)
+        && Objects.equals(
             this.riskdataBasketItemItemNrAmountPerItem,
             additionalDataRisk.riskdataBasketItemItemNrAmountPerItem)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrAmountPerItem,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrAmountPerItem)
+        && Objects.equals(
             this.riskdataBasketItemItemNrBrand, additionalDataRisk.riskdataBasketItemItemNrBrand)
+        && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrBrand,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrBrand)
         && Objects.equals(
             this.riskdataBasketItemItemNrCategory,
             additionalDataRisk.riskdataBasketItemItemNrCategory)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrCategory,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrCategory)
+        && Objects.equals(
             this.riskdataBasketItemItemNrColor, additionalDataRisk.riskdataBasketItemItemNrColor)
+        && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrColor,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrColor)
         && Objects.equals(
             this.riskdataBasketItemItemNrCurrency,
             additionalDataRisk.riskdataBasketItemItemNrCurrency)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrCurrency,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrCurrency)
+        && Objects.equals(
             this.riskdataBasketItemItemNrItemID, additionalDataRisk.riskdataBasketItemItemNrItemID)
+        && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrItemID,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrItemID)
         && Objects.equals(
             this.riskdataBasketItemItemNrManufacturer,
             additionalDataRisk.riskdataBasketItemItemNrManufacturer)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrManufacturer,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrManufacturer)
+        && Objects.equals(
             this.riskdataBasketItemItemNrProductTitle,
             additionalDataRisk.riskdataBasketItemItemNrProductTitle)
+        && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrProductTitle,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrProductTitle)
         && Objects.equals(
             this.riskdataBasketItemItemNrQuantity,
             additionalDataRisk.riskdataBasketItemItemNrQuantity)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrQuantity,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrQuantity)
+        && Objects.equals(
             this.riskdataBasketItemItemNrReceiverEmail,
             additionalDataRisk.riskdataBasketItemItemNrReceiverEmail)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrReceiverEmail,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrReceiverEmail)
+        && Objects.equals(
             this.riskdataBasketItemItemNrSize, additionalDataRisk.riskdataBasketItemItemNrSize)
+        && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrSize,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrSize)
         && Objects.equals(
             this.riskdataBasketItemItemNrSku, additionalDataRisk.riskdataBasketItemItemNrSku)
         && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrSku,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrSku)
+        && Objects.equals(
             this.riskdataBasketItemItemNrUpc, additionalDataRisk.riskdataBasketItemItemNrUpc)
+        && Objects.equals(
+            this.isSetRiskdataBasketItemItemNrUpc,
+            additionalDataRisk.isSetRiskdataBasketItemItemNrUpc)
         && Objects.equals(
             this.riskdataPromotionsPromotionItemNrPromotionCode,
             additionalDataRisk.riskdataPromotionsPromotionItemNrPromotionCode)
         && Objects.equals(
+            this.isSetRiskdataPromotionsPromotionItemNrPromotionCode,
+            additionalDataRisk.isSetRiskdataPromotionsPromotionItemNrPromotionCode)
+        && Objects.equals(
             this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount,
             additionalDataRisk.riskdataPromotionsPromotionItemNrPromotionDiscountAmount)
+        && Objects.equals(
+            this.isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount,
+            additionalDataRisk.isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount)
         && Objects.equals(
             this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency,
             additionalDataRisk.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency)
         && Objects.equals(
+            this.isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency,
+            additionalDataRisk.isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency)
+        && Objects.equals(
             this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage,
             additionalDataRisk.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage)
+        && Objects.equals(
+            this.isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage,
+            additionalDataRisk.isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage)
         && Objects.equals(
             this.riskdataPromotionsPromotionItemNrPromotionName,
             additionalDataRisk.riskdataPromotionsPromotionItemNrPromotionName)
         && Objects.equals(
+            this.isSetRiskdataPromotionsPromotionItemNrPromotionName,
+            additionalDataRisk.isSetRiskdataPromotionsPromotionItemNrPromotionName)
+        && Objects.equals(
             this.riskdataRiskProfileReference, additionalDataRisk.riskdataRiskProfileReference)
-        && Objects.equals(this.riskdataSkipRisk, additionalDataRisk.riskdataSkipRisk);
+        && Objects.equals(
+            this.isSetRiskdataRiskProfileReference,
+            additionalDataRisk.isSetRiskdataRiskProfileReference)
+        && Objects.equals(this.riskdataSkipRisk, additionalDataRisk.riskdataSkipRisk)
+        && Objects.equals(this.isSetRiskdataSkipRisk, additionalDataRisk.isSetRiskdataSkipRisk);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         riskdataCustomFieldName,
+        isSetRiskdataCustomFieldName,
         riskdataBasketItemItemNrAmountPerItem,
+        isSetRiskdataBasketItemItemNrAmountPerItem,
         riskdataBasketItemItemNrBrand,
+        isSetRiskdataBasketItemItemNrBrand,
         riskdataBasketItemItemNrCategory,
+        isSetRiskdataBasketItemItemNrCategory,
         riskdataBasketItemItemNrColor,
+        isSetRiskdataBasketItemItemNrColor,
         riskdataBasketItemItemNrCurrency,
+        isSetRiskdataBasketItemItemNrCurrency,
         riskdataBasketItemItemNrItemID,
+        isSetRiskdataBasketItemItemNrItemID,
         riskdataBasketItemItemNrManufacturer,
+        isSetRiskdataBasketItemItemNrManufacturer,
         riskdataBasketItemItemNrProductTitle,
+        isSetRiskdataBasketItemItemNrProductTitle,
         riskdataBasketItemItemNrQuantity,
+        isSetRiskdataBasketItemItemNrQuantity,
         riskdataBasketItemItemNrReceiverEmail,
+        isSetRiskdataBasketItemItemNrReceiverEmail,
         riskdataBasketItemItemNrSize,
+        isSetRiskdataBasketItemItemNrSize,
         riskdataBasketItemItemNrSku,
+        isSetRiskdataBasketItemItemNrSku,
         riskdataBasketItemItemNrUpc,
+        isSetRiskdataBasketItemItemNrUpc,
         riskdataPromotionsPromotionItemNrPromotionCode,
+        isSetRiskdataPromotionsPromotionItemNrPromotionCode,
         riskdataPromotionsPromotionItemNrPromotionDiscountAmount,
+        isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount,
         riskdataPromotionsPromotionItemNrPromotionDiscountCurrency,
+        isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency,
         riskdataPromotionsPromotionItemNrPromotionDiscountPercentage,
+        isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage,
         riskdataPromotionsPromotionItemNrPromotionName,
+        isSetRiskdataPromotionsPromotionItemNrPromotionName,
         riskdataRiskProfileReference,
-        riskdataSkipRisk);
+        isSetRiskdataRiskProfileReference,
+        riskdataSkipRisk,
+        isSetRiskdataSkipRisk);
   }
 
   @Override
@@ -1105,6 +1319,141 @@ public class AdditionalDataRisk {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetRiskdataCustomFieldName) {
+      addIfNull(nulls, JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME, this.riskdataCustomFieldName);
+    }
+    if (isSetRiskdataBasketItemItemNrAmountPerItem) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM,
+          this.riskdataBasketItemItemNrAmountPerItem);
+    }
+    if (isSetRiskdataBasketItemItemNrBrand) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND,
+          this.riskdataBasketItemItemNrBrand);
+    }
+    if (isSetRiskdataBasketItemItemNrCategory) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY,
+          this.riskdataBasketItemItemNrCategory);
+    }
+    if (isSetRiskdataBasketItemItemNrColor) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR,
+          this.riskdataBasketItemItemNrColor);
+    }
+    if (isSetRiskdataBasketItemItemNrCurrency) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY,
+          this.riskdataBasketItemItemNrCurrency);
+    }
+    if (isSetRiskdataBasketItemItemNrItemID) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D,
+          this.riskdataBasketItemItemNrItemID);
+    }
+    if (isSetRiskdataBasketItemItemNrManufacturer) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER,
+          this.riskdataBasketItemItemNrManufacturer);
+    }
+    if (isSetRiskdataBasketItemItemNrProductTitle) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE,
+          this.riskdataBasketItemItemNrProductTitle);
+    }
+    if (isSetRiskdataBasketItemItemNrQuantity) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY,
+          this.riskdataBasketItemItemNrQuantity);
+    }
+    if (isSetRiskdataBasketItemItemNrReceiverEmail) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL,
+          this.riskdataBasketItemItemNrReceiverEmail);
+    }
+    if (isSetRiskdataBasketItemItemNrSize) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE,
+          this.riskdataBasketItemItemNrSize);
+    }
+    if (isSetRiskdataBasketItemItemNrSku) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU, this.riskdataBasketItemItemNrSku);
+    }
+    if (isSetRiskdataBasketItemItemNrUpc) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC, this.riskdataBasketItemItemNrUpc);
+    }
+    if (isSetRiskdataPromotionsPromotionItemNrPromotionCode) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE,
+          this.riskdataPromotionsPromotionItemNrPromotionCode);
+    }
+    if (isSetRiskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT,
+          this.riskdataPromotionsPromotionItemNrPromotionDiscountAmount);
+    }
+    if (isSetRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY,
+          this.riskdataPromotionsPromotionItemNrPromotionDiscountCurrency);
+    }
+    if (isSetRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE,
+          this.riskdataPromotionsPromotionItemNrPromotionDiscountPercentage);
+    }
+    if (isSetRiskdataPromotionsPromotionItemNrPromotionName) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME,
+          this.riskdataPromotionsPromotionItemNrPromotionName);
+    }
+    if (isSetRiskdataRiskProfileReference) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE, this.riskdataRiskProfileReference);
+    }
+    if (isSetRiskdataSkipRisk) {
+      addIfNull(nulls, JSON_PROPERTY_RISKDATA_SKIP_RISK, this.riskdataSkipRisk);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

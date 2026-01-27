@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,8 +28,20 @@ public class AuthenticationResultResponse {
   public static final String JSON_PROPERTY_THREE_D_S1_RESULT = "threeDS1Result";
   private ThreeDS1Result threeDS1Result;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS1Result = false;
+
   public static final String JSON_PROPERTY_THREE_D_S2_RESULT = "threeDS2Result";
   private ThreeDS2Result threeDS2Result;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDS2Result = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AuthenticationResultResponse() {}
 
@@ -39,6 +53,7 @@ public class AuthenticationResultResponse {
    */
   public AuthenticationResultResponse threeDS1Result(ThreeDS1Result threeDS1Result) {
     this.threeDS1Result = threeDS1Result;
+    isSetThreeDS1Result = true; // mark as set
     return this;
   }
 
@@ -62,6 +77,7 @@ public class AuthenticationResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS1Result(ThreeDS1Result threeDS1Result) {
     this.threeDS1Result = threeDS1Result;
+    isSetThreeDS1Result = true; // mark as set
   }
 
   /**
@@ -72,6 +88,7 @@ public class AuthenticationResultResponse {
    */
   public AuthenticationResultResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
+    isSetThreeDS2Result = true; // mark as set
     return this;
   }
 
@@ -95,6 +112,27 @@ public class AuthenticationResultResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
     this.threeDS2Result = threeDS2Result;
+    isSetThreeDS2Result = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AuthenticationResultResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AuthenticationResultResponse object is equal to o. */
@@ -108,12 +146,16 @@ public class AuthenticationResultResponse {
     }
     AuthenticationResultResponse authenticationResultResponse = (AuthenticationResultResponse) o;
     return Objects.equals(this.threeDS1Result, authenticationResultResponse.threeDS1Result)
-        && Objects.equals(this.threeDS2Result, authenticationResultResponse.threeDS2Result);
+        && Objects.equals(
+            this.isSetThreeDS1Result, authenticationResultResponse.isSetThreeDS1Result)
+        && Objects.equals(this.threeDS2Result, authenticationResultResponse.threeDS2Result)
+        && Objects.equals(
+            this.isSetThreeDS2Result, authenticationResultResponse.isSetThreeDS2Result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(threeDS1Result, threeDS2Result);
+    return Objects.hash(threeDS1Result, isSetThreeDS1Result, threeDS2Result, isSetThreeDS2Result);
   }
 
   @Override
@@ -134,6 +176,33 @@ public class AuthenticationResultResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetThreeDS1Result) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S1_RESULT, this.threeDS1Result);
+    }
+    if (isSetThreeDS2Result) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_RESULT, this.threeDS2Result);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,7 +11,9 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -88,11 +90,20 @@ public class ThreeDSecureData {
   public static final String JSON_PROPERTY_AUTHENTICATION_RESPONSE = "authenticationResponse";
   private AuthenticationResponseEnum authenticationResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthenticationResponse = false;
+
   public static final String JSON_PROPERTY_CAVV = "cavv";
   private byte[] cavv;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavv = false;
+
   public static final String JSON_PROPERTY_CAVV_ALGORITHM = "cavvAlgorithm";
   private String cavvAlgorithm;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCavvAlgorithm = false;
 
   /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the
@@ -152,6 +163,9 @@ public class ThreeDSecureData {
   public static final String JSON_PROPERTY_CHALLENGE_CANCEL = "challengeCancel";
   private ChallengeCancelEnum challengeCancel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeCancel = false;
+
   /** In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;. */
   public enum DirectoryResponseEnum {
     A(String.valueOf("A")),
@@ -208,27 +222,57 @@ public class ThreeDSecureData {
   public static final String JSON_PROPERTY_DIRECTORY_RESPONSE = "directoryResponse";
   private DirectoryResponseEnum directoryResponse;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDirectoryResponse = false;
+
   public static final String JSON_PROPERTY_DS_TRANS_I_D = "dsTransID";
   private String dsTransID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDsTransID = false;
 
   public static final String JSON_PROPERTY_ECI = "eci";
   private String eci;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEci = false;
+
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
   private String riskScore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskScore = false;
+
   public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private String threeDSVersion;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThreeDSVersion = false;
 
   public static final String JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE =
       "tokenAuthenticationVerificationValue";
   private byte[] tokenAuthenticationVerificationValue;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTokenAuthenticationVerificationValue = false;
+
   public static final String JSON_PROPERTY_TRANS_STATUS_REASON = "transStatusReason";
   private String transStatusReason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransStatusReason = false;
+
   public static final String JSON_PROPERTY_XID = "xid";
   private byte[] xid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetXid = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ThreeDSecureData() {}
 
@@ -243,6 +287,7 @@ public class ThreeDSecureData {
   public ThreeDSecureData authenticationResponse(
       AuthenticationResponseEnum authenticationResponse) {
     this.authenticationResponse = authenticationResponse;
+    isSetAuthenticationResponse = true; // mark as set
     return this;
   }
 
@@ -270,6 +315,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationResponse(AuthenticationResponseEnum authenticationResponse) {
     this.authenticationResponse = authenticationResponse;
+    isSetAuthenticationResponse = true; // mark as set
   }
 
   /**
@@ -280,6 +326,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData cavv(byte[] cavv) {
     this.cavv = cavv;
+    isSetCavv = true; // mark as set
     return this;
   }
 
@@ -303,6 +350,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(byte[] cavv) {
     this.cavv = cavv;
+    isSetCavv = true; // mark as set
   }
 
   /**
@@ -313,6 +361,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData cavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
     return this;
   }
 
@@ -336,6 +385,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
     this.cavvAlgorithm = cavvAlgorithm;
+    isSetCavvAlgorithm = true; // mark as set
   }
 
   /**
@@ -351,6 +401,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData challengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
+    isSetChallengeCancel = true; // mark as set
     return this;
   }
 
@@ -384,6 +435,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
+    isSetChallengeCancel = true; // mark as set
   }
 
   /**
@@ -395,6 +447,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData directoryResponse(DirectoryResponseEnum directoryResponse) {
     this.directoryResponse = directoryResponse;
+    isSetDirectoryResponse = true; // mark as set
     return this;
   }
 
@@ -420,6 +473,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryResponse(DirectoryResponseEnum directoryResponse) {
     this.directoryResponse = directoryResponse;
+    isSetDirectoryResponse = true; // mark as set
   }
 
   /**
@@ -432,6 +486,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
     return this;
   }
 
@@ -459,6 +514,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
+    isSetDsTransID = true; // mark as set
   }
 
   /**
@@ -469,6 +525,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData eci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
     return this;
   }
 
@@ -492,6 +549,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
+    isSetEci = true; // mark as set
   }
 
   /**
@@ -503,6 +561,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData riskScore(String riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
     return this;
   }
 
@@ -528,6 +587,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
     this.riskScore = riskScore;
+    isSetRiskScore = true; // mark as set
   }
 
   /**
@@ -538,6 +598,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData threeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
     return this;
   }
 
@@ -561,6 +622,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
+    isSetThreeDSVersion = true; // mark as set
   }
 
   /**
@@ -573,6 +635,7 @@ public class ThreeDSecureData {
   public ThreeDSecureData tokenAuthenticationVerificationValue(
       byte[] tokenAuthenticationVerificationValue) {
     this.tokenAuthenticationVerificationValue = tokenAuthenticationVerificationValue;
+    isSetTokenAuthenticationVerificationValue = true; // mark as set
     return this;
   }
 
@@ -598,6 +661,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenAuthenticationVerificationValue(byte[] tokenAuthenticationVerificationValue) {
     this.tokenAuthenticationVerificationValue = tokenAuthenticationVerificationValue;
+    isSetTokenAuthenticationVerificationValue = true; // mark as set
   }
 
   /**
@@ -612,6 +676,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData transStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
     return this;
   }
 
@@ -643,6 +708,7 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
     this.transStatusReason = transStatusReason;
+    isSetTransStatusReason = true; // mark as set
   }
 
   /**
@@ -655,6 +721,7 @@ public class ThreeDSecureData {
    */
   public ThreeDSecureData xid(byte[] xid) {
     this.xid = xid;
+    isSetXid = true; // mark as set
     return this;
   }
 
@@ -682,6 +749,27 @@ public class ThreeDSecureData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(byte[] xid) {
     this.xid = xid;
+    isSetXid = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ThreeDSecureData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ThreeDSecureData object is equal to o. */
@@ -695,36 +783,63 @@ public class ThreeDSecureData {
     }
     ThreeDSecureData threeDSecureData = (ThreeDSecureData) o;
     return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
+        && Objects.equals(
+            this.isSetAuthenticationResponse, threeDSecureData.isSetAuthenticationResponse)
         && Arrays.equals(this.cavv, threeDSecureData.cavv)
+        && Objects.equals(this.isSetCavv, threeDSecureData.isSetCavv)
         && Objects.equals(this.cavvAlgorithm, threeDSecureData.cavvAlgorithm)
+        && Objects.equals(this.isSetCavvAlgorithm, threeDSecureData.isSetCavvAlgorithm)
         && Objects.equals(this.challengeCancel, threeDSecureData.challengeCancel)
+        && Objects.equals(this.isSetChallengeCancel, threeDSecureData.isSetChallengeCancel)
         && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
+        && Objects.equals(this.isSetDirectoryResponse, threeDSecureData.isSetDirectoryResponse)
         && Objects.equals(this.dsTransID, threeDSecureData.dsTransID)
+        && Objects.equals(this.isSetDsTransID, threeDSecureData.isSetDsTransID)
         && Objects.equals(this.eci, threeDSecureData.eci)
+        && Objects.equals(this.isSetEci, threeDSecureData.isSetEci)
         && Objects.equals(this.riskScore, threeDSecureData.riskScore)
+        && Objects.equals(this.isSetRiskScore, threeDSecureData.isSetRiskScore)
         && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
+        && Objects.equals(this.isSetThreeDSVersion, threeDSecureData.isSetThreeDSVersion)
         && Arrays.equals(
             this.tokenAuthenticationVerificationValue,
             threeDSecureData.tokenAuthenticationVerificationValue)
+        && Objects.equals(
+            this.isSetTokenAuthenticationVerificationValue,
+            threeDSecureData.isSetTokenAuthenticationVerificationValue)
         && Objects.equals(this.transStatusReason, threeDSecureData.transStatusReason)
-        && Arrays.equals(this.xid, threeDSecureData.xid);
+        && Objects.equals(this.isSetTransStatusReason, threeDSecureData.isSetTransStatusReason)
+        && Arrays.equals(this.xid, threeDSecureData.xid)
+        && Objects.equals(this.isSetXid, threeDSecureData.isSetXid);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         authenticationResponse,
+        isSetAuthenticationResponse,
         Arrays.hashCode(cavv),
+        isSetCavv,
         cavvAlgorithm,
+        isSetCavvAlgorithm,
         challengeCancel,
+        isSetChallengeCancel,
         directoryResponse,
+        isSetDirectoryResponse,
         dsTransID,
+        isSetDsTransID,
         eci,
+        isSetEci,
         riskScore,
+        isSetRiskScore,
         threeDSVersion,
+        isSetThreeDSVersion,
         Arrays.hashCode(tokenAuthenticationVerificationValue),
+        isSetTokenAuthenticationVerificationValue,
         transStatusReason,
-        Arrays.hashCode(xid));
+        isSetTransStatusReason,
+        Arrays.hashCode(xid),
+        isSetXid);
   }
 
   @Override
@@ -759,6 +874,66 @@ public class ThreeDSecureData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthenticationResponse) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION_RESPONSE, this.authenticationResponse);
+    }
+    if (isSetCavv) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV, this.cavv);
+    }
+    if (isSetCavvAlgorithm) {
+      addIfNull(nulls, JSON_PROPERTY_CAVV_ALGORITHM, this.cavvAlgorithm);
+    }
+    if (isSetChallengeCancel) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_CANCEL, this.challengeCancel);
+    }
+    if (isSetDirectoryResponse) {
+      addIfNull(nulls, JSON_PROPERTY_DIRECTORY_RESPONSE, this.directoryResponse);
+    }
+    if (isSetDsTransID) {
+      addIfNull(nulls, JSON_PROPERTY_DS_TRANS_I_D, this.dsTransID);
+    }
+    if (isSetEci) {
+      addIfNull(nulls, JSON_PROPERTY_ECI, this.eci);
+    }
+    if (isSetRiskScore) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SCORE, this.riskScore);
+    }
+    if (isSetThreeDSVersion) {
+      addIfNull(nulls, JSON_PROPERTY_THREE_D_S_VERSION, this.threeDSVersion);
+    }
+    if (isSetTokenAuthenticationVerificationValue) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE,
+          this.tokenAuthenticationVerificationValue);
+    }
+    if (isSetTransStatusReason) {
+      addIfNull(nulls, JSON_PROPERTY_TRANS_STATUS_REASON, this.transStatusReason);
+    }
+    if (isSetXid) {
+      addIfNull(nulls, JSON_PROPERTY_XID, this.xid);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

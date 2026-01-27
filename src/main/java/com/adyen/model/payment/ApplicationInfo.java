@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class ApplicationInfo {
   public static final String JSON_PROPERTY_ADYEN_LIBRARY = "adyenLibrary";
   private CommonField adyenLibrary;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdyenLibrary = false;
+
   public static final String JSON_PROPERTY_ADYEN_PAYMENT_SOURCE = "adyenPaymentSource";
   private CommonField adyenPaymentSource;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdyenPaymentSource = false;
 
   public static final String JSON_PROPERTY_EXTERNAL_PLATFORM = "externalPlatform";
   private ExternalPlatform externalPlatform;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExternalPlatform = false;
+
   public static final String JSON_PROPERTY_MERCHANT_APPLICATION = "merchantApplication";
   private CommonField merchantApplication;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantApplication = false;
 
   public static final String JSON_PROPERTY_MERCHANT_DEVICE = "merchantDevice";
   private MerchantDevice merchantDevice;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantDevice = false;
+
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE = "shopperInteractionDevice";
   private ShopperInteractionDevice shopperInteractionDevice;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteractionDevice = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ApplicationInfo() {}
 
@@ -55,6 +81,7 @@ public class ApplicationInfo {
    */
   public ApplicationInfo adyenLibrary(CommonField adyenLibrary) {
     this.adyenLibrary = adyenLibrary;
+    isSetAdyenLibrary = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class ApplicationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenLibrary(CommonField adyenLibrary) {
     this.adyenLibrary = adyenLibrary;
+    isSetAdyenLibrary = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class ApplicationInfo {
    */
   public ApplicationInfo adyenPaymentSource(CommonField adyenPaymentSource) {
     this.adyenPaymentSource = adyenPaymentSource;
+    isSetAdyenPaymentSource = true; // mark as set
     return this;
   }
 
@@ -111,6 +140,7 @@ public class ApplicationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenPaymentSource(CommonField adyenPaymentSource) {
     this.adyenPaymentSource = adyenPaymentSource;
+    isSetAdyenPaymentSource = true; // mark as set
   }
 
   /**
@@ -121,6 +151,7 @@ public class ApplicationInfo {
    */
   public ApplicationInfo externalPlatform(ExternalPlatform externalPlatform) {
     this.externalPlatform = externalPlatform;
+    isSetExternalPlatform = true; // mark as set
     return this;
   }
 
@@ -144,6 +175,7 @@ public class ApplicationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalPlatform(ExternalPlatform externalPlatform) {
     this.externalPlatform = externalPlatform;
+    isSetExternalPlatform = true; // mark as set
   }
 
   /**
@@ -154,6 +186,7 @@ public class ApplicationInfo {
    */
   public ApplicationInfo merchantApplication(CommonField merchantApplication) {
     this.merchantApplication = merchantApplication;
+    isSetMerchantApplication = true; // mark as set
     return this;
   }
 
@@ -177,6 +210,7 @@ public class ApplicationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApplication(CommonField merchantApplication) {
     this.merchantApplication = merchantApplication;
+    isSetMerchantApplication = true; // mark as set
   }
 
   /**
@@ -187,6 +221,7 @@ public class ApplicationInfo {
    */
   public ApplicationInfo merchantDevice(MerchantDevice merchantDevice) {
     this.merchantDevice = merchantDevice;
+    isSetMerchantDevice = true; // mark as set
     return this;
   }
 
@@ -210,6 +245,7 @@ public class ApplicationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDevice(MerchantDevice merchantDevice) {
     this.merchantDevice = merchantDevice;
+    isSetMerchantDevice = true; // mark as set
   }
 
   /**
@@ -221,6 +257,7 @@ public class ApplicationInfo {
   public ApplicationInfo shopperInteractionDevice(
       ShopperInteractionDevice shopperInteractionDevice) {
     this.shopperInteractionDevice = shopperInteractionDevice;
+    isSetShopperInteractionDevice = true; // mark as set
     return this;
   }
 
@@ -244,6 +281,27 @@ public class ApplicationInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteractionDevice(ShopperInteractionDevice shopperInteractionDevice) {
     this.shopperInteractionDevice = shopperInteractionDevice;
+    isSetShopperInteractionDevice = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ApplicationInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ApplicationInfo object is equal to o. */
@@ -257,22 +315,35 @@ public class ApplicationInfo {
     }
     ApplicationInfo applicationInfo = (ApplicationInfo) o;
     return Objects.equals(this.adyenLibrary, applicationInfo.adyenLibrary)
+        && Objects.equals(this.isSetAdyenLibrary, applicationInfo.isSetAdyenLibrary)
         && Objects.equals(this.adyenPaymentSource, applicationInfo.adyenPaymentSource)
+        && Objects.equals(this.isSetAdyenPaymentSource, applicationInfo.isSetAdyenPaymentSource)
         && Objects.equals(this.externalPlatform, applicationInfo.externalPlatform)
+        && Objects.equals(this.isSetExternalPlatform, applicationInfo.isSetExternalPlatform)
         && Objects.equals(this.merchantApplication, applicationInfo.merchantApplication)
+        && Objects.equals(this.isSetMerchantApplication, applicationInfo.isSetMerchantApplication)
         && Objects.equals(this.merchantDevice, applicationInfo.merchantDevice)
-        && Objects.equals(this.shopperInteractionDevice, applicationInfo.shopperInteractionDevice);
+        && Objects.equals(this.isSetMerchantDevice, applicationInfo.isSetMerchantDevice)
+        && Objects.equals(this.shopperInteractionDevice, applicationInfo.shopperInteractionDevice)
+        && Objects.equals(
+            this.isSetShopperInteractionDevice, applicationInfo.isSetShopperInteractionDevice);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         adyenLibrary,
+        isSetAdyenLibrary,
         adyenPaymentSource,
+        isSetAdyenPaymentSource,
         externalPlatform,
+        isSetExternalPlatform,
         merchantApplication,
+        isSetMerchantApplication,
         merchantDevice,
-        shopperInteractionDevice);
+        isSetMerchantDevice,
+        shopperInteractionDevice,
+        isSetShopperInteractionDevice);
   }
 
   @Override
@@ -301,6 +372,45 @@ public class ApplicationInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdyenLibrary) {
+      addIfNull(nulls, JSON_PROPERTY_ADYEN_LIBRARY, this.adyenLibrary);
+    }
+    if (isSetAdyenPaymentSource) {
+      addIfNull(nulls, JSON_PROPERTY_ADYEN_PAYMENT_SOURCE, this.adyenPaymentSource);
+    }
+    if (isSetExternalPlatform) {
+      addIfNull(nulls, JSON_PROPERTY_EXTERNAL_PLATFORM, this.externalPlatform);
+    }
+    if (isSetMerchantApplication) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_APPLICATION, this.merchantApplication);
+    }
+    if (isSetMerchantDevice) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_DEVICE, this.merchantDevice);
+    }
+    if (isSetShopperInteractionDevice) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE, this.shopperInteractionDevice);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

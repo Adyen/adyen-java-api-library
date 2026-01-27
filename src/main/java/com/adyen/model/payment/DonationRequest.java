@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,20 +32,44 @@ public class DonationRequest {
   public static final String JSON_PROPERTY_DONATION_ACCOUNT = "donationAccount";
   private String donationAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDonationAccount = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_MODIFICATION_AMOUNT = "modificationAmount";
   private Amount modificationAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModificationAmount = false;
+
   public static final String JSON_PROPERTY_ORIGINAL_REFERENCE = "originalReference";
   private String originalReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOriginalReference = false;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlatformChargebackLogic = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public DonationRequest() {}
 
@@ -55,6 +81,7 @@ public class DonationRequest {
    */
   public DonationRequest donationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
+    isSetDonationAccount = true; // mark as set
     return this;
   }
 
@@ -78,6 +105,7 @@ public class DonationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
+    isSetDonationAccount = true; // mark as set
   }
 
   /**
@@ -88,6 +116,7 @@ public class DonationRequest {
    */
   public DonationRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -111,6 +140,7 @@ public class DonationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -121,6 +151,7 @@ public class DonationRequest {
    */
   public DonationRequest modificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
+    isSetModificationAmount = true; // mark as set
     return this;
   }
 
@@ -144,6 +175,7 @@ public class DonationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
+    isSetModificationAmount = true; // mark as set
   }
 
   /**
@@ -156,6 +188,7 @@ public class DonationRequest {
    */
   public DonationRequest originalReference(String originalReference) {
     this.originalReference = originalReference;
+    isSetOriginalReference = true; // mark as set
     return this;
   }
 
@@ -183,6 +216,7 @@ public class DonationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
+    isSetOriginalReference = true; // mark as set
   }
 
   /**
@@ -193,6 +227,7 @@ public class DonationRequest {
    */
   public DonationRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
     return this;
   }
 
@@ -216,6 +251,7 @@ public class DonationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
   }
 
   /**
@@ -228,6 +264,7 @@ public class DonationRequest {
    */
   public DonationRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -255,6 +292,27 @@ public class DonationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public DonationRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this DonationRequest object is equal to o. */
@@ -268,22 +326,35 @@ public class DonationRequest {
     }
     DonationRequest donationRequest = (DonationRequest) o;
     return Objects.equals(this.donationAccount, donationRequest.donationAccount)
+        && Objects.equals(this.isSetDonationAccount, donationRequest.isSetDonationAccount)
         && Objects.equals(this.merchantAccount, donationRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, donationRequest.isSetMerchantAccount)
         && Objects.equals(this.modificationAmount, donationRequest.modificationAmount)
+        && Objects.equals(this.isSetModificationAmount, donationRequest.isSetModificationAmount)
         && Objects.equals(this.originalReference, donationRequest.originalReference)
+        && Objects.equals(this.isSetOriginalReference, donationRequest.isSetOriginalReference)
         && Objects.equals(this.platformChargebackLogic, donationRequest.platformChargebackLogic)
-        && Objects.equals(this.reference, donationRequest.reference);
+        && Objects.equals(
+            this.isSetPlatformChargebackLogic, donationRequest.isSetPlatformChargebackLogic)
+        && Objects.equals(this.reference, donationRequest.reference)
+        && Objects.equals(this.isSetReference, donationRequest.isSetReference);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         donationAccount,
+        isSetDonationAccount,
         merchantAccount,
+        isSetMerchantAccount,
         modificationAmount,
+        isSetModificationAmount,
         originalReference,
+        isSetOriginalReference,
         platformChargebackLogic,
-        reference);
+        isSetPlatformChargebackLogic,
+        reference,
+        isSetReference);
   }
 
   @Override
@@ -310,6 +381,45 @@ public class DonationRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDonationAccount) {
+      addIfNull(nulls, JSON_PROPERTY_DONATION_ACCOUNT, this.donationAccount);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetModificationAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MODIFICATION_AMOUNT, this.modificationAmount);
+    }
+    if (isSetOriginalReference) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGINAL_REFERENCE, this.originalReference);
+    }
+    if (isSetPlatformChargebackLogic) {
+      addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

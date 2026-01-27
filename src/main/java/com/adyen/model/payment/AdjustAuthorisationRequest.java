@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,36 +41,75 @@ public class AdjustAuthorisationRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantAccount = false;
 
   public static final String JSON_PROPERTY_MODIFICATION_AMOUNT = "modificationAmount";
   private Amount modificationAmount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModificationAmount = false;
+
   public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMpiData = false;
 
   public static final String JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE =
       "originalMerchantReference";
   private String originalMerchantReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOriginalMerchantReference = false;
+
   public static final String JSON_PROPERTY_ORIGINAL_REFERENCE = "originalReference";
   private String originalReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOriginalReference = false;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPlatformChargebackLogic = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplits = false;
+
   public static final String JSON_PROPERTY_TENDER_REFERENCE = "tenderReference";
   private String tenderReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTenderReference = false;
+
   public static final String JSON_PROPERTY_UNIQUE_TERMINAL_ID = "uniqueTerminalId";
   private String uniqueTerminalId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUniqueTerminalId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdjustAuthorisationRequest() {}
 
@@ -84,6 +125,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -123,6 +165,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -133,6 +176,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
     return this;
   }
 
@@ -156,6 +200,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
+    isSetMerchantAccount = true; // mark as set
   }
 
   /**
@@ -166,6 +211,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest modificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
+    isSetModificationAmount = true; // mark as set
     return this;
   }
 
@@ -189,6 +235,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
+    isSetModificationAmount = true; // mark as set
   }
 
   /**
@@ -199,6 +246,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest mpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
+    isSetMpiData = true; // mark as set
     return this;
   }
 
@@ -222,6 +270,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
+    isSetMpiData = true; // mark as set
   }
 
   /**
@@ -232,6 +281,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest originalMerchantReference(String originalMerchantReference) {
     this.originalMerchantReference = originalMerchantReference;
+    isSetOriginalMerchantReference = true; // mark as set
     return this;
   }
 
@@ -255,6 +305,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalMerchantReference(String originalMerchantReference) {
     this.originalMerchantReference = originalMerchantReference;
+    isSetOriginalMerchantReference = true; // mark as set
   }
 
   /**
@@ -267,6 +318,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest originalReference(String originalReference) {
     this.originalReference = originalReference;
+    isSetOriginalReference = true; // mark as set
     return this;
   }
 
@@ -294,6 +346,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
+    isSetOriginalReference = true; // mark as set
   }
 
   /**
@@ -305,6 +358,7 @@ public class AdjustAuthorisationRequest {
   public AdjustAuthorisationRequest platformChargebackLogic(
       PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
     return this;
   }
 
@@ -328,6 +382,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
+    isSetPlatformChargebackLogic = true; // mark as set
   }
 
   /**
@@ -340,6 +395,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -367,6 +423,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -381,6 +438,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest splits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
     return this;
   }
 
@@ -420,6 +478,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
+    isSetSplits = true; // mark as set
   }
 
   /**
@@ -431,6 +490,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest tenderReference(String tenderReference) {
     this.tenderReference = tenderReference;
+    isSetTenderReference = true; // mark as set
     return this;
   }
 
@@ -456,6 +516,7 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenderReference(String tenderReference) {
     this.tenderReference = tenderReference;
+    isSetTenderReference = true; // mark as set
   }
 
   /**
@@ -468,6 +529,7 @@ public class AdjustAuthorisationRequest {
    */
   public AdjustAuthorisationRequest uniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
+    isSetUniqueTerminalId = true; // mark as set
     return this;
   }
 
@@ -495,6 +557,27 @@ public class AdjustAuthorisationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
+    isSetUniqueTerminalId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdjustAuthorisationRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdjustAuthorisationRequest object is equal to o. */
@@ -508,34 +591,65 @@ public class AdjustAuthorisationRequest {
     }
     AdjustAuthorisationRequest adjustAuthorisationRequest = (AdjustAuthorisationRequest) o;
     return Objects.equals(this.additionalData, adjustAuthorisationRequest.additionalData)
+        && Objects.equals(this.isSetAdditionalData, adjustAuthorisationRequest.isSetAdditionalData)
         && Objects.equals(this.merchantAccount, adjustAuthorisationRequest.merchantAccount)
+        && Objects.equals(
+            this.isSetMerchantAccount, adjustAuthorisationRequest.isSetMerchantAccount)
         && Objects.equals(this.modificationAmount, adjustAuthorisationRequest.modificationAmount)
+        && Objects.equals(
+            this.isSetModificationAmount, adjustAuthorisationRequest.isSetModificationAmount)
         && Objects.equals(this.mpiData, adjustAuthorisationRequest.mpiData)
+        && Objects.equals(this.isSetMpiData, adjustAuthorisationRequest.isSetMpiData)
         && Objects.equals(
             this.originalMerchantReference, adjustAuthorisationRequest.originalMerchantReference)
+        && Objects.equals(
+            this.isSetOriginalMerchantReference,
+            adjustAuthorisationRequest.isSetOriginalMerchantReference)
         && Objects.equals(this.originalReference, adjustAuthorisationRequest.originalReference)
         && Objects.equals(
+            this.isSetOriginalReference, adjustAuthorisationRequest.isSetOriginalReference)
+        && Objects.equals(
             this.platformChargebackLogic, adjustAuthorisationRequest.platformChargebackLogic)
+        && Objects.equals(
+            this.isSetPlatformChargebackLogic,
+            adjustAuthorisationRequest.isSetPlatformChargebackLogic)
         && Objects.equals(this.reference, adjustAuthorisationRequest.reference)
+        && Objects.equals(this.isSetReference, adjustAuthorisationRequest.isSetReference)
         && Objects.equals(this.splits, adjustAuthorisationRequest.splits)
+        && Objects.equals(this.isSetSplits, adjustAuthorisationRequest.isSetSplits)
         && Objects.equals(this.tenderReference, adjustAuthorisationRequest.tenderReference)
-        && Objects.equals(this.uniqueTerminalId, adjustAuthorisationRequest.uniqueTerminalId);
+        && Objects.equals(
+            this.isSetTenderReference, adjustAuthorisationRequest.isSetTenderReference)
+        && Objects.equals(this.uniqueTerminalId, adjustAuthorisationRequest.uniqueTerminalId)
+        && Objects.equals(
+            this.isSetUniqueTerminalId, adjustAuthorisationRequest.isSetUniqueTerminalId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         additionalData,
+        isSetAdditionalData,
         merchantAccount,
+        isSetMerchantAccount,
         modificationAmount,
+        isSetModificationAmount,
         mpiData,
+        isSetMpiData,
         originalMerchantReference,
+        isSetOriginalMerchantReference,
         originalReference,
+        isSetOriginalReference,
         platformChargebackLogic,
+        isSetPlatformChargebackLogic,
         reference,
+        isSetReference,
         splits,
+        isSetSplits,
         tenderReference,
-        uniqueTerminalId);
+        isSetTenderReference,
+        uniqueTerminalId,
+        isSetUniqueTerminalId);
   }
 
   @Override
@@ -569,6 +683,60 @@ public class AdjustAuthorisationRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetMerchantAccount) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetModificationAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MODIFICATION_AMOUNT, this.modificationAmount);
+    }
+    if (isSetMpiData) {
+      addIfNull(nulls, JSON_PROPERTY_MPI_DATA, this.mpiData);
+    }
+    if (isSetOriginalMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE, this.originalMerchantReference);
+    }
+    if (isSetOriginalReference) {
+      addIfNull(nulls, JSON_PROPERTY_ORIGINAL_REFERENCE, this.originalReference);
+    }
+    if (isSetPlatformChargebackLogic) {
+      addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSplits) {
+      addIfNull(nulls, JSON_PROPERTY_SPLITS, this.splits);
+    }
+    if (isSetTenderReference) {
+      addIfNull(nulls, JSON_PROPERTY_TENDER_REFERENCE, this.tenderReference);
+    }
+    if (isSetUniqueTerminalId) {
+      addIfNull(nulls, JSON_PROPERTY_UNIQUE_TERMINAL_ID, this.uniqueTerminalId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
