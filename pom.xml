@@ -233,6 +233,12 @@
             <version>2.11.0</version>
             <scope>compile</scope>
         </dependency>
+        <!--
+        Important: This library is used on Android devices (e.g., payment terminals, mobile apps).
+        Apache HttpClient 5.4+ introduced the use of jdk.net.Sockets API for TCP keepalive options,
+        which is NOT available in Android's runtime (ART). The jdk.net package is not part of Android's Java API.
+        Therefore, we must use version 5.3.1 or earlier to maintain Android compatibility.
+        -->
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
