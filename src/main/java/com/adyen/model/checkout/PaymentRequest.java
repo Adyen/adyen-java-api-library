@@ -93,6 +93,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_SHOPPER_NAME,
   PaymentRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
   PaymentRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_TAX_INFO,
   PaymentRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
   PaymentRequest.JSON_PROPERTY_SPLITS,
   PaymentRequest.JSON_PROPERTY_STORE,
@@ -731,6 +732,12 @@ public class PaymentRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetShopperStatement = false;
+
+  public static final String JSON_PROPERTY_SHOPPER_TAX_INFO = "shopperTaxInfo";
+  private ShopperTaxInfo shopperTaxInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperTaxInfo = false;
 
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
@@ -3665,6 +3672,41 @@ public class PaymentRequest {
   }
 
   /**
+   * shopperTaxInfo
+   *
+   * @param shopperTaxInfo
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest shopperTaxInfo(ShopperTaxInfo shopperTaxInfo) {
+    this.shopperTaxInfo = shopperTaxInfo;
+    isSetShopperTaxInfo = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get shopperTaxInfo
+   *
+   * @return shopperTaxInfo
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_TAX_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ShopperTaxInfo getShopperTaxInfo() {
+    return shopperTaxInfo;
+  }
+
+  /**
+   * shopperTaxInfo
+   *
+   * @param shopperTaxInfo
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_TAX_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperTaxInfo(ShopperTaxInfo shopperTaxInfo) {
+    this.shopperTaxInfo = shopperTaxInfo;
+    isSetShopperTaxInfo = true; // mark as set
+  }
+
+  /**
    * The shopper&#39;s social security number.
    *
    * @param socialSecurityNumber The shopper&#39;s social security number.
@@ -4328,6 +4370,8 @@ public class PaymentRequest {
         && Objects.equals(this.isSetShopperReference, paymentRequest.isSetShopperReference)
         && Objects.equals(this.shopperStatement, paymentRequest.shopperStatement)
         && Objects.equals(this.isSetShopperStatement, paymentRequest.isSetShopperStatement)
+        && Objects.equals(this.shopperTaxInfo, paymentRequest.shopperTaxInfo)
+        && Objects.equals(this.isSetShopperTaxInfo, paymentRequest.isSetShopperTaxInfo)
         && Objects.equals(this.socialSecurityNumber, paymentRequest.socialSecurityNumber)
         && Objects.equals(this.isSetSocialSecurityNumber, paymentRequest.isSetSocialSecurityNumber)
         && Objects.equals(this.splits, paymentRequest.splits)
@@ -4480,6 +4524,8 @@ public class PaymentRequest {
         isSetShopperReference,
         shopperStatement,
         isSetShopperStatement,
+        shopperTaxInfo,
+        isSetShopperTaxInfo,
         socialSecurityNumber,
         isSetSocialSecurityNumber,
         splits,
@@ -4585,6 +4631,7 @@ public class PaymentRequest {
     sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
+    sb.append("    shopperTaxInfo: ").append(toIndentedString(shopperTaxInfo)).append("\n");
     sb.append("    socialSecurityNumber: ")
         .append(toIndentedString(socialSecurityNumber))
         .append("\n");
@@ -4813,6 +4860,9 @@ public class PaymentRequest {
     }
     if (isSetShopperStatement) {
       addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
+    }
+    if (isSetShopperTaxInfo) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_TAX_INFO, this.shopperTaxInfo);
     }
     if (isSetSocialSecurityNumber) {
       addIfNull(nulls, JSON_PROPERTY_SOCIAL_SECURITY_NUMBER, this.socialSecurityNumber);
