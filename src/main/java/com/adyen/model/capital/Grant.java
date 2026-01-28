@@ -21,7 +21,6 @@ import java.util.*;
 
 /** Grant */
 @JsonPropertyOrder({
-  Grant.JSON_PROPERTY_AMOUNT,
   Grant.JSON_PROPERTY_BALANCES,
   Grant.JSON_PROPERTY_COUNTERPARTY,
   Grant.JSON_PROPERTY_GRANT_ACCOUNT_ID,
@@ -30,12 +29,6 @@ import java.util.*;
   Grant.JSON_PROPERTY_STATUS
 })
 public class Grant {
-  public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private Amount amount;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAmount = false;
-
   public static final String JSON_PROPERTY_BALANCES = "balances";
   private Balance balances;
 
@@ -43,7 +36,7 @@ public class Grant {
   private boolean isSetBalances = false;
 
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
-  private Counterparty counterparty;
+  private GrantCounterparty counterparty;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCounterparty = false;
@@ -79,41 +72,6 @@ public class Grant {
   @JsonIgnore private boolean includeNullValues = false;
 
   public Grant() {}
-
-  /**
-   * amount
-   *
-   * @param amount
-   * @return the current {@code Grant} instance, allowing for method chaining
-   */
-  public Grant amount(Amount amount) {
-    this.amount = amount;
-    isSetAmount = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Get amount
-   *
-   * @return amount
-   */
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Amount getAmount() {
-    return amount;
-  }
-
-  /**
-   * amount
-   *
-   * @param amount
-   */
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(Amount amount) {
-    this.amount = amount;
-    isSetAmount = true; // mark as set
-  }
 
   /**
    * balances
@@ -156,7 +114,7 @@ public class Grant {
    * @param counterparty
    * @return the current {@code Grant} instance, allowing for method chaining
    */
-  public Grant counterparty(Counterparty counterparty) {
+  public Grant counterparty(GrantCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
     return this;
@@ -169,7 +127,7 @@ public class Grant {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Counterparty getCounterparty() {
+  public GrantCounterparty getCounterparty() {
     return counterparty;
   }
 
@@ -180,7 +138,7 @@ public class Grant {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCounterparty(Counterparty counterparty) {
+  public void setCounterparty(GrantCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
   }
@@ -361,9 +319,7 @@ public class Grant {
       return false;
     }
     Grant grant = (Grant) o;
-    return Objects.equals(this.amount, grant.amount)
-        && Objects.equals(this.isSetAmount, grant.isSetAmount)
-        && Objects.equals(this.balances, grant.balances)
+    return Objects.equals(this.balances, grant.balances)
         && Objects.equals(this.isSetBalances, grant.isSetBalances)
         && Objects.equals(this.counterparty, grant.counterparty)
         && Objects.equals(this.isSetCounterparty, grant.isSetCounterparty)
@@ -380,8 +336,6 @@ public class Grant {
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount,
-        isSetAmount,
         balances,
         isSetBalances,
         counterparty,
@@ -400,7 +354,6 @@ public class Grant {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Grant {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    grantAccountId: ").append(toIndentedString(grantAccountId)).append("\n");
@@ -431,9 +384,6 @@ public class Grant {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetAmount) {
-      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
-    }
     if (isSetBalances) {
       addIfNull(nulls, JSON_PROPERTY_BALANCES, this.balances);
     }
