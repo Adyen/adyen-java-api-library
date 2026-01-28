@@ -108,6 +108,8 @@ public class PaymentMethodResponse {
 
     BLIK(String.valueOf("blik")),
 
+    BLIK_POS(String.valueOf("blik_pos")),
+
     BR_SCHEMES(String.valueOf("br_schemes")),
 
     CARTEBANCAIRE(String.valueOf("cartebancaire")),

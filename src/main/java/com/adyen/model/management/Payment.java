@@ -49,12 +49,16 @@ public class Payment {
   public Payment() {}
 
   /**
-   * The default currency for contactless payments on the payment terminal, as the three-letter [ISO
-   * 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   * The default currency for contactless payments on the payment terminal, in three-letter [ISO
+   * 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code format. Contact Adyen before you
+   * update this setting for the first time. To enable you to change the contactless currency, we
+   * first need to check if you meet the compliance requirements.
    *
    * @param contactlessCurrency The default currency for contactless payments on the payment
-   *     terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency
-   *     code.
+   *     terminal, in three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code
+   *     format. Contact Adyen before you update this setting for the first time. To enable you to
+   *     change the contactless currency, we first need to check if you meet the compliance
+   *     requirements.
    * @return the current {@code Payment} instance, allowing for method chaining
    */
   public Payment contactlessCurrency(String contactlessCurrency) {
@@ -64,12 +68,16 @@ public class Payment {
   }
 
   /**
-   * The default currency for contactless payments on the payment terminal, as the three-letter [ISO
-   * 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   * The default currency for contactless payments on the payment terminal, in three-letter [ISO
+   * 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code format. Contact Adyen before you
+   * update this setting for the first time. To enable you to change the contactless currency, we
+   * first need to check if you meet the compliance requirements.
    *
    * @return contactlessCurrency The default currency for contactless payments on the payment
-   *     terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency
-   *     code.
+   *     terminal, in three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code
+   *     format. Contact Adyen before you update this setting for the first time. To enable you to
+   *     change the contactless currency, we first need to check if you meet the compliance
+   *     requirements.
    */
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,12 +86,16 @@ public class Payment {
   }
 
   /**
-   * The default currency for contactless payments on the payment terminal, as the three-letter [ISO
-   * 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
+   * The default currency for contactless payments on the payment terminal, in three-letter [ISO
+   * 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code format. Contact Adyen before you
+   * update this setting for the first time. To enable you to change the contactless currency, we
+   * first need to check if you meet the compliance requirements.
    *
    * @param contactlessCurrency The default currency for contactless payments on the payment
-   *     terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency
-   *     code.
+   *     terminal, in three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code
+   *     format. Contact Adyen before you update this setting for the first time. To enable you to
+   *     change the contactless currency, we first need to check if you meet the compliance
+   *     requirements.
    */
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
