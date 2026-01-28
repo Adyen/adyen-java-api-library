@@ -36,8 +36,8 @@ public class Status {
 
   /**
    * The code for the status of the grant. Possible values: - **Pending** - **Active** - **Repaid**
-   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting** - **Reviewing**
-   * - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** - **Approved** -
+   * **Rejected** - **Cancelled**
    */
   public enum CodeEnum {
     PENDING(String.valueOf("Pending")),
@@ -54,11 +54,7 @@ public class Status {
 
     REQUESTED(String.valueOf("Requested")),
 
-    UNDERWRITING(String.valueOf("Underwriting")),
-
     REVIEWING(String.valueOf("Reviewing")),
-
-    ASSESSED(String.valueOf("Assessed")),
 
     APPROVED(String.valueOf("Approved")),
 
@@ -160,12 +156,12 @@ public class Status {
 
   /**
    * The code for the status of the grant. Possible values: - **Pending** - **Active** - **Repaid**
-   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting** - **Reviewing**
-   * - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** - **Approved** -
+   * **Rejected** - **Cancelled**
    *
    * @param code The code for the status of the grant. Possible values: - **Pending** - **Active** -
-   *     **Repaid** - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting** -
-   *     **Reviewing** - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   *     **Repaid** - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** -
+   *     **Approved** - **Rejected** - **Cancelled**
    * @return the current {@code Status} instance, allowing for method chaining
    */
   public Status code(CodeEnum code) {
@@ -176,12 +172,12 @@ public class Status {
 
   /**
    * The code for the status of the grant. Possible values: - **Pending** - **Active** - **Repaid**
-   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting** - **Reviewing**
-   * - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** - **Approved** -
+   * **Rejected** - **Cancelled**
    *
    * @return code The code for the status of the grant. Possible values: - **Pending** - **Active**
-   *     - **Repaid** - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting**
-   *     - **Reviewing** - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   *     - **Repaid** - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** -
+   *     **Approved** - **Rejected** - **Cancelled**
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,12 +187,12 @@ public class Status {
 
   /**
    * The code for the status of the grant. Possible values: - **Pending** - **Active** - **Repaid**
-   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting** - **Reviewing**
-   * - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   * - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** - **Approved** -
+   * **Rejected** - **Cancelled**
    *
    * @param code The code for the status of the grant. Possible values: - **Pending** - **Active** -
-   *     **Repaid** - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Underwriting** -
-   *     **Reviewing** - **Assessed** - **Approved** - **Rejected** - **Cancelled**
+   *     **Repaid** - **WrittenOff** - **Failed** - **Revoked** - **Requested** - **Reviewing** -
+   *     **Approved** - **Rejected** - **Cancelled**
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
