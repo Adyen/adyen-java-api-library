@@ -20,23 +20,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** Moto */
-@JsonPropertyOrder({
-  Moto.JSON_PROPERTY_ENABLE_MOTO,
-  Moto.JSON_PROPERTY_ENABLE_REFUNDS,
-  Moto.JSON_PROPERTY_MAX_AMOUNT
-})
+@JsonPropertyOrder({Moto.JSON_PROPERTY_ENABLE_MOTO, Moto.JSON_PROPERTY_MAX_AMOUNT})
 public class Moto {
   public static final String JSON_PROPERTY_ENABLE_MOTO = "enableMoto";
   private Boolean enableMoto;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEnableMoto = false;
-
-  public static final String JSON_PROPERTY_ENABLE_REFUNDS = "enableRefunds";
-  private Boolean enableRefunds;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetEnableRefunds = false;
 
   public static final String JSON_PROPERTY_MAX_AMOUNT = "maxAmount";
   private Integer maxAmount;
@@ -85,41 +75,6 @@ public class Moto {
   public void setEnableMoto(Boolean enableMoto) {
     this.enableMoto = enableMoto;
     isSetEnableMoto = true; // mark as set
-  }
-
-  /**
-   * Enable MOTO refunds.
-   *
-   * @param enableRefunds Enable MOTO refunds.
-   * @return the current {@code Moto} instance, allowing for method chaining
-   */
-  public Moto enableRefunds(Boolean enableRefunds) {
-    this.enableRefunds = enableRefunds;
-    isSetEnableRefunds = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Enable MOTO refunds.
-   *
-   * @return enableRefunds Enable MOTO refunds.
-   */
-  @JsonProperty(JSON_PROPERTY_ENABLE_REFUNDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnableRefunds() {
-    return enableRefunds;
-  }
-
-  /**
-   * Enable MOTO refunds.
-   *
-   * @param enableRefunds Enable MOTO refunds.
-   */
-  @JsonProperty(JSON_PROPERTY_ENABLE_REFUNDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnableRefunds(Boolean enableRefunds) {
-    this.enableRefunds = enableRefunds;
-    isSetEnableRefunds = true; // mark as set
   }
 
   /**
@@ -207,16 +162,13 @@ public class Moto {
     Moto moto = (Moto) o;
     return Objects.equals(this.enableMoto, moto.enableMoto)
         && Objects.equals(this.isSetEnableMoto, moto.isSetEnableMoto)
-        && Objects.equals(this.enableRefunds, moto.enableRefunds)
-        && Objects.equals(this.isSetEnableRefunds, moto.isSetEnableRefunds)
         && Objects.equals(this.maxAmount, moto.maxAmount)
         && Objects.equals(this.isSetMaxAmount, moto.isSetMaxAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        enableMoto, isSetEnableMoto, enableRefunds, isSetEnableRefunds, maxAmount, isSetMaxAmount);
+    return Objects.hash(enableMoto, isSetEnableMoto, maxAmount, isSetMaxAmount);
   }
 
   @Override
@@ -224,7 +176,6 @@ public class Moto {
     StringBuilder sb = new StringBuilder();
     sb.append("class Moto {\n");
     sb.append("    enableMoto: ").append(toIndentedString(enableMoto)).append("\n");
-    sb.append("    enableRefunds: ").append(toIndentedString(enableRefunds)).append("\n");
     sb.append("    maxAmount: ").append(toIndentedString(maxAmount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -252,9 +203,6 @@ public class Moto {
 
     if (isSetEnableMoto) {
       addIfNull(nulls, JSON_PROPERTY_ENABLE_MOTO, this.enableMoto);
-    }
-    if (isSetEnableRefunds) {
-      addIfNull(nulls, JSON_PROPERTY_ENABLE_REFUNDS, this.enableRefunds);
     }
     if (isSetMaxAmount) {
       addIfNull(nulls, JSON_PROPERTY_MAX_AMOUNT, this.maxAmount);

@@ -27,6 +27,7 @@ import java.util.List;
   StoreCreationRequest.JSON_PROPERTY_BUSINESS_LINE_IDS,
   StoreCreationRequest.JSON_PROPERTY_DESCRIPTION,
   StoreCreationRequest.JSON_PROPERTY_EXTERNAL_REFERENCE_ID,
+  StoreCreationRequest.JSON_PROPERTY_LOCALIZED_INFORMATION,
   StoreCreationRequest.JSON_PROPERTY_PHONE_NUMBER,
   StoreCreationRequest.JSON_PROPERTY_REFERENCE,
   StoreCreationRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
@@ -57,6 +58,12 @@ public class StoreCreationRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExternalReferenceId = false;
+
+  public static final String JSON_PROPERTY_LOCALIZED_INFORMATION = "localizedInformation";
+  private LocalizedInformation localizedInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalizedInformation = false;
 
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
@@ -281,6 +288,41 @@ public class StoreCreationRequest {
   public void setExternalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
     isSetExternalReferenceId = true; // mark as set
+  }
+
+  /**
+   * localizedInformation
+   *
+   * @param localizedInformation
+   * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
+   */
+  public StoreCreationRequest localizedInformation(LocalizedInformation localizedInformation) {
+    this.localizedInformation = localizedInformation;
+    isSetLocalizedInformation = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get localizedInformation
+   *
+   * @return localizedInformation
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LocalizedInformation getLocalizedInformation() {
+    return localizedInformation;
+  }
+
+  /**
+   * localizedInformation
+   *
+   * @param localizedInformation
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocalizedInformation(LocalizedInformation localizedInformation) {
+    this.localizedInformation = localizedInformation;
+    isSetLocalizedInformation = true; // mark as set
   }
 
   /**
@@ -542,6 +584,9 @@ public class StoreCreationRequest {
         && Objects.equals(this.externalReferenceId, storeCreationRequest.externalReferenceId)
         && Objects.equals(
             this.isSetExternalReferenceId, storeCreationRequest.isSetExternalReferenceId)
+        && Objects.equals(this.localizedInformation, storeCreationRequest.localizedInformation)
+        && Objects.equals(
+            this.isSetLocalizedInformation, storeCreationRequest.isSetLocalizedInformation)
         && Objects.equals(this.phoneNumber, storeCreationRequest.phoneNumber)
         && Objects.equals(this.isSetPhoneNumber, storeCreationRequest.isSetPhoneNumber)
         && Objects.equals(this.reference, storeCreationRequest.reference)
@@ -566,6 +611,8 @@ public class StoreCreationRequest {
         isSetDescription,
         externalReferenceId,
         isSetExternalReferenceId,
+        localizedInformation,
+        isSetLocalizedInformation,
         phoneNumber,
         isSetPhoneNumber,
         reference,
@@ -587,6 +634,9 @@ public class StoreCreationRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalReferenceId: ")
         .append(toIndentedString(externalReferenceId))
+        .append("\n");
+    sb.append("    localizedInformation: ")
+        .append(toIndentedString(localizedInformation))
         .append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
@@ -628,6 +678,9 @@ public class StoreCreationRequest {
     }
     if (isSetExternalReferenceId) {
       addIfNull(nulls, JSON_PROPERTY_EXTERNAL_REFERENCE_ID, this.externalReferenceId);
+    }
+    if (isSetLocalizedInformation) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZED_INFORMATION, this.localizedInformation);
     }
     if (isSetPhoneNumber) {
       addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
