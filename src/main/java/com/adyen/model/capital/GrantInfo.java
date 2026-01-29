@@ -21,20 +21,13 @@ import java.util.*;
 
 /** GrantInfo */
 @JsonPropertyOrder({
-  GrantInfo.JSON_PROPERTY_AMOUNT,
   GrantInfo.JSON_PROPERTY_COUNTERPARTY,
   GrantInfo.JSON_PROPERTY_GRANT_ACCOUNT_ID,
   GrantInfo.JSON_PROPERTY_GRANT_OFFER_ID
 })
 public class GrantInfo {
-  public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private Amount amount;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAmount = false;
-
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
-  private Counterparty counterparty;
+  private GrantInfoCounterparty counterparty;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCounterparty = false;
@@ -60,47 +53,12 @@ public class GrantInfo {
   public GrantInfo() {}
 
   /**
-   * amount
-   *
-   * @param amount
-   * @return the current {@code GrantInfo} instance, allowing for method chaining
-   */
-  public GrantInfo amount(Amount amount) {
-    this.amount = amount;
-    isSetAmount = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Get amount
-   *
-   * @return amount
-   */
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Amount getAmount() {
-    return amount;
-  }
-
-  /**
-   * amount
-   *
-   * @param amount
-   */
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(Amount amount) {
-    this.amount = amount;
-    isSetAmount = true; // mark as set
-  }
-
-  /**
    * counterparty
    *
    * @param counterparty
    * @return the current {@code GrantInfo} instance, allowing for method chaining
    */
-  public GrantInfo counterparty(Counterparty counterparty) {
+  public GrantInfo counterparty(GrantInfoCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
     return this;
@@ -113,7 +71,7 @@ public class GrantInfo {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Counterparty getCounterparty() {
+  public GrantInfoCounterparty getCounterparty() {
     return counterparty;
   }
 
@@ -124,7 +82,7 @@ public class GrantInfo {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCounterparty(Counterparty counterparty) {
+  public void setCounterparty(GrantInfoCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
   }
@@ -235,9 +193,7 @@ public class GrantInfo {
       return false;
     }
     GrantInfo grantInfo = (GrantInfo) o;
-    return Objects.equals(this.amount, grantInfo.amount)
-        && Objects.equals(this.isSetAmount, grantInfo.isSetAmount)
-        && Objects.equals(this.counterparty, grantInfo.counterparty)
+    return Objects.equals(this.counterparty, grantInfo.counterparty)
         && Objects.equals(this.isSetCounterparty, grantInfo.isSetCounterparty)
         && Objects.equals(this.grantAccountId, grantInfo.grantAccountId)
         && Objects.equals(this.isSetGrantAccountId, grantInfo.isSetGrantAccountId)
@@ -248,8 +204,6 @@ public class GrantInfo {
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount,
-        isSetAmount,
         counterparty,
         isSetCounterparty,
         grantAccountId,
@@ -262,7 +216,6 @@ public class GrantInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GrantInfo {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    grantAccountId: ").append(toIndentedString(grantAccountId)).append("\n");
     sb.append("    grantOfferId: ").append(toIndentedString(grantOfferId)).append("\n");
@@ -290,9 +243,6 @@ public class GrantInfo {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetAmount) {
-      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
-    }
     if (isSetCounterparty) {
       addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY, this.counterparty);
     }
