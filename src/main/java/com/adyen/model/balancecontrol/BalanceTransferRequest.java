@@ -11,7 +11,9 @@
 
 package com.adyen.model.balancecontrol;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,17 +36,32 @@ public class BalanceTransferRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_FROM_MERCHANT = "fromMerchant";
   private String fromMerchant;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFromMerchant = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_TO_MERCHANT = "toMerchant";
   private String toMerchant;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetToMerchant = false;
 
   /**
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**,
@@ -101,6 +118,15 @@ public class BalanceTransferRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public BalanceTransferRequest() {}
 
   /**
@@ -111,6 +137,7 @@ public class BalanceTransferRequest {
    */
   public BalanceTransferRequest amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -134,6 +161,7 @@ public class BalanceTransferRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -147,6 +175,7 @@ public class BalanceTransferRequest {
    */
   public BalanceTransferRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -176,6 +205,7 @@ public class BalanceTransferRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -187,6 +217,7 @@ public class BalanceTransferRequest {
    */
   public BalanceTransferRequest fromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
+    isSetFromMerchant = true; // mark as set
     return this;
   }
 
@@ -212,6 +243,7 @@ public class BalanceTransferRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
+    isSetFromMerchant = true; // mark as set
   }
 
   /**
@@ -224,6 +256,7 @@ public class BalanceTransferRequest {
    */
   public BalanceTransferRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -251,6 +284,7 @@ public class BalanceTransferRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -262,6 +296,7 @@ public class BalanceTransferRequest {
    */
   public BalanceTransferRequest toMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
+    isSetToMerchant = true; // mark as set
     return this;
   }
 
@@ -287,6 +322,7 @@ public class BalanceTransferRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
+    isSetToMerchant = true; // mark as set
   }
 
   /**
@@ -299,6 +335,7 @@ public class BalanceTransferRequest {
    */
   public BalanceTransferRequest type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -326,6 +363,27 @@ public class BalanceTransferRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BalanceTransferRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BalanceTransferRequest object is equal to o. */
@@ -339,16 +397,34 @@ public class BalanceTransferRequest {
     }
     BalanceTransferRequest balanceTransferRequest = (BalanceTransferRequest) o;
     return Objects.equals(this.amount, balanceTransferRequest.amount)
+        && Objects.equals(this.isSetAmount, balanceTransferRequest.isSetAmount)
         && Objects.equals(this.description, balanceTransferRequest.description)
+        && Objects.equals(this.isSetDescription, balanceTransferRequest.isSetDescription)
         && Objects.equals(this.fromMerchant, balanceTransferRequest.fromMerchant)
+        && Objects.equals(this.isSetFromMerchant, balanceTransferRequest.isSetFromMerchant)
         && Objects.equals(this.reference, balanceTransferRequest.reference)
+        && Objects.equals(this.isSetReference, balanceTransferRequest.isSetReference)
         && Objects.equals(this.toMerchant, balanceTransferRequest.toMerchant)
-        && Objects.equals(this.type, balanceTransferRequest.type);
+        && Objects.equals(this.isSetToMerchant, balanceTransferRequest.isSetToMerchant)
+        && Objects.equals(this.type, balanceTransferRequest.type)
+        && Objects.equals(this.isSetType, balanceTransferRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, description, fromMerchant, reference, toMerchant, type);
+    return Objects.hash(
+        amount,
+        isSetAmount,
+        description,
+        isSetDescription,
+        fromMerchant,
+        isSetFromMerchant,
+        reference,
+        isSetReference,
+        toMerchant,
+        isSetToMerchant,
+        type,
+        isSetType);
   }
 
   @Override
@@ -373,6 +449,45 @@ public class BalanceTransferRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetFromMerchant) {
+      addIfNull(nulls, JSON_PROPERTY_FROM_MERCHANT, this.fromMerchant);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetToMerchant) {
+      addIfNull(nulls, JSON_PROPERTY_TO_MERCHANT, this.toMerchant);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

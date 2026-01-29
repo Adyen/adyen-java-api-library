@@ -33,6 +33,7 @@ import java.util.logging.Logger;
   Store.JSON_PROPERTY_DESCRIPTION,
   Store.JSON_PROPERTY_EXTERNAL_REFERENCE_ID,
   Store.JSON_PROPERTY_ID,
+  Store.JSON_PROPERTY_LOCALIZED_INFORMATION,
   Store.JSON_PROPERTY_MERCHANT_ID,
   Store.JSON_PROPERTY_PHONE_NUMBER,
   Store.JSON_PROPERTY_REFERENCE,
@@ -77,6 +78,12 @@ public class Store {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetId = false;
+
+  public static final String JSON_PROPERTY_LOCALIZED_INFORMATION = "localizedInformation";
+  private LocalizedInformation localizedInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalizedInformation = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
@@ -435,6 +442,41 @@ public class Store {
   }
 
   /**
+   * localizedInformation
+   *
+   * @param localizedInformation
+   * @return the current {@code Store} instance, allowing for method chaining
+   */
+  public Store localizedInformation(LocalizedInformation localizedInformation) {
+    this.localizedInformation = localizedInformation;
+    isSetLocalizedInformation = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get localizedInformation
+   *
+   * @return localizedInformation
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LocalizedInformation getLocalizedInformation() {
+    return localizedInformation;
+  }
+
+  /**
+   * localizedInformation
+   *
+   * @param localizedInformation
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocalizedInformation(LocalizedInformation localizedInformation) {
+    this.localizedInformation = localizedInformation;
+    isSetLocalizedInformation = true; // mark as set
+  }
+
+  /**
    * The unique identifier of the merchant account that the store belongs to.
    *
    * @param merchantId The unique identifier of the merchant account that the store belongs to.
@@ -775,6 +817,8 @@ public class Store {
         && Objects.equals(this.isSetExternalReferenceId, store.isSetExternalReferenceId)
         && Objects.equals(this.id, store.id)
         && Objects.equals(this.isSetId, store.isSetId)
+        && Objects.equals(this.localizedInformation, store.localizedInformation)
+        && Objects.equals(this.isSetLocalizedInformation, store.isSetLocalizedInformation)
         && Objects.equals(this.merchantId, store.merchantId)
         && Objects.equals(this.isSetMerchantId, store.isSetMerchantId)
         && Objects.equals(this.phoneNumber, store.phoneNumber)
@@ -806,6 +850,8 @@ public class Store {
         isSetExternalReferenceId,
         id,
         isSetId,
+        localizedInformation,
+        isSetLocalizedInformation,
         merchantId,
         isSetMerchantId,
         phoneNumber,
@@ -834,6 +880,9 @@ public class Store {
         .append(toIndentedString(externalReferenceId))
         .append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    localizedInformation: ")
+        .append(toIndentedString(localizedInformation))
+        .append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
@@ -882,6 +931,9 @@ public class Store {
     }
     if (isSetId) {
       addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLocalizedInformation) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZED_INFORMATION, this.localizedInformation);
     }
     if (isSetMerchantId) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);

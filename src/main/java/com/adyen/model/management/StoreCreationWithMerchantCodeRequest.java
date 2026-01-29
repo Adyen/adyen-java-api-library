@@ -27,6 +27,7 @@ import java.util.List;
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_BUSINESS_LINE_IDS,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_DESCRIPTION,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_EXTERNAL_REFERENCE_ID,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_LOCALIZED_INFORMATION,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_MERCHANT_ID,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_PHONE_NUMBER,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_REFERENCE,
@@ -58,6 +59,12 @@ public class StoreCreationWithMerchantCodeRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExternalReferenceId = false;
+
+  public static final String JSON_PROPERTY_LOCALIZED_INFORMATION = "localizedInformation";
+  private LocalizedInformation localizedInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalizedInformation = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
@@ -292,6 +299,43 @@ public class StoreCreationWithMerchantCodeRequest {
   public void setExternalReferenceId(String externalReferenceId) {
     this.externalReferenceId = externalReferenceId;
     isSetExternalReferenceId = true; // mark as set
+  }
+
+  /**
+   * localizedInformation
+   *
+   * @param localizedInformation
+   * @return the current {@code StoreCreationWithMerchantCodeRequest} instance, allowing for method
+   *     chaining
+   */
+  public StoreCreationWithMerchantCodeRequest localizedInformation(
+      LocalizedInformation localizedInformation) {
+    this.localizedInformation = localizedInformation;
+    isSetLocalizedInformation = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get localizedInformation
+   *
+   * @return localizedInformation
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LocalizedInformation getLocalizedInformation() {
+    return localizedInformation;
+  }
+
+  /**
+   * localizedInformation
+   *
+   * @param localizedInformation
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_INFORMATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocalizedInformation(LocalizedInformation localizedInformation) {
+    this.localizedInformation = localizedInformation;
+    isSetLocalizedInformation = true; // mark as set
   }
 
   /**
@@ -601,6 +645,11 @@ public class StoreCreationWithMerchantCodeRequest {
         && Objects.equals(
             this.isSetExternalReferenceId,
             storeCreationWithMerchantCodeRequest.isSetExternalReferenceId)
+        && Objects.equals(
+            this.localizedInformation, storeCreationWithMerchantCodeRequest.localizedInformation)
+        && Objects.equals(
+            this.isSetLocalizedInformation,
+            storeCreationWithMerchantCodeRequest.isSetLocalizedInformation)
         && Objects.equals(this.merchantId, storeCreationWithMerchantCodeRequest.merchantId)
         && Objects.equals(
             this.isSetMerchantId, storeCreationWithMerchantCodeRequest.isSetMerchantId)
@@ -635,6 +684,8 @@ public class StoreCreationWithMerchantCodeRequest {
         isSetDescription,
         externalReferenceId,
         isSetExternalReferenceId,
+        localizedInformation,
+        isSetLocalizedInformation,
         merchantId,
         isSetMerchantId,
         phoneNumber,
@@ -658,6 +709,9 @@ public class StoreCreationWithMerchantCodeRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalReferenceId: ")
         .append(toIndentedString(externalReferenceId))
+        .append("\n");
+    sb.append("    localizedInformation: ")
+        .append(toIndentedString(localizedInformation))
         .append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
@@ -700,6 +754,9 @@ public class StoreCreationWithMerchantCodeRequest {
     }
     if (isSetExternalReferenceId) {
       addIfNull(nulls, JSON_PROPERTY_EXTERNAL_REFERENCE_ID, this.externalReferenceId);
+    }
+    if (isSetLocalizedInformation) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZED_INFORMATION, this.localizedInformation);
     }
     if (isSetMerchantId) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);

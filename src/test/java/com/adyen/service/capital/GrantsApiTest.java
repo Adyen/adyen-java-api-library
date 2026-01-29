@@ -43,13 +43,12 @@ public class GrantsApiTest extends BaseTest {
     Assertions.assertEquals("GR00000000000000000000001", response.getId());
     Assertions.assertEquals("CG00000000000000000000001", response.getGrantAccountId());
     Assertions.assertEquals("GO00000000000000000000001", response.getGrantOfferId());
-    Assertions.assertEquals(new Amount().currency("EUR").value(10000L), response.getAmount());
     Assertions.assertEquals(new Status().code(Status.CodeEnum.ACTIVE), response.getStatus());
     Assertions.assertEquals(
         new Balance().currency("EUR").principal(10000L).fee(1000L).total(11000L),
         response.getBalances());
     Assertions.assertEquals(
-        new Counterparty()
+        new GrantCounterparty()
             .accountHolderId("AH00000000000000000000001")
             .balanceAccountId("BA00000000000000000000001"),
         response.getCounterparty());
@@ -103,13 +102,12 @@ public class GrantsApiTest extends BaseTest {
     Assertions.assertEquals("GR00000000000000000000001", response.getId());
     Assertions.assertEquals("CG00000000000000000000001", response.getGrantAccountId());
     Assertions.assertEquals("0000000000000001", response.getGrantOfferId());
-    Assertions.assertEquals(new Amount().currency("EUR").value(1000000L), response.getAmount());
     Assertions.assertEquals(new Status().code(Status.CodeEnum.PENDING), response.getStatus());
     Assertions.assertEquals(
         new Balance().currency("EUR").principal(1000000L).fee(120000L).total(1120000L),
         response.getBalances());
     Assertions.assertEquals(
-        new Counterparty()
+        new GrantCounterparty()
             .accountHolderId("AH00000000000000000000001")
             .balanceAccountId("BA00000000000000000000001"),
         response.getCounterparty());

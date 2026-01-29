@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Terminal */
 @JsonPropertyOrder({
@@ -26,6 +28,7 @@ import java.util.*;
   Terminal.JSON_PROPERTY_CONNECTIVITY,
   Terminal.JSON_PROPERTY_FIRMWARE_VERSION,
   Terminal.JSON_PROPERTY_ID,
+  Terminal.JSON_PROPERTY_INSTALLED_A_P_KS,
   Terminal.JSON_PROPERTY_LAST_ACTIVITY_AT,
   Terminal.JSON_PROPERTY_LAST_TRANSACTION_AT,
   Terminal.JSON_PROPERTY_MODEL,
@@ -56,6 +59,12 @@ public class Terminal {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetId = false;
+
+  public static final String JSON_PROPERTY_INSTALLED_A_P_KS = "installedAPKs";
+  private List<InstalledAPKs> installedAPKs;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetInstalledAPKs = false;
 
   public static final String JSON_PROPERTY_LAST_ACTIVITY_AT = "lastActivityAt";
   private OffsetDateTime lastActivityAt;
@@ -233,6 +242,49 @@ public class Terminal {
   public void setId(String id) {
     this.id = id;
     isSetId = true; // mark as set
+  }
+
+  /**
+   * A list of Android apps installed on the terminal.
+   *
+   * @param installedAPKs A list of Android apps installed on the terminal.
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
+  public Terminal installedAPKs(List<InstalledAPKs> installedAPKs) {
+    this.installedAPKs = installedAPKs;
+    isSetInstalledAPKs = true; // mark as set
+    return this;
+  }
+
+  public Terminal addInstalledAPKsItem(InstalledAPKs installedAPKsItem) {
+    if (this.installedAPKs == null) {
+      this.installedAPKs = new ArrayList<>();
+    }
+    this.installedAPKs.add(installedAPKsItem);
+    return this;
+  }
+
+  /**
+   * A list of Android apps installed on the terminal.
+   *
+   * @return installedAPKs A list of Android apps installed on the terminal.
+   */
+  @JsonProperty(JSON_PROPERTY_INSTALLED_A_P_KS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<InstalledAPKs> getInstalledAPKs() {
+    return installedAPKs;
+  }
+
+  /**
+   * A list of Android apps installed on the terminal.
+   *
+   * @param installedAPKs A list of Android apps installed on the terminal.
+   */
+  @JsonProperty(JSON_PROPERTY_INSTALLED_A_P_KS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstalledAPKs(List<InstalledAPKs> installedAPKs) {
+    this.installedAPKs = installedAPKs;
+    isSetInstalledAPKs = true; // mark as set
   }
 
   /**
@@ -463,6 +515,8 @@ public class Terminal {
         && Objects.equals(this.isSetFirmwareVersion, terminal.isSetFirmwareVersion)
         && Objects.equals(this.id, terminal.id)
         && Objects.equals(this.isSetId, terminal.isSetId)
+        && Objects.equals(this.installedAPKs, terminal.installedAPKs)
+        && Objects.equals(this.isSetInstalledAPKs, terminal.isSetInstalledAPKs)
         && Objects.equals(this.lastActivityAt, terminal.lastActivityAt)
         && Objects.equals(this.isSetLastActivityAt, terminal.isSetLastActivityAt)
         && Objects.equals(this.lastTransactionAt, terminal.lastTransactionAt)
@@ -486,6 +540,8 @@ public class Terminal {
         isSetFirmwareVersion,
         id,
         isSetId,
+        installedAPKs,
+        isSetInstalledAPKs,
         lastActivityAt,
         isSetLastActivityAt,
         lastTransactionAt,
@@ -506,6 +562,7 @@ public class Terminal {
     sb.append("    connectivity: ").append(toIndentedString(connectivity)).append("\n");
     sb.append("    firmwareVersion: ").append(toIndentedString(firmwareVersion)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    installedAPKs: ").append(toIndentedString(installedAPKs)).append("\n");
     sb.append("    lastActivityAt: ").append(toIndentedString(lastActivityAt)).append("\n");
     sb.append("    lastTransactionAt: ").append(toIndentedString(lastTransactionAt)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
@@ -546,6 +603,9 @@ public class Terminal {
     }
     if (isSetId) {
       addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetInstalledAPKs) {
+      addIfNull(nulls, JSON_PROPERTY_INSTALLED_A_P_KS, this.installedAPKs);
     }
     if (isSetLastActivityAt) {
       addIfNull(nulls, JSON_PROPERTY_LAST_ACTIVITY_AT, this.lastActivityAt);
