@@ -477,10 +477,10 @@ public class PaymentLinkResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent. When set to
-   * **askForConsent** or **enabled**, you must also include the
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent. When set to **askForConsent** or **enabled**, you must also include the
    * &#x60;recurringProcessingModel&#x60; parameter.
    */
   public enum StorePaymentMethodModeEnum {
@@ -2395,19 +2395,19 @@ public class PaymentLinkResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent. When set to
-   * **askForConsent** or **enabled**, you must also include the
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent. When set to **askForConsent** or **enabled**, you must also include the
    * &#x60;recurringProcessingModel&#x60; parameter.
    *
    * @param storePaymentMethodMode Indicates if the details of the payment method will be stored for
    *     the shopper. Possible values: * **disabled** – No details will be stored (default). *
-   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the
-   *     shopper choose if they want their payment details to be stored. * **enabled** – If the
-   *     &#x60;shopperReference&#x60; is provided, the details will be stored without asking the
-   *     shopper for consent. When set to **askForConsent** or **enabled**, you must also include
-   *     the &#x60;recurringProcessingModel&#x60; parameter.
+   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the Drop-in/Component
+   *     shows a checkbox where the shopper can select to store their payment details for card
+   *     payments. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will
+   *     be stored without asking the shopper for consent. When set to **askForConsent** or
+   *     **enabled**, you must also include the &#x60;recurringProcessingModel&#x60; parameter.
    * @return the current {@code PaymentLinkResponse} instance, allowing for method chaining
    */
   public PaymentLinkResponse storePaymentMethodMode(
@@ -2420,19 +2420,19 @@ public class PaymentLinkResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent. When set to
-   * **askForConsent** or **enabled**, you must also include the
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent. When set to **askForConsent** or **enabled**, you must also include the
    * &#x60;recurringProcessingModel&#x60; parameter.
    *
    * @return storePaymentMethodMode Indicates if the details of the payment method will be stored
    *     for the shopper. Possible values: * **disabled** – No details will be stored (default). *
-   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the
-   *     shopper choose if they want their payment details to be stored. * **enabled** – If the
-   *     &#x60;shopperReference&#x60; is provided, the details will be stored without asking the
-   *     shopper for consent. When set to **askForConsent** or **enabled**, you must also include
-   *     the &#x60;recurringProcessingModel&#x60; parameter.
+   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the Drop-in/Component
+   *     shows a checkbox where the shopper can select to store their payment details for card
+   *     payments. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will
+   *     be stored without asking the shopper for consent. When set to **askForConsent** or
+   *     **enabled**, you must also include the &#x60;recurringProcessingModel&#x60; parameter.
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2443,19 +2443,19 @@ public class PaymentLinkResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent. When set to
-   * **askForConsent** or **enabled**, you must also include the
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent. When set to **askForConsent** or **enabled**, you must also include the
    * &#x60;recurringProcessingModel&#x60; parameter.
    *
    * @param storePaymentMethodMode Indicates if the details of the payment method will be stored for
    *     the shopper. Possible values: * **disabled** – No details will be stored (default). *
-   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the
-   *     shopper choose if they want their payment details to be stored. * **enabled** – If the
-   *     &#x60;shopperReference&#x60; is provided, the details will be stored without asking the
-   *     shopper for consent. When set to **askForConsent** or **enabled**, you must also include
-   *     the &#x60;recurringProcessingModel&#x60; parameter.
+   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the Drop-in/Component
+   *     shows a checkbox where the shopper can select to store their payment details for card
+   *     payments. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will
+   *     be stored without asking the shopper for consent. When set to **askForConsent** or
+   *     **enabled**, you must also include the &#x60;recurringProcessingModel&#x60; parameter.
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
