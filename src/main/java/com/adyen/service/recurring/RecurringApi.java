@@ -45,7 +45,7 @@ public class RecurringApi extends Service {
   public RecurringApi(Client client) {
     super(client);
     this.baseURL =
-        createBaseURL("https://pal-test.adyen.com/pal/servlet/Recurring/v68");
+        createBaseURL("https://paltokenization-test.adyen.com/pal/servlet/Recurring/v68");
   }
 
   /**
