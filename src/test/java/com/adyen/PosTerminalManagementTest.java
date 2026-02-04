@@ -21,13 +21,13 @@
 
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.adyen.model.posterminalmanagement.*;
 import com.adyen.service.PosTerminalManagementApi;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PosTerminalManagementTest extends BaseTest {
 

@@ -21,26 +21,23 @@
 
 package com.adyen.terminal.security;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 import com.adyen.enums.Environment;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.security.auth.x500.X500Principal;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(Parameterized.class)
+@ExtendWith(MockitoExtension.class)
 public class TerminalCommonNameValidatorTest {
 
-  @Parameters
   public static Collection<Object[]> data() {
     return Arrays.asList(
         new Object[][] {
@@ -186,27 +183,12 @@ public class TerminalCommonNameValidatorTest {
         });
   }
 
-  private final String certificateName;
-  private final Environment environment;
-  private final boolean expectedResult;
-
   @Mock private X509Certificate certificate;
   @Mock private X500Principal principal;
 
-  public TerminalCommonNameValidatorTest(
-      String certificateName, Environment environment, boolean expectedResult) {
-    this.certificateName = certificateName;
-    this.environment = environment;
-    this.expectedResult = expectedResult;
-  }
-
-  @Before
-  public void setUp() {
-    initMocks(this);
-  }
-
-  @Test
-  public void testSerialize() {
+  @ParameterizedTest
+  @MethodSource("data")
+  public void testSerialize(String certificateName, Environment environment, boolean expectedResult) {
     when(certificate.getSubjectX500Principal()).thenReturn(principal);
     when(principal.getName()).thenReturn(certificateName);
 

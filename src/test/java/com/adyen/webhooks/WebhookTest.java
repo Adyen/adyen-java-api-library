@@ -20,7 +20,7 @@
  */
 package com.adyen.webhooks;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.adyen.BaseTest;
 import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
@@ -36,16 +36,16 @@ import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.WebhookHandler;
 import java.io.IOException;
 import java.util.ArrayList;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /** Tests notification messages */
 public class WebhookTest extends BaseTest {
 
   private WebhookHandler webhookHandler;
 
-  @Before
+  @BeforeEach
   public void init() {
     webhookHandler = new WebhookHandler();
   }
@@ -327,7 +327,7 @@ public class WebhookTest extends BaseTest {
     WebhookHandler webhookHolder = new WebhookHandler();
     NotificationRequest notificationRequest =
         webhookHolder.handleNotificationJsonJackson(notification);
-    Assert.assertEquals(
+    Assertions.assertEquals(
         "EUR",
         notificationRequest
             .getNotificationItemContainers()
@@ -335,7 +335,7 @@ public class WebhookTest extends BaseTest {
             .getNotificationItem()
             .getAmount()
             .getCurrency());
-    Assert.assertEquals(
+    Assertions.assertEquals(
         "TestMerchantAccount",
         notificationRequest
             .getNotificationItemContainers()
@@ -570,9 +570,9 @@ public class WebhookTest extends BaseTest {
             + "  }\n"
             + "}";
     ClassicPlatformWebhookHandler webhookHandler = new ClassicPlatformWebhookHandler(notification);
-    Assert.assertTrue(webhookHandler.getAccountHolderCreateNotification().isPresent());
+    Assertions.assertTrue(webhookHandler.getAccountHolderCreateNotification().isPresent());
     AccountHolderCreateNotification payload =
         webhookHandler.getAccountHolderCreateNotification().get();
-    Assert.assertEquals("ACCOUNT_HOLDER_CREATED", payload.getEventType());
+    Assertions.assertEquals("ACCOUNT_HOLDER_CREATED", payload.getEventType());
   }
 }

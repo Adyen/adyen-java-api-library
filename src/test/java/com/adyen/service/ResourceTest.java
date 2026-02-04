@@ -20,7 +20,7 @@
  */
 package com.adyen.service;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.verify;
@@ -39,13 +39,17 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-@RunWith(MockitoJUnitRunner.class)
+import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
+
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 public class ResourceTest extends BaseTest {
   @Mock Service serviceMock;
 
@@ -53,7 +57,7 @@ public class ResourceTest extends BaseTest {
 
   @Mock ClientInterface clientInterfaceMock;
 
-  @Before
+  @BeforeEach
   public void setUp() {
     when(clientMock.getHttpClient()).thenReturn(clientInterfaceMock);
     when(clientMock.getConfig()).thenReturn(null);

@@ -1,6 +1,6 @@
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
@@ -25,7 +25,7 @@ import com.adyen.service.classicplatforms.ClassicPlatformFundApi;
 import com.adyen.service.classicplatforms.ClassicPlatformHopApi;
 import com.adyen.service.exception.ApiException;
 import java.io.IOException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MarketPayTest extends BaseTest {
 

@@ -20,7 +20,7 @@
  */
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
@@ -42,7 +42,7 @@ import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.service.TerminalLocalAPI;
 import java.math.BigDecimal;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Tests for local Terminal API request */
 public class TerminalLocalAPITest extends BaseTest {

@@ -20,20 +20,21 @@
  */
 package com.adyen.serializer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.adyen.model.nexo.AccountType;
 import com.adyen.model.nexo.AuthenticationMethodType;
 import com.adyen.terminal.serialization.XMLEnumTypeAdapter;
 import com.google.gson.stream.JsonReader;
 import java.io.StringReader;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
 
-@RunWith(MockitoJUnitRunner.class)
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+@ExtendWith(MockitoExtension.class)
 public class XMLEnumSerializerTest {
 
   @Test

@@ -1,6 +1,6 @@
 package com.adyen.httpclient;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.adyen.BaseTest;
 import com.adyen.Client;
@@ -15,8 +15,8 @@ import java.util.stream.Stream;
 import javax.net.ssl.SSLContext;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.core5.http.Header;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -118,7 +118,7 @@ public class ClientTest extends BaseTest {
     config.setEnvironment(Environment.LIVE);
     config.setTerminalApiRegion(Region.IN);
 
-    Assert.assertThrows(IllegalArgumentException.class, () -> new Client(config));
+    Assertions.assertThrows(IllegalArgumentException.class, () -> new Client(config));
   }
 
   @Test

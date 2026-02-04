@@ -13,7 +13,7 @@ import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.service.exception.ApiException;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class DateSerializationTest extends BaseTest {

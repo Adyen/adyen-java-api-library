@@ -20,7 +20,7 @@
  */
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -49,7 +49,7 @@ import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.service.TerminalCloudAPI;
 import java.math.BigDecimal;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 /** Tests for /sync and /async */
@@ -186,9 +186,9 @@ public class TerminalCloudAPITest extends BaseTest {
 
     String requestAsJson = captor.getValue();
     assertTrue(
-        "SaleToAcquirerData field not found", requestAsJson.contains("\"SaleToAcquirerData\":"));
-    assertFalse("Found null value", requestAsJson.contains(":null"));
-    assertFalse("Found null value", requestAsJson.contains(": null"));
+        requestAsJson.contains("\"SaleToAcquirerData\":"), "SaleToAcquirerData field not found");
+    assertFalse(requestAsJson.contains(":null"), "Found null value");
+    assertFalse(requestAsJson.contains(": null"), "Found null value");
   }
 
   /** Test success flow for POST /sync that includes unexpected attributes */
@@ -292,11 +292,11 @@ public class TerminalCloudAPITest extends BaseTest {
             isNull());
 
     String requestAsJson = captor.getValue();
-    assertTrue("InputRequest field not found", requestAsJson.contains("\"InputRequest\":"));
+    assertTrue(requestAsJson.contains("\"InputRequest\":"), "InputRequest field not found");
     assertTrue(
-        "PredefinedContent field not found", requestAsJson.contains("\"PredefinedContent\":"));
-    assertFalse("Found null value", requestAsJson.contains(":null"));
-    assertFalse("Found null value", requestAsJson.contains(": null"));
+        requestAsJson.contains("\"PredefinedContent\":"), "PredefinedContent field not found");
+    assertFalse(requestAsJson.contains(":null"), "Found null value");
+    assertFalse(requestAsJson.contains(": null"), "Found null value");
   }
 
   /** Mocked response for stored value type for POST /sync */

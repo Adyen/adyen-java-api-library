@@ -11,8 +11,8 @@
 
 package com.adyen.service.balanceplatform;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.BaseTest;
@@ -21,7 +21,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.*;
 import java.time.OffsetDateTime;
 import java.util.Map;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
 
