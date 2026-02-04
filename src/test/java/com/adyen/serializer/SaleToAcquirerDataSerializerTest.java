@@ -2,7 +2,7 @@ package com.adyen.serializer;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.ExternalPlatform;
@@ -14,7 +14,7 @@ import com.google.gson.JsonParser;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SaleToAcquirerDataSerializerTest {
 

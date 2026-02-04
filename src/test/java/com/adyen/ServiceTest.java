@@ -1,10 +1,10 @@
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.adyen.enums.Environment;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /** Tests for {@link Service#createBaseURL(String)}. */
 public class ServiceTest extends BaseTest {
@@ -12,7 +12,7 @@ public class ServiceTest extends BaseTest {
   private Config config;
   private Service service;
 
-  @Before
+  @BeforeEach
   public void setUp() {
     config = new Config().environment(Environment.LIVE);
     Client client = new Client(config);

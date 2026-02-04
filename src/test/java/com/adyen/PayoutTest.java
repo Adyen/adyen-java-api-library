@@ -22,17 +22,17 @@ package com.adyen;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_MANUAL_REVIEW;
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_RESULT_TYPE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import com.adyen.model.payout.*;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.payout.InitializationApi;
 import com.adyen.service.payout.InstantPayoutsApi;
 import com.adyen.service.payout.ReviewingApi;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PayoutTest extends BaseTest {
 

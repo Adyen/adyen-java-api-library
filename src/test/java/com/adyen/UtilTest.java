@@ -1,9 +1,10 @@
 package com.adyen;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Tests for Util class */
 public class UtilTest {
@@ -73,12 +74,12 @@ public class UtilTest {
     assertFalse(hmacValidator.validateHMAC(notificationRequestItem, key));
   }
 
-  @Test(expected = IllegalArgumentException.class)
-  public void testValidateHMACException() throws SignatureException {
+  @Test
+  public void testValidateHMACException() {
     NotificationRequestItem notificationRequestItem = new NotificationRequestItem();
     HMACValidator hmacValidator = new HMACValidator();
     String key = "DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00";
-    hmacValidator.validateHMAC(notificationRequestItem, key);
+    assertThrows(IllegalArgumentException.class, () -> hmacValidator.validateHMAC(notificationRequestItem, key));
   }
 
   @Test

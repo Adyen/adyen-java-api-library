@@ -21,22 +21,23 @@
 
 package com.adyen.builders.terminal;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
 import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.nexo.TransactionStatusRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-@RunWith(MockitoJUnitRunner.class)
+import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+@ExtendWith(MockitoExtension.class)
 public class TerminalAPIRequestBuilderTest {
 
   private TerminalAPIRequestBuilder terminalAPIRequestBuilder;
@@ -48,7 +49,7 @@ public class TerminalAPIRequestBuilderTest {
   private final String SERVICE_ID = "test-service-id";
   private final String POI_ID = "test-poi";
 
-  @Before
+  @BeforeEach
   public void setUp() {
     terminalAPIRequestBuilder = new TerminalAPIRequestBuilder(SALE_ID, SERVICE_ID, POI_ID);
   }

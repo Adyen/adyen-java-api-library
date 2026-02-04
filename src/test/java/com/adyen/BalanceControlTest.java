@@ -1,6 +1,6 @@
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
@@ -11,7 +11,7 @@ import com.adyen.service.balancecontrol.BalanceControlApi;
 import com.adyen.service.exception.ApiException;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class BalanceControlTest extends BaseTest {
 
