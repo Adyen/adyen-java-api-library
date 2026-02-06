@@ -313,7 +313,7 @@ System.out.println(event.getData().getMerchantId());
 ~~~~
 
 ### Using Attachments in LEM (Legal Entity Management)
-When using Attachments, ensure content is provided as a byte array. It's important to convert it to a [Base64-encoded string](https://docs.adyen.com/api-explorer/legalentity/3/post/documents#request-attachments) before initiating the request.
+When providing Attachments, ensure content is provided as a byte array. It's important to convert it to a Base64-encoded string before initiating the request.
 
 ### Proxy configuration
 You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.
@@ -582,7 +582,7 @@ TerminalAPIResponse terminalAPIResponse = terminalLocalAPI.request(terminalAPIRe
 ~~~~
 
 ## Using Attachments in Document API
-When using Attachments, ensure content is provided as a byte array. It's important to convert it to a [Base64-encoded string](https://docs.adyen.com/api-explorer/legalentity/3/post/documents#request-attachments) before initiating the request.
+When providing Attachments, ensure content is provided as a byte array. It's important to convert it to a Base64-encoded string before initiating the request.
 
 ## Using the Local Terminal API Integration without Encryption (Only on TEST)
 If you wish to develop the Local Terminal API integration parallel to your encryption implementation, you can opt for the unencrypted version. Be sure to remove any encryption details from the CA terminal config page. Consider this ONLY for development and testing on localhost.
