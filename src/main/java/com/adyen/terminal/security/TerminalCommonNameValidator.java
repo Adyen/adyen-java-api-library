@@ -56,7 +56,19 @@ public final class TerminalCommonNameValidator {
    * @return true if the Common Name is valid, false otherwise.
    */
   public static boolean validateCertificate(X509Certificate certificate, Environment environment) {
-    String name = certificate.getSubjectX500Principal().getName();
+    return validateCertificate(new X509CertificateInfo(certificate), environment);
+  }
+
+  /**
+   * Validates the Common Name of the given {@link CertificateInfo} for the given {@link
+   * Environment}.
+   *
+   * @param certificateInfo the {@link CertificateInfo} to validate.
+   * @param environment the {@link Environment}.
+   * @return true if the Common Name is valid, false otherwise.
+   */
+  static boolean validateCertificate(CertificateInfo certificateInfo, Environment environment) {
+    String name = certificateInfo.getSubjectName();
     Matcher matcher = SUBJECT_ATTRIBUTE_PATTERN.matcher(name);
 
     while (matcher.find()) {

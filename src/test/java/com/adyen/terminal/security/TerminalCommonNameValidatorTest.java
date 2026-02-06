@@ -25,10 +25,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import com.adyen.enums.Environment;
-import java.security.cert.X509Certificate;
+import com.adyen.terminal.security.CertificateInfo;
 import java.util.Arrays;
 import java.util.Collection;
-import javax.security.auth.x500.X500Principal;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -183,16 +182,14 @@ public class TerminalCommonNameValidatorTest {
         });
   }
 
-  @Mock private X509Certificate certificate;
-  @Mock private X500Principal principal;
+  @Mock private CertificateInfo certificateInfo;
 
   @ParameterizedTest
   @MethodSource("data")
-  public void testSerialize(String certificateName, Environment environment, boolean expectedResult) {
-    when(certificate.getSubjectX500Principal()).thenReturn(principal);
-    when(principal.getName()).thenReturn(certificateName);
+  public void testValidateCertificate(String certificateName, Environment environment, boolean expectedResult) {
+    when(certificateInfo.getSubjectName()).thenReturn(certificateName);
 
-    boolean result = TerminalCommonNameValidator.validateCertificate(certificate, environment);
+    boolean result = TerminalCommonNameValidator.validateCertificate(certificateInfo, environment);
     assertEquals(expectedResult, result);
   }
 }
