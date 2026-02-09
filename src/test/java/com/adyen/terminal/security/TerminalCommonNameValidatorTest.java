@@ -25,7 +25,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import com.adyen.enums.Environment;
-import com.adyen.terminal.security.CertificateInfo;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -186,7 +185,8 @@ public class TerminalCommonNameValidatorTest {
 
   @ParameterizedTest
   @MethodSource("data")
-  public void testValidateCertificate(String certificateName, Environment environment, boolean expectedResult) {
+  public void testValidateCertificate(
+      String certificateName, Environment environment, boolean expectedResult) {
     when(certificateInfo.getSubjectName()).thenReturn(certificateName);
 
     boolean result = TerminalCommonNameValidator.validateCertificate(certificateInfo, environment);

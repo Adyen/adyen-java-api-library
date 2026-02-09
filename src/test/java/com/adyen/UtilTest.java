@@ -79,7 +79,9 @@ public class UtilTest {
     NotificationRequestItem notificationRequestItem = new NotificationRequestItem();
     HMACValidator hmacValidator = new HMACValidator();
     String key = "DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00";
-    assertThrows(IllegalArgumentException.class, () -> hmacValidator.validateHMAC(notificationRequestItem, key));
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> hmacValidator.validateHMAC(notificationRequestItem, key));
   }
 
   @Test

@@ -30,7 +30,6 @@ import com.adyen.terminal.serialization.XMLEnumTypeAdapter;
 import com.google.gson.stream.JsonReader;
 import java.io.StringReader;
 import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
