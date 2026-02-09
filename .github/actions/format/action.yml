@@ -7,12 +7,11 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Set up JDK 11 for formatting
+    - name: Set up JDK for formatting
       uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v4.2.1
       with:
-        java-version: '11'
-        distribution: 'temurin'
-
+        java-version: '21'
+        distribution: 'adopt'
     - name: Cache Maven packages
       uses: actions/cache@b7e8d49f17405cc70c1c120101943203c98d3a4b
       with:
