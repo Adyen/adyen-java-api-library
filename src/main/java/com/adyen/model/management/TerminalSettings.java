@@ -27,6 +27,8 @@ import java.util.List;
   TerminalSettings.JSON_PROPERTY_CONNECTIVITY,
   TerminalSettings.JSON_PROPERTY_GRATUITIES,
   TerminalSettings.JSON_PROPERTY_HARDWARE,
+  TerminalSettings.JSON_PROPERTY_HOME_SCREEN,
+  TerminalSettings.JSON_PROPERTY_KIOSK_MODE,
   TerminalSettings.JSON_PROPERTY_LOCALIZATION,
   TerminalSettings.JSON_PROPERTY_MOTO,
   TerminalSettings.JSON_PROPERTY_NEXO,
@@ -71,6 +73,18 @@ public class TerminalSettings {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetHardware = false;
+
+  public static final String JSON_PROPERTY_HOME_SCREEN = "homeScreen";
+  private HomeScreenSettings homeScreen;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHomeScreen = false;
+
+  public static final String JSON_PROPERTY_KIOSK_MODE = "kioskMode";
+  private KioskModeSettings kioskMode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetKioskMode = false;
 
   public static final String JSON_PROPERTY_LOCALIZATION = "localization";
   private Localization localization;
@@ -349,6 +363,76 @@ public class TerminalSettings {
   public void setHardware(Hardware hardware) {
     this.hardware = hardware;
     isSetHardware = true; // mark as set
+  }
+
+  /**
+   * homeScreen
+   *
+   * @param homeScreen
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
+  public TerminalSettings homeScreen(HomeScreenSettings homeScreen) {
+    this.homeScreen = homeScreen;
+    isSetHomeScreen = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get homeScreen
+   *
+   * @return homeScreen
+   */
+  @JsonProperty(JSON_PROPERTY_HOME_SCREEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HomeScreenSettings getHomeScreen() {
+    return homeScreen;
+  }
+
+  /**
+   * homeScreen
+   *
+   * @param homeScreen
+   */
+  @JsonProperty(JSON_PROPERTY_HOME_SCREEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHomeScreen(HomeScreenSettings homeScreen) {
+    this.homeScreen = homeScreen;
+    isSetHomeScreen = true; // mark as set
+  }
+
+  /**
+   * kioskMode
+   *
+   * @param kioskMode
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
+  public TerminalSettings kioskMode(KioskModeSettings kioskMode) {
+    this.kioskMode = kioskMode;
+    isSetKioskMode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get kioskMode
+   *
+   * @return kioskMode
+   */
+  @JsonProperty(JSON_PROPERTY_KIOSK_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public KioskModeSettings getKioskMode() {
+    return kioskMode;
+  }
+
+  /**
+   * kioskMode
+   *
+   * @param kioskMode
+   */
+  @JsonProperty(JSON_PROPERTY_KIOSK_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKioskMode(KioskModeSettings kioskMode) {
+    this.kioskMode = kioskMode;
+    isSetKioskMode = true; // mark as set
   }
 
   /**
@@ -1054,6 +1138,10 @@ public class TerminalSettings {
         && Objects.equals(this.isSetGratuities, terminalSettings.isSetGratuities)
         && Objects.equals(this.hardware, terminalSettings.hardware)
         && Objects.equals(this.isSetHardware, terminalSettings.isSetHardware)
+        && Objects.equals(this.homeScreen, terminalSettings.homeScreen)
+        && Objects.equals(this.isSetHomeScreen, terminalSettings.isSetHomeScreen)
+        && Objects.equals(this.kioskMode, terminalSettings.kioskMode)
+        && Objects.equals(this.isSetKioskMode, terminalSettings.isSetKioskMode)
         && Objects.equals(this.localization, terminalSettings.localization)
         && Objects.equals(this.isSetLocalization, terminalSettings.isSetLocalization)
         && Objects.equals(this.moto, terminalSettings.moto)
@@ -1106,6 +1194,10 @@ public class TerminalSettings {
         isSetGratuities,
         hardware,
         isSetHardware,
+        homeScreen,
+        isSetHomeScreen,
+        kioskMode,
+        isSetKioskMode,
         localization,
         isSetLocalization,
         moto,
@@ -1154,6 +1246,8 @@ public class TerminalSettings {
     sb.append("    connectivity: ").append(toIndentedString(connectivity)).append("\n");
     sb.append("    gratuities: ").append(toIndentedString(gratuities)).append("\n");
     sb.append("    hardware: ").append(toIndentedString(hardware)).append("\n");
+    sb.append("    homeScreen: ").append(toIndentedString(homeScreen)).append("\n");
+    sb.append("    kioskMode: ").append(toIndentedString(kioskMode)).append("\n");
     sb.append("    localization: ").append(toIndentedString(localization)).append("\n");
     sb.append("    moto: ").append(toIndentedString(moto)).append("\n");
     sb.append("    nexo: ").append(toIndentedString(nexo)).append("\n");
@@ -1210,6 +1304,12 @@ public class TerminalSettings {
     }
     if (isSetHardware) {
       addIfNull(nulls, JSON_PROPERTY_HARDWARE, this.hardware);
+    }
+    if (isSetHomeScreen) {
+      addIfNull(nulls, JSON_PROPERTY_HOME_SCREEN, this.homeScreen);
+    }
+    if (isSetKioskMode) {
+      addIfNull(nulls, JSON_PROPERTY_KIOSK_MODE, this.kioskMode);
     }
     if (isSetLocalization) {
       addIfNull(nulls, JSON_PROPERTY_LOCALIZATION, this.localization);
