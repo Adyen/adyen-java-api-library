@@ -19,13 +19,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
-/** Counterparty */
+/** GrantCounterparty */
 @JsonPropertyOrder({
-  Counterparty.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
-  Counterparty.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
-  Counterparty.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID
+  GrantCounterparty.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
+  GrantCounterparty.JSON_PROPERTY_BALANCE_ACCOUNT_ID,
+  GrantCounterparty.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID
 })
-public class Counterparty {
+public class GrantCounterparty {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
@@ -50,30 +50,24 @@ public class Counterparty {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public Counterparty() {}
+  public GrantCounterparty() {}
 
   /**
-   * The identifier of the receiving account holder. The payout will default to the primary balance
-   * account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
+   * The identifier of the receiving account holder.
    *
-   * @param accountHolderId The identifier of the receiving account holder. The payout will default
-   *     to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is
-   *     provided.
-   * @return the current {@code Counterparty} instance, allowing for method chaining
+   * @param accountHolderId The identifier of the receiving account holder.
+   * @return the current {@code GrantCounterparty} instance, allowing for method chaining
    */
-  public Counterparty accountHolderId(String accountHolderId) {
+  public GrantCounterparty accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
     isSetAccountHolderId = true; // mark as set
     return this;
   }
 
   /**
-   * The identifier of the receiving account holder. The payout will default to the primary balance
-   * account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
+   * The identifier of the receiving account holder.
    *
-   * @return accountHolderId The identifier of the receiving account holder. The payout will default
-   *     to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is
-   *     provided.
+   * @return accountHolderId The identifier of the receiving account holder.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,12 +76,9 @@ public class Counterparty {
   }
 
   /**
-   * The identifier of the receiving account holder. The payout will default to the primary balance
-   * account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
+   * The identifier of the receiving account holder.
    *
-   * @param accountHolderId The identifier of the receiving account holder. The payout will default
-   *     to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is
-   *     provided.
+   * @param accountHolderId The identifier of the receiving account holder.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,9 +92,9 @@ public class Counterparty {
    *
    * @param balanceAccountId The identifier of the balance account that belongs to the receiving
    *     account holder.
-   * @return the current {@code Counterparty} instance, allowing for method chaining
+   * @return the current {@code GrantCounterparty} instance, allowing for method chaining
    */
-  public Counterparty balanceAccountId(String balanceAccountId) {
+  public GrantCounterparty balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
     isSetBalanceAccountId = true; // mark as set
     return this;
@@ -140,9 +131,9 @@ public class Counterparty {
    *
    * @param transferInstrumentId The identifier of the transfer instrument that belongs to the legal
    *     entity of the account holder.
-   * @return the current {@code Counterparty} instance, allowing for method chaining
+   * @return the current {@code GrantCounterparty} instance, allowing for method chaining
    */
-  public Counterparty transferInstrumentId(String transferInstrumentId) {
+  public GrantCounterparty transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
     isSetTransferInstrumentId = true; // mark as set
     return this;
@@ -178,7 +169,7 @@ public class Counterparty {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public Counterparty includeNullValues(boolean includeNullValues) {
+  public GrantCounterparty includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -195,7 +186,7 @@ public class Counterparty {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this Counterparty object is equal to o. */
+  /** Return true if this GrantCounterparty object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,13 +195,14 @@ public class Counterparty {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Counterparty counterparty = (Counterparty) o;
-    return Objects.equals(this.accountHolderId, counterparty.accountHolderId)
-        && Objects.equals(this.isSetAccountHolderId, counterparty.isSetAccountHolderId)
-        && Objects.equals(this.balanceAccountId, counterparty.balanceAccountId)
-        && Objects.equals(this.isSetBalanceAccountId, counterparty.isSetBalanceAccountId)
-        && Objects.equals(this.transferInstrumentId, counterparty.transferInstrumentId)
-        && Objects.equals(this.isSetTransferInstrumentId, counterparty.isSetTransferInstrumentId);
+    GrantCounterparty grantCounterparty = (GrantCounterparty) o;
+    return Objects.equals(this.accountHolderId, grantCounterparty.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, grantCounterparty.isSetAccountHolderId)
+        && Objects.equals(this.balanceAccountId, grantCounterparty.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, grantCounterparty.isSetBalanceAccountId)
+        && Objects.equals(this.transferInstrumentId, grantCounterparty.transferInstrumentId)
+        && Objects.equals(
+            this.isSetTransferInstrumentId, grantCounterparty.isSetTransferInstrumentId);
   }
 
   @Override
@@ -227,7 +219,7 @@ public class Counterparty {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Counterparty {\n");
+    sb.append("class GrantCounterparty {\n");
     sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
     sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
     sb.append("    transferInstrumentId: ")
@@ -278,18 +270,18 @@ public class Counterparty {
   }
 
   /**
-   * Create an instance of Counterparty given an JSON string
+   * Create an instance of GrantCounterparty given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Counterparty
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Counterparty
+   * @return An instance of GrantCounterparty
+   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantCounterparty
    */
-  public static Counterparty fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, Counterparty.class);
+  public static GrantCounterparty fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, GrantCounterparty.class);
   }
 
   /**
-   * Convert an instance of Counterparty to an JSON string
+   * Convert an instance of GrantCounterparty to an JSON string
    *
    * @return JSON string
    */

@@ -49,7 +49,7 @@ public class CapitalGrant {
   private boolean isSetBalances = false;
 
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
-  private Counterparty counterparty;
+  private GrantCounterparty counterparty;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCounterparty = false;
@@ -226,7 +226,7 @@ public class CapitalGrant {
    * @param counterparty
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
-  public CapitalGrant counterparty(Counterparty counterparty) {
+  public CapitalGrant counterparty(GrantCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
     return this;
@@ -239,7 +239,7 @@ public class CapitalGrant {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Counterparty getCounterparty() {
+  public GrantCounterparty getCounterparty() {
     return counterparty;
   }
 
@@ -250,7 +250,7 @@ public class CapitalGrant {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCounterparty(Counterparty counterparty) {
+  public void setCounterparty(GrantCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
   }
