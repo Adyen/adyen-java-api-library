@@ -362,6 +362,8 @@ public class TransferEvent {
 
     FEEPENDING(String.valueOf("feePending")),
 
+    INTERCHANGEADJUSTED(String.valueOf("interchangeAdjusted")),
+
     INTERNALTRANSFER(String.valueOf("internalTransfer")),
 
     INTERNALTRANSFERPENDING(String.valueOf("internalTransferPending")),
@@ -473,6 +475,8 @@ public class TransferEvent {
   /** The type of the transfer event. Possible values: **accounting**, **tracking**. */
   public enum TypeEnum {
     ACCOUNTING(String.valueOf("accounting")),
+
+    TRACING(String.valueOf("tracing")),
 
     TRACKING(String.valueOf("tracking"));
 
