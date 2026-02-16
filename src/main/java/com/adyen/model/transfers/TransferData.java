@@ -591,6 +591,8 @@ public class TransferData {
 
     FEEPENDING(String.valueOf("feePending")),
 
+    INTERCHANGEADJUSTED(String.valueOf("interchangeAdjusted")),
+
     INTERNALTRANSFER(String.valueOf("internalTransfer")),
 
     INTERNALTRANSFERPENDING(String.valueOf("internalTransferPending")),

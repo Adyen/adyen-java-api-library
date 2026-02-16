@@ -27,7 +27,7 @@ import java.util.*;
 })
 public class CapitalGrantInfo {
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
-  private Counterparty counterparty;
+  private GrantInfoCounterparty counterparty;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCounterparty = false;
@@ -58,7 +58,7 @@ public class CapitalGrantInfo {
    * @param counterparty
    * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
    */
-  public CapitalGrantInfo counterparty(Counterparty counterparty) {
+  public CapitalGrantInfo counterparty(GrantInfoCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
     return this;
@@ -71,7 +71,7 @@ public class CapitalGrantInfo {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Counterparty getCounterparty() {
+  public GrantInfoCounterparty getCounterparty() {
     return counterparty;
   }
 
@@ -82,7 +82,7 @@ public class CapitalGrantInfo {
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCounterparty(Counterparty counterparty) {
+  public void setCounterparty(GrantInfoCounterparty counterparty) {
     this.counterparty = counterparty;
     isSetCounterparty = true; // mark as set
   }

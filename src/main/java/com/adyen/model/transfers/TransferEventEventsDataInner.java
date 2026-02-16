@@ -75,6 +75,32 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize InterchangeData
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(InterchangeData.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
+
+          if (typeMatch) {
+            deserialized = tree.traverse(jp.getCodec()).readValueAs(InterchangeData.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(Level.FINER, "Input data matches schema 'InterchangeData'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'InterchangeData'", e);
+      }
+
       // deserialize IssuingTransactionData
       try {
         boolean attemptParsing = true;
@@ -154,6 +180,11 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
+  public TransferEventEventsDataInner(InterchangeData o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public TransferEventEventsDataInner(IssuingTransactionData o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -165,6 +196,7 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
   }
 
   static {
+    schemas.put("InterchangeData", new GenericType<InterchangeData>() {});
     schemas.put("IssuingTransactionData", new GenericType<IssuingTransactionData>() {});
     schemas.put("MerchantPurchaseData", new GenericType<MerchantPurchaseData>() {});
     JSON.registerDescendants(
@@ -178,13 +210,18 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: IssuingTransactionData, MerchantPurchaseData
+   * against the oneOf child schemas: InterchangeData, IssuingTransactionData, MerchantPurchaseData
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(InterchangeData.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     if (JSON.isInstanceOf(IssuingTransactionData.class, instance, new HashSet<>())) {
       super.setActualInstance(instance);
       return;
@@ -196,18 +233,29 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     }
 
     throw new RuntimeException(
-        "Invalid instance type. Must be IssuingTransactionData, MerchantPurchaseData");
+        "Invalid instance type. Must be InterchangeData, IssuingTransactionData, MerchantPurchaseData");
   }
 
   /**
-   * Get the actual instance, which can be the following: IssuingTransactionData,
+   * Get the actual instance, which can be the following: InterchangeData, IssuingTransactionData,
    * MerchantPurchaseData
    *
-   * @return The actual instance (IssuingTransactionData, MerchantPurchaseData)
+   * @return The actual instance (InterchangeData, IssuingTransactionData, MerchantPurchaseData)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `InterchangeData`. If the actual instance is not `InterchangeData`,
+   * the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `InterchangeData`
+   * @throws ClassCastException if the instance is not `InterchangeData`
+   */
+  public InterchangeData getInterchangeData() throws ClassCastException {
+    return (InterchangeData) super.getActualInstance();
   }
 
   /**
