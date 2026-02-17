@@ -62,7 +62,11 @@ public class ModificationResult {
 
     _VOIDPENDINGREFUND_RECEIVED_(String.valueOf("[voidPendingRefund-received]")),
 
-    AUTHORISED(String.valueOf("Authorised"));
+    AUTHORISED(String.valueOf("Authorised")),
+
+    REFUSED(String.valueOf("Refused")),
+
+    ERROR(String.valueOf("Error"));
 
     private static final Logger LOG = Logger.getLogger(ResponseEnum.class.getName());
 
