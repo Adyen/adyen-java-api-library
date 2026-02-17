@@ -20,6 +20,7 @@ import com.adyen.model.balanceplatform.AccountHolderInfo;
 import com.adyen.model.balanceplatform.AccountHolderUpdateRequest;
 import com.adyen.model.balanceplatform.GetTaxFormResponse;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
+import com.adyen.model.balanceplatform.TaxFormSummaryResponse;
 import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -218,9 +219,9 @@ public class AccountHoldersApi extends Service {
    *
    * @param id {@link String } The unique identifier of the account holder. (required)
    * @param formType {@link String } Query: The type of tax form you want to retrieve. Accepted
-   *     values are **US1099k** and **US1099nec** (required)
-   * @param year {@link Integer } Query: The tax year in YYYY format for the tax form you want to
-   *     retrieve (required)
+   *     values are **US1099k** and **US1099nec**. (required)
+   * @param year {@link Integer } Query: The tax year in **YYYY** format for the tax form you want
+   *     to retrieve. (required)
    * @return {@link GetTaxFormResponse }
    * @throws ApiException if fails to make API call
    */
@@ -234,11 +235,11 @@ public class AccountHoldersApi extends Service {
    *
    * @param id {@link String } The unique identifier of the account holder. (required)
    * @param formType {@link String } Query: The type of tax form you want to retrieve. Accepted
-   *     values are **US1099k** and **US1099nec** (required)
-   * @param year {@link Integer } Query: The tax year in YYYY format for the tax form you want to
-   *     retrieve (required)
+   *     values are **US1099k** and **US1099nec**. (required)
+   * @param year {@link Integer } Query: The tax year in **YYYY** format for the tax form you want
+   *     to retrieve. (required)
    * @param legalEntityId {@link String } Query: The legal entity reference whose tax form you want
-   *     to retrieve (optional)
+   *     to retrieve. (optional)
    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetTaxFormResponse }
@@ -272,6 +273,55 @@ public class AccountHoldersApi extends Service {
         resource.request(
             requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
     return GetTaxFormResponse.fromJson(jsonResult);
+  }
+
+  /**
+   * Get summary of tax forms for an account holder
+   *
+   * @param id {@link String } The unique identifier of the account holder. (required)
+   * @param formType {@link String } Query: The type of tax form you want a summary for. Accepted
+   *     values are **US1099k** and **US1099nec**. (required)
+   * @return {@link TaxFormSummaryResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public TaxFormSummaryResponse getTaxFormSummary(String id, String formType)
+      throws ApiException, IOException {
+    return getTaxFormSummary(id, formType, null);
+  }
+
+  /**
+   * Get summary of tax forms for an account holder
+   *
+   * @param id {@link String } The unique identifier of the account holder. (required)
+   * @param formType {@link String } Query: The type of tax form you want a summary for. Accepted
+   *     values are **US1099k** and **US1099nec**. (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @return {@link TaxFormSummaryResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public TaxFormSummaryResponse getTaxFormSummary(
+      String id, String formType, RequestOptions requestOptions) throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (id == null) {
+      throw new IllegalArgumentException("Please provide the id path parameter");
+    }
+    pathParams.put("id", id);
+
+    // Add query params
+    Map<String, String> queryParams = new HashMap<>();
+    if (formType != null) {
+      queryParams.put("formType", formType);
+    }
+
+    String requestBody = null;
+    Resource resource =
+        new Resource(this, this.baseURL + "/accountHolders/{id}/taxFormSummary", null);
+    String jsonResult =
+        resource.request(
+            requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+    return TaxFormSummaryResponse.fromJson(jsonResult);
   }
 
   /**
