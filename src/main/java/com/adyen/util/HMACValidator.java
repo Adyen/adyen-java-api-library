@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 import org.apache.commons.codec.binary.Base64;
 
 /** Utility class for generating and validating HMAC signatures used in Adyen webhooks. */

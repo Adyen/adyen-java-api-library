@@ -1,6 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 /** The type Object factory. */
 @XmlRegistry
