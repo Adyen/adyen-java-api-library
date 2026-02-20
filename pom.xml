@@ -220,7 +220,40 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-jakarta-compliance</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>javax.xml.bind:jaxb-api</exclude>
+                                        <exclude>javax.servlet:servlet-api</exclude>
+                                        <exclude>javax.servlet:javax.servlet-api</exclude>
+                                        <exclude>javax.persistence:javax.persistence-api</exclude>
+                                        <exclude>javax.persistence:persistence-api</exclude>
+                                        <exclude>javax.validation:validation-api</exclude>
+                                        <exclude>javax.inject:javax.inject</exclude>
+                                    </excludes>
+                                    <message>
+                                        STOP! A legacy javax.* dependency was detected.
+                                        Jakarta EE 9+ requires the 'jakarta.*' equivalent.
+                                        Check your dependency tree for transitive legacy artifacts.
+                                    </message>
+                                </bannedDependencies>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
