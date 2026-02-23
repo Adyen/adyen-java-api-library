@@ -341,8 +341,8 @@ public class TerminalCloudAPITest extends BaseTest {
 
     String requestAsJson = captor.getValue();
     assertFalse(
-        "DebitPreferredFlag must be absent from JSON when setter is never called",
-        requestAsJson.contains("DebitPreferredFlag"));
+        requestAsJson.contains("DebitPreferredFlag"),
+        "DebitPreferredFlag must be absent from JSON when setter is never called");
   }
 
   /** Mocked response for stored value type for POST /sync */
