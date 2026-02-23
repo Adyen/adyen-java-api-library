@@ -23,8 +23,8 @@ package com.adyen.webhooks;
 import com.adyen.BaseTest;
 import com.adyen.model.managementwebhooks.*;
 import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /** Unit testing for Management webhooks */
 public class ManagementWebhookTest extends BaseTest {
@@ -34,13 +34,13 @@ public class ManagementWebhookTest extends BaseTest {
     String json =
         getFileContents("mocks/notification/management-webhook-payment-method-created.json");
     ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(json);
-    Assert.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
+    Assertions.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
     PaymentMethodCreatedNotificationRequest request =
         webhookHandler.getPaymentMethodCreatedNotificationRequest().get();
-    Assert.assertEquals("PM1234567890000000", request.getData().getId());
-    Assert.assertEquals(
+    Assertions.assertEquals("PM1234567890000000", request.getData().getId());
+    Assertions.assertEquals(
         PaymentMethodCreatedNotificationRequest.TypeEnum.PAYMENTMETHOD_CREATED, request.getType());
-    Assert.assertEquals(
+    Assertions.assertEquals(
         MidServiceNotificationData.StatusEnum.SUCCESS, request.getData().getStatus());
   }
 
@@ -50,13 +50,13 @@ public class ManagementWebhookTest extends BaseTest {
         getFileContents(
             "mocks/notification/management-webhook-payment-method-created-unknown-enum.json");
     ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(json);
-    Assert.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
+    Assertions.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
     PaymentMethodCreatedNotificationRequest request =
         webhookHandler.getPaymentMethodCreatedNotificationRequest().get();
-    Assert.assertEquals("PM1234567890000000", request.getData().getId());
-    Assert.assertEquals(
+    Assertions.assertEquals("PM1234567890000000", request.getData().getId());
+    Assertions.assertEquals(
         PaymentMethodCreatedNotificationRequest.TypeEnum.PAYMENTMETHOD_CREATED, request.getType());
-    Assert.assertNull(request.getData().getStatus());
+    Assertions.assertNull(request.getData().getStatus());
   }
 
   @Test
@@ -81,11 +81,11 @@ public class ManagementWebhookTest extends BaseTest {
             + "   }\n"
             + "}";
     ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(notification);
-    Assert.assertTrue(webhookHandler.getMerchantUpdatedNotificationRequest().isPresent());
+    Assertions.assertTrue(webhookHandler.getMerchantUpdatedNotificationRequest().isPresent());
     MerchantUpdatedNotificationRequest request =
         webhookHandler.getMerchantUpdatedNotificationRequest().get();
-    Assert.assertEquals("LE322KH223222F5GNNW694PZN", request.getData().getLegalEntityId());
-    Assert.assertEquals(
+    Assertions.assertEquals("LE322KH223222F5GNNW694PZN", request.getData().getLegalEntityId());
+    Assertions.assertEquals(
         MerchantUpdatedNotificationRequest.TypeEnum.MERCHANT_UPDATED, request.getType());
   }
 
@@ -109,11 +109,11 @@ public class ManagementWebhookTest extends BaseTest {
             + "   }\n"
             + "}";
     ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(notification);
-    Assert.assertTrue(webhookHandler.getMerchantCreatedNotificationRequest().isPresent());
+    Assertions.assertTrue(webhookHandler.getMerchantCreatedNotificationRequest().isPresent());
     MerchantCreatedNotificationRequest request =
         webhookHandler.getMerchantCreatedNotificationRequest().get();
-    Assert.assertEquals("MC3224X22322535GH8D537TJR", request.getData().getMerchantId());
-    Assert.assertEquals(
+    Assertions.assertEquals("MC3224X22322535GH8D537TJR", request.getData().getMerchantId());
+    Assertions.assertEquals(
         MerchantCreatedNotificationRequest.TypeEnum.MERCHANT_CREATED, request.getType());
   }
 }

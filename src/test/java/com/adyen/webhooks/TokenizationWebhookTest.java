@@ -20,13 +20,13 @@
  */
 package com.adyen.webhooks;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.adyen.BaseTest;
 import com.adyen.model.tokenizationwebhooks.*;
 import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /** Unit testing for Tokenization webhooks */
 public class TokenizationWebhookTest extends BaseTest {
@@ -37,7 +37,7 @@ public class TokenizationWebhookTest extends BaseTest {
         getFileContents(
             "mocks/notification/tokenization-webhook-recurring-token-alreadyExisting.json");
     TokenizationWebhooksHandler webhookHandler = new TokenizationWebhooksHandler(json);
-    Assert.assertTrue(
+    Assertions.assertTrue(
         webhookHandler.getTokenizationAlreadyExistingDetailsNotificationRequest().isPresent());
 
     var request = webhookHandler.getTokenizationAlreadyExistingDetailsNotificationRequest().get();
@@ -49,8 +49,8 @@ public class TokenizationWebhookTest extends BaseTest {
         TokenizationAlreadyExistingDetailsNotificationRequest.EnvironmentEnum.TEST,
         request.getEnvironment());
 
-    Assert.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
-    Assert.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
+    Assertions.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
+    Assertions.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
   }
 
   @Test
@@ -58,7 +58,7 @@ public class TokenizationWebhookTest extends BaseTest {
     String json =
         getFileContents("mocks/notification/tokenization-webhook-recurring-token-created.json");
     TokenizationWebhooksHandler webhookHandler = new TokenizationWebhooksHandler(json);
-    Assert.assertTrue(
+    Assertions.assertTrue(
         webhookHandler.getTokenizationCreatedDetailsNotificationRequest().isPresent());
 
     var request = webhookHandler.getTokenizationCreatedDetailsNotificationRequest().get();
@@ -69,8 +69,8 @@ public class TokenizationWebhookTest extends BaseTest {
         TokenizationCreatedDetailsNotificationRequest.EnvironmentEnum.TEST,
         request.getEnvironment());
 
-    Assert.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
-    Assert.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
+    Assertions.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
+    Assertions.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
   }
 
   @Test
@@ -78,7 +78,7 @@ public class TokenizationWebhookTest extends BaseTest {
     String json =
         getFileContents("mocks/notification/tokenization-webhook-recurring-token-disabled.json");
     TokenizationWebhooksHandler webhookHandler = new TokenizationWebhooksHandler(json);
-    Assert.assertTrue(
+    Assertions.assertTrue(
         webhookHandler.getTokenizationDisabledDetailsNotificationRequest().isPresent());
 
     var request = webhookHandler.getTokenizationDisabledDetailsNotificationRequest().get();
@@ -89,8 +89,8 @@ public class TokenizationWebhookTest extends BaseTest {
         TokenizationDisabledDetailsNotificationRequest.EnvironmentEnum.TEST,
         request.getEnvironment());
 
-    Assert.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
-    Assert.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
+    Assertions.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
+    Assertions.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
   }
 
   @Test
@@ -98,7 +98,7 @@ public class TokenizationWebhookTest extends BaseTest {
     String json =
         getFileContents("mocks/notification/tokenization-webhook-recurring-token-updated.json");
     TokenizationWebhooksHandler webhookHandler = new TokenizationWebhooksHandler(json);
-    Assert.assertTrue(
+    Assertions.assertTrue(
         webhookHandler.getTokenizationUpdatedDetailsNotificationRequest().isPresent());
 
     var request = webhookHandler.getTokenizationUpdatedDetailsNotificationRequest().get();
@@ -109,7 +109,7 @@ public class TokenizationWebhookTest extends BaseTest {
         TokenizationUpdatedDetailsNotificationRequest.EnvironmentEnum.TEST,
         request.getEnvironment());
 
-    Assert.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
-    Assert.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
+    Assertions.assertEquals("YOUR_MERCHANT_ACCOUNT", request.getData().getMerchantAccount());
+    Assertions.assertEquals("M5N7TQ4TG5PFWR50", request.getData().getStoredPaymentMethodId());
   }
 }

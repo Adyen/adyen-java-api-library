@@ -1,9 +1,9 @@
 package com.adyen.serializer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.adyen.model.checkout.CardDetails;
 import com.adyen.model.checkout.CheckoutPaymentMethod;
@@ -15,7 +15,7 @@ import com.adyen.model.management.TerminalSettings;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
 import java.time.ZoneId;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Test model serialization (toJson) and deserialization (fromJson) */
 public class ModelTest {

@@ -693,9 +693,10 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent.
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent.
    */
   public enum StorePaymentMethodModeEnum {
     ASKFORCONSENT(String.valueOf("askForConsent")),
@@ -3514,16 +3515,17 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent.
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent.
    *
    * @param storePaymentMethodMode Indicates if the details of the payment method will be stored for
    *     the shopper. Possible values: * **disabled** – No details will be stored (default). *
-   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the
-   *     shopper choose if they want their payment details to be stored. * **enabled** – If the
-   *     &#x60;shopperReference&#x60; is provided, the details will be stored without asking the
-   *     shopper for consent.
+   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the Drop-in/Component
+   *     shows a checkbox where the shopper can select to store their payment details for card
+   *     payments. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will
+   *     be stored without asking the shopper for consent.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method
    *     chaining
    */
@@ -3537,16 +3539,17 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent.
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent.
    *
    * @return storePaymentMethodMode Indicates if the details of the payment method will be stored
    *     for the shopper. Possible values: * **disabled** – No details will be stored (default). *
-   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the
-   *     shopper choose if they want their payment details to be stored. * **enabled** – If the
-   *     &#x60;shopperReference&#x60; is provided, the details will be stored without asking the
-   *     shopper for consent.
+   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the Drop-in/Component
+   *     shows a checkbox where the shopper can select to store their payment details for card
+   *     payments. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will
+   *     be stored without asking the shopper for consent.
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3557,16 +3560,17 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values:
    * * **disabled** – No details will be stored (default). * **askForConsent** – If the
-   * &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their
-   * payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided,
-   * the details will be stored without asking the shopper for consent.
+   * &#x60;shopperReference&#x60; is provided, the Drop-in/Component shows a checkbox where the
+   * shopper can select to store their payment details for card payments. * **enabled** – If the
+   * &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper
+   * for consent.
    *
    * @param storePaymentMethodMode Indicates if the details of the payment method will be stored for
    *     the shopper. Possible values: * **disabled** – No details will be stored (default). *
-   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the
-   *     shopper choose if they want their payment details to be stored. * **enabled** – If the
-   *     &#x60;shopperReference&#x60; is provided, the details will be stored without asking the
-   *     shopper for consent.
+   *     **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the Drop-in/Component
+   *     shows a checkbox where the shopper can select to store their payment details for card
+   *     payments. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will
+   *     be stored without asking the shopper for consent.
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -1,13 +1,13 @@
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.sessionauthentication.*;
 import com.adyen.service.sessionauthentication.SessionAuthenticationApi;
 import java.util.Set;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SessionAuthenticationTest extends BaseTest {
 

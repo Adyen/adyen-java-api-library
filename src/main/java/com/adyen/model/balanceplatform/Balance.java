@@ -25,7 +25,6 @@ import java.util.*;
   Balance.JSON_PROPERTY_BALANCE,
   Balance.JSON_PROPERTY_CURRENCY,
   Balance.JSON_PROPERTY_PENDING,
-  Balance.JSON_PROPERTY_PENDING_AVAILABLE,
   Balance.JSON_PROPERTY_RESERVED
 })
 public class Balance {
@@ -52,12 +51,6 @@ public class Balance {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPending = false;
-
-  public static final String JSON_PROPERTY_PENDING_AVAILABLE = "pendingAvailable";
-  private Long pendingAvailable;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPendingAvailable = false;
 
   public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Long reserved;
@@ -220,35 +213,6 @@ public class Balance {
   }
 
   /**
-   * @param pendingAvailable
-   * @return the current {@code Balance} instance, allowing for method chaining
-   */
-  public Balance pendingAvailable(Long pendingAvailable) {
-    this.pendingAvailable = pendingAvailable;
-    isSetPendingAvailable = true; // mark as set
-    return this;
-  }
-
-  /**
-   * @return pendingAvailable
-   */
-  @JsonProperty(JSON_PROPERTY_PENDING_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPendingAvailable() {
-    return pendingAvailable;
-  }
-
-  /**
-   * @param pendingAvailable
-   */
-  @JsonProperty(JSON_PROPERTY_PENDING_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPendingAvailable(Long pendingAvailable) {
-    this.pendingAvailable = pendingAvailable;
-    isSetPendingAvailable = true; // mark as set
-  }
-
-  /**
    * The balance currently held in reserve.
    *
    * @param reserved The balance currently held in reserve.
@@ -321,8 +285,6 @@ public class Balance {
         && Objects.equals(this.isSetCurrency, balance.isSetCurrency)
         && Objects.equals(this.pending, balance.pending)
         && Objects.equals(this.isSetPending, balance.isSetPending)
-        && Objects.equals(this.pendingAvailable, balance.pendingAvailable)
-        && Objects.equals(this.isSetPendingAvailable, balance.isSetPendingAvailable)
         && Objects.equals(this.reserved, balance.reserved)
         && Objects.equals(this.isSetReserved, balance.isSetReserved);
   }
@@ -338,8 +300,6 @@ public class Balance {
         isSetCurrency,
         pending,
         isSetPending,
-        pendingAvailable,
-        isSetPendingAvailable,
         reserved,
         isSetReserved);
   }
@@ -352,7 +312,6 @@ public class Balance {
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
-    sb.append("    pendingAvailable: ").append(toIndentedString(pendingAvailable)).append("\n");
     sb.append("    reserved: ").append(toIndentedString(reserved)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -389,9 +348,6 @@ public class Balance {
     }
     if (isSetPending) {
       addIfNull(nulls, JSON_PROPERTY_PENDING, this.pending);
-    }
-    if (isSetPendingAvailable) {
-      addIfNull(nulls, JSON_PROPERTY_PENDING_AVAILABLE, this.pendingAvailable);
     }
     if (isSetReserved) {
       addIfNull(nulls, JSON_PROPERTY_RESERVED, this.reserved);

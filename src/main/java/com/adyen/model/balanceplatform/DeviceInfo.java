@@ -20,7 +20,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** DeviceInfo */
-@JsonPropertyOrder({DeviceInfo.JSON_PROPERTY_FORM_FACTOR, DeviceInfo.JSON_PROPERTY_OS_NAME})
+@JsonPropertyOrder({
+  DeviceInfo.JSON_PROPERTY_FORM_FACTOR,
+  DeviceInfo.JSON_PROPERTY_OS_NAME,
+  DeviceInfo.JSON_PROPERTY_PHONE
+})
 public class DeviceInfo {
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private String formFactor;
@@ -33,6 +37,12 @@ public class DeviceInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetOsName = false;
+
+  public static final String JSON_PROPERTY_PHONE = "phone";
+  private PhoneInfo phone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhone = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -113,6 +123,41 @@ public class DeviceInfo {
   }
 
   /**
+   * phone
+   *
+   * @param phone
+   * @return the current {@code DeviceInfo} instance, allowing for method chaining
+   */
+  public DeviceInfo phone(PhoneInfo phone) {
+    this.phone = phone;
+    isSetPhone = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get phone
+   *
+   * @return phone
+   */
+  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PhoneInfo getPhone() {
+    return phone;
+  }
+
+  /**
+   * phone
+   *
+   * @param phone
+   */
+  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPhone(PhoneInfo phone) {
+    this.phone = phone;
+    isSetPhone = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public DeviceInfo includeNullValues(boolean includeNullValues) {
@@ -145,12 +190,14 @@ public class DeviceInfo {
     return Objects.equals(this.formFactor, deviceInfo.formFactor)
         && Objects.equals(this.isSetFormFactor, deviceInfo.isSetFormFactor)
         && Objects.equals(this.osName, deviceInfo.osName)
-        && Objects.equals(this.isSetOsName, deviceInfo.isSetOsName);
+        && Objects.equals(this.isSetOsName, deviceInfo.isSetOsName)
+        && Objects.equals(this.phone, deviceInfo.phone)
+        && Objects.equals(this.isSetPhone, deviceInfo.isSetPhone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formFactor, isSetFormFactor, osName, isSetOsName);
+    return Objects.hash(formFactor, isSetFormFactor, osName, isSetOsName, phone, isSetPhone);
   }
 
   @Override
@@ -159,6 +206,7 @@ public class DeviceInfo {
     sb.append("class DeviceInfo {\n");
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -188,6 +236,9 @@ public class DeviceInfo {
     }
     if (isSetOsName) {
       addIfNull(nulls, JSON_PROPERTY_OS_NAME, this.osName);
+    }
+    if (isSetPhone) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE, this.phone);
     }
 
     return nulls;

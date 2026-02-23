@@ -1,6 +1,6 @@
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.codec.binary.Base64;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class LegalEntityManagementTest extends BaseTest {
   @Test
@@ -475,7 +475,7 @@ public class LegalEntityManagementTest extends BaseTest {
                   + "  \"paramNotInSpec\":false\n "
                   + "}");
     } catch (Exception ex) {
-      Assert.fail();
+      Assertions.fail();
     }
   }
 }

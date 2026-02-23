@@ -1,9 +1,9 @@
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import com.adyen.model.RequestOptions;
 import com.adyen.model.paymentsapp.BoardingTokenRequest;
@@ -11,7 +11,7 @@ import com.adyen.model.paymentsapp.BoardingTokenResponse;
 import com.adyen.model.paymentsapp.PaymentsAppResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.paymentsapp.PaymentsAppApi;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PaymentsAppTest extends BaseTest {
 

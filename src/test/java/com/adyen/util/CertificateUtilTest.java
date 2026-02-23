@@ -29,14 +29,14 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CertificateUtilTest {
 
   @Test
   public void testErrorLoadingCertificateFromPath() {
-    Assert.assertThrows(FileNotFoundException.class, () -> CertificateUtil.loadCertificate(""));
+    Assertions.assertThrows(FileNotFoundException.class, () -> CertificateUtil.loadCertificate(""));
   }
 
   @Test
@@ -44,7 +44,7 @@ public class CertificateUtilTest {
     String path = getClass().getClassLoader().getResource("adyen-terminalfleet-test.pem").getPath();
     Certificate certificate = CertificateUtil.loadCertificate(path);
 
-    Assert.assertNotNull(certificate);
+    Assertions.assertNotNull(certificate);
   }
 
   @Test
@@ -53,7 +53,7 @@ public class CertificateUtilTest {
         getClass().getClassLoader().getResourceAsStream("adyen-terminalfleet-test.pem");
     Certificate certificate = CertificateUtil.loadCertificate(stream);
 
-    Assert.assertNotNull(certificate);
+    Assertions.assertNotNull(certificate);
   }
 
   @Test
@@ -64,8 +64,8 @@ public class CertificateUtilTest {
     KeyStore keyStore =
         CertificateUtil.loadKeyStore(resource.getPath(), KeyStore.getDefaultType(), "test1234");
 
-    Assert.assertNotNull(keyStore);
-    Assert.assertTrue(keyStore.containsAlias("boguscert"));
+    Assertions.assertNotNull(keyStore);
+    Assertions.assertTrue(keyStore.containsAlias("boguscert"));
   }
 
   @Test
@@ -76,26 +76,26 @@ public class CertificateUtilTest {
     KeyStore keyStore =
         CertificateUtil.loadKeyStore(resource.getPath(), KeyStore.getDefaultType(), null);
 
-    Assert.assertNotNull(keyStore);
-    Assert.assertTrue(keyStore.containsAlias("boguscert"));
+    Assertions.assertNotNull(keyStore);
+    Assertions.assertTrue(keyStore.containsAlias("boguscert"));
   }
 
   @Test
   public void testLoadKeyStore_FileNotFoundErrorOnInvalidPath() {
-    Assert.assertThrows(
+    Assertions.assertThrows(
         FileNotFoundException.class,
         () -> CertificateUtil.loadKeyStore("xyz", KeyStore.getDefaultType(), ""));
   }
 
   @Test
   public void testLoadKeyStore_ErrorOnNullKeyStorePath() {
-    Assert.assertThrows(
+    Assertions.assertThrows(
         IllegalArgumentException.class, () -> CertificateUtil.loadKeyStore(null, "JKS", ""));
   }
 
   @Test
   public void testLoadKeyStore_ErrorOnNullKeyStoreType() {
-    Assert.assertThrows(
+    Assertions.assertThrows(
         IllegalArgumentException.class, () -> CertificateUtil.loadKeyStore("xyz", null, ""));
   }
 }

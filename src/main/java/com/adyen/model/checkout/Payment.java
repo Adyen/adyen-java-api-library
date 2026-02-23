@@ -53,10 +53,18 @@ public class Payment {
    * The result of the payment. For more information, see [Result
    * codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    * **Authorised** – The payment was successfully authorised. This state serves as an indicator to
-   * proceed with the delivery of goods and services. This is a final state.
+   * proceed with the delivery of goods and services. This is a final state. * **Received** –
+   * Indicates the payment request was successfully received by Adyen, and will be processed. This
+   * is the initial state for all payments. * **Pending** – The payment order was successfully
+   * received but the final status of the payment is not available yet. This is common for payment
+   * methods with an asynchronous flow.
    */
   public enum ResultCodeEnum {
-    AUTHORISED(String.valueOf("Authorised"));
+    AUTHORISED(String.valueOf("Authorised")),
+
+    RECEIVED(String.valueOf("Received")),
+
+    PENDING(String.valueOf("Pending"));
 
     private static final Logger LOG = Logger.getLogger(ResultCodeEnum.class.getName());
 
@@ -225,12 +233,20 @@ public class Payment {
    * The result of the payment. For more information, see [Result
    * codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    * **Authorised** – The payment was successfully authorised. This state serves as an indicator to
-   * proceed with the delivery of goods and services. This is a final state.
+   * proceed with the delivery of goods and services. This is a final state. * **Received** –
+   * Indicates the payment request was successfully received by Adyen, and will be processed. This
+   * is the initial state for all payments. * **Pending** – The payment order was successfully
+   * received but the final status of the payment is not available yet. This is common for payment
+   * methods with an asynchronous flow.
    *
    * @param resultCode The result of the payment. For more information, see [Result
    *     codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    *     **Authorised** – The payment was successfully authorised. This state serves as an indicator
-   *     to proceed with the delivery of goods and services. This is a final state.
+   *     to proceed with the delivery of goods and services. This is a final state. * **Received** –
+   *     Indicates the payment request was successfully received by Adyen, and will be processed.
+   *     This is the initial state for all payments. * **Pending** – The payment order was
+   *     successfully received but the final status of the payment is not available yet. This is
+   *     common for payment methods with an asynchronous flow.
    * @return the current {@code Payment} instance, allowing for method chaining
    */
   public Payment resultCode(ResultCodeEnum resultCode) {
@@ -243,12 +259,20 @@ public class Payment {
    * The result of the payment. For more information, see [Result
    * codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    * **Authorised** – The payment was successfully authorised. This state serves as an indicator to
-   * proceed with the delivery of goods and services. This is a final state.
+   * proceed with the delivery of goods and services. This is a final state. * **Received** –
+   * Indicates the payment request was successfully received by Adyen, and will be processed. This
+   * is the initial state for all payments. * **Pending** – The payment order was successfully
+   * received but the final status of the payment is not available yet. This is common for payment
+   * methods with an asynchronous flow.
    *
    * @return resultCode The result of the payment. For more information, see [Result
    *     codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    *     **Authorised** – The payment was successfully authorised. This state serves as an indicator
-   *     to proceed with the delivery of goods and services. This is a final state.
+   *     to proceed with the delivery of goods and services. This is a final state. * **Received** –
+   *     Indicates the payment request was successfully received by Adyen, and will be processed.
+   *     This is the initial state for all payments. * **Pending** – The payment order was
+   *     successfully received but the final status of the payment is not available yet. This is
+   *     common for payment methods with an asynchronous flow.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,12 +284,20 @@ public class Payment {
    * The result of the payment. For more information, see [Result
    * codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    * **Authorised** – The payment was successfully authorised. This state serves as an indicator to
-   * proceed with the delivery of goods and services. This is a final state.
+   * proceed with the delivery of goods and services. This is a final state. * **Received** –
+   * Indicates the payment request was successfully received by Adyen, and will be processed. This
+   * is the initial state for all payments. * **Pending** – The payment order was successfully
+   * received but the final status of the payment is not available yet. This is common for payment
+   * methods with an asynchronous flow.
    *
    * @param resultCode The result of the payment. For more information, see [Result
    *     codes](https://docs.adyen.com/online-payments/payment-result-codes). Possible values: *
    *     **Authorised** – The payment was successfully authorised. This state serves as an indicator
-   *     to proceed with the delivery of goods and services. This is a final state.
+   *     to proceed with the delivery of goods and services. This is a final state. * **Received** –
+   *     Indicates the payment request was successfully received by Adyen, and will be processed.
+   *     This is the initial state for all payments. * **Pending** – The payment order was
+   *     successfully received but the final status of the payment is not available yet. This is
+   *     common for payment methods with an asynchronous flow.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

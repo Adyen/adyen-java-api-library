@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,20 +34,44 @@ public class FundSource {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalData = false;
+
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingAddress = false;
 
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCard = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperEmail = false;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
   private Name shopperName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperName = false;
+
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTelephoneNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public FundSource() {}
 
@@ -58,6 +84,7 @@ public class FundSource {
    */
   public FundSource additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
     return this;
   }
 
@@ -91,6 +118,7 @@ public class FundSource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
+    isSetAdditionalData = true; // mark as set
   }
 
   /**
@@ -101,6 +129,7 @@ public class FundSource {
    */
   public FundSource billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
     return this;
   }
 
@@ -124,6 +153,7 @@ public class FundSource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
+    isSetBillingAddress = true; // mark as set
   }
 
   /**
@@ -134,6 +164,7 @@ public class FundSource {
    */
   public FundSource card(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
     return this;
   }
 
@@ -157,6 +188,7 @@ public class FundSource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
+    isSetCard = true; // mark as set
   }
 
   /**
@@ -167,6 +199,7 @@ public class FundSource {
    */
   public FundSource shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
     return this;
   }
 
@@ -190,6 +223,7 @@ public class FundSource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
+    isSetShopperEmail = true; // mark as set
   }
 
   /**
@@ -200,6 +234,7 @@ public class FundSource {
    */
   public FundSource shopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
     return this;
   }
 
@@ -223,6 +258,7 @@ public class FundSource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
+    isSetShopperName = true; // mark as set
   }
 
   /**
@@ -233,6 +269,7 @@ public class FundSource {
    */
   public FundSource telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
     return this;
   }
 
@@ -256,6 +293,27 @@ public class FundSource {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
+    isSetTelephoneNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public FundSource includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this FundSource object is equal to o. */
@@ -269,17 +327,34 @@ public class FundSource {
     }
     FundSource fundSource = (FundSource) o;
     return Objects.equals(this.additionalData, fundSource.additionalData)
+        && Objects.equals(this.isSetAdditionalData, fundSource.isSetAdditionalData)
         && Objects.equals(this.billingAddress, fundSource.billingAddress)
+        && Objects.equals(this.isSetBillingAddress, fundSource.isSetBillingAddress)
         && Objects.equals(this.card, fundSource.card)
+        && Objects.equals(this.isSetCard, fundSource.isSetCard)
         && Objects.equals(this.shopperEmail, fundSource.shopperEmail)
+        && Objects.equals(this.isSetShopperEmail, fundSource.isSetShopperEmail)
         && Objects.equals(this.shopperName, fundSource.shopperName)
-        && Objects.equals(this.telephoneNumber, fundSource.telephoneNumber);
+        && Objects.equals(this.isSetShopperName, fundSource.isSetShopperName)
+        && Objects.equals(this.telephoneNumber, fundSource.telephoneNumber)
+        && Objects.equals(this.isSetTelephoneNumber, fundSource.isSetTelephoneNumber);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        additionalData, billingAddress, card, shopperEmail, shopperName, telephoneNumber);
+        additionalData,
+        isSetAdditionalData,
+        billingAddress,
+        isSetBillingAddress,
+        card,
+        isSetCard,
+        shopperEmail,
+        isSetShopperEmail,
+        shopperName,
+        isSetShopperName,
+        telephoneNumber,
+        isSetTelephoneNumber);
   }
 
   @Override
@@ -304,6 +379,45 @@ public class FundSource {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdditionalData) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_DATA, this.additionalData);
+    }
+    if (isSetBillingAddress) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ADDRESS, this.billingAddress);
+    }
+    if (isSetCard) {
+      addIfNull(nulls, JSON_PROPERTY_CARD, this.card);
+    }
+    if (isSetShopperEmail) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
+    }
+    if (isSetShopperName) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_NAME, this.shopperName);
+    }
+    if (isSetTelephoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

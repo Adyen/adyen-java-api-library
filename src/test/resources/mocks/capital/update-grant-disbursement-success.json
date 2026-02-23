@@ -1,0 +1,27 @@
+
+{
+  "id": "DI00000000000000000000001",
+  "grantId": "GR00000000000000000000001",
+  "accountHolderId": "AH00000000000000000000001",
+  "balanceAccountId": "BA00000000000000000000001",
+  "amount": {
+    "currency": "EUR",
+    "value": 10000
+  },
+  "fee": {
+    "amount": {
+      "currency": "EUR",
+      "value": 1000
+    }
+  },
+  "balances": {
+    "currency": "EUR",
+    "principal": 10000,
+    "fee": 1000,
+    "total": 11000
+  },
+  "repayment": {
+    "basisPoints": 1500,
+    "updateDescription": "string"
+  }
+}

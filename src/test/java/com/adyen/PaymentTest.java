@@ -23,7 +23,7 @@ package com.adyen;
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
 import static com.adyen.model.payment.PaymentResult.ResultCodeEnum.RECEIVED;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import com.adyen.constants.ApiConstants.AdditionalData;
@@ -46,7 +46,7 @@ import java.util.Map;
 import java.util.TimeZone;
 import okio.ByteString;
 import org.apache.commons.codec.binary.Base64;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Tests for /authorise and /authorise3d */
 public class PaymentTest extends BaseTest {

@@ -1,0 +1,12 @@
+{
+  "grantAccounts": [
+    {
+      "id": "GA00000000000000000000001",
+      "grantorAccountId": "CG00000000000000000000001",
+      "fundingSource": {
+        "type": "adyen",
+        "adyenAccountId": "BA00000000000000000000001"
+      }
+    }
+  ]
+}

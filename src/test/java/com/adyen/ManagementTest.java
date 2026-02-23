@@ -1,6 +1,6 @@
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
@@ -12,8 +12,8 @@ import com.adyen.service.management.*;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class ManagementTest extends BaseTest {
   @Test
@@ -122,7 +122,7 @@ public class ManagementTest extends BaseTest {
   }
 
   @Test
-  @Ignore("Integration test")
+  @Disabled("Integration test")
   public void me() throws IOException, ApiException {
     Client client = new Client(System.getenv("API_KEY"), Environment.TEST);
     MyApiCredentialApi service = new MyApiCredentialApi(client);

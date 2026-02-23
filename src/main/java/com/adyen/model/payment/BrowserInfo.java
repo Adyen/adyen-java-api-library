@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,29 +35,62 @@ public class BrowserInfo {
   public static final String JSON_PROPERTY_ACCEPT_HEADER = "acceptHeader";
   private String acceptHeader;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptHeader = false;
+
   public static final String JSON_PROPERTY_COLOR_DEPTH = "colorDepth";
   private Integer colorDepth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetColorDepth = false;
 
   public static final String JSON_PROPERTY_JAVA_ENABLED = "javaEnabled";
   private Boolean javaEnabled;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetJavaEnabled = false;
+
   public static final String JSON_PROPERTY_JAVA_SCRIPT_ENABLED = "javaScriptEnabled";
   private Boolean javaScriptEnabled;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetJavaScriptEnabled = false;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLanguage = false;
+
   public static final String JSON_PROPERTY_SCREEN_HEIGHT = "screenHeight";
   private Integer screenHeight;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScreenHeight = false;
 
   public static final String JSON_PROPERTY_SCREEN_WIDTH = "screenWidth";
   private Integer screenWidth;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScreenWidth = false;
+
   public static final String JSON_PROPERTY_TIME_ZONE_OFFSET = "timeZoneOffset";
   private Integer timeZoneOffset;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeZoneOffset = false;
+
   public static final String JSON_PROPERTY_USER_AGENT = "userAgent";
   private String userAgent;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUserAgent = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BrowserInfo() {}
 
@@ -67,6 +102,7 @@ public class BrowserInfo {
    */
   public BrowserInfo acceptHeader(String acceptHeader) {
     this.acceptHeader = acceptHeader;
+    isSetAcceptHeader = true; // mark as set
     return this;
   }
 
@@ -90,6 +126,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptHeader(String acceptHeader) {
     this.acceptHeader = acceptHeader;
+    isSetAcceptHeader = true; // mark as set
   }
 
   /**
@@ -104,6 +141,7 @@ public class BrowserInfo {
    */
   public BrowserInfo colorDepth(Integer colorDepth) {
     this.colorDepth = colorDepth;
+    isSetColorDepth = true; // mark as set
     return this;
   }
 
@@ -135,6 +173,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setColorDepth(Integer colorDepth) {
     this.colorDepth = colorDepth;
+    isSetColorDepth = true; // mark as set
   }
 
   /**
@@ -146,6 +185,7 @@ public class BrowserInfo {
    */
   public BrowserInfo javaEnabled(Boolean javaEnabled) {
     this.javaEnabled = javaEnabled;
+    isSetJavaEnabled = true; // mark as set
     return this;
   }
 
@@ -171,6 +211,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJavaEnabled(Boolean javaEnabled) {
     this.javaEnabled = javaEnabled;
+    isSetJavaEnabled = true; // mark as set
   }
 
   /**
@@ -183,6 +224,7 @@ public class BrowserInfo {
    */
   public BrowserInfo javaScriptEnabled(Boolean javaScriptEnabled) {
     this.javaScriptEnabled = javaScriptEnabled;
+    isSetJavaScriptEnabled = true; // mark as set
     return this;
   }
 
@@ -210,6 +252,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJavaScriptEnabled(Boolean javaScriptEnabled) {
     this.javaScriptEnabled = javaScriptEnabled;
+    isSetJavaScriptEnabled = true; // mark as set
   }
 
   /**
@@ -222,6 +265,7 @@ public class BrowserInfo {
    */
   public BrowserInfo language(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
     return this;
   }
 
@@ -249,6 +293,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
+    isSetLanguage = true; // mark as set
   }
 
   /**
@@ -259,6 +304,7 @@ public class BrowserInfo {
    */
   public BrowserInfo screenHeight(Integer screenHeight) {
     this.screenHeight = screenHeight;
+    isSetScreenHeight = true; // mark as set
     return this;
   }
 
@@ -282,6 +328,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenHeight(Integer screenHeight) {
     this.screenHeight = screenHeight;
+    isSetScreenHeight = true; // mark as set
   }
 
   /**
@@ -292,6 +339,7 @@ public class BrowserInfo {
    */
   public BrowserInfo screenWidth(Integer screenWidth) {
     this.screenWidth = screenWidth;
+    isSetScreenWidth = true; // mark as set
     return this;
   }
 
@@ -315,6 +363,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenWidth(Integer screenWidth) {
     this.screenWidth = screenWidth;
+    isSetScreenWidth = true; // mark as set
   }
 
   /**
@@ -326,6 +375,7 @@ public class BrowserInfo {
    */
   public BrowserInfo timeZoneOffset(Integer timeZoneOffset) {
     this.timeZoneOffset = timeZoneOffset;
+    isSetTimeZoneOffset = true; // mark as set
     return this;
   }
 
@@ -351,6 +401,7 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneOffset(Integer timeZoneOffset) {
     this.timeZoneOffset = timeZoneOffset;
+    isSetTimeZoneOffset = true; // mark as set
   }
 
   /**
@@ -361,6 +412,7 @@ public class BrowserInfo {
    */
   public BrowserInfo userAgent(String userAgent) {
     this.userAgent = userAgent;
+    isSetUserAgent = true; // mark as set
     return this;
   }
 
@@ -384,6 +436,27 @@ public class BrowserInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserAgent(String userAgent) {
     this.userAgent = userAgent;
+    isSetUserAgent = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BrowserInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BrowserInfo object is equal to o. */
@@ -397,28 +470,46 @@ public class BrowserInfo {
     }
     BrowserInfo browserInfo = (BrowserInfo) o;
     return Objects.equals(this.acceptHeader, browserInfo.acceptHeader)
+        && Objects.equals(this.isSetAcceptHeader, browserInfo.isSetAcceptHeader)
         && Objects.equals(this.colorDepth, browserInfo.colorDepth)
+        && Objects.equals(this.isSetColorDepth, browserInfo.isSetColorDepth)
         && Objects.equals(this.javaEnabled, browserInfo.javaEnabled)
+        && Objects.equals(this.isSetJavaEnabled, browserInfo.isSetJavaEnabled)
         && Objects.equals(this.javaScriptEnabled, browserInfo.javaScriptEnabled)
+        && Objects.equals(this.isSetJavaScriptEnabled, browserInfo.isSetJavaScriptEnabled)
         && Objects.equals(this.language, browserInfo.language)
+        && Objects.equals(this.isSetLanguage, browserInfo.isSetLanguage)
         && Objects.equals(this.screenHeight, browserInfo.screenHeight)
+        && Objects.equals(this.isSetScreenHeight, browserInfo.isSetScreenHeight)
         && Objects.equals(this.screenWidth, browserInfo.screenWidth)
+        && Objects.equals(this.isSetScreenWidth, browserInfo.isSetScreenWidth)
         && Objects.equals(this.timeZoneOffset, browserInfo.timeZoneOffset)
-        && Objects.equals(this.userAgent, browserInfo.userAgent);
+        && Objects.equals(this.isSetTimeZoneOffset, browserInfo.isSetTimeZoneOffset)
+        && Objects.equals(this.userAgent, browserInfo.userAgent)
+        && Objects.equals(this.isSetUserAgent, browserInfo.isSetUserAgent);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         acceptHeader,
+        isSetAcceptHeader,
         colorDepth,
+        isSetColorDepth,
         javaEnabled,
+        isSetJavaEnabled,
         javaScriptEnabled,
+        isSetJavaScriptEnabled,
         language,
+        isSetLanguage,
         screenHeight,
+        isSetScreenHeight,
         screenWidth,
+        isSetScreenWidth,
         timeZoneOffset,
-        userAgent);
+        isSetTimeZoneOffset,
+        userAgent,
+        isSetUserAgent);
   }
 
   @Override
@@ -446,6 +537,54 @@ public class BrowserInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcceptHeader) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPT_HEADER, this.acceptHeader);
+    }
+    if (isSetColorDepth) {
+      addIfNull(nulls, JSON_PROPERTY_COLOR_DEPTH, this.colorDepth);
+    }
+    if (isSetJavaEnabled) {
+      addIfNull(nulls, JSON_PROPERTY_JAVA_ENABLED, this.javaEnabled);
+    }
+    if (isSetJavaScriptEnabled) {
+      addIfNull(nulls, JSON_PROPERTY_JAVA_SCRIPT_ENABLED, this.javaScriptEnabled);
+    }
+    if (isSetLanguage) {
+      addIfNull(nulls, JSON_PROPERTY_LANGUAGE, this.language);
+    }
+    if (isSetScreenHeight) {
+      addIfNull(nulls, JSON_PROPERTY_SCREEN_HEIGHT, this.screenHeight);
+    }
+    if (isSetScreenWidth) {
+      addIfNull(nulls, JSON_PROPERTY_SCREEN_WIDTH, this.screenWidth);
+    }
+    if (isSetTimeZoneOffset) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_ZONE_OFFSET, this.timeZoneOffset);
+    }
+    if (isSetUserAgent) {
+      addIfNull(nulls, JSON_PROPERTY_USER_AGENT, this.userAgent);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

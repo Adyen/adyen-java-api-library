@@ -20,7 +20,7 @@
  */
 package com.adyen;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 
@@ -32,8 +32,8 @@ import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.time.OffsetDateTime;
 import java.util.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 public class CheckoutTest extends BaseTest {
@@ -385,8 +385,8 @@ public class CheckoutTest extends BaseTest {
     RecurringApi checkout = new RecurringApi(client);
     ListStoredPaymentMethodsResponse response =
         checkout.getTokensForStoredPaymentDetails("test-1234", "TestMerchantAccount", null);
-    Assert.assertEquals("merchantAccount", response.getMerchantAccount());
-    Assert.assertEquals("string", response.getStoredPaymentMethods().get(0).getBrand());
+    Assertions.assertEquals("merchantAccount", response.getMerchantAccount());
+    Assertions.assertEquals("string", response.getStoredPaymentMethods().get(0).getBrand());
   }
 
   /** Should delete StoredPaymentMethods */
@@ -478,10 +478,10 @@ public class CheckoutTest extends BaseTest {
                 + "    \"applePayToken\": \"VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...\"\n"
                 + "  }");
 
-    Assert.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("paywithgoogle"));
-    Assert.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("googlePayToken"));
-    Assert.assertTrue(checkoutPaymentMethodScheme.toJson().contains("scheme"));
-    Assert.assertTrue(
+    Assertions.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("paywithgoogle"));
+    Assertions.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("googlePayToken"));
+    Assertions.assertTrue(checkoutPaymentMethodScheme.toJson().contains("scheme"));
+    Assertions.assertTrue(
         checkoutPaymentMethodApple.toJson().contains("NRWtuNlNEWkRCSm1xWndjMDFFbktkQU"));
   }
 

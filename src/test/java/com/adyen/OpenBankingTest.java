@@ -1,7 +1,7 @@
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
@@ -12,7 +12,7 @@ import com.adyen.model.openbanking.AccountVerificationReportResponse;
 import com.adyen.model.openbanking.AccountVerificationRoutesRequest;
 import com.adyen.model.openbanking.AccountVerificationRoutesResponse;
 import com.adyen.service.openbanking.AccountVerificationApi;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class OpenBankingTest extends BaseTest {
 

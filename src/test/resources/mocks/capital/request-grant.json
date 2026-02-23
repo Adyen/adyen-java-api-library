@@ -27,5 +27,7 @@
   "repayment": {
     "basisPoints": 1400
   },
-  "status": "Pending"
+  "status": {
+    "code": "Pending"
+  }
 }

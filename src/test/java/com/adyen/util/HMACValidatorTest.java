@@ -21,15 +21,15 @@
 
 package com.adyen.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import com.adyen.BaseTest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.google.gson.Gson;
 import java.security.SignatureException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HMACValidatorTest extends BaseTest {
 

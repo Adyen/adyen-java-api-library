@@ -11,6 +11,8 @@
 
 package com.adyen.model.payment;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -54,106 +56,199 @@ public class AdditionalDataAirline {
       "airline.agency_invoice_number";
   private String airlineAgencyInvoiceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineAgencyInvoiceNumber = false;
+
   public static final String JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME = "airline.agency_plan_name";
   private String airlineAgencyPlanName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineAgencyPlanName = false;
+
   public static final String JSON_PROPERTY_AIRLINE_AIRLINE_CODE = "airline.airline_code";
   private String airlineAirlineCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineAirlineCode = false;
 
   public static final String JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE =
       "airline.airline_designator_code";
   private String airlineAirlineDesignatorCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineAirlineDesignatorCode = false;
+
   public static final String JSON_PROPERTY_AIRLINE_BOARDING_FEE = "airline.boarding_fee";
   private String airlineBoardingFee;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineBoardingFee = false;
 
   public static final String JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM =
       "airline.computerized_reservation_system";
   private String airlineComputerizedReservationSystem;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineComputerizedReservationSystem = false;
+
   public static final String JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER =
       "airline.customer_reference_number";
   private String airlineCustomerReferenceNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineCustomerReferenceNumber = false;
+
   public static final String JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE = "airline.document_type";
   private String airlineDocumentType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineDocumentType = false;
 
   public static final String JSON_PROPERTY_AIRLINE_FLIGHT_DATE = "airline.flight_date";
   private String airlineFlightDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineFlightDate = false;
+
   public static final String JSON_PROPERTY_AIRLINE_ISSUE_DATE = "airline.issue_date";
   private String airlineIssueDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineIssueDate = false;
+
   public static final String JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE = "airline.leg.carrier_code";
   private String airlineLegCarrierCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegCarrierCode = false;
 
   public static final String JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL =
       "airline.leg.class_of_travel";
   private String airlineLegClassOfTravel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegClassOfTravel = false;
+
   public static final String JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL =
       "airline.leg.date_of_travel";
   private String airlineLegDateOfTravel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegDateOfTravel = false;
 
   public static final String JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT =
       "airline.leg.depart_airport";
   private String airlineLegDepartAirport;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegDepartAirport = false;
+
   public static final String JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX = "airline.leg.depart_tax";
   private String airlineLegDepartTax;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegDepartTax = false;
 
   public static final String JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE =
       "airline.leg.destination_code";
   private String airlineLegDestinationCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegDestinationCode = false;
+
   public static final String JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE =
       "airline.leg.fare_base_code";
   private String airlineLegFareBaseCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegFareBaseCode = false;
+
   public static final String JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER = "airline.leg.flight_number";
   private String airlineLegFlightNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegFlightNumber = false;
 
   public static final String JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE =
       "airline.leg.stop_over_code";
   private String airlineLegStopOverCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineLegStopOverCode = false;
+
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH =
       "airline.passenger.date_of_birth";
   private String airlinePassengerDateOfBirth;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlinePassengerDateOfBirth = false;
 
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME =
       "airline.passenger.first_name";
   private String airlinePassengerFirstName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlinePassengerFirstName = false;
+
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME =
       "airline.passenger.last_name";
   private String airlinePassengerLastName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlinePassengerLastName = false;
 
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_PHONE_NUMBER =
       "airline.passenger.phone_number";
   private String airlinePassengerPhoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlinePassengerPhoneNumber = false;
+
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE =
       "airline.passenger.traveller_type";
   private String airlinePassengerTravellerType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlinePassengerTravellerType = false;
+
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_NAME = "airline.passenger_name";
   private String airlinePassengerName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlinePassengerName = false;
 
   public static final String JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS =
       "airline.ticket_issue_address";
   private String airlineTicketIssueAddress;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineTicketIssueAddress = false;
+
   public static final String JSON_PROPERTY_AIRLINE_TICKET_NUMBER = "airline.ticket_number";
   private String airlineTicketNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineTicketNumber = false;
 
   public static final String JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE =
       "airline.travel_agency_code";
   private String airlineTravelAgencyCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineTravelAgencyCode = false;
+
   public static final String JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME =
       "airline.travel_agency_name";
   private String airlineTravelAgencyName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAirlineTravelAgencyName = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AdditionalDataAirline() {}
 
@@ -167,6 +262,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineAgencyInvoiceNumber(String airlineAgencyInvoiceNumber) {
     this.airlineAgencyInvoiceNumber = airlineAgencyInvoiceNumber;
+    isSetAirlineAgencyInvoiceNumber = true; // mark as set
     return this;
   }
 
@@ -194,6 +290,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAgencyInvoiceNumber(String airlineAgencyInvoiceNumber) {
     this.airlineAgencyInvoiceNumber = airlineAgencyInvoiceNumber;
+    isSetAirlineAgencyInvoiceNumber = true; // mark as set
   }
 
   /**
@@ -206,6 +303,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineAgencyPlanName(String airlineAgencyPlanName) {
     this.airlineAgencyPlanName = airlineAgencyPlanName;
+    isSetAirlineAgencyPlanName = true; // mark as set
     return this;
   }
 
@@ -233,6 +331,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAgencyPlanName(String airlineAgencyPlanName) {
     this.airlineAgencyPlanName = airlineAgencyPlanName;
+    isSetAirlineAgencyPlanName = true; // mark as set
   }
 
   /**
@@ -249,6 +348,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineAirlineCode(String airlineAirlineCode) {
     this.airlineAirlineCode = airlineAirlineCode;
+    isSetAirlineAirlineCode = true; // mark as set
     return this;
   }
 
@@ -284,6 +384,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAirlineCode(String airlineAirlineCode) {
     this.airlineAirlineCode = airlineAirlineCode;
+    isSetAirlineAirlineCode = true; // mark as set
   }
 
   /**
@@ -299,6 +400,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineAirlineDesignatorCode(String airlineAirlineDesignatorCode) {
     this.airlineAirlineDesignatorCode = airlineAirlineDesignatorCode;
+    isSetAirlineAirlineDesignatorCode = true; // mark as set
     return this;
   }
 
@@ -332,6 +434,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAirlineDesignatorCode(String airlineAirlineDesignatorCode) {
     this.airlineAirlineDesignatorCode = airlineAirlineDesignatorCode;
+    isSetAirlineAirlineDesignatorCode = true; // mark as set
   }
 
   /**
@@ -346,6 +449,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineBoardingFee(String airlineBoardingFee) {
     this.airlineBoardingFee = airlineBoardingFee;
+    isSetAirlineBoardingFee = true; // mark as set
     return this;
   }
 
@@ -377,6 +481,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineBoardingFee(String airlineBoardingFee) {
     this.airlineBoardingFee = airlineBoardingFee;
+    isSetAirlineBoardingFee = true; // mark as set
   }
 
   /**
@@ -393,6 +498,7 @@ public class AdditionalDataAirline {
   public AdditionalDataAirline airlineComputerizedReservationSystem(
       String airlineComputerizedReservationSystem) {
     this.airlineComputerizedReservationSystem = airlineComputerizedReservationSystem;
+    isSetAirlineComputerizedReservationSystem = true; // mark as set
     return this;
   }
 
@@ -426,6 +532,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineComputerizedReservationSystem(String airlineComputerizedReservationSystem) {
     this.airlineComputerizedReservationSystem = airlineComputerizedReservationSystem;
+    isSetAirlineComputerizedReservationSystem = true; // mark as set
   }
 
   /**
@@ -441,6 +548,7 @@ public class AdditionalDataAirline {
   public AdditionalDataAirline airlineCustomerReferenceNumber(
       String airlineCustomerReferenceNumber) {
     this.airlineCustomerReferenceNumber = airlineCustomerReferenceNumber;
+    isSetAirlineCustomerReferenceNumber = true; // mark as set
     return this;
   }
 
@@ -472,6 +580,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineCustomerReferenceNumber(String airlineCustomerReferenceNumber) {
     this.airlineCustomerReferenceNumber = airlineCustomerReferenceNumber;
+    isSetAirlineCustomerReferenceNumber = true; // mark as set
   }
 
   /**
@@ -486,6 +595,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineDocumentType(String airlineDocumentType) {
     this.airlineDocumentType = airlineDocumentType;
+    isSetAirlineDocumentType = true; // mark as set
     return this;
   }
 
@@ -517,6 +627,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineDocumentType(String airlineDocumentType) {
     this.airlineDocumentType = airlineDocumentType;
+    isSetAirlineDocumentType = true; // mark as set
   }
 
   /**
@@ -531,6 +642,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineFlightDate(String airlineFlightDate) {
     this.airlineFlightDate = airlineFlightDate;
+    isSetAirlineFlightDate = true; // mark as set
     return this;
   }
 
@@ -562,6 +674,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineFlightDate(String airlineFlightDate) {
     this.airlineFlightDate = airlineFlightDate;
+    isSetAirlineFlightDate = true; // mark as set
   }
 
   /**
@@ -574,6 +687,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineIssueDate(String airlineIssueDate) {
     this.airlineIssueDate = airlineIssueDate;
+    isSetAirlineIssueDate = true; // mark as set
     return this;
   }
 
@@ -601,6 +715,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineIssueDate(String airlineIssueDate) {
     this.airlineIssueDate = airlineIssueDate;
+    isSetAirlineIssueDate = true; // mark as set
   }
 
   /**
@@ -617,6 +732,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegCarrierCode(String airlineLegCarrierCode) {
     this.airlineLegCarrierCode = airlineLegCarrierCode;
+    isSetAirlineLegCarrierCode = true; // mark as set
     return this;
   }
 
@@ -652,6 +768,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegCarrierCode(String airlineLegCarrierCode) {
     this.airlineLegCarrierCode = airlineLegCarrierCode;
+    isSetAirlineLegCarrierCode = true; // mark as set
   }
 
   /**
@@ -667,6 +784,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegClassOfTravel(String airlineLegClassOfTravel) {
     this.airlineLegClassOfTravel = airlineLegClassOfTravel;
+    isSetAirlineLegClassOfTravel = true; // mark as set
     return this;
   }
 
@@ -700,6 +818,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegClassOfTravel(String airlineLegClassOfTravel) {
     this.airlineLegClassOfTravel = airlineLegClassOfTravel;
+    isSetAirlineLegClassOfTravel = true; // mark as set
   }
 
   /**
@@ -714,6 +833,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegDateOfTravel(String airlineLegDateOfTravel) {
     this.airlineLegDateOfTravel = airlineLegDateOfTravel;
+    isSetAirlineLegDateOfTravel = true; // mark as set
     return this;
   }
 
@@ -745,6 +865,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDateOfTravel(String airlineLegDateOfTravel) {
     this.airlineLegDateOfTravel = airlineLegDateOfTravel;
+    isSetAirlineLegDateOfTravel = true; // mark as set
   }
 
   /**
@@ -761,6 +882,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegDepartAirport(String airlineLegDepartAirport) {
     this.airlineLegDepartAirport = airlineLegDepartAirport;
+    isSetAirlineLegDepartAirport = true; // mark as set
     return this;
   }
 
@@ -796,6 +918,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDepartAirport(String airlineLegDepartAirport) {
     this.airlineLegDepartAirport = airlineLegDepartAirport;
+    isSetAirlineLegDepartAirport = true; // mark as set
   }
 
   /**
@@ -811,6 +934,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegDepartTax(String airlineLegDepartTax) {
     this.airlineLegDepartTax = airlineLegDepartTax;
+    isSetAirlineLegDepartTax = true; // mark as set
     return this;
   }
 
@@ -844,6 +968,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDepartTax(String airlineLegDepartTax) {
     this.airlineLegDepartTax = airlineLegDepartTax;
+    isSetAirlineLegDepartTax = true; // mark as set
   }
 
   /**
@@ -860,6 +985,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegDestinationCode(String airlineLegDestinationCode) {
     this.airlineLegDestinationCode = airlineLegDestinationCode;
+    isSetAirlineLegDestinationCode = true; // mark as set
     return this;
   }
 
@@ -895,6 +1021,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDestinationCode(String airlineLegDestinationCode) {
     this.airlineLegDestinationCode = airlineLegDestinationCode;
+    isSetAirlineLegDestinationCode = true; // mark as set
   }
 
   /**
@@ -909,6 +1036,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegFareBaseCode(String airlineLegFareBaseCode) {
     this.airlineLegFareBaseCode = airlineLegFareBaseCode;
+    isSetAirlineLegFareBaseCode = true; // mark as set
     return this;
   }
 
@@ -940,6 +1068,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegFareBaseCode(String airlineLegFareBaseCode) {
     this.airlineLegFareBaseCode = airlineLegFareBaseCode;
+    isSetAirlineLegFareBaseCode = true; // mark as set
   }
 
   /**
@@ -952,6 +1081,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegFlightNumber(String airlineLegFlightNumber) {
     this.airlineLegFlightNumber = airlineLegFlightNumber;
+    isSetAirlineLegFlightNumber = true; // mark as set
     return this;
   }
 
@@ -979,6 +1109,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegFlightNumber(String airlineLegFlightNumber) {
     this.airlineLegFlightNumber = airlineLegFlightNumber;
+    isSetAirlineLegFlightNumber = true; // mark as set
   }
 
   /**
@@ -994,6 +1125,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineLegStopOverCode(String airlineLegStopOverCode) {
     this.airlineLegStopOverCode = airlineLegStopOverCode;
+    isSetAirlineLegStopOverCode = true; // mark as set
     return this;
   }
 
@@ -1027,6 +1159,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegStopOverCode(String airlineLegStopOverCode) {
     this.airlineLegStopOverCode = airlineLegStopOverCode;
+    isSetAirlineLegStopOverCode = true; // mark as set
   }
 
   /**
@@ -1039,6 +1172,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlinePassengerDateOfBirth(String airlinePassengerDateOfBirth) {
     this.airlinePassengerDateOfBirth = airlinePassengerDateOfBirth;
+    isSetAirlinePassengerDateOfBirth = true; // mark as set
     return this;
   }
 
@@ -1066,6 +1200,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerDateOfBirth(String airlinePassengerDateOfBirth) {
     this.airlinePassengerDateOfBirth = airlinePassengerDateOfBirth;
+    isSetAirlinePassengerDateOfBirth = true; // mark as set
   }
 
   /**
@@ -1078,6 +1213,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlinePassengerFirstName(String airlinePassengerFirstName) {
     this.airlinePassengerFirstName = airlinePassengerFirstName;
+    isSetAirlinePassengerFirstName = true; // mark as set
     return this;
   }
 
@@ -1105,6 +1241,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerFirstName(String airlinePassengerFirstName) {
     this.airlinePassengerFirstName = airlinePassengerFirstName;
+    isSetAirlinePassengerFirstName = true; // mark as set
   }
 
   /**
@@ -1117,6 +1254,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlinePassengerLastName(String airlinePassengerLastName) {
     this.airlinePassengerLastName = airlinePassengerLastName;
+    isSetAirlinePassengerLastName = true; // mark as set
     return this;
   }
 
@@ -1144,6 +1282,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerLastName(String airlinePassengerLastName) {
     this.airlinePassengerLastName = airlinePassengerLastName;
+    isSetAirlinePassengerLastName = true; // mark as set
   }
 
   /**
@@ -1158,6 +1297,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlinePassengerPhoneNumber(String airlinePassengerPhoneNumber) {
     this.airlinePassengerPhoneNumber = airlinePassengerPhoneNumber;
+    isSetAirlinePassengerPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -1189,6 +1329,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerPhoneNumber(String airlinePassengerPhoneNumber) {
     this.airlinePassengerPhoneNumber = airlinePassengerPhoneNumber;
+    isSetAirlinePassengerPhoneNumber = true; // mark as set
   }
 
   /**
@@ -1201,6 +1342,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlinePassengerTravellerType(String airlinePassengerTravellerType) {
     this.airlinePassengerTravellerType = airlinePassengerTravellerType;
+    isSetAirlinePassengerTravellerType = true; // mark as set
     return this;
   }
 
@@ -1228,6 +1370,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerTravellerType(String airlinePassengerTravellerType) {
     this.airlinePassengerTravellerType = airlinePassengerTravellerType;
+    isSetAirlinePassengerTravellerType = true; // mark as set
   }
 
   /**
@@ -1244,6 +1387,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
+    isSetAirlinePassengerName = true; // mark as set
     return this;
   }
 
@@ -1279,6 +1423,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
+    isSetAirlinePassengerName = true; // mark as set
   }
 
   /**
@@ -1291,6 +1436,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineTicketIssueAddress(String airlineTicketIssueAddress) {
     this.airlineTicketIssueAddress = airlineTicketIssueAddress;
+    isSetAirlineTicketIssueAddress = true; // mark as set
     return this;
   }
 
@@ -1318,6 +1464,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTicketIssueAddress(String airlineTicketIssueAddress) {
     this.airlineTicketIssueAddress = airlineTicketIssueAddress;
+    isSetAirlineTicketIssueAddress = true; // mark as set
   }
 
   /**
@@ -1330,6 +1477,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineTicketNumber(String airlineTicketNumber) {
     this.airlineTicketNumber = airlineTicketNumber;
+    isSetAirlineTicketNumber = true; // mark as set
     return this;
   }
 
@@ -1357,6 +1505,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTicketNumber(String airlineTicketNumber) {
     this.airlineTicketNumber = airlineTicketNumber;
+    isSetAirlineTicketNumber = true; // mark as set
   }
 
   /**
@@ -1371,6 +1520,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineTravelAgencyCode(String airlineTravelAgencyCode) {
     this.airlineTravelAgencyCode = airlineTravelAgencyCode;
+    isSetAirlineTravelAgencyCode = true; // mark as set
     return this;
   }
 
@@ -1402,6 +1552,7 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTravelAgencyCode(String airlineTravelAgencyCode) {
     this.airlineTravelAgencyCode = airlineTravelAgencyCode;
+    isSetAirlineTravelAgencyCode = true; // mark as set
   }
 
   /**
@@ -1414,6 +1565,7 @@ public class AdditionalDataAirline {
    */
   public AdditionalDataAirline airlineTravelAgencyName(String airlineTravelAgencyName) {
     this.airlineTravelAgencyName = airlineTravelAgencyName;
+    isSetAirlineTravelAgencyName = true; // mark as set
     return this;
   }
 
@@ -1441,6 +1593,27 @@ public class AdditionalDataAirline {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTravelAgencyName(String airlineTravelAgencyName) {
     this.airlineTravelAgencyName = airlineTravelAgencyName;
+    isSetAirlineTravelAgencyName = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AdditionalDataAirline includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AdditionalDataAirline object is equal to o. */
@@ -1455,84 +1628,179 @@ public class AdditionalDataAirline {
     AdditionalDataAirline additionalDataAirline = (AdditionalDataAirline) o;
     return Objects.equals(
             this.airlineAgencyInvoiceNumber, additionalDataAirline.airlineAgencyInvoiceNumber)
+        && Objects.equals(
+            this.isSetAirlineAgencyInvoiceNumber,
+            additionalDataAirline.isSetAirlineAgencyInvoiceNumber)
         && Objects.equals(this.airlineAgencyPlanName, additionalDataAirline.airlineAgencyPlanName)
+        && Objects.equals(
+            this.isSetAirlineAgencyPlanName, additionalDataAirline.isSetAirlineAgencyPlanName)
         && Objects.equals(this.airlineAirlineCode, additionalDataAirline.airlineAirlineCode)
         && Objects.equals(
+            this.isSetAirlineAirlineCode, additionalDataAirline.isSetAirlineAirlineCode)
+        && Objects.equals(
             this.airlineAirlineDesignatorCode, additionalDataAirline.airlineAirlineDesignatorCode)
+        && Objects.equals(
+            this.isSetAirlineAirlineDesignatorCode,
+            additionalDataAirline.isSetAirlineAirlineDesignatorCode)
         && Objects.equals(this.airlineBoardingFee, additionalDataAirline.airlineBoardingFee)
+        && Objects.equals(
+            this.isSetAirlineBoardingFee, additionalDataAirline.isSetAirlineBoardingFee)
         && Objects.equals(
             this.airlineComputerizedReservationSystem,
             additionalDataAirline.airlineComputerizedReservationSystem)
         && Objects.equals(
+            this.isSetAirlineComputerizedReservationSystem,
+            additionalDataAirline.isSetAirlineComputerizedReservationSystem)
+        && Objects.equals(
             this.airlineCustomerReferenceNumber,
             additionalDataAirline.airlineCustomerReferenceNumber)
+        && Objects.equals(
+            this.isSetAirlineCustomerReferenceNumber,
+            additionalDataAirline.isSetAirlineCustomerReferenceNumber)
         && Objects.equals(this.airlineDocumentType, additionalDataAirline.airlineDocumentType)
+        && Objects.equals(
+            this.isSetAirlineDocumentType, additionalDataAirline.isSetAirlineDocumentType)
         && Objects.equals(this.airlineFlightDate, additionalDataAirline.airlineFlightDate)
+        && Objects.equals(this.isSetAirlineFlightDate, additionalDataAirline.isSetAirlineFlightDate)
         && Objects.equals(this.airlineIssueDate, additionalDataAirline.airlineIssueDate)
+        && Objects.equals(this.isSetAirlineIssueDate, additionalDataAirline.isSetAirlineIssueDate)
         && Objects.equals(this.airlineLegCarrierCode, additionalDataAirline.airlineLegCarrierCode)
         && Objects.equals(
+            this.isSetAirlineLegCarrierCode, additionalDataAirline.isSetAirlineLegCarrierCode)
+        && Objects.equals(
             this.airlineLegClassOfTravel, additionalDataAirline.airlineLegClassOfTravel)
+        && Objects.equals(
+            this.isSetAirlineLegClassOfTravel, additionalDataAirline.isSetAirlineLegClassOfTravel)
         && Objects.equals(this.airlineLegDateOfTravel, additionalDataAirline.airlineLegDateOfTravel)
         && Objects.equals(
+            this.isSetAirlineLegDateOfTravel, additionalDataAirline.isSetAirlineLegDateOfTravel)
+        && Objects.equals(
             this.airlineLegDepartAirport, additionalDataAirline.airlineLegDepartAirport)
+        && Objects.equals(
+            this.isSetAirlineLegDepartAirport, additionalDataAirline.isSetAirlineLegDepartAirport)
         && Objects.equals(this.airlineLegDepartTax, additionalDataAirline.airlineLegDepartTax)
         && Objects.equals(
+            this.isSetAirlineLegDepartTax, additionalDataAirline.isSetAirlineLegDepartTax)
+        && Objects.equals(
             this.airlineLegDestinationCode, additionalDataAirline.airlineLegDestinationCode)
+        && Objects.equals(
+            this.isSetAirlineLegDestinationCode,
+            additionalDataAirline.isSetAirlineLegDestinationCode)
         && Objects.equals(this.airlineLegFareBaseCode, additionalDataAirline.airlineLegFareBaseCode)
+        && Objects.equals(
+            this.isSetAirlineLegFareBaseCode, additionalDataAirline.isSetAirlineLegFareBaseCode)
         && Objects.equals(this.airlineLegFlightNumber, additionalDataAirline.airlineLegFlightNumber)
+        && Objects.equals(
+            this.isSetAirlineLegFlightNumber, additionalDataAirline.isSetAirlineLegFlightNumber)
         && Objects.equals(this.airlineLegStopOverCode, additionalDataAirline.airlineLegStopOverCode)
+        && Objects.equals(
+            this.isSetAirlineLegStopOverCode, additionalDataAirline.isSetAirlineLegStopOverCode)
         && Objects.equals(
             this.airlinePassengerDateOfBirth, additionalDataAirline.airlinePassengerDateOfBirth)
         && Objects.equals(
+            this.isSetAirlinePassengerDateOfBirth,
+            additionalDataAirline.isSetAirlinePassengerDateOfBirth)
+        && Objects.equals(
             this.airlinePassengerFirstName, additionalDataAirline.airlinePassengerFirstName)
+        && Objects.equals(
+            this.isSetAirlinePassengerFirstName,
+            additionalDataAirline.isSetAirlinePassengerFirstName)
         && Objects.equals(
             this.airlinePassengerLastName, additionalDataAirline.airlinePassengerLastName)
         && Objects.equals(
+            this.isSetAirlinePassengerLastName, additionalDataAirline.isSetAirlinePassengerLastName)
+        && Objects.equals(
             this.airlinePassengerPhoneNumber, additionalDataAirline.airlinePassengerPhoneNumber)
         && Objects.equals(
+            this.isSetAirlinePassengerPhoneNumber,
+            additionalDataAirline.isSetAirlinePassengerPhoneNumber)
+        && Objects.equals(
             this.airlinePassengerTravellerType, additionalDataAirline.airlinePassengerTravellerType)
+        && Objects.equals(
+            this.isSetAirlinePassengerTravellerType,
+            additionalDataAirline.isSetAirlinePassengerTravellerType)
         && Objects.equals(this.airlinePassengerName, additionalDataAirline.airlinePassengerName)
         && Objects.equals(
+            this.isSetAirlinePassengerName, additionalDataAirline.isSetAirlinePassengerName)
+        && Objects.equals(
             this.airlineTicketIssueAddress, additionalDataAirline.airlineTicketIssueAddress)
+        && Objects.equals(
+            this.isSetAirlineTicketIssueAddress,
+            additionalDataAirline.isSetAirlineTicketIssueAddress)
         && Objects.equals(this.airlineTicketNumber, additionalDataAirline.airlineTicketNumber)
+        && Objects.equals(
+            this.isSetAirlineTicketNumber, additionalDataAirline.isSetAirlineTicketNumber)
         && Objects.equals(
             this.airlineTravelAgencyCode, additionalDataAirline.airlineTravelAgencyCode)
         && Objects.equals(
-            this.airlineTravelAgencyName, additionalDataAirline.airlineTravelAgencyName);
+            this.isSetAirlineTravelAgencyCode, additionalDataAirline.isSetAirlineTravelAgencyCode)
+        && Objects.equals(
+            this.airlineTravelAgencyName, additionalDataAirline.airlineTravelAgencyName)
+        && Objects.equals(
+            this.isSetAirlineTravelAgencyName, additionalDataAirline.isSetAirlineTravelAgencyName);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         airlineAgencyInvoiceNumber,
+        isSetAirlineAgencyInvoiceNumber,
         airlineAgencyPlanName,
+        isSetAirlineAgencyPlanName,
         airlineAirlineCode,
+        isSetAirlineAirlineCode,
         airlineAirlineDesignatorCode,
+        isSetAirlineAirlineDesignatorCode,
         airlineBoardingFee,
+        isSetAirlineBoardingFee,
         airlineComputerizedReservationSystem,
+        isSetAirlineComputerizedReservationSystem,
         airlineCustomerReferenceNumber,
+        isSetAirlineCustomerReferenceNumber,
         airlineDocumentType,
+        isSetAirlineDocumentType,
         airlineFlightDate,
+        isSetAirlineFlightDate,
         airlineIssueDate,
+        isSetAirlineIssueDate,
         airlineLegCarrierCode,
+        isSetAirlineLegCarrierCode,
         airlineLegClassOfTravel,
+        isSetAirlineLegClassOfTravel,
         airlineLegDateOfTravel,
+        isSetAirlineLegDateOfTravel,
         airlineLegDepartAirport,
+        isSetAirlineLegDepartAirport,
         airlineLegDepartTax,
+        isSetAirlineLegDepartTax,
         airlineLegDestinationCode,
+        isSetAirlineLegDestinationCode,
         airlineLegFareBaseCode,
+        isSetAirlineLegFareBaseCode,
         airlineLegFlightNumber,
+        isSetAirlineLegFlightNumber,
         airlineLegStopOverCode,
+        isSetAirlineLegStopOverCode,
         airlinePassengerDateOfBirth,
+        isSetAirlinePassengerDateOfBirth,
         airlinePassengerFirstName,
+        isSetAirlinePassengerFirstName,
         airlinePassengerLastName,
+        isSetAirlinePassengerLastName,
         airlinePassengerPhoneNumber,
+        isSetAirlinePassengerPhoneNumber,
         airlinePassengerTravellerType,
+        isSetAirlinePassengerTravellerType,
         airlinePassengerName,
+        isSetAirlinePassengerName,
         airlineTicketIssueAddress,
+        isSetAirlineTicketIssueAddress,
         airlineTicketNumber,
+        isSetAirlineTicketNumber,
         airlineTravelAgencyCode,
-        airlineTravelAgencyName);
+        isSetAirlineTravelAgencyCode,
+        airlineTravelAgencyName,
+        isSetAirlineTravelAgencyName);
   }
 
   @Override
@@ -1630,6 +1898,127 @@ public class AdditionalDataAirline {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAirlineAgencyInvoiceNumber) {
+      addIfNull(
+          nulls, JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER, this.airlineAgencyInvoiceNumber);
+    }
+    if (isSetAirlineAgencyPlanName) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME, this.airlineAgencyPlanName);
+    }
+    if (isSetAirlineAirlineCode) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_AIRLINE_CODE, this.airlineAirlineCode);
+    }
+    if (isSetAirlineAirlineDesignatorCode) {
+      addIfNull(
+          nulls, JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE, this.airlineAirlineDesignatorCode);
+    }
+    if (isSetAirlineBoardingFee) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_BOARDING_FEE, this.airlineBoardingFee);
+    }
+    if (isSetAirlineComputerizedReservationSystem) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM,
+          this.airlineComputerizedReservationSystem);
+    }
+    if (isSetAirlineCustomerReferenceNumber) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER,
+          this.airlineCustomerReferenceNumber);
+    }
+    if (isSetAirlineDocumentType) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE, this.airlineDocumentType);
+    }
+    if (isSetAirlineFlightDate) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_FLIGHT_DATE, this.airlineFlightDate);
+    }
+    if (isSetAirlineIssueDate) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_ISSUE_DATE, this.airlineIssueDate);
+    }
+    if (isSetAirlineLegCarrierCode) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE, this.airlineLegCarrierCode);
+    }
+    if (isSetAirlineLegClassOfTravel) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL, this.airlineLegClassOfTravel);
+    }
+    if (isSetAirlineLegDateOfTravel) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL, this.airlineLegDateOfTravel);
+    }
+    if (isSetAirlineLegDepartAirport) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT, this.airlineLegDepartAirport);
+    }
+    if (isSetAirlineLegDepartTax) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX, this.airlineLegDepartTax);
+    }
+    if (isSetAirlineLegDestinationCode) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE, this.airlineLegDestinationCode);
+    }
+    if (isSetAirlineLegFareBaseCode) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE, this.airlineLegFareBaseCode);
+    }
+    if (isSetAirlineLegFlightNumber) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER, this.airlineLegFlightNumber);
+    }
+    if (isSetAirlineLegStopOverCode) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE, this.airlineLegStopOverCode);
+    }
+    if (isSetAirlinePassengerDateOfBirth) {
+      addIfNull(
+          nulls, JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH, this.airlinePassengerDateOfBirth);
+    }
+    if (isSetAirlinePassengerFirstName) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME, this.airlinePassengerFirstName);
+    }
+    if (isSetAirlinePassengerLastName) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME, this.airlinePassengerLastName);
+    }
+    if (isSetAirlinePassengerPhoneNumber) {
+      addIfNull(
+          nulls, JSON_PROPERTY_AIRLINE_PASSENGER_PHONE_NUMBER, this.airlinePassengerPhoneNumber);
+    }
+    if (isSetAirlinePassengerTravellerType) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE,
+          this.airlinePassengerTravellerType);
+    }
+    if (isSetAirlinePassengerName) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_PASSENGER_NAME, this.airlinePassengerName);
+    }
+    if (isSetAirlineTicketIssueAddress) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS, this.airlineTicketIssueAddress);
+    }
+    if (isSetAirlineTicketNumber) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_TICKET_NUMBER, this.airlineTicketNumber);
+    }
+    if (isSetAirlineTravelAgencyCode) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE, this.airlineTravelAgencyCode);
+    }
+    if (isSetAirlineTravelAgencyName) {
+      addIfNull(nulls, JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME, this.airlineTravelAgencyName);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

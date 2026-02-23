@@ -1,12 +1,12 @@
 package com.adyen.model.nexo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Map;
 import java.util.Optional;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Tests for {@link PredefinedContentHelper}. */
 public class PredefinedContentHelperTest {
@@ -18,7 +18,7 @@ public class PredefinedContentHelperTest {
     PredefinedContentHelper helper = new PredefinedContentHelper(referenceId);
 
     Optional<PredefinedContentHelper.DisplayNotificationEvent> event = helper.getEvent();
-    assertTrue("Event should be present", event.isPresent());
+    assertTrue(event.isPresent(), "Event should be present");
     assertEquals(PredefinedContentHelper.DisplayNotificationEvent.PIN_ENTERED, event.get());
   }
 
@@ -26,7 +26,7 @@ public class PredefinedContentHelperTest {
   public void testShouldReturnEmptyForInvalidEvent() {
     PredefinedContentHelper helper = new PredefinedContentHelper("event=INVALID_EVENT");
 
-    assertFalse("Event should not be present for invalid value", helper.getEvent().isPresent());
+    assertFalse(helper.getEvent().isPresent(), "Event should not be present for invalid value");
   }
 
   @Test
@@ -36,7 +36,7 @@ public class PredefinedContentHelperTest {
             "TransactionID=12345&TimeStamp=2018-02-07T10%3a16%3a14.000Z&event=PIN_ENTERED");
 
     Optional<String> transactionId = helper.getTransactionId();
-    assertTrue("TransactionID should be present", transactionId.isPresent());
+    assertTrue(transactionId.isPresent(), "TransactionID should be present");
     assertEquals("12345", transactionId.get());
   }
 
@@ -45,7 +45,7 @@ public class PredefinedContentHelperTest {
     PredefinedContentHelper helper = new PredefinedContentHelper("TimeStamp=2024-07-11T12:00:00Z");
 
     Optional<String> timeStamp = helper.getTimeStamp();
-    assertTrue("TimeStamp should be present", timeStamp.isPresent());
+    assertTrue(timeStamp.isPresent(), "TimeStamp should be present");
     assertEquals("2024-07-11T12:00:00Z", timeStamp.get());
   }
 
@@ -54,14 +54,14 @@ public class PredefinedContentHelperTest {
     PredefinedContentHelper helper = new PredefinedContentHelper("foo=bar&baz=qux");
 
     Optional<String> foo = helper.get("foo");
-    assertTrue("Value for 'foo' should be present", foo.isPresent());
+    assertTrue(foo.isPresent(), "Value for 'foo' should be present");
     assertEquals("bar", foo.get());
 
     Optional<String> baz = helper.get("baz");
-    assertTrue("Value for 'baz' should be present", baz.isPresent());
+    assertTrue(baz.isPresent(), "Value for 'baz' should be present");
     assertEquals("qux", baz.get());
 
-    assertFalse("Value for 'missing' should not be present", helper.get("missing").isPresent());
+    assertFalse(helper.get("missing").isPresent(), "Value for 'missing' should not be present");
   }
 
   @Test

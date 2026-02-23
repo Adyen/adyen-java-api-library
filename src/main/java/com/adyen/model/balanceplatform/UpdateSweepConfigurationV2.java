@@ -186,12 +186,7 @@ public class UpdateSweepConfigurationV2 {
 
     AMOUNTLIMITEXCEEDED(String.valueOf("amountLimitExceeded")),
 
-    APPROVALEXPIRED(String.valueOf("approvalExpired")),
-
     APPROVED(String.valueOf("approved")),
-
-    BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE(
-        String.valueOf("balanceAccountTemporarilyBlockedByTransactionRule")),
 
     COUNTERPARTYACCOUNTBLOCKED(String.valueOf("counterpartyAccountBlocked")),
 
@@ -205,31 +200,15 @@ public class UpdateSweepConfigurationV2 {
 
     COUNTERPARTYBANKUNAVAILABLE(String.valueOf("counterpartyBankUnavailable")),
 
-    DECLINED(String.valueOf("declined")),
-
-    DECLINEDBYTRANSACTIONRULE(String.valueOf("declinedByTransactionRule")),
-
     DIRECTDEBITNOTSUPPORTED(String.valueOf("directDebitNotSupported")),
 
     ERROR(String.valueOf("error")),
 
     NOTENOUGHBALANCE(String.valueOf("notEnoughBalance")),
 
-    PENDING(String.valueOf("pending")),
-
-    PENDINGAPPROVAL(String.valueOf("pendingApproval")),
-
-    PENDINGEXECUTION(String.valueOf("pendingExecution")),
-
     REFUSEDBYCOUNTERPARTYBANK(String.valueOf("refusedByCounterpartyBank")),
 
-    REFUSEDBYCUSTOMER(String.valueOf("refusedByCustomer")),
-
     ROUTENOTFOUND(String.valueOf("routeNotFound")),
-
-    SCAFAILED(String.valueOf("scaFailed")),
-
-    SCHEMEADVICE(String.valueOf("schemeAdvice")),
 
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
