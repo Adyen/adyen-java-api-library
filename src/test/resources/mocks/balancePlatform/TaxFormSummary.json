@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "legalEntityId": "LE123",
+      "taxYears": [
+        2023
+      ]
+    },
+    {
+      "legalEntityId": "LE987",
+      "taxYears": [
+        2024,
+        2025
+      ]
+    }
+  ]
+}

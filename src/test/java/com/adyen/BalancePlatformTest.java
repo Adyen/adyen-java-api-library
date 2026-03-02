@@ -970,4 +970,30 @@ public class BalancePlatformTest extends BaseTest {
 
     assertEquals(request.toJson(), requestBodyCaptor.getValue());
   }
+
+  @Test
+  public void getTaxFormSummary() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/TaxFormSummary.json");
+    AccountHoldersApi service = new AccountHoldersApi(client);
+    var response = service.getTaxFormSummary("AH123456789", "US1099k");
+
+    assertNotNull(response);
+    assertNotNull(response.getData());
+    assertEquals(2, response.getData().size());
+
+    ArgumentCaptor<Map<String, String>> queryParamsCaptor = ArgumentCaptor.forClass(Map.class);
+    verify(client.getHttpClient())
+        .request(
+            eq(
+                "https://balanceplatform-api-test.adyen.com/bcl/v2/accountHolders/AH123456789/taxFormSummary"),
+            eq(null),
+            eq(client.getConfig()),
+            eq(false),
+            eq(null),
+            eq(ApiConstants.HttpMethod.GET),
+            queryParamsCaptor.capture());
+
+    Map<String, String> queryParams = queryParamsCaptor.getValue();
+    assertEquals("US1099k", queryParams.get("formType"));
+  }
 }
