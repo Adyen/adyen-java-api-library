@@ -28,15 +28,18 @@ import static org.mockito.Mockito.*;
 
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
+import com.adyen.enums.Environment;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.payment.*;
-import com.adyen.service.PaymentApi;
+import com.adyen.service.payment.ModificationsApi;
+import com.adyen.service.payment.PaymentsApi;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -50,11 +53,42 @@ import org.junit.jupiter.api.Test;
 
 /** Tests for /authorise and /authorise3d */
 public class PaymentTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST)
+            .liveEndpointUrlPrefix("myCompany"));
+
+    PaymentsApi paymentApi = new PaymentsApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(paymentApi);
+    assertEquals("https://pal-test.adyen.com/pal/servlet/Payment/v68", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE)
+            .liveEndpointUrlPrefix("myCompany"));
+
+    PaymentsApi paymentApi = new PaymentsApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(paymentApi);
+    assertEquals("https://myCompany-pal-live.adyenpayments.com/pal/servlet/Payment/v68", baseURL);
+  }
+
   /** Test success flow for POST /authorise */
   @Test
   public void TestAuthoriseSuccessMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -97,7 +131,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthoriseError010Mocked() throws Exception {
     Client client = createMockClientForErrors(403, "mocks/authorise-error-010.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -114,7 +148,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthoriseErrorCVCDeclinedMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-error-cvc-declined.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -127,7 +161,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthoriseSuccess3DMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success-3d.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -143,7 +177,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthorise3DSuccessMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise3d-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest3d paymentRequest3d = create3DPaymentRequest();
 
@@ -157,7 +191,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthorise3DS2SuccessMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success-3ds2.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest3ds2 paymentRequest3ds2 = create3DS2PaymentRequest();
 
@@ -173,7 +207,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestRetrieve3ds2ResultSuccessMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/retrieve-result-success-3ds2.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     ThreeDS2ResultRequest threeDS2ResultRequest = new ThreeDS2ResultRequest();
     threeDS2ResultRequest.setMerchantAccount("AMerchantAccount");
     threeDS2ResultRequest.setPspReference("9935272408535455");
@@ -195,7 +229,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthoriseCSESuccessMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createCSEPaymentRequest();
 
@@ -208,7 +242,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthoriseCSEErrorExpiredMocked() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-error-expired.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createCSEPaymentRequest();
 
@@ -243,7 +277,7 @@ public class PaymentTest extends BaseTest {
     Client client = new Client();
     client.setHttpClient(adyenHttpClient);
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
@@ -262,7 +296,7 @@ public class PaymentTest extends BaseTest {
   public void TestOpenInvoice() throws Exception {
 
     Client client = createMockClientFromFile("mocks/authorise-success-klarna.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = this.createOpenInvoicePaymentRequest();
     PaymentResult paymentResult = payment.authorise(paymentRequest);
@@ -276,7 +310,7 @@ public class PaymentTest extends BaseTest {
   public void TestBoletoSuccess() throws Exception {
 
     Client client = createMockClientFromFile("mocks/authorise-success-boleto.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     Address billingAddress = new Address();
     billingAddress.setCity("São Paulo");
@@ -329,7 +363,7 @@ public class PaymentTest extends BaseTest {
   public void TestGetAuthenticationResult3ds1Success() throws IOException, ApiException {
     Client client = createMockClientFromFile("mocks/authentication-result-success-3ds1.json");
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
     AuthenticationResultResponse authenticationResultResponse =
         payment.getAuthenticationResult(authenticationResultRequest);
@@ -342,7 +376,7 @@ public class PaymentTest extends BaseTest {
   public void TestGetAuthenticationResult3ds2Success() throws IOException, ApiException {
     Client client = createMockClientFromFile("mocks/authentication-result-success-3ds2.json");
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
     AuthenticationResultResponse authenticationResultResponse =
         payment.getAuthenticationResult(authenticationResultRequest);
@@ -356,7 +390,7 @@ public class PaymentTest extends BaseTest {
     Client client =
         createMockClientForErrors(422, "mocks/authentication-result-error-old-psp.json");
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
     try {
       payment.getAuthenticationResult(authenticationResultRequest);
@@ -373,7 +407,7 @@ public class PaymentTest extends BaseTest {
     Client client =
         createMockClientForErrors(422, "mocks/authentication-result-error-not-found.json");
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
     try {
       payment.getAuthenticationResult(authenticationResultRequest);
@@ -390,7 +424,7 @@ public class PaymentTest extends BaseTest {
     Client client =
         createMockClientForErrors(422, "mocks/authentication-result-error-invalid-psp.json");
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
     authenticationResultRequest.setPspReference(null);
     try {
@@ -409,7 +443,7 @@ public class PaymentTest extends BaseTest {
     Client client =
         createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
 
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
     try {
       payment.getAuthenticationResult(authenticationResultRequest);
@@ -424,7 +458,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestAuthoriseCustomApplicationInfo() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
 
     PaymentRequest paymentRequest = createCSEPaymentRequest();
     ApplicationInfo applicationInfo = new ApplicationInfo();
@@ -466,7 +500,7 @@ public class PaymentTest extends BaseTest {
   @Test
   public void TestByteArrayToJSONString() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    PaymentsApi payment = new PaymentsApi(client);
     PaymentRequest paymentRequest = new PaymentRequest();
     paymentRequest.mpiData(new ThreeDSecureData().cavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes()));
 
@@ -481,72 +515,72 @@ public class PaymentTest extends BaseTest {
   @Test
   public void testRefund() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     RefundRequest request = new RefundRequest();
-    ModificationResult result = payment.refund(request);
+    ModificationResult result = modificationsApi.refund(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testCapture() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     CaptureRequest request = new CaptureRequest();
-    ModificationResult result = payment.capture(request);
+    ModificationResult result = modificationsApi.capture(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testCancel() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     CancelRequest request = new CancelRequest();
-    ModificationResult result = payment.cancel(request);
+    ModificationResult result = modificationsApi.cancel(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testCancelOrRefund() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     CancelOrRefundRequest request = new CancelOrRefundRequest();
-    ModificationResult result = payment.cancelOrRefund(request);
+    ModificationResult result = modificationsApi.cancelOrRefund(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testTechnicalCancel() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     TechnicalCancelRequest request = new TechnicalCancelRequest();
-    ModificationResult result = payment.technicalCancel(request);
+    ModificationResult result = modificationsApi.technicalCancel(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testAdjustAuthorisation() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     AdjustAuthorisationRequest request = new AdjustAuthorisationRequest();
-    ModificationResult result = payment.adjustAuthorisation(request);
+    ModificationResult result = modificationsApi.adjustAuthorisation(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testDonate() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     DonationRequest request = new DonationRequest();
-    ModificationResult result = payment.donate(request);
+    ModificationResult result = modificationsApi.donate(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 
   @Test
   public void testVoidPendingRefund() throws Exception {
     Client client = createMockClientFromFile("mocks/modification-success.json");
-    PaymentApi payment = new PaymentApi(client);
+    ModificationsApi modificationsApi = new ModificationsApi(client);
     VoidPendingRefundRequest request = new VoidPendingRefundRequest();
-    ModificationResult result = payment.voidPendingRefund(request);
+    ModificationResult result = modificationsApi.voidPendingRefund(request);
     assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
   }
 }
