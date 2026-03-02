@@ -38,11 +38,13 @@ import com.adyen.model.nexo.PaymentInstrumentType;
 import com.adyen.model.nexo.PaymentReceipt;
 import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.nexo.PaymentResult;
+import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.Response;
 import com.adyen.model.nexo.ResultType;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.SaleToPOIResponse;
+import com.adyen.model.nexo.TransactionConditions;
 import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
@@ -297,6 +299,50 @@ public class TerminalCloudAPITest extends BaseTest {
         requestAsJson.contains("\"PredefinedContent\":"), "PredefinedContent field not found");
     assertFalse(requestAsJson.contains(":null"), "Found null value");
     assertFalse(requestAsJson.contains(": null"), "Found null value");
+  }
+
+  /**
+   *
+   * <p>When {@code setDebitPreferredFlag} is never called, the backing field stays {@code null} and
+   * Gson must omit it from the serialized JSON entirely. This allows the terminal to choose the
+   * payment type freely (DEBIT, CREDIT, or VOUCHER) rather than being forced to CREDIT by a
+   * spurious {@code "DebitPreferredFlag": false}.
+   */
+  @Test
+  public void debitPreferredFlagOmittedFromJsonWhenNotSet() throws Exception {
+    Client client = createMockClientFromFile("mocks/terminal-api/payment-async-success");
+    TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+
+    TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
+
+    TransactionConditions transactionConditions = new TransactionConditions();
+    // Deliberately do NOT call transactionConditions.setDebitPreferredFlag(...)
+
+    PaymentTransaction paymentTransaction = new PaymentTransaction();
+    paymentTransaction.setTransactionConditions(transactionConditions);
+
+    terminalAPIRequest
+        .getSaleToPOIRequest()
+        .getPaymentRequest()
+        .setPaymentTransaction(paymentTransaction);
+
+    terminalCloudApi.async(terminalAPIRequest);
+
+    final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            isNotNull(),
+            captor.capture(),
+            any(com.adyen.Config.class),
+            eq(true),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull());
+
+    String requestAsJson = captor.getValue();
+    assertFalse(
+        requestAsJson.contains("DebitPreferredFlag"),
+        "DebitPreferredFlag must be absent from JSON when setter is never called");
   }
 
   /** Mocked response for stored value type for POST /sync */
