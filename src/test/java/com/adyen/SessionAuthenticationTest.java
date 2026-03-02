@@ -4,12 +4,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.enums.Environment;
 import com.adyen.model.sessionauthentication.*;
 import com.adyen.service.sessionauthentication.SessionAuthenticationApi;
+import java.lang.reflect.Field;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 public class SessionAuthenticationTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    SessionAuthenticationApi sessionAuthenticationApi = new SessionAuthenticationApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = SessionAuthenticationApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(sessionAuthenticationApi);
+    assertEquals("https://test.adyen.com/authe/api/v1", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    SessionAuthenticationApi sessionAuthenticationApi = new SessionAuthenticationApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = SessionAuthenticationApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(sessionAuthenticationApi);
+    assertEquals("https://authe-live.adyen.com/authe/api/v1", baseURL);
+  }
 
   @Test
   public void createAuthenticationSessionTest() throws Exception {

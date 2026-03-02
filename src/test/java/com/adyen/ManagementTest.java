@@ -10,12 +10,42 @@ import com.adyen.model.management.*;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.management.*;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class ManagementTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    AccountMerchantLevelApi accountMerchantLevelApi = new AccountMerchantLevelApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = AccountMerchantLevelApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(accountMerchantLevelApi);
+    assertEquals("https://management-test.adyen.com/v3", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    AccountMerchantLevelApi accountMerchantLevelApi = new AccountMerchantLevelApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = AccountMerchantLevelApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(accountMerchantLevelApi);
+    assertEquals("https://management-live.adyen.com/v3", baseURL);
+  }
+
   @Test
   public void listMerchantAccounts() throws IOException, ApiException {
     Client client = createMockClientFromFile("mocks/management/list-merchants.json");

@@ -10,10 +10,39 @@ import com.adyen.model.disputes.*;
 import com.adyen.service.disputes.DisputesApi;
 import com.adyen.service.exception.ApiException;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Collections;
 import org.junit.jupiter.api.Test;
 
 public class DisputesTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    DisputesApi disputesApi = new DisputesApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = DisputesApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(disputesApi);
+    assertEquals("https://ca-test.adyen.com/ca/services/DisputeService/v30", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    DisputesApi disputesApi = new DisputesApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = DisputesApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(disputesApi);
+    assertEquals("https://ca-live.adyen.com/ca/services/DisputeService/v30", baseURL);
+  }
 
   @Test
   public void acceptDispute() throws IOException, ApiException, HTTPClientException {

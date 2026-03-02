@@ -30,6 +30,8 @@ import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
+
+import java.lang.reflect.Field;
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.junit.jupiter.api.Assertions;
@@ -37,6 +39,36 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 public class CheckoutTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+        .apiKey("test")
+        .environment(Environment.TEST)
+        .liveEndpointUrlPrefix("myCompany"));
+
+    PaymentsApi paymentsApi = new PaymentsApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(paymentsApi);
+    assertEquals("https://checkout-test.adyen.com/v71", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+        .apiKey("test")
+        .environment(Environment.LIVE)
+        .liveEndpointUrlPrefix("myCompany"));
+
+    PaymentsApi paymentsApi = new PaymentsApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(paymentsApi);
+    assertEquals("https://myCompany-checkout-live.adyenpayments.com/checkout/v71", baseURL);
+  }
 
   /** Should make a payment */
   @Test

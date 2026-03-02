@@ -8,10 +8,12 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.*;
 import com.adyen.service.balanceplatform.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +21,35 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 public class BalancePlatformTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    PlatformApi platformApi = new PlatformApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PlatformApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(platformApi);
+    assertEquals("https://balanceplatform-api-test.adyen.com/bcl/v2", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    PlatformApi platformApi = new PlatformApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PlatformApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(platformApi);
+    assertEquals("https://balanceplatform-api-live.adyen.com/bcl/v2", baseURL);
+  }
+
   @Test
   public void GeneralRetrieveTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/BalancePlatformResponse.json");
