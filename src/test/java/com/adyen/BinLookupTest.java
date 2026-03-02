@@ -24,14 +24,46 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import com.adyen.enums.Environment;
 import com.adyen.model.binlookup.*;
 import com.adyen.service.binlookup.BinLookupApi;
 import com.adyen.service.exception.ApiException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 /** Tests for /get3dsAvailability /getCostEstimate */
 public class BinLookupTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST)
+            .liveEndpointUrlPrefix("myCompany"));
+
+    BinLookupApi binLookupApi = new BinLookupApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = BinLookupApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(binLookupApi);
+    assertEquals("https://pal-test.adyen.com/pal/servlet/BinLookup/v54", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE)
+            .liveEndpointUrlPrefix("myCompany"));
+
+    BinLookupApi binLookupApi = new BinLookupApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = BinLookupApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(binLookupApi);
+    assertEquals("https://myCompany-pal-live.adyenpayments.com/pal/servlet/BinLookup/v54", baseURL);
+  }
 
   @Test
   public void TestGet3dsAvailabilitySuccessMocked() throws Exception {

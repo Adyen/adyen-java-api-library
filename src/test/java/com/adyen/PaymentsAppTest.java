@@ -5,15 +5,45 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.paymentsapp.BoardingTokenRequest;
 import com.adyen.model.paymentsapp.BoardingTokenResponse;
 import com.adyen.model.paymentsapp.PaymentsAppResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.paymentsapp.PaymentsAppApi;
+import java.lang.reflect.Field;
 import org.junit.jupiter.api.Test;
 
 public class PaymentsAppTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    PaymentsAppApi paymentsAppApi = new PaymentsAppApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PaymentsAppApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(paymentsAppApi);
+    assertEquals("https://management-test.adyen.com/v1", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    PaymentsAppApi paymentsAppApi = new PaymentsAppApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = PaymentsAppApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(paymentsAppApi);
+    assertEquals("https://management-live.adyen.com/v1", baseURL);
+  }
 
   @Test
   public void testGeneratePaymentsAppBoardingTokenForMerchantSuccess() throws Exception {

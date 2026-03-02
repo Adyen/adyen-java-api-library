@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.enums.Environment;
 import com.adyen.model.legalentitymanagement.*;
 import com.adyen.service.legalentitymanagement.*;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +17,36 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LegalEntityManagementTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    LegalEntitiesApi legalEntitiesApi = new LegalEntitiesApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = LegalEntitiesApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(legalEntitiesApi);
+    assertEquals("https://kyc-test.adyen.com/lem/v4", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    LegalEntitiesApi legalEntitiesApi = new LegalEntitiesApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = LegalEntitiesApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(legalEntitiesApi);
+    assertEquals("https://kyc-live.adyen.com/lem/v4", baseURL);
+  }
+
   @Test
   public void LegalEntitiesCreateTest() throws Exception {
     Client client =

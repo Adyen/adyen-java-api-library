@@ -24,14 +24,45 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.enums.Environment;
 import com.adyen.model.dataprotection.SubjectErasureByPspReferenceRequest;
 import com.adyen.model.dataprotection.SubjectErasureResponse;
 import com.adyen.service.dataprotection.DataProtectionApi;
 import com.adyen.service.exception.ApiException;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import org.junit.jupiter.api.Test;
 
 public class DataProtectionServiceTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    DataProtectionApi dataProtectionApi = new DataProtectionApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = DataProtectionApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(dataProtectionApi);
+    assertEquals("https://ca-test.adyen.com/ca/services/DataProtectionService/v1", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    DataProtectionApi dataProtectionApi = new DataProtectionApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = DataProtectionApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(dataProtectionApi);
+    assertEquals("https://ca-live.adyen.com/ca/services/DataProtectionService/v1", baseURL);
+  }
+
   /** Test success flow for POST /requestSubjectErasure */
   @Test
   public void TestRequestSubjectErasureSuccessMocked() throws Exception {

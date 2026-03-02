@@ -7,14 +7,44 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.enums.Environment;
 import com.adyen.model.openbanking.AccountVerificationCountry;
 import com.adyen.model.openbanking.AccountVerificationReportResponse;
 import com.adyen.model.openbanking.AccountVerificationRoutesRequest;
 import com.adyen.model.openbanking.AccountVerificationRoutesResponse;
 import com.adyen.service.openbanking.AccountVerificationApi;
+import java.lang.reflect.Field;
 import org.junit.jupiter.api.Test;
 
 public class OpenBankingTest extends BaseTest {
+
+  @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.TEST));
+
+    AccountVerificationApi accountVerificationApi = new AccountVerificationApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = AccountVerificationApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(accountVerificationApi);
+    assertEquals("https://obgateway-test.adyen.com/obgateway/v1", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+            .apiKey("test")
+            .environment(Environment.LIVE));
+
+    AccountVerificationApi accountVerificationApi = new AccountVerificationApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = AccountVerificationApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(accountVerificationApi);
+    assertEquals("https://obgateway-live.adyen.com/obgateway/v1", baseURL);
+  }
 
   @Test
   public void createAccountVerificationRoutesTest() throws Exception {

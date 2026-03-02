@@ -9,16 +9,22 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 
+import com.adyen.constants.ApiConstants;
+import com.adyen.enums.Environment;
 import com.adyen.model.recurring.*;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.recurring.RecurringApi;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 public class RecurringTest extends BaseTest {
   private RecurringDetailsRequest createRecurringDetailsRequest() {
@@ -78,6 +84,36 @@ public class RecurringTest extends BaseTest {
   }
 
   @Test
+  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+        .apiKey("test")
+        .environment(Environment.TEST)
+        .liveEndpointUrlPrefix("myCompany"));
+
+    RecurringApi recurring = new RecurringApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = RecurringApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(recurring);
+    assertEquals("https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68", baseURL);
+  }
+
+  @Test
+  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+    Client client = new Client(new Config()
+        .apiKey("test")
+        .environment(Environment.LIVE)
+        .liveEndpointUrlPrefix("myCompany"));
+
+    RecurringApi recurring = new RecurringApi(client);
+    // get field by reflection (it is protected)
+    Field baseURLField = RecurringApi.class.getDeclaredField("baseURL");
+    baseURLField.setAccessible(true);
+    String baseURL = (String) baseURLField.get(recurring);
+    assertEquals("https://myCompany-paltokenization-live.adyenpayments.com/paltokenization/servlet/Recurring/v68", baseURL);
+  }
+
+  @Test
   public void testListRecurringDetails() throws Exception {
     Client client = createMockClientFromFile("mocks/recurring/listRecurringDetails-success.json");
     RecurringApi recurring = new RecurringApi(client);
@@ -93,6 +129,17 @@ public class RecurringTest extends BaseTest {
     assertEquals("1111", recurringDetail.getCard().getNumber());
     OffsetDateTime expectedDate = OffsetDateTime.parse("2017-03-01T11:53:11+01:00");
     assertEquals(expectedDate, result.getCreationDate());
+
+    ArgumentCaptor<String> requestBodyCaptor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68/listRecurringDetails"),
+            requestBodyCaptor.capture(),
+            eq(client.getConfig()),
+            eq(false),
+            eq(null),
+            eq(ApiConstants.HttpMethod.POST),
+            eq(null));
   }
 
   @Test
