@@ -50,9 +50,9 @@ public class TransfersTest extends BaseTest {
     Amount amount = new Amount();
     amount.setCurrency("EUR");
     amount.setValue(110000L);
-    assertEquals(response.getAmount(), amount);
-    assertEquals(response.getBalanceAccount().getId(), "BAB8B2C3D4E5F6G7H8D9J6GD4");
-    assertEquals(response.getId(), "1W1UG35U8A9J5ZLG");
+    assertEquals(amount, response.getAmount());
+    assertEquals("BAB8B2C3D4E5F6G7H8D9J6GD4", response.getBalanceAccount().getId());
+    assertEquals("1W1UG35U8A9J5ZLG", response.getId());
   }
 
   @Test
@@ -61,9 +61,9 @@ public class TransfersTest extends BaseTest {
     TransactionsApi transactions = new TransactionsApi(client);
     TransactionSearchResponse response = transactions.getAllTransactions(null, null);
     Transaction transactionsResponse = response.getData().get(1);
-    assertEquals(transactionsResponse.getAccountHolder().getId(), "AH00000000000000000000001");
-    assertEquals(transactionsResponse.getBalanceAccount().getId(), "BA00000000000000000000001");
-    assertEquals(transactionsResponse.getStatus(), Transaction.StatusEnum.BOOKED);
+    assertEquals("AH00000000000000000000001", transactionsResponse.getAccountHolder().getId());
+    assertEquals("BA00000000000000000000001", transactionsResponse.getBalanceAccount().getId());
+    assertEquals(Transaction.StatusEnum.BOOKED, transactionsResponse.getStatus());
   }
 
   @Test
@@ -72,9 +72,9 @@ public class TransfersTest extends BaseTest {
         createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
     TransactionsApi transactions = new TransactionsApi(client);
     Transaction response = transactions.getTransaction("1");
-    assertEquals(response.getId(), "EVJN4227C224222B5JBDHPTD672M52EUR");
-    assertEquals(response.getAccountHolder().getId(), "AH00000000000000000000001");
-    assertEquals(response.getTransfer().getId(), "48TYZO5ZVURJ2FCW");
+    assertEquals("EVJN4227C224222B5JBDHPTD672M52EUR", response.getId());
+    assertEquals("AH00000000000000000000001", response.getAccountHolder().getId());
+    assertEquals("48TYZO5ZVURJ2FCW", response.getTransfer().getId());
   }
 
 }
