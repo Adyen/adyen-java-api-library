@@ -18,6 +18,7 @@ import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
+import com.adyen.model.transferwebhooks.InterchangeData;
 import com.adyen.model.transferwebhooks.PlatformPayment;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.adyen.model.transferwebhooks.TransferWebhooksHandler;
@@ -425,6 +426,15 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
     assertNotNull(transferNotificationRequest.getData().getBalances());
     assertEquals(1, transferNotificationRequest.getData().getBalances().size());
+
+    // check events and eventsData
+    assertNotNull(transferNotificationRequest.getData().getEvents());
+    assertNotNull(transferNotificationRequest.getData().getEvents().get(0));
+    assertNotNull(transferNotificationRequest.getData().getEvents().get(0).getEventsData());
+    assertEquals(1, transferNotificationRequest.getData().getEvents().get(0).getEventsData().size());
+    assertNotNull(transferNotificationRequest.getData().getEvents().get(0).getEventsData().get(0));
+	  assertInstanceOf(InterchangeData.class, transferNotificationRequest.getData().getEvents().get(0).getEventsData().get(0).getActualInstance());
+
   }
 
   @Test
