@@ -1,14 +1,13 @@
 package com.adyen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-
-import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
 import com.adyen.model.transfers.*;
 import com.adyen.service.transfers.*;
 import java.lang.reflect.Field;
-import java.util.HashMap;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
