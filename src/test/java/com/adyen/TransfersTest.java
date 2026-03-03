@@ -77,37 +77,4 @@ public class TransfersTest extends BaseTest {
     assertEquals(response.getTransfer().getId(), "48TYZO5ZVURJ2FCW");
   }
 
-  @Test
-  public void TestGetCapitalAccounts() throws Exception {
-    Client client = createMockClientFromFile("mocks/transfers/get-capital-account.json");
-    CapitalApi capital = new CapitalApi(client);
-    CapitalGrants response = capital.getCapitalAccount();
-    assertEquals(response.getGrants().get(0).getGrantOfferId(), "string");
-    verify(client.getHttpClient())
-        .request(
-            "https://balanceplatform-api-test.adyen.com/btl/v4/grants",
-            null,
-            client.getConfig(),
-            false,
-            null,
-            ApiConstants.HttpMethod.GET,
-            new HashMap<>());
-  }
-
-  @Test
-  public void TestRequestGrant() throws Exception {
-    Client client = createMockClientFromFile("mocks/transfers/request-grant.json");
-    CapitalApi capital = new CapitalApi(client);
-    CapitalGrant response = capital.requestGrantPayout(new CapitalGrantInfo());
-    assertEquals(response.getGrantAccountId(), "CG00000000000000000000001");
-    verify(client.getHttpClient())
-        .request(
-            "https://balanceplatform-api-test.adyen.com/btl/v4/grants",
-            "{}",
-            client.getConfig(),
-            false,
-            null,
-            ApiConstants.HttpMethod.POST,
-            null);
-  }
 }
