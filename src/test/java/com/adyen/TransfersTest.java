@@ -11,6 +11,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class TransfersTest extends BaseTest {
 
   @Test
@@ -42,11 +44,63 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
+  public void ApproveInitiatedTransfersTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    TransfersApi transfers = new TransfersApi(client);
+    ApproveTransfersRequest approveTransfersRequest = new ApproveTransfersRequest();
+    approveTransfersRequest.setTransferIds(Arrays.asList("APUFHASUDF4AS", "407ASFPUAHSFA"));
+    transfers.approveInitiatedTransfers(approveTransfersRequest);
+  }
+
+  @Test
+  public void GetAllTransfersTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/transfers/get-all-transfers-success.json");
+    TransfersApi transfers = new TransfersApi(client);
+    FindTransfersResponse response = transfers.getAllTransfers(OffsetDateTime.now(), OffsetDateTime.now());
+    assertEquals(2, response.getData().size());
+    TransferData transfer1 = response.getData().get(0);
+    assertEquals("1W1UG35QQEBJLHZ8", transfer1.getId());
+    assertEquals("YOUR_BALANCE_PLATFORM", transfer1.getBalancePlatform());
+    assertEquals(5400L, transfer1.getAmount().getValue());
+    assertEquals("EUR", transfer1.getAmount().getCurrency());
+
+    TransferData transfer2 = response.getData().get(1);
+    assertEquals("312M2060T5Z3YWYQ", transfer2.getId());
+    assertEquals(15000L, transfer2.getAmount().getValue());
+  }
+
+  @Test
+  public void GetTransferTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/transfers/get-transfer-success.json");
+
+    TransfersApi transfers = new TransfersApi(client);
+    TransferData response = transfers.getTransfer("1W1UG35QQEBJLHZ8");
+
+    assertEquals("1W1UG35QQEBJLHZ8", response.getId());
+    assertEquals("YOUR_BALANCE_PLATFORM", response.getBalancePlatform());
+    assertEquals(5400L, response.getAmount().getValue());
+    assertEquals("EUR", response.getAmount().getCurrency());
+    assertEquals("AH32272223222B5CZW6QZ2V34", response.getAccountHolder().getId());
+    assertEquals("BA3227C223222B5B9SCR82TMV", response.getBalanceAccount().getId());
+
+    // check events and eventsData
+    assertNotNull(response.getEvents());
+    assertNotNull(response.getEvents().get(0));
+    assertNotNull(response.getEvents().get(0).getEventsData());
+    assertEquals(1, response.getEvents().get(0).getEventsData().size());
+    assertNotNull(response.getEvents().get(0).getEventsData().get(0));
+    assertInstanceOf(InterchangeData.class, response.getEvents().get(0).getEventsData().get(0).getActualInstance());
+
+  }
+
+  @Test
   public void TransferTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/transfers/post-transfers-payout-cross-border-200.json");
+
     TransfersApi transfers = new TransfersApi(client);
     Transfer response = transfers.transferFunds(new TransferInfo());
+
     Amount amount = new Amount();
     amount.setCurrency("EUR");
     amount.setValue(110000L);
@@ -56,7 +110,7 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void TransactionsListTest() throws Exception {
+  public void GetAllTransactionsTest() throws Exception {
     Client client = createMockClientFromFile("mocks/transfers/get-transactions-success-200.json");
     TransactionsApi transactions = new TransactionsApi(client);
     TransactionSearchResponse response = transactions.getAllTransactions(null, null);
@@ -67,7 +121,7 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void TransactionsRetrieveTest() throws Exception {
+  public void GetTransactionTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
     TransactionsApi transactions = new TransactionsApi(client);

@@ -1,0 +1,177 @@
+{
+  "data": [
+    {
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "creationDate": "2021-05-03T15:20:06+02:00",
+      "id": "1W1UG35QQEBJLHZ8",
+      "accountHolder": {
+        "description": "S. Eller - Staff 123",
+        "id": "AH32272223222B5CZW6QZ2V34"
+      },
+      "amount": {
+        "currency": "EUR",
+        "value": 5400
+      },
+      "balanceAccount": {
+        "description": "My Balance Account",
+        "id": "BA3227C223222B5B9SCR82TMV"
+      },
+      "category": "internal",
+      "categoryData": {
+        "type": "internal"
+      },
+      "counterparty": {
+        "balanceAccountId": "BA00000000000000000000001"
+      },
+      "description": "Your description",
+      "direction": "outgoing",
+      "reason": "approved",
+      "reference": "312M2060T6S4UOIF",
+      "status": "booked",
+      "balances": [
+        {
+          "balance": -5400,
+          "currency": "EUR",
+          "received": 0,
+          "reserved": 0
+        }
+      ],
+      "events": [
+        {
+          "bookingDate": "2021-05-03T14:53:39+01:00",
+          "id": "EVJN4233Q22322375JQ72V55G92ZXF",
+          "mutations": [
+            {
+              "currency": "EUR",
+              "received": -5400
+            }
+          ],
+          "status": "received",
+          "type": "accounting",
+          "valueDate": "2021-05-03T14:53:39+01:00"
+        },
+        {
+          "bookingDate": "2021-05-03T14:53:39+01:00",
+          "id": "EVJN4233Q22322375JQ72V55GB4TPV",
+          "mutations": [
+            {
+              "currency": "EUR",
+              "received": 5400,
+              "reserved": -5400
+            }
+          ],
+          "status": "authorised",
+          "type": "accounting",
+          "valueDate": "2021-05-03T14:53:39+01:00"
+        },
+        {
+          "bookingDate": "2021-05-03T14:53:39+01:00",
+          "id": "EVJN4233Q22322375JQ72V55GD53HZ",
+          "mutations": [
+            {
+              "balance": -5400,
+              "currency": "EUR",
+              "received": 0,
+              "reserved": 5400
+            }
+          ],
+          "status": "booked",
+          "transactionId": "EVJN4233Q22322375JQ72V55GD53HZEUR",
+          "type": "accounting",
+          "valueDate": "2021-05-03T14:53:39+01:00"
+        }
+      ],
+      "sequenceNumber": 3,
+      "type": "internalTransfer"
+    },
+    {
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "creationDate": "2021-08-02T15:20:06+02:00",
+      "id": "312M2060T5Z3YWYQ",
+      "accountHolder": {
+        "description": "S. Doe - Staff 124",
+        "id": "AH443397232222B5CZW6QZ2V34"
+      },
+      "amount": {
+        "currency": "EUR",
+        "value": 15000
+      },
+      "balanceAccount": {
+        "description": "My Balance Account",
+        "id": "BA3227C2582222B5B9SCR82VHM"
+      },
+      "category": "internal",
+      "categoryData": {
+        "type": "internal"
+      },
+      "counterparty": {
+        "balanceAccountId": "BA00000000000000000000001"
+      },
+      "description": "Your description",
+      "direction": "outgoing",
+      "reason": "approved",
+      "reference": "312M2060T6S4UOIF",
+      "status": "booked",
+      "balances": [
+        {
+          "balance": -15000,
+          "currency": "EUR",
+          "received": 0,
+          "reserved": 0
+        }
+      ],
+      "events": [
+        {
+          "bookingDate": "2021-08-02T14:53:39+01:00",
+          "id": "EVJN4233Q22322375JQ72V55G92ZXF",
+          "mutations": [
+            {
+              "currency": "EUR",
+              "received": -15000
+            }
+          ],
+          "status": "received",
+          "type": "accounting",
+          "valueDate": "2021-08-02T14:53:39+01:00"
+        },
+        {
+          "bookingDate": "2021-08-02T14:53:39+01:00",
+          "id": "EVJN4233Q22322375JQ72V55GB4TPV",
+          "mutations": [
+            {
+              "currency": "EUR",
+              "received": 15000,
+              "reserved": -15000
+            }
+          ],
+          "status": "authorised",
+          "type": "accounting",
+          "valueDate": "2021-08-02T14:53:39+01:00"
+        },
+        {
+          "bookingDate": "2021-08-02T14:53:39+01:00",
+          "id": "EVASDFOUPASFDHSADFA6SN65FG6TD53HZ",
+          "mutations": [
+            {
+              "balance": -15000,
+              "currency": "EUR",
+              "received": 0,
+              "reserved": 15000
+            }
+          ],
+          "status": "booked",
+          "transactionId": "EVJN4233Q22322375JQ6SN65FG6TFTEUR",
+          "type": "accounting",
+          "valueDate": "2021-08-02T14:53:39+01:00"
+        }
+      ],
+      "sequenceNumber": 3,
+      "type": "internalTransfer"
+    }
+  ],
+  "_links": {
+    "next": {
+      "href": "https://balanceplatform-api-test.adyen.com/btl/v4/transfers?balancePlatform=YOUR_BALANCE_PLATFORM&createdUntil=2021-12-21T00%3A00%3A00Z&createdSince=2021-03-21T00%3A00%3A00Z&limit=2&cursor=S2B-TSAjOkIrYlIlbjdqe0RreHRyM32lKRSxubXBHRkhHL2E32XitQQz5SfzpucD5HbHwpM1p6NDR1eXVQLFF6MmY33J32sobDxQYT90MHIud1hwLnd6JitcX32xJ"
+    }
+  }
+}
