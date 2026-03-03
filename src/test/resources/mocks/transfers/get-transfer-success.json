@@ -1,0 +1,94 @@
+{
+  "balancePlatform": "YOUR_BALANCE_PLATFORM",
+  "creationDate": "2021-05-03T15:20:06+02:00",
+  "id": "1W1UG35QQEBJLHZ8",
+  "accountHolder": {
+    "description": "S. Eller - Staff 123",
+    "id": "AH32272223222B5CZW6QZ2V34"
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": 5400
+  },
+  "balanceAccount": {
+    "description": "My Balance Account",
+    "id": "BA3227C223222B5B9SCR82TMV"
+  },
+  "category": "internal",
+  "categoryData": {
+    "type": "internal"
+  },
+  "counterparty": {
+    "balanceAccountId": "BA00000000000000000000001"
+  },
+  "description": "Your description",
+  "direction": "outgoing",
+  "reason": "approved",
+  "reference": "312M2060T6S4UOIF",
+  "status": "booked",
+  "balances": [
+    {
+      "balance": -5400,
+      "currency": "EUR",
+      "received": 0,
+      "reserved": 0
+    }
+  ],
+  "events": [
+    {
+      "bookingDate": "2021-05-03T14:53:39+01:00",
+      "id": "EVJN4233Q22322375JQ72V55G92ZXF",
+      "eventsData": [
+        {
+          "type": "interchangeData",
+          "interchangeAmount": {
+            "currency": "EUR",
+            "value": 22700
+          },
+          "interchangeRateIndicator": "x"
+        }
+      ],
+      "mutations": [
+        {
+          "currency": "EUR",
+          "received": -5400
+        }
+      ],
+      "status": "received",
+      "type": "accounting",
+      "valueDate": "2021-05-03T14:53:39+01:00"
+    },
+    {
+      "bookingDate": "2021-05-03T14:53:39+01:00",
+      "id": "EVJN4233Q22322375JQ72V55GB4TPV",
+      "mutations": [
+        {
+          "currency": "EUR",
+          "received": 5400,
+          "reserved": -5400
+        }
+      ],
+      "status": "authorised",
+      "type": "accounting",
+      "valueDate": "2021-05-03T14:53:39+01:00"
+    },
+    {
+      "bookingDate": "2021-05-03T14:53:39+01:00",
+      "id": "EVJN4233Q22322375JQ72V55GD53HZ",
+      "mutations": [
+        {
+          "balance": -5400,
+          "currency": "EUR",
+          "received": 0,
+          "reserved": 5400
+        }
+      ],
+      "status": "booked",
+      "transactionId": "EVJN4233Q22322375JQ72V55GD53HZEUR",
+      "type": "accounting",
+      "valueDate": "2021-05-03T14:53:39+01:00"
+    }
+  ],
+  "sequenceNumber": 3,
+  "type": "internalTransfer"
+}
