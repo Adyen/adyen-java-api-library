@@ -30,7 +30,6 @@ import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
-
 import java.lang.reflect.Field;
 import java.time.OffsetDateTime;
 import java.util.*;
@@ -42,10 +41,12 @@ public class CheckoutTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-        .apiKey("test")
-        .environment(Environment.TEST)
-        .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.TEST)
+                .liveEndpointUrlPrefix("myCompany"));
 
     PaymentsApi paymentsApi = new PaymentsApi(client);
     // get field by reflection (it is protected)
@@ -57,10 +58,12 @@ public class CheckoutTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-        .apiKey("test")
-        .environment(Environment.LIVE)
-        .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.LIVE)
+                .liveEndpointUrlPrefix("myCompany"));
 
     PaymentsApi paymentsApi = new PaymentsApi(client);
     // get field by reflection (it is protected)
