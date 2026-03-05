@@ -122,5 +122,4 @@ public class ServiceTest extends BaseTest {
         assertThrows(IllegalArgumentException.class, () -> service.createBaseURL(testUrl));
     assertEquals("please provide a live url prefix in the client", e.getMessage());
   }
-
 }
