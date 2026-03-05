@@ -21,9 +21,7 @@ public class LegalEntityManagementTest extends BaseTest {
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
 
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.TEST));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
 
     LegalEntitiesApi legalEntitiesApi = new LegalEntitiesApi(client);
     // get field by reflection (it is protected)
@@ -35,9 +33,7 @@ public class LegalEntityManagementTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.LIVE));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE));
 
     LegalEntitiesApi legalEntitiesApi = new LegalEntitiesApi(client);
     // get field by reflection (it is protected)
