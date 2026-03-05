@@ -34,9 +34,9 @@ import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.payment.*;
+import com.adyen.service.exception.ApiException;
 import com.adyen.service.payment.ModificationsApi;
 import com.adyen.service.payment.PaymentsApi;
-import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -56,10 +56,12 @@ public class PaymentTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.TEST)
-            .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.TEST)
+                .liveEndpointUrlPrefix("myCompany"));
 
     PaymentsApi paymentApi = new PaymentsApi(client);
     // get field by reflection (it is protected)
@@ -71,10 +73,12 @@ public class PaymentTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.LIVE)
-            .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.LIVE)
+                .liveEndpointUrlPrefix("myCompany"));
 
     PaymentsApi paymentApi = new PaymentsApi(client);
     // get field by reflection (it is protected)
