@@ -1,24 +1,21 @@
 package com.adyen;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.adyen.enums.Environment;
 import com.adyen.model.transfers.*;
 import com.adyen.service.transfers.*;
 import java.lang.reflect.Field;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
-
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class TransfersTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.TEST));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
 
     TransfersApi transfersApi = new TransfersApi(client);
     // get field by reflection (it is protected)
@@ -30,9 +27,7 @@ public class TransfersTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.LIVE));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE));
 
     TransfersApi transfersApi = new TransfersApi(client);
     // get field by reflection (it is protected)
@@ -55,7 +50,8 @@ public class TransfersTest extends BaseTest {
   public void GetAllTransfersTest() throws Exception {
     Client client = createMockClientFromFile("mocks/transfers/get-all-transfers-success.json");
     TransfersApi transfers = new TransfersApi(client);
-    FindTransfersResponse response = transfers.getAllTransfers(OffsetDateTime.now(), OffsetDateTime.now());
+    FindTransfersResponse response =
+        transfers.getAllTransfers(OffsetDateTime.now(), OffsetDateTime.now());
     assertEquals(2, response.getData().size());
     TransferData transfer1 = response.getData().get(0);
     assertEquals("1W1UG35QQEBJLHZ8", transfer1.getId());
@@ -88,8 +84,9 @@ public class TransfersTest extends BaseTest {
     assertNotNull(response.getEvents().get(0).getEventsData());
     assertEquals(1, response.getEvents().get(0).getEventsData().size());
     assertNotNull(response.getEvents().get(0).getEventsData().get(0));
-    assertInstanceOf(InterchangeData.class, response.getEvents().get(0).getEventsData().get(0).getActualInstance());
-
+    assertInstanceOf(
+        InterchangeData.class,
+        response.getEvents().get(0).getEventsData().get(0).getActualInstance());
   }
 
   @Test
@@ -129,5 +126,4 @@ public class TransfersTest extends BaseTest {
     assertEquals("AH00000000000000000000001", response.getAccountHolder().getId());
     assertEquals("48TYZO5ZVURJ2FCW", response.getTransfer().getId());
   }
-
 }
