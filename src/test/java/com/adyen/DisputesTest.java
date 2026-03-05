@@ -18,9 +18,7 @@ public class DisputesTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.TEST));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
 
     DisputesApi disputesApi = new DisputesApi(client);
     // get field by reflection (it is protected)
@@ -32,9 +30,7 @@ public class DisputesTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.LIVE));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE));
 
     DisputesApi disputesApi = new DisputesApi(client);
     // get field by reflection (it is protected)
