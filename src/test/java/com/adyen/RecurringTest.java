@@ -85,32 +85,39 @@ public class RecurringTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-        .apiKey("test")
-        .environment(Environment.TEST)
-        .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.TEST)
+                .liveEndpointUrlPrefix("myCompany"));
 
     RecurringApi recurring = new RecurringApi(client);
     // get field by reflection (it is protected)
     Field baseURLField = RecurringApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(recurring);
-    assertEquals("https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68", baseURL);
+    assertEquals(
+        "https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68", baseURL);
   }
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-        .apiKey("test")
-        .environment(Environment.LIVE)
-        .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.LIVE)
+                .liveEndpointUrlPrefix("myCompany"));
 
     RecurringApi recurring = new RecurringApi(client);
     // get field by reflection (it is protected)
     Field baseURLField = RecurringApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(recurring);
-    assertEquals("https://myCompany-paltokenization-live.adyenpayments.com/paltokenization/servlet/Recurring/v68", baseURL);
+    assertEquals(
+        "https://myCompany-paltokenization-live.adyenpayments.com/paltokenization/servlet/Recurring/v68",
+        baseURL);
   }
 
   @Test
@@ -133,7 +140,8 @@ public class RecurringTest extends BaseTest {
     ArgumentCaptor<String> requestBodyCaptor = ArgumentCaptor.forClass(String.class);
     verify(client.getHttpClient())
         .request(
-            eq("https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68/listRecurringDetails"),
+            eq(
+                "https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68/listRecurringDetails"),
             requestBodyCaptor.capture(),
             eq(client.getConfig()),
             eq(false),
