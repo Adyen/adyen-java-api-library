@@ -431,10 +431,18 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertNotNull(transferNotificationRequest.getData().getEvents());
     assertNotNull(transferNotificationRequest.getData().getEvents().get(0));
     assertNotNull(transferNotificationRequest.getData().getEvents().get(0).getEventsData());
-    assertEquals(1, transferNotificationRequest.getData().getEvents().get(0).getEventsData().size());
+    assertEquals(
+        1, transferNotificationRequest.getData().getEvents().get(0).getEventsData().size());
     assertNotNull(transferNotificationRequest.getData().getEvents().get(0).getEventsData().get(0));
-	  assertInstanceOf(InterchangeData.class, transferNotificationRequest.getData().getEvents().get(0).getEventsData().get(0).getActualInstance());
-
+    assertInstanceOf(
+        InterchangeData.class,
+        transferNotificationRequest
+            .getData()
+            .getEvents()
+            .get(0)
+            .getEventsData()
+            .get(0)
+            .getActualInstance());
   }
 
   @Test
