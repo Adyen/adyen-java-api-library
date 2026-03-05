@@ -20,9 +20,7 @@ public class ManagementTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.TEST));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
 
     AccountMerchantLevelApi accountMerchantLevelApi = new AccountMerchantLevelApi(client);
     // get field by reflection (it is protected)
@@ -34,9 +32,7 @@ public class ManagementTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.LIVE));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE));
 
     AccountMerchantLevelApi accountMerchantLevelApi = new AccountMerchantLevelApi(client);
     // get field by reflection (it is protected)
