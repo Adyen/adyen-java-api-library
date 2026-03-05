@@ -37,10 +37,12 @@ public class BinLookupTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.TEST)
-            .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.TEST)
+                .liveEndpointUrlPrefix("myCompany"));
 
     BinLookupApi binLookupApi = new BinLookupApi(client);
     // get field by reflection (it is protected)
@@ -52,10 +54,12 @@ public class BinLookupTest extends BaseTest {
 
   @Test
   public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
-    Client client = new Client(new Config()
-            .apiKey("test")
-            .environment(Environment.LIVE)
-            .liveEndpointUrlPrefix("myCompany"));
+    Client client =
+        new Client(
+            new Config()
+                .apiKey("test")
+                .environment(Environment.LIVE)
+                .liveEndpointUrlPrefix("myCompany"));
 
     BinLookupApi binLookupApi = new BinLookupApi(client);
     // get field by reflection (it is protected)
