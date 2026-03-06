@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up JDK 17
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165
+        uses: actions/setup-java@1d018f9b8b9b505bb578a83b230fabcce01af93b
         with:
           java-version: 17
           distribution: 'zulu'
