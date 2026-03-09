@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.storedvalue;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,71 +25,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-/** StoredValueLoadRequest */
+/** StoredValueBalanceCheckRequest */
 @JsonPropertyOrder({
-  StoredValueLoadRequest.JSON_PROPERTY_AMOUNT,
-  StoredValueLoadRequest.JSON_PROPERTY_LOAD_TYPE,
-  StoredValueLoadRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  StoredValueLoadRequest.JSON_PROPERTY_PAYMENT_METHOD,
-  StoredValueLoadRequest.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  StoredValueLoadRequest.JSON_PROPERTY_REFERENCE,
-  StoredValueLoadRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
-  StoredValueLoadRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
-  StoredValueLoadRequest.JSON_PROPERTY_STORE
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_AMOUNT,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_PAYMENT_METHOD,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_REFERENCE,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  StoredValueBalanceCheckRequest.JSON_PROPERTY_STORE
 })
-public class StoredValueLoadRequest {
+public class StoredValueBalanceCheckRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmount = false;
-
-  /** The type of load you are trying to do, when absent we default to &#39;Load&#39; */
-  public enum LoadTypeEnum {
-    MERCHANDISERETURN(String.valueOf("merchandiseReturn")),
-
-    LOAD(String.valueOf("load"));
-
-    private static final Logger LOG = Logger.getLogger(LoadTypeEnum.class.getName());
-
-    private String value;
-
-    LoadTypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static LoadTypeEnum fromValue(String value) {
-      for (LoadTypeEnum b : LoadTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      // handling unexpected value
-      LOG.warning(
-          "LoadTypeEnum: unexpected enum value '"
-              + value
-              + "' - Supported values are "
-              + Arrays.toString(LoadTypeEnum.values()));
-      return null;
-    }
-  }
-
-  public static final String JSON_PROPERTY_LOAD_TYPE = "loadType";
-  private LoadTypeEnum loadType;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetLoadType = false;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -196,15 +148,16 @@ public class StoredValueLoadRequest {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredValueLoadRequest() {}
+  public StoredValueBalanceCheckRequest() {}
 
   /**
    * amount
    *
    * @param amount
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest amount(Amount amount) {
+  public StoredValueBalanceCheckRequest amount(Amount amount) {
     this.amount = amount;
     isSetAmount = true; // mark as set
     return this;
@@ -234,49 +187,14 @@ public class StoredValueLoadRequest {
   }
 
   /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
-   *
-   * @param loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
-   */
-  public StoredValueLoadRequest loadType(LoadTypeEnum loadType) {
-    this.loadType = loadType;
-    isSetLoadType = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
-   *
-   * @return loadType The type of load you are trying to do, when absent we default to
-   *     &#39;Load&#39;
-   */
-  @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LoadTypeEnum getLoadType() {
-    return loadType;
-  }
-
-  /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
-   *
-   * @param loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
-   */
-  @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLoadType(LoadTypeEnum loadType) {
-    this.loadType = loadType;
-    isSetLoadType = true; // mark as set
-  }
-
-  /**
    * The merchant account identifier, with which you want to process the transaction.
    *
    * @param merchantAccount The merchant account identifier, with which you want to process the
    *     transaction.
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest merchantAccount(String merchantAccount) {
+  public StoredValueBalanceCheckRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     isSetMerchantAccount = true; // mark as set
     return this;
@@ -313,15 +231,16 @@ public class StoredValueLoadRequest {
    *
    * @param paymentMethod The collection that contains the type of the payment method and its
    *     specific information if available
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest paymentMethod(Map<String, String> paymentMethod) {
+  public StoredValueBalanceCheckRequest paymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
     isSetPaymentMethod = true; // mark as set
     return this;
   }
 
-  public StoredValueLoadRequest putPaymentMethodItem(String key, String paymentMethodItem) {
+  public StoredValueBalanceCheckRequest putPaymentMethodItem(String key, String paymentMethodItem) {
     if (this.paymentMethod == null) {
       this.paymentMethod = new HashMap<>();
     }
@@ -360,9 +279,10 @@ public class StoredValueLoadRequest {
    * recurringDetailReference
    *
    * @param recurringDetailReference
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest recurringDetailReference(String recurringDetailReference) {
+  public StoredValueBalanceCheckRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -401,9 +321,10 @@ public class StoredValueLoadRequest {
    *     communication with you about the payment status. We recommend using a unique value per
    *     payment; however, it is not a requirement. If you need to provide multiple references for a
    *     transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest reference(String reference) {
+  public StoredValueBalanceCheckRequest reference(String reference) {
     this.reference = reference;
     isSetReference = true; // mark as set
     return this;
@@ -469,9 +390,11 @@ public class StoredValueLoadRequest {
    *     transactions where the shopper is in contact with the merchant via email or telephone. *
    *     &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to
    *     make a payment using a secure payment terminal.
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
+  public StoredValueBalanceCheckRequest shopperInteraction(
+      ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     isSetShopperInteraction = true; // mark as set
     return this;
@@ -546,9 +469,10 @@ public class StoredValueLoadRequest {
    * shopperReference
    *
    * @param shopperReference
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest shopperReference(String shopperReference) {
+  public StoredValueBalanceCheckRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     isSetShopperReference = true; // mark as set
     return this;
@@ -581,9 +505,10 @@ public class StoredValueLoadRequest {
    * The physical store, for which this payment is processed.
    *
    * @param store The physical store, for which this payment is processed.
-   * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
+   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
+   *     chaining
    */
-  public StoredValueLoadRequest store(String store) {
+  public StoredValueBalanceCheckRequest store(String store) {
     this.store = store;
     isSetStore = true; // mark as set
     return this;
@@ -615,7 +540,7 @@ public class StoredValueLoadRequest {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredValueLoadRequest includeNullValues(boolean includeNullValues) {
+  public StoredValueBalanceCheckRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -632,7 +557,7 @@ public class StoredValueLoadRequest {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredValueLoadRequest object is equal to o. */
+  /** Return true if this StoredValueBalanceCheckRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -641,29 +566,32 @@ public class StoredValueLoadRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredValueLoadRequest storedValueLoadRequest = (StoredValueLoadRequest) o;
-    return Objects.equals(this.amount, storedValueLoadRequest.amount)
-        && Objects.equals(this.isSetAmount, storedValueLoadRequest.isSetAmount)
-        && Objects.equals(this.loadType, storedValueLoadRequest.loadType)
-        && Objects.equals(this.isSetLoadType, storedValueLoadRequest.isSetLoadType)
-        && Objects.equals(this.merchantAccount, storedValueLoadRequest.merchantAccount)
-        && Objects.equals(this.isSetMerchantAccount, storedValueLoadRequest.isSetMerchantAccount)
-        && Objects.equals(this.paymentMethod, storedValueLoadRequest.paymentMethod)
-        && Objects.equals(this.isSetPaymentMethod, storedValueLoadRequest.isSetPaymentMethod)
+    StoredValueBalanceCheckRequest storedValueBalanceCheckRequest =
+        (StoredValueBalanceCheckRequest) o;
+    return Objects.equals(this.amount, storedValueBalanceCheckRequest.amount)
+        && Objects.equals(this.isSetAmount, storedValueBalanceCheckRequest.isSetAmount)
+        && Objects.equals(this.merchantAccount, storedValueBalanceCheckRequest.merchantAccount)
         && Objects.equals(
-            this.recurringDetailReference, storedValueLoadRequest.recurringDetailReference)
+            this.isSetMerchantAccount, storedValueBalanceCheckRequest.isSetMerchantAccount)
+        && Objects.equals(this.paymentMethod, storedValueBalanceCheckRequest.paymentMethod)
+        && Objects.equals(
+            this.isSetPaymentMethod, storedValueBalanceCheckRequest.isSetPaymentMethod)
+        && Objects.equals(
+            this.recurringDetailReference, storedValueBalanceCheckRequest.recurringDetailReference)
         && Objects.equals(
             this.isSetRecurringDetailReference,
-            storedValueLoadRequest.isSetRecurringDetailReference)
-        && Objects.equals(this.reference, storedValueLoadRequest.reference)
-        && Objects.equals(this.isSetReference, storedValueLoadRequest.isSetReference)
-        && Objects.equals(this.shopperInteraction, storedValueLoadRequest.shopperInteraction)
+            storedValueBalanceCheckRequest.isSetRecurringDetailReference)
+        && Objects.equals(this.reference, storedValueBalanceCheckRequest.reference)
+        && Objects.equals(this.isSetReference, storedValueBalanceCheckRequest.isSetReference)
         && Objects.equals(
-            this.isSetShopperInteraction, storedValueLoadRequest.isSetShopperInteraction)
-        && Objects.equals(this.shopperReference, storedValueLoadRequest.shopperReference)
-        && Objects.equals(this.isSetShopperReference, storedValueLoadRequest.isSetShopperReference)
-        && Objects.equals(this.store, storedValueLoadRequest.store)
-        && Objects.equals(this.isSetStore, storedValueLoadRequest.isSetStore);
+            this.shopperInteraction, storedValueBalanceCheckRequest.shopperInteraction)
+        && Objects.equals(
+            this.isSetShopperInteraction, storedValueBalanceCheckRequest.isSetShopperInteraction)
+        && Objects.equals(this.shopperReference, storedValueBalanceCheckRequest.shopperReference)
+        && Objects.equals(
+            this.isSetShopperReference, storedValueBalanceCheckRequest.isSetShopperReference)
+        && Objects.equals(this.store, storedValueBalanceCheckRequest.store)
+        && Objects.equals(this.isSetStore, storedValueBalanceCheckRequest.isSetStore);
   }
 
   @Override
@@ -671,8 +599,6 @@ public class StoredValueLoadRequest {
     return Objects.hash(
         amount,
         isSetAmount,
-        loadType,
-        isSetLoadType,
         merchantAccount,
         isSetMerchantAccount,
         paymentMethod,
@@ -692,9 +618,8 @@ public class StoredValueLoadRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredValueLoadRequest {\n");
+    sb.append("class StoredValueBalanceCheckRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    loadType: ").append(toIndentedString(loadType)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    recurringDetailReference: ")
@@ -731,9 +656,6 @@ public class StoredValueLoadRequest {
     if (isSetAmount) {
       addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
     }
-    if (isSetLoadType) {
-      addIfNull(nulls, JSON_PROPERTY_LOAD_TYPE, this.loadType);
-    }
     if (isSetMerchantAccount) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
     }
@@ -767,19 +689,20 @@ public class StoredValueLoadRequest {
   }
 
   /**
-   * Create an instance of StoredValueLoadRequest given an JSON string
+   * Create an instance of StoredValueBalanceCheckRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredValueLoadRequest
+   * @return An instance of StoredValueBalanceCheckRequest
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueLoadRequest
+   *     StoredValueBalanceCheckRequest
    */
-  public static StoredValueLoadRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredValueLoadRequest.class);
+  public static StoredValueBalanceCheckRequest fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StoredValueBalanceCheckRequest.class);
   }
 
   /**
-   * Convert an instance of StoredValueLoadRequest to an JSON string
+   * Convert an instance of StoredValueBalanceCheckRequest to an JSON string
    *
    * @return JSON string
    */

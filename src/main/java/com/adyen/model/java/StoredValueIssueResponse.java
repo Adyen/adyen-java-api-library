@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.storedvalue;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -21,18 +21,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
-/** StoredValueLoadResponse */
+/** StoredValueIssueResponse */
 @JsonPropertyOrder({
-  StoredValueLoadResponse.JSON_PROPERTY_AUTH_CODE,
-  StoredValueLoadResponse.JSON_PROPERTY_CURRENT_BALANCE,
-  StoredValueLoadResponse.JSON_PROPERTY_PSP_REFERENCE,
-  StoredValueLoadResponse.JSON_PROPERTY_REFUSAL_REASON,
-  StoredValueLoadResponse.JSON_PROPERTY_RESULT_CODE,
-  StoredValueLoadResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
+  StoredValueIssueResponse.JSON_PROPERTY_AUTH_CODE,
+  StoredValueIssueResponse.JSON_PROPERTY_CURRENT_BALANCE,
+  StoredValueIssueResponse.JSON_PROPERTY_PAYMENT_METHOD,
+  StoredValueIssueResponse.JSON_PROPERTY_PSP_REFERENCE,
+  StoredValueIssueResponse.JSON_PROPERTY_REFUSAL_REASON,
+  StoredValueIssueResponse.JSON_PROPERTY_RESULT_CODE,
+  StoredValueIssueResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
 })
-public class StoredValueLoadResponse {
+public class StoredValueIssueResponse {
   public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
   private String authCode;
 
@@ -44,6 +47,12 @@ public class StoredValueLoadResponse {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCurrentBalance = false;
+
+  public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
+  private Map<String, String> paymentMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -127,7 +136,7 @@ public class StoredValueLoadResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredValueLoadResponse() {}
+  public StoredValueIssueResponse() {}
 
   /**
    * Authorisation code: * When the payment is authorised, this field holds the authorisation code
@@ -136,9 +145,9 @@ public class StoredValueLoadResponse {
    * @param authCode Authorisation code: * When the payment is authorised, this field holds the
    *     authorisation code for the payment. * When the payment is not authorised, this field is
    *     empty.
-   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
-  public StoredValueLoadResponse authCode(String authCode) {
+  public StoredValueIssueResponse authCode(String authCode) {
     this.authCode = authCode;
     isSetAuthCode = true; // mark as set
     return this;
@@ -177,9 +186,9 @@ public class StoredValueLoadResponse {
    * currentBalance
    *
    * @param currentBalance
-   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
-  public StoredValueLoadResponse currentBalance(Amount currentBalance) {
+  public StoredValueIssueResponse currentBalance(Amount currentBalance) {
     this.currentBalance = currentBalance;
     isSetCurrentBalance = true; // mark as set
     return this;
@@ -209,15 +218,64 @@ public class StoredValueLoadResponse {
   }
 
   /**
+   * The collection that contains the type of the payment method and its specific information if
+   * available
+   *
+   * @param paymentMethod The collection that contains the type of the payment method and its
+   *     specific information if available
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
+   */
+  public StoredValueIssueResponse paymentMethod(Map<String, String> paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
+    return this;
+  }
+
+  public StoredValueIssueResponse putPaymentMethodItem(String key, String paymentMethodItem) {
+    if (this.paymentMethod == null) {
+      this.paymentMethod = new HashMap<>();
+    }
+    this.paymentMethod.put(key, paymentMethodItem);
+    return this;
+  }
+
+  /**
+   * The collection that contains the type of the payment method and its specific information if
+   * available
+   *
+   * @return paymentMethod The collection that contains the type of the payment method and its
+   *     specific information if available
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  /**
+   * The collection that contains the type of the payment method and its specific information if
+   * available
+   *
+   * @param paymentMethod The collection that contains the type of the payment method and its
+   *     specific information if available
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaymentMethod(Map<String, String> paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
+  }
+
+  /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value
    * is globally unique; quote it when communicating with us about this request.
    *
    * @param pspReference Adyen&#39;s 16-character string reference associated with the
    *     transaction/request. This value is globally unique; quote it when communicating with us
    *     about this request.
-   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
-  public StoredValueLoadResponse pspReference(String pspReference) {
+  public StoredValueIssueResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     isSetPspReference = true; // mark as set
     return this;
@@ -261,9 +319,9 @@ public class StoredValueLoadResponse {
    *     Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction
    *     fails, the authorisation response includes &#x60;resultCode&#x60; and
    *     &#x60;refusalReason&#x60; values.
-   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
-  public StoredValueLoadResponse refusalReason(String refusalReason) {
+  public StoredValueIssueResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     isSetRefusalReason = true; // mark as set
     return this;
@@ -316,9 +374,9 @@ public class StoredValueLoadResponse {
    *     was processed. The reason is given in the &#x60;refusalReason&#x60; field. *
    *     **NotEnoughBalance** – The amount on the payment method is lower than the amount given in
    *     the request. Only applicable to balance checks.
-   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
-  public StoredValueLoadResponse resultCode(ResultCodeEnum resultCode) {
+  public StoredValueIssueResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     isSetResultCode = true; // mark as set
     return this;
@@ -372,9 +430,9 @@ public class StoredValueLoadResponse {
    *
    * @param thirdPartyRefusalReason Raw refusal reason received from the third party, where
    *     available
-   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
-  public StoredValueLoadResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
+  public StoredValueIssueResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
     isSetThirdPartyRefusalReason = true; // mark as set
     return this;
@@ -408,7 +466,7 @@ public class StoredValueLoadResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredValueLoadResponse includeNullValues(boolean includeNullValues) {
+  public StoredValueIssueResponse includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -425,7 +483,7 @@ public class StoredValueLoadResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredValueLoadResponse object is equal to o. */
+  /** Return true if this StoredValueIssueResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -434,22 +492,24 @@ public class StoredValueLoadResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredValueLoadResponse storedValueLoadResponse = (StoredValueLoadResponse) o;
-    return Objects.equals(this.authCode, storedValueLoadResponse.authCode)
-        && Objects.equals(this.isSetAuthCode, storedValueLoadResponse.isSetAuthCode)
-        && Objects.equals(this.currentBalance, storedValueLoadResponse.currentBalance)
-        && Objects.equals(this.isSetCurrentBalance, storedValueLoadResponse.isSetCurrentBalance)
-        && Objects.equals(this.pspReference, storedValueLoadResponse.pspReference)
-        && Objects.equals(this.isSetPspReference, storedValueLoadResponse.isSetPspReference)
-        && Objects.equals(this.refusalReason, storedValueLoadResponse.refusalReason)
-        && Objects.equals(this.isSetRefusalReason, storedValueLoadResponse.isSetRefusalReason)
-        && Objects.equals(this.resultCode, storedValueLoadResponse.resultCode)
-        && Objects.equals(this.isSetResultCode, storedValueLoadResponse.isSetResultCode)
+    StoredValueIssueResponse storedValueIssueResponse = (StoredValueIssueResponse) o;
+    return Objects.equals(this.authCode, storedValueIssueResponse.authCode)
+        && Objects.equals(this.isSetAuthCode, storedValueIssueResponse.isSetAuthCode)
+        && Objects.equals(this.currentBalance, storedValueIssueResponse.currentBalance)
+        && Objects.equals(this.isSetCurrentBalance, storedValueIssueResponse.isSetCurrentBalance)
+        && Objects.equals(this.paymentMethod, storedValueIssueResponse.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, storedValueIssueResponse.isSetPaymentMethod)
+        && Objects.equals(this.pspReference, storedValueIssueResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, storedValueIssueResponse.isSetPspReference)
+        && Objects.equals(this.refusalReason, storedValueIssueResponse.refusalReason)
+        && Objects.equals(this.isSetRefusalReason, storedValueIssueResponse.isSetRefusalReason)
+        && Objects.equals(this.resultCode, storedValueIssueResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, storedValueIssueResponse.isSetResultCode)
         && Objects.equals(
-            this.thirdPartyRefusalReason, storedValueLoadResponse.thirdPartyRefusalReason)
+            this.thirdPartyRefusalReason, storedValueIssueResponse.thirdPartyRefusalReason)
         && Objects.equals(
             this.isSetThirdPartyRefusalReason,
-            storedValueLoadResponse.isSetThirdPartyRefusalReason);
+            storedValueIssueResponse.isSetThirdPartyRefusalReason);
   }
 
   @Override
@@ -459,6 +519,8 @@ public class StoredValueLoadResponse {
         isSetAuthCode,
         currentBalance,
         isSetCurrentBalance,
+        paymentMethod,
+        isSetPaymentMethod,
         pspReference,
         isSetPspReference,
         refusalReason,
@@ -472,9 +534,10 @@ public class StoredValueLoadResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredValueLoadResponse {\n");
+    sb.append("class StoredValueIssueResponse {\n");
     sb.append("    authCode: ").append(toIndentedString(authCode)).append("\n");
     sb.append("    currentBalance: ").append(toIndentedString(currentBalance)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
     sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
@@ -511,6 +574,9 @@ public class StoredValueLoadResponse {
     if (isSetCurrentBalance) {
       addIfNull(nulls, JSON_PROPERTY_CURRENT_BALANCE, this.currentBalance);
     }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
     if (isSetPspReference) {
       addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
     }
@@ -535,19 +601,20 @@ public class StoredValueLoadResponse {
   }
 
   /**
-   * Create an instance of StoredValueLoadResponse given an JSON string
+   * Create an instance of StoredValueIssueResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredValueLoadResponse
+   * @return An instance of StoredValueIssueResponse
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueLoadResponse
+   *     StoredValueIssueResponse
    */
-  public static StoredValueLoadResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredValueLoadResponse.class);
+  public static StoredValueIssueResponse fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StoredValueIssueResponse.class);
   }
 
   /**
-   * Convert an instance of StoredValueLoadResponse to an JSON string
+   * Convert an instance of StoredValueIssueResponse to an JSON string
    *
    * @return JSON string
    */

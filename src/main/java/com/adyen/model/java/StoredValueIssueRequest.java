@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.storedvalue;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,18 +25,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-/** StoredValueBalanceCheckRequest */
+/** StoredValueIssueRequest */
 @JsonPropertyOrder({
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_AMOUNT,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_PAYMENT_METHOD,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_REFERENCE,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
-  StoredValueBalanceCheckRequest.JSON_PROPERTY_STORE
+  StoredValueIssueRequest.JSON_PROPERTY_AMOUNT,
+  StoredValueIssueRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  StoredValueIssueRequest.JSON_PROPERTY_PAYMENT_METHOD,
+  StoredValueIssueRequest.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  StoredValueIssueRequest.JSON_PROPERTY_REFERENCE,
+  StoredValueIssueRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
+  StoredValueIssueRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  StoredValueIssueRequest.JSON_PROPERTY_STORE
 })
-public class StoredValueBalanceCheckRequest {
+public class StoredValueIssueRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
@@ -148,16 +148,15 @@ public class StoredValueBalanceCheckRequest {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredValueBalanceCheckRequest() {}
+  public StoredValueIssueRequest() {}
 
   /**
    * amount
    *
    * @param amount
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest amount(Amount amount) {
+  public StoredValueIssueRequest amount(Amount amount) {
     this.amount = amount;
     isSetAmount = true; // mark as set
     return this;
@@ -191,10 +190,9 @@ public class StoredValueBalanceCheckRequest {
    *
    * @param merchantAccount The merchant account identifier, with which you want to process the
    *     transaction.
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest merchantAccount(String merchantAccount) {
+  public StoredValueIssueRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     isSetMerchantAccount = true; // mark as set
     return this;
@@ -231,16 +229,15 @@ public class StoredValueBalanceCheckRequest {
    *
    * @param paymentMethod The collection that contains the type of the payment method and its
    *     specific information if available
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest paymentMethod(Map<String, String> paymentMethod) {
+  public StoredValueIssueRequest paymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
     isSetPaymentMethod = true; // mark as set
     return this;
   }
 
-  public StoredValueBalanceCheckRequest putPaymentMethodItem(String key, String paymentMethodItem) {
+  public StoredValueIssueRequest putPaymentMethodItem(String key, String paymentMethodItem) {
     if (this.paymentMethod == null) {
       this.paymentMethod = new HashMap<>();
     }
@@ -279,10 +276,9 @@ public class StoredValueBalanceCheckRequest {
    * recurringDetailReference
    *
    * @param recurringDetailReference
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest recurringDetailReference(String recurringDetailReference) {
+  public StoredValueIssueRequest recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -321,10 +317,9 @@ public class StoredValueBalanceCheckRequest {
    *     communication with you about the payment status. We recommend using a unique value per
    *     payment; however, it is not a requirement. If you need to provide multiple references for a
    *     transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest reference(String reference) {
+  public StoredValueIssueRequest reference(String reference) {
     this.reference = reference;
     isSetReference = true; // mark as set
     return this;
@@ -390,11 +385,9 @@ public class StoredValueBalanceCheckRequest {
    *     transactions where the shopper is in contact with the merchant via email or telephone. *
    *     &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to
    *     make a payment using a secure payment terminal.
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest shopperInteraction(
-      ShopperInteractionEnum shopperInteraction) {
+  public StoredValueIssueRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     isSetShopperInteraction = true; // mark as set
     return this;
@@ -469,10 +462,9 @@ public class StoredValueBalanceCheckRequest {
    * shopperReference
    *
    * @param shopperReference
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest shopperReference(String shopperReference) {
+  public StoredValueIssueRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     isSetShopperReference = true; // mark as set
     return this;
@@ -505,10 +497,9 @@ public class StoredValueBalanceCheckRequest {
    * The physical store, for which this payment is processed.
    *
    * @param store The physical store, for which this payment is processed.
-   * @return the current {@code StoredValueBalanceCheckRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code StoredValueIssueRequest} instance, allowing for method chaining
    */
-  public StoredValueBalanceCheckRequest store(String store) {
+  public StoredValueIssueRequest store(String store) {
     this.store = store;
     isSetStore = true; // mark as set
     return this;
@@ -540,7 +531,7 @@ public class StoredValueBalanceCheckRequest {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredValueBalanceCheckRequest includeNullValues(boolean includeNullValues) {
+  public StoredValueIssueRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -557,7 +548,7 @@ public class StoredValueBalanceCheckRequest {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredValueBalanceCheckRequest object is equal to o. */
+  /** Return true if this StoredValueIssueRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -566,32 +557,27 @@ public class StoredValueBalanceCheckRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredValueBalanceCheckRequest storedValueBalanceCheckRequest =
-        (StoredValueBalanceCheckRequest) o;
-    return Objects.equals(this.amount, storedValueBalanceCheckRequest.amount)
-        && Objects.equals(this.isSetAmount, storedValueBalanceCheckRequest.isSetAmount)
-        && Objects.equals(this.merchantAccount, storedValueBalanceCheckRequest.merchantAccount)
+    StoredValueIssueRequest storedValueIssueRequest = (StoredValueIssueRequest) o;
+    return Objects.equals(this.amount, storedValueIssueRequest.amount)
+        && Objects.equals(this.isSetAmount, storedValueIssueRequest.isSetAmount)
+        && Objects.equals(this.merchantAccount, storedValueIssueRequest.merchantAccount)
+        && Objects.equals(this.isSetMerchantAccount, storedValueIssueRequest.isSetMerchantAccount)
+        && Objects.equals(this.paymentMethod, storedValueIssueRequest.paymentMethod)
+        && Objects.equals(this.isSetPaymentMethod, storedValueIssueRequest.isSetPaymentMethod)
         && Objects.equals(
-            this.isSetMerchantAccount, storedValueBalanceCheckRequest.isSetMerchantAccount)
-        && Objects.equals(this.paymentMethod, storedValueBalanceCheckRequest.paymentMethod)
-        && Objects.equals(
-            this.isSetPaymentMethod, storedValueBalanceCheckRequest.isSetPaymentMethod)
-        && Objects.equals(
-            this.recurringDetailReference, storedValueBalanceCheckRequest.recurringDetailReference)
+            this.recurringDetailReference, storedValueIssueRequest.recurringDetailReference)
         && Objects.equals(
             this.isSetRecurringDetailReference,
-            storedValueBalanceCheckRequest.isSetRecurringDetailReference)
-        && Objects.equals(this.reference, storedValueBalanceCheckRequest.reference)
-        && Objects.equals(this.isSetReference, storedValueBalanceCheckRequest.isSetReference)
+            storedValueIssueRequest.isSetRecurringDetailReference)
+        && Objects.equals(this.reference, storedValueIssueRequest.reference)
+        && Objects.equals(this.isSetReference, storedValueIssueRequest.isSetReference)
+        && Objects.equals(this.shopperInteraction, storedValueIssueRequest.shopperInteraction)
         && Objects.equals(
-            this.shopperInteraction, storedValueBalanceCheckRequest.shopperInteraction)
-        && Objects.equals(
-            this.isSetShopperInteraction, storedValueBalanceCheckRequest.isSetShopperInteraction)
-        && Objects.equals(this.shopperReference, storedValueBalanceCheckRequest.shopperReference)
-        && Objects.equals(
-            this.isSetShopperReference, storedValueBalanceCheckRequest.isSetShopperReference)
-        && Objects.equals(this.store, storedValueBalanceCheckRequest.store)
-        && Objects.equals(this.isSetStore, storedValueBalanceCheckRequest.isSetStore);
+            this.isSetShopperInteraction, storedValueIssueRequest.isSetShopperInteraction)
+        && Objects.equals(this.shopperReference, storedValueIssueRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, storedValueIssueRequest.isSetShopperReference)
+        && Objects.equals(this.store, storedValueIssueRequest.store)
+        && Objects.equals(this.isSetStore, storedValueIssueRequest.isSetStore);
   }
 
   @Override
@@ -618,7 +604,7 @@ public class StoredValueBalanceCheckRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredValueBalanceCheckRequest {\n");
+    sb.append("class StoredValueIssueRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
@@ -689,20 +675,19 @@ public class StoredValueBalanceCheckRequest {
   }
 
   /**
-   * Create an instance of StoredValueBalanceCheckRequest given an JSON string
+   * Create an instance of StoredValueIssueRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredValueBalanceCheckRequest
+   * @return An instance of StoredValueIssueRequest
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueBalanceCheckRequest
+   *     StoredValueIssueRequest
    */
-  public static StoredValueBalanceCheckRequest fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredValueBalanceCheckRequest.class);
+  public static StoredValueIssueRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StoredValueIssueRequest.class);
   }
 
   /**
-   * Convert an instance of StoredValueBalanceCheckRequest to an JSON string
+   * Convert an instance of StoredValueIssueRequest to an JSON string
    *
    * @return JSON string
    */

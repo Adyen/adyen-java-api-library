@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.storedvalue;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,15 +23,22 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** StoredValueVoidResponse */
+/** StoredValueLoadResponse */
 @JsonPropertyOrder({
-  StoredValueVoidResponse.JSON_PROPERTY_CURRENT_BALANCE,
-  StoredValueVoidResponse.JSON_PROPERTY_PSP_REFERENCE,
-  StoredValueVoidResponse.JSON_PROPERTY_REFUSAL_REASON,
-  StoredValueVoidResponse.JSON_PROPERTY_RESULT_CODE,
-  StoredValueVoidResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
+  StoredValueLoadResponse.JSON_PROPERTY_AUTH_CODE,
+  StoredValueLoadResponse.JSON_PROPERTY_CURRENT_BALANCE,
+  StoredValueLoadResponse.JSON_PROPERTY_PSP_REFERENCE,
+  StoredValueLoadResponse.JSON_PROPERTY_REFUSAL_REASON,
+  StoredValueLoadResponse.JSON_PROPERTY_RESULT_CODE,
+  StoredValueLoadResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
 })
-public class StoredValueVoidResponse {
+public class StoredValueLoadResponse {
+  public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
+  private String authCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthCode = false;
+
   public static final String JSON_PROPERTY_CURRENT_BALANCE = "currentBalance";
   private Amount currentBalance;
 
@@ -120,15 +127,59 @@ public class StoredValueVoidResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredValueVoidResponse() {}
+  public StoredValueLoadResponse() {}
+
+  /**
+   * Authorisation code: * When the payment is authorised, this field holds the authorisation code
+   * for the payment. * When the payment is not authorised, this field is empty.
+   *
+   * @param authCode Authorisation code: * When the payment is authorised, this field holds the
+   *     authorisation code for the payment. * When the payment is not authorised, this field is
+   *     empty.
+   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
+   */
+  public StoredValueLoadResponse authCode(String authCode) {
+    this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Authorisation code: * When the payment is authorised, this field holds the authorisation code
+   * for the payment. * When the payment is not authorised, this field is empty.
+   *
+   * @return authCode Authorisation code: * When the payment is authorised, this field holds the
+   *     authorisation code for the payment. * When the payment is not authorised, this field is
+   *     empty.
+   */
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAuthCode() {
+    return authCode;
+  }
+
+  /**
+   * Authorisation code: * When the payment is authorised, this field holds the authorisation code
+   * for the payment. * When the payment is not authorised, this field is empty.
+   *
+   * @param authCode Authorisation code: * When the payment is authorised, this field holds the
+   *     authorisation code for the payment. * When the payment is not authorised, this field is
+   *     empty.
+   */
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAuthCode(String authCode) {
+    this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
+  }
 
   /**
    * currentBalance
    *
    * @param currentBalance
-   * @return the current {@code StoredValueVoidResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
    */
-  public StoredValueVoidResponse currentBalance(Amount currentBalance) {
+  public StoredValueLoadResponse currentBalance(Amount currentBalance) {
     this.currentBalance = currentBalance;
     isSetCurrentBalance = true; // mark as set
     return this;
@@ -164,9 +215,9 @@ public class StoredValueVoidResponse {
    * @param pspReference Adyen&#39;s 16-character string reference associated with the
    *     transaction/request. This value is globally unique; quote it when communicating with us
    *     about this request.
-   * @return the current {@code StoredValueVoidResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
    */
-  public StoredValueVoidResponse pspReference(String pspReference) {
+  public StoredValueLoadResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     isSetPspReference = true; // mark as set
     return this;
@@ -210,9 +261,9 @@ public class StoredValueVoidResponse {
    *     Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction
    *     fails, the authorisation response includes &#x60;resultCode&#x60; and
    *     &#x60;refusalReason&#x60; values.
-   * @return the current {@code StoredValueVoidResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
    */
-  public StoredValueVoidResponse refusalReason(String refusalReason) {
+  public StoredValueLoadResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     isSetRefusalReason = true; // mark as set
     return this;
@@ -265,9 +316,9 @@ public class StoredValueVoidResponse {
    *     was processed. The reason is given in the &#x60;refusalReason&#x60; field. *
    *     **NotEnoughBalance** – The amount on the payment method is lower than the amount given in
    *     the request. Only applicable to balance checks.
-   * @return the current {@code StoredValueVoidResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
    */
-  public StoredValueVoidResponse resultCode(ResultCodeEnum resultCode) {
+  public StoredValueLoadResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     isSetResultCode = true; // mark as set
     return this;
@@ -321,9 +372,9 @@ public class StoredValueVoidResponse {
    *
    * @param thirdPartyRefusalReason Raw refusal reason received from the third party, where
    *     available
-   * @return the current {@code StoredValueVoidResponse} instance, allowing for method chaining
+   * @return the current {@code StoredValueLoadResponse} instance, allowing for method chaining
    */
-  public StoredValueVoidResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
+  public StoredValueLoadResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
     isSetThirdPartyRefusalReason = true; // mark as set
     return this;
@@ -357,7 +408,7 @@ public class StoredValueVoidResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredValueVoidResponse includeNullValues(boolean includeNullValues) {
+  public StoredValueLoadResponse includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -374,7 +425,7 @@ public class StoredValueVoidResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredValueVoidResponse object is equal to o. */
+  /** Return true if this StoredValueLoadResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -383,25 +434,29 @@ public class StoredValueVoidResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredValueVoidResponse storedValueVoidResponse = (StoredValueVoidResponse) o;
-    return Objects.equals(this.currentBalance, storedValueVoidResponse.currentBalance)
-        && Objects.equals(this.isSetCurrentBalance, storedValueVoidResponse.isSetCurrentBalance)
-        && Objects.equals(this.pspReference, storedValueVoidResponse.pspReference)
-        && Objects.equals(this.isSetPspReference, storedValueVoidResponse.isSetPspReference)
-        && Objects.equals(this.refusalReason, storedValueVoidResponse.refusalReason)
-        && Objects.equals(this.isSetRefusalReason, storedValueVoidResponse.isSetRefusalReason)
-        && Objects.equals(this.resultCode, storedValueVoidResponse.resultCode)
-        && Objects.equals(this.isSetResultCode, storedValueVoidResponse.isSetResultCode)
+    StoredValueLoadResponse storedValueLoadResponse = (StoredValueLoadResponse) o;
+    return Objects.equals(this.authCode, storedValueLoadResponse.authCode)
+        && Objects.equals(this.isSetAuthCode, storedValueLoadResponse.isSetAuthCode)
+        && Objects.equals(this.currentBalance, storedValueLoadResponse.currentBalance)
+        && Objects.equals(this.isSetCurrentBalance, storedValueLoadResponse.isSetCurrentBalance)
+        && Objects.equals(this.pspReference, storedValueLoadResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, storedValueLoadResponse.isSetPspReference)
+        && Objects.equals(this.refusalReason, storedValueLoadResponse.refusalReason)
+        && Objects.equals(this.isSetRefusalReason, storedValueLoadResponse.isSetRefusalReason)
+        && Objects.equals(this.resultCode, storedValueLoadResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, storedValueLoadResponse.isSetResultCode)
         && Objects.equals(
-            this.thirdPartyRefusalReason, storedValueVoidResponse.thirdPartyRefusalReason)
+            this.thirdPartyRefusalReason, storedValueLoadResponse.thirdPartyRefusalReason)
         && Objects.equals(
             this.isSetThirdPartyRefusalReason,
-            storedValueVoidResponse.isSetThirdPartyRefusalReason);
+            storedValueLoadResponse.isSetThirdPartyRefusalReason);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        authCode,
+        isSetAuthCode,
         currentBalance,
         isSetCurrentBalance,
         pspReference,
@@ -417,7 +472,8 @@ public class StoredValueVoidResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredValueVoidResponse {\n");
+    sb.append("class StoredValueLoadResponse {\n");
+    sb.append("    authCode: ").append(toIndentedString(authCode)).append("\n");
     sb.append("    currentBalance: ").append(toIndentedString(currentBalance)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
@@ -449,6 +505,9 @@ public class StoredValueVoidResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAuthCode) {
+      addIfNull(nulls, JSON_PROPERTY_AUTH_CODE, this.authCode);
+    }
     if (isSetCurrentBalance) {
       addIfNull(nulls, JSON_PROPERTY_CURRENT_BALANCE, this.currentBalance);
     }
@@ -476,19 +535,19 @@ public class StoredValueVoidResponse {
   }
 
   /**
-   * Create an instance of StoredValueVoidResponse given an JSON string
+   * Create an instance of StoredValueLoadResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredValueVoidResponse
+   * @return An instance of StoredValueLoadResponse
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueVoidResponse
+   *     StoredValueLoadResponse
    */
-  public static StoredValueVoidResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredValueVoidResponse.class);
+  public static StoredValueLoadResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, StoredValueLoadResponse.class);
   }
 
   /**
-   * Convert an instance of StoredValueVoidResponse to an JSON string
+   * Convert an instance of StoredValueLoadResponse to an JSON string
    *
    * @return JSON string
    */

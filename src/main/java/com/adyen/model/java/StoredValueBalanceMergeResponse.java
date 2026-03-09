@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.storedvalue;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,15 +23,22 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** StoredValueBalanceCheckResponse */
+/** StoredValueBalanceMergeResponse */
 @JsonPropertyOrder({
-  StoredValueBalanceCheckResponse.JSON_PROPERTY_CURRENT_BALANCE,
-  StoredValueBalanceCheckResponse.JSON_PROPERTY_PSP_REFERENCE,
-  StoredValueBalanceCheckResponse.JSON_PROPERTY_REFUSAL_REASON,
-  StoredValueBalanceCheckResponse.JSON_PROPERTY_RESULT_CODE,
-  StoredValueBalanceCheckResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
+  StoredValueBalanceMergeResponse.JSON_PROPERTY_AUTH_CODE,
+  StoredValueBalanceMergeResponse.JSON_PROPERTY_CURRENT_BALANCE,
+  StoredValueBalanceMergeResponse.JSON_PROPERTY_PSP_REFERENCE,
+  StoredValueBalanceMergeResponse.JSON_PROPERTY_REFUSAL_REASON,
+  StoredValueBalanceMergeResponse.JSON_PROPERTY_RESULT_CODE,
+  StoredValueBalanceMergeResponse.JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON
 })
-public class StoredValueBalanceCheckResponse {
+public class StoredValueBalanceMergeResponse {
+  public static final String JSON_PROPERTY_AUTH_CODE = "authCode";
+  private String authCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthCode = false;
+
   public static final String JSON_PROPERTY_CURRENT_BALANCE = "currentBalance";
   private Amount currentBalance;
 
@@ -120,16 +127,61 @@ public class StoredValueBalanceCheckResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredValueBalanceCheckResponse() {}
+  public StoredValueBalanceMergeResponse() {}
+
+  /**
+   * Authorisation code: * When the payment is authorised, this field holds the authorisation code
+   * for the payment. * When the payment is not authorised, this field is empty.
+   *
+   * @param authCode Authorisation code: * When the payment is authorised, this field holds the
+   *     authorisation code for the payment. * When the payment is not authorised, this field is
+   *     empty.
+   * @return the current {@code StoredValueBalanceMergeResponse} instance, allowing for method
+   *     chaining
+   */
+  public StoredValueBalanceMergeResponse authCode(String authCode) {
+    this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Authorisation code: * When the payment is authorised, this field holds the authorisation code
+   * for the payment. * When the payment is not authorised, this field is empty.
+   *
+   * @return authCode Authorisation code: * When the payment is authorised, this field holds the
+   *     authorisation code for the payment. * When the payment is not authorised, this field is
+   *     empty.
+   */
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAuthCode() {
+    return authCode;
+  }
+
+  /**
+   * Authorisation code: * When the payment is authorised, this field holds the authorisation code
+   * for the payment. * When the payment is not authorised, this field is empty.
+   *
+   * @param authCode Authorisation code: * When the payment is authorised, this field holds the
+   *     authorisation code for the payment. * When the payment is not authorised, this field is
+   *     empty.
+   */
+  @JsonProperty(JSON_PROPERTY_AUTH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAuthCode(String authCode) {
+    this.authCode = authCode;
+    isSetAuthCode = true; // mark as set
+  }
 
   /**
    * currentBalance
    *
    * @param currentBalance
-   * @return the current {@code StoredValueBalanceCheckResponse} instance, allowing for method
+   * @return the current {@code StoredValueBalanceMergeResponse} instance, allowing for method
    *     chaining
    */
-  public StoredValueBalanceCheckResponse currentBalance(Amount currentBalance) {
+  public StoredValueBalanceMergeResponse currentBalance(Amount currentBalance) {
     this.currentBalance = currentBalance;
     isSetCurrentBalance = true; // mark as set
     return this;
@@ -165,10 +217,10 @@ public class StoredValueBalanceCheckResponse {
    * @param pspReference Adyen&#39;s 16-character string reference associated with the
    *     transaction/request. This value is globally unique; quote it when communicating with us
    *     about this request.
-   * @return the current {@code StoredValueBalanceCheckResponse} instance, allowing for method
+   * @return the current {@code StoredValueBalanceMergeResponse} instance, allowing for method
    *     chaining
    */
-  public StoredValueBalanceCheckResponse pspReference(String pspReference) {
+  public StoredValueBalanceMergeResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     isSetPspReference = true; // mark as set
     return this;
@@ -212,10 +264,10 @@ public class StoredValueBalanceCheckResponse {
    *     Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction
    *     fails, the authorisation response includes &#x60;resultCode&#x60; and
    *     &#x60;refusalReason&#x60; values.
-   * @return the current {@code StoredValueBalanceCheckResponse} instance, allowing for method
+   * @return the current {@code StoredValueBalanceMergeResponse} instance, allowing for method
    *     chaining
    */
-  public StoredValueBalanceCheckResponse refusalReason(String refusalReason) {
+  public StoredValueBalanceMergeResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     isSetRefusalReason = true; // mark as set
     return this;
@@ -268,10 +320,10 @@ public class StoredValueBalanceCheckResponse {
    *     was processed. The reason is given in the &#x60;refusalReason&#x60; field. *
    *     **NotEnoughBalance** – The amount on the payment method is lower than the amount given in
    *     the request. Only applicable to balance checks.
-   * @return the current {@code StoredValueBalanceCheckResponse} instance, allowing for method
+   * @return the current {@code StoredValueBalanceMergeResponse} instance, allowing for method
    *     chaining
    */
-  public StoredValueBalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
+  public StoredValueBalanceMergeResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     isSetResultCode = true; // mark as set
     return this;
@@ -325,10 +377,10 @@ public class StoredValueBalanceCheckResponse {
    *
    * @param thirdPartyRefusalReason Raw refusal reason received from the third party, where
    *     available
-   * @return the current {@code StoredValueBalanceCheckResponse} instance, allowing for method
+   * @return the current {@code StoredValueBalanceMergeResponse} instance, allowing for method
    *     chaining
    */
-  public StoredValueBalanceCheckResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
+  public StoredValueBalanceMergeResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
     this.thirdPartyRefusalReason = thirdPartyRefusalReason;
     isSetThirdPartyRefusalReason = true; // mark as set
     return this;
@@ -362,7 +414,7 @@ public class StoredValueBalanceCheckResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredValueBalanceCheckResponse includeNullValues(boolean includeNullValues) {
+  public StoredValueBalanceMergeResponse includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -379,7 +431,7 @@ public class StoredValueBalanceCheckResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredValueBalanceCheckResponse object is equal to o. */
+  /** Return true if this StoredValueBalanceMergeResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -388,28 +440,32 @@ public class StoredValueBalanceCheckResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredValueBalanceCheckResponse storedValueBalanceCheckResponse =
-        (StoredValueBalanceCheckResponse) o;
-    return Objects.equals(this.currentBalance, storedValueBalanceCheckResponse.currentBalance)
+    StoredValueBalanceMergeResponse storedValueBalanceMergeResponse =
+        (StoredValueBalanceMergeResponse) o;
+    return Objects.equals(this.authCode, storedValueBalanceMergeResponse.authCode)
+        && Objects.equals(this.isSetAuthCode, storedValueBalanceMergeResponse.isSetAuthCode)
+        && Objects.equals(this.currentBalance, storedValueBalanceMergeResponse.currentBalance)
         && Objects.equals(
-            this.isSetCurrentBalance, storedValueBalanceCheckResponse.isSetCurrentBalance)
-        && Objects.equals(this.pspReference, storedValueBalanceCheckResponse.pspReference)
-        && Objects.equals(this.isSetPspReference, storedValueBalanceCheckResponse.isSetPspReference)
-        && Objects.equals(this.refusalReason, storedValueBalanceCheckResponse.refusalReason)
+            this.isSetCurrentBalance, storedValueBalanceMergeResponse.isSetCurrentBalance)
+        && Objects.equals(this.pspReference, storedValueBalanceMergeResponse.pspReference)
+        && Objects.equals(this.isSetPspReference, storedValueBalanceMergeResponse.isSetPspReference)
+        && Objects.equals(this.refusalReason, storedValueBalanceMergeResponse.refusalReason)
         && Objects.equals(
-            this.isSetRefusalReason, storedValueBalanceCheckResponse.isSetRefusalReason)
-        && Objects.equals(this.resultCode, storedValueBalanceCheckResponse.resultCode)
-        && Objects.equals(this.isSetResultCode, storedValueBalanceCheckResponse.isSetResultCode)
+            this.isSetRefusalReason, storedValueBalanceMergeResponse.isSetRefusalReason)
+        && Objects.equals(this.resultCode, storedValueBalanceMergeResponse.resultCode)
+        && Objects.equals(this.isSetResultCode, storedValueBalanceMergeResponse.isSetResultCode)
         && Objects.equals(
-            this.thirdPartyRefusalReason, storedValueBalanceCheckResponse.thirdPartyRefusalReason)
+            this.thirdPartyRefusalReason, storedValueBalanceMergeResponse.thirdPartyRefusalReason)
         && Objects.equals(
             this.isSetThirdPartyRefusalReason,
-            storedValueBalanceCheckResponse.isSetThirdPartyRefusalReason);
+            storedValueBalanceMergeResponse.isSetThirdPartyRefusalReason);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        authCode,
+        isSetAuthCode,
         currentBalance,
         isSetCurrentBalance,
         pspReference,
@@ -425,7 +481,8 @@ public class StoredValueBalanceCheckResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredValueBalanceCheckResponse {\n");
+    sb.append("class StoredValueBalanceMergeResponse {\n");
+    sb.append("    authCode: ").append(toIndentedString(authCode)).append("\n");
     sb.append("    currentBalance: ").append(toIndentedString(currentBalance)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
@@ -457,6 +514,9 @@ public class StoredValueBalanceCheckResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAuthCode) {
+      addIfNull(nulls, JSON_PROPERTY_AUTH_CODE, this.authCode);
+    }
     if (isSetCurrentBalance) {
       addIfNull(nulls, JSON_PROPERTY_CURRENT_BALANCE, this.currentBalance);
     }
@@ -484,20 +544,20 @@ public class StoredValueBalanceCheckResponse {
   }
 
   /**
-   * Create an instance of StoredValueBalanceCheckResponse given an JSON string
+   * Create an instance of StoredValueBalanceMergeResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredValueBalanceCheckResponse
+   * @return An instance of StoredValueBalanceMergeResponse
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueBalanceCheckResponse
+   *     StoredValueBalanceMergeResponse
    */
-  public static StoredValueBalanceCheckResponse fromJson(String jsonString)
+  public static StoredValueBalanceMergeResponse fromJson(String jsonString)
       throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredValueBalanceCheckResponse.class);
+    return JSON.getMapper().readValue(jsonString, StoredValueBalanceMergeResponse.class);
   }
 
   /**
-   * Convert an instance of StoredValueBalanceCheckResponse to an JSON string
+   * Convert an instance of StoredValueBalanceMergeResponse to an JSON string
    *
    * @return JSON string
    */
