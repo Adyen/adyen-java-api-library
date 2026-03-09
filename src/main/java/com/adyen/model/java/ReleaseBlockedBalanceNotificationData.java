@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.balancewebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,32 +38,68 @@ public class ReleaseBlockedBalanceNotificationData {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT = "balanceAccount";
   private ResourceReference balanceAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccount = false;
+
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
 
   public static final String JSON_PROPERTY_BATCH_REFERENCE = "batchReference";
   private String batchReference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBatchReference = false;
+
   public static final String JSON_PROPERTY_BLOCKED_BALANCE_AFTER = "blockedBalanceAfter";
   private Amount blockedBalanceAfter;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBlockedBalanceAfter = false;
 
   public static final String JSON_PROPERTY_BLOCKED_BALANCE_BEFORE = "blockedBalanceBefore";
   private Amount blockedBalanceBefore;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBlockedBalanceBefore = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
   private OffsetDateTime valueDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValueDate = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ReleaseBlockedBalanceNotificationData() {}
 
@@ -80,6 +118,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData accountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -103,6 +142,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -114,6 +154,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -137,6 +178,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -148,6 +190,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData balanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
     return this;
   }
 
@@ -171,6 +214,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
   }
 
   /**
@@ -182,6 +226,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -205,6 +250,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -216,6 +262,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData batchReference(String batchReference) {
     this.batchReference = batchReference;
+    isSetBatchReference = true; // mark as set
     return this;
   }
 
@@ -239,6 +286,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBatchReference(String batchReference) {
     this.batchReference = batchReference;
+    isSetBatchReference = true; // mark as set
   }
 
   /**
@@ -250,6 +298,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData blockedBalanceAfter(Amount blockedBalanceAfter) {
     this.blockedBalanceAfter = blockedBalanceAfter;
+    isSetBlockedBalanceAfter = true; // mark as set
     return this;
   }
 
@@ -273,6 +322,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedBalanceAfter(Amount blockedBalanceAfter) {
     this.blockedBalanceAfter = blockedBalanceAfter;
+    isSetBlockedBalanceAfter = true; // mark as set
   }
 
   /**
@@ -284,6 +334,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData blockedBalanceBefore(Amount blockedBalanceBefore) {
     this.blockedBalanceBefore = blockedBalanceBefore;
+    isSetBlockedBalanceBefore = true; // mark as set
     return this;
   }
 
@@ -307,6 +358,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedBalanceBefore(Amount blockedBalanceBefore) {
     this.blockedBalanceBefore = blockedBalanceBefore;
+    isSetBlockedBalanceBefore = true; // mark as set
   }
 
   /**
@@ -320,6 +372,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -347,6 +400,7 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -371,6 +425,7 @@ public class ReleaseBlockedBalanceNotificationData {
    */
   public ReleaseBlockedBalanceNotificationData valueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
+    isSetValueDate = true; // mark as set
     return this;
   }
 
@@ -398,6 +453,27 @@ public class ReleaseBlockedBalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
+    isSetValueDate = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ReleaseBlockedBalanceNotificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ReleaseBlockedBalanceNotificationData object is equal to o. */
@@ -412,33 +488,63 @@ public class ReleaseBlockedBalanceNotificationData {
     ReleaseBlockedBalanceNotificationData releaseBlockedBalanceNotificationData =
         (ReleaseBlockedBalanceNotificationData) o;
     return Objects.equals(this.accountHolder, releaseBlockedBalanceNotificationData.accountHolder)
+        && Objects.equals(
+            this.isSetAccountHolder, releaseBlockedBalanceNotificationData.isSetAccountHolder)
         && Objects.equals(this.amount, releaseBlockedBalanceNotificationData.amount)
+        && Objects.equals(this.isSetAmount, releaseBlockedBalanceNotificationData.isSetAmount)
         && Objects.equals(this.balanceAccount, releaseBlockedBalanceNotificationData.balanceAccount)
         && Objects.equals(
+            this.isSetBalanceAccount, releaseBlockedBalanceNotificationData.isSetBalanceAccount)
+        && Objects.equals(
             this.balancePlatform, releaseBlockedBalanceNotificationData.balancePlatform)
+        && Objects.equals(
+            this.isSetBalancePlatform, releaseBlockedBalanceNotificationData.isSetBalancePlatform)
         && Objects.equals(this.batchReference, releaseBlockedBalanceNotificationData.batchReference)
+        && Objects.equals(
+            this.isSetBatchReference, releaseBlockedBalanceNotificationData.isSetBatchReference)
         && Objects.equals(
             this.blockedBalanceAfter, releaseBlockedBalanceNotificationData.blockedBalanceAfter)
         && Objects.equals(
+            this.isSetBlockedBalanceAfter,
+            releaseBlockedBalanceNotificationData.isSetBlockedBalanceAfter)
+        && Objects.equals(
             this.blockedBalanceBefore, releaseBlockedBalanceNotificationData.blockedBalanceBefore)
+        && Objects.equals(
+            this.isSetBlockedBalanceBefore,
+            releaseBlockedBalanceNotificationData.isSetBlockedBalanceBefore)
         && Objects.equals(this.creationDate, releaseBlockedBalanceNotificationData.creationDate)
+        && Objects.equals(
+            this.isSetCreationDate, releaseBlockedBalanceNotificationData.isSetCreationDate)
         && Objects.equals(this.id, releaseBlockedBalanceNotificationData.id)
-        && Objects.equals(this.valueDate, releaseBlockedBalanceNotificationData.valueDate);
+        && Objects.equals(this.isSetId, releaseBlockedBalanceNotificationData.isSetId)
+        && Objects.equals(this.valueDate, releaseBlockedBalanceNotificationData.valueDate)
+        && Objects.equals(
+            this.isSetValueDate, releaseBlockedBalanceNotificationData.isSetValueDate);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         accountHolder,
+        isSetAccountHolder,
         amount,
+        isSetAmount,
         balanceAccount,
+        isSetBalanceAccount,
         balancePlatform,
+        isSetBalancePlatform,
         batchReference,
+        isSetBatchReference,
         blockedBalanceAfter,
+        isSetBlockedBalanceAfter,
         blockedBalanceBefore,
+        isSetBlockedBalanceBefore,
         creationDate,
+        isSetCreationDate,
         id,
-        valueDate);
+        isSetId,
+        valueDate,
+        isSetValueDate);
   }
 
   @Override
@@ -471,6 +577,57 @@ public class ReleaseBlockedBalanceNotificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBalanceAccount) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT, this.balanceAccount);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetBatchReference) {
+      addIfNull(nulls, JSON_PROPERTY_BATCH_REFERENCE, this.batchReference);
+    }
+    if (isSetBlockedBalanceAfter) {
+      addIfNull(nulls, JSON_PROPERTY_BLOCKED_BALANCE_AFTER, this.blockedBalanceAfter);
+    }
+    if (isSetBlockedBalanceBefore) {
+      addIfNull(nulls, JSON_PROPERTY_BLOCKED_BALANCE_BEFORE, this.blockedBalanceBefore);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetValueDate) {
+      addIfNull(nulls, JSON_PROPERTY_VALUE_DATE, this.valueDate);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

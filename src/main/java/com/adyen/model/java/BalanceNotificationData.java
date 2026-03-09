@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.balancewebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,23 +37,50 @@ public class BalanceNotificationData {
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccountId = false;
+
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
 
   public static final String JSON_PROPERTY_BALANCES = "balances";
   private Balances balances;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalances = false;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_SETTING_IDS = "settingIds";
   private List<String> settingIds;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSettingIds = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BalanceNotificationData() {}
 
@@ -69,6 +98,7 @@ public class BalanceNotificationData {
    */
   public BalanceNotificationData balanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
     return this;
   }
 
@@ -92,6 +122,7 @@ public class BalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
+    isSetBalanceAccountId = true; // mark as set
   }
 
   /**
@@ -102,6 +133,7 @@ public class BalanceNotificationData {
    */
   public BalanceNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -125,6 +157,7 @@ public class BalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -135,6 +168,7 @@ public class BalanceNotificationData {
    */
   public BalanceNotificationData balances(Balances balances) {
     this.balances = balances;
+    isSetBalances = true; // mark as set
     return this;
   }
 
@@ -158,6 +192,7 @@ public class BalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(Balances balances) {
     this.balances = balances;
+    isSetBalances = true; // mark as set
   }
 
   /**
@@ -170,6 +205,7 @@ public class BalanceNotificationData {
    */
   public BalanceNotificationData creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -197,6 +233,7 @@ public class BalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -209,6 +246,7 @@ public class BalanceNotificationData {
    */
   public BalanceNotificationData currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -236,6 +274,7 @@ public class BalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -257,6 +296,7 @@ public class BalanceNotificationData {
    */
   public BalanceNotificationData settingIds(List<String> settingIds) {
     this.settingIds = settingIds;
+    isSetSettingIds = true; // mark as set
     return this;
   }
 
@@ -288,6 +328,27 @@ public class BalanceNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettingIds(List<String> settingIds) {
     this.settingIds = settingIds;
+    isSetSettingIds = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BalanceNotificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BalanceNotificationData object is equal to o. */
@@ -301,18 +362,38 @@ public class BalanceNotificationData {
     }
     BalanceNotificationData balanceNotificationData = (BalanceNotificationData) o;
     return Objects.equals(this.balanceAccountId, balanceNotificationData.balanceAccountId)
+        && Objects.equals(this.isSetBalanceAccountId, balanceNotificationData.isSetBalanceAccountId)
         && Objects.equals(this.balancePlatform, balanceNotificationData.balancePlatform)
+        && Objects.equals(this.isSetBalancePlatform, balanceNotificationData.isSetBalancePlatform)
         && Objects.equals(this.balances, balanceNotificationData.balances)
+        && Objects.equals(this.isSetBalances, balanceNotificationData.isSetBalances)
         && Objects.equals(this.creationDate, balanceNotificationData.creationDate)
+        && Objects.equals(this.isSetCreationDate, balanceNotificationData.isSetCreationDate)
         && Objects.equals(this.currency, balanceNotificationData.currency)
+        && Objects.equals(this.isSetCurrency, balanceNotificationData.isSetCurrency)
         && Objects.equals(this.id, balanceNotificationData.id)
-        && Objects.equals(this.settingIds, balanceNotificationData.settingIds);
+        && Objects.equals(this.isSetId, balanceNotificationData.isSetId)
+        && Objects.equals(this.settingIds, balanceNotificationData.settingIds)
+        && Objects.equals(this.isSetSettingIds, balanceNotificationData.isSetSettingIds);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        balanceAccountId, balancePlatform, balances, creationDate, currency, id, settingIds);
+        balanceAccountId,
+        isSetBalanceAccountId,
+        balancePlatform,
+        isSetBalancePlatform,
+        balances,
+        isSetBalances,
+        creationDate,
+        isSetCreationDate,
+        currency,
+        isSetCurrency,
+        id,
+        isSetId,
+        settingIds,
+        isSetSettingIds);
   }
 
   @Override
@@ -338,6 +419,48 @@ public class BalanceNotificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalanceAccountId) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT_ID, this.balanceAccountId);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetBalances) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCES, this.balances);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetSettingIds) {
+      addIfNull(nulls, JSON_PROPERTY_SETTING_IDS, this.settingIds);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
