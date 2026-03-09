@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.tokenizationwebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,21 +24,27 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** TokenizationAlreadyExistingDetailsNotificationRequest */
+/** TokenizationCreatedDetailsNotificationRequest */
 @JsonPropertyOrder({
-  TokenizationAlreadyExistingDetailsNotificationRequest.JSON_PROPERTY_CREATED_AT,
-  TokenizationAlreadyExistingDetailsNotificationRequest.JSON_PROPERTY_DATA,
-  TokenizationAlreadyExistingDetailsNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
-  TokenizationAlreadyExistingDetailsNotificationRequest.JSON_PROPERTY_EVENT_ID,
-  TokenizationAlreadyExistingDetailsNotificationRequest.JSON_PROPERTY_TYPE,
-  TokenizationAlreadyExistingDetailsNotificationRequest.JSON_PROPERTY_VERSION
+  TokenizationCreatedDetailsNotificationRequest.JSON_PROPERTY_CREATED_AT,
+  TokenizationCreatedDetailsNotificationRequest.JSON_PROPERTY_DATA,
+  TokenizationCreatedDetailsNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
+  TokenizationCreatedDetailsNotificationRequest.JSON_PROPERTY_EVENT_ID,
+  TokenizationCreatedDetailsNotificationRequest.JSON_PROPERTY_TYPE,
+  TokenizationCreatedDetailsNotificationRequest.JSON_PROPERTY_VERSION
 })
-public class TokenizationAlreadyExistingDetailsNotificationRequest {
+public class TokenizationCreatedDetailsNotificationRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_DATA = "data";
   private RecurringTokenStoreOperation data;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
 
   /** The environment from which the webhook originated. Possible values: **test**, **live**. */
   public enum EnvironmentEnum {
@@ -82,12 +90,18 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private EnvironmentEnum environment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnvironment = false;
+
   public static final String JSON_PROPERTY_EVENT_ID = "eventId";
   private String eventId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventId = false;
+
   /** The type of webhook. */
   public enum TypeEnum {
-    RECURRING_TOKEN_ALREADYEXISTING(String.valueOf("recurring.token.alreadyExisting"));
+    RECURRING_TOKEN_CREATED(String.valueOf("recurring.token.created"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -127,20 +141,33 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
-  public TokenizationAlreadyExistingDetailsNotificationRequest() {}
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
+  public TokenizationCreatedDetailsNotificationRequest() {}
 
   /**
    * The date and time when the event happened, in ISO 8601 extended format.
    *
    * @param createdAt The date and time when the event happened, in ISO 8601 extended format.
-   * @return the current {@code TokenizationAlreadyExistingDetailsNotificationRequest} instance,
-   *     allowing for method chaining
+   * @return the current {@code TokenizationCreatedDetailsNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TokenizationAlreadyExistingDetailsNotificationRequest createdAt(OffsetDateTime createdAt) {
+  public TokenizationCreatedDetailsNotificationRequest createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -164,18 +191,19 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
    * data
    *
    * @param data
-   * @return the current {@code TokenizationAlreadyExistingDetailsNotificationRequest} instance,
-   *     allowing for method chaining
+   * @return the current {@code TokenizationCreatedDetailsNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TokenizationAlreadyExistingDetailsNotificationRequest data(
-      RecurringTokenStoreOperation data) {
+  public TokenizationCreatedDetailsNotificationRequest data(RecurringTokenStoreOperation data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -199,6 +227,7 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(RecurringTokenStoreOperation data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -206,12 +235,12 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
    *
    * @param environment The environment from which the webhook originated. Possible values:
    *     **test**, **live**.
-   * @return the current {@code TokenizationAlreadyExistingDetailsNotificationRequest} instance,
-   *     allowing for method chaining
+   * @return the current {@code TokenizationCreatedDetailsNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TokenizationAlreadyExistingDetailsNotificationRequest environment(
-      EnvironmentEnum environment) {
+  public TokenizationCreatedDetailsNotificationRequest environment(EnvironmentEnum environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
     return this;
   }
 
@@ -237,17 +266,19 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(EnvironmentEnum environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
   }
 
   /**
    * The PSP reference of the event that triggered the webhook.
    *
    * @param eventId The PSP reference of the event that triggered the webhook.
-   * @return the current {@code TokenizationAlreadyExistingDetailsNotificationRequest} instance,
-   *     allowing for method chaining
+   * @return the current {@code TokenizationCreatedDetailsNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TokenizationAlreadyExistingDetailsNotificationRequest eventId(String eventId) {
+  public TokenizationCreatedDetailsNotificationRequest eventId(String eventId) {
     this.eventId = eventId;
+    isSetEventId = true; // mark as set
     return this;
   }
 
@@ -271,17 +302,19 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventId(String eventId) {
     this.eventId = eventId;
+    isSetEventId = true; // mark as set
   }
 
   /**
    * The type of webhook.
    *
    * @param type The type of webhook.
-   * @return the current {@code TokenizationAlreadyExistingDetailsNotificationRequest} instance,
-   *     allowing for method chaining
+   * @return the current {@code TokenizationCreatedDetailsNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TokenizationAlreadyExistingDetailsNotificationRequest type(TypeEnum type) {
+  public TokenizationCreatedDetailsNotificationRequest type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -305,17 +338,19 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
    * The version of this entity.
    *
    * @param version The version of this entity.
-   * @return the current {@code TokenizationAlreadyExistingDetailsNotificationRequest} instance,
-   *     allowing for method chaining
+   * @return the current {@code TokenizationCreatedDetailsNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TokenizationAlreadyExistingDetailsNotificationRequest version(String version) {
+  public TokenizationCreatedDetailsNotificationRequest version(String version) {
     this.version = version;
+    isSetVersion = true; // mark as set
     return this;
   }
 
@@ -339,11 +374,31 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {
     this.version = version;
+    isSetVersion = true; // mark as set
   }
 
   /**
-   * Return true if this TokenizationAlreadyExistingDetailsNotificationRequest object is equal to o.
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
+  public TokenizationCreatedDetailsNotificationRequest includeNullValues(
+      boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Return true if this TokenizationCreatedDetailsNotificationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -352,30 +407,48 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TokenizationAlreadyExistingDetailsNotificationRequest
-        tokenizationAlreadyExistingDetailsNotificationRequest =
-            (TokenizationAlreadyExistingDetailsNotificationRequest) o;
-    return Objects.equals(
-            this.createdAt, tokenizationAlreadyExistingDetailsNotificationRequest.createdAt)
-        && Objects.equals(this.data, tokenizationAlreadyExistingDetailsNotificationRequest.data)
+    TokenizationCreatedDetailsNotificationRequest tokenizationCreatedDetailsNotificationRequest =
+        (TokenizationCreatedDetailsNotificationRequest) o;
+    return Objects.equals(this.createdAt, tokenizationCreatedDetailsNotificationRequest.createdAt)
         && Objects.equals(
-            this.environment, tokenizationAlreadyExistingDetailsNotificationRequest.environment)
+            this.isSetCreatedAt, tokenizationCreatedDetailsNotificationRequest.isSetCreatedAt)
+        && Objects.equals(this.data, tokenizationCreatedDetailsNotificationRequest.data)
+        && Objects.equals(this.isSetData, tokenizationCreatedDetailsNotificationRequest.isSetData)
         && Objects.equals(
-            this.eventId, tokenizationAlreadyExistingDetailsNotificationRequest.eventId)
-        && Objects.equals(this.type, tokenizationAlreadyExistingDetailsNotificationRequest.type)
+            this.environment, tokenizationCreatedDetailsNotificationRequest.environment)
         && Objects.equals(
-            this.version, tokenizationAlreadyExistingDetailsNotificationRequest.version);
+            this.isSetEnvironment, tokenizationCreatedDetailsNotificationRequest.isSetEnvironment)
+        && Objects.equals(this.eventId, tokenizationCreatedDetailsNotificationRequest.eventId)
+        && Objects.equals(
+            this.isSetEventId, tokenizationCreatedDetailsNotificationRequest.isSetEventId)
+        && Objects.equals(this.type, tokenizationCreatedDetailsNotificationRequest.type)
+        && Objects.equals(this.isSetType, tokenizationCreatedDetailsNotificationRequest.isSetType)
+        && Objects.equals(this.version, tokenizationCreatedDetailsNotificationRequest.version)
+        && Objects.equals(
+            this.isSetVersion, tokenizationCreatedDetailsNotificationRequest.isSetVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, data, environment, eventId, type, version);
+    return Objects.hash(
+        createdAt,
+        isSetCreatedAt,
+        data,
+        isSetData,
+        environment,
+        isSetEnvironment,
+        eventId,
+        isSetEventId,
+        type,
+        isSetType,
+        version,
+        isSetVersion);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TokenizationAlreadyExistingDetailsNotificationRequest {\n");
+    sb.append("class TokenizationCreatedDetailsNotificationRequest {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
@@ -396,23 +469,61 @@ public class TokenizationAlreadyExistingDetailsNotificationRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-  /**
-   * Create an instance of TokenizationAlreadyExistingDetailsNotificationRequest given an JSON
-   * string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TokenizationAlreadyExistingDetailsNotificationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TokenizationAlreadyExistingDetailsNotificationRequest
-   */
-  public static TokenizationAlreadyExistingDetailsNotificationRequest fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper()
-        .readValue(jsonString, TokenizationAlreadyExistingDetailsNotificationRequest.class);
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetEnvironment) {
+      addIfNull(nulls, JSON_PROPERTY_ENVIRONMENT, this.environment);
+    }
+    if (isSetEventId) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_ID, this.eventId);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetVersion) {
+      addIfNull(nulls, JSON_PROPERTY_VERSION, this.version);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
-   * Convert an instance of TokenizationAlreadyExistingDetailsNotificationRequest to an JSON string
+   * Create an instance of TokenizationCreatedDetailsNotificationRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TokenizationCreatedDetailsNotificationRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     TokenizationCreatedDetailsNotificationRequest
+   */
+  public static TokenizationCreatedDetailsNotificationRequest fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper()
+        .readValue(jsonString, TokenizationCreatedDetailsNotificationRequest.class);
+  }
+
+  /**
+   * Convert an instance of TokenizationCreatedDetailsNotificationRequest to an JSON string
    *
    * @return JSON string
    */
