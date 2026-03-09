@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.disputes;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
-/** DefendDisputeResponse */
-@JsonPropertyOrder({DefendDisputeResponse.JSON_PROPERTY_DISPUTE_SERVICE_RESULT})
-public class DefendDisputeResponse {
+/** AcceptDisputeResponse */
+@JsonPropertyOrder({AcceptDisputeResponse.JSON_PROPERTY_DISPUTE_SERVICE_RESULT})
+public class AcceptDisputeResponse {
   public static final String JSON_PROPERTY_DISPUTE_SERVICE_RESULT = "disputeServiceResult";
   private DisputeServiceResult disputeServiceResult;
 
@@ -34,15 +34,15 @@ public class DefendDisputeResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public DefendDisputeResponse() {}
+  public AcceptDisputeResponse() {}
 
   /**
    * disputeServiceResult
    *
    * @param disputeServiceResult
-   * @return the current {@code DefendDisputeResponse} instance, allowing for method chaining
+   * @return the current {@code AcceptDisputeResponse} instance, allowing for method chaining
    */
-  public DefendDisputeResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
+  public AcceptDisputeResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
     isSetDisputeServiceResult = true; // mark as set
     return this;
@@ -74,7 +74,7 @@ public class DefendDisputeResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public DefendDisputeResponse includeNullValues(boolean includeNullValues) {
+  public AcceptDisputeResponse includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -91,7 +91,7 @@ public class DefendDisputeResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this DefendDisputeResponse object is equal to o. */
+  /** Return true if this AcceptDisputeResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,10 +100,10 @@ public class DefendDisputeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DefendDisputeResponse defendDisputeResponse = (DefendDisputeResponse) o;
-    return Objects.equals(this.disputeServiceResult, defendDisputeResponse.disputeServiceResult)
+    AcceptDisputeResponse acceptDisputeResponse = (AcceptDisputeResponse) o;
+    return Objects.equals(this.disputeServiceResult, acceptDisputeResponse.disputeServiceResult)
         && Objects.equals(
-            this.isSetDisputeServiceResult, defendDisputeResponse.isSetDisputeServiceResult);
+            this.isSetDisputeServiceResult, acceptDisputeResponse.isSetDisputeServiceResult);
   }
 
   @Override
@@ -114,7 +114,7 @@ public class DefendDisputeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DefendDisputeResponse {\n");
+    sb.append("class AcceptDisputeResponse {\n");
     sb.append("    disputeServiceResult: ")
         .append(toIndentedString(disputeServiceResult))
         .append("\n");
@@ -157,19 +157,19 @@ public class DefendDisputeResponse {
   }
 
   /**
-   * Create an instance of DefendDisputeResponse given an JSON string
+   * Create an instance of AcceptDisputeResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DefendDisputeResponse
+   * @return An instance of AcceptDisputeResponse
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DefendDisputeResponse
+   *     AcceptDisputeResponse
    */
-  public static DefendDisputeResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, DefendDisputeResponse.class);
+  public static AcceptDisputeResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AcceptDisputeResponse.class);
   }
 
   /**
-   * Convert an instance of DefendDisputeResponse to an JSON string
+   * Convert an instance of AcceptDisputeResponse to an JSON string
    *
    * @return JSON string
    */

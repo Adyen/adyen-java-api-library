@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.disputes;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,12 +19,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
-/** AcceptDisputeRequest */
+/** DeleteDefenseDocumentRequest */
 @JsonPropertyOrder({
-  AcceptDisputeRequest.JSON_PROPERTY_DISPUTE_PSP_REFERENCE,
-  AcceptDisputeRequest.JSON_PROPERTY_MERCHANT_ACCOUNT_CODE
+  DeleteDefenseDocumentRequest.JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE,
+  DeleteDefenseDocumentRequest.JSON_PROPERTY_DISPUTE_PSP_REFERENCE,
+  DeleteDefenseDocumentRequest.JSON_PROPERTY_MERCHANT_ACCOUNT_CODE
 })
-public class AcceptDisputeRequest {
+public class DeleteDefenseDocumentRequest {
+  public static final String JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE = "defenseDocumentType";
+  private String defenseDocumentType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefenseDocumentType = false;
+
   public static final String JSON_PROPERTY_DISPUTE_PSP_REFERENCE = "disputePspReference";
   private String disputePspReference;
 
@@ -43,15 +50,50 @@ public class AcceptDisputeRequest {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public AcceptDisputeRequest() {}
+  public DeleteDefenseDocumentRequest() {}
+
+  /**
+   * The document type code of the defense document.
+   *
+   * @param defenseDocumentType The document type code of the defense document.
+   * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
+   */
+  public DeleteDefenseDocumentRequest defenseDocumentType(String defenseDocumentType) {
+    this.defenseDocumentType = defenseDocumentType;
+    isSetDefenseDocumentType = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The document type code of the defense document.
+   *
+   * @return defenseDocumentType The document type code of the defense document.
+   */
+  @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDefenseDocumentType() {
+    return defenseDocumentType;
+  }
+
+  /**
+   * The document type code of the defense document.
+   *
+   * @param defenseDocumentType The document type code of the defense document.
+   */
+  @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefenseDocumentType(String defenseDocumentType) {
+    this.defenseDocumentType = defenseDocumentType;
+    isSetDefenseDocumentType = true; // mark as set
+  }
 
   /**
    * The PSP reference assigned to the dispute.
    *
    * @param disputePspReference The PSP reference assigned to the dispute.
-   * @return the current {@code AcceptDisputeRequest} instance, allowing for method chaining
+   * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
    */
-  public AcceptDisputeRequest disputePspReference(String disputePspReference) {
+  public DeleteDefenseDocumentRequest disputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
     isSetDisputePspReference = true; // mark as set
     return this;
@@ -85,9 +127,9 @@ public class AcceptDisputeRequest {
    *
    * @param merchantAccountCode The merchant account identifier, for which you want to process the
    *     dispute transaction.
-   * @return the current {@code AcceptDisputeRequest} instance, allowing for method chaining
+   * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
    */
-  public AcceptDisputeRequest merchantAccountCode(String merchantAccountCode) {
+  public DeleteDefenseDocumentRequest merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
     isSetMerchantAccountCode = true; // mark as set
     return this;
@@ -121,7 +163,7 @@ public class AcceptDisputeRequest {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public AcceptDisputeRequest includeNullValues(boolean includeNullValues) {
+  public DeleteDefenseDocumentRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -138,7 +180,7 @@ public class AcceptDisputeRequest {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this AcceptDisputeRequest object is equal to o. */
+  /** Return true if this DeleteDefenseDocumentRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,18 +189,26 @@ public class AcceptDisputeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AcceptDisputeRequest acceptDisputeRequest = (AcceptDisputeRequest) o;
-    return Objects.equals(this.disputePspReference, acceptDisputeRequest.disputePspReference)
+    DeleteDefenseDocumentRequest deleteDefenseDocumentRequest = (DeleteDefenseDocumentRequest) o;
+    return Objects.equals(
+            this.defenseDocumentType, deleteDefenseDocumentRequest.defenseDocumentType)
         && Objects.equals(
-            this.isSetDisputePspReference, acceptDisputeRequest.isSetDisputePspReference)
-        && Objects.equals(this.merchantAccountCode, acceptDisputeRequest.merchantAccountCode)
+            this.isSetDefenseDocumentType, deleteDefenseDocumentRequest.isSetDefenseDocumentType)
         && Objects.equals(
-            this.isSetMerchantAccountCode, acceptDisputeRequest.isSetMerchantAccountCode);
+            this.disputePspReference, deleteDefenseDocumentRequest.disputePspReference)
+        && Objects.equals(
+            this.isSetDisputePspReference, deleteDefenseDocumentRequest.isSetDisputePspReference)
+        && Objects.equals(
+            this.merchantAccountCode, deleteDefenseDocumentRequest.merchantAccountCode)
+        && Objects.equals(
+            this.isSetMerchantAccountCode, deleteDefenseDocumentRequest.isSetMerchantAccountCode);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        defenseDocumentType,
+        isSetDefenseDocumentType,
         disputePspReference,
         isSetDisputePspReference,
         merchantAccountCode,
@@ -168,7 +218,10 @@ public class AcceptDisputeRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AcceptDisputeRequest {\n");
+    sb.append("class DeleteDefenseDocumentRequest {\n");
+    sb.append("    defenseDocumentType: ")
+        .append(toIndentedString(defenseDocumentType))
+        .append("\n");
     sb.append("    disputePspReference: ")
         .append(toIndentedString(disputePspReference))
         .append("\n");
@@ -199,6 +252,9 @@ public class AcceptDisputeRequest {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetDefenseDocumentType) {
+      addIfNull(nulls, JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE, this.defenseDocumentType);
+    }
     if (isSetDisputePspReference) {
       addIfNull(nulls, JSON_PROPERTY_DISPUTE_PSP_REFERENCE, this.disputePspReference);
     }
@@ -217,19 +273,20 @@ public class AcceptDisputeRequest {
   }
 
   /**
-   * Create an instance of AcceptDisputeRequest given an JSON string
+   * Create an instance of DeleteDefenseDocumentRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AcceptDisputeRequest
+   * @return An instance of DeleteDefenseDocumentRequest
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     AcceptDisputeRequest
+   *     DeleteDefenseDocumentRequest
    */
-  public static AcceptDisputeRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, AcceptDisputeRequest.class);
+  public static DeleteDefenseDocumentRequest fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DeleteDefenseDocumentRequest.class);
   }
 
   /**
-   * Convert an instance of AcceptDisputeRequest to an JSON string
+   * Convert an instance of DeleteDefenseDocumentRequest to an JSON string
    *
    * @return JSON string
    */

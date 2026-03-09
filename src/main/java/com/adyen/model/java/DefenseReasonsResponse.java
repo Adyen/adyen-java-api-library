@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.disputes;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,10 +18,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/** SupplyDefenseDocumentResponse */
-@JsonPropertyOrder({SupplyDefenseDocumentResponse.JSON_PROPERTY_DISPUTE_SERVICE_RESULT})
-public class SupplyDefenseDocumentResponse {
+/** DefenseReasonsResponse */
+@JsonPropertyOrder({
+  DefenseReasonsResponse.JSON_PROPERTY_DEFENSE_REASONS,
+  DefenseReasonsResponse.JSON_PROPERTY_DISPUTE_SERVICE_RESULT
+})
+public class DefenseReasonsResponse {
+  public static final String JSON_PROPERTY_DEFENSE_REASONS = "defenseReasons";
+  private List<DefenseReason> defenseReasons;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDefenseReasons = false;
+
   public static final String JSON_PROPERTY_DISPUTE_SERVICE_RESULT = "disputeServiceResult";
   private DisputeServiceResult disputeServiceResult;
 
@@ -34,17 +45,58 @@ public class SupplyDefenseDocumentResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public SupplyDefenseDocumentResponse() {}
+  public DefenseReasonsResponse() {}
+
+  /**
+   * The defense reasons that can be used to defend the dispute.
+   *
+   * @param defenseReasons The defense reasons that can be used to defend the dispute.
+   * @return the current {@code DefenseReasonsResponse} instance, allowing for method chaining
+   */
+  public DefenseReasonsResponse defenseReasons(List<DefenseReason> defenseReasons) {
+    this.defenseReasons = defenseReasons;
+    isSetDefenseReasons = true; // mark as set
+    return this;
+  }
+
+  public DefenseReasonsResponse addDefenseReasonsItem(DefenseReason defenseReasonsItem) {
+    if (this.defenseReasons == null) {
+      this.defenseReasons = new ArrayList<>();
+    }
+    this.defenseReasons.add(defenseReasonsItem);
+    return this;
+  }
+
+  /**
+   * The defense reasons that can be used to defend the dispute.
+   *
+   * @return defenseReasons The defense reasons that can be used to defend the dispute.
+   */
+  @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DefenseReason> getDefenseReasons() {
+    return defenseReasons;
+  }
+
+  /**
+   * The defense reasons that can be used to defend the dispute.
+   *
+   * @param defenseReasons The defense reasons that can be used to defend the dispute.
+   */
+  @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefenseReasons(List<DefenseReason> defenseReasons) {
+    this.defenseReasons = defenseReasons;
+    isSetDefenseReasons = true; // mark as set
+  }
 
   /**
    * disputeServiceResult
    *
    * @param disputeServiceResult
-   * @return the current {@code SupplyDefenseDocumentResponse} instance, allowing for method
-   *     chaining
+   * @return the current {@code DefenseReasonsResponse} instance, allowing for method chaining
    */
-  public SupplyDefenseDocumentResponse disputeServiceResult(
-      DisputeServiceResult disputeServiceResult) {
+  public DefenseReasonsResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
     isSetDisputeServiceResult = true; // mark as set
     return this;
@@ -76,7 +128,7 @@ public class SupplyDefenseDocumentResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public SupplyDefenseDocumentResponse includeNullValues(boolean includeNullValues) {
+  public DefenseReasonsResponse includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -93,7 +145,7 @@ public class SupplyDefenseDocumentResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this SupplyDefenseDocumentResponse object is equal to o. */
+  /** Return true if this DefenseReasonsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,23 +154,25 @@ public class SupplyDefenseDocumentResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SupplyDefenseDocumentResponse supplyDefenseDocumentResponse = (SupplyDefenseDocumentResponse) o;
-    return Objects.equals(
-            this.disputeServiceResult, supplyDefenseDocumentResponse.disputeServiceResult)
+    DefenseReasonsResponse defenseReasonsResponse = (DefenseReasonsResponse) o;
+    return Objects.equals(this.defenseReasons, defenseReasonsResponse.defenseReasons)
+        && Objects.equals(this.isSetDefenseReasons, defenseReasonsResponse.isSetDefenseReasons)
+        && Objects.equals(this.disputeServiceResult, defenseReasonsResponse.disputeServiceResult)
         && Objects.equals(
-            this.isSetDisputeServiceResult,
-            supplyDefenseDocumentResponse.isSetDisputeServiceResult);
+            this.isSetDisputeServiceResult, defenseReasonsResponse.isSetDisputeServiceResult);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disputeServiceResult, isSetDisputeServiceResult);
+    return Objects.hash(
+        defenseReasons, isSetDefenseReasons, disputeServiceResult, isSetDisputeServiceResult);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SupplyDefenseDocumentResponse {\n");
+    sb.append("class DefenseReasonsResponse {\n");
+    sb.append("    defenseReasons: ").append(toIndentedString(defenseReasons)).append("\n");
     sb.append("    disputeServiceResult: ")
         .append(toIndentedString(disputeServiceResult))
         .append("\n");
@@ -146,6 +200,9 @@ public class SupplyDefenseDocumentResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetDefenseReasons) {
+      addIfNull(nulls, JSON_PROPERTY_DEFENSE_REASONS, this.defenseReasons);
+    }
     if (isSetDisputeServiceResult) {
       addIfNull(nulls, JSON_PROPERTY_DISPUTE_SERVICE_RESULT, this.disputeServiceResult);
     }
@@ -161,20 +218,19 @@ public class SupplyDefenseDocumentResponse {
   }
 
   /**
-   * Create an instance of SupplyDefenseDocumentResponse given an JSON string
+   * Create an instance of DefenseReasonsResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SupplyDefenseDocumentResponse
+   * @return An instance of DefenseReasonsResponse
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     SupplyDefenseDocumentResponse
+   *     DefenseReasonsResponse
    */
-  public static SupplyDefenseDocumentResponse fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, SupplyDefenseDocumentResponse.class);
+  public static DefenseReasonsResponse fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DefenseReasonsResponse.class);
   }
 
   /**
-   * Convert an instance of SupplyDefenseDocumentResponse to an JSON string
+   * Convert an instance of DefenseReasonsResponse to an JSON string
    *
    * @return JSON string
    */
