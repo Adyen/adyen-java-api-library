@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.paymentsapp;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,17 +18,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 
-/** PaymentsAppResponse */
-@JsonPropertyOrder({PaymentsAppResponse.JSON_PROPERTY_PAYMENTS_APPS})
-public class PaymentsAppResponse {
-  public static final String JSON_PROPERTY_PAYMENTS_APPS = "paymentsApps";
-  private List<PaymentsAppDto> paymentsApps;
+/** BoardingTokenRequest */
+@JsonPropertyOrder({BoardingTokenRequest.JSON_PROPERTY_BOARDING_REQUEST_TOKEN})
+public class BoardingTokenRequest {
+  public static final String JSON_PROPERTY_BOARDING_REQUEST_TOKEN = "boardingRequestToken";
+  private String boardingRequestToken;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPaymentsApps = false;
+  private boolean isSetBoardingRequestToken = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -36,55 +34,47 @@ public class PaymentsAppResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public PaymentsAppResponse() {}
+  public BoardingTokenRequest() {}
 
   /**
-   * List of Payments Apps.
+   * The boardingToken request token.
    *
-   * @param paymentsApps List of Payments Apps.
-   * @return the current {@code PaymentsAppResponse} instance, allowing for method chaining
+   * @param boardingRequestToken The boardingToken request token.
+   * @return the current {@code BoardingTokenRequest} instance, allowing for method chaining
    */
-  public PaymentsAppResponse paymentsApps(List<PaymentsAppDto> paymentsApps) {
-    this.paymentsApps = paymentsApps;
-    isSetPaymentsApps = true; // mark as set
-    return this;
-  }
-
-  public PaymentsAppResponse addPaymentsAppsItem(PaymentsAppDto paymentsAppsItem) {
-    if (this.paymentsApps == null) {
-      this.paymentsApps = new ArrayList<>();
-    }
-    this.paymentsApps.add(paymentsAppsItem);
+  public BoardingTokenRequest boardingRequestToken(String boardingRequestToken) {
+    this.boardingRequestToken = boardingRequestToken;
+    isSetBoardingRequestToken = true; // mark as set
     return this;
   }
 
   /**
-   * List of Payments Apps.
+   * The boardingToken request token.
    *
-   * @return paymentsApps List of Payments Apps.
+   * @return boardingRequestToken The boardingToken request token.
    */
-  @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
+  @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<PaymentsAppDto> getPaymentsApps() {
-    return paymentsApps;
+  public String getBoardingRequestToken() {
+    return boardingRequestToken;
   }
 
   /**
-   * List of Payments Apps.
+   * The boardingToken request token.
    *
-   * @param paymentsApps List of Payments Apps.
+   * @param boardingRequestToken The boardingToken request token.
    */
-  @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
+  @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentsApps(List<PaymentsAppDto> paymentsApps) {
-    this.paymentsApps = paymentsApps;
-    isSetPaymentsApps = true; // mark as set
+  public void setBoardingRequestToken(String boardingRequestToken) {
+    this.boardingRequestToken = boardingRequestToken;
+    isSetBoardingRequestToken = true; // mark as set
   }
 
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public PaymentsAppResponse includeNullValues(boolean includeNullValues) {
+  public BoardingTokenRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -101,7 +91,7 @@ public class PaymentsAppResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this PaymentsAppResponse object is equal to o. */
+  /** Return true if this BoardingTokenRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,21 +100,24 @@ public class PaymentsAppResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentsAppResponse paymentsAppResponse = (PaymentsAppResponse) o;
-    return Objects.equals(this.paymentsApps, paymentsAppResponse.paymentsApps)
-        && Objects.equals(this.isSetPaymentsApps, paymentsAppResponse.isSetPaymentsApps);
+    BoardingTokenRequest boardingTokenRequest = (BoardingTokenRequest) o;
+    return Objects.equals(this.boardingRequestToken, boardingTokenRequest.boardingRequestToken)
+        && Objects.equals(
+            this.isSetBoardingRequestToken, boardingTokenRequest.isSetBoardingRequestToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentsApps, isSetPaymentsApps);
+    return Objects.hash(boardingRequestToken, isSetBoardingRequestToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentsAppResponse {\n");
-    sb.append("    paymentsApps: ").append(toIndentedString(paymentsApps)).append("\n");
+    sb.append("class BoardingTokenRequest {\n");
+    sb.append("    boardingRequestToken: ")
+        .append(toIndentedString(boardingRequestToken))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,8 +142,8 @@ public class PaymentsAppResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetPaymentsApps) {
-      addIfNull(nulls, JSON_PROPERTY_PAYMENTS_APPS, this.paymentsApps);
+    if (isSetBoardingRequestToken) {
+      addIfNull(nulls, JSON_PROPERTY_BOARDING_REQUEST_TOKEN, this.boardingRequestToken);
     }
 
     return nulls;
@@ -164,19 +157,19 @@ public class PaymentsAppResponse {
   }
 
   /**
-   * Create an instance of PaymentsAppResponse given an JSON string
+   * Create an instance of BoardingTokenRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PaymentsAppResponse
+   * @return An instance of BoardingTokenRequest
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PaymentsAppResponse
+   *     BoardingTokenRequest
    */
-  public static PaymentsAppResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentsAppResponse.class);
+  public static BoardingTokenRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BoardingTokenRequest.class);
   }
 
   /**
-   * Convert an instance of PaymentsAppResponse to an JSON string
+   * Convert an instance of BoardingTokenRequest to an JSON string
    *
    * @return JSON string
    */
