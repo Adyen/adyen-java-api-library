@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.balancecontrol;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -19,35 +19,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** BalanceTransferResponse */
+/** BalanceTransferRequest */
 @JsonPropertyOrder({
-  BalanceTransferResponse.JSON_PROPERTY_AMOUNT,
-  BalanceTransferResponse.JSON_PROPERTY_CREATED_AT,
-  BalanceTransferResponse.JSON_PROPERTY_DESCRIPTION,
-  BalanceTransferResponse.JSON_PROPERTY_FROM_MERCHANT,
-  BalanceTransferResponse.JSON_PROPERTY_PSP_REFERENCE,
-  BalanceTransferResponse.JSON_PROPERTY_REFERENCE,
-  BalanceTransferResponse.JSON_PROPERTY_STATUS,
-  BalanceTransferResponse.JSON_PROPERTY_TO_MERCHANT,
-  BalanceTransferResponse.JSON_PROPERTY_TYPE
+  BalanceTransferRequest.JSON_PROPERTY_AMOUNT,
+  BalanceTransferRequest.JSON_PROPERTY_DESCRIPTION,
+  BalanceTransferRequest.JSON_PROPERTY_FROM_MERCHANT,
+  BalanceTransferRequest.JSON_PROPERTY_REFERENCE,
+  BalanceTransferRequest.JSON_PROPERTY_TO_MERCHANT,
+  BalanceTransferRequest.JSON_PROPERTY_TYPE
 })
-public class BalanceTransferResponse {
+public class BalanceTransferRequest {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmount = false;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
-  private OffsetDateTime createdAt;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetCreatedAt = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -61,71 +51,11 @@ public class BalanceTransferResponse {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetFromMerchant = false;
 
-  public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
-  private String pspReference;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPspReference = false;
-
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetReference = false;
-
-  /**
-   * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**,
-   * and **notEnoughBalance**.
-   */
-  public enum StatusEnum {
-    ERROR(String.valueOf("error")),
-
-    FAILED(String.valueOf("failed")),
-
-    NOTENOUGHBALANCE(String.valueOf("notEnoughBalance")),
-
-    TRANSFERRED(String.valueOf("transferred"));
-
-    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      // handling unexpected value
-      LOG.warning(
-          "StatusEnum: unexpected enum value '"
-              + value
-              + "' - Supported values are "
-              + Arrays.toString(StatusEnum.values()));
-      return null;
-    }
-  }
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private StatusEnum status;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetStatus = false;
 
   public static final String JSON_PROPERTY_TO_MERCHANT = "toMerchant";
   private String toMerchant;
@@ -197,15 +127,15 @@ public class BalanceTransferResponse {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public BalanceTransferResponse() {}
+  public BalanceTransferRequest() {}
 
   /**
    * amount
    *
    * @param amount
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
-  public BalanceTransferResponse amount(Amount amount) {
+  public BalanceTransferRequest amount(Amount amount) {
     this.amount = amount;
     isSetAmount = true; // mark as set
     return this;
@@ -235,50 +165,15 @@ public class BalanceTransferResponse {
   }
 
   /**
-   * The date when the balance transfer was requested.
-   *
-   * @param createdAt The date when the balance transfer was requested.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
-   */
-  public BalanceTransferResponse createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    isSetCreatedAt = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The date when the balance transfer was requested.
-   *
-   * @return createdAt The date when the balance transfer was requested.
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  /**
-   * The date when the balance transfer was requested.
-   *
-   * @param createdAt The date when the balance transfer was requested.
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    isSetCreatedAt = true; // mark as set
-  }
-
-  /**
    * A human-readable description for the transfer. You can use alphanumeric characters and hyphens.
    * We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    *
    * @param description A human-readable description for the transfer. You can use alphanumeric
    *     characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the
    *     description may be truncated.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
-  public BalanceTransferResponse description(String description) {
+  public BalanceTransferRequest description(String description) {
     this.description = description;
     isSetDescription = true; // mark as set
     return this;
@@ -318,9 +213,9 @@ public class BalanceTransferResponse {
    *
    * @param fromMerchant The unique identifier of the source merchant account from which funds are
    *     deducted.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
-  public BalanceTransferResponse fromMerchant(String fromMerchant) {
+  public BalanceTransferRequest fromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
     isSetFromMerchant = true; // mark as set
     return this;
@@ -352,52 +247,14 @@ public class BalanceTransferResponse {
   }
 
   /**
-   * Adyen&#39;s 16-character string reference associated with the balance transfer.
-   *
-   * @param pspReference Adyen&#39;s 16-character string reference associated with the balance
-   *     transfer.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
-   */
-  public BalanceTransferResponse pspReference(String pspReference) {
-    this.pspReference = pspReference;
-    isSetPspReference = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Adyen&#39;s 16-character string reference associated with the balance transfer.
-   *
-   * @return pspReference Adyen&#39;s 16-character string reference associated with the balance
-   *     transfer.
-   */
-  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPspReference() {
-    return pspReference;
-  }
-
-  /**
-   * Adyen&#39;s 16-character string reference associated with the balance transfer.
-   *
-   * @param pspReference Adyen&#39;s 16-character string reference associated with the balance
-   *     transfer.
-   */
-  @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPspReference(String pspReference) {
-    this.pspReference = pspReference;
-    isSetPspReference = true; // mark as set
-  }
-
-  /**
    * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen
    * generates a unique reference. Maximum length: 80 characters.
    *
    * @param reference A reference for the balance transfer. If you don&#39;t provide this in the
    *     request, Adyen generates a unique reference. Maximum length: 80 characters.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
-  public BalanceTransferResponse reference(String reference) {
+  public BalanceTransferRequest reference(String reference) {
     this.reference = reference;
     isSetReference = true; // mark as set
     return this;
@@ -431,54 +288,13 @@ public class BalanceTransferResponse {
   }
 
   /**
-   * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**,
-   * and **notEnoughBalance**.
-   *
-   * @param status The status of the balance transfer. Possible values: **transferred**, **failed**,
-   *     **error**, and **notEnoughBalance**.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
-   */
-  public BalanceTransferResponse status(StatusEnum status) {
-    this.status = status;
-    isSetStatus = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**,
-   * and **notEnoughBalance**.
-   *
-   * @return status The status of the balance transfer. Possible values: **transferred**,
-   *     **failed**, **error**, and **notEnoughBalance**.
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  /**
-   * The status of the balance transfer. Possible values: **transferred**, **failed**, **error**,
-   * and **notEnoughBalance**.
-   *
-   * @param status The status of the balance transfer. Possible values: **transferred**, **failed**,
-   *     **error**, and **notEnoughBalance**.
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-    isSetStatus = true; // mark as set
-  }
-
-  /**
    * The unique identifier of the destination merchant account from which funds are transferred.
    *
    * @param toMerchant The unique identifier of the destination merchant account from which funds
    *     are transferred.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
-  public BalanceTransferResponse toMerchant(String toMerchant) {
+  public BalanceTransferRequest toMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
     isSetToMerchant = true; // mark as set
     return this;
@@ -515,9 +331,9 @@ public class BalanceTransferResponse {
    *
    * @param type The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**,
    *     **credit**, **debit**, and **adjustment**.
-   * @return the current {@code BalanceTransferResponse} instance, allowing for method chaining
+   * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
-  public BalanceTransferResponse type(TypeEnum type) {
+  public BalanceTransferRequest type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
@@ -553,7 +369,7 @@ public class BalanceTransferResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public BalanceTransferResponse includeNullValues(boolean includeNullValues) {
+  public BalanceTransferRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -570,7 +386,7 @@ public class BalanceTransferResponse {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this BalanceTransferResponse object is equal to o. */
+  /** Return true if this BalanceTransferRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -579,25 +395,19 @@ public class BalanceTransferResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BalanceTransferResponse balanceTransferResponse = (BalanceTransferResponse) o;
-    return Objects.equals(this.amount, balanceTransferResponse.amount)
-        && Objects.equals(this.isSetAmount, balanceTransferResponse.isSetAmount)
-        && Objects.equals(this.createdAt, balanceTransferResponse.createdAt)
-        && Objects.equals(this.isSetCreatedAt, balanceTransferResponse.isSetCreatedAt)
-        && Objects.equals(this.description, balanceTransferResponse.description)
-        && Objects.equals(this.isSetDescription, balanceTransferResponse.isSetDescription)
-        && Objects.equals(this.fromMerchant, balanceTransferResponse.fromMerchant)
-        && Objects.equals(this.isSetFromMerchant, balanceTransferResponse.isSetFromMerchant)
-        && Objects.equals(this.pspReference, balanceTransferResponse.pspReference)
-        && Objects.equals(this.isSetPspReference, balanceTransferResponse.isSetPspReference)
-        && Objects.equals(this.reference, balanceTransferResponse.reference)
-        && Objects.equals(this.isSetReference, balanceTransferResponse.isSetReference)
-        && Objects.equals(this.status, balanceTransferResponse.status)
-        && Objects.equals(this.isSetStatus, balanceTransferResponse.isSetStatus)
-        && Objects.equals(this.toMerchant, balanceTransferResponse.toMerchant)
-        && Objects.equals(this.isSetToMerchant, balanceTransferResponse.isSetToMerchant)
-        && Objects.equals(this.type, balanceTransferResponse.type)
-        && Objects.equals(this.isSetType, balanceTransferResponse.isSetType);
+    BalanceTransferRequest balanceTransferRequest = (BalanceTransferRequest) o;
+    return Objects.equals(this.amount, balanceTransferRequest.amount)
+        && Objects.equals(this.isSetAmount, balanceTransferRequest.isSetAmount)
+        && Objects.equals(this.description, balanceTransferRequest.description)
+        && Objects.equals(this.isSetDescription, balanceTransferRequest.isSetDescription)
+        && Objects.equals(this.fromMerchant, balanceTransferRequest.fromMerchant)
+        && Objects.equals(this.isSetFromMerchant, balanceTransferRequest.isSetFromMerchant)
+        && Objects.equals(this.reference, balanceTransferRequest.reference)
+        && Objects.equals(this.isSetReference, balanceTransferRequest.isSetReference)
+        && Objects.equals(this.toMerchant, balanceTransferRequest.toMerchant)
+        && Objects.equals(this.isSetToMerchant, balanceTransferRequest.isSetToMerchant)
+        && Objects.equals(this.type, balanceTransferRequest.type)
+        && Objects.equals(this.isSetType, balanceTransferRequest.isSetType);
   }
 
   @Override
@@ -605,18 +415,12 @@ public class BalanceTransferResponse {
     return Objects.hash(
         amount,
         isSetAmount,
-        createdAt,
-        isSetCreatedAt,
         description,
         isSetDescription,
         fromMerchant,
         isSetFromMerchant,
-        pspReference,
-        isSetPspReference,
         reference,
         isSetReference,
-        status,
-        isSetStatus,
         toMerchant,
         isSetToMerchant,
         type,
@@ -626,14 +430,11 @@ public class BalanceTransferResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BalanceTransferResponse {\n");
+    sb.append("class BalanceTransferRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fromMerchant: ").append(toIndentedString(fromMerchant)).append("\n");
-    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    toMerchant: ").append(toIndentedString(toMerchant)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -663,23 +464,14 @@ public class BalanceTransferResponse {
     if (isSetAmount) {
       addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
     }
-    if (isSetCreatedAt) {
-      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
-    }
     if (isSetDescription) {
       addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
     }
     if (isSetFromMerchant) {
       addIfNull(nulls, JSON_PROPERTY_FROM_MERCHANT, this.fromMerchant);
     }
-    if (isSetPspReference) {
-      addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
-    }
     if (isSetReference) {
       addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
-    }
-    if (isSetStatus) {
-      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
     }
     if (isSetToMerchant) {
       addIfNull(nulls, JSON_PROPERTY_TO_MERCHANT, this.toMerchant);
@@ -699,19 +491,19 @@ public class BalanceTransferResponse {
   }
 
   /**
-   * Create an instance of BalanceTransferResponse given an JSON string
+   * Create an instance of BalanceTransferRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BalanceTransferResponse
+   * @return An instance of BalanceTransferRequest
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     BalanceTransferResponse
+   *     BalanceTransferRequest
    */
-  public static BalanceTransferResponse fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BalanceTransferResponse.class);
+  public static BalanceTransferRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, BalanceTransferRequest.class);
   }
 
   /**
-   * Convert an instance of BalanceTransferResponse to an JSON string
+   * Convert an instance of BalanceTransferRequest to an JSON string
    *
    * @return JSON string
    */
