@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.posmobile;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.ws.rs.core.GenericType;
