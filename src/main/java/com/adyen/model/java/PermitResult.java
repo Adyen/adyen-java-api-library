@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.recurring;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,17 +19,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
-/** DisablePermitRequest */
-@JsonPropertyOrder({
-  DisablePermitRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
-  DisablePermitRequest.JSON_PROPERTY_TOKEN
-})
-public class DisablePermitRequest {
-  public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
-  private String merchantAccount;
+/** PermitResult */
+@JsonPropertyOrder({PermitResult.JSON_PROPERTY_RESULT_KEY, PermitResult.JSON_PROPERTY_TOKEN})
+public class PermitResult {
+  public static final String JSON_PROPERTY_RESULT_KEY = "resultKey";
+  private String resultKey;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetMerchantAccount = false;
+  private boolean isSetResultKey = false;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
   private String token;
@@ -43,62 +40,59 @@ public class DisablePermitRequest {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public DisablePermitRequest() {}
+  public PermitResult() {}
 
   /**
-   * The merchant account identifier, with which you want to process the transaction.
+   * The key to link permit requests to permit results.
    *
-   * @param merchantAccount The merchant account identifier, with which you want to process the
-   *     transaction.
-   * @return the current {@code DisablePermitRequest} instance, allowing for method chaining
+   * @param resultKey The key to link permit requests to permit results.
+   * @return the current {@code PermitResult} instance, allowing for method chaining
    */
-  public DisablePermitRequest merchantAccount(String merchantAccount) {
-    this.merchantAccount = merchantAccount;
-    isSetMerchantAccount = true; // mark as set
+  public PermitResult resultKey(String resultKey) {
+    this.resultKey = resultKey;
+    isSetResultKey = true; // mark as set
     return this;
   }
 
   /**
-   * The merchant account identifier, with which you want to process the transaction.
+   * The key to link permit requests to permit results.
    *
-   * @return merchantAccount The merchant account identifier, with which you want to process the
-   *     transaction.
+   * @return resultKey The key to link permit requests to permit results.
    */
-  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMerchantAccount() {
-    return merchantAccount;
+  public String getResultKey() {
+    return resultKey;
   }
 
   /**
-   * The merchant account identifier, with which you want to process the transaction.
+   * The key to link permit requests to permit results.
    *
-   * @param merchantAccount The merchant account identifier, with which you want to process the
-   *     transaction.
+   * @param resultKey The key to link permit requests to permit results.
    */
-  @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
+  @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMerchantAccount(String merchantAccount) {
-    this.merchantAccount = merchantAccount;
-    isSetMerchantAccount = true; // mark as set
+  public void setResultKey(String resultKey) {
+    this.resultKey = resultKey;
+    isSetResultKey = true; // mark as set
   }
 
   /**
-   * The permit token to disable.
+   * The permit token which is used to make payments by the partner company.
    *
-   * @param token The permit token to disable.
-   * @return the current {@code DisablePermitRequest} instance, allowing for method chaining
+   * @param token The permit token which is used to make payments by the partner company.
+   * @return the current {@code PermitResult} instance, allowing for method chaining
    */
-  public DisablePermitRequest token(String token) {
+  public PermitResult token(String token) {
     this.token = token;
     isSetToken = true; // mark as set
     return this;
   }
 
   /**
-   * The permit token to disable.
+   * The permit token which is used to make payments by the partner company.
    *
-   * @return token The permit token to disable.
+   * @return token The permit token which is used to make payments by the partner company.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,9 +101,9 @@ public class DisablePermitRequest {
   }
 
   /**
-   * The permit token to disable.
+   * The permit token which is used to make payments by the partner company.
    *
-   * @param token The permit token to disable.
+   * @param token The permit token which is used to make payments by the partner company.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +115,7 @@ public class DisablePermitRequest {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public DisablePermitRequest includeNullValues(boolean includeNullValues) {
+  public PermitResult includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -138,7 +132,7 @@ public class DisablePermitRequest {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this DisablePermitRequest object is equal to o. */
+  /** Return true if this PermitResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,23 +141,23 @@ public class DisablePermitRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisablePermitRequest disablePermitRequest = (DisablePermitRequest) o;
-    return Objects.equals(this.merchantAccount, disablePermitRequest.merchantAccount)
-        && Objects.equals(this.isSetMerchantAccount, disablePermitRequest.isSetMerchantAccount)
-        && Objects.equals(this.token, disablePermitRequest.token)
-        && Objects.equals(this.isSetToken, disablePermitRequest.isSetToken);
+    PermitResult permitResult = (PermitResult) o;
+    return Objects.equals(this.resultKey, permitResult.resultKey)
+        && Objects.equals(this.isSetResultKey, permitResult.isSetResultKey)
+        && Objects.equals(this.token, permitResult.token)
+        && Objects.equals(this.isSetToken, permitResult.isSetToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, isSetMerchantAccount, token, isSetToken);
+    return Objects.hash(resultKey, isSetResultKey, token, isSetToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisablePermitRequest {\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("class PermitResult {\n");
+    sb.append("    resultKey: ").append(toIndentedString(resultKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -189,8 +183,8 @@ public class DisablePermitRequest {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetMerchantAccount) {
-      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    if (isSetResultKey) {
+      addIfNull(nulls, JSON_PROPERTY_RESULT_KEY, this.resultKey);
     }
     if (isSetToken) {
       addIfNull(nulls, JSON_PROPERTY_TOKEN, this.token);
@@ -207,19 +201,18 @@ public class DisablePermitRequest {
   }
 
   /**
-   * Create an instance of DisablePermitRequest given an JSON string
+   * Create an instance of PermitResult given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DisablePermitRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DisablePermitRequest
+   * @return An instance of PermitResult
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PermitResult
    */
-  public static DisablePermitRequest fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, DisablePermitRequest.class);
+  public static PermitResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PermitResult.class);
   }
 
   /**
-   * Convert an instance of DisablePermitRequest to an JSON string
+   * Convert an instance of PermitResult to an JSON string
    *
    * @return JSON string
    */

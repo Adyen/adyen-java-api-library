@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.recurring;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,24 +18,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/** DisablePermitResult */
+/** CreatePermitResult */
 @JsonPropertyOrder({
-  DisablePermitResult.JSON_PROPERTY_PSP_REFERENCE,
-  DisablePermitResult.JSON_PROPERTY_STATUS
+  CreatePermitResult.JSON_PROPERTY_PERMIT_RESULT_LIST,
+  CreatePermitResult.JSON_PROPERTY_PSP_REFERENCE
 })
-public class DisablePermitResult {
+public class CreatePermitResult {
+  public static final String JSON_PROPERTY_PERMIT_RESULT_LIST = "permitResultList";
+  private List<PermitResult> permitResultList;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPermitResultList = false;
+
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPspReference = false;
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetStatus = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -43,7 +45,50 @@ public class DisablePermitResult {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public DisablePermitResult() {}
+  public CreatePermitResult() {}
+
+  /**
+   * List of new permits.
+   *
+   * @param permitResultList List of new permits.
+   * @return the current {@code CreatePermitResult} instance, allowing for method chaining
+   */
+  public CreatePermitResult permitResultList(List<PermitResult> permitResultList) {
+    this.permitResultList = permitResultList;
+    isSetPermitResultList = true; // mark as set
+    return this;
+  }
+
+  public CreatePermitResult addPermitResultListItem(PermitResult permitResultListItem) {
+    if (this.permitResultList == null) {
+      this.permitResultList = new ArrayList<>();
+    }
+    this.permitResultList.add(permitResultListItem);
+    return this;
+  }
+
+  /**
+   * List of new permits.
+   *
+   * @return permitResultList List of new permits.
+   */
+  @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<PermitResult> getPermitResultList() {
+    return permitResultList;
+  }
+
+  /**
+   * List of new permits.
+   *
+   * @param permitResultList List of new permits.
+   */
+  @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPermitResultList(List<PermitResult> permitResultList) {
+    this.permitResultList = permitResultList;
+    isSetPermitResultList = true; // mark as set
+  }
 
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when
@@ -51,9 +96,9 @@ public class DisablePermitResult {
    *
    * @param pspReference A unique reference associated with the request. This value is globally
    *     unique; quote it when communicating with us about this request.
-   * @return the current {@code DisablePermitResult} instance, allowing for method chaining
+   * @return the current {@code CreatePermitResult} instance, allowing for method chaining
    */
-  public DisablePermitResult pspReference(String pspReference) {
+  public CreatePermitResult pspReference(String pspReference) {
     this.pspReference = pspReference;
     isSetPspReference = true; // mark as set
     return this;
@@ -87,44 +132,9 @@ public class DisablePermitResult {
   }
 
   /**
-   * Status of the disable request.
-   *
-   * @param status Status of the disable request.
-   * @return the current {@code DisablePermitResult} instance, allowing for method chaining
-   */
-  public DisablePermitResult status(String status) {
-    this.status = status;
-    isSetStatus = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Status of the disable request.
-   *
-   * @return status Status of the disable request.
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
-    return status;
-  }
-
-  /**
-   * Status of the disable request.
-   *
-   * @param status Status of the disable request.
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(String status) {
-    this.status = status;
-    isSetStatus = true; // mark as set
-  }
-
-  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public DisablePermitResult includeNullValues(boolean includeNullValues) {
+  public CreatePermitResult includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -141,7 +151,7 @@ public class DisablePermitResult {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this DisablePermitResult object is equal to o. */
+  /** Return true if this CreatePermitResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,24 +160,24 @@ public class DisablePermitResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisablePermitResult disablePermitResult = (DisablePermitResult) o;
-    return Objects.equals(this.pspReference, disablePermitResult.pspReference)
-        && Objects.equals(this.isSetPspReference, disablePermitResult.isSetPspReference)
-        && Objects.equals(this.status, disablePermitResult.status)
-        && Objects.equals(this.isSetStatus, disablePermitResult.isSetStatus);
+    CreatePermitResult createPermitResult = (CreatePermitResult) o;
+    return Objects.equals(this.permitResultList, createPermitResult.permitResultList)
+        && Objects.equals(this.isSetPermitResultList, createPermitResult.isSetPermitResultList)
+        && Objects.equals(this.pspReference, createPermitResult.pspReference)
+        && Objects.equals(this.isSetPspReference, createPermitResult.isSetPspReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pspReference, isSetPspReference, status, isSetStatus);
+    return Objects.hash(permitResultList, isSetPermitResultList, pspReference, isSetPspReference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisablePermitResult {\n");
+    sb.append("class CreatePermitResult {\n");
+    sb.append("    permitResultList: ").append(toIndentedString(permitResultList)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -192,11 +202,11 @@ public class DisablePermitResult {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetPermitResultList) {
+      addIfNull(nulls, JSON_PROPERTY_PERMIT_RESULT_LIST, this.permitResultList);
+    }
     if (isSetPspReference) {
       addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
-    }
-    if (isSetStatus) {
-      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
     }
 
     return nulls;
@@ -210,19 +220,19 @@ public class DisablePermitResult {
   }
 
   /**
-   * Create an instance of DisablePermitResult given an JSON string
+   * Create an instance of CreatePermitResult given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DisablePermitResult
+   * @return An instance of CreatePermitResult
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DisablePermitResult
+   *     CreatePermitResult
    */
-  public static DisablePermitResult fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, DisablePermitResult.class);
+  public static CreatePermitResult fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreatePermitResult.class);
   }
 
   /**
-   * Convert an instance of DisablePermitResult to an JSON string
+   * Convert an instance of CreatePermitResult to an JSON string
    *
    * @return JSON string
    */
