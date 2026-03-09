@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.acswebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -98,6 +100,9 @@ public class ChallengeInfo {
   public static final String JSON_PROPERTY_CHALLENGE_CANCEL = "challengeCancel";
   private ChallengeCancelEnum challengeCancel;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChallengeCancel = false;
+
   /**
    * The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time password
    * (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email *
@@ -148,17 +153,38 @@ public class ChallengeInfo {
   public static final String JSON_PROPERTY_FLOW = "flow";
   private FlowEnum flow;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFlow = false;
+
   public static final String JSON_PROPERTY_LAST_INTERACTION = "lastInteraction";
   private OffsetDateTime lastInteraction;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastInteraction = false;
 
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   private String phoneNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPhoneNumber = false;
+
   public static final String JSON_PROPERTY_RESENDS = "resends";
   private Integer resends;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResends = false;
+
   public static final String JSON_PROPERTY_RETRIES = "retries";
   private Integer retries;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRetries = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ChallengeInfo() {}
 
@@ -182,6 +208,7 @@ public class ChallengeInfo {
    */
   public ChallengeInfo challengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
+    isSetChallengeCancel = true; // mark as set
     return this;
   }
 
@@ -229,6 +256,7 @@ public class ChallengeInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
     this.challengeCancel = challengeCancel;
+    isSetChallengeCancel = true; // mark as set
   }
 
   /**
@@ -243,6 +271,7 @@ public class ChallengeInfo {
    */
   public ChallengeInfo flow(FlowEnum flow) {
     this.flow = flow;
+    isSetFlow = true; // mark as set
     return this;
   }
 
@@ -274,6 +303,7 @@ public class ChallengeInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFlow(FlowEnum flow) {
     this.flow = flow;
+    isSetFlow = true; // mark as set
   }
 
   /**
@@ -284,6 +314,7 @@ public class ChallengeInfo {
    */
   public ChallengeInfo lastInteraction(OffsetDateTime lastInteraction) {
     this.lastInteraction = lastInteraction;
+    isSetLastInteraction = true; // mark as set
     return this;
   }
 
@@ -307,6 +338,7 @@ public class ChallengeInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastInteraction(OffsetDateTime lastInteraction) {
     this.lastInteraction = lastInteraction;
+    isSetLastInteraction = true; // mark as set
   }
 
   /**
@@ -317,6 +349,7 @@ public class ChallengeInfo {
    */
   public ChallengeInfo phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
     return this;
   }
 
@@ -340,6 +373,7 @@ public class ChallengeInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+    isSetPhoneNumber = true; // mark as set
   }
 
   /**
@@ -350,6 +384,7 @@ public class ChallengeInfo {
    */
   public ChallengeInfo resends(Integer resends) {
     this.resends = resends;
+    isSetResends = true; // mark as set
     return this;
   }
 
@@ -374,6 +409,7 @@ public class ChallengeInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResends(Integer resends) {
     this.resends = resends;
+    isSetResends = true; // mark as set
   }
 
   /**
@@ -384,6 +420,7 @@ public class ChallengeInfo {
    */
   public ChallengeInfo retries(Integer retries) {
     this.retries = retries;
+    isSetRetries = true; // mark as set
     return this;
   }
 
@@ -407,6 +444,27 @@ public class ChallengeInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetries(Integer retries) {
     this.retries = retries;
+    isSetRetries = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public ChallengeInfo includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ChallengeInfo object is equal to o. */
@@ -420,16 +478,34 @@ public class ChallengeInfo {
     }
     ChallengeInfo challengeInfo = (ChallengeInfo) o;
     return Objects.equals(this.challengeCancel, challengeInfo.challengeCancel)
+        && Objects.equals(this.isSetChallengeCancel, challengeInfo.isSetChallengeCancel)
         && Objects.equals(this.flow, challengeInfo.flow)
+        && Objects.equals(this.isSetFlow, challengeInfo.isSetFlow)
         && Objects.equals(this.lastInteraction, challengeInfo.lastInteraction)
+        && Objects.equals(this.isSetLastInteraction, challengeInfo.isSetLastInteraction)
         && Objects.equals(this.phoneNumber, challengeInfo.phoneNumber)
+        && Objects.equals(this.isSetPhoneNumber, challengeInfo.isSetPhoneNumber)
         && Objects.equals(this.resends, challengeInfo.resends)
-        && Objects.equals(this.retries, challengeInfo.retries);
+        && Objects.equals(this.isSetResends, challengeInfo.isSetResends)
+        && Objects.equals(this.retries, challengeInfo.retries)
+        && Objects.equals(this.isSetRetries, challengeInfo.isSetRetries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(challengeCancel, flow, lastInteraction, phoneNumber, resends, retries);
+    return Objects.hash(
+        challengeCancel,
+        isSetChallengeCancel,
+        flow,
+        isSetFlow,
+        lastInteraction,
+        isSetLastInteraction,
+        phoneNumber,
+        isSetPhoneNumber,
+        resends,
+        isSetResends,
+        retries,
+        isSetRetries);
   }
 
   @Override
@@ -454,6 +530,45 @@ public class ChallengeInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetChallengeCancel) {
+      addIfNull(nulls, JSON_PROPERTY_CHALLENGE_CANCEL, this.challengeCancel);
+    }
+    if (isSetFlow) {
+      addIfNull(nulls, JSON_PROPERTY_FLOW, this.flow);
+    }
+    if (isSetLastInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_INTERACTION, this.lastInteraction);
+    }
+    if (isSetPhoneNumber) {
+      addIfNull(nulls, JSON_PROPERTY_PHONE_NUMBER, this.phoneNumber);
+    }
+    if (isSetResends) {
+      addIfNull(nulls, JSON_PROPERTY_RESENDS, this.resends);
+    }
+    if (isSetRetries) {
+      addIfNull(nulls, JSON_PROPERTY_RETRIES, this.retries);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.acswebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,11 +35,20 @@ public class AuthenticationNotificationRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private AuthenticationNotificationData data;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
+
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private String environment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnvironment = false;
+
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimestamp = false;
 
   /** Type of notification. */
   public enum TypeEnum {
@@ -82,6 +93,15 @@ public class AuthenticationNotificationRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AuthenticationNotificationRequest() {}
 
   /**
@@ -93,6 +113,7 @@ public class AuthenticationNotificationRequest {
    */
   public AuthenticationNotificationRequest data(AuthenticationNotificationData data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -116,6 +137,7 @@ public class AuthenticationNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(AuthenticationNotificationData data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -128,6 +150,7 @@ public class AuthenticationNotificationRequest {
    */
   public AuthenticationNotificationRequest environment(String environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
     return this;
   }
 
@@ -153,6 +176,7 @@ public class AuthenticationNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
   }
 
   /**
@@ -164,6 +188,7 @@ public class AuthenticationNotificationRequest {
    */
   public AuthenticationNotificationRequest timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
+    isSetTimestamp = true; // mark as set
     return this;
   }
 
@@ -187,6 +212,7 @@ public class AuthenticationNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
+    isSetTimestamp = true; // mark as set
   }
 
   /**
@@ -198,6 +224,7 @@ public class AuthenticationNotificationRequest {
    */
   public AuthenticationNotificationRequest type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -221,6 +248,27 @@ public class AuthenticationNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AuthenticationNotificationRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AuthenticationNotificationRequest object is equal to o. */
@@ -235,14 +283,19 @@ public class AuthenticationNotificationRequest {
     AuthenticationNotificationRequest authenticationNotificationRequest =
         (AuthenticationNotificationRequest) o;
     return Objects.equals(this.data, authenticationNotificationRequest.data)
+        && Objects.equals(this.isSetData, authenticationNotificationRequest.isSetData)
         && Objects.equals(this.environment, authenticationNotificationRequest.environment)
+        && Objects.equals(this.isSetEnvironment, authenticationNotificationRequest.isSetEnvironment)
         && Objects.equals(this.timestamp, authenticationNotificationRequest.timestamp)
-        && Objects.equals(this.type, authenticationNotificationRequest.type);
+        && Objects.equals(this.isSetTimestamp, authenticationNotificationRequest.isSetTimestamp)
+        && Objects.equals(this.type, authenticationNotificationRequest.type)
+        && Objects.equals(this.isSetType, authenticationNotificationRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, environment, timestamp, type);
+    return Objects.hash(
+        data, isSetData, environment, isSetEnvironment, timestamp, isSetTimestamp, type, isSetType);
   }
 
   @Override
@@ -265,6 +318,39 @@ public class AuthenticationNotificationRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetEnvironment) {
+      addIfNull(nulls, JSON_PROPERTY_ENVIRONMENT, this.environment);
+    }
+    if (isSetTimestamp) {
+      addIfNull(nulls, JSON_PROPERTY_TIMESTAMP, this.timestamp);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

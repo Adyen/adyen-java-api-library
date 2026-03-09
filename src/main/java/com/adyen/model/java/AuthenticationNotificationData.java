@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.acswebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,17 +36,32 @@ public class AuthenticationNotificationData {
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private AuthenticationInfo authentication;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAuthentication = false;
+
   public static final String JSON_PROPERTY_BALANCE_PLATFORM = "balancePlatform";
   private String balancePlatform;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalancePlatform = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentId = false;
+
   public static final String JSON_PROPERTY_PURCHASE = "purchase";
   private PurchaseInfo purchase;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPurchase = false;
 
   /** Outcome of the authentication. Allowed values: * authenticated * rejected * error */
   public enum StatusEnum {
@@ -92,6 +109,15 @@ public class AuthenticationNotificationData {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AuthenticationNotificationData() {}
 
   /**
@@ -103,6 +129,7 @@ public class AuthenticationNotificationData {
    */
   public AuthenticationNotificationData authentication(AuthenticationInfo authentication) {
     this.authentication = authentication;
+    isSetAuthentication = true; // mark as set
     return this;
   }
 
@@ -126,6 +153,7 @@ public class AuthenticationNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(AuthenticationInfo authentication) {
     this.authentication = authentication;
+    isSetAuthentication = true; // mark as set
   }
 
   /**
@@ -137,6 +165,7 @@ public class AuthenticationNotificationData {
    */
   public AuthenticationNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
     return this;
   }
 
@@ -160,6 +189,7 @@ public class AuthenticationNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
+    isSetBalancePlatform = true; // mark as set
   }
 
   /**
@@ -171,6 +201,7 @@ public class AuthenticationNotificationData {
    */
   public AuthenticationNotificationData id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -194,6 +225,7 @@ public class AuthenticationNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -206,6 +238,7 @@ public class AuthenticationNotificationData {
    */
   public AuthenticationNotificationData paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
     return this;
   }
 
@@ -231,6 +264,7 @@ public class AuthenticationNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
   }
 
   /**
@@ -242,6 +276,7 @@ public class AuthenticationNotificationData {
    */
   public AuthenticationNotificationData purchase(PurchaseInfo purchase) {
     this.purchase = purchase;
+    isSetPurchase = true; // mark as set
     return this;
   }
 
@@ -265,6 +300,7 @@ public class AuthenticationNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchase(PurchaseInfo purchase) {
     this.purchase = purchase;
+    isSetPurchase = true; // mark as set
   }
 
   /**
@@ -276,6 +312,7 @@ public class AuthenticationNotificationData {
    */
   public AuthenticationNotificationData status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -300,6 +337,27 @@ public class AuthenticationNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AuthenticationNotificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AuthenticationNotificationData object is equal to o. */
@@ -314,17 +372,38 @@ public class AuthenticationNotificationData {
     AuthenticationNotificationData authenticationNotificationData =
         (AuthenticationNotificationData) o;
     return Objects.equals(this.authentication, authenticationNotificationData.authentication)
+        && Objects.equals(
+            this.isSetAuthentication, authenticationNotificationData.isSetAuthentication)
         && Objects.equals(this.balancePlatform, authenticationNotificationData.balancePlatform)
+        && Objects.equals(
+            this.isSetBalancePlatform, authenticationNotificationData.isSetBalancePlatform)
         && Objects.equals(this.id, authenticationNotificationData.id)
+        && Objects.equals(this.isSetId, authenticationNotificationData.isSetId)
         && Objects.equals(
             this.paymentInstrumentId, authenticationNotificationData.paymentInstrumentId)
+        && Objects.equals(
+            this.isSetPaymentInstrumentId, authenticationNotificationData.isSetPaymentInstrumentId)
         && Objects.equals(this.purchase, authenticationNotificationData.purchase)
-        && Objects.equals(this.status, authenticationNotificationData.status);
+        && Objects.equals(this.isSetPurchase, authenticationNotificationData.isSetPurchase)
+        && Objects.equals(this.status, authenticationNotificationData.status)
+        && Objects.equals(this.isSetStatus, authenticationNotificationData.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication, balancePlatform, id, paymentInstrumentId, purchase, status);
+    return Objects.hash(
+        authentication,
+        isSetAuthentication,
+        balancePlatform,
+        isSetBalancePlatform,
+        id,
+        isSetId,
+        paymentInstrumentId,
+        isSetPaymentInstrumentId,
+        purchase,
+        isSetPurchase,
+        status,
+        isSetStatus);
   }
 
   @Override
@@ -351,6 +430,45 @@ public class AuthenticationNotificationData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAuthentication) {
+      addIfNull(nulls, JSON_PROPERTY_AUTHENTICATION, this.authentication);
+    }
+    if (isSetBalancePlatform) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_PLATFORM, this.balancePlatform);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPaymentInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_ID, this.paymentInstrumentId);
+    }
+    if (isSetPurchase) {
+      addIfNull(nulls, JSON_PROPERTY_PURCHASE, this.purchase);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
