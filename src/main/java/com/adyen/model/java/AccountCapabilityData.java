@@ -9,8 +9,10 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.managementwebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,26 +37,56 @@ public class AccountCapabilityData {
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowed = false;
+
   public static final String JSON_PROPERTY_ALLOWED_LEVEL = "allowedLevel";
   private String allowedLevel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedLevel = false;
 
   public static final String JSON_PROPERTY_CAPABILITY = "capability";
   private String capability;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCapability = false;
+
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
   private List<CapabilityProblem> problems;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProblems = false;
 
   public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequested = false;
+
   public static final String JSON_PROPERTY_REQUESTED_LEVEL = "requestedLevel";
   private String requestedLevel;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRequestedLevel = false;
 
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINE = "verificationDeadline";
   private OffsetDateTime verificationDeadline;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationDeadline = false;
+
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private String verificationStatus;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVerificationStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public AccountCapabilityData() {}
 
@@ -68,6 +100,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData allowed(Boolean allowed) {
     this.allowed = allowed;
+    isSetAllowed = true; // mark as set
     return this;
   }
 
@@ -95,6 +128,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
+    isSetAllowed = true; // mark as set
   }
 
   /**
@@ -109,6 +143,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData allowedLevel(String allowedLevel) {
     this.allowedLevel = allowedLevel;
+    isSetAllowedLevel = true; // mark as set
     return this;
   }
 
@@ -140,6 +175,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedLevel(String allowedLevel) {
     this.allowedLevel = allowedLevel;
+    isSetAllowedLevel = true; // mark as set
   }
 
   /**
@@ -150,6 +186,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData capability(String capability) {
     this.capability = capability;
+    isSetCapability = true; // mark as set
     return this;
   }
 
@@ -173,6 +210,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapability(String capability) {
     this.capability = capability;
+    isSetCapability = true; // mark as set
   }
 
   /**
@@ -185,6 +223,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData problems(List<CapabilityProblem> problems) {
     this.problems = problems;
+    isSetProblems = true; // mark as set
     return this;
   }
 
@@ -220,6 +259,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
     this.problems = problems;
+    isSetProblems = true; // mark as set
   }
 
   /**
@@ -230,6 +270,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData requested(Boolean requested) {
     this.requested = requested;
+    isSetRequested = true; // mark as set
     return this;
   }
 
@@ -253,6 +294,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
     this.requested = requested;
+    isSetRequested = true; // mark as set
   }
 
   /**
@@ -268,6 +310,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData requestedLevel(String requestedLevel) {
     this.requestedLevel = requestedLevel;
+    isSetRequestedLevel = true; // mark as set
     return this;
   }
 
@@ -301,6 +344,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(String requestedLevel) {
     this.requestedLevel = requestedLevel;
+    isSetRequestedLevel = true; // mark as set
   }
 
   /**
@@ -313,6 +357,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData verificationDeadline(OffsetDateTime verificationDeadline) {
     this.verificationDeadline = verificationDeadline;
+    isSetVerificationDeadline = true; // mark as set
     return this;
   }
 
@@ -340,6 +385,7 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationDeadline(OffsetDateTime verificationDeadline) {
     this.verificationDeadline = verificationDeadline;
+    isSetVerificationDeadline = true; // mark as set
   }
 
   /**
@@ -358,6 +404,7 @@ public class AccountCapabilityData {
    */
   public AccountCapabilityData verificationStatus(String verificationStatus) {
     this.verificationStatus = verificationStatus;
+    isSetVerificationStatus = true; // mark as set
     return this;
   }
 
@@ -397,6 +444,27 @@ public class AccountCapabilityData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(String verificationStatus) {
     this.verificationStatus = verificationStatus;
+    isSetVerificationStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AccountCapabilityData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AccountCapabilityData object is equal to o. */
@@ -410,26 +478,44 @@ public class AccountCapabilityData {
     }
     AccountCapabilityData accountCapabilityData = (AccountCapabilityData) o;
     return Objects.equals(this.allowed, accountCapabilityData.allowed)
+        && Objects.equals(this.isSetAllowed, accountCapabilityData.isSetAllowed)
         && Objects.equals(this.allowedLevel, accountCapabilityData.allowedLevel)
+        && Objects.equals(this.isSetAllowedLevel, accountCapabilityData.isSetAllowedLevel)
         && Objects.equals(this.capability, accountCapabilityData.capability)
+        && Objects.equals(this.isSetCapability, accountCapabilityData.isSetCapability)
         && Objects.equals(this.problems, accountCapabilityData.problems)
+        && Objects.equals(this.isSetProblems, accountCapabilityData.isSetProblems)
         && Objects.equals(this.requested, accountCapabilityData.requested)
+        && Objects.equals(this.isSetRequested, accountCapabilityData.isSetRequested)
         && Objects.equals(this.requestedLevel, accountCapabilityData.requestedLevel)
+        && Objects.equals(this.isSetRequestedLevel, accountCapabilityData.isSetRequestedLevel)
         && Objects.equals(this.verificationDeadline, accountCapabilityData.verificationDeadline)
-        && Objects.equals(this.verificationStatus, accountCapabilityData.verificationStatus);
+        && Objects.equals(
+            this.isSetVerificationDeadline, accountCapabilityData.isSetVerificationDeadline)
+        && Objects.equals(this.verificationStatus, accountCapabilityData.verificationStatus)
+        && Objects.equals(
+            this.isSetVerificationStatus, accountCapabilityData.isSetVerificationStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         allowed,
+        isSetAllowed,
         allowedLevel,
+        isSetAllowedLevel,
         capability,
+        isSetCapability,
         problems,
+        isSetProblems,
         requested,
+        isSetRequested,
         requestedLevel,
+        isSetRequestedLevel,
         verificationDeadline,
-        verificationStatus);
+        isSetVerificationDeadline,
+        verificationStatus,
+        isSetVerificationStatus);
   }
 
   @Override
@@ -458,6 +544,51 @@ public class AccountCapabilityData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowed) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED, this.allowed);
+    }
+    if (isSetAllowedLevel) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_LEVEL, this.allowedLevel);
+    }
+    if (isSetCapability) {
+      addIfNull(nulls, JSON_PROPERTY_CAPABILITY, this.capability);
+    }
+    if (isSetProblems) {
+      addIfNull(nulls, JSON_PROPERTY_PROBLEMS, this.problems);
+    }
+    if (isSetRequested) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED, this.requested);
+    }
+    if (isSetRequestedLevel) {
+      addIfNull(nulls, JSON_PROPERTY_REQUESTED_LEVEL, this.requestedLevel);
+    }
+    if (isSetVerificationDeadline) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_DEADLINE, this.verificationDeadline);
+    }
+    if (isSetVerificationStatus) {
+      addIfNull(nulls, JSON_PROPERTY_VERIFICATION_STATUS, this.verificationStatus);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

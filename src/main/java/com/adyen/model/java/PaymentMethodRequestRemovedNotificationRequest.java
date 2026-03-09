@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.managementwebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,26 +24,35 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** TerminalSettingsNotificationRequest */
+/** PaymentMethodRequestRemovedNotificationRequest */
 @JsonPropertyOrder({
-  TerminalSettingsNotificationRequest.JSON_PROPERTY_CREATED_AT,
-  TerminalSettingsNotificationRequest.JSON_PROPERTY_DATA,
-  TerminalSettingsNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
-  TerminalSettingsNotificationRequest.JSON_PROPERTY_TYPE
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_CREATED_AT,
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_DATA,
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
+  PaymentMethodRequestRemovedNotificationRequest.JSON_PROPERTY_TYPE
 })
-public class TerminalSettingsNotificationRequest {
+public class PaymentMethodRequestRemovedNotificationRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_DATA = "data";
-  private TerminalSettingsData data;
+  private MidServiceNotificationData data;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private String environment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnvironment = false;
+
   /** Type of notification. */
   public enum TypeEnum {
-    TERMINALSETTINGS_MODIFIED(String.valueOf("terminalSettings.modified"));
+    PAYMENTMETHODREQUEST_REMOVED(String.valueOf("paymentMethodRequest.removed"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -81,17 +92,27 @@ public class TerminalSettingsNotificationRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public TerminalSettingsNotificationRequest() {}
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
+  public PaymentMethodRequestRemovedNotificationRequest() {}
 
   /**
    * Timestamp for when the webhook was created.
    *
    * @param createdAt Timestamp for when the webhook was created.
-   * @return the current {@code TerminalSettingsNotificationRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code PaymentMethodRequestRemovedNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TerminalSettingsNotificationRequest createdAt(OffsetDateTime createdAt) {
+  public PaymentMethodRequestRemovedNotificationRequest createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -115,17 +136,19 @@ public class TerminalSettingsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
    * data
    *
    * @param data
-   * @return the current {@code TerminalSettingsNotificationRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code PaymentMethodRequestRemovedNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TerminalSettingsNotificationRequest data(TerminalSettingsData data) {
+  public PaymentMethodRequestRemovedNotificationRequest data(MidServiceNotificationData data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -136,7 +159,7 @@ public class TerminalSettingsNotificationRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TerminalSettingsData getData() {
+  public MidServiceNotificationData getData() {
     return data;
   }
 
@@ -147,8 +170,9 @@ public class TerminalSettingsNotificationRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(TerminalSettingsData data) {
+  public void setData(MidServiceNotificationData data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -156,11 +180,12 @@ public class TerminalSettingsNotificationRequest {
    *
    * @param environment The environment from which the webhook originated. Possible values:
    *     **test**, **live**.
-   * @return the current {@code TerminalSettingsNotificationRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code PaymentMethodRequestRemovedNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TerminalSettingsNotificationRequest environment(String environment) {
+  public PaymentMethodRequestRemovedNotificationRequest environment(String environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
     return this;
   }
 
@@ -186,17 +211,19 @@ public class TerminalSettingsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
   }
 
   /**
    * Type of notification.
    *
    * @param type Type of notification.
-   * @return the current {@code TerminalSettingsNotificationRequest} instance, allowing for method
-   *     chaining
+   * @return the current {@code PaymentMethodRequestRemovedNotificationRequest} instance, allowing
+   *     for method chaining
    */
-  public TerminalSettingsNotificationRequest type(TypeEnum type) {
+  public PaymentMethodRequestRemovedNotificationRequest type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -220,9 +247,31 @@ public class TerminalSettingsNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
-  /** Return true if this TerminalSettingsNotificationRequest object is equal to o. */
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaymentMethodRequestRemovedNotificationRequest includeNullValues(
+      boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Return true if this PaymentMethodRequestRemovedNotificationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -231,23 +280,31 @@ public class TerminalSettingsNotificationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TerminalSettingsNotificationRequest terminalSettingsNotificationRequest =
-        (TerminalSettingsNotificationRequest) o;
-    return Objects.equals(this.createdAt, terminalSettingsNotificationRequest.createdAt)
-        && Objects.equals(this.data, terminalSettingsNotificationRequest.data)
-        && Objects.equals(this.environment, terminalSettingsNotificationRequest.environment)
-        && Objects.equals(this.type, terminalSettingsNotificationRequest.type);
+    PaymentMethodRequestRemovedNotificationRequest paymentMethodRequestRemovedNotificationRequest =
+        (PaymentMethodRequestRemovedNotificationRequest) o;
+    return Objects.equals(this.createdAt, paymentMethodRequestRemovedNotificationRequest.createdAt)
+        && Objects.equals(
+            this.isSetCreatedAt, paymentMethodRequestRemovedNotificationRequest.isSetCreatedAt)
+        && Objects.equals(this.data, paymentMethodRequestRemovedNotificationRequest.data)
+        && Objects.equals(this.isSetData, paymentMethodRequestRemovedNotificationRequest.isSetData)
+        && Objects.equals(
+            this.environment, paymentMethodRequestRemovedNotificationRequest.environment)
+        && Objects.equals(
+            this.isSetEnvironment, paymentMethodRequestRemovedNotificationRequest.isSetEnvironment)
+        && Objects.equals(this.type, paymentMethodRequestRemovedNotificationRequest.type)
+        && Objects.equals(this.isSetType, paymentMethodRequestRemovedNotificationRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, data, environment, type);
+    return Objects.hash(
+        createdAt, isSetCreatedAt, data, isSetData, environment, isSetEnvironment, type, isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TerminalSettingsNotificationRequest {\n");
+    sb.append("class PaymentMethodRequestRemovedNotificationRequest {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
@@ -266,21 +323,55 @@ public class TerminalSettingsNotificationRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-  /**
-   * Create an instance of TerminalSettingsNotificationRequest given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TerminalSettingsNotificationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TerminalSettingsNotificationRequest
-   */
-  public static TerminalSettingsNotificationRequest fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, TerminalSettingsNotificationRequest.class);
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetEnvironment) {
+      addIfNull(nulls, JSON_PROPERTY_ENVIRONMENT, this.environment);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
-   * Convert an instance of TerminalSettingsNotificationRequest to an JSON string
+   * Create an instance of PaymentMethodRequestRemovedNotificationRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PaymentMethodRequestRemovedNotificationRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     PaymentMethodRequestRemovedNotificationRequest
+   */
+  public static PaymentMethodRequestRemovedNotificationRequest fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper()
+        .readValue(jsonString, PaymentMethodRequestRemovedNotificationRequest.class);
+  }
+
+  /**
+   * Convert an instance of PaymentMethodRequestRemovedNotificationRequest to an JSON string
    *
    * @return JSON string
    */

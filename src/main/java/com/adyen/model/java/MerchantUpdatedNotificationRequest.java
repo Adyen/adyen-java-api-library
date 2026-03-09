@@ -9,9 +9,11 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.managementwebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,26 +24,35 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** PaymentMethodCreatedNotificationRequest */
+/** MerchantUpdatedNotificationRequest */
 @JsonPropertyOrder({
-  PaymentMethodCreatedNotificationRequest.JSON_PROPERTY_CREATED_AT,
-  PaymentMethodCreatedNotificationRequest.JSON_PROPERTY_DATA,
-  PaymentMethodCreatedNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
-  PaymentMethodCreatedNotificationRequest.JSON_PROPERTY_TYPE
+  MerchantUpdatedNotificationRequest.JSON_PROPERTY_CREATED_AT,
+  MerchantUpdatedNotificationRequest.JSON_PROPERTY_DATA,
+  MerchantUpdatedNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
+  MerchantUpdatedNotificationRequest.JSON_PROPERTY_TYPE
 })
-public class PaymentMethodCreatedNotificationRequest {
+public class MerchantUpdatedNotificationRequest {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
+
   public static final String JSON_PROPERTY_DATA = "data";
-  private MidServiceNotificationData data;
+  private AccountUpdateNotificationData data;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetData = false;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private String environment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnvironment = false;
+
   /** Type of notification. */
   public enum TypeEnum {
-    PAYMENTMETHOD_CREATED(String.valueOf("paymentMethod.created"));
+    MERCHANT_UPDATED(String.valueOf("merchant.updated"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -81,17 +92,27 @@ public class PaymentMethodCreatedNotificationRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public PaymentMethodCreatedNotificationRequest() {}
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
+  public MerchantUpdatedNotificationRequest() {}
 
   /**
    * Timestamp for when the webhook was created.
    *
    * @param createdAt Timestamp for when the webhook was created.
-   * @return the current {@code PaymentMethodCreatedNotificationRequest} instance, allowing for
-   *     method chaining
+   * @return the current {@code MerchantUpdatedNotificationRequest} instance, allowing for method
+   *     chaining
    */
-  public PaymentMethodCreatedNotificationRequest createdAt(OffsetDateTime createdAt) {
+  public MerchantUpdatedNotificationRequest createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -115,17 +136,19 @@ public class PaymentMethodCreatedNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
    * data
    *
    * @param data
-   * @return the current {@code PaymentMethodCreatedNotificationRequest} instance, allowing for
-   *     method chaining
+   * @return the current {@code MerchantUpdatedNotificationRequest} instance, allowing for method
+   *     chaining
    */
-  public PaymentMethodCreatedNotificationRequest data(MidServiceNotificationData data) {
+  public MerchantUpdatedNotificationRequest data(AccountUpdateNotificationData data) {
     this.data = data;
+    isSetData = true; // mark as set
     return this;
   }
 
@@ -136,7 +159,7 @@ public class PaymentMethodCreatedNotificationRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MidServiceNotificationData getData() {
+  public AccountUpdateNotificationData getData() {
     return data;
   }
 
@@ -147,8 +170,9 @@ public class PaymentMethodCreatedNotificationRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(MidServiceNotificationData data) {
+  public void setData(AccountUpdateNotificationData data) {
     this.data = data;
+    isSetData = true; // mark as set
   }
 
   /**
@@ -156,11 +180,12 @@ public class PaymentMethodCreatedNotificationRequest {
    *
    * @param environment The environment from which the webhook originated. Possible values:
    *     **test**, **live**.
-   * @return the current {@code PaymentMethodCreatedNotificationRequest} instance, allowing for
-   *     method chaining
+   * @return the current {@code MerchantUpdatedNotificationRequest} instance, allowing for method
+   *     chaining
    */
-  public PaymentMethodCreatedNotificationRequest environment(String environment) {
+  public MerchantUpdatedNotificationRequest environment(String environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
     return this;
   }
 
@@ -186,17 +211,19 @@ public class PaymentMethodCreatedNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
+    isSetEnvironment = true; // mark as set
   }
 
   /**
    * Type of notification.
    *
    * @param type Type of notification.
-   * @return the current {@code PaymentMethodCreatedNotificationRequest} instance, allowing for
-   *     method chaining
+   * @return the current {@code MerchantUpdatedNotificationRequest} instance, allowing for method
+   *     chaining
    */
-  public PaymentMethodCreatedNotificationRequest type(TypeEnum type) {
+  public MerchantUpdatedNotificationRequest type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -220,9 +247,30 @@ public class PaymentMethodCreatedNotificationRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
-  /** Return true if this PaymentMethodCreatedNotificationRequest object is equal to o. */
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public MerchantUpdatedNotificationRequest includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Return true if this MerchantUpdatedNotificationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -231,23 +279,29 @@ public class PaymentMethodCreatedNotificationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentMethodCreatedNotificationRequest paymentMethodCreatedNotificationRequest =
-        (PaymentMethodCreatedNotificationRequest) o;
-    return Objects.equals(this.createdAt, paymentMethodCreatedNotificationRequest.createdAt)
-        && Objects.equals(this.data, paymentMethodCreatedNotificationRequest.data)
-        && Objects.equals(this.environment, paymentMethodCreatedNotificationRequest.environment)
-        && Objects.equals(this.type, paymentMethodCreatedNotificationRequest.type);
+    MerchantUpdatedNotificationRequest merchantUpdatedNotificationRequest =
+        (MerchantUpdatedNotificationRequest) o;
+    return Objects.equals(this.createdAt, merchantUpdatedNotificationRequest.createdAt)
+        && Objects.equals(this.isSetCreatedAt, merchantUpdatedNotificationRequest.isSetCreatedAt)
+        && Objects.equals(this.data, merchantUpdatedNotificationRequest.data)
+        && Objects.equals(this.isSetData, merchantUpdatedNotificationRequest.isSetData)
+        && Objects.equals(this.environment, merchantUpdatedNotificationRequest.environment)
+        && Objects.equals(
+            this.isSetEnvironment, merchantUpdatedNotificationRequest.isSetEnvironment)
+        && Objects.equals(this.type, merchantUpdatedNotificationRequest.type)
+        && Objects.equals(this.isSetType, merchantUpdatedNotificationRequest.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, data, environment, type);
+    return Objects.hash(
+        createdAt, isSetCreatedAt, data, isSetData, environment, isSetEnvironment, type, isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentMethodCreatedNotificationRequest {\n");
+    sb.append("class MerchantUpdatedNotificationRequest {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
@@ -266,21 +320,54 @@ public class PaymentMethodCreatedNotificationRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-  /**
-   * Create an instance of PaymentMethodCreatedNotificationRequest given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of PaymentMethodCreatedNotificationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PaymentMethodCreatedNotificationRequest
-   */
-  public static PaymentMethodCreatedNotificationRequest fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PaymentMethodCreatedNotificationRequest.class);
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetData) {
+      addIfNull(nulls, JSON_PROPERTY_DATA, this.data);
+    }
+    if (isSetEnvironment) {
+      addIfNull(nulls, JSON_PROPERTY_ENVIRONMENT, this.environment);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
-   * Convert an instance of PaymentMethodCreatedNotificationRequest to an JSON string
+   * Create an instance of MerchantUpdatedNotificationRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MerchantUpdatedNotificationRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     MerchantUpdatedNotificationRequest
+   */
+  public static MerchantUpdatedNotificationRequest fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, MerchantUpdatedNotificationRequest.class);
+  }
+
+  /**
+   * Convert an instance of MerchantUpdatedNotificationRequest to an JSON string
    *
    * @return JSON string
    */

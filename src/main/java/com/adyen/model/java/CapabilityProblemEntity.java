@@ -9,13 +9,14 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.managementwebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
@@ -24,19 +25,31 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
-/** CapabilityProblemEntityRecursive */
+/** CapabilityProblemEntity */
 @JsonPropertyOrder({
-  CapabilityProblemEntityRecursive.JSON_PROPERTY_DOCUMENTS,
-  CapabilityProblemEntityRecursive.JSON_PROPERTY_ID,
-  CapabilityProblemEntityRecursive.JSON_PROPERTY_TYPE
+  CapabilityProblemEntity.JSON_PROPERTY_DOCUMENTS,
+  CapabilityProblemEntity.JSON_PROPERTY_ID,
+  CapabilityProblemEntity.JSON_PROPERTY_OWNER,
+  CapabilityProblemEntity.JSON_PROPERTY_TYPE
 })
-@JsonTypeName("CapabilityProblemEntity-recursive")
-public class CapabilityProblemEntityRecursive {
+public class CapabilityProblemEntity {
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
   private List<String> documents;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDocuments = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
+  public static final String JSON_PROPERTY_OWNER = "owner";
+  private CapabilityProblemEntityRecursive owner;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOwner = false;
 
   /** The type of entity. Possible values: **LegalEntity**, **BankAccount**, or **Document**. */
   public enum TypeEnum {
@@ -84,7 +97,16 @@ public class CapabilityProblemEntityRecursive {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public CapabilityProblemEntityRecursive() {}
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
+  public CapabilityProblemEntity() {}
 
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond
@@ -92,15 +114,15 @@ public class CapabilityProblemEntityRecursive {
    *
    * @param documents List of document IDs to which the verification errors related to the
    *     capabilities correspond to.
-   * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method
-   *     chaining
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
-  public CapabilityProblemEntityRecursive documents(List<String> documents) {
+  public CapabilityProblemEntity documents(List<String> documents) {
     this.documents = documents;
+    isSetDocuments = true; // mark as set
     return this;
   }
 
-  public CapabilityProblemEntityRecursive addDocumentsItem(String documentsItem) {
+  public CapabilityProblemEntity addDocumentsItem(String documentsItem) {
     if (this.documents == null) {
       this.documents = new ArrayList<>();
     }
@@ -132,17 +154,18 @@ public class CapabilityProblemEntityRecursive {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
     this.documents = documents;
+    isSetDocuments = true; // mark as set
   }
 
   /**
    * The ID of the entity.
    *
    * @param id The ID of the entity.
-   * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method
-   *     chaining
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
-  public CapabilityProblemEntityRecursive id(String id) {
+  public CapabilityProblemEntity id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -166,6 +189,42 @@ public class CapabilityProblemEntityRecursive {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
+  }
+
+  /**
+   * owner
+   *
+   * @param owner
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
+   */
+  public CapabilityProblemEntity owner(CapabilityProblemEntityRecursive owner) {
+    this.owner = owner;
+    isSetOwner = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get owner
+   *
+   * @return owner
+   */
+  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CapabilityProblemEntityRecursive getOwner() {
+    return owner;
+  }
+
+  /**
+   * owner
+   *
+   * @param owner
+   */
+  @JsonProperty(JSON_PROPERTY_OWNER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOwner(CapabilityProblemEntityRecursive owner) {
+    this.owner = owner;
+    isSetOwner = true; // mark as set
   }
 
   /**
@@ -173,11 +232,11 @@ public class CapabilityProblemEntityRecursive {
    *
    * @param type The type of entity. Possible values: **LegalEntity**, **BankAccount**, or
    *     **Document**.
-   * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method
-   *     chaining
+   * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
-  public CapabilityProblemEntityRecursive type(TypeEnum type) {
+  public CapabilityProblemEntity type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -203,9 +262,30 @@ public class CapabilityProblemEntityRecursive {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
-  /** Return true if this CapabilityProblemEntity-recursive object is equal to o. */
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CapabilityProblemEntity includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Return true if this CapabilityProblemEntity object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -214,24 +294,29 @@ public class CapabilityProblemEntityRecursive {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CapabilityProblemEntityRecursive capabilityProblemEntityRecursive =
-        (CapabilityProblemEntityRecursive) o;
-    return Objects.equals(this.documents, capabilityProblemEntityRecursive.documents)
-        && Objects.equals(this.id, capabilityProblemEntityRecursive.id)
-        && Objects.equals(this.type, capabilityProblemEntityRecursive.type);
+    CapabilityProblemEntity capabilityProblemEntity = (CapabilityProblemEntity) o;
+    return Objects.equals(this.documents, capabilityProblemEntity.documents)
+        && Objects.equals(this.isSetDocuments, capabilityProblemEntity.isSetDocuments)
+        && Objects.equals(this.id, capabilityProblemEntity.id)
+        && Objects.equals(this.isSetId, capabilityProblemEntity.isSetId)
+        && Objects.equals(this.owner, capabilityProblemEntity.owner)
+        && Objects.equals(this.isSetOwner, capabilityProblemEntity.isSetOwner)
+        && Objects.equals(this.type, capabilityProblemEntity.type)
+        && Objects.equals(this.isSetType, capabilityProblemEntity.isSetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documents, id, type);
+    return Objects.hash(documents, isSetDocuments, id, isSetId, owner, isSetOwner, type, isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CapabilityProblemEntityRecursive {\n");
+    sb.append("class CapabilityProblemEntity {\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -247,21 +332,53 @@ public class CapabilityProblemEntityRecursive {
     return o.toString().replace("\n", "\n    ");
   }
 
-  /**
-   * Create an instance of CapabilityProblemEntityRecursive given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CapabilityProblemEntityRecursive
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CapabilityProblemEntityRecursive
-   */
-  public static CapabilityProblemEntityRecursive fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CapabilityProblemEntityRecursive.class);
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDocuments) {
+      addIfNull(nulls, JSON_PROPERTY_DOCUMENTS, this.documents);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetOwner) {
+      addIfNull(nulls, JSON_PROPERTY_OWNER, this.owner);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
-   * Convert an instance of CapabilityProblemEntityRecursive to an JSON string
+   * Create an instance of CapabilityProblemEntity given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CapabilityProblemEntity
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     CapabilityProblemEntity
+   */
+  public static CapabilityProblemEntity fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CapabilityProblemEntity.class);
+  }
+
+  /**
+   * Convert an instance of CapabilityProblemEntity to an JSON string
    *
    * @return JSON string
    */

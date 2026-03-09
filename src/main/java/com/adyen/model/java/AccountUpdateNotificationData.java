@@ -9,8 +9,10 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.managementwebhooks;
+package com.adyen.model.java;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -19,52 +21,69 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 
-/** AccountCreateNotificationData */
+/** AccountUpdateNotificationData */
 @JsonPropertyOrder({
-  AccountCreateNotificationData.JSON_PROPERTY_CAPABILITIES,
-  AccountCreateNotificationData.JSON_PROPERTY_COMPANY_ID,
-  AccountCreateNotificationData.JSON_PROPERTY_LEGAL_ENTITY_ID,
-  AccountCreateNotificationData.JSON_PROPERTY_MERCHANT_ID,
-  AccountCreateNotificationData.JSON_PROPERTY_STATUS
+  AccountUpdateNotificationData.JSON_PROPERTY_CAPABILITIES,
+  AccountUpdateNotificationData.JSON_PROPERTY_LEGAL_ENTITY_ID,
+  AccountUpdateNotificationData.JSON_PROPERTY_MERCHANT_ID,
+  AccountUpdateNotificationData.JSON_PROPERTY_STATUS
 })
-public class AccountCreateNotificationData {
+public class AccountUpdateNotificationData {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, AccountCapabilityData> capabilities;
 
-  public static final String JSON_PROPERTY_COMPANY_ID = "companyId";
-  private String companyId;
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCapabilities = false;
 
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalEntityId = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantId = false;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
-  public AccountCreateNotificationData() {}
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
 
   /**
-   * Key-value pairs that specify the actions that the merchant account can do and its settings. The
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
+  public AccountUpdateNotificationData() {}
+
+  /**
+   * Key-value pairs that specify what you can do with the merchant account and its settings. The
    * key is a capability. For example, the **sendToTransferInstrument** is the capability required
-   * before you can pay out funds to the bank account. The value is an object containing the
-   * settings for the capability.
+   * before you can pay out the funds of a merchant account to a [bank
+   * account](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments). The
+   * value is an object containing the settings for the capability.
    *
-   * @param capabilities Key-value pairs that specify the actions that the merchant account can do
-   *     and its settings. The key is a capability. For example, the **sendToTransferInstrument** is
-   *     the capability required before you can pay out funds to the bank account. The value is an
-   *     object containing the settings for the capability.
-   * @return the current {@code AccountCreateNotificationData} instance, allowing for method
+   * @param capabilities Key-value pairs that specify what you can do with the merchant account and
+   *     its settings. The key is a capability. For example, the **sendToTransferInstrument** is the
+   *     capability required before you can pay out the funds of a merchant account to a [bank
+   *     account](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments).
+   *     The value is an object containing the settings for the capability.
+   * @return the current {@code AccountUpdateNotificationData} instance, allowing for method
    *     chaining
    */
-  public AccountCreateNotificationData capabilities(
+  public AccountUpdateNotificationData capabilities(
       Map<String, AccountCapabilityData> capabilities) {
     this.capabilities = capabilities;
+    isSetCapabilities = true; // mark as set
     return this;
   }
 
-  public AccountCreateNotificationData putCapabilitiesItem(
+  public AccountUpdateNotificationData putCapabilitiesItem(
       String key, AccountCapabilityData capabilitiesItem) {
     if (this.capabilities == null) {
       this.capabilities = new HashMap<>();
@@ -74,15 +93,17 @@ public class AccountCreateNotificationData {
   }
 
   /**
-   * Key-value pairs that specify the actions that the merchant account can do and its settings. The
+   * Key-value pairs that specify what you can do with the merchant account and its settings. The
    * key is a capability. For example, the **sendToTransferInstrument** is the capability required
-   * before you can pay out funds to the bank account. The value is an object containing the
-   * settings for the capability.
+   * before you can pay out the funds of a merchant account to a [bank
+   * account](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments). The
+   * value is an object containing the settings for the capability.
    *
-   * @return capabilities Key-value pairs that specify the actions that the merchant account can do
-   *     and its settings. The key is a capability. For example, the **sendToTransferInstrument** is
-   *     the capability required before you can pay out funds to the bank account. The value is an
-   *     object containing the settings for the capability.
+   * @return capabilities Key-value pairs that specify what you can do with the merchant account and
+   *     its settings. The key is a capability. For example, the **sendToTransferInstrument** is the
+   *     capability required before you can pay out the funds of a merchant account to a [bank
+   *     account](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments).
+   *     The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,54 +112,23 @@ public class AccountCreateNotificationData {
   }
 
   /**
-   * Key-value pairs that specify the actions that the merchant account can do and its settings. The
+   * Key-value pairs that specify what you can do with the merchant account and its settings. The
    * key is a capability. For example, the **sendToTransferInstrument** is the capability required
-   * before you can pay out funds to the bank account. The value is an object containing the
-   * settings for the capability.
+   * before you can pay out the funds of a merchant account to a [bank
+   * account](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments). The
+   * value is an object containing the settings for the capability.
    *
-   * @param capabilities Key-value pairs that specify the actions that the merchant account can do
-   *     and its settings. The key is a capability. For example, the **sendToTransferInstrument** is
-   *     the capability required before you can pay out funds to the bank account. The value is an
-   *     object containing the settings for the capability.
+   * @param capabilities Key-value pairs that specify what you can do with the merchant account and
+   *     its settings. The key is a capability. For example, the **sendToTransferInstrument** is the
+   *     capability required before you can pay out the funds of a merchant account to a [bank
+   *     account](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments).
+   *     The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountCapabilityData> capabilities) {
     this.capabilities = capabilities;
-  }
-
-  /**
-   * The unique identifier of the company account.
-   *
-   * @param companyId The unique identifier of the company account.
-   * @return the current {@code AccountCreateNotificationData} instance, allowing for method
-   *     chaining
-   */
-  public AccountCreateNotificationData companyId(String companyId) {
-    this.companyId = companyId;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the company account.
-   *
-   * @return companyId The unique identifier of the company account.
-   */
-  @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCompanyId() {
-    return companyId;
-  }
-
-  /**
-   * The unique identifier of the company account.
-   *
-   * @param companyId The unique identifier of the company account.
-   */
-  @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompanyId(String companyId) {
-    this.companyId = companyId;
+    isSetCapabilities = true; // mark as set
   }
 
   /**
@@ -147,11 +137,12 @@ public class AccountCreateNotificationData {
    *
    * @param legalEntityId The unique identifier of the [legal
    *     entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
-   * @return the current {@code AccountCreateNotificationData} instance, allowing for method
+   * @return the current {@code AccountUpdateNotificationData} instance, allowing for method
    *     chaining
    */
-  public AccountCreateNotificationData legalEntityId(String legalEntityId) {
+  public AccountUpdateNotificationData legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
     return this;
   }
 
@@ -179,17 +170,19 @@ public class AccountCreateNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
   }
 
   /**
    * The unique identifier of the merchant account.
    *
    * @param merchantId The unique identifier of the merchant account.
-   * @return the current {@code AccountCreateNotificationData} instance, allowing for method
+   * @return the current {@code AccountUpdateNotificationData} instance, allowing for method
    *     chaining
    */
-  public AccountCreateNotificationData merchantId(String merchantId) {
+  public AccountUpdateNotificationData merchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -213,6 +206,7 @@ public class AccountCreateNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
   }
 
   /**
@@ -237,11 +231,12 @@ public class AccountCreateNotificationData {
    *     **Inactive**: Users can access the merchant account in the Customer Area. Payment
    *     processing and payouts are disabled. * **Closed**: The account is closed and this cannot be
    *     reversed. Users cannot log in. Payment processing and payouts are disabled.
-   * @return the current {@code AccountCreateNotificationData} instance, allowing for method
+   * @return the current {@code AccountUpdateNotificationData} instance, allowing for method
    *     chaining
    */
-  public AccountCreateNotificationData status(String status) {
+  public AccountUpdateNotificationData status(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -301,9 +296,30 @@ public class AccountCreateNotificationData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
-  /** Return true if this AccountCreateNotificationData object is equal to o. */
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public AccountUpdateNotificationData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Return true if this AccountUpdateNotificationData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -312,25 +328,35 @@ public class AccountCreateNotificationData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccountCreateNotificationData accountCreateNotificationData = (AccountCreateNotificationData) o;
-    return Objects.equals(this.capabilities, accountCreateNotificationData.capabilities)
-        && Objects.equals(this.companyId, accountCreateNotificationData.companyId)
-        && Objects.equals(this.legalEntityId, accountCreateNotificationData.legalEntityId)
-        && Objects.equals(this.merchantId, accountCreateNotificationData.merchantId)
-        && Objects.equals(this.status, accountCreateNotificationData.status);
+    AccountUpdateNotificationData accountUpdateNotificationData = (AccountUpdateNotificationData) o;
+    return Objects.equals(this.capabilities, accountUpdateNotificationData.capabilities)
+        && Objects.equals(this.isSetCapabilities, accountUpdateNotificationData.isSetCapabilities)
+        && Objects.equals(this.legalEntityId, accountUpdateNotificationData.legalEntityId)
+        && Objects.equals(this.isSetLegalEntityId, accountUpdateNotificationData.isSetLegalEntityId)
+        && Objects.equals(this.merchantId, accountUpdateNotificationData.merchantId)
+        && Objects.equals(this.isSetMerchantId, accountUpdateNotificationData.isSetMerchantId)
+        && Objects.equals(this.status, accountUpdateNotificationData.status)
+        && Objects.equals(this.isSetStatus, accountUpdateNotificationData.isSetStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, companyId, legalEntityId, merchantId, status);
+    return Objects.hash(
+        capabilities,
+        isSetCapabilities,
+        legalEntityId,
+        isSetLegalEntityId,
+        merchantId,
+        isSetMerchantId,
+        status,
+        isSetStatus);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccountCreateNotificationData {\n");
+    sb.append("class AccountUpdateNotificationData {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
-    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -348,21 +374,54 @@ public class AccountCreateNotificationData {
     return o.toString().replace("\n", "\n    ");
   }
 
-  /**
-   * Create an instance of AccountCreateNotificationData given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AccountCreateNotificationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     AccountCreateNotificationData
-   */
-  public static AccountCreateNotificationData fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, AccountCreateNotificationData.class);
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCapabilities) {
+      addIfNull(nulls, JSON_PROPERTY_CAPABILITIES, this.capabilities);
+    }
+    if (isSetLegalEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
+    }
+    if (isSetMerchantId) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
-   * Convert an instance of AccountCreateNotificationData to an JSON string
+   * Create an instance of AccountUpdateNotificationData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AccountUpdateNotificationData
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     AccountUpdateNotificationData
+   */
+  public static AccountUpdateNotificationData fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AccountUpdateNotificationData.class);
+  }
+
+  /**
+   * Convert an instance of AccountUpdateNotificationData to an JSON string
    *
    * @return JSON string
    */
