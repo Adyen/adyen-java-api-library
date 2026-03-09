@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.transactionwebhooks;
+package com.adyen.model.java;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
