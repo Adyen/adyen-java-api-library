@@ -1,4 +1,4 @@
-package com.adyen.model.binlookup;
+package com.adyen.model.java;
 
 import com.adyen.serializer.ByteArrayDeserializer;
 import com.adyen.serializer.ByteArraySerializer;
