@@ -15,25 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets AdditionalBankIdentificationTypes */
-public enum AdditionalBankIdentificationTypes {
-  AUBSBCODE("auBsbCode"),
+/** Gets or Sets FinancingType */
+public enum FinancingType {
+  HARDWAREFINANCING("hardwareFinancing"),
 
-  CAROUTINGNUMBER("caRoutingNumber"),
-
-  GBSORTCODE("gbSortCode"),
-
-  HKBANKCODE("hkBankCode"),
-
-  JPZENGINCODE("jpZenginCode"),
-
-  NZBANKBRANCHCODE("nzBankBranchCode"),
-
-  USROUTINGNUMBER("usRoutingNumber");
+  BUSINESSFINANCING("businessFinancing");
 
   private String value;
 
-  AdditionalBankIdentificationTypes(String value) {
+  FinancingType(String value) {
     this.value = value;
   }
 
@@ -48,8 +38,8 @@ public enum AdditionalBankIdentificationTypes {
   }
 
   @JsonCreator
-  public static AdditionalBankIdentificationTypes fromValue(String value) {
-    for (AdditionalBankIdentificationTypes b : AdditionalBankIdentificationTypes.values()) {
+  public static FinancingType fromValue(String value) {
+    for (FinancingType b : FinancingType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

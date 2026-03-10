@@ -21,11 +21,17 @@ import java.util.*;
 
 /** InvalidField */
 @JsonPropertyOrder({
+  InvalidField.JSON_PROPERTY_MESSAGE,
   InvalidField.JSON_PROPERTY_NAME,
-  InvalidField.JSON_PROPERTY_VALUE,
-  InvalidField.JSON_PROPERTY_MESSAGE
+  InvalidField.JSON_PROPERTY_VALUE
 })
 public class InvalidField {
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMessage = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -38,12 +44,6 @@ public class InvalidField {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetValue = false;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetMessage = false;
-
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
    * Default is false.
@@ -51,6 +51,41 @@ public class InvalidField {
   @JsonIgnore private boolean includeNullValues = false;
 
   public InvalidField() {}
+
+  /**
+   * Description of the validation error.
+   *
+   * @param message Description of the validation error.
+   * @return the current {@code InvalidField} instance, allowing for method chaining
+   */
+  public InvalidField message(String message) {
+    this.message = message;
+    isSetMessage = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Description of the validation error.
+   *
+   * @return message Description of the validation error.
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Description of the validation error.
+   *
+   * @param message Description of the validation error.
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(String message) {
+    this.message = message;
+    isSetMessage = true; // mark as set
+  }
 
   /**
    * The field that has an invalid value.
@@ -123,41 +158,6 @@ public class InvalidField {
   }
 
   /**
-   * Description of the validation error.
-   *
-   * @param message Description of the validation error.
-   * @return the current {@code InvalidField} instance, allowing for method chaining
-   */
-  public InvalidField message(String message) {
-    this.message = message;
-    isSetMessage = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Description of the validation error.
-   *
-   * @return message Description of the validation error.
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
-    return message;
-  }
-
-  /**
-   * Description of the validation error.
-   *
-   * @param message Description of the validation error.
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
-    isSetMessage = true; // mark as set
-  }
-
-  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public InvalidField includeNullValues(boolean includeNullValues) {
@@ -187,26 +187,26 @@ public class InvalidField {
       return false;
     }
     InvalidField invalidField = (InvalidField) o;
-    return Objects.equals(this.name, invalidField.name)
+    return Objects.equals(this.message, invalidField.message)
+        && Objects.equals(this.isSetMessage, invalidField.isSetMessage)
+        && Objects.equals(this.name, invalidField.name)
         && Objects.equals(this.isSetName, invalidField.isSetName)
         && Objects.equals(this.value, invalidField.value)
-        && Objects.equals(this.isSetValue, invalidField.isSetValue)
-        && Objects.equals(this.message, invalidField.message)
-        && Objects.equals(this.isSetMessage, invalidField.isSetMessage);
+        && Objects.equals(this.isSetValue, invalidField.isSetValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isSetName, value, isSetValue, message, isSetMessage);
+    return Objects.hash(message, isSetMessage, name, isSetName, value, isSetValue);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InvalidField {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -231,14 +231,14 @@ public class InvalidField {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetMessage) {
+      addIfNull(nulls, JSON_PROPERTY_MESSAGE, this.message);
+    }
     if (isSetName) {
       addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
     }
     if (isSetValue) {
       addIfNull(nulls, JSON_PROPERTY_VALUE, this.value);
-    }
-    if (isSetMessage) {
-      addIfNull(nulls, JSON_PROPERTY_MESSAGE, this.message);
     }
 
     return nulls;
