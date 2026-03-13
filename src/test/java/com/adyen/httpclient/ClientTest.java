@@ -11,9 +11,13 @@ import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 import javax.net.ssl.SSLContext;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
+import org.apache.hc.client5.http.config.Configurable;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.core5.http.Header;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -148,6 +152,44 @@ public class ClientTest extends BaseTest {
             .addAdditionalServiceHeader("key3", "value3");
     assertNotNull(requestOptions.getAdditionalServiceHeaders());
     assertEquals(3, requestOptions.getAdditionalServiceHeaders().size());
+  }
+
+  @Test
+  public void testDefaultRequestConfigTimeoutsAppliedToHttpClient() throws Exception {
+    AdyenHttpClient adyenHttpClient = new AdyenHttpClient();
+    Config config = new Config();
+    config.setConnectionTimeoutMillis(15000);
+    config.setReadTimeoutMillis(15000);
+    config.setConnectionRequestTimeoutMillis(15000);
+
+    try (CloseableHttpClient httpClient = adyenHttpClient.createCloseableHttpClient(config)) {
+      assertInstanceOf(Configurable.class, httpClient);
+      RequestConfig defaultConfig = ((Configurable) httpClient).getConfig();
+      assertNotNull(defaultConfig);
+      assertEquals(15000, defaultConfig.getConnectTimeout().toMilliseconds());
+      assertEquals(15000, defaultConfig.getResponseTimeout().toMilliseconds());
+      assertEquals(15000, defaultConfig.getConnectionRequestTimeout().toMilliseconds());
+    }
+  }
+
+  @Test
+  public void testDefaultRequestConfigTimeoutsWithConfigDefaults() throws Exception {
+    AdyenHttpClient adyenHttpClient = new AdyenHttpClient();
+    Config config = new Config();
+
+    try (CloseableHttpClient httpClient = adyenHttpClient.createCloseableHttpClient(config)) {
+      assertInstanceOf(Configurable.class, httpClient);
+      RequestConfig defaultConfig = ((Configurable) httpClient).getConfig();
+      assertNotNull(defaultConfig);
+      assertEquals(
+          config.getConnectionTimeoutMillis(),
+          defaultConfig.getConnectTimeout().toMilliseconds());
+      assertEquals(
+          config.getReadTimeoutMillis(), defaultConfig.getResponseTimeout().toMilliseconds());
+      assertEquals(
+          config.getConnectionRequestTimeoutMillis(),
+          defaultConfig.getConnectionRequestTimeout().toMilliseconds());
+    }
   }
 
   @Test
