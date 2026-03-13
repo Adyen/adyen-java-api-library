@@ -249,23 +249,31 @@ public class AdyenHttpClient implements ClientInterface {
     }
   }
 
-  private CloseableHttpClient createCloseableHttpClient(Config config) {
+  CloseableHttpClient createCloseableHttpClient(Config config) {
     SSLContext sslContext = config.getSSLContext();
     if (sslContext == null) {
       sslContext = SSLContexts.createDefault();
     }
     HostnameVerifier hostnameVerifier = config.getHostnameVerifier();
     return createHttpClientWithSocketFactory(
-        new SSLConnectionSocketFactory(sslContext, hostnameVerifier));
+        new SSLConnectionSocketFactory(sslContext, hostnameVerifier), config);
   }
 
   private CloseableHttpClient createHttpClientWithSocketFactory(
-      SSLConnectionSocketFactory socketFactory) {
+      SSLConnectionSocketFactory socketFactory, Config config) {
+    RequestConfig defaultRequestConfig =
+        RequestConfig.custom()
+            .setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS)
+            .setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS)
+            .setConnectionRequestTimeout(
+                config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS)
+            .build();
     return HttpClients.custom()
         .setConnectionManager(
             PoolingHttpClientConnectionManagerBuilder.create()
                 .setSSLSocketFactory(socketFactory)
                 .build())
+        .setDefaultRequestConfig(defaultRequestConfig)
         .setRedirectStrategy(new AdyenCustomRedirectStrategy())
         .build();
   }
