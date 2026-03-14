@@ -32,14 +32,18 @@ import com.adyen.model.nexo.POIData;
 import com.adyen.model.nexo.PaymentInstrumentType;
 import com.adyen.model.nexo.PaymentReceipt;
 import com.adyen.model.nexo.PaymentResult;
+import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.Response;
 import com.adyen.model.nexo.ResultType;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIResponse;
+import com.adyen.model.nexo.TransactionConditions;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.service.TerminalLocalAPI;
+import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
+import com.google.gson.Gson;
 import java.math.BigDecimal;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -133,6 +137,38 @@ public class TerminalLocalAPITest extends BaseTest {
     assertNotNull(paymentResult.getAmountsResp());
     assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
     assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
+  }
+
+  /**
+   * Regression test for the DebitPreferredFlag workaround (Option A) on the local Terminal API.
+   *
+   * <p>{@link TerminalLocalAPI} serializes the request with {@link TerminalAPIGsonBuilder} before
+   * encrypting it. When {@code setDebitPreferredFlag} is never called, the backing field stays
+   * {@code null} and Gson must omit it from the JSON, allowing the terminal to choose the payment
+   * type freely (DEBIT, CREDIT, or VOUCHER).
+   */
+  @Test
+  public void debitPreferredFlagOmittedFromJsonWhenNotSet() throws Exception {
+    Gson gson = TerminalAPIGsonBuilder.create();
+
+    TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
+
+    TransactionConditions transactionConditions = new TransactionConditions();
+    // Deliberately do NOT call transactionConditions.setDebitPreferredFlag(...)
+
+    PaymentTransaction paymentTransaction = new PaymentTransaction();
+    paymentTransaction.setTransactionConditions(transactionConditions);
+
+    terminalAPIRequest
+        .getSaleToPOIRequest()
+        .getPaymentRequest()
+        .setPaymentTransaction(paymentTransaction);
+
+    String json = gson.toJson(terminalAPIRequest);
+
+    assertFalse(
+        json.contains("DebitPreferredFlag"),
+        "DebitPreferredFlag must be absent from JSON when setter is never called");
   }
 
   /** Test success flow for local request that includes unexpected attributes */
