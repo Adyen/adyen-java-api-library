@@ -28,7 +28,8 @@ public class LegalEntityManagementTest extends BaseTest {
     Field baseURLField = LegalEntitiesApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(legalEntitiesApi);
-    assertEquals("https://kyc-test.adyen.com/lem/v4", baseURL);
+    assertEquals(
+        String.format("https://kyc-test.adyen.com/lem/v%s", LegalEntitiesApi.API_VERSION), baseURL);
   }
 
   @Test
@@ -40,7 +41,8 @@ public class LegalEntityManagementTest extends BaseTest {
     Field baseURLField = LegalEntitiesApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(legalEntitiesApi);
-    assertEquals("https://kyc-live.adyen.com/lem/v4", baseURL);
+    assertEquals(
+        String.format("https://kyc-live.adyen.com/lem/v%s", LegalEntitiesApi.API_VERSION), baseURL);
   }
 
   @Test
@@ -277,7 +279,9 @@ public class LegalEntityManagementTest extends BaseTest {
     assertEquals("string", response.getId());
     verify(client.getHttpClient())
         .request(
-            "https://kyc-test.adyen.com/lem/v4/businessLines/SE322KT223222D5FJ7TJN2986",
+            String.format(
+                "https://kyc-test.adyen.com/lem/v%s/businessLines/SE322KT223222D5FJ7TJN2986",
+                BusinessLinesApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,
@@ -388,7 +392,9 @@ public class LegalEntityManagementTest extends BaseTest {
     service.deleteDocument("SE322KT223222D5FJ7TJN2986");
     verify(client.getHttpClient())
         .request(
-            "https://kyc-test.adyen.com/lem/v4/documents/SE322KT223222D5FJ7TJN2986",
+            String.format(
+                "https://kyc-test.adyen.com/lem/v%s/documents/SE322KT223222D5FJ7TJN2986",
+                DocumentsApi.API_VERSION),
             null,
             client.getConfig(),
             false,
@@ -428,7 +434,9 @@ public class LegalEntityManagementTest extends BaseTest {
     assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     verify(client.getHttpClient())
         .request(
-            "https://kyc-test.adyen.com/lem/v4/themes/SE322KT223222D5FJ7TJN2986",
+            String.format(
+                "https://kyc-test.adyen.com/lem/v%s/themes/SE322KT223222D5FJ7TJN2986",
+                HostedOnboardingApi.API_VERSION),
             null,
             client.getConfig(),
             false,

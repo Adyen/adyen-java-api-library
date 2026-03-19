@@ -27,7 +27,9 @@ public class ManagementTest extends BaseTest {
     Field baseURLField = AccountMerchantLevelApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(accountMerchantLevelApi);
-    assertEquals("https://management-test.adyen.com/v3", baseURL);
+    assertEquals(
+        String.format("https://management-test.adyen.com/v%s", AccountMerchantLevelApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -39,7 +41,9 @@ public class ManagementTest extends BaseTest {
     Field baseURLField = AccountMerchantLevelApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(accountMerchantLevelApi);
-    assertEquals("https://management-live.adyen.com/v3", baseURL);
+    assertEquals(
+        String.format("https://management-live.adyen.com/v%s", AccountMerchantLevelApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -65,7 +69,9 @@ public class ManagementTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://management-test.adyen.com/v3/merchants",
+            String.format(
+                "https://management-test.adyen.com/v%s/merchants",
+                AccountMerchantLevelApi.API_VERSION),
             null,
             client.getConfig(),
             false,
@@ -99,7 +105,9 @@ public class ManagementTest extends BaseTest {
     assertTrue(response.getReceiptPrinting().getShopperApproved());
     verify(client.getHttpClient())
         .request(
-            "https://management-test.adyen.com/v3/terminals/123ABC/terminalSettings",
+            String.format(
+                "https://management-test.adyen.com/v%s/terminals/123ABC/terminalSettings",
+                TerminalSettingsTerminalLevelApi.API_VERSION),
             "{\"receiptPrinting\":{\"shopperApproved\":true}}",
             client.getConfig(),
             false,
@@ -120,7 +128,9 @@ public class ManagementTest extends BaseTest {
     assertEquals("YOUR_STORE_ID", store.getId());
     verify(client.getHttpClient())
         .request(
-            "https://management-test.adyen.com/v3/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
+            String.format(
+                "https://management-test.adyen.com/v%s/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
+                AccountStoreLevelApi.API_VERSION),
             "{\"description\":\"City centre store\"}",
             client.getConfig(),
             false,
@@ -138,7 +148,9 @@ public class ManagementTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://management-test.adyen.com/v3/me/allowedOrigins/ID",
+            String.format(
+                "https://management-test.adyen.com/v%s/me/allowedOrigins/ID",
+                MyApiCredentialApi.API_VERSION),
             null,
             client.getConfig(),
             false,

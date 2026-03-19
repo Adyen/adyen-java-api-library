@@ -44,7 +44,11 @@ public class DataProtectionServiceTest extends BaseTest {
     Field baseURLField = DataProtectionApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(dataProtectionApi);
-    assertEquals("https://ca-test.adyen.com/ca/services/DataProtectionService/v1", baseURL);
+    assertEquals(
+        String.format(
+            "https://ca-test.adyen.com/ca/services/DataProtectionService/v%s",
+            DataProtectionApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -56,7 +60,11 @@ public class DataProtectionServiceTest extends BaseTest {
     Field baseURLField = DataProtectionApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(dataProtectionApi);
-    assertEquals("https://ca-live.adyen.com/ca/services/DataProtectionService/v1", baseURL);
+    assertEquals(
+        String.format(
+            "https://ca-live.adyen.com/ca/services/DataProtectionService/v%s",
+            DataProtectionApi.API_VERSION),
+        baseURL);
   }
 
   /** Test success flow for POST /requestSubjectErasure */
@@ -72,7 +80,9 @@ public class DataProtectionServiceTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://ca-test.adyen.com/ca/services/DataProtectionService/v1/requestSubjectErasure",
+            String.format(
+                "https://ca-test.adyen.com/ca/services/DataProtectionService/v%s/requestSubjectErasure",
+                DataProtectionApi.API_VERSION),
             "{}",
             client.getConfig(),
             false,

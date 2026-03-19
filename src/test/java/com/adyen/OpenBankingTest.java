@@ -27,7 +27,10 @@ public class OpenBankingTest extends BaseTest {
     Field baseURLField = AccountVerificationApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(accountVerificationApi);
-    assertEquals("https://obgateway-test.adyen.com/obgateway/v1", baseURL);
+    assertEquals(
+        String.format(
+            "https://obgateway-test.adyen.com/obgateway/v%s", AccountVerificationApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -39,7 +42,10 @@ public class OpenBankingTest extends BaseTest {
     Field baseURLField = AccountVerificationApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(accountVerificationApi);
-    assertEquals("https://obgateway-live.adyen.com/obgateway/v1", baseURL);
+    assertEquals(
+        String.format(
+            "https://obgateway-live.adyen.com/obgateway/v%s", AccountVerificationApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -65,7 +71,10 @@ public class OpenBankingTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            eq("https://obgateway-test.adyen.com/obgateway/v1/accountVerification/routes"),
+            eq(
+                String.format(
+                    "https://obgateway-test.adyen.com/obgateway/v%s/accountVerification/routes",
+                    AccountVerificationApi.API_VERSION)),
             anyString(),
             eq(client.getConfig()),
             eq(false),
@@ -90,7 +99,10 @@ public class OpenBankingTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            eq("https://obgateway-test.adyen.com/obgateway/v1/accountVerification/reports/" + code),
+            eq(
+                String.format(
+                    "https://obgateway-test.adyen.com/obgateway/v%s/accountVerification/reports/%s",
+                    AccountVerificationApi.API_VERSION, code)),
             eq(null),
             eq(client.getConfig()),
             eq(false),

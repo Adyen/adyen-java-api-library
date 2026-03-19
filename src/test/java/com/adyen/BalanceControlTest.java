@@ -31,7 +31,11 @@ public class BalanceControlTest extends BaseTest {
     Field baseURLField = BalanceControlApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(balanceControlApi);
-    assertEquals("https://pal-test.adyen.com/pal/servlet/BalanceControl/v1", baseURL);
+    assertEquals(
+        String.format(
+            "https://pal-test.adyen.com/pal/servlet/BalanceControl/v%s",
+            BalanceControlApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -49,7 +53,10 @@ public class BalanceControlTest extends BaseTest {
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(balanceControlApi);
     assertEquals(
-        "https://myCompany-pal-live.adyenpayments.com/pal/servlet/BalanceControl/v1", baseURL);
+        String.format(
+            "https://myCompany-pal-live.adyenpayments.com/pal/servlet/BalanceControl/v%s",
+            BalanceControlApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -60,7 +67,9 @@ public class BalanceControlTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://pal-test.adyen.com/pal/servlet/BalanceControl/v1/balanceTransfer",
+            String.format(
+                "https://pal-test.adyen.com/pal/servlet/BalanceControl/v%s/balanceTransfer",
+                BalanceControlApi.API_VERSION),
             "{}",
             client.getConfig(),
             false,
