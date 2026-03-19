@@ -53,7 +53,7 @@ public class CheckoutTest extends BaseTest {
     Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(paymentsApi);
-    assertEquals("https://checkout-test.adyen.com/v71", baseURL);
+    assertEquals("https://checkout-test.adyen.com/v" + PaymentsApi.API_VERSION, baseURL);
   }
 
   @Test
@@ -70,7 +70,7 @@ public class CheckoutTest extends BaseTest {
     Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(paymentsApi);
-    assertEquals("https://myCompany-checkout-live.adyenpayments.com/checkout/v71", baseURL);
+    assertEquals("https://myCompany-checkout-live.adyenpayments.com/checkout/v" + PaymentsApi.API_VERSION, baseURL);
   }
 
   /** Should make a payment */
@@ -450,7 +450,7 @@ public class CheckoutTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://prefix-checkout-live.adyenpayments.com/checkout/v71/storedPaymentMethods/recurringId",
+            "https://prefix-checkout-live.adyenpayments.com/checkout/v" + RecurringApi.API_VERSION + "/storedPaymentMethods/recurringId",
             null,
             client.getConfig(),
             false,
@@ -472,7 +472,7 @@ public class CheckoutTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://prefix-checkout-live.adyenpayments.com/checkout/v71/storedPaymentMethods/recurringId",
+            "https://prefix-checkout-live.adyenpayments.com/checkout/v" + RecurringApi.API_VERSION + "/storedPaymentMethods/recurringId",
             null,
             client.getConfig(),
             false,
@@ -575,7 +575,7 @@ public class CheckoutTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://checkout-test.adyen.com/v71/payments",
+            "https://checkout-test.adyen.com/v" + PaymentsApi.API_VERSION + "/payments",
             paymentRequest.toJson(),
             client.getConfig(),
             false,
@@ -648,7 +648,7 @@ public class CheckoutTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://checkout-test.adyen.com/v71/payments",
+            "https://checkout-test.adyen.com/v" + PaymentsApi.API_VERSION + "/payments",
             paymentRequest.toJson(),
             client.getConfig(),
             false,
@@ -694,7 +694,7 @@ public class CheckoutTest extends BaseTest {
     final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
     verify(client.getHttpClient())
         .request(
-            eq("https://checkout-test.adyen.com/v71/sessions"),
+            eq("https://checkout-test.adyen.com/v" + PaymentsApi.API_VERSION + "/sessions"),
             captor.capture(),
             any(com.adyen.Config.class),
             eq(false),
@@ -808,7 +808,7 @@ public class CheckoutTest extends BaseTest {
     ArgumentCaptor<RequestOptions> optionsCaptor = ArgumentCaptor.forClass(RequestOptions.class);
     verify(client.getHttpClient())
         .request(
-            eq("https://checkout-test.adyen.com/v71/payments"),
+            eq("https://checkout-test.adyen.com/v" + PaymentsApi.API_VERSION + "/payments"),
             isNotNull(),
             eq(client.getConfig()),
             eq(false),
