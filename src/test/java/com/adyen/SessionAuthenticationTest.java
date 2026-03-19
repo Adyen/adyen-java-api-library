@@ -22,7 +22,9 @@ public class SessionAuthenticationTest extends BaseTest {
     Field baseURLField = SessionAuthenticationApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(sessionAuthenticationApi);
-    assertEquals("https://test.adyen.com/authe/api/v1", baseURL);
+    assertEquals(
+        String.format("https://test.adyen.com/authe/api/v%s", SessionAuthenticationApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -34,7 +36,10 @@ public class SessionAuthenticationTest extends BaseTest {
     Field baseURLField = SessionAuthenticationApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(sessionAuthenticationApi);
-    assertEquals("https://authe-live.adyen.com/authe/api/v1", baseURL);
+    assertEquals(
+        String.format(
+            "https://authe-live.adyen.com/authe/api/v%s", SessionAuthenticationApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -63,7 +68,9 @@ public class SessionAuthenticationTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://test.adyen.com/authe/api/v1/sessions",
+            String.format(
+                "https://test.adyen.com/authe/api/v%s/sessions",
+                SessionAuthenticationApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,

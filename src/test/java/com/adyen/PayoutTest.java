@@ -52,7 +52,10 @@ public class PayoutTest extends BaseTest {
     Field baseURLField = InitializationApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(initializationApi);
-    assertEquals("https://pal-test.adyen.com/pal/servlet/Payout/v68", baseURL);
+    assertEquals(
+        String.format(
+            "https://pal-test.adyen.com/pal/servlet/Payout/v%s", InitializationApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -69,7 +72,11 @@ public class PayoutTest extends BaseTest {
     Field baseURLField = InitializationApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(initializationApi);
-    assertEquals("https://myCompany-pal-live.adyenpayments.com/pal/servlet/Payout/v68", baseURL);
+    assertEquals(
+        String.format(
+            "https://myCompany-pal-live.adyenpayments.com/pal/servlet/Payout/v%s",
+            InitializationApi.API_VERSION),
+        baseURL);
   }
 
   @Test

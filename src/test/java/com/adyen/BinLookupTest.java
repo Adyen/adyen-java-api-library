@@ -49,7 +49,10 @@ public class BinLookupTest extends BaseTest {
     Field baseURLField = BinLookupApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(binLookupApi);
-    assertEquals("https://pal-test.adyen.com/pal/servlet/BinLookup/v54", baseURL);
+    assertEquals(
+        String.format(
+            "https://pal-test.adyen.com/pal/servlet/BinLookup/v%s", BinLookupApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -66,7 +69,11 @@ public class BinLookupTest extends BaseTest {
     Field baseURLField = BinLookupApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(binLookupApi);
-    assertEquals("https://myCompany-pal-live.adyenpayments.com/pal/servlet/BinLookup/v54", baseURL);
+    assertEquals(
+        String.format(
+            "https://myCompany-pal-live.adyenpayments.com/pal/servlet/BinLookup/v%s",
+            BinLookupApi.API_VERSION),
+        baseURL);
   }
 
   @Test

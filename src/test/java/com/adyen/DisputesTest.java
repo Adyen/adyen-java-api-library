@@ -25,7 +25,10 @@ public class DisputesTest extends BaseTest {
     Field baseURLField = DisputesApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(disputesApi);
-    assertEquals("https://ca-test.adyen.com/ca/services/DisputeService/v30", baseURL);
+    assertEquals(
+        String.format(
+            "https://ca-test.adyen.com/ca/services/DisputeService/v%s", DisputesApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -37,7 +40,10 @@ public class DisputesTest extends BaseTest {
     Field baseURLField = DisputesApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(disputesApi);
-    assertEquals("https://ca-live.adyen.com/ca/services/DisputeService/v30", baseURL);
+    assertEquals(
+        String.format(
+            "https://ca-live.adyen.com/ca/services/DisputeService/v%s", DisputesApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -54,9 +60,9 @@ public class DisputesTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://ca-test.adyen.com/ca/services/DisputeService/v"
-                + DisputesApi.API_VERSION
-                + "/acceptDispute",
+            String.format(
+                "https://ca-test.adyen.com/ca/services/DisputeService/v%s/acceptDispute",
+                DisputesApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,
@@ -82,9 +88,9 @@ public class DisputesTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://ca-test.adyen.com/ca/services/DisputeService/v"
-                + DisputesApi.API_VERSION
-                + "/defendDispute",
+            String.format(
+                "https://ca-test.adyen.com/ca/services/DisputeService/v%s/defendDispute",
+                DisputesApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,
@@ -112,9 +118,9 @@ public class DisputesTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://ca-test.adyen.com/ca/services/DisputeService/v"
-                + DisputesApi.API_VERSION
-                + "/deleteDisputeDefenseDocument",
+            String.format(
+                "https://ca-test.adyen.com/ca/services/DisputeService/v%s/deleteDisputeDefenseDocument",
+                DisputesApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,
@@ -141,9 +147,9 @@ public class DisputesTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://ca-test.adyen.com/ca/services/DisputeService/v"
-                + DisputesApi.API_VERSION
-                + "/retrieveApplicableDefenseReasons",
+            String.format(
+                "https://ca-test.adyen.com/ca/services/DisputeService/v%s/retrieveApplicableDefenseReasons",
+                DisputesApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,
@@ -211,9 +217,9 @@ public class DisputesTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://ca-test.adyen.com/ca/services/DisputeService/v"
-                + DisputesApi.API_VERSION
-                + "/supplyDefenseDocument",
+            String.format(
+                "https://ca-test.adyen.com/ca/services/DisputeService/v%s/supplyDefenseDocument",
+                DisputesApi.API_VERSION),
             request.toJson(),
             client.getConfig(),
             false,

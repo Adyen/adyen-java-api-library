@@ -26,7 +26,9 @@ public class PaymentsAppTest extends BaseTest {
     Field baseURLField = PaymentsAppApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(paymentsAppApi);
-    assertEquals("https://management-test.adyen.com/v1", baseURL);
+    assertEquals(
+        String.format("https://management-test.adyen.com/v%s", PaymentsAppApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -38,7 +40,9 @@ public class PaymentsAppTest extends BaseTest {
     Field baseURLField = PaymentsAppApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(paymentsAppApi);
-    assertEquals("https://management-live.adyen.com/v1", baseURL);
+    assertEquals(
+        String.format("https://management-live.adyen.com/v%s", PaymentsAppApi.API_VERSION),
+        baseURL);
   }
 
   @Test

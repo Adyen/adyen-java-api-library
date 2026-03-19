@@ -31,7 +31,10 @@ public class BalancePlatformTest extends BaseTest {
     Field baseURLField = PlatformApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(platformApi);
-    assertEquals("https://balanceplatform-api-test.adyen.com/bcl/v2", baseURL);
+    assertEquals(
+        String.format(
+            "https://balanceplatform-api-test.adyen.com/bcl/v%s", PlatformApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -43,7 +46,10 @@ public class BalancePlatformTest extends BaseTest {
     Field baseURLField = PlatformApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(platformApi);
-    assertEquals("https://balanceplatform-api-live.adyen.com/bcl/v2", baseURL);
+    assertEquals(
+        String.format(
+            "https://balanceplatform-api-live.adyen.com/bcl/v%s", PlatformApi.API_VERSION),
+        baseURL);
   }
 
   @Test

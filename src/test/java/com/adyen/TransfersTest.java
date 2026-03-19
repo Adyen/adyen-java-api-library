@@ -22,7 +22,10 @@ public class TransfersTest extends BaseTest {
     Field baseURLField = TransfersApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(transfersApi);
-    assertEquals("https://balanceplatform-api-test.adyen.com/btl/v4", baseURL);
+    assertEquals(
+        String.format(
+            "https://balanceplatform-api-test.adyen.com/btl/v%s", TransfersApi.API_VERSION),
+        baseURL);
   }
 
   @Test
@@ -34,7 +37,10 @@ public class TransfersTest extends BaseTest {
     Field baseURLField = TransfersApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(transfersApi);
-    assertEquals("https://balanceplatform-api-live.adyen.com/btl/v4", baseURL);
+    assertEquals(
+        String.format(
+            "https://balanceplatform-api-live.adyen.com/btl/v%s", TransfersApi.API_VERSION),
+        baseURL);
   }
 
   @Test
