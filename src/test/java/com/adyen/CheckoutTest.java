@@ -70,7 +70,9 @@ public class CheckoutTest extends BaseTest {
     Field baseURLField = PaymentsApi.class.getDeclaredField("baseURL");
     baseURLField.setAccessible(true);
     String baseURL = (String) baseURLField.get(paymentsApi);
-    assertEquals("https://myCompany-checkout-live.adyenpayments.com/checkout/v" + PaymentsApi.API_VERSION, baseURL);
+    assertEquals(
+        "https://myCompany-checkout-live.adyenpayments.com/checkout/v" + PaymentsApi.API_VERSION,
+        baseURL);
   }
 
   /** Should make a payment */
@@ -450,7 +452,9 @@ public class CheckoutTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://prefix-checkout-live.adyenpayments.com/checkout/v" + RecurringApi.API_VERSION + "/storedPaymentMethods/recurringId",
+            "https://prefix-checkout-live.adyenpayments.com/checkout/v"
+                + RecurringApi.API_VERSION
+                + "/storedPaymentMethods/recurringId",
             null,
             client.getConfig(),
             false,
@@ -472,7 +476,9 @@ public class CheckoutTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            "https://prefix-checkout-live.adyenpayments.com/checkout/v" + RecurringApi.API_VERSION + "/storedPaymentMethods/recurringId",
+            "https://prefix-checkout-live.adyenpayments.com/checkout/v"
+                + RecurringApi.API_VERSION
+                + "/storedPaymentMethods/recurringId",
             null,
             client.getConfig(),
             false,
