@@ -58,6 +58,7 @@ import java.util.logging.Logger;
   ResponseAdditionalDataCommon.JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER,
   ResponseAdditionalDataCommon.JSON_PROPERTY_MERCHANT_ADVICE_CODE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_MERCHANT_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_NETWORK_PROCESSING_MODE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_NETWORK_TX_REFERENCE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_OWNER_NAME,
   ResponseAdditionalDataCommon.JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE,
@@ -384,6 +385,12 @@ public class ResponseAdditionalDataCommon {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantReference = false;
+
+  public static final String JSON_PROPERTY_NETWORK_PROCESSING_MODE = "networkProcessingMode";
+  private String networkProcessingMode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkProcessingMode = false;
 
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
@@ -2079,6 +2086,59 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
+   * Indicates the processing flow. Possible values: * **sale**: no separate capture required, funds
+   * are captured as part of the transaction * **auth**: separate capture is required. This might be
+   * automatic, depending on your [capture
+   * settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   *
+   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: no
+   *     separate capture required, funds are captured as part of the transaction * **auth**:
+   *     separate capture is required. This might be automatic, depending on your [capture
+   *     settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon networkProcessingMode(String networkProcessingMode) {
+    this.networkProcessingMode = networkProcessingMode;
+    isSetNetworkProcessingMode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates the processing flow. Possible values: * **sale**: no separate capture required, funds
+   * are captured as part of the transaction * **auth**: separate capture is required. This might be
+   * automatic, depending on your [capture
+   * settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   *
+   * @return networkProcessingMode Indicates the processing flow. Possible values: * **sale**: no
+   *     separate capture required, funds are captured as part of the transaction * **auth**:
+   *     separate capture is required. This might be automatic, depending on your [capture
+   *     settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNetworkProcessingMode() {
+    return networkProcessingMode;
+  }
+
+  /**
+   * Indicates the processing flow. Possible values: * **sale**: no separate capture required, funds
+   * are captured as part of the transaction * **auth**: separate capture is required. This might be
+   * automatic, depending on your [capture
+   * settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   *
+   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: no
+   *     separate capture required, funds are captured as part of the transaction * **auth**:
+   *     separate capture is required. This might be automatic, depending on your [capture
+   *     settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkProcessingMode(String networkProcessingMode) {
+    this.networkProcessingMode = networkProcessingMode;
+    isSetNetworkProcessingMode = true; // mark as set
+  }
+
+  /**
    * Returned in the response if you are not tokenizing with Adyen and are using the
    * Merchant-initiated transactions (MIT) framework from Mastercard or Visa. This contains either
    * the Mastercard Trace ID or the Visa Transaction ID.
@@ -3433,6 +3493,11 @@ public class ResponseAdditionalDataCommon {
         && Objects.equals(this.merchantReference, responseAdditionalDataCommon.merchantReference)
         && Objects.equals(
             this.isSetMerchantReference, responseAdditionalDataCommon.isSetMerchantReference)
+        && Objects.equals(
+            this.networkProcessingMode, responseAdditionalDataCommon.networkProcessingMode)
+        && Objects.equals(
+            this.isSetNetworkProcessingMode,
+            responseAdditionalDataCommon.isSetNetworkProcessingMode)
         && Objects.equals(this.networkTxReference, responseAdditionalDataCommon.networkTxReference)
         && Objects.equals(
             this.isSetNetworkTxReference, responseAdditionalDataCommon.isSetNetworkTxReference)
@@ -3621,6 +3686,8 @@ public class ResponseAdditionalDataCommon {
         isSetMerchantAdviceCode,
         merchantReference,
         isSetMerchantReference,
+        networkProcessingMode,
+        isSetNetworkProcessingMode,
         networkTxReference,
         isSetNetworkTxReference,
         ownerName,
@@ -3732,6 +3799,9 @@ public class ResponseAdditionalDataCommon {
         .append("\n");
     sb.append("    merchantAdviceCode: ").append(toIndentedString(merchantAdviceCode)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    networkProcessingMode: ")
+        .append(toIndentedString(networkProcessingMode))
+        .append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    paymentAccountReference: ")
@@ -3917,6 +3987,9 @@ public class ResponseAdditionalDataCommon {
     }
     if (isSetMerchantReference) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetNetworkProcessingMode) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_PROCESSING_MODE, this.networkProcessingMode);
     }
     if (isSetNetworkTxReference) {
       addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);
