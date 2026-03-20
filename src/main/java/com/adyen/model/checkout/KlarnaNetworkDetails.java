@@ -23,18 +23,25 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** WeChatPayDetails */
+/** KlarnaNetworkDetails */
 @JsonPropertyOrder({
-  WeChatPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  WeChatPayDetails.JSON_PROPERTY_SDK_DATA,
-  WeChatPayDetails.JSON_PROPERTY_TYPE
+  KlarnaNetworkDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_DATA,
+  KlarnaNetworkDetails.JSON_PROPERTY_SDK_DATA,
+  KlarnaNetworkDetails.JSON_PROPERTY_TYPE
 })
-public class WeChatPayDetails {
+public class KlarnaNetworkDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
+
+  public static final String JSON_PROPERTY_KLARNA_NETWORK_DATA = "klarnaNetworkData";
+  private String klarnaNetworkData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetKlarnaNetworkData = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
@@ -42,11 +49,9 @@ public class WeChatPayDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSdkData = false;
 
-  /** **wechatpay** */
+  /** **klarna_network** */
   public enum TypeEnum {
-    WECHATPAY(String.valueOf("wechatpay")),
-
-    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
+    KLARNA_NETWORK(String.valueOf("klarna_network"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -95,15 +100,15 @@ public class WeChatPayDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public WeChatPayDetails() {}
+  public KlarnaNetworkDetails() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
    */
-  public WeChatPayDetails checkoutAttemptId(String checkoutAttemptId) {
+  public KlarnaNetworkDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -133,12 +138,53 @@ public class WeChatPayDetails {
   }
 
   /**
+   * A string containing a structured JSON object. This is a passthrough field used to enable custom
+   * features or data exchange with Klarna.
+   *
+   * @param klarnaNetworkData A string containing a structured JSON object. This is a passthrough
+   *     field used to enable custom features or data exchange with Klarna.
+   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   */
+  public KlarnaNetworkDetails klarnaNetworkData(String klarnaNetworkData) {
+    this.klarnaNetworkData = klarnaNetworkData;
+    isSetKlarnaNetworkData = true; // mark as set
+    return this;
+  }
+
+  /**
+   * A string containing a structured JSON object. This is a passthrough field used to enable custom
+   * features or data exchange with Klarna.
+   *
+   * @return klarnaNetworkData A string containing a structured JSON object. This is a passthrough
+   *     field used to enable custom features or data exchange with Klarna.
+   */
+  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getKlarnaNetworkData() {
+    return klarnaNetworkData;
+  }
+
+  /**
+   * A string containing a structured JSON object. This is a passthrough field used to enable custom
+   * features or data exchange with Klarna.
+   *
+   * @param klarnaNetworkData A string containing a structured JSON object. This is a passthrough
+   *     field used to enable custom features or data exchange with Klarna.
+   */
+  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKlarnaNetworkData(String klarnaNetworkData) {
+    this.klarnaNetworkData = klarnaNetworkData;
+    isSetKlarnaNetworkData = true; // mark as set
+  }
+
+  /**
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
    */
-  public WeChatPayDetails sdkData(String sdkData) {
+  public KlarnaNetworkDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -169,21 +215,21 @@ public class WeChatPayDetails {
   }
 
   /**
-   * **wechatpay**
+   * **klarna_network**
    *
-   * @param type **wechatpay**
-   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   * @param type **klarna_network**
+   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
    */
-  public WeChatPayDetails type(TypeEnum type) {
+  public KlarnaNetworkDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * **wechatpay**
+   * **klarna_network**
    *
-   * @return type **wechatpay**
+   * @return type **klarna_network**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,9 +238,9 @@ public class WeChatPayDetails {
   }
 
   /**
-   * **wechatpay**
+   * **klarna_network**
    *
-   * @param type **wechatpay**
+   * @param type **klarna_network**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +252,7 @@ public class WeChatPayDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public WeChatPayDetails includeNullValues(boolean includeNullValues) {
+  public KlarnaNetworkDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -223,7 +269,7 @@ public class WeChatPayDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this WeChatPayDetails object is equal to o. */
+  /** Return true if this KlarnaNetworkDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,26 +278,36 @@ public class WeChatPayDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WeChatPayDetails weChatPayDetails = (WeChatPayDetails) o;
-    return Objects.equals(this.checkoutAttemptId, weChatPayDetails.checkoutAttemptId)
-        && Objects.equals(this.isSetCheckoutAttemptId, weChatPayDetails.isSetCheckoutAttemptId)
-        && Objects.equals(this.sdkData, weChatPayDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, weChatPayDetails.isSetSdkData)
-        && Objects.equals(this.type, weChatPayDetails.type)
-        && Objects.equals(this.isSetType, weChatPayDetails.isSetType);
+    KlarnaNetworkDetails klarnaNetworkDetails = (KlarnaNetworkDetails) o;
+    return Objects.equals(this.checkoutAttemptId, klarnaNetworkDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, klarnaNetworkDetails.isSetCheckoutAttemptId)
+        && Objects.equals(this.klarnaNetworkData, klarnaNetworkDetails.klarnaNetworkData)
+        && Objects.equals(this.isSetKlarnaNetworkData, klarnaNetworkDetails.isSetKlarnaNetworkData)
+        && Objects.equals(this.sdkData, klarnaNetworkDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, klarnaNetworkDetails.isSetSdkData)
+        && Objects.equals(this.type, klarnaNetworkDetails.type)
+        && Objects.equals(this.isSetType, klarnaNetworkDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, isSetCheckoutAttemptId, sdkData, isSetSdkData, type, isSetType);
+        checkoutAttemptId,
+        isSetCheckoutAttemptId,
+        klarnaNetworkData,
+        isSetKlarnaNetworkData,
+        sdkData,
+        isSetSdkData,
+        type,
+        isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WeChatPayDetails {\n");
+    sb.append("class KlarnaNetworkDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    klarnaNetworkData: ").append(toIndentedString(klarnaNetworkData)).append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -281,6 +337,9 @@ public class WeChatPayDetails {
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
+    if (isSetKlarnaNetworkData) {
+      addIfNull(nulls, JSON_PROPERTY_KLARNA_NETWORK_DATA, this.klarnaNetworkData);
+    }
     if (isSetSdkData) {
       addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
     }
@@ -299,18 +358,19 @@ public class WeChatPayDetails {
   }
 
   /**
-   * Create an instance of WeChatPayDetails given an JSON string
+   * Create an instance of KlarnaNetworkDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of WeChatPayDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to WeChatPayDetails
+   * @return An instance of KlarnaNetworkDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     KlarnaNetworkDetails
    */
-  public static WeChatPayDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, WeChatPayDetails.class);
+  public static KlarnaNetworkDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, KlarnaNetworkDetails.class);
   }
 
   /**
-   * Convert an instance of WeChatPayDetails to an JSON string
+   * Convert an instance of KlarnaNetworkDetails to an JSON string
    *
    * @return JSON string
    */

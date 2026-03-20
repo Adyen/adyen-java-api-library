@@ -23,42 +23,34 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** BacsDirectDebitDetails */
+/** DirectDebitAuDetails */
 @JsonPropertyOrder({
-  BacsDirectDebitDetails.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
-  BacsDirectDebitDetails.JSON_PROPERTY_BANK_LOCATION_ID,
-  BacsDirectDebitDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  BacsDirectDebitDetails.JSON_PROPERTY_HOLDER_NAME,
-  BacsDirectDebitDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  BacsDirectDebitDetails.JSON_PROPERTY_SDK_DATA,
-  BacsDirectDebitDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  BacsDirectDebitDetails.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
-  BacsDirectDebitDetails.JSON_PROPERTY_TYPE
+  DirectDebitAuDetails.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
+  DirectDebitAuDetails.JSON_PROPERTY_BANK_BRANCH_CODE,
+  DirectDebitAuDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  DirectDebitAuDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  DirectDebitAuDetails.JSON_PROPERTY_SDK_DATA,
+  DirectDebitAuDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  DirectDebitAuDetails.JSON_PROPERTY_TYPE
 })
-public class BacsDirectDebitDetails {
+public class DirectDebitAuDetails {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBankAccountNumber = false;
 
-  public static final String JSON_PROPERTY_BANK_LOCATION_ID = "bankLocationId";
-  private String bankLocationId;
+  public static final String JSON_PROPERTY_BANK_BRANCH_CODE = "bankBranchCode";
+  private String bankBranchCode;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetBankLocationId = false;
+  private boolean isSetBankBranchCode = false;
 
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
-
-  public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
-  private String holderName;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -79,15 +71,9 @@ public class BacsDirectDebitDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoredPaymentMethodId = false;
 
-  public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
-  private String transferInstrumentId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTransferInstrumentId = false;
-
-  /** **directdebit_GB** */
+  /** **directdebit_AU** */
   public enum TypeEnum {
-    DIRECTDEBIT_GB(String.valueOf("directdebit_GB"));
+    DIRECTDEBIT_AU(String.valueOf("directdebit_AU"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -136,24 +122,24 @@ public class BacsDirectDebitDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public BacsDirectDebitDetails() {}
+  public DirectDebitAuDetails() {}
 
   /**
-   * The bank account number (without separators).
+   * The shopper&#39;s banking account number used to complete payment.
    *
-   * @param bankAccountNumber The bank account number (without separators).
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @param bankAccountNumber The shopper&#39;s banking account number used to complete payment.
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public BacsDirectDebitDetails bankAccountNumber(String bankAccountNumber) {
+  public DirectDebitAuDetails bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
     isSetBankAccountNumber = true; // mark as set
     return this;
   }
 
   /**
-   * The bank account number (without separators).
+   * The shopper&#39;s banking account number used to complete payment.
    *
-   * @return bankAccountNumber The bank account number (without separators).
+   * @return bankAccountNumber The shopper&#39;s banking account number used to complete payment.
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,9 +148,9 @@ public class BacsDirectDebitDetails {
   }
 
   /**
-   * The bank account number (without separators).
+   * The shopper&#39;s banking account number used to complete payment.
    *
-   * @param bankAccountNumber The bank account number (without separators).
+   * @param bankAccountNumber The shopper&#39;s banking account number used to complete payment.
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,47 +160,50 @@ public class BacsDirectDebitDetails {
   }
 
   /**
-   * The bank routing number of the account.
+   * The shopper&#39;s BSB (their bank&#39;s branch code) number used to complete payment.
    *
-   * @param bankLocationId The bank routing number of the account.
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @param bankBranchCode The shopper&#39;s BSB (their bank&#39;s branch code) number used to
+   *     complete payment.
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public BacsDirectDebitDetails bankLocationId(String bankLocationId) {
-    this.bankLocationId = bankLocationId;
-    isSetBankLocationId = true; // mark as set
+  public DirectDebitAuDetails bankBranchCode(String bankBranchCode) {
+    this.bankBranchCode = bankBranchCode;
+    isSetBankBranchCode = true; // mark as set
     return this;
   }
 
   /**
-   * The bank routing number of the account.
+   * The shopper&#39;s BSB (their bank&#39;s branch code) number used to complete payment.
    *
-   * @return bankLocationId The bank routing number of the account.
+   * @return bankBranchCode The shopper&#39;s BSB (their bank&#39;s branch code) number used to
+   *     complete payment.
    */
-  @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
+  @JsonProperty(JSON_PROPERTY_BANK_BRANCH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBankLocationId() {
-    return bankLocationId;
+  public String getBankBranchCode() {
+    return bankBranchCode;
   }
 
   /**
-   * The bank routing number of the account.
+   * The shopper&#39;s BSB (their bank&#39;s branch code) number used to complete payment.
    *
-   * @param bankLocationId The bank routing number of the account.
+   * @param bankBranchCode The shopper&#39;s BSB (their bank&#39;s branch code) number used to
+   *     complete payment.
    */
-  @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
+  @JsonProperty(JSON_PROPERTY_BANK_BRANCH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankLocationId(String bankLocationId) {
-    this.bankLocationId = bankLocationId;
-    isSetBankLocationId = true; // mark as set
+  public void setBankBranchCode(String bankBranchCode) {
+    this.bankBranchCode = bankBranchCode;
+    isSetBankBranchCode = true; // mark as set
   }
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public BacsDirectDebitDetails checkoutAttemptId(String checkoutAttemptId) {
+  public DirectDebitAuDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -244,51 +233,16 @@ public class BacsDirectDebitDetails {
   }
 
   /**
-   * The name of the bank account holder.
-   *
-   * @param holderName The name of the bank account holder.
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
-   */
-  public BacsDirectDebitDetails holderName(String holderName) {
-    this.holderName = holderName;
-    isSetHolderName = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The name of the bank account holder.
-   *
-   * @return holderName The name of the bank account holder.
-   */
-  @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHolderName() {
-    return holderName;
-  }
-
-  /**
-   * The name of the bank account holder.
-   *
-   * @param holderName The name of the bank account holder.
-   */
-  @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHolderName(String holderName) {
-    this.holderName = holderName;
-    isSetHolderName = true; // mark as set
-  }
-
-  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
-  public BacsDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
+  public DirectDebitAuDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -329,9 +283,9 @@ public class BacsDirectDebitDetails {
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public BacsDirectDebitDetails sdkData(String sdkData) {
+  public DirectDebitAuDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -367,9 +321,9 @@ public class BacsDirectDebitDetails {
    *
    * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
    *     response when you created the token.
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public BacsDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public DirectDebitAuDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     isSetStoredPaymentMethodId = true; // mark as set
     return this;
@@ -403,62 +357,21 @@ public class BacsDirectDebitDetails {
   }
 
   /**
-   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top
-   * up their balance accounts.
+   * **directdebit_AU**
    *
-   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer
-   *     instrument, which you can use to top up their balance accounts.
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
+   * @param type **directdebit_AU**
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public BacsDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
-    this.transferInstrumentId = transferInstrumentId;
-    isSetTransferInstrumentId = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top
-   * up their balance accounts.
-   *
-   * @return transferInstrumentId The unique identifier of your user&#39;s verified transfer
-   *     instrument, which you can use to top up their balance accounts.
-   */
-  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTransferInstrumentId() {
-    return transferInstrumentId;
-  }
-
-  /**
-   * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top
-   * up their balance accounts.
-   *
-   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer
-   *     instrument, which you can use to top up their balance accounts.
-   */
-  @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransferInstrumentId(String transferInstrumentId) {
-    this.transferInstrumentId = transferInstrumentId;
-    isSetTransferInstrumentId = true; // mark as set
-  }
-
-  /**
-   * **directdebit_GB**
-   *
-   * @param type **directdebit_GB**
-   * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
-   */
-  public BacsDirectDebitDetails type(TypeEnum type) {
+  public DirectDebitAuDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * **directdebit_GB**
+   * **directdebit_AU**
    *
-   * @return type **directdebit_GB**
+   * @return type **directdebit_AU**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -467,9 +380,9 @@ public class BacsDirectDebitDetails {
   }
 
   /**
-   * **directdebit_GB**
+   * **directdebit_AU**
    *
-   * @param type **directdebit_GB**
+   * @param type **directdebit_AU**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -481,7 +394,7 @@ public class BacsDirectDebitDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public BacsDirectDebitDetails includeNullValues(boolean includeNullValues) {
+  public DirectDebitAuDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -498,7 +411,7 @@ public class BacsDirectDebitDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this BacsDirectDebitDetails object is equal to o. */
+  /** Return true if this DirectDebitAuDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -507,32 +420,24 @@ public class BacsDirectDebitDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BacsDirectDebitDetails bacsDirectDebitDetails = (BacsDirectDebitDetails) o;
-    return Objects.equals(this.bankAccountNumber, bacsDirectDebitDetails.bankAccountNumber)
+    DirectDebitAuDetails directDebitAuDetails = (DirectDebitAuDetails) o;
+    return Objects.equals(this.bankAccountNumber, directDebitAuDetails.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, directDebitAuDetails.isSetBankAccountNumber)
+        && Objects.equals(this.bankBranchCode, directDebitAuDetails.bankBranchCode)
+        && Objects.equals(this.isSetBankBranchCode, directDebitAuDetails.isSetBankBranchCode)
+        && Objects.equals(this.checkoutAttemptId, directDebitAuDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, directDebitAuDetails.isSetCheckoutAttemptId)
         && Objects.equals(
-            this.isSetBankAccountNumber, bacsDirectDebitDetails.isSetBankAccountNumber)
-        && Objects.equals(this.bankLocationId, bacsDirectDebitDetails.bankLocationId)
-        && Objects.equals(this.isSetBankLocationId, bacsDirectDebitDetails.isSetBankLocationId)
-        && Objects.equals(this.checkoutAttemptId, bacsDirectDebitDetails.checkoutAttemptId)
+            this.recurringDetailReference, directDebitAuDetails.recurringDetailReference)
         && Objects.equals(
-            this.isSetCheckoutAttemptId, bacsDirectDebitDetails.isSetCheckoutAttemptId)
-        && Objects.equals(this.holderName, bacsDirectDebitDetails.holderName)
-        && Objects.equals(this.isSetHolderName, bacsDirectDebitDetails.isSetHolderName)
+            this.isSetRecurringDetailReference, directDebitAuDetails.isSetRecurringDetailReference)
+        && Objects.equals(this.sdkData, directDebitAuDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, directDebitAuDetails.isSetSdkData)
+        && Objects.equals(this.storedPaymentMethodId, directDebitAuDetails.storedPaymentMethodId)
         && Objects.equals(
-            this.recurringDetailReference, bacsDirectDebitDetails.recurringDetailReference)
-        && Objects.equals(
-            this.isSetRecurringDetailReference,
-            bacsDirectDebitDetails.isSetRecurringDetailReference)
-        && Objects.equals(this.sdkData, bacsDirectDebitDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, bacsDirectDebitDetails.isSetSdkData)
-        && Objects.equals(this.storedPaymentMethodId, bacsDirectDebitDetails.storedPaymentMethodId)
-        && Objects.equals(
-            this.isSetStoredPaymentMethodId, bacsDirectDebitDetails.isSetStoredPaymentMethodId)
-        && Objects.equals(this.transferInstrumentId, bacsDirectDebitDetails.transferInstrumentId)
-        && Objects.equals(
-            this.isSetTransferInstrumentId, bacsDirectDebitDetails.isSetTransferInstrumentId)
-        && Objects.equals(this.type, bacsDirectDebitDetails.type)
-        && Objects.equals(this.isSetType, bacsDirectDebitDetails.isSetType);
+            this.isSetStoredPaymentMethodId, directDebitAuDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, directDebitAuDetails.type)
+        && Objects.equals(this.isSetType, directDebitAuDetails.isSetType);
   }
 
   @Override
@@ -540,20 +445,16 @@ public class BacsDirectDebitDetails {
     return Objects.hash(
         bankAccountNumber,
         isSetBankAccountNumber,
-        bankLocationId,
-        isSetBankLocationId,
+        bankBranchCode,
+        isSetBankBranchCode,
         checkoutAttemptId,
         isSetCheckoutAttemptId,
-        holderName,
-        isSetHolderName,
         recurringDetailReference,
         isSetRecurringDetailReference,
         sdkData,
         isSetSdkData,
         storedPaymentMethodId,
         isSetStoredPaymentMethodId,
-        transferInstrumentId,
-        isSetTransferInstrumentId,
         type,
         isSetType);
   }
@@ -561,20 +462,16 @@ public class BacsDirectDebitDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BacsDirectDebitDetails {\n");
+    sb.append("class DirectDebitAuDetails {\n");
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
-    sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
+    sb.append("    bankBranchCode: ").append(toIndentedString(bankBranchCode)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
-    sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
-        .append("\n");
-    sb.append("    transferInstrumentId: ")
-        .append(toIndentedString(transferInstrumentId))
         .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -604,14 +501,11 @@ public class BacsDirectDebitDetails {
     if (isSetBankAccountNumber) {
       addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
     }
-    if (isSetBankLocationId) {
-      addIfNull(nulls, JSON_PROPERTY_BANK_LOCATION_ID, this.bankLocationId);
+    if (isSetBankBranchCode) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_BRANCH_CODE, this.bankBranchCode);
     }
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
-    }
-    if (isSetHolderName) {
-      addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);
     }
     if (isSetRecurringDetailReference) {
       addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
@@ -621,9 +515,6 @@ public class BacsDirectDebitDetails {
     }
     if (isSetStoredPaymentMethodId) {
       addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
-    }
-    if (isSetTransferInstrumentId) {
-      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENT_ID, this.transferInstrumentId);
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
@@ -640,19 +531,19 @@ public class BacsDirectDebitDetails {
   }
 
   /**
-   * Create an instance of BacsDirectDebitDetails given an JSON string
+   * Create an instance of DirectDebitAuDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BacsDirectDebitDetails
+   * @return An instance of DirectDebitAuDetails
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     BacsDirectDebitDetails
+   *     DirectDebitAuDetails
    */
-  public static BacsDirectDebitDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, BacsDirectDebitDetails.class);
+  public static DirectDebitAuDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DirectDebitAuDetails.class);
   }
 
   /**
-   * Convert an instance of BacsDirectDebitDetails to an JSON string
+   * Convert an instance of DirectDebitAuDetails to an JSON string
    *
    * @return JSON string
    */

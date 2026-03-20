@@ -23,18 +23,66 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** WeChatPayDetails */
+/** AlmaDetails */
 @JsonPropertyOrder({
-  WeChatPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  WeChatPayDetails.JSON_PROPERTY_SDK_DATA,
-  WeChatPayDetails.JSON_PROPERTY_TYPE
+  AlmaDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  AlmaDetails.JSON_PROPERTY_FEE_TYPE,
+  AlmaDetails.JSON_PROPERTY_SDK_DATA,
+  AlmaDetails.JSON_PROPERTY_TYPE
 })
-public class WeChatPayDetails {
+public class AlmaDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
+
+  /** **Alma payment request fee type** */
+  public enum FeeTypeEnum {
+    MERCHANTPAYS(String.valueOf("merchantPays")),
+
+    SHOPPERPAYS(String.valueOf("shopperPays"));
+
+    private static final Logger LOG = Logger.getLogger(FeeTypeEnum.class.getName());
+
+    private String value;
+
+    FeeTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FeeTypeEnum fromValue(String value) {
+      for (FeeTypeEnum b : FeeTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "FeeTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FeeTypeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_FEE_TYPE = "feeType";
+  private FeeTypeEnum feeType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFeeType = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
@@ -42,11 +90,9 @@ public class WeChatPayDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSdkData = false;
 
-  /** **wechatpay** */
+  /** The payment method type. */
   public enum TypeEnum {
-    WECHATPAY(String.valueOf("wechatpay")),
-
-    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
+    ALMA(String.valueOf("alma"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -95,15 +141,15 @@ public class WeChatPayDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public WeChatPayDetails() {}
+  public AlmaDetails() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  public WeChatPayDetails checkoutAttemptId(String checkoutAttemptId) {
+  public AlmaDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -133,12 +179,47 @@ public class WeChatPayDetails {
   }
 
   /**
+   * **Alma payment request fee type**
+   *
+   * @param feeType **Alma payment request fee type**
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
+   */
+  public AlmaDetails feeType(FeeTypeEnum feeType) {
+    this.feeType = feeType;
+    isSetFeeType = true; // mark as set
+    return this;
+  }
+
+  /**
+   * **Alma payment request fee type**
+   *
+   * @return feeType **Alma payment request fee type**
+   */
+  @JsonProperty(JSON_PROPERTY_FEE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeeTypeEnum getFeeType() {
+    return feeType;
+  }
+
+  /**
+   * **Alma payment request fee type**
+   *
+   * @param feeType **Alma payment request fee type**
+   */
+  @JsonProperty(JSON_PROPERTY_FEE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFeeType(FeeTypeEnum feeType) {
+    this.feeType = feeType;
+    isSetFeeType = true; // mark as set
+  }
+
+  /**
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  public WeChatPayDetails sdkData(String sdkData) {
+  public AlmaDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -169,21 +250,21 @@ public class WeChatPayDetails {
   }
 
   /**
-   * **wechatpay**
+   * The payment method type.
    *
-   * @param type **wechatpay**
-   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   * @param type The payment method type.
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  public WeChatPayDetails type(TypeEnum type) {
+  public AlmaDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * **wechatpay**
+   * The payment method type.
    *
-   * @return type **wechatpay**
+   * @return type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,9 +273,9 @@ public class WeChatPayDetails {
   }
 
   /**
-   * **wechatpay**
+   * The payment method type.
    *
-   * @param type **wechatpay**
+   * @param type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +287,7 @@ public class WeChatPayDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public WeChatPayDetails includeNullValues(boolean includeNullValues) {
+  public AlmaDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -223,7 +304,7 @@ public class WeChatPayDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this WeChatPayDetails object is equal to o. */
+  /** Return true if this AlmaDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,26 +313,36 @@ public class WeChatPayDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WeChatPayDetails weChatPayDetails = (WeChatPayDetails) o;
-    return Objects.equals(this.checkoutAttemptId, weChatPayDetails.checkoutAttemptId)
-        && Objects.equals(this.isSetCheckoutAttemptId, weChatPayDetails.isSetCheckoutAttemptId)
-        && Objects.equals(this.sdkData, weChatPayDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, weChatPayDetails.isSetSdkData)
-        && Objects.equals(this.type, weChatPayDetails.type)
-        && Objects.equals(this.isSetType, weChatPayDetails.isSetType);
+    AlmaDetails almaDetails = (AlmaDetails) o;
+    return Objects.equals(this.checkoutAttemptId, almaDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, almaDetails.isSetCheckoutAttemptId)
+        && Objects.equals(this.feeType, almaDetails.feeType)
+        && Objects.equals(this.isSetFeeType, almaDetails.isSetFeeType)
+        && Objects.equals(this.sdkData, almaDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, almaDetails.isSetSdkData)
+        && Objects.equals(this.type, almaDetails.type)
+        && Objects.equals(this.isSetType, almaDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, isSetCheckoutAttemptId, sdkData, isSetSdkData, type, isSetType);
+        checkoutAttemptId,
+        isSetCheckoutAttemptId,
+        feeType,
+        isSetFeeType,
+        sdkData,
+        isSetSdkData,
+        type,
+        isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WeChatPayDetails {\n");
+    sb.append("class AlmaDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -281,6 +372,9 @@ public class WeChatPayDetails {
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
+    if (isSetFeeType) {
+      addIfNull(nulls, JSON_PROPERTY_FEE_TYPE, this.feeType);
+    }
     if (isSetSdkData) {
       addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
     }
@@ -299,18 +393,18 @@ public class WeChatPayDetails {
   }
 
   /**
-   * Create an instance of WeChatPayDetails given an JSON string
+   * Create an instance of AlmaDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of WeChatPayDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to WeChatPayDetails
+   * @return An instance of AlmaDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AlmaDetails
    */
-  public static WeChatPayDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, WeChatPayDetails.class);
+  public static AlmaDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AlmaDetails.class);
   }
 
   /**
-   * Convert an instance of WeChatPayDetails to an JSON string
+   * Convert an instance of AlmaDetails to an JSON string
    *
    * @return JSON string
    */
