@@ -53,6 +53,7 @@ import org.apache.hc.client5.http.classic.methods.HttpPatch;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequest;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
+import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
@@ -264,14 +265,20 @@ public class AdyenHttpClient implements ClientInterface {
     RequestConfig defaultRequestConfig =
         RequestConfig.custom()
             .setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS)
-            .setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS)
             .setConnectionRequestTimeout(
                 config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS)
+            .setDefaultKeepAlive(config.getDefaultKeepAliveMillis(), TimeUnit.MILLISECONDS)
+            .build();
+    ConnectionConfig connectionConfig =
+        ConnectionConfig.custom()
+            .setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS)
+            .setSocketTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS)
             .build();
     return HttpClients.custom()
         .setConnectionManager(
             PoolingHttpClientConnectionManagerBuilder.create()
                 .setSSLSocketFactory(socketFactory)
+                .setDefaultConnectionConfig(connectionConfig)
                 .build())
         .setDefaultRequestConfig(defaultRequestConfig)
         .setRedirectStrategy(new AdyenCustomRedirectStrategy())
