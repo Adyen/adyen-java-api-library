@@ -4,9 +4,11 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
+import java.io.Closeable;
+import java.io.IOException;
 import javax.net.ssl.SSLContext;
 
-public class Client {
+public class Client implements Closeable {
   private ClientInterface httpClient;
   private Config config;
   public static final String LIB_NAME = "adyen-java-api-library";
@@ -157,11 +159,21 @@ public class Client {
   }
 
   public ClientInterface getHttpClient() {
-    return this.httpClient == null ? new AdyenHttpClient() : this.httpClient;
+    if (this.httpClient == null) {
+      this.httpClient = new AdyenHttpClient();
+    }
+    return this.httpClient;
   }
 
   public void setHttpClient(ClientInterface httpClient) {
     this.httpClient = httpClient;
+  }
+
+  @Override
+  public void close() throws IOException {
+    if (this.httpClient != null) {
+      this.httpClient.close();
+    }
   }
 
   public Config getConfig() {

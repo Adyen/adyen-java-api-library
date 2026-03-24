@@ -23,10 +23,14 @@ package com.adyen.httpclient;
 import com.adyen.Config;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.Map;
 
-public interface ClientInterface {
+public interface ClientInterface extends Closeable {
+
+  @Override
+  default void close() throws IOException {}
 
   String request(String endpoint, String requestBody, Config config)
       throws IOException, HTTPClientException;

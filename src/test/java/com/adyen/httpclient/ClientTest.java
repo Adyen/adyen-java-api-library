@@ -285,4 +285,20 @@ public class ClientTest extends BaseTest {
     assertNotNull(wwwAuthenticate);
     assertEquals("www-authenticate-header", wwwAuthenticate.getValue());
   }
+
+  @Test
+  public void testGetHttpClientReturnsSameInstance() {
+    Client client = new Client("apiKey", Environment.TEST);
+    ClientInterface first = client.getHttpClient();
+    ClientInterface second = client.getHttpClient();
+    assertSame(first, second);
+  }
+
+  @Test
+  public void testClientCloseIsIdempotent() throws Exception {
+    Client client = new Client("apiKey", Environment.TEST);
+    client.getHttpClient();
+    client.close();
+    client.close();
+  }
 }
