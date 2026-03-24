@@ -11,7 +11,6 @@ import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 import javax.net.ssl.SSLContext;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
@@ -166,7 +165,6 @@ public class ClientTest extends BaseTest {
       assertInstanceOf(Configurable.class, httpClient);
       RequestConfig defaultConfig = ((Configurable) httpClient).getConfig();
       assertNotNull(defaultConfig);
-      assertEquals(15000, defaultConfig.getConnectTimeout().toMilliseconds());
       assertEquals(15000, defaultConfig.getResponseTimeout().toMilliseconds());
       assertEquals(15000, defaultConfig.getConnectionRequestTimeout().toMilliseconds());
     }
@@ -182,14 +180,37 @@ public class ClientTest extends BaseTest {
       RequestConfig defaultConfig = ((Configurable) httpClient).getConfig();
       assertNotNull(defaultConfig);
       assertEquals(
-          config.getConnectionTimeoutMillis(),
-          defaultConfig.getConnectTimeout().toMilliseconds());
-      assertEquals(
           config.getReadTimeoutMillis(), defaultConfig.getResponseTimeout().toMilliseconds());
       assertEquals(
           config.getConnectionRequestTimeoutMillis(),
           defaultConfig.getConnectionRequestTimeout().toMilliseconds());
     }
+  }
+
+  @Test
+  public void testPerRequestConfigIncludesAllTimeouts() throws Exception {
+    AdyenHttpClient adyenHttpClient = new AdyenHttpClient();
+    Config config = new Config();
+    config.setConnectionTimeoutMillis(10000);
+    config.setReadTimeoutMillis(20000);
+    config.setConnectionRequestTimeoutMillis(30000);
+    config.setDefaultKeepAliveMillis(40000);
+
+    HttpUriRequestBase request =
+        adyenHttpClient.createRequest(
+            "https://checkout-test.adyen.com/v68/payments",
+            "{}",
+            config,
+            true,
+            null,
+            ApiConstants.HttpMethod.POST,
+            Map.of());
+
+    RequestConfig requestConfig = request.getConfig();
+    assertNotNull(requestConfig);
+    assertEquals(10000, requestConfig.getConnectTimeout().toMilliseconds());
+    assertEquals(20000, requestConfig.getResponseTimeout().toMilliseconds());
+    assertEquals(30000, requestConfig.getConnectionRequestTimeout().toMilliseconds());
   }
 
   @Test
