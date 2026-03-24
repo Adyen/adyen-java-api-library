@@ -69,6 +69,8 @@ public class AdyenHttpClient implements ClientInterface {
 
   private static final String CHARSET = "UTF-8";
   private Proxy proxy;
+  private volatile CloseableHttpClient sharedHttpClient;
+  private final Object lock = new Object();
 
   public Proxy getProxy() {
     return proxy;
@@ -76,6 +78,29 @@ public class AdyenHttpClient implements ClientInterface {
 
   public void setProxy(Proxy proxy) {
     this.proxy = proxy;
+  }
+
+  @Override
+  public void close() throws IOException {
+    synchronized (lock) {
+      if (sharedHttpClient != null) {
+        sharedHttpClient.close();
+        sharedHttpClient = null;
+      }
+    }
+  }
+
+  private CloseableHttpClient getOrCreateHttpClient(Config config) {
+    CloseableHttpClient client = sharedHttpClient;
+    if (client != null) {
+      return client;
+    }
+    synchronized (lock) {
+      if (sharedHttpClient == null) {
+        sharedHttpClient = createCloseableHttpClient(config);
+      }
+      return sharedHttpClient;
+    }
   }
 
   @Override
@@ -125,20 +150,19 @@ public class AdyenHttpClient implements ClientInterface {
       ApiConstants.HttpMethod httpMethod,
       Map<String, String> params)
       throws IOException, HTTPClientException {
-    try (CloseableHttpClient httpclient = createCloseableHttpClient(config)) {
-      HttpUriRequestBase httpRequest =
-          createRequest(
-              endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
+    CloseableHttpClient httpclient = getOrCreateHttpClient(config);
+    HttpUriRequestBase httpRequest =
+        createRequest(
+            endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
 
-      // Execute request with a custom response handler
-      AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
+    // Execute request with a custom response handler
+    AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
 
-      if (response.getStatus() < 200 || response.getStatus() >= 300) {
-        throw new HTTPClientException(
-            response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
-      }
-      return response.getBody();
+    if (response.getStatus() < 200 || response.getStatus() >= 300) {
+      throw new HTTPClientException(
+          response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
     }
+    return response.getBody();
   }
 
   HttpUriRequestBase createRequest(
