@@ -103,6 +103,28 @@ public class ConfigurationWebhooksHandler {
   }
 
   /**
+   * Attempts to deserialize the webhook payload into a MandateNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<MandateNotificationRequest> getMandateNotificationRequest() {
+
+    var optionalMandateNotificationRequest = getOptionalField(MandateNotificationRequest.class);
+
+    if (optionalMandateNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : MandateNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalMandateNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalMandateNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
    * Attempts to deserialize the webhook payload into a NetworkTokenNotificationRequest
    *
    * @return an Optional containing the deserialized object, or empty if deserialization fails
