@@ -346,6 +346,39 @@ System.setProperty("https.proxyUser", "squid");
 System.setProperty("https.proxyPassword", "ward");
 ~~~~
 
+### HTTP timeout configuration
+
+The library provides configurable timeout settings on the `Config` object. These timeouts are applied consistently across all API calls (Checkout, Payments, Recurring, Terminal, etc.).
+
+| Config Property                    | Default  | Description                                                                                                                                                                      |
+|------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `connectionTimeoutMillis`          | 60000 ms | Maximum time to wait for a TCP connection (and TLS handshake) to be established with the server. If the server is unreachable or slow to accept connections, this timeout fires. |
+| `readTimeoutMillis`                | 60000 ms | Maximum time to wait for data on an already established connection (socket read timeout). This is the hard upper bound on how long any single API call can take once connected.  |
+| `connectionRequestTimeoutMillis`   | 60000 ms | Maximum time to wait to lease a connection from the internal connection pool. Relevant under high concurrency when the pool is saturated.                                        |
+| `defaultKeepAliveMillis`           | 60000 ms | Duration to keep idle connections alive for reuse.                                                                                                                                |
+
+**Best practices:**
+
+- Always set explicit timeouts for production environments. The 60-second defaults may be too high for latency-sensitive services.
+- Set `readTimeoutMillis` to match your maximum acceptable API response time. For example, if your SLA requires failing fast on slow downstream calls, use a lower value (e.g. 10-15 seconds).
+- Keep `connectionTimeoutMillis` relatively low (e.g. 5-15 seconds) since a healthy server should accept connections quickly.
+
+~~~~ java
+// Example: Configure timeouts via Config object
+Config config = new Config()
+    .environment(Environment.LIVE)
+    .liveEndpointUrlPrefix("myCompany")
+    .apiKey("YOUR_API_KEY")
+    .connectionTimeoutMillis(10000)   // 10 sec to establish connection
+    .readTimeoutMillis(15000)         // 15 sec max to receive a response
+    .connectionRequestTimeoutMillis(5000); // 5 sec to acquire a pooled connection
+
+Client client = new Client(config);
+
+// Or use the convenience method on the Client object
+client.setTimeouts(10000, 15000);
+~~~~
+
 ### Client certificate authentication
 
 ~~~~ java
