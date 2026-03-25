@@ -82,8 +82,8 @@ import org.apache.hc.core5.ssl.SSLContexts;
  *
  * <p>The shared HTTP client is created from the {@link Config} provided on the first request.
  * Subsequent changes to {@link Config} timeout values will not affect the already-created client.
- * Configuration must be finalized before the first API call.
- **
+ * Configuration must be finalized before the first API call. *
+ *
  * @see ClientInterface
  * @see Config
  */
@@ -377,7 +377,8 @@ public class AdyenHttpClient implements ClientInterface {
             .setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS)
             // socketTimeout acts as an OS-level safety net for stalled reads;
             // responseTimeout (in RequestConfig) is the HTTP-level equivalent.
-            // Both are set to readTimeoutMillis so the request is bounded regardless of which layer fires first.
+            // Both are set to readTimeoutMillis so the request is bounded regardless of which layer
+            // fires first.
             .setSocketTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS)
             .build();
     return HttpClients.custom()

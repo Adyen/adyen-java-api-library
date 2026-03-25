@@ -5,9 +5,9 @@ import com.adyen.enums.Region;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
-    /**
- * Configuration for the Adyen API client (authentication credentials, environment settings,
- * HTTP timeout values, and Terminal API configuration, etc..).
+/**
+ * Configuration for the Adyen API client (authentication credentials, environment settings, HTTP
+ * timeout values, and Terminal API configuration, etc..).
  *
  * <p>Supports a fluent builder pattern for concise configuration:
  *
@@ -20,9 +20,9 @@ import javax.net.ssl.SSLContext;
  *     .readTimeoutMillis(15000);
  * }</pre>
  *
- * <p><b>Important:</b> Consider setting Timeout and SSL configuration.
- * The underlying HTTP client is created lazily on the first request and reuses the configuration
- * captured at that point. Changes made after the first request will not take effect.
+ * <p><b>Important:</b> Consider setting Timeout and SSL configuration. The underlying HTTP client
+ * is created lazily on the first request and reuses the configuration captured at that point.
+ * Changes made after the first request will not take effect.
  *
  * @see Client
  * @see com.adyen.httpclient.AdyenHttpClient
