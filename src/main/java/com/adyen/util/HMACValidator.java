@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2026 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -31,8 +31,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
+import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
 
 /** Utility class for generating and validating HMAC signatures used in Adyen webhooks. */
 public class HMACValidator {
@@ -48,7 +49,7 @@ public class HMACValidator {
    * @param data the data to sign
    * @param key the HMAC key in hexadecimal format
    * @return the Base64-encoded HMAC signature
-   * @throws IllegalArgumentException if the data or key is null
+   * @throws IllegalArgumentException if the data or key is null or if key is invalid
    * @throws SignatureException if signature generation fails
    */
   public String calculateHMAC(String data, String key)
@@ -61,7 +62,7 @@ public class HMACValidator {
         throw new IllegalArgumentException("HMAC key is not provided");
       }
 
-      byte[] rawKey = DatatypeConverter.parseHexBinary(key);
+      byte[] rawKey = Hex.decodeHex(key);
       SecretKeySpec signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
 
       Mac mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
@@ -71,6 +72,8 @@ public class HMACValidator {
       return new String(Base64.encodeBase64(rawHmac));
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("Missing data or key: " + e.getMessage());
+    } catch (DecoderException e) {
+      throw new IllegalArgumentException("Invalid Hex HMAC key: " + key);
     } catch (Exception e) {
       throw new SignatureException("Failed to generate HMAC: " + e.getMessage());
     }

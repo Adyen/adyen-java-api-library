@@ -22,8 +22,8 @@
 package com.adyen.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import com.adyen.BaseTest;
 import com.adyen.model.notification.NotificationRequestItem;
@@ -77,7 +77,7 @@ public class HMACValidatorTest extends BaseTest {
   }
 
   @Test
-  public void testValidateHMACNullHmacSignature() throws SignatureException {
+  public void testValidateHMACNullHmacSignature() {
     String notificationJson =
         "{\n"
             + "    \"additionalData\": {\n"
@@ -94,18 +94,17 @@ public class HMACValidatorTest extends BaseTest {
             + "    \"reason\": \"will contain the url to the report\",\n"
             + "    \"success\": \"true\"\n"
             + "}";
-    try {
-      NotificationRequestItem notificationRequest =
-          new Gson().fromJson(notificationJson, NotificationRequestItem.class);
-      boolean result = new HMACValidator().validateHMAC(notificationRequest, HMAC_KEY);
-      fail();
-    } catch (IllegalArgumentException e) {
-      assertEquals("Missing hmacSignature", e.getMessage());
-    }
+    NotificationRequestItem notificationRequest =
+        new Gson().fromJson(notificationJson, NotificationRequestItem.class);
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().validateHMAC(notificationRequest, HMAC_KEY));
+    assertEquals("Missing hmacSignature", exception.getMessage());
   }
 
   @Test
-  public void testValidateHMACEmptyHmacSignature() throws SignatureException {
+  public void testValidateHMACEmptyHmacSignature() {
     String notificationJson =
         "{\n"
             + "    \"additionalData\": {\n"
@@ -123,14 +122,13 @@ public class HMACValidatorTest extends BaseTest {
             + "    \"reason\": \"will contain the url to the report\",\n"
             + "    \"success\": \"true\"\n"
             + "}";
-    try {
-      NotificationRequestItem notificationRequest =
-          new Gson().fromJson(notificationJson, NotificationRequestItem.class);
-      boolean result = new HMACValidator().validateHMAC(notificationRequest, HMAC_KEY);
-      fail();
-    } catch (IllegalArgumentException e) {
-      assertEquals("Missing hmacSignature", e.getMessage());
-    }
+    NotificationRequestItem notificationRequest =
+        new Gson().fromJson(notificationJson, NotificationRequestItem.class);
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().validateHMAC(notificationRequest, HMAC_KEY));
+    assertEquals("Missing hmacSignature", exception.getMessage());
   }
 
   @Test
@@ -157,32 +155,44 @@ public class HMACValidatorTest extends BaseTest {
 
   @Test
   public void testValidateHMACEmptyNotificationRequest() {
-    try {
-      new HMACValidator().getDataToSign((NotificationRequestItem) null);
-    } catch (IllegalArgumentException e) {
-      assertEquals("Missing NotificationRequestItem.", e.getMessage());
-    }
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().getDataToSign((NotificationRequestItem) null));
+    assertEquals("Missing NotificationRequestItem.", exception.getMessage());
   }
 
   @Test
   public void testCalculateHMACNullPayload() {
-    try {
-      new HMACValidator().calculateHMAC((String) null, HMAC_KEY);
-    } catch (IllegalArgumentException e) {
-      assertEquals("Missing data or key: payload data is not provided", e.getMessage());
-    } catch (SignatureException e) {
-      fail();
-    }
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().calculateHMAC((String) null, HMAC_KEY));
+    assertEquals("Missing data or key: payload data is not provided", exception.getMessage());
   }
 
   @Test
   public void testCalculateHMACNullKey() {
-    try {
-      new HMACValidator().calculateHMAC("TestPayload", null);
-    } catch (IllegalArgumentException e) {
-      assertEquals("Missing data or key: HMAC key is not provided", e.getMessage());
-    } catch (SignatureException e) {
-      fail();
-    }
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().calculateHMAC("TestPayload", null));
+    assertEquals("Missing data or key: HMAC key is not provided", exception.getMessage());
+  }
+
+  @Test
+  public void testCalculateHMACInvalidKeyFormat() {
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().calculateHMAC("TestPayload", "BadKey"));
+    assertEquals("Invalid Hex HMAC key: BadKey", exception.getMessage());
+  }
+
+  @Test
+  public void testCalculateHMAC() throws SignatureException {
+    var hmac = new HMACValidator();
+    var out = hmac.calculateHMAC("TestPayload", HMAC_KEY);
+    assertEquals("YA9/UDjldIO4Gq68X4ATYYoEaPYH4f4k2uzBBzEF1PA=", out);
   }
 }
