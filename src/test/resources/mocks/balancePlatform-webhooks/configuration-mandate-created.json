@@ -1,0 +1,27 @@
+{
+    "data": {
+        "balancePlatform": "YOUR_BALANCE_PLATFORM",
+        "mandate": {
+            "balanceAccountId": "BA000000000000000000000001",
+            "counterparty": {
+                "accountHolder": {
+                    "fullName": "Albert Klassens"
+                },
+                "accountIdentification": {
+                    "accountNumber": "10809699",
+                    "sortCode": "405081",
+                    "type": "ukLocal"
+                }
+            },
+            "createdAt": "2025-09-04T13:40:41.581Z",
+            "id": "MNDT000000000000000000000001",
+            "paymentInstrumentId": "PI000000000000000000000001",
+            "status": "approved",
+            "type": "bacs",
+            "updatedAt": "2025-09-04T13:40:41.581Z"
+        }
+    },
+    "environment": "test",
+    "type": "balancePlatform.mandate.created",
+    "timestamp": "2025-09-04T13:40:41+02:00"
+}
