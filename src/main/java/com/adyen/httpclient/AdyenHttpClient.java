@@ -110,6 +110,7 @@ public class AdyenHttpClient implements ClientInterface {
    *     port))})
    */
   public void setProxy(Proxy proxy) {
+    // Note: only HTTP proxies are supported; SOCKS proxies are silently ignored.
     this.proxy = proxy;
   }
 
@@ -374,6 +375,9 @@ public class AdyenHttpClient implements ClientInterface {
     ConnectionConfig connectionConfig =
         ConnectionConfig.custom()
             .setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS)
+            // socketTimeout acts as an OS-level safety net for stalled reads;
+            // responseTimeout (in RequestConfig) is the HTTP-level equivalent.
+            // Both are set to readTimeoutMillis so the request is bounded regardless of which layer fires first.
             .setSocketTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS)
             .build();
     return HttpClients.custom()
