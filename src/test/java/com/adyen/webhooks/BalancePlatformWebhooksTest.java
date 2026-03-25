@@ -513,4 +513,52 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals("ChargebackCardholderDispute", data.getScoreSignalsTriggered().get(0));
     assertEquals("ChargebackNonReceipt", data.getScoreSignalsTriggered().get(1));
   }
+
+  @Test
+  public void testMandateCreatedNotificationRequest() {
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/configuration-mandate-created.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<MandateNotificationRequest> optionalRequest = handler.getMandateNotificationRequest();
+
+    assertTrue(optionalRequest.isPresent());
+
+    MandateNotificationRequest request = optionalRequest.get();
+    assertEquals(
+        MandateNotificationRequest.TypeEnum.BALANCEPLATFORM_MANDATE_CREATED, request.getType());
+    assertEquals("test", request.getEnvironment());
+    assertNotNull(request.getTimestamp());
+
+    assertNotNull(request.getData());
+    assertEquals("YOUR_BALANCE_PLATFORM", request.getData().getBalancePlatform());
+
+    assertNotNull(request.getData().getMandate());
+    assertEquals("MNDT000000000000000000000001", request.getData().getMandate().getId());
+    assertEquals(
+        "BA000000000000000000000001", request.getData().getMandate().getBalanceAccountId());
+    assertEquals(
+        "PI000000000000000000000001", request.getData().getMandate().getPaymentInstrumentId());
+    assertEquals(Mandate.StatusEnum.APPROVED, request.getData().getMandate().getStatus());
+    assertEquals(Mandate.TypeEnum.BACS, request.getData().getMandate().getType());
+
+    assertNotNull(request.getData().getMandate().getCounterparty());
+    assertNotNull(request.getData().getMandate().getCounterparty().getAccountHolder());
+    assertEquals(
+        "Albert Klassens",
+        request.getData().getMandate().getCounterparty().getAccountHolder().getFullName());
+
+    assertNotNull(request.getData().getMandate().getCounterparty().getAccountIdentification());
+    UKLocalMandateAccountIdentification ukLocalAccountId =
+        request
+            .getData()
+            .getMandate()
+            .getCounterparty()
+            .getAccountIdentification()
+            .getUKLocalMandateAccountIdentification();
+    assertNotNull(ukLocalAccountId);
+    assertEquals("10809699", ukLocalAccountId.getAccountNumber());
+    assertEquals("405081", ukLocalAccountId.getSortCode());
+    assertEquals(UKLocalMandateAccountIdentification.TypeEnum.UKLOCAL, ukLocalAccountId.getType());
+  }
 }
