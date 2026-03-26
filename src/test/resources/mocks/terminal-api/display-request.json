@@ -1,0 +1,18 @@
+{
+  "DisplayOutput": [
+    {
+      "OutputContent": {
+        "OutputText": [
+          {
+            "Text": "Please present card"
+          }
+        ],
+        "OutputFormat": "Text"
+      },
+      "ResponseRequiredFlag": true,
+      "MinimumDisplayTime": 5,
+      "Device": "CustomerDisplay",
+      "InfoQualify": "Display"
+    }
+  ]
+}

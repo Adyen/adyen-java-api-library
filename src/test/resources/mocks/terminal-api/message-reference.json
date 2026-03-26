@@ -1,0 +1,7 @@
+{
+  "MessageCategory": "Payment",
+  "ServiceID": "service-id",
+  "DeviceID": "device-id",
+  "SaleID": "sale-id",
+  "POIID": "poi-id"
+}

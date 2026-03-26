@@ -1,0 +1,10 @@
+{
+  "ProtocolVersion": "3.0",
+  "MessageClass": "Service",
+  "MessageCategory": "Payment",
+  "MessageType": "Request",
+  "ServiceID": "service-id",
+  "DeviceID": "device-id",
+  "SaleID": "sale-id",
+  "POIID": "poi-id"
+}

@@ -1,0 +1,24 @@
+{
+  "MessageReference": {
+    "MessageCategory": "Payment",
+    "ServiceID": "service-id",
+    "DeviceID": "device-id",
+    "SaleID": "sale-id",
+    "POIID": "poi-id"
+  },
+  "AbortReason": "cancelled-by-shopper",
+  "DisplayOutput": {
+    "OutputContent": {
+      "OutputText": [
+        {
+          "Text": "Abort requested"
+        }
+      ],
+      "OutputFormat": "Text"
+    },
+    "ResponseRequiredFlag": false,
+    "MinimumDisplayTime": 3,
+    "Device": "CustomerDisplay",
+    "InfoQualify": "Error"
+  }
+}
