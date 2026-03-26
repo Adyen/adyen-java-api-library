@@ -1,0 +1,27 @@
+{
+  "DateTime": "2026-03-26T10:15:30Z",
+  "SaleSoftware": {
+    "ManufacturerID": "adyen",
+    "ApplicationName": "register-app",
+    "SoftwareVersion": "1.0.0",
+    "CertificationCode": "cert-123"
+  },
+  "SaleTerminalData": {
+    "SaleCapabilities": [
+      "CashierDisplay",
+      "CustomerDisplay"
+    ],
+    "TerminalEnvironment": "Attended",
+    "TotalsGroupID": "group-1"
+  },
+  "TrainingModeFlag": true,
+  "OperatorLanguage": "en",
+  "OperatorID": "operator-1",
+  "ShiftNumber": "shift-1",
+  "TokenRequestedType": "Transaction",
+  "CustomerOrderReq": [
+    "Open",
+    "Closed"
+  ],
+  "POISerialNumber": "poi-serial-1"
+}
