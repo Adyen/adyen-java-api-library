@@ -22,7 +22,6 @@ package com.adyen.model.clouddevice;
 
 import com.adyen.model.tapi.SaleToPOIRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
 /**
@@ -32,6 +31,7 @@ import java.util.Objects;
 public class CloudDeviceApiAsyncResponse {
   @JsonProperty("result")
   private String result;
+
   @JsonProperty("saleToPOIRequest")
   private SaleToPOIRequest saleToPOIRequest;
 

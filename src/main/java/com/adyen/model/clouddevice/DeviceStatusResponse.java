@@ -29,6 +29,7 @@ import java.util.Objects;
 public class DeviceStatusResponse {
   @JsonProperty("deviceId")
   private String deviceId;
+
   @JsonProperty("status")
   private DeviceStatus status;
 
