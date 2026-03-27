@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data entered by the user, related to the input command. -- Usage: Choice of a data
@@ -34,63 +31,52 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "Input",
-    propOrder = {
-      "confirmedFlag",
-      "functionKey",
-      "textInput",
-      "digitInput",
-      "password",
-      "menuEntryNumber"
-    })
 public class Input {
 
   /** The Confirmed flag. */
-  @XmlElement(name = "ConfirmedFlag")
+  @SerializedName("ConfirmedFlag")
   @Schema(
       description =
           "Confirmation or not of what has been requested to the user in a GetConfirmation input command. --Rule: Mandatory, if InputCommand is GetConfirmation or SiteManager Not allowed, otherwise")
   protected Boolean confirmedFlag;
 
   /** The Function key. */
-  @XmlElement(name = "FunctionKey")
+  @SerializedName("FunctionKey")
   @Schema(
       description =
           "The number of the function key which is typed by the Customer on the POI or the Cashier on the Sale Terminal. --Rule: Mandatory, if InputCommand is GetFunctionKey  Not allowed, otherwise")
   protected String functionKey;
 
   /** The Text input. */
-  @XmlElement(name = "TextInput")
+  @SerializedName("TextInput")
   @Schema(
       description =
           "The text which is typed by the Customer on the POI or the Cashier on the Sale Terminal. --Rule: Mandatory, if InputCommand is TextString  Not allowed, otherwise")
   protected String textInput;
 
   /** The Digit input. */
-  @XmlElement(name = "DigitInput")
+  @SerializedName("DigitInput")
   @Schema(
       description =
           "The digits which are typed by the Customer on the POI or the Cashier on the Sale Terminal. --Rule: Mandatory, if InputCommand is DigitString  Not allowed, otherwise")
   protected String digitInput;
 
   /** The Password. */
-  @XmlElement(name = "Password")
+  @SerializedName("Password")
   @Schema(
       description =
           "A text password which is typed by the Customer on the POI or the Cashier on the Sale Terminal. --Rule: Mandatory, if InputCommand is Password  Not allowed, otherwise")
   protected ContentInformation password;
 
   /** The Menu entry number. */
-  @XmlElement(name = "MenuEntryNumber")
+  @SerializedName("MenuEntryNumber")
   @Schema(
       description =
           "The index from 1 to n, of the menu item which is selected by the Cashier on the Sale Terminal. The value -1 indicates --Rule: Mandatory, if InputCommand is GetMenuEntry  Not allowed, otherwise")
   protected Integer[] menuEntryNumber;
 
   /** The Input command. */
-  @XmlElement(name = "InputCommand", required = true)
+  @SerializedName("InputCommand")
   @Schema(description = "Type of requested input --Rule: Copy")
   protected InputCommandType inputCommand;
 

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for GlobalStatusType.
@@ -22,27 +20,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "GlobalStatusType")
-@XmlEnum
 public enum GlobalStatusType {
 
   /** The POI is ready to receive and process a request */
   OK("OK"),
 
   /** The POI Terminal cannot process a request because another processing is in progress. */
-  @XmlEnumValue("Busy")
+  @SerializedName("Busy")
   @Schema(
       description =
           "The POI Terminal cannot process a request because another processing is in progress.")
   BUSY("Busy"),
 
   /** The POI is in maintenance processing */
-  @XmlEnumValue("Maintenance")
+  @SerializedName("Maintenance")
   @Schema(description = "The POI is in maintenance processing")
   MAINTENANCE("Maintenance"),
 
   /** The POI is unreachable or not responding */
-  @XmlEnumValue("Unreachable")
+  @SerializedName("Unreachable")
   @Schema(description = "The POI is unreachable or not responding")
   UNREACHABLE("Unreachable");
   private final String value;

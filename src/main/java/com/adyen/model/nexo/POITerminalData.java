@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to the software and hardware feature of the POI Terminal --
@@ -33,32 +29,27 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "POITerminalData",
-    propOrder = {"poiCapabilities", "poiProfile"})
 public class POITerminalData {
 
   /** The Poi capabilities. */
-  @XmlList
-  @XmlElement(name = "POICapabilities", required = true)
+  @SerializedName("POICapabilities")
   @Schema(description = "Hardware capabilities of the POI Terminal.")
   protected List<POICapabilitiesType> poiCapabilities;
 
   /** The Poi profile. */
-  @XmlElement(name = "POIProfile")
+  @SerializedName("POIProfile")
   @Schema(
       description =
           "Functional profile of the POI Terminal. --Rule: If at least one element is present. The Sale System decides if it can continue or not.")
   protected POIProfile poiProfile;
 
   /** The Terminal environment. */
-  @XmlElement(name = "TerminalEnvironment", required = true)
+  @SerializedName("TerminalEnvironment")
   @Schema(description = "Environment of the Terminal.")
   protected TerminalEnvironmentType terminalEnvironment;
 
   /** The Poi serial number. */
-  @XmlElement(name = "POISerialNumber", required = true)
+  @SerializedName("POISerialNumber")
   @Schema(description = "Serial number of a POI Terminal")
   protected String poiSerialNumber;
 

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for ReversalReasonType.
@@ -22,27 +20,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "ReversalReasonType")
-@XmlEnum
 public enum ReversalReasonType {
 
   /** Customer cancellation */
-  @XmlEnumValue("CustCancel")
+  @SerializedName("CustCancel")
   @Schema(description = "Customer cancellation")
   CUST_CANCEL("CustCancel"),
 
   /** Cashier cancellation */
-  @XmlEnumValue("MerchantCancel")
+  @SerializedName("MerchantCancel")
   @Schema(description = "Cashier cancellation")
   MERCHANT_CANCEL("MerchantCancel"),
 
   /** Suspected malfunction */
-  @XmlEnumValue("Malfunction")
+  @SerializedName("Malfunction")
   @Schema(description = "Suspected malfunction")
   MALFUNCTION("Malfunction"),
 
   /** Card acceptor device unable to complete transaction */
-  @XmlEnumValue("Unable2Compl")
+  @SerializedName("Unable2Compl")
   @Schema(description = "Card acceptor device unable to complete transaction")
   UNABLE_2_COMPL("Unable2Compl");
   private final String value;

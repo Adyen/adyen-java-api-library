@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of text message to display or print. -- Usage: It conveys Information related
@@ -35,69 +32,67 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OutputText")
 public class OutputText {
 
-  @XmlElement(name = "Text", required = true)
+  @SerializedName("Text")
   @Schema(description = "Content of text message to display, print or play.")
   protected String text;
 
-  @XmlElement(name = "CharacterSet")
+  @SerializedName("CharacterSet")
   @Schema(
       description =
           "The character encoding of the text string. --Rule: If not present, the settings of thetarget system or device are used. ")
   protected Integer characterSet;
 
-  @XmlElement(name = "Font")
+  @SerializedName("Font")
   @Schema(
       description =
           "Name of the font. --Rule: If not present, the settings of the target system or deviceare used. ")
   protected String font;
 
-  @XmlElement(name = "StartRow")
+  @SerializedName("StartRow")
   @Schema(
       description =
           "Row from which the text string has to be displayed or printed. --Rule: If not present,the settings of the target system or device are used(e.g.current row position). ")
   protected Integer startRow;
 
-  @XmlElement(name = "StartColumn")
+  @SerializedName("StartColumn")
   @Schema(
       description =
           "Column from which the text string has to be displayed or printed. --Rule: If notpresent, the settings of the target system or device are used(e.g.current column position). ")
   protected Integer startColumn;
 
-  @XmlElement(name = "Color")
+  @SerializedName("Color")
   @Schema(
       description =
           "Color of the text string to display or print. --Rule: If not present, default colourused ")
   protected ColorType color;
 
-  @XmlElement(name = "CharacterWidth")
+  @SerializedName("CharacterWidth")
   @Schema(
       description =
           "Character width of the text string to display or print. --Rule: If not present, default width used")
   protected CharacterWidthType characterWidth;
 
-  @XmlElement(name = "CharacterHeight")
+  @SerializedName("CharacterHeight")
   @Schema(
       description =
           "Character height of the text string to display or print. --Rule: If not present, default height used ")
   protected CharacterHeightType characterHeight;
 
-  @XmlElement(name = "CharacterStyle")
+  @SerializedName("CharacterStyle")
   @Schema(
       description =
           "Typographic style of the sequence of characters to display or print. --Rule: If notpresent, default style used ")
   protected CharacterStyleType characterStyle;
 
-  @XmlElement(name = "Alignment")
+  @SerializedName("Alignment")
   @Schema(
       description =
           "Alignment of the text string on the display line or print line --Rule: If not present, default alignment used ")
   protected AlignmentType alignment;
 
-  @XmlElement(name = "EndOfLineFlag")
+  @SerializedName("EndOfLineFlag")
   @Schema(description = "Text is at the end of a line.")
   protected Boolean endOfLineFlag;
 

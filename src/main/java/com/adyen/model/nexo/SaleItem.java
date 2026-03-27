@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Sale items of a transaction. -- Usage: In loyalty or value added payment card
@@ -41,83 +37,70 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "SaleItem",
-    propOrder = {
-      "unitOfMeasure",
-      "quantity",
-      "unitPrice",
-      "taxCode",
-      "saleChannel",
-      "productLabel",
-      "additionalProductInfo"
-    })
 public class SaleItem {
 
   /** The Unit of measure. */
-  @XmlElement(name = "UnitOfMeasure")
+  @SerializedName("UnitOfMeasure")
   @Schema(description = "Unit of measure of a quantity --Rule: if Quantity present")
-  @XmlSchemaType(name = "string")
   protected UnitOfMeasureType unitOfMeasure;
 
   /** The Quantity. */
-  @XmlElement(name = "Quantity")
+  @SerializedName("Quantity")
   @Schema(
       description =
           "Product quantity --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
   protected BigDecimal quantity;
 
   /** The Unit price. */
-  @XmlElement(name = "UnitPrice")
+  @SerializedName("UnitPrice")
   @Schema(description = "Price per unit of product --Rule: if Quantity present")
   protected BigDecimal unitPrice;
 
   /** The Tax code. */
-  @XmlElement(name = "TaxCode")
+  @SerializedName("TaxCode")
   @Schema(
       description =
           "Type of taxes associated to the line item. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
   protected String taxCode;
 
   /** The Sale channel. */
-  @XmlElement(name = "SaleChannel")
+  @SerializedName("SaleChannel")
   @Schema(
       description =
           "Commercial or distribution channel associated to the line item. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
   protected String saleChannel;
 
   /** The Product label. */
-  @XmlElement(name = "ProductLabel")
+  @SerializedName("ProductLabel")
   @Schema(description = "Product name of an item purchased with the transaction.")
   protected String productLabel;
 
   /** The Additional product info. */
-  @XmlElement(name = "AdditionalProductInfo")
+  @SerializedName("AdditionalProductInfo")
   @Schema(
       description =
           "Additionl information related to the line item. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
   protected String additionalProductInfo;
 
   /** The Item id. */
-  @XmlElement(name = "ItemID", required = true)
+  @SerializedName("ItemID")
   @Schema(description = "Item identification inside a transaction (0 to n).")
   protected BigInteger itemID;
 
   /** The Product code. */
-  @XmlElement(name = "ProductCode", required = true)
+  @SerializedName("ProductCode")
   @Schema(description = "Product code of item purchased with the transaction.")
   protected String productCode;
 
   /** The Ean upc. */
-  @XmlElement(name = "EanUpc")
+  @SerializedName("EanUpc")
   @Schema(
       description =
           "Standard product code of item purchased with the transaction. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
   protected String eanUpc;
 
   /** The Item amount. */
-  @XmlElement(name = "ItemAmount", required = true)
+  @SerializedName("ItemAmount")
   @Schema(description = "Total amount of the item line.")
   protected BigDecimal itemAmount;
 

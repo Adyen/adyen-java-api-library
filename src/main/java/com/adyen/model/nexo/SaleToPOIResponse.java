@@ -1,11 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for anonymous complex type.
@@ -51,166 +47,134 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "",
-    propOrder = {
-      "messageHeader",
-      "balanceInquiryResponse",
-      "batchResponse",
-      "cardAcquisitionResponse",
-      "adminResponse",
-      "diagnosisResponse",
-      "displayResponse",
-      "enableServiceResponse",
-      "getTotalsResponse",
-      "inputResponse",
-      "loginResponse",
-      "logoutResponse",
-      "loyaltyResponse",
-      "paymentResponse",
-      "pinResponse",
-      "printResponse",
-      "cardReaderInitResponse",
-      "cardReaderAPDUResponse",
-      "cardReaderPowerOffResponse",
-      "reconciliationResponse",
-      "reversalResponse",
-      "soundResponse",
-      "storedValueResponse",
-      "transactionStatusResponse",
-      "transmitResponse",
-      "securityTrailer"
-    })
-@XmlRootElement(name = "SaleToPOIResponse")
 public class SaleToPOIResponse {
 
   /** The Message header. */
-  @XmlElement(name = "MessageHeader", required = true)
+  @SerializedName("MessageHeader")
   protected MessageHeader messageHeader;
 
   /** The Balance inquiry response. */
-  @XmlElement(name = "BalanceInquiryResponse")
+  @SerializedName("BalanceInquiryResponse")
   @Schema(description = "Content of the Balance Inquiry Response message.")
   protected BalanceInquiryResponse balanceInquiryResponse;
 
   /** The Batch response. */
-  @XmlElement(name = "BatchResponse")
+  @SerializedName("BatchResponse")
   @Schema(description = "Content of the Batch Response message.")
   protected BatchResponse batchResponse;
 
   /** The Card acquisition response. */
-  @XmlElement(name = "CardAcquisitionResponse")
+  @SerializedName("CardAcquisitionResponse")
   @Schema(description = "Content of the Card Acquisition Response message.")
   protected CardAcquisitionResponse cardAcquisitionResponse;
 
   /** The Admin response. */
-  @XmlElement(name = "AdminResponse")
+  @SerializedName("AdminResponse")
   @Schema(description = "Content of the Custom Admin Response message.")
   protected AdminResponse adminResponse;
 
   /** The Diagnosis response. */
-  @XmlElement(name = "DiagnosisResponse")
+  @SerializedName("DiagnosisResponse")
   @Schema(description = "Content of the Diagnosis Response message.")
   protected DiagnosisResponse diagnosisResponse;
 
   /** The Display response. */
-  @XmlElement(name = "DisplayResponse")
+  @SerializedName("DisplayResponse")
   @Schema(description = "Content of the Display Response message.")
   protected DisplayResponse displayResponse;
 
   /** The Enable service response. */
-  @XmlElement(name = "EnableServiceResponse")
+  @SerializedName("EnableServiceResponse")
   @Schema(description = "Content of the Enable Service Response message.")
   protected EnableServiceResponse enableServiceResponse;
 
   /** The Get totals response. */
-  @XmlElement(name = "GetTotalsResponse")
+  @SerializedName("GetTotalsResponse")
   @Schema(description = "Content of the Reconciliation Response message.")
   protected GetTotalsResponse getTotalsResponse;
 
   /** The Input response. */
-  @XmlElement(name = "InputResponse")
+  @SerializedName("InputResponse")
   @Schema(description = "Content of the Input Response message.")
   protected InputResponse inputResponse;
 
   /** The Login response. */
-  @XmlElement(name = "LoginResponse")
+  @SerializedName("LoginResponse")
   @Schema(description = "Content of the Login Response message.")
   protected LoginResponse loginResponse;
 
   /** The Logout response. */
-  @XmlElement(name = "LogoutResponse")
+  @SerializedName("LogoutResponse")
   @Schema(description = "Content of the Logout Response message.")
   protected LogoutResponse logoutResponse;
 
   /** The Loyalty response. */
-  @XmlElement(name = "LoyaltyResponse")
+  @SerializedName("LoyaltyResponse")
   @Schema(description = "Content of the Loyalty Response message.")
   protected LoyaltyResponse loyaltyResponse;
 
   /** The Payment response. */
-  @XmlElement(name = "PaymentResponse")
+  @SerializedName("PaymentResponse")
   @Schema(description = "Content of the Payment Response message.")
   protected PaymentResponse paymentResponse;
 
   /** The Pin response. */
-  @XmlElement(name = "PINResponse")
+  @SerializedName("PINResponse")
   @Schema(description = "Content of the PIN Response message.")
   protected PINResponse pinResponse;
 
   /** The Print response. */
-  @XmlElement(name = "PrintResponse")
+  @SerializedName("PrintResponse")
   @Schema(description = "Content of the Print Response message.")
   protected PrintResponse printResponse;
 
   /** The Card reader init response. */
-  @XmlElement(name = "CardReaderInitResponse")
+  @SerializedName("CardReaderInitResponse")
   @Schema(description = "Content of the Card Reader Init Response message.")
   protected CardReaderInitResponse cardReaderInitResponse;
 
   /** The Card reader apdu response. */
-  @XmlElement(name = "CardReaderAPDUResponse")
+  @SerializedName("CardReaderAPDUResponse")
   @Schema(description = "Content of the Card Reader APDU Response message.")
   protected CardReaderAPDUResponse cardReaderAPDUResponse;
 
   /** The Card reader power off response. */
-  @XmlElement(name = "CardReaderPowerOffResponse")
+  @SerializedName("CardReaderPowerOffResponse")
   @Schema(description = "Content of the Card Reader Power-Off Response message.")
   protected CardReaderPowerOffResponse cardReaderPowerOffResponse;
 
   /** The Reconciliation response. */
-  @XmlElement(name = "ReconciliationResponse")
+  @SerializedName("ReconciliationResponse")
   @Schema(description = "Content of the Reconciliation Response message.")
   protected ReconciliationResponse reconciliationResponse;
 
   /** The Reversal response. */
-  @XmlElement(name = "ReversalResponse")
+  @SerializedName("ReversalResponse")
   @Schema(description = "Content of the Reversal Response message.")
   protected ReversalResponse reversalResponse;
 
   /** The Sound response. */
-  @XmlElement(name = "SoundResponse")
+  @SerializedName("SoundResponse")
   @Schema(description = "Content of the Sound Response message.")
   protected SoundResponse soundResponse;
 
   /** The Stored value response. */
-  @XmlElement(name = "StoredValueResponse")
+  @SerializedName("StoredValueResponse")
   @Schema(description = "Content of the Stored Value Response message.")
   protected StoredValueResponse storedValueResponse;
 
   /** The Transaction status response. */
-  @XmlElement(name = "TransactionStatusResponse")
+  @SerializedName("TransactionStatusResponse")
   @Schema(description = "Content of the TransactionStatus Response message.")
   protected TransactionStatusResponse transactionStatusResponse;
 
   /** The Transmit response. */
-  @XmlElement(name = "TransmitResponse")
+  @SerializedName("TransmitResponse")
   @Schema(description = "Content of the Transmit Response message.")
   protected TransmitResponse transmitResponse;
 
   /** The Security trailer. */
-  @XmlElement(name = "SecurityTrailer")
+  @SerializedName("SecurityTrailer")
   @Schema(description = "Protection of the whole message")
   protected ContentInformation securityTrailer;
 

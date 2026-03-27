@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for ResponseModeType.
@@ -22,27 +20,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "ResponseModeType")
-@XmlEnum
 public enum ResponseModeType {
 
   /** The Message Response is not required, except in case of error. */
-  @XmlEnumValue("NotRequired")
+  @SerializedName("NotRequired")
   @Schema(description = "The Message Response is not required, except in case of error.")
   NOT_REQUIRED("NotRequired"),
 
   /** The Message Response is immediate, after taking into account the request. */
-  @XmlEnumValue("Immediate")
+  @SerializedName("Immediate")
   @Schema(description = "The Message Response is immediate, after taking into account the request.")
   IMMEDIATE("Immediate"),
 
   /** The Print Response is required at the end of print. */
-  @XmlEnumValue("PrintEnd")
+  @SerializedName("PrintEnd")
   @Schema(description = "The Print Response is required at the end of print.")
   PRINT_END("PrintEnd"),
 
   /** The Sound Response is required at the end of play. */
-  @XmlEnumValue("SoundEnd")
+  @SerializedName("SoundEnd")
   @Schema(description = "The Sound Response is required at the end of play.")
   SOUND_END("SoundEnd");
   private final String value;

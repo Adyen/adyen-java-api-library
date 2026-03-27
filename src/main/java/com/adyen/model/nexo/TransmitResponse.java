@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Transmit Response messageType. -- Usage: It conveys the response of
@@ -27,19 +24,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "TransmitResponse",
-    propOrder = {"response", "message"})
 public class TransmitResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Message. */
-  @XmlElement(name = "Message")
+  @SerializedName("Message")
   @Schema(description = "Content of a transmitted message.")
   protected byte[] message;
 

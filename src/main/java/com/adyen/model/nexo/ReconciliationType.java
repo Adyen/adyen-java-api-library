@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for ReconciliationType.
@@ -22,12 +20,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "ReconciliationType")
-@XmlEnum
 public enum ReconciliationType {
 
   /** Reconciliation with closure of the current period, without any Acquirers synchronisation. */
-  @XmlEnumValue("SaleReconciliation")
+  @SerializedName("SaleReconciliation")
   @Schema(
       description =
           "Reconciliation with closure of the current period, without any Acquirers synchronisation.")
@@ -37,7 +33,7 @@ public enum ReconciliationType {
    * Reconciliation and closure of the current period, with synchronisation of the reconciliation
    * between the POI and Acquirers.
    */
-  @XmlEnumValue("AcquirerSynchronisation")
+  @SerializedName("AcquirerSynchronisation")
   @Schema(
       description =
           "Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.")
@@ -47,14 +43,14 @@ public enum ReconciliationType {
    * Reconciliation between the POI and one or several Acquirers only. There is no reconciliation
    * between the Sale System and the POI System.
    */
-  @XmlEnumValue("AcquirerReconciliation")
+  @SerializedName("AcquirerReconciliation")
   @Schema(
       description =
           "Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.")
   ACQUIRER_RECONCILIATION("AcquirerReconciliation"),
 
   /** Request result of a previous reconciliation. */
-  @XmlEnumValue("PreviousReconciliation")
+  @SerializedName("PreviousReconciliation")
   @Schema(description = "Request result of a previous reconciliation.")
   PREVIOUS_RECONCILIATION("PreviousReconciliation");
   private final String value;

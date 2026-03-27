@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Reference of a predefined messageType to display or print. -- Usage: It conveys
@@ -25,17 +22,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PredefinedContent")
 public class PredefinedContent {
 
   /** The Reference id. */
-  @XmlElement(name = "ReferenceID", required = true)
+  @SerializedName("ReferenceID")
   @Schema(description = "Identification of a predefined message to display, print or play.")
   protected String referenceID;
 
   /** The Language. */
-  @XmlElement(name = "Language")
+  @SerializedName("Language")
   @Schema(description = "Identification of a language.")
   protected String language;
 

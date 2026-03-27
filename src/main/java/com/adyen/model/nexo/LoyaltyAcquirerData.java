@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the loyalty Acquirer during a loyalty transaction. -- Usage:
@@ -30,33 +27,29 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyAcquirerData",
-    propOrder = {"approvalCode", "loyaltyTransactionID"})
 public class LoyaltyAcquirerData {
 
   /** The Approval code. */
-  @XmlElement(name = "ApprovalCode")
+  @SerializedName("ApprovalCode")
   @Schema(
       description =
           "Code assigned to a transaction approval by the Acquirer. --Rule: If provided by the Acquirer")
   protected String approvalCode;
 
   /** The Loyalty transaction id. */
-  @XmlElement(name = "LoyaltyTransactionID")
+  @SerializedName("LoyaltyTransactionID")
   @Schema(
       description =
           "Identification of the Transaction for the Loyalty Acquirer. --Rule: If provided by the Acquirer")
   protected TransactionIdentification loyaltyTransactionID;
 
   /** The Loyalty acquirer id. */
-  @XmlElement(name = "LoyaltyAcquirerID")
+  @SerializedName("LoyaltyAcquirerID")
   @Schema(description = "Identification of the loyalty Acquirer. --Rule: If available")
   protected String loyaltyAcquirerID;
 
   /** The Host reconciliation id. */
-  @XmlElement(name = "HostReconciliationID")
+  @SerializedName("HostReconciliationID")
   @Schema(
       description =
           "Identifier of a reconciliation period with a payment or loyalty host. --Rule: If provided by the Acquirer")

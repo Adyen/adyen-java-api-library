@@ -1,6 +1,8 @@
 package com.adyen.model.nexo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
@@ -65,5 +67,49 @@ public class AbortRequestTest {
     assertEquals(
         deserializedAbortRequest.getDisplayOutput().getInfoQualify(),
         roundTripAbortRequest.getDisplayOutput().getInfoQualify());
+  }
+
+  @Test
+  public void testDeserializationWithMissingRequiredFields() throws IOException {
+    Gson terminalApiGson = TerminalAPIGsonBuilder.create();
+
+    // JSON missing MessageReference (required field)
+    String jsonMissingMessageReference =
+        NexoTestUtils.readResource(
+            "mocks/terminal-api/abort-request-missing-message-reference.json");
+
+    AbortRequest result1 =
+        terminalApiGson.fromJson(jsonMissingMessageReference, AbortRequest.class);
+    assertNotNull(result1, "Deserialization should succeed even with missing required field");
+    assertNull(
+        result1.getMessageReference(), "MessageReference should be null when missing from JSON");
+    assertNotNull(result1.getAbortReason(), "AbortReason should be present");
+
+    // JSON missing AbortReason (required field)
+    String jsonMissingAbortReason =
+        NexoTestUtils.readResource("mocks/terminal-api/abort-request-missing-abort-reason.json");
+
+    AbortRequest result2 = terminalApiGson.fromJson(jsonMissingAbortReason, AbortRequest.class);
+    assertNotNull(result2, "Deserialization should succeed even with missing required field");
+    assertNotNull(result2.getMessageReference(), "MessageReference should be present");
+    assertNull(result2.getAbortReason(), "AbortReason should be null when missing from JSON");
+  }
+
+  @Test
+  public void testSerializationWithNullRequiredFields() {
+    Gson terminalApiGson = TerminalAPIGsonBuilder.create();
+
+    AbortRequest request = new AbortRequest();
+    request.setAbortReason("cancelled-by-shopper");
+    // Not setting MessageReference (required field)
+
+    String serialized = terminalApiGson.toJson(request);
+    assertNotNull(serialized, "Serialization should succeed even with null required field");
+
+    // Verify it can be deserialized back
+    AbortRequest deserialized = terminalApiGson.fromJson(serialized, AbortRequest.class);
+    assertNotNull(deserialized);
+    assertNull(
+        deserialized.getMessageReference(), "MessageReference should remain null after round-trip");
   }
 }

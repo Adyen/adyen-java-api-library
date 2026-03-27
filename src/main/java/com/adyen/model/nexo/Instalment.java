@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related an instalment transaction. -- Usage: To request an instalment to
@@ -35,56 +32,54 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Instalment")
 public class Instalment {
 
   /** The Instalment type. */
-  @XmlElement(name = "InstalmentType")
+  @SerializedName("InstalmentType")
   @Schema(description = "Type of instalment transaction.")
   protected InstalmentType instalmentType;
 
   /** The Sequence number. */
-  @XmlElement(name = "SequenceNumber")
+  @SerializedName("SequenceNumber")
   @Schema(description = "Sequence number of the instalment.")
   protected BigInteger sequenceNumber;
 
   /** The Plan id. */
-  @XmlElement(name = "PlanID")
+  @SerializedName("PlanID")
   @Schema(description = "Identification of an instalment plan.")
   protected String planID;
 
   /** The Period. */
-  @XmlElement(name = "Period")
+  @SerializedName("Period")
   @Schema(description = "Period of time with defined unit of time.")
   protected BigInteger period;
 
   /** The Period unit. */
-  @XmlElement(name = "PeriodUnit")
+  @SerializedName("PeriodUnit")
   protected PeriodUnitType periodUnit;
 
   /** The First payment date. */
-  @XmlElement(name = "FirstPaymentDate")
+  @SerializedName("FirstPaymentDate")
   @Schema(description = "First date of a payment.")
   protected String firstPaymentDate;
 
   /** The Total nb of payments. */
-  @XmlElement(name = "TotalNbOfPayments")
+  @SerializedName("TotalNbOfPayments")
   @Schema(description = "Total number of payments.")
   protected BigInteger totalNbOfPayments;
 
   /** The Cumulative amount. */
-  @XmlElement(name = "CumulativeAmount")
+  @SerializedName("CumulativeAmount")
   @Schema(description = "Sum of a collection of amounts.")
   protected BigDecimal cumulativeAmount;
 
   /** The First amount. */
-  @XmlElement(name = "FirstAmount")
+  @SerializedName("FirstAmount")
   @Schema(description = "First amount of a payment.")
   protected BigDecimal firstAmount;
 
   /** The Charges. */
-  @XmlElement(name = "Charges")
+  @SerializedName("Charges")
   @Schema(description = "Charges related to a transaction.")
   protected BigDecimal charges;
 

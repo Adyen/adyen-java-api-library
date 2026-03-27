@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to a currency conversion -- Usage: A currency conversion occurred
@@ -33,43 +30,39 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CurrencyConversion",
-    propOrder = {"convertedAmount", "commission", "declaration"})
 public class CurrencyConversion {
 
   /** The Converted amount. */
-  @XmlElement(name = "ConvertedAmount", required = true)
+  @SerializedName("ConvertedAmount")
   @Schema(description = "Amount after a currency conversion.")
   protected Amount convertedAmount;
 
   /** The Commission. */
-  @XmlElement(name = "Commission")
+  @SerializedName("Commission")
   @Schema(description = "Commission for a service. --Rule: Commission of the conversion.")
   protected BigDecimal commission;
 
   /** The Declaration. */
-  @XmlElement(name = "Declaration")
+  @SerializedName("Declaration")
   @Schema(
       description =
           "Declaration to present to the customer or the cashier for validation. --Rule: If a declaration has to be presented to the customer")
   protected String declaration;
 
   /** The Customer approved flag. */
-  @XmlElement(name = "CustomerApprovedFlag")
+  @SerializedName("CustomerApprovedFlag")
   @Schema(description = "Notify if the customer has approved something.")
   protected Boolean customerApprovedFlag;
 
   /** The Rate. */
-  @XmlElement(name = "Rate")
+  @SerializedName("Rate")
   @Schema(
       description =
           "Rate of currency conversion. --Rule: Conversion rate of the target currency against the source currency.")
   protected BigDecimal rate;
 
   /** The Markup. */
-  @XmlElement(name = "Markup")
+  @SerializedName("Markup")
   @Schema(description = "Markup of an amount in percentage. --Rule: Markup of the conversion.")
   protected BigDecimal markup;
 

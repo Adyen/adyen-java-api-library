@@ -21,47 +21,33 @@
 
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /** The type Repeated message response body. */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "RepeatedResponseMessageBody",
-    propOrder = {
-      "loyaltyResponse",
-      "paymentResponse",
-      "reversalResponse",
-      "storedValueResponse",
-      "cardAcquisitionResponse",
-      "cardReaderAPDUResponse"
-    })
 public class RepeatedResponseMessageBody {
 
   /** The Loyalty response. */
-  @XmlElement(name = "LoyaltyResponse")
+  @SerializedName("LoyaltyResponse")
   protected LoyaltyResponse loyaltyResponse;
 
   /** The Payment response. */
-  @XmlElement(name = "PaymentResponse")
+  @SerializedName("PaymentResponse")
   protected PaymentResponse paymentResponse;
 
   /** The Reversal response. */
-  @XmlElement(name = "ReversalResponse")
+  @SerializedName("ReversalResponse")
   protected ReversalResponse reversalResponse;
 
   /** The Stored value response. */
-  @XmlElement(name = "StoredValueResponse")
+  @SerializedName("StoredValueResponse")
   protected StoredValueResponse storedValueResponse;
 
   /** The Card acquisition response. */
-  @XmlElement(name = "CardAcquisitionResponse")
+  @SerializedName("CardAcquisitionResponse")
   protected CardAcquisitionResponse cardAcquisitionResponse;
 
   /** The Card reader apdu response. */
-  @XmlElement(name = "CardReaderAPDUResponse")
+  @SerializedName("CardReaderAPDUResponse")
   protected CardReaderAPDUResponse cardReaderAPDUResponse;
 
   /**

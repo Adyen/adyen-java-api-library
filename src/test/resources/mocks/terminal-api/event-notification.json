@@ -1,0 +1,19 @@
+{
+  "TimeStamp": "2026-03-27T10:30:00Z",
+  "EventToNotify": "BeginMaintenance",
+  "EventDetails": "Maintenance window started",
+  "MaintenanceRequiredFlag": true,
+  "CustomerLanguage": "en",
+  "DisplayOutput": {
+    "Device": "CustomerDisplay",
+    "InfoQualify": "Display",
+    "OutputContent": {
+      "OutputFormat": "Text",
+      "OutputText": [
+        {
+          "Text": "System maintenance in progress"
+        }
+      ]
+    }
+  }
+}

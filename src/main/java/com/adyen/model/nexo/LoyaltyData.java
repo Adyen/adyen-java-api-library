@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to a Loyalty program or account. -- Usage: In the Payment, Loyalty or
@@ -29,28 +26,24 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyData",
-    propOrder = {"cardAcquisitionReference", "loyaltyAccountID", "loyaltyAmount"})
 public class LoyaltyData {
 
   /** The Card acquisition reference. */
-  @XmlElement(name = "CardAcquisitionReference")
+  @SerializedName("CardAcquisitionReference")
   @Schema(
       description =
           "Reference to the last CardAcquisition, to use the same card. --Rule: If the loyalty account ID comes from a previous CardAcquisition")
   protected TransactionIdentification cardAcquisitionReference;
 
   /** The Loyalty account id. */
-  @XmlElement(name = "LoyaltyAccountID")
+  @SerializedName("LoyaltyAccountID")
   @Schema(
       description =
           "Identification of a Loyalty account. --Rule: If loyalty identification of the loyalty account is realised by the Sale System")
   protected LoyaltyAccountID loyaltyAccountID;
 
   /** The Loyalty amount. */
-  @XmlElement(name = "LoyaltyAmount")
+  @SerializedName("LoyaltyAmount")
   @Schema(
       description =
           "Amount of a loyalty account. --Rule: When the Sale System want to award the Loyalty account  (not for BalanceInquiryRequest)")

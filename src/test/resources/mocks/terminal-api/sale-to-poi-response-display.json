@@ -1,0 +1,22 @@
+{
+  "MessageHeader": {
+    "ProtocolVersion": "3.0",
+    "SaleID": "POSSystemID12345",
+    "MessageClass": "Device",
+    "MessageCategory": "Display",
+    "ServiceID": "0207111617",
+    "POIID": "V400m-324688179",
+    "MessageType": "Response"
+  },
+  "DisplayResponse": {
+    "OutputResult": [
+      {
+        "Device": "CashierDisplay",
+        "InfoQualify": "Status",
+        "Response": {
+          "Result": "Success"
+        }
+      }
+    ]
+  }
+}

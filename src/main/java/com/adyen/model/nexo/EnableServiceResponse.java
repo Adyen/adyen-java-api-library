@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Enable Service Response messageType. -- Usage: It conveys the result
@@ -26,14 +23,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "EnableServiceResponse",
-    propOrder = {"response"})
 public class EnableServiceResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 

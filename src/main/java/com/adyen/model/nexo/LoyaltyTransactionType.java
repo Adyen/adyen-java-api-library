@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for LoyaltyTransactionType.
@@ -24,42 +22,40 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "LoyaltyTransactionType")
-@XmlEnum
 public enum LoyaltyTransactionType {
 
   /**
    * Direct or payment related award on a loyalty account. Award alone, award associated to a
    * payment (may be with an additional award alone), award because of a
    */
-  @XmlEnumValue("Award")
+  @SerializedName("Award")
   @Schema(
       description =
           "Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a")
   AWARD("Award"),
 
   /** Rebate on a total amount, sale item amount, or sale items */
-  @XmlEnumValue("Rebate")
+  @SerializedName("Rebate")
   @Schema(description = "Rebate on a total amount, sale item amount, or sale items")
   REBATE("Rebate"),
 
   /** Redemption on a loyalty account. */
-  @XmlEnumValue("Redemption")
+  @SerializedName("Redemption")
   @Schema(description = "Redemption on a loyalty account.")
   REDEMPTION("Redemption"),
 
   /** Refund of a loyalty award transaction. */
-  @XmlEnumValue("AwardRefund")
+  @SerializedName("AwardRefund")
   @Schema(description = "Refund of a loyalty award transaction.")
   AWARD_REFUND("AwardRefund"),
 
   /** Refund of a loyalty rebate transaction. */
-  @XmlEnumValue("RebateRefund")
+  @SerializedName("RebateRefund")
   @Schema(description = "Refund of a loyalty rebate transaction.")
   REBATE_REFUND("RebateRefund"),
 
   /** Refund of a loyalty redemption transaction. */
-  @XmlEnumValue("RedemptionRefund")
+  @SerializedName("RedemptionRefund")
   @Schema(description = "Refund of a loyalty redemption transaction.")
   REDEMPTION_REFUND("RedemptionRefund");
   private final String value;

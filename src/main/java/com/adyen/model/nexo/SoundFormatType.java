@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for SoundFormatType.
@@ -21,22 +19,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "SoundFormatType")
-@XmlEnum
 public enum SoundFormatType {
 
   /** Preloaded sound File. */
-  @XmlEnumValue("SoundRef")
+  @SerializedName("SoundRef")
   @Schema(description = "Preloaded sound File.")
   SOUND_REF("SoundRef"),
 
   /** Reference of a preloaded text to play. */
-  @XmlEnumValue("MessageRef")
+  @SerializedName("MessageRef")
   @Schema(description = "Reference of a preloaded text to play.")
   MESSAGE_REF("MessageRef"),
 
   /** Text to play. */
-  @XmlEnumValue("Text")
+  @SerializedName("Text")
   @Schema(description = "Text to play.")
   TEXT("Text");
   private final String value;

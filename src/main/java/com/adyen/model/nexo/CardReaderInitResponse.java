@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Card Reader Init Response messageType. -- Usage: It contains the
@@ -32,33 +29,29 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardReaderInitResponse",
-    propOrder = {"response", "trackData", "iccResetData"})
 public class CardReaderInitResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Track data. */
-  @XmlElement(name = "TrackData")
+  @SerializedName("TrackData")
   @Schema(
       description =
           "Magnetic track or magnetic ink characters line. --Rule: if EntryMode is RFID or MagStripe")
   protected List<TrackData> trackData;
 
   /** The Icc reset data. */
-  @XmlElement(name = "ICCResetData")
+  @SerializedName("ICCResetData")
   @Schema(
       description =
           "Data of a Chip Card related to the reset of the chip. --Rule: if EntryMode is ICC, EMVContactless or SynchronousICC")
   protected ICCResetData iccResetData;
 
   /** The Entry mode. */
-  @XmlElement(name = "EntryMode")
+  @SerializedName("EntryMode")
   @Schema(
       description =
           "Entry mode of the payment instrument information --Rule: RFID, MagStripe, ICC, EMVContactless or SynchronousICC")

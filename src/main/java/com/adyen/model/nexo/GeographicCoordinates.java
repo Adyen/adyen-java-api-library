@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Location on the Earth specified by two numbers representing vertical and horizontal
@@ -27,20 +24,16 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "GeographicCoordinates",
-    propOrder = {"latitude", "longitude"})
 public class GeographicCoordinates {
 
   /** The Latitude. */
-  @XmlElement(name = "Latitude", required = true)
+  @SerializedName("Latitude")
   @Schema(
       description = "Angular distance of a location on the earth south or north of the equator.")
   protected String latitude;
 
   /** The Longitude. */
-  @XmlElement(name = "Longitude", required = true)
+  @SerializedName("Longitude")
   @Schema(
       description =
           "Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.")

@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
@@ -33,52 +30,48 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "EventNotification",
-    propOrder = {"eventDetails", "rejectedMessage", "displayOutput"})
 public class EventNotification {
 
   /** The Event details. */
-  @XmlElement(name = "EventDetails")
+  @SerializedName("EventDetails")
   @Schema(
       description =
           "Information about the event the POI notifies to the Sale System. --Rule: EventToNotify")
   protected String eventDetails;
 
   /** The Rejected message. */
-  @XmlElement(name = "RejectedMessage")
+  @SerializedName("RejectedMessage")
   @Schema(
       description =
           "Message request rejected by the receiver. --Rule: Mandatory if EventToNotify is \"Reject\", absent in other cases")
   protected byte[] rejectedMessage;
 
   /** The Display output. */
-  @XmlElement(name = "DisplayOutput")
+  @SerializedName("DisplayOutput")
   @Schema(
       description =
           "Information to display and the way to process the display. --Rule: To display an event message")
   protected DisplayOutput displayOutput;
 
   /** The Time stamp. */
-  @XmlElement(name = "TimeStamp", required = true)
+  @SerializedName("TimeStamp")
   @Schema(
       description =
           "Date and time of a transaction for the Sale System, the POI System or the Acquirer.")
   protected XMLGregorianCalendar timeStamp;
 
   /** The Event to notify. */
-  @XmlElement(name = "EventToNotify", required = true)
+  @SerializedName("EventToNotify")
   @Schema(description = "Event the POI notifies to the Sale System.")
   protected EventToNotifyType eventToNotify;
 
   /** The Maintenance required flag. */
-  @XmlElement(name = "MaintenanceRequiredFlag")
+  @SerializedName("MaintenanceRequiredFlag")
   @Schema(description = "Indicates if the occurred event requires maintenance call or action.")
   protected Boolean maintenanceRequiredFlag;
 
   /** The Customer language. */
-  @XmlElement(name = "CustomerLanguage")
+  @SerializedName("CustomerLanguage")
   @Schema(description = "Language of the Customer --Rule: EventToNotify")
   protected String customerLanguage;
 

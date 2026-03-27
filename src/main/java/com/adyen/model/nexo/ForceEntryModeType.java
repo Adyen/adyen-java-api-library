@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for ForceEntryModeType.
@@ -29,39 +27,37 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "ForceEntryModeType")
-@XmlEnum
 public enum ForceEntryModeType {
 
   /** Payment instrument information are taken from RFID */
   RFID("RFID"),
 
   /** Manual key entry */
-  @XmlEnumValue("Keyed")
+  @SerializedName("Keyed")
   @Schema(description = "Manual key entry")
   KEYED("Keyed"),
 
   /**
    * Reading of embossing or OCR of printed data either at time of transaction or after the event.
    */
-  @XmlEnumValue("Manual")
+  @SerializedName("Manual")
   @Schema(
       description =
           "Reading of embossing or OCR of printed data either at time of transaction or after the event.")
   MANUAL("Manual"),
 
   /** Account data on file */
-  @XmlEnumValue("File")
+  @SerializedName("File")
   @Schema(description = "Account data on file")
   FILE("File"),
 
   /** Scanned by a bar code reader. */
-  @XmlEnumValue("Scanned")
+  @SerializedName("Scanned")
   @Schema(description = "Scanned by a bar code reader.")
   SCANNED("Scanned"),
 
   /** Magnetic stripe */
-  @XmlEnumValue("MagStripe")
+  @SerializedName("MagStripe")
   @Schema(description = "Magnetic stripe ")
   MAG_STRIPE("MagStripe"),
 
@@ -69,22 +65,22 @@ public enum ForceEntryModeType {
   ICC("ICC"),
 
   /** Contact ICC (synchronous) */
-  @XmlEnumValue("SynchronousICC")
+  @SerializedName("SynchronousICC")
   @Schema(description = "Contact ICC (synchronous)")
   SYNCHRONOUS_ICC("SynchronousICC"),
 
   /** Contactless card reader Magnetic Stripe */
-  @XmlEnumValue("Tapped")
+  @SerializedName("Tapped")
   @Schema(description = "Contactless card reader Magnetic Stripe")
   TAPPED("Tapped"),
 
   /** Contactless card reader conform to ISO 14443 */
-  @XmlEnumValue("Contactless")
+  @SerializedName("Contactless")
   @Schema(description = "Contactless card reader conform to ISO 14443")
   CONTACTLESS("Contactless"),
 
   /** Check Reader */
-  @XmlEnumValue("CheckReader")
+  @SerializedName("CheckReader")
   @Schema(description = "Check Reader")
   CHECK_READER("CheckReader");
   private final String value;

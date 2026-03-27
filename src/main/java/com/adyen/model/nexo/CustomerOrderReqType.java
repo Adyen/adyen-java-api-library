@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for CustomerOrderReqType.
@@ -21,22 +19,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "CustomerOrderReqType")
-@XmlEnum
 public enum CustomerOrderReqType {
 
   /** Customer order not completed. */
-  @XmlEnumValue("Open")
+  @SerializedName("Open")
   @Schema(description = "Customer order not completed.")
   OPEN("Open"),
 
   /** Completed customer orders. */
-  @XmlEnumValue("Closed")
+  @SerializedName("Closed")
   @Schema(description = "Completed customer orders.")
   CLOSED("Closed"),
 
   /** All type of CustomerOrder should be listed */
-  @XmlEnumValue("Both")
+  @SerializedName("Both")
   @Schema(description = "All type of CustomerOrder should be listed")
   BOTH("Both");
   private final String value;

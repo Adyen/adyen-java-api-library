@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to the software of the Sale System which manages the Sale to POI
@@ -27,27 +24,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SaleSoftware")
 public class SaleSoftware {
 
   /** The Manufacturer id. */
-  @XmlElement(name = "ManufacturerID", required = true)
+  @SerializedName("ManufacturerID")
   @Schema(description = "Identification of the Manufacturer")
   protected String manufacturerID;
 
   /** The Application name. */
-  @XmlElement(name = "ApplicationName", required = true)
+  @SerializedName("ApplicationName")
   @Schema(description = "Name of the software product.")
   protected String applicationName;
 
   /** The Software version. */
-  @XmlElement(name = "SoftwareVersion", required = true)
+  @SerializedName("SoftwareVersion")
   @Schema(description = "Version of the software product")
   protected String softwareVersion;
 
   /** The Certification code. */
-  @XmlElement(name = "CertificationCode", required = true)
+  @SerializedName("CertificationCode")
   @Schema(
       description = "Certification code of the software which manages the Sale to POI protocol.")
   protected String certificationCode;

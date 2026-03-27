@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Reversal Request messageType. -- Usage: It conveys Information related
@@ -31,43 +28,39 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "ReversalRequest",
-    propOrder = {"originalPOITransaction", "customerOrderID"})
 public class ReversalRequest {
 
   /** The Original poi transaction. */
-  @XmlElement(name = "OriginalPOITransaction", required = true)
+  @SerializedName("OriginalPOITransaction")
   @Schema(description = "Identification of a previous POI transaction.")
   protected OriginalPOITransaction originalPOITransaction;
 
   /** The Customer order id. */
-  @XmlElement(name = "CustomerOrderID")
+  @SerializedName("CustomerOrderID")
   @Schema(description = "If the reversal is performed inside a customer order.")
   protected CustomerOrder customerOrderID;
 
   /** The Sale reference id. */
-  @XmlElement(name = "SaleReferenceID")
+  @SerializedName("SaleReferenceID")
   @Schema(
       description =
           "Identification of a Sale global transaction for a sequence of related POI transactions --Rule: If payment reservation reversal")
   protected String saleReferenceID;
 
   /** The Reversal reason. */
-  @XmlElement(name = "ReversalReason", required = true)
+  @SerializedName("ReversalReason")
   @Schema(description = "Reason of the payment or loyalty reversal..")
   protected ReversalReasonType reversalReason;
 
   /** The Reversed amount. */
-  @XmlElement(name = "ReversedAmount")
+  @SerializedName("ReversedAmount")
   @Schema(
       description =
           "Amount of the payment or loyalty to reverse.. --Rule: ReversedAmount is implicitely the AuthorizedAmount if absent.")
   protected BigDecimal reversedAmount;
 
   /** The Sale data. */
-  @XmlElement(name = "SaleData")
+  @SerializedName("SaleData")
   protected SaleData saleData;
 
   /**

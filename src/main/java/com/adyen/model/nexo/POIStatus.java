@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: State of a POI Terminal. -- Usage: Indicate the availability of the POI Terminal
@@ -35,57 +32,53 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "POIStatus",
-    propOrder = {"cashHandlingDevice"})
 public class POIStatus {
 
   /** The Cash handling device. */
-  @XmlElement(name = "CashHandlingDevice")
+  @SerializedName("CashHandlingDevice")
   @Schema(description = "Status of cash handling device. --Rule: If cash handling devices present.")
   protected List<CashHandlingDevice> cashHandlingDevice;
 
   /** The Global status. */
-  @XmlElement(name = "GlobalStatus", required = true)
+  @SerializedName("GlobalStatus")
   @Schema(description = "Global status of a POI Server or POI Terminal.")
   protected GlobalStatusType globalStatus;
 
   /** The Security ok flag. */
-  @XmlElement(name = "SecurityOKFlag")
+  @SerializedName("SecurityOKFlag")
   @Schema(
       description =
           "Indicates if the security module of the POI is working and usable. --Rule: If security module present")
   protected Boolean securityOKFlag;
 
   /** The Pedok flag. */
-  @XmlElement(name = "PEDOKFlag")
+  @SerializedName("PEDOKFlag")
   @Schema(description = "Indicates if the PED is working and usable. --Rule: If PED present")
   protected Boolean pedokFlag;
 
   /** The Card reader ok flag. */
-  @XmlElement(name = "CardReaderOKFlag")
+  @SerializedName("CardReaderOKFlag")
   @Schema(
       description =
           "Indicates if the card readers are working and usable. --Rule: If card reader device present")
   protected Boolean cardReaderOKFlag;
 
   /** The Printer status. */
-  @XmlElement(name = "PrinterStatus")
+  @SerializedName("PrinterStatus")
   @Schema(
       description =
           "Indicates if the printer is working and usable. --Rule: If printer device present")
   protected PrinterStatusType printerStatus;
 
   /** The Communication ok flag. */
-  @XmlElement(name = "CommunicationOKFlag")
+  @SerializedName("CommunicationOKFlag")
   @Schema(
       description =
           "Indicates if the communication infrastructure is working and usable. --Rule: If communication infrastructure present")
   protected Boolean communicationOKFlag;
 
   /** The Fraud prevention flag. */
-  @XmlElement(name = "FraudPreventionFlag")
+  @SerializedName("FraudPreventionFlag")
   @Schema(description = "Indicate a suspicion of fraud by the POI System. --Rule: default False")
   protected Boolean fraudPreventionFlag;
 

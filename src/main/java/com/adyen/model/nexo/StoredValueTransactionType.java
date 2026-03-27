@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for StoredValueTransactionType.
@@ -24,37 +22,35 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "StoredValueTransactionType")
-@XmlEnum
 public enum StoredValueTransactionType {
 
   /** Reserve the account (e.g. get an activation code) */
-  @XmlEnumValue("Reserve")
+  @SerializedName("Reserve")
   @Schema(description = "Reserve the account (e.g. get an activation code)")
   RESERVE("Reserve"),
 
   /** Activate the account or the card */
-  @XmlEnumValue("Activate")
+  @SerializedName("Activate")
   @Schema(description = "Activate the account or the card")
   ACTIVATE("Activate"),
 
   /** Load the account or the card with money */
-  @XmlEnumValue("Load")
+  @SerializedName("Load")
   @Schema(description = "Load the account or the card with money")
   LOAD("Load"),
 
   /** Unload the account */
-  @XmlEnumValue("Unload")
+  @SerializedName("Unload")
   @Schema(description = "Unload the account")
   UNLOAD("Unload"),
 
   /** Reverse an activation or loading. */
-  @XmlEnumValue("Reverse")
+  @SerializedName("Reverse")
   @Schema(description = "Reverse an activation or loading.")
   REVERSE("Reverse"),
 
   /** Duplicate the code or number provided by the loading or activation */
-  @XmlEnumValue("Duplicate")
+  @SerializedName("Duplicate")
   @Schema(description = "Duplicate the code or number provided by the loading or activation")
   DUPLICATE("Duplicate");
   private final String value;

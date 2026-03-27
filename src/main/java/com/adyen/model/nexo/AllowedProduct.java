@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Product that are payable by the payment card. -- Usage: Restriction of product
@@ -29,29 +26,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "AllowedProduct",
-    propOrder = {"productLabel", "additionalProductInfo"})
 public class AllowedProduct {
 
   /** The Product label. */
-  @XmlElement(name = "ProductLabel")
+  @SerializedName("ProductLabel")
   @Schema(description = "Product name of an item purchased with the transaction.")
   protected String productLabel;
 
   /** The Additional product info. */
-  @XmlElement(name = "AdditionalProductInfo")
+  @SerializedName("AdditionalProductInfo")
   @Schema(description = "Additionl information related to the line item.")
   protected String additionalProductInfo;
 
   /** The Product code. */
-  @XmlElement(name = "ProductCode", required = true)
+  @SerializedName("ProductCode")
   @Schema(description = "Product code of item purchased with the transaction.")
   protected String productCode;
 
   /** The Ean upc. */
-  @XmlElement(name = "EanUpc")
+  @SerializedName("EanUpc")
   @Schema(description = "Standard product code of item purchased with the transaction.")
   protected String eanUpc;
 

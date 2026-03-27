@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for TotalDetailsType.
@@ -23,30 +21,28 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "TotalDetailsType")
-@XmlEnum
 public enum TotalDetailsType {
 
   /** Give the totals result per POIID value. */
   POIID("POIID"),
 
   /** Give the totals result per SaleID value. */
-  @XmlEnumValue("SaleID")
+  @SerializedName("SaleID")
   @Schema(description = "Give the totals result per SaleID value.")
   SALE_ID("SaleID"),
 
   /** Give the totals result per OperatorID value. */
-  @XmlEnumValue("OperatorID")
+  @SerializedName("OperatorID")
   @Schema(description = "Give the totals result per OperatorID value.")
   OPERATOR_ID("OperatorID"),
 
   /** Give the totals result per ShiftNumber value. */
-  @XmlEnumValue("ShiftNumber")
+  @SerializedName("ShiftNumber")
   @Schema(description = "Give the totals result per ShiftNumber value.")
   SHIFT_NUMBER("ShiftNumber"),
 
   /** Give the totals result per TotalsGroupID value. */
-  @XmlEnumValue("TotalsGroupID")
+  @SerializedName("TotalsGroupID")
   @Schema(description = "Give the totals result per TotalsGroupID value.")
   TOTALS_GROUP_ID("TotalsGroupID");
   private final String value;

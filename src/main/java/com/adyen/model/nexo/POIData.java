@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the POI System. -- Usage: In the Message Response, identification of
@@ -27,19 +24,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "POIData",
-    propOrder = {"poiTransactionID"})
 public class POIData {
 
   /** The Poi transaction id. */
-  @XmlElement(name = "POITransactionID", required = true)
+  @SerializedName("POITransactionID")
   @Schema(description = "Unique identification of a POI transaction for a POI")
   protected TransactionIdentification poiTransactionID;
 
   /** The Poi reconciliation id. */
-  @XmlElement(name = "POIReconciliationID")
+  @SerializedName("POIReconciliationID")
   @Schema(
       description =
           "Identification of the reconciliation period between Sale and POI.  --Rule: If Result is Success")

@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Sound Request messageType. -- Usage: It conveys the data to start a
@@ -31,31 +28,27 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "SoundRequest",
-    propOrder = {"soundContent"})
 public class SoundRequest {
 
   /** The Sound content. */
-  @XmlElement(name = "SoundContent", required = true)
+  @SerializedName("SoundContent")
   @Schema(
       description =
           "Content of the Sound to play. --Rule: Absent if SoundAction is SetDefaultVolume, otherwise mandatory.")
   protected SoundContent soundContent;
 
   /** The Response mode. */
-  @XmlElement(name = "ResponseMode")
+  @SerializedName("ResponseMode")
   @Schema(description = "Message response awaited by the initiator of the Request")
   protected ResponseModeType responseMode;
 
   /** The Sound action. */
-  @XmlElement(name = "SoundAction", required = true)
+  @SerializedName("SoundAction")
   @Schema(description = "Type of action to perform on the sound.")
   protected SoundActionType soundAction;
 
   /** The Sound volume. */
-  @XmlElement(name = "SoundVolume")
+  @SerializedName("SoundVolume")
   @Schema(
       description =
           "Volume of a sound, either in a pourcentage of the maximum volume, or 0 to mute. --Rule: Mandatory if SoundAction is SetDefaultVolume")

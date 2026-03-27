@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the TransactionStatus Response messageType. -- Usage: It conveys
@@ -29,26 +26,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "TransactionStatusResponse",
-    propOrder = {"response", "messageReference", "repeatedMessageResponse"})
 public class TransactionStatusResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Message reference. */
-  @XmlElement(name = "MessageReference")
+  @SerializedName("MessageReference")
   @Schema(
       description =
           "Identification of a previous POI transaction. --Rule: if Response.Result is Success")
   protected MessageReference messageReference;
 
   /** The Repeated message response. */
-  @XmlElement(name = "RepeatedMessageResponse")
+  @SerializedName("RepeatedMessageResponse")
   @Schema(
       description =
           "Content of the requested Message Response. --Rule: If Result is Success (process completed)")

@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the payment transaction. -- Usage: Elements requested by the Sale
@@ -32,60 +29,50 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentData",
-    propOrder = {
-      "cardAcquisitionReference",
-      "requestedValidityDate",
-      "instalment",
-      "customerOrder",
-      "paymentInstrumentData"
-    })
 public class PaymentData {
 
   /** The Card acquisition reference. */
-  @XmlElement(name = "CardAcquisitionReference")
+  @SerializedName("CardAcquisitionReference")
   @Schema(
       description =
           "Reference to the last CardAcquisition, to use the same card. --Rule: if the card data comes from a previous CardAcquisition")
   protected TransactionIdentification cardAcquisitionReference;
 
   /** The Requested validity date. */
-  @XmlElement(name = "RequestedValidityDate")
+  @SerializedName("RequestedValidityDate")
   @Schema(
       description =
           "Requested validity date for the reservation. --Rule: If time period of the OneTimeReservation, FirstReservation or UpdateReservation is requested")
   protected String requestedValidityDate;
 
   /** The Instalment. */
-  @XmlElement(name = "Instalment")
+  @SerializedName("Instalment")
   @Schema(
       description =
           "Information related an instalment transaction. --Rule: If PaymentType is \"Instalment\" or \"IssuerInstalment\"")
   protected Instalment instalment;
 
   /** The Customer order. */
-  @XmlElement(name = "CustomerOrder")
+  @SerializedName("CustomerOrder")
   @Schema(
       description =
           "Customer order attached to a card, recorded in the POI system. --Rule: If a customer orders has to be created.")
   protected CustomerOrder customerOrder;
 
   /** The Payment instrument data. */
-  @XmlElement(name = "PaymentInstrumentData")
+  @SerializedName("PaymentInstrumentData")
   @Schema(
       description =
           "Data related to the instrument of payment for the transaction. --Rule: If payment instrument data are read by the Sale System")
   protected PaymentInstrumentData paymentInstrumentData;
 
   /** The Payment. */
-  @XmlElement(name = "PaymentType")
+  @SerializedName("PaymentType")
   @Schema(description = "Type of payment transaction.")
   protected PaymentType paymentType;
 
   /** The Split payment flag. */
-  @XmlElement(name = "SplitPaymentFlag")
+  @SerializedName("SplitPaymentFlag")
   @Schema(description = "Indicates if the payment of the Sale transaction is split.")
   protected Boolean splitPaymentFlag;
 

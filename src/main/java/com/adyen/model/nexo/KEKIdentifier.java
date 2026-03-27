@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Identification of a key encryption key (key management using previously distributed
@@ -26,20 +23,18 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KEKIdentifier")
 public class KEKIdentifier {
 
   /** The Key identifier. */
-  @XmlElement(name = "KeyIdentifier", required = true)
+  @SerializedName("KeyIdentifier")
   protected String keyIdentifier;
 
   /** The Key version. */
-  @XmlElement(name = "KeyVersion", required = true)
+  @SerializedName("KeyVersion")
   protected String keyVersion;
 
   /** The Derivation identifier. */
-  @XmlElement(name = "DerivationIdentifier")
+  @SerializedName("DerivationIdentifier")
   protected byte[] derivationIdentifier;
 
   /**

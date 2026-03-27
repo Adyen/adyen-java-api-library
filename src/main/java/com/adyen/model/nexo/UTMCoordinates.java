@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Location on the Earth specified by the Universal Transverse Mercator coordinate
@@ -29,26 +26,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "UTMCoordinates",
-    propOrder = {"utmZone", "utmEastward", "utmNorthward"})
 public class UTMCoordinates {
 
   /** The Utm zone. */
-  @XmlElement(name = "UTMZone", required = true)
+  @SerializedName("UTMZone")
   @Schema(
       description =
           "UTM grid zone combination of the longitude zone (1 to 60) and the latitude band (C to X, excluding I and O).")
   protected String utmZone;
 
   /** The Utm eastward. */
-  @XmlElement(name = "UTMEastward", required = true)
+  @SerializedName("UTMEastward")
   @Schema(description = "X-coordinate of the Universal Transverse Mercator coordinate system.")
   protected String utmEastward;
 
   /** The Utm northward. */
-  @XmlElement(name = "UTMNorthward", required = true)
+  @SerializedName("UTMNorthward")
   @Schema(description = "Y-coordinate of the Universal Transverse Mercator coordinate system.")
   protected String utmNorthward;
 

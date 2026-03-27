@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Geographic location specified by geographic or UTM coordinates. -- Usage: Identifies
@@ -27,21 +24,17 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "Geolocation",
-    propOrder = {"geographicCoordinates", "utmCoordinates"})
 public class Geolocation {
 
   /** The Geographic coordinates. */
-  @XmlElement(name = "GeographicCoordinates")
+  @SerializedName("GeographicCoordinates")
   @Schema(
       description =
           "Location on the Earth specified by two numbers representing vertical and horizontal position.")
   protected GeographicCoordinates geographicCoordinates;
 
   /** The Utm coordinates. */
-  @XmlElement(name = "UTMCoordinates")
+  @SerializedName("UTMCoordinates")
   @Schema(
       description =
           "Location on the Earth specified by the Universal Transverse Mercator coordinate system.")

@@ -1,9 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for ColorType.
@@ -25,33 +23,31 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "ColorType")
-@XmlEnum
 public enum ColorType {
 
   /** White color type. */
-  @XmlEnumValue("White")
+  @SerializedName("White")
   WHITE("White"),
   /** Black color type. */
-  @XmlEnumValue("Black")
+  @SerializedName("Black")
   BLACK("Black"),
   /** Red color type. */
-  @XmlEnumValue("Red")
+  @SerializedName("Red")
   RED("Red"),
   /** Green color type. */
-  @XmlEnumValue("Green")
+  @SerializedName("Green")
   GREEN("Green"),
   /** Blue color type. */
-  @XmlEnumValue("Blue")
+  @SerializedName("Blue")
   BLUE("Blue"),
   /** Yellow color type. */
-  @XmlEnumValue("Yellow")
+  @SerializedName("Yellow")
   YELLOW("Yellow"),
   /** Magenta color type. */
-  @XmlEnumValue("Magenta")
+  @SerializedName("Magenta")
   MAGENTA("Magenta"),
   /** Cyan color type. */
-  @XmlEnumValue("Cyan")
+  @SerializedName("Cyan")
   CYAN("Cyan");
   private final String value;
 

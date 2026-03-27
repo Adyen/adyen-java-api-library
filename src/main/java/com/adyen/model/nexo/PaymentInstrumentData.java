@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the instrument of payment for the transaction. -- Usage: Sent in the
@@ -31,44 +28,40 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentInstrumentData",
-    propOrder = {"cardData", "checkData", "mobileData"})
 public class PaymentInstrumentData {
 
   /** The Card data. */
-  @XmlElement(name = "CardData")
+  @SerializedName("CardData")
   @Schema(
       description =
           "Information related to the payment card used for the transaction. --Rule: If PaymentInstrumentType is \"Card\"")
   protected CardData cardData;
 
   /** The Check data. */
-  @XmlElement(name = "CheckData")
+  @SerializedName("CheckData")
   @Schema(
       description =
           "Information related to the paper check used for the transaction. --Rule: If PaymentInstrumentType is \"Check\"")
   protected CheckData checkData;
 
   /** The Mobile data. */
-  @XmlElement(name = "MobileData")
+  @SerializedName("MobileData")
   @Schema(
       description =
           "Information related to the mobile for the payment transaction. --Rule: If PaymentInstrumentType is \"Mobile\"")
   protected MobileData mobileData;
 
   /** The Payment instrument. */
-  @XmlElement(name = "PaymentInstrumentType", required = true)
+  @SerializedName("PaymentInstrumentType")
   @Schema(description = "Type of payment instrument.")
   protected PaymentInstrumentType paymentInstrumentType;
 
   /** The Stored value account id. */
-  @XmlElement(name = "StoredValueAccountID")
+  @SerializedName("StoredValueAccountID")
   protected StoredValueAccountID storedValueAccountID;
 
   /** The Protected card data. */
-  @XmlElement(name = "ProtectedCardData")
+  @SerializedName("ProtectedCardData")
   protected String protectedCardData;
 
   /**

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the result of a processed payment transaction. -- Usage: In the
@@ -40,104 +37,92 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentResult",
-    propOrder = {
-      "paymentInstrumentData",
-      "amountsResp",
-      "instalment",
-      "currencyConversion",
-      "capturedSignature",
-      "protectedSignature",
-      "paymentAcquirerData"
-    })
 public class PaymentResult {
 
   /** The Payment instrument data. */
-  @XmlElement(name = "PaymentInstrumentData")
+  @SerializedName("PaymentInstrumentData")
   @Schema(
       description =
           "Data related to the instrument of payment for the transaction. --Rule: If a payment instrument is analysed by the POI")
   protected PaymentInstrumentData paymentInstrumentData;
 
   /** The Amounts resp. */
-  @XmlElement(name = "AmountsResp")
+  @SerializedName("AmountsResp")
   @Schema(
       description =
           "Various amounts related to the payment response from the POI System. --Rule: If Result is Success or Partial")
   protected AmountsResp amountsResp;
 
   /** The Instalment. */
-  @XmlElement(name = "Instalment")
+  @SerializedName("Instalment")
   @Schema(
       description =
           "Information related an instalment transaction. --Rule: Absent if PaymentType is not \"IssuerInstalment\"")
   protected Instalment instalment;
 
   /** The Currency conversion. */
-  @XmlElement(name = "CurrencyConversion")
+  @SerializedName("CurrencyConversion")
   @Schema(
       description =
           "Information related to a currency conversion --Rule: If currency conversion the Sale needs to know")
   protected List<CurrencyConversion> currencyConversion;
 
   /** The Captured signature. */
-  @XmlElement(name = "CapturedSignature")
+  @SerializedName("CapturedSignature")
   @Schema(
       description =
           "Numeric value of a handwritten signature. --Rule: If handwritten signature is captured on the POI by a signature capture device.")
   protected CapturedSignature capturedSignature;
 
   /** The Protected signature. */
-  @XmlElement(name = "ProtectedSignature")
+  @SerializedName("ProtectedSignature")
   @Schema(
       description =
           "Numeric value of a handwritten signature. --Rule: Encrypted handwritten signature captured on the POI by a signature capture device.")
   protected ContentInformation protectedSignature;
 
   /** The Payment acquirer data. */
-  @XmlElement(name = "PaymentAcquirerData")
+  @SerializedName("PaymentAcquirerData")
   @Schema(
       description =
           "Data related to the response from the payment Acquirer. --Rule: If a card is analysed and data available")
   protected PaymentAcquirerData paymentAcquirerData;
 
   /** The Payment type. */
-  @XmlElement(name = "PaymentType")
+  @SerializedName("PaymentType")
   @Schema(description = "Type of payment transaction. --Rule: Copy")
   protected PaymentType paymentType;
 
   /** The Merchant override flag. */
-  @XmlElement(name = "MerchantOverrideFlag")
+  @SerializedName("MerchantOverrideFlag")
   @Schema(
       description =
           "Indicate that the Merchant forced the result of the payment to successfull. --Rule: If payment forced by the Cashier")
   protected Boolean merchantOverrideFlag;
 
   /** The Customer language. */
-  @XmlElement(name = "CustomerLanguage")
+  @SerializedName("CustomerLanguage")
   @Schema(
       description =
           "Language of the Customer --Rule: If the customer language is different from the default language or different from the CustomerLanguage of the")
   protected String customerLanguage;
 
   /** The Online flag. */
-  @XmlElement(name = "OnlineFlag")
+  @SerializedName("OnlineFlag")
   @Schema(
       description =
           "Indicate that the payment transaction processing has required the approval of a host. --Rule: \"True\" if the payment transaction processing has required the approval of a host.")
   protected Boolean onlineFlag;
 
   /** The Authentication method. */
-  @XmlElement(name = "AuthenticationMethod")
+  @SerializedName("AuthenticationMethod")
   @Schema(
       description =
           "Method for customer authentication. --Rule: Method for customer authentication.")
   protected List<AuthenticationMethodType> authenticationMethod;
 
   /** The Validity date. */
-  @XmlElement(name = "ValidityDate")
+  @SerializedName("ValidityDate")
   @Schema(
       description =
           "End of the validity period for the reservation. --Rule: if OneTimeReservation, FirstReservation or UpdateReservation")

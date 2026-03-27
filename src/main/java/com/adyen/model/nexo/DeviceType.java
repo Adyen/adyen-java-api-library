@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for DeviceType.
@@ -22,15 +20,13 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "DeviceType")
-@XmlEnum
 public enum DeviceType {
 
   /**
    * Used by the POI System (or the Sale System when the device is managed by the POI Terminal), to
    * display some information to the Cashier.
    */
-  @XmlEnumValue("CashierDisplay")
+  @SerializedName("CashierDisplay")
   @Schema(
       description =
           "Used by the POI System (or the Sale System when the device is managed by the POI Terminal), to display some information to the Cashier.")
@@ -40,7 +36,7 @@ public enum DeviceType {
    * Used by the Sale System (or the POI System when the device is managed by the Sale Terminal), to
    * display some information to the Customer.
    */
-  @XmlEnumValue("CustomerDisplay")
+  @SerializedName("CustomerDisplay")
   @Schema(
       description =
           "Used by the Sale System (or the POI System when the device is managed by the Sale Terminal), to display some information to the Customer.")
@@ -50,7 +46,7 @@ public enum DeviceType {
    * Any kind of keyboard allowing all or part of the commands of the Input messageType request from
    * the Sale System to the POI System (InputCommand data element). The
    */
-  @XmlEnumValue("CashierInput")
+  @SerializedName("CashierInput")
   @Schema(
       description =
           "Any kind of keyboard allowing all or part of the commands of the Input message request from the Sale System to the POI System (InputCommand data element). The")
@@ -60,7 +56,7 @@ public enum DeviceType {
    * Any kind of keyboard allowing all or part of the commands of the Input messageType request from
    * the POI System to the Sale System (InputCommand data element). The
    */
-  @XmlEnumValue("CustomerInput")
+  @SerializedName("CustomerInput")
   @Schema(
       description =
           "Any kind of keyboard allowing all or part of the commands of the Input message request from the POI System to the Sale System (InputCommand data element). The")

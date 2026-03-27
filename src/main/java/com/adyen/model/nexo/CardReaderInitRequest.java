@@ -1,13 +1,10 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Card Reader Init Request messageType. -- Usage: It contains possible
@@ -34,34 +31,30 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardReaderInitRequest",
-    propOrder = {"forceEntryMode", "displayOutput"})
 public class CardReaderInitRequest {
 
   /** The Force entry mode. */
-  @XmlElement(name = "ForceEntryMode")
+  @SerializedName("ForceEntryMode")
   @Schema(description = "Payment instrument entry mode requested by the Sale System.")
   protected List<ForceEntryModeType> forceEntryMode;
 
   /** The Display output. */
-  @XmlElement(name = "DisplayOutput")
+  @SerializedName("DisplayOutput")
   @Schema(description = "Information to display and the way to process the display.")
   protected DisplayOutput displayOutput;
 
   /** The Warm reset flag. */
-  @XmlElement(name = "WarmResetFlag")
+  @SerializedName("WarmResetFlag")
   @Schema(description = "Flag to request a warm reset on a chip.")
   protected Boolean warmResetFlag;
 
   /** The Leave card flag. */
-  @XmlElement(name = "LeaveCardFlag")
+  @SerializedName("LeaveCardFlag")
   @Schema(description = "Indicates if the POI has to keep the card in the reader for a smart card.")
   protected Boolean leaveCardFlag;
 
   /** The Max waiting time. */
-  @XmlElement(name = "MaxWaitingTime")
+  @SerializedName("MaxWaitingTime")
   @Schema(description = "Maximum time to wait for the request processing in seconds.")
   protected BigInteger maxWaitingTime;
 

@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to the mobile for the payment transaction. -- Usage: Mobile phone
@@ -31,14 +28,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "MobileData",
-    propOrder = {"mobileCountryCode", "geolocation", "protectedMobileData", "sensitiveMobileData"})
 public class MobileData {
 
   /** The Mobile country code. */
-  @XmlElement(name = "MobileCountryCode")
+  @SerializedName("MobileCountryCode")
   @Schema(
       description = "Identifies the country of a mobile phone operator. --Rule: If data available",
       minLength = 3,
@@ -46,28 +39,28 @@ public class MobileData {
   protected String mobileCountryCode;
 
   /** The Geolocation. */
-  @XmlElement(name = "Geolocation")
+  @SerializedName("Geolocation")
   @Schema(
       description =
           "Geographic location specified by geographic or UTM coordinates. --Rule: If data available")
   protected Geolocation geolocation;
 
   /** The Protected mobile data. */
-  @XmlElement(name = "ProtectedMobileData")
+  @SerializedName("ProtectedMobileData")
   @Schema(
       description =
           "Sensitive information related to the mobile phone, protected by CMS. --Rule: SensitiveMobileData")
   protected ContentInformation protectedMobileData;
 
   /** The Sensitive mobile data. */
-  @XmlElement(name = "SensitiveMobileData")
+  @SerializedName("SensitiveMobileData")
   @Schema(
       description =
           "Sensitive information related to the mobile phone. --Rule: If unprotected mobile data")
   protected SensitiveMobileData sensitiveMobileData;
 
   /** The Mobile network code. */
-  @XmlElement(name = "MobileNetworkCode")
+  @SerializedName("MobileNetworkCode")
   @Schema(
       description =
           "Identifies the mobile phone operator inside a country. --Rule: If data available",
@@ -76,7 +69,7 @@ public class MobileData {
   protected String mobileNetworkCode;
 
   /** The Masked msisdn. */
-  @XmlElement(name = "MaskedMSISDN")
+  @SerializedName("MaskedMSISDN")
   @Schema(
       description =
           "Masked Mobile Subscriber Integrated Service Digital Network. --Rule: If data available")

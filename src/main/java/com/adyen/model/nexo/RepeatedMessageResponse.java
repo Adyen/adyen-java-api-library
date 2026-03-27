@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the requested Message Response. -- Usage: Allow the knowledge of the last
@@ -34,18 +31,14 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "RepeatedMessageResponse",
-    propOrder = {"repeatedResponseMessageBody", "messageHeader"})
 public class RepeatedMessageResponse {
 
   /** The Repeated message response body. */
-  @XmlElement(name = "RepeatedResponseMessageBody", required = true)
+  @SerializedName("RepeatedResponseMessageBody")
   protected RepeatedResponseMessageBody repeatedResponseMessageBody;
 
   /** The Message header. */
-  @XmlElement(name = "MessageHeader", required = true)
+  @SerializedName("MessageHeader")
   @Schema(description = "Message header of the Sale to POI protocol message.")
   protected MessageHeader messageHeader;
 

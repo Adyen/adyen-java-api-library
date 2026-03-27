@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Card Acquisition Response messageType. -- Usage: It conveys
@@ -36,58 +33,46 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardAcquisitionResponse",
-    propOrder = {
-      "response",
-      "saleData",
-      "poiData",
-      "paymentBrand",
-      "paymentInstrumentData",
-      "loyaltyAccount",
-      "customerOrder"
-    })
 public class CardAcquisitionResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Sale data. */
-  @XmlElement(name = "SaleData", required = true)
+  @SerializedName("SaleData")
   @Schema(description = "Data related to the Sale System.")
   protected SaleData saleData;
 
   /** The Poi data. */
-  @XmlElement(name = "POIData", required = true)
+  @SerializedName("POIData")
   @Schema(description = "Data related to the POI System.")
   protected POIData poiData;
 
   /** The Payment brand. */
-  @XmlElement(name = "PaymentBrand")
+  @SerializedName("PaymentBrand")
   @Schema(
       description =
           "Type of payment card --Rule: Brands available for payment by the card and not chosen by the Customer")
   protected List<String> paymentBrand;
 
   /** The Payment instrument data. */
-  @XmlElement(name = "PaymentInstrumentData")
+  @SerializedName("PaymentInstrumentData")
   @Schema(
       description =
           "Data related to the instrument of payment for the transaction. --Rule: If this type of payment card is configured to send information if the CardAcquisition response")
   protected PaymentInstrumentData paymentInstrumentData;
 
   /** The Loyalty account. */
-  @XmlElement(name = "LoyaltyAccount")
+  @SerializedName("LoyaltyAccount")
   @Schema(
       description =
           "Data related to a loyalty account processed in the transaction. --Rule: If loyalty card selected by the customer")
   protected List<LoyaltyAccount> loyaltyAccount;
 
   /** The Customer order. */
-  @XmlElement(name = "CustomerOrder")
+  @SerializedName("CustomerOrder")
   @Schema(
       description =
           "Customer order attached to a card, recorded in the POI system. --Rule: If the list of customer orders has been requested.")

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Status of cash handling device. -- Usage: Indicate the status and the remaining coins
@@ -30,24 +27,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CashHandlingDevice",
-    propOrder = {"coinsOrBills"})
 public class CashHandlingDevice {
 
   /** The Coins or bills. */
-  @XmlElement(name = "CoinsOrBills", required = true)
+  @SerializedName("CoinsOrBills")
   @Schema(description = "Number of coins or bills of a given value.")
   protected List<CoinsOrBills> coinsOrBills;
 
   /** The Cash handling ok flag. */
-  @XmlElement(name = "CashHandlingOKFlag", required = true)
+  @SerializedName("CashHandlingOKFlag")
   @Schema(description = "Indicates if the cash handling device is working and usable.")
   protected boolean cashHandlingOKFlag;
 
   /** The Currency. */
-  @XmlElement(name = "Currency", required = true)
+  @SerializedName("Currency")
   @Schema(description = "Currency of a monetary amount.")
   protected String currency;
 

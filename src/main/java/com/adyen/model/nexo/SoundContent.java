@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Sound to play.
@@ -26,25 +23,23 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SoundContent")
 public class SoundContent {
 
-  @XmlElement(name = "SoundFormat")
+  @SerializedName("SoundFormat")
   @Schema(description = "Type of sound to play.")
   protected SoundFormatType soundFormat;
 
-  @XmlElement(name = "Language")
+  @SerializedName("Language")
   @Schema(description = "Identification of a language.")
   protected String language;
 
-  @XmlElement(name = "ReferenceID")
+  @SerializedName("ReferenceID")
   @Schema(
       description =
           "Identification of a predefined message to display, print or play. --Rule: Mandatory if SoundFormat is SoundRef or MessageRef.")
   protected String referenceID;
 
-  @XmlElement(name = "Text")
+  @SerializedName("Text")
   @Schema(description = "Content of text message to display, print or play.")
   protected String text;
 

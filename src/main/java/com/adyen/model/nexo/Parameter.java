@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Parameters associated to a cryptographic algorithm -- Reference: RFC 3880: Internet
@@ -23,12 +20,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Parameter")
 public class Parameter {
 
   /** The Initialisation vector. */
-  @XmlElement(name = "InitialisationVector")
+  @SerializedName("InitialisationVector")
   protected byte[] initialisationVector;
 
   /**

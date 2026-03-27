@@ -1,0 +1,25 @@
+{
+  "keyTransportOrKEK": [
+    {
+      "KEKIdentifier": {
+        "KeyIdentifier": "kid-1",
+        "KeyVersion": "kv1",
+        "DerivationIdentifier": "ZGVyaXZhdGlvbg=="
+      },
+      "KeyEncryptionAlgorithm": {
+        "Algorithm": "des-ede3-cbc"
+      },
+      "EncryptedKey": "ZW5jcnlwdGVkLWtleQ==",
+      "Version": "v4"
+    }
+  ],
+  "MACAlgorithm": {
+    "Algorithm": "id-sha256"
+  },
+  "EncapsulatedContent": {
+    "Content": "cGF5bG9hZA==",
+    "ContentType": "id-data"
+  },
+  "Version": "v0",
+  "MAC": "bWFjLXZhbHVl"
+}

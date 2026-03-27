@@ -1,13 +1,10 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the loyalty transaction.
@@ -33,43 +30,39 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyTransaction",
-    propOrder = {"originalPOITransaction", "transactionConditions", "saleItem"})
 public class LoyaltyTransaction {
 
   /** The Original poi transaction. */
-  @XmlElement(name = "OriginalPOITransaction")
+  @SerializedName("OriginalPOITransaction")
   @Schema(
       description =
           "Identification of a previous POI transaction. --Rule: if LoyaltyTransactionType is \"AwardRefund\", \"RebateRefund\" or \"RedemptionRefund\"")
   protected OriginalPOITransaction originalPOITransaction;
 
   /** The Transaction conditions. */
-  @XmlElement(name = "TransactionConditions")
+  @SerializedName("TransactionConditions")
   @Schema(
       description =
           "Conditions on which the transaction must be processed. --Rule: If one data element is present")
   protected TransactionConditions transactionConditions;
 
   /** The Sale item. */
-  @XmlElement(name = "SaleItem")
+  @SerializedName("SaleItem")
   @Schema(description = "Sale items of a transaction.")
   protected List<SaleItem> saleItem;
 
   /** The Loyalty transaction. */
-  @XmlElement(name = "LoyaltyTransactionType", required = true)
+  @SerializedName("LoyaltyTransactionType")
   @Schema(description = "Type of loyalty transaction.")
   protected LoyaltyTransactionType loyaltyTransactionType;
 
   /** The Currency. */
-  @XmlElement(name = "Currency")
+  @SerializedName("Currency")
   @Schema(description = "Currency of a monetary amount.")
   protected String currency;
 
   /** The Total amount. */
-  @XmlElement(name = "TotalAmount")
+  @SerializedName("TotalAmount")
   @Schema(description = "Amount of a transaction.")
   protected BigDecimal totalAmount;
 

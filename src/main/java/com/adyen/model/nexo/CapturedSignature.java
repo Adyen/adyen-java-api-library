@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Numeric value of a handwritten signature. -- Usage: Contain the value of a
@@ -31,19 +28,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CapturedSignature",
-    propOrder = {"areaSize", "signaturePoint"})
 public class CapturedSignature {
 
   /** The Area size. */
-  @XmlElement(name = "AreaSize")
+  @SerializedName("AreaSize")
   @Schema(description = "Size of an area")
   protected AreaSize areaSize;
 
   /** The Signature point. */
-  @XmlElement(name = "SignaturePoint", required = true)
+  @SerializedName("SignaturePoint")
   @Schema(description = "Coordinates of a point where the pen changes direction or lift.")
   protected List<SignaturePoint> signaturePoint;
 

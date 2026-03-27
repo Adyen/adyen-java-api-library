@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Common amount definition with currency -- Usage: Decimal unsigned amount with
@@ -24,18 +21,14 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "Amount",
-    propOrder = {"amountValue", "currency"})
 public class Amount {
 
   /** The Value. */
-  @XmlElement(name = "AmountValue")
+  @SerializedName("AmountValue")
   protected BigDecimal amountValue;
 
   /** The Currency. */
-  @XmlElement(name = "Currency")
+  @SerializedName("Currency")
   protected String currency;
 
   /**

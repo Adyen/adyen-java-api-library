@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the result of a Balance Inquiry request.
@@ -30,42 +27,38 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentAccountStatus",
-    propOrder = {"paymentInstrumentData", "paymentAcquirerData", "loyaltyAccountStatus"})
 public class PaymentAccountStatus {
 
   /** The Payment instrument data. */
-  @XmlElement(name = "PaymentInstrumentData")
+  @SerializedName("PaymentInstrumentData")
   @Schema(
       description =
           "Data related to the instrument of payment for the transaction. --Rule: If a payment instrument is analysed")
   protected PaymentInstrumentData paymentInstrumentData;
 
   /** The Payment acquirer data. */
-  @XmlElement(name = "PaymentAcquirerData")
+  @SerializedName("PaymentAcquirerData")
   @Schema(
       description =
           "Data related to the response from the payment Acquirer. --Rule: If a card is analysed")
   protected PaymentAcquirerData paymentAcquirerData;
 
   /** The Loyalty account status. */
-  @XmlElement(name = "LoyaltyAccountStatus")
+  @SerializedName("LoyaltyAccountStatus")
   @Schema(
       description =
           "Data related to the result of a loyalty Balance Inquiry. --Rule: If PaymentInstrumentData absent and Result is Success")
   protected LoyaltyAccountStatus loyaltyAccountStatus;
 
   /** The Currency. */
-  @XmlElement(name = "Currency")
+  @SerializedName("Currency")
   @Schema(
       description =
           "Currency of a monetary amount. --Rule: If PaymentInstrumentData present and Result is Success")
   protected String currency;
 
   /** The Current balance. */
-  @XmlElement(name = "CurrentBalance")
+  @SerializedName("CurrentBalance")
   @Schema(
       description =
           "Balance of an account. --Rule: If PaymentInstrumentData present and Result is Success")

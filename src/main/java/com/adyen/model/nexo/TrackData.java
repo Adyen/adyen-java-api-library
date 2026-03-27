@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Magnetic track or magnetic ink characters line. -- Reference: ISO 7813 - ISO 4909 --
@@ -28,19 +25,17 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TrackData")
 public class TrackData {
 
-  @XmlElement(name = "TrackValue")
+  @SerializedName("TrackValue")
   @Schema(description = "Card track content", minLength = 1, maxLength = 104)
   protected String trackValue;
 
-  @XmlElement(name = "TrackNumb")
+  @SerializedName("TrackNumb")
   @Schema(description = "Card track number")
   protected Integer trackNumb;
 
-  @XmlElement(name = "TrackFormat")
+  @SerializedName("TrackFormat")
   @Schema(description = "Card track format")
   protected TrackFormatType trackFormat;
 

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content to display or print. -- Usage: This is a sequence of elements if they have
@@ -32,42 +29,38 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "OutputContent",
-    propOrder = {"predefinedContent", "outputText", "outputXHTML", "outputBarcode"})
 public class OutputContent {
 
   /** The Predefined content. */
-  @XmlElement(name = "PredefinedContent")
+  @SerializedName("PredefinedContent")
   @Schema(
       description =
           "Reference of a predefined message to display or print. --Rule: Mandatory, if OutputFormat is MessageRef, not allowed otherwise.")
   protected PredefinedContent predefinedContent;
 
   /** The Output text. */
-  @XmlElement(name = "OutputText")
+  @SerializedName("OutputText")
   @Schema(
       description =
           "Content of text message to display or print. --Rule: Mandatory, if OutputFormat is Text, not allowed otherwise. One instance of OutputText per shared format")
   protected List<OutputText> outputText;
 
   /** The Output xhtml. */
-  @XmlElement(name = "OutputXHTML")
+  @SerializedName("OutputXHTML")
   @Schema(
       description =
           "XHTML document body containing the message to display or print. --Rule: Mandatory, if OutputFormat is XHTML, not allowed otherwise.")
   protected byte[] outputXHTML;
 
   /** The Output barcode. */
-  @XmlElement(name = "OutputBarcode")
+  @SerializedName("OutputBarcode")
   @Schema(
       description =
           "BarCode content to display or print. --Rule: Mandatory, if OutputFormat is BarCode, not allowed otherwise.")
   protected OutputBarcode outputBarcode;
 
   /** The Output format. */
-  @XmlElement(name = "OutputFormat", required = true)
+  @SerializedName("OutputFormat")
   @Schema(description = "Format of the content to display or print")
   protected OutputFormatType outputFormat;
 

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for InputCommandType.
@@ -27,15 +25,13 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "InputCommandType")
-@XmlEnum
 public enum InputCommandType {
 
   /**
    * Wait for a key pressed on the Terminal, to be able to read the messageType displayed on the
    * Terminal.
    */
-  @XmlEnumValue("GetAnyKey")
+  @SerializedName("GetAnyKey")
   @Schema(
       description =
           "Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.")
@@ -45,28 +41,28 @@ public enum InputCommandType {
    * Wait for a confirmation Yes (Y) or No (N) on the Sale Terminal. Wait for a confirmation (Valid
    * or Cancel button) on the POI Terminal. The result of the command
    */
-  @XmlEnumValue("GetConfirmation")
+  @SerializedName("GetConfirmation")
   @Schema(
       description =
           "Wait for a confirmation Yes (Y) or No (N) on the Sale Terminal. Wait for a confirmation (Valid or Cancel button) on the POI Terminal. The result of the command")
   GET_CONFIRMATION("GetConfirmation"),
 
   /** Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale Terminal. */
-  @XmlEnumValue("SiteManager")
+  @SerializedName("SiteManager")
   @Schema(
       description =
           "Wait for a confirmation Yes (Y) or No (N) of the Site Manager on the Sale Terminal.")
   SITE_MANAGER("SiteManager"),
 
   /** Wait for a string of alphanumeric characters, the length range could be specified. */
-  @XmlEnumValue("TextString")
+  @SerializedName("TextString")
   @Schema(
       description =
           "Wait for a string of alphanumeric characters, the length range could be specified.")
   TEXT_STRING("TextString"),
 
   /** Wait for a string of digit characters, the length range could be specified. */
-  @XmlEnumValue("DigitString")
+  @SerializedName("DigitString")
   @Schema(
       description = "Wait for a string of digit characters, the length range could be specified.")
   DIGIT_STRING("DigitString"),
@@ -75,7 +71,7 @@ public enum InputCommandType {
    * Wait for a string of digit characters with a decimal point, the length range could be
    * specified.
    */
-  @XmlEnumValue("DecimalString")
+  @SerializedName("DecimalString")
   @Schema(
       description =
           "Wait for a string of digit characters with a decimal point, the length range could be specified.")
@@ -85,7 +81,7 @@ public enum InputCommandType {
    * Wait for a function key pressed on the Terminal: From POI, Valid, Clear, Correct, Generic
    * Function key number. From Sale, Generic Function key.
    */
-  @XmlEnumValue("GetFunctionKey")
+  @SerializedName("GetFunctionKey")
   @Schema(
       description =
           "Wait for a function key pressed on the Terminal:  From POI, Valid, Clear, Correct, Generic Function key number. From Sale, Generic Function key.")
@@ -95,14 +91,14 @@ public enum InputCommandType {
    * To choose an entry among a list of entrys (all of them are not necessary selectable). The
    * OutputFormat has to be MenuEntry.
    */
-  @XmlEnumValue("GetMenuEntry")
+  @SerializedName("GetMenuEntry")
   @Schema(
       description =
           "To choose an entry among a list of entrys (all of them are not necessary selectable). The OutputFormat has to be MenuEntry.")
   GET_MENU_ENTRY("GetMenuEntry"),
 
   /** Request to enter a password with masked characters while typing the password. */
-  @XmlEnumValue("Password")
+  @SerializedName("Password")
   @Schema(
       description = "Request to enter a password with masked characters while typing the password.")
   PASSWORD("Password");

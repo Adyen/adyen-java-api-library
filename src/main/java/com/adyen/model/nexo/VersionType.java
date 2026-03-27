@@ -1,9 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for VersionType.
@@ -23,32 +21,30 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "VersionType")
-@XmlEnum
 public enum VersionType {
 
   /** Version 0 */
-  @XmlEnumValue("v0")
+  @SerializedName("v0")
   V_0("v0"),
 
   /** Version 1 */
-  @XmlEnumValue("v1")
+  @SerializedName("v1")
   V_1("v1"),
 
   /** Version 2 */
-  @XmlEnumValue("v2")
+  @SerializedName("v2")
   V_2("v2"),
 
   /** Version 3 */
-  @XmlEnumValue("v3")
+  @SerializedName("v3")
   V_3("v3"),
 
   /** Version 4 */
-  @XmlEnumValue("v4")
+  @SerializedName("v4")
   V_4("v4"),
 
   /** Version 5 */
-  @XmlEnumValue("v5")
+  @SerializedName("v5")
   V_5("v5");
   private final String value;
 

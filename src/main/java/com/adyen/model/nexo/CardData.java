@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to the payment card used for the transaction. -- Usage: Allows
@@ -40,35 +37,24 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardData",
-    propOrder = {
-      "protectedCardData",
-      "sensitiveCardData",
-      "allowedProductCode",
-      "allowedProduct",
-      "paymentToken",
-      "customerOrder"
-    })
 public class CardData {
 
   /** The Protected card data. */
-  @XmlElement(name = "ProtectedCardData")
+  @SerializedName("ProtectedCardData")
   @Schema(
       description =
           "Sensitive information related to the payment card, protected by CMS. --Rule: SensitiveCardData protected by CMS EnvelopedData")
   protected ContentInformation protectedCardData;
 
   /** The Sensitive card data. */
-  @XmlElement(name = "SensitiveCardData")
+  @SerializedName("SensitiveCardData")
   @Schema(
       description =
           "Sensitive information related to the payment card, entered or read by the Sale System. --Rule: If structure non empty and unprotected")
   protected SensitiveCardData sensitiveCardData;
 
   /** The Allowed product code. */
-  @XmlElement(name = "AllowedProductCode")
+  @SerializedName("AllowedProductCode")
   @Schema(
       description =
           "Product codes that are payable by the payment card. --Rule: If ErrorCondition is \"PaymentRestriction\", some products are not payable by the payment card (payment response).",
@@ -77,51 +63,51 @@ public class CardData {
   protected List<String> allowedProductCode;
 
   /** The Allowed product. */
-  @XmlElement(name = "AllowedProduct")
+  @SerializedName("AllowedProduct")
   @Schema(
       description =
           "Product that are payable by the payment card. --Rule: If the card has restrictions on product that can be purchased (card acquisition or balance inquiry response).")
   protected List<AllowedProduct> allowedProduct;
 
   /** The Payment token. */
-  @XmlElement(name = "PaymentToken")
+  @SerializedName("PaymentToken")
   @Schema(
       description =
           "Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean of the customer. --Rule: Present in If requested in CardAcquisitionResponse or PaymentResponse if requested in the request or in the Login")
   protected PaymentToken paymentToken;
 
   /** The Customer order. */
-  @XmlElement(name = "CustomerOrder")
+  @SerializedName("CustomerOrder")
   @Schema(
       description =
           "Customer order attached to a card, recorded in the POI system. --Rule: If the list of customer orders has been requested.")
   protected List<CustomerOrder> customerOrder;
 
   /** The Payment brand. */
-  @XmlElement(name = "PaymentBrand")
+  @SerializedName("PaymentBrand")
   @Schema(description = "Type of payment card --Rule: If card PAN is readable ")
   protected String paymentBrand;
 
   /** The Masked pan. */
-  @XmlElement(name = "MaskedPan")
+  @SerializedName("MaskedPan")
   protected String maskedPAN;
 
   /** The Payment account ref. */
-  @XmlElement(name = "PaymentAccountRef")
+  @SerializedName("PaymentAccountRef")
   @Schema(
       description =
           "Reference of the PAN, which identifies the PAN or the card uniquely, named also PAR (Payment Account Reference). This --Rule: Mandatory if available.")
   protected String paymentAccountRef;
 
   /** The Entry mode. */
-  @XmlElement(name = "EntryMode")
+  @SerializedName("EntryMode")
   @Schema(
       description =
           "Entry mode of the payment instrument information --Rule: Mandatory in the request")
   protected List<EntryModeType> entryMode;
 
   /** The Card country code. */
-  @XmlElement(name = "CardCountryCode")
+  @SerializedName("CardCountryCode")
   @Schema(
       description =
           "Country Code attached to the card (3 numerics). --Rule: If available in the card",

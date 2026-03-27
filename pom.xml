@@ -40,7 +40,6 @@
         <swagger-core-version>1.6.16</swagger-core-version>
         <swagger-annotations-v3-version>2.2.30</swagger-annotations-v3-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
-        <jaxb-api-version>2.3.1</jaxb-api-version>
         <httpclient5-version>5.5</httpclient5-version>
 
         <!-- Test -->
@@ -62,6 +61,7 @@
         <spotless-maven-plugin-version>3.2.1</spotless-maven-plugin-version>
         <maven-surefire-plugin-version>3.5.2</maven-surefire-plugin-version>
         <google-java-format-version>1.34.1</google-java-format-version>
+        <maven-enforcer-version>3.4.1</maven-enforcer-version>
     </properties>
     <scm>
         <connection>scm:git:git@github.com:Adyen/adyen-java-api-library.git</connection>
@@ -237,7 +237,40 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin-version}</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer-version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-jakarta-compliance</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>javax.xml.bind:jaxb-api</exclude>
 
+                                        <!-- Not used but keeping exclusions for Jakarta EE 9+ compatibility -->
+                                        <exclude>javax.servlet:servlet-api</exclude>
+                                        <exclude>javax.servlet:javax.servlet-api</exclude>
+                                        <exclude>javax.persistence:javax.persistence-api</exclude>
+                                        <exclude>javax.persistence:persistence-api</exclude>
+                                        <exclude>javax.validation:validation-api</exclude>
+                                        <exclude>javax.inject:javax.inject</exclude>
+                                    </excludes>
+                                    <message>
+                                        STOP! A legacy javax.* dependency was detected
+                                    </message>
+                                </bannedDependencies>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -281,11 +314,6 @@
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
             <version>${jakarta.ws.rs-api-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>${jaxb-api-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>

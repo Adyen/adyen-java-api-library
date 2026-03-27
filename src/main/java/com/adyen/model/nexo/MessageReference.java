@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Identification of a previous POI transaction. -- Usage: To abort a transaction in
@@ -30,36 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MessageReference")
 public class MessageReference {
 
   /** The Message category. */
-  @XmlElement(name = "MessageCategory")
+  @SerializedName("MessageCategory")
   @Schema(
       description =
           "Category of message. --Rule: Payment, Loyalty, StoredValue, CardAcquisition, Batch, Reconciliation, Display, Input, Print, CardReaderAPDU,")
   protected MessageCategoryType messageCategory;
 
   /** The Service id. */
-  @XmlElement(name = "ServiceID")
+  @SerializedName("ServiceID")
   @Schema(description = "Identification of a message pair, which processes a transaction")
   protected String serviceID;
 
   /** The Device id. */
-  @XmlElement(name = "DeviceID")
+  @SerializedName("DeviceID")
   @Schema(description = "Identification of a device message pair", minLength = 1, maxLength = 10)
   protected String deviceID;
 
   /** The Sale id. */
-  @XmlElement(name = "SaleID")
+  @SerializedName("SaleID")
   @Schema(
       description =
           "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: default MessageHeader.SaleID")
   protected String saleID;
 
   /** The Poiid. */
-  @XmlElement(name = "POIID")
+  @SerializedName("POIID")
   @Schema(
       description =
           "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: default MessageHeader.POIID")
