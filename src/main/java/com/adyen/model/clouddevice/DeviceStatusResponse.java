@@ -50,7 +50,7 @@ public class DeviceStatusResponse {
   }
 
   /**
-   * Create an instance of DeviceStatus given an JSON string
+   * Create an instance of DeviceStatusResponse given an JSON string
    *
    * @param jsonString JSON string
    * @return An instance of DeviceStatus
@@ -61,7 +61,7 @@ public class DeviceStatusResponse {
   }
 
   /**
-   * Convert an instance of DeviceStatus to an JSON string
+   * Convert an instance of DeviceStatusResponse to an JSON string
    *
    * @return JSON string
    */

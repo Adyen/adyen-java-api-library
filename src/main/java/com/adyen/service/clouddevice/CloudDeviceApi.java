@@ -130,7 +130,7 @@ public class CloudDeviceApi extends Service {
     if ("ok".equalsIgnoreCase(response.trim())) {
       cloudDeviceApiAsyncResponse.setResult(response.trim());
     } else {
-      CloudDeviceApiResponse errorResponse = CloudDeviceApiResponse.fromJson(response);
+      CloudDeviceApiAsyncResponse errorResponse = CloudDeviceApiAsyncResponse.fromJson(response);
       cloudDeviceApiAsyncResponse.setSaleToPOIRequest(errorResponse.getSaleToPOIRequest());
     }
 

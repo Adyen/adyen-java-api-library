@@ -20,8 +20,10 @@
  */
 package com.adyen.model.clouddevice;
 
+import com.adyen.model.tapi.JSON;
 import com.adyen.model.tapi.SaleToPOIRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Objects;
 
 /**
@@ -29,10 +31,10 @@ import java.util.Objects;
  * the `saleToPOIRequest` contains the EventNotification details
  */
 public class CloudDeviceApiAsyncResponse {
-  @JsonProperty("result")
+  @JsonProperty("Result")
   private String result;
 
-  @JsonProperty("saleToPOIRequest")
+  @JsonProperty("SaleToPOIRequest")
   private SaleToPOIRequest saleToPOIRequest;
 
   public String getResult() {
@@ -72,6 +74,28 @@ public class CloudDeviceApiAsyncResponse {
     CloudDeviceApiAsyncResponse response = (CloudDeviceApiAsyncResponse) o;
     return Objects.equals(result, response.result)
         && Objects.equals(saleToPOIRequest, response.saleToPOIRequest);
+  }
+
+  /**
+   * Create an instance of CloudDeviceApiAsyncResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CloudDeviceApiAsyncResponse
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     CloudDeviceApiAsyncResponse
+   */
+  public static CloudDeviceApiAsyncResponse fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CloudDeviceApiAsyncResponse.class);
+  }
+
+  /**
+   * Convert an instance of CloudDeviceApiAsyncResponse to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 
   @Override
