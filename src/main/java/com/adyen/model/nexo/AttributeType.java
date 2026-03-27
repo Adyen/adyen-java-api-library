@@ -1,9 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for AttributeType.
@@ -22,28 +20,26 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "AttributeType")
-@XmlEnum
 public enum AttributeType {
 
   /** Common Name - (OID: joint-iso-ccitt(2) ds(5) 4 3) */
-  @XmlEnumValue("id-at-commonName")
+  @SerializedName("id-at-commonName")
   ID_AT_COMMON_NAME("id-at-commonName"),
 
   /** Locality - (OID: joint-iso-ccitt(2) ds(5) 4 7) */
-  @XmlEnumValue("id-at-localityName")
+  @SerializedName("id-at-localityName")
   ID_AT_LOCALITY_NAME("id-at-localityName"),
 
   /** Organization Name - (OID: joint-iso-ccitt(2) ds(5) 4 10) */
-  @XmlEnumValue("id-at-organizationName")
+  @SerializedName("id-at-organizationName")
   ID_AT_ORGANIZATION_NAME("id-at-organizationName"),
 
   /** Organization Unit Name - (OID: joint-iso-ccitt(2) ds(5) 4 11) */
-  @XmlEnumValue("id-at-organizationalUnitName")
+  @SerializedName("id-at-organizationalUnitName")
   ID_AT_ORGANIZATIONAL_UNIT_NAME("id-at-organizationalUnitName"),
 
   /** Country Name - (OID: joint-iso-ccitt(2) ds(5) 4 6) */
-  @XmlEnumValue("id-at-countryName")
+  @SerializedName("id-at-countryName")
   ID_AT_COUNTRY_NAME("id-at-countryName");
   private final String value;
 

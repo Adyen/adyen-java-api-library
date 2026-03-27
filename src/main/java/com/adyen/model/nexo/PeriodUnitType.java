@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for PeriodUnitType.
@@ -22,27 +20,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "PeriodUnitType")
-@XmlEnum
 public enum PeriodUnitType {
 
   /** The day is the unit of the period. */
-  @XmlEnumValue("Daily")
+  @SerializedName("Daily")
   @Schema(description = "The day is the unit of the period.")
   DAILY("Daily"),
 
   /** The week is the unit of the period. */
-  @XmlEnumValue("Weekly")
+  @SerializedName("Weekly")
   @Schema(description = "The week is the unit of the period.")
   WEEKLY("Weekly"),
 
   /** The month is the unit of the period. */
-  @XmlEnumValue("Monthly")
+  @SerializedName("Monthly")
   @Schema(description = "The month is the unit of the period.")
   MONTHLY("Monthly"),
 
   /** The year is the unit of the period. */
-  @XmlEnumValue("Annual")
+  @SerializedName("Annual")
   @Schema(description = "The year is the unit of the period.")
   ANNUAL("Annual");
   private final String value;

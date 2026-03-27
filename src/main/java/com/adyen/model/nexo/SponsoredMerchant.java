@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Merchant using the payment services of a payment facilitator, acting as a card
@@ -29,32 +26,30 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SponsoredMerchant")
 public class SponsoredMerchant {
 
   /** The Merchant name. */
-  @XmlElement(name = "MerchantName", required = true)
+  @SerializedName("MerchantName")
   @Schema(description = "Unformatted name of the merchant.")
   protected String merchantName;
 
   /** The Merchant address. */
-  @XmlElement(name = "MerchantAddress")
+  @SerializedName("MerchantAddress")
   @Schema(description = "Unformatted address of the merchant.")
   protected String merchantAddress;
 
   /** The Merchant country. */
-  @XmlElement(name = "MerchantCountry", required = true)
+  @SerializedName("MerchantCountry")
   @Schema(description = "Country of the merchant.")
   protected String merchantCountry;
 
   /** The Merchant category code. */
-  @XmlElement(name = "MerchantCategoryCode", required = true)
+  @SerializedName("MerchantCategoryCode")
   @Schema(description = "The code which identifies the category of the transaction (MCC).")
   protected String merchantCategoryCode;
 
   /** The Registration id. */
-  @XmlElement(name = "RegistrationID", required = true)
+  @SerializedName("RegistrationID")
   @Schema(description = "Identification of a registered entity.")
   protected String registrationID;
 

@@ -1,0 +1,28 @@
+{
+  "keyTransportOrKEK": [
+    {
+      "RecipientIdentifier": {
+        "IssuerAndSerialNumber": {
+          "Issuer": {
+            "RelativeDistinguishedName": []
+          },
+          "SerialNumber": 123
+        }
+      },
+      "KeyEncryptionAlgorithm": {
+        "Algorithm": "rsaEncryption"
+      },
+      "EncryptedKey": "ZW5jcnlwdGVkLWtleQ==",
+      "Version": "v0"
+    }
+  ],
+  "MACAlgorithm": {
+    "Algorithm": "id-sha256"
+  },
+  "EncapsulatedContent": {
+    "Content": "cGF5bG9hZA==",
+    "ContentType": "id-data"
+  },
+  "Version": "v0",
+  "MAC": "bWFjLXZhbHVl"
+}

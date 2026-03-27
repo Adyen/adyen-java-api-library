@@ -1,0 +1,7 @@
+{
+  "AbortReason": "cancelled-by-shopper",
+  "DisplayOutput": {
+    "Device": "CustomerDisplay",
+    "InfoQualify": "Error"
+  }
+}

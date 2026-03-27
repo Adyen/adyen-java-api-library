@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Certificate distinguished name (DN) -- Reference: RFC 3880: Internet X.509 Public Key
@@ -27,18 +24,14 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "RelativeDistinguishedName",
-    propOrder = {"attribute", "attributeValue"})
 public class RelativeDistinguishedName {
 
   /** The Attribute. */
-  @XmlElement(name = "Attribute", required = true)
+  @SerializedName("Attribute")
   protected String attribute;
 
   /** The Attribute value. */
-  @XmlElement(name = "AttributeValue", required = true)
+  @SerializedName("AttributeValue")
   protected String attributeValue;
 
   /**

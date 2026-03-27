@@ -1,0 +1,20 @@
+{
+  "MessageHeader": {
+    "ProtocolVersion": "3.0",
+    "SaleID": "POSSystemID12345",
+    "MessageClass": "Service",
+    "MessageCategory": "Diagnosis",
+    "ServiceID": "0207111617",
+    "POIID": "V400m-324688179",
+    "MessageType": "Response"
+  },
+  "DiagnosisResponse": {
+    "Response": {
+      "Result": "Success"
+    },
+    "LoggedSaleID": ["sale-1", "sale-2"],
+    "POIStatus": {
+      "GlobalStatus": "OK"
+    }
+  }
+}

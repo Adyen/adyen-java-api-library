@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for MessageType.
@@ -21,27 +19,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "MessageType")
-@XmlEnum
 public enum MessageType {
 
   /**
    * Request messageType that requires a response, except if the request messageType mentions
    * explicitely that a response messageType is not expected.
    */
-  @XmlEnumValue("Request")
+  @SerializedName("Request")
   @Schema(
       description =
           "Request message that requires a response, except if the request message mentions explicitely that a response message is not expected.")
   REQUEST("Request"),
 
   /** Response messageType, sent to answer to a request messageType. */
-  @XmlEnumValue("Response")
+  @SerializedName("Response")
   @Schema(description = "Response message, sent to answer to a request message.")
   RESPONSE("Response"),
 
   /** Unsollicited notification messageType that does not require an answer. */
-  @XmlEnumValue("Notification")
+  @SerializedName("Notification")
   @Schema(description = "Unsollicited notification message that does not require an answer.")
   NOTIFICATION("Notification");
   private final String value;

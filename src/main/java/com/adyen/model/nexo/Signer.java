@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Cryptographic Message Syntax (CMS) data structure containing signer information --
@@ -31,30 +28,26 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "Signer",
-    propOrder = {"signerIdentifier", "digestAlgorithm", "signatureAlgorithm", "signature"})
 public class Signer {
 
   /** The Signer identifier. */
-  @XmlElement(name = "SignerIdentifier", required = true)
+  @SerializedName("SignerIdentifier")
   protected SignerIdentifier signerIdentifier;
 
   /** The Digest algorithm. */
-  @XmlElement(name = "DigestAlgorithm", required = true)
+  @SerializedName("DigestAlgorithm")
   protected AlgorithmIdentifier digestAlgorithm;
 
   /** The Signature algorithm. */
-  @XmlElement(name = "SignatureAlgorithm", required = true)
+  @SerializedName("SignatureAlgorithm")
   protected AlgorithmIdentifier signatureAlgorithm;
 
   /** The Signature. */
-  @XmlElement(name = "Signature", required = true)
+  @SerializedName("Signature")
   protected byte[] signature;
 
   /** The Version. */
-  @XmlElement(name = "Version")
+  @SerializedName("Version")
   protected VersionType version;
 
   /**

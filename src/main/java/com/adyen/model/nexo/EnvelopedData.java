@@ -1,12 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Cryptographic Message Syntax (CMS) data structure containing encrypted data with
@@ -35,25 +31,18 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "EnvelopedData",
-    propOrder = {"keyTransportOrKEK", "encryptedContent"})
 public class EnvelopedData {
 
   /** The Key transport or kek. */
-  @XmlElements({
-    @XmlElement(name = "KeyTransport", type = KeyTransport.class),
-    @XmlElement(name = "KEK", type = KEK.class)
-  })
+  @SerializedName("keyTransportOrKEK")
   protected List<Object> keyTransportOrKEK;
 
   /** The Encrypted content. */
-  @XmlElement(name = "EncryptedContent", required = true)
+  @SerializedName("EncryptedContent")
   protected EncryptedContent encryptedContent;
 
   /** The Version. */
-  @XmlElement(name = "Version")
+  @SerializedName("Version")
   protected VersionType version;
 
   /**

@@ -1,0 +1,8 @@
+{
+  "SaleCapabilities": ["CashierStatus", "CashierDisplay", "CustomerDisplay"],
+  "SaleProfile": {
+    "GenericProfile": "Extended"
+  },
+  "TerminalEnvironment": "Attended",
+  "TotalsGroupID": "group-1"
+}

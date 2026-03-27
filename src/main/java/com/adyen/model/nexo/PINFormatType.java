@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for PINFormatType.
@@ -22,27 +20,25 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "PINFormatType")
-@XmlEnum
 public enum PINFormatType {
 
   /** ISO 0 */
-  @XmlEnumValue("ISO0")
+  @SerializedName("ISO0")
   @Schema(description = "ISO 0")
   ISO_0("ISO0"),
 
   /** ISO 1 */
-  @XmlEnumValue("ISO1")
+  @SerializedName("ISO1")
   @Schema(description = "ISO 1")
   ISO_1("ISO1"),
 
   /** ISO 2 */
-  @XmlEnumValue("ISO2")
+  @SerializedName("ISO2")
   @Schema(description = "ISO 2")
   ISO_2("ISO2"),
 
   /** ISO 3 */
-  @XmlEnumValue("ISO3")
+  @SerializedName("ISO3")
   @Schema(description = "ISO 3")
   ISO_3("ISO3");
   private final String value;

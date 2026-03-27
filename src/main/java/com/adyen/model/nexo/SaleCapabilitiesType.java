@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for SaleCapabilitiesType.
@@ -33,35 +31,33 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "SaleCapabilitiesType")
-@XmlEnum
 public enum SaleCapabilitiesType {
 
   /**
    * To display to the Cashier a new state on which the POI is entering. For instance, during a
    * payment, the POI could display to the Cashier that POI request an
    */
-  @XmlEnumValue("CashierStatus")
+  @SerializedName("CashierStatus")
   @Schema(
       description =
           "To display to the Cashier a new state on which the POI is entering. For instance, during a payment, the POI could display to the Cashier that POI request an")
   CASHIER_STATUS("CashierStatus"),
 
   /** To display to the Cashier information related to an error situation occurring on the POI. */
-  @XmlEnumValue("CashierError")
+  @SerializedName("CashierError")
   @Schema(
       description =
           "To display to the Cashier information related to an error situation occurring on the POI.")
   CASHIER_ERROR("CashierError"),
 
   /** Standard Cashier display interface (to ask question, or to show information). */
-  @XmlEnumValue("CashierDisplay")
+  @SerializedName("CashierDisplay")
   @Schema(
       description = "Standard Cashier display interface (to ask question, or to show information).")
   CASHIER_DISPLAY("CashierDisplay"),
 
   /** Information displayed on the Cardholder POI interface, replicated on the Cashier interface. */
-  @XmlEnumValue("POIReplication")
+  @SerializedName("POIReplication")
   @Schema(
       description =
           "Information displayed on the Cardholder POI interface, replicated on the Cashier interface.")
@@ -71,7 +67,7 @@ public enum SaleCapabilitiesType {
    * Any kind of keyboard allowing all or part of the commands of the Input messageType request from
    * the Sale System to the POI System (InputCommand data element). The
    */
-  @XmlEnumValue("CashierInput")
+  @SerializedName("CashierInput")
   @Schema(
       description =
           "Any kind of keyboard allowing all or part of the commands of the Input message request from the Sale System to the POI System (InputCommand data element). The")
@@ -81,7 +77,7 @@ public enum SaleCapabilitiesType {
    * Input of the Cardholder POI interface which can be entered by the Cashier to assist the
    * Customer.
    */
-  @XmlEnumValue("CustomerAssistance")
+  @SerializedName("CustomerAssistance")
   @Schema(
       description =
           "Input of the Cardholder POI interface which can be entered by the Cashier to assist the Customer.")
@@ -91,7 +87,7 @@ public enum SaleCapabilitiesType {
    * Standard Customer display interface used by the POI System to ask question, or to show
    * information to the Customer inside a Service dialogue.
    */
-  @XmlEnumValue("CustomerDisplay")
+  @SerializedName("CustomerDisplay")
   @Schema(
       description =
           "Standard Customer display interface used by the POI System to ask question, or to show information to the Customer inside a Service dialogue.")
@@ -101,7 +97,7 @@ public enum SaleCapabilitiesType {
    * To display to the Customer information is related to an error situation occurring on the Sale
    * Terminal during a Sale transaction.
    */
-  @XmlEnumValue("CustomerError")
+  @SerializedName("CustomerError")
   @Schema(
       description =
           "To display to the Customer information is related to an error situation occurring on the Sale Terminal during a Sale transaction.")
@@ -111,34 +107,34 @@ public enum SaleCapabilitiesType {
    * Any kind of keyboard allowing all or part of the commands of the Input messageType request from
    * the Sale System to the POI System (InputCommand data element). The
    */
-  @XmlEnumValue("CustomerInput")
+  @SerializedName("CustomerInput")
   @Schema(
       description =
           "Any kind of keyboard allowing all or part of the commands of the Input message request from the Sale System to the POI System (InputCommand data element). The")
   CUSTOMER_INPUT("CustomerInput"),
 
   /** Printer for the Payment receipt. */
-  @XmlEnumValue("PrinterReceipt")
+  @SerializedName("PrinterReceipt")
   @Schema(description = "Printer for the Payment receipt.")
   PRINTER_RECEIPT("PrinterReceipt"),
 
   /**
    * When the POI System wants to print specific document (check, dynamic currency conversion ...).
    */
-  @XmlEnumValue("PrinterDocument")
+  @SerializedName("PrinterDocument")
   @Schema(
       description =
           "When the POI System wants to print specific document (check, dynamic currency conversion ...). ")
   PRINTER_DOCUMENT("PrinterDocument"),
 
   /** Coupons, voucher or special ticket generated by the POI and to be printed. */
-  @XmlEnumValue("PrinterVoucher")
+  @SerializedName("PrinterVoucher")
   @Schema(
       description = "Coupons, voucher or special ticket generated by the POI and to be printed.")
   PRINTER_VOUCHER("PrinterVoucher"),
 
   /** Magnetic stripe card reader */
-  @XmlEnumValue("MagStripe")
+  @SerializedName("MagStripe")
   @Schema(description = "Magnetic stripe card reader")
   MAG_STRIPE("MagStripe"),
 
@@ -146,7 +142,7 @@ public enum SaleCapabilitiesType {
   ICC("ICC"),
 
   /** Contactless card reader with EMV applications */
-  @XmlEnumValue("EMVContactless")
+  @SerializedName("EMVContactless")
   @Schema(description = "Contactless card reader with EMV applications")
   EMV_CONTACTLESS("EMVContactless");
   private final String value;

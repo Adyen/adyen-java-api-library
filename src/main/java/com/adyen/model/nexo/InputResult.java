@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to the result the input. -- Usage: In the messageType response,
@@ -29,33 +26,29 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "InputResult",
-    propOrder = {"response", "input"})
 public class InputResult {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Input. */
-  @XmlElement(name = "Input")
+  @SerializedName("Input")
   @Schema(
       description =
           "Data entered by the user, related to the input command. --Rule: If Response.Result is Success")
   protected Input input;
 
   /** The Device. */
-  @XmlElement(name = "Device", required = true)
+  @SerializedName("Device")
   @Schema(
       description =
           "Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print --Rule: Copy")
   protected DeviceType device;
 
   /** The Info qualify. */
-  @XmlElement(name = "InfoQualify", required = true)
+  @SerializedName("InfoQualify")
   @Schema(
       description =
           "Qualification of the information to sent to an output logical device, to display or print to the Cashier or the --Rule: Copy")

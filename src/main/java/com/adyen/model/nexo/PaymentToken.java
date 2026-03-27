@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
@@ -27,26 +24,24 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PaymentToken")
 public class PaymentToken {
 
   /** The Token requested. */
-  @XmlElement(name = "TokenRequestedType", required = true)
+  @SerializedName("TokenRequestedType")
   @Schema(
       description =
           "Type of token replacing the PAN of a payment card to identify the payment mean of the customer.")
   protected TokenRequestedType tokenRequestedType;
 
   /** The Token value. */
-  @XmlElement(name = "TokenValue", required = true)
+  @SerializedName("TokenValue")
   @Schema(
       description =
           "Payment token replacing the PAN of the payment card to identify the payment mean of the customer.")
   protected String tokenValue;
 
   /** The Expiry date time. */
-  @XmlElement(name = "ExpiryDateTime")
+  @SerializedName("ExpiryDateTime")
   @Schema(description = "Expiry date and time.")
   protected XMLGregorianCalendar expiryDateTime;
 

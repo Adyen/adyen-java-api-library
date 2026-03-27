@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Cryptographic Message Syntax (CMS) data structure containing signed data --
@@ -34,30 +31,26 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "SignedData",
-    propOrder = {"digestAlgorithm", "encapsulatedContent", "certificate", "signer"})
 public class SignedData {
 
   /** The Digest algorithm. */
-  @XmlElement(name = "DigestAlgorithm", required = true)
+  @SerializedName("DigestAlgorithm")
   protected List<AlgorithmIdentifier> digestAlgorithm;
 
   /** The Encapsulated content. */
-  @XmlElement(name = "EncapsulatedContent", required = true)
+  @SerializedName("EncapsulatedContent")
   protected EncapsulatedContent encapsulatedContent;
 
   /** The Certificate. */
-  @XmlElement(name = "Certificate")
+  @SerializedName("Certificate")
   protected List<byte[]> certificate;
 
   /** The Signer. */
-  @XmlElement(name = "Signer", required = true)
+  @SerializedName("Signer")
   protected List<Signer> signer;
 
   /** The Version. */
-  @XmlElement(name = "Version")
+  @SerializedName("Version")
   protected VersionType version;
 
   /**

@@ -1,9 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for ContentType.
@@ -23,50 +21,48 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "ContentType")
-@XmlEnum
 public enum ContentType {
 
   /**
    * Generic, non cryptographic, or unqualified data content - (OID: iso(1) member-body(2) us(840)
    * rsadsi(113549) pkcs(1) pkcs7(7) 1)
    */
-  @XmlEnumValue("id-data")
+  @SerializedName("id-data")
   ID_DATA("id-data"),
 
   /**
    * Signature CMS data content - (OID: iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1)
    * pkcs7(7) 2)
    */
-  @XmlEnumValue("id-signedData")
+  @SerializedName("id-signedData")
   ID_SIGNED_DATA("id-signedData"),
 
   /**
    * Encrypted CMS data content, with encryption key - (OID: iso(1) member-body(2) us(840)
    * rsadsi(113549) pkcs(1) pkcs7(7) 3)
    */
-  @XmlEnumValue("id-envelopedData")
+  @SerializedName("id-envelopedData")
   ID_ENVELOPED_DATA("id-envelopedData"),
 
   /**
    * Message digest CMS data content - (OID: iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1)
    * pkcs7(7) 5)
    */
-  @XmlEnumValue("id-digestedData")
+  @SerializedName("id-digestedData")
   ID_DIGESTED_DATA("id-digestedData"),
 
   /**
    * Encrypted CMS data content - (OID: iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1)
    * pkcs7(7) 6)
    */
-  @XmlEnumValue("id-encryptedData")
+  @SerializedName("id-encryptedData")
   ID_ENCRYPTED_DATA("id-encryptedData"),
 
   /**
    * MAC CMS data content, with encryption key - (OID: iso(1) member- body(2) us(840) rsadsi(113549)
    * pkcs(1) pkcs9(9) smime(16) ct(1) 2)
    */
-  @XmlEnumValue("id-ct-authData")
+  @SerializedName("id-ct-authData")
   ID_CT_AUTH_DATA("id-ct-authData");
   private final String value;
 

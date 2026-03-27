@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Result of loading/reloading a stored value card.. -- Usage: For each stored value
@@ -33,49 +30,45 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "StoredValueResult",
-    propOrder = {"storedValueAccountStatus", "hostTransactionID"})
 public class StoredValueResult {
 
   /** The Stored value account status. */
-  @XmlElement(name = "StoredValueAccountStatus", required = true)
+  @SerializedName("StoredValueAccountStatus")
   @Schema(description = "Data related to the result of the stored value card transaction.")
   protected StoredValueAccountStatus storedValueAccountStatus;
 
   /** The Host transaction id. */
-  @XmlElement(name = "HostTransactionID")
+  @SerializedName("HostTransactionID")
   @Schema(
       description =
           "Identification of the transaction by the host in charge of the stored value transaction --Rule: If provided by the Host")
   protected TransactionIdentification hostTransactionID;
 
   /** The Stored value transaction. */
-  @XmlElement(name = "StoredValueTransactionType", required = true)
+  @SerializedName("StoredValueTransactionType")
   @Schema(
       description =
           "Identification of operation to proceed on the stored value account or the stored value card --Rule: Copy")
   protected StoredValueTransactionType storedValueTransactionType;
 
   /** The Product code. */
-  @XmlElement(name = "ProductCode", required = true)
+  @SerializedName("ProductCode")
   @Schema(description = "Product code of item purchased with the transaction. --Rule: Copy")
   protected String productCode;
 
   /** The Ean upc. */
-  @XmlElement(name = "EanUpc")
+  @SerializedName("EanUpc")
   @Schema(
       description = "Standard product code of item purchased with the transaction. --Rule: Copy")
   protected String eanUpc;
 
   /** The Item amount. */
-  @XmlElement(name = "ItemAmount", required = true)
+  @SerializedName("ItemAmount")
   @Schema(description = "Total amount of the item line.")
   protected BigDecimal itemAmount;
 
   /** The Currency. */
-  @XmlElement(name = "Currency", required = true)
+  @SerializedName("Currency")
   @Schema(description = "Currency of a monetary amount. --Rule: Copy")
   protected String currency;
 

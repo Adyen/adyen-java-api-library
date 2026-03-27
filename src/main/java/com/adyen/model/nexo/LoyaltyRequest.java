@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Loyalty Request messageType. -- Usage: It conveys Information related
@@ -30,24 +27,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyRequest",
-    propOrder = {"saleData", "loyaltyTransaction", "loyaltyData"})
 public class LoyaltyRequest {
 
   /** The Sale data. */
-  @XmlElement(name = "SaleData", required = true)
+  @SerializedName("SaleData")
   @Schema(description = "Data related to the Sale System.")
   protected SaleData saleData;
 
   /** The Loyalty transaction. */
-  @XmlElement(name = "LoyaltyTransaction", required = true)
+  @SerializedName("LoyaltyTransaction")
   @Schema(description = "Data related to the loyalty transaction.")
   protected LoyaltyTransaction loyaltyTransaction;
 
   /** The Loyalty data. */
-  @XmlElement(name = "LoyaltyData")
+  @SerializedName("LoyaltyData")
   @Schema(description = "Data related to a Loyalty program or account.")
   protected List<LoyaltyData> loyaltyData;
 

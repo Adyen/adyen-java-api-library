@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Result of a messageType request processing. -- Usage: If Result is Success,
@@ -30,26 +27,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "Response",
-    propOrder = {"additionalResponse"})
 public class Response {
 
   /** The Additional response. */
-  @XmlElement(name = "AdditionalResponse")
+  @SerializedName("AdditionalResponse")
   @Schema(
       description =
           "Additional information related to processing status of a message request . --Rule: If present, the POI logs it for further examination")
   protected String additionalResponse;
 
   /** The Result. */
-  @XmlElement(name = "Result", required = true)
+  @SerializedName("Result")
   @Schema(description = "Result of the processing of the message")
   protected ResultType result;
 
   /** The Error condition. */
-  @XmlElement(name = "ErrorCondition")
+  @SerializedName("ErrorCondition")
   @Schema(
       description =
           "Condition that has produced  an error on the processing of a message request --Rule: If Result is not Success")

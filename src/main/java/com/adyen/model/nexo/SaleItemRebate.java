@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: The awarded amount that is attached to an item as a rebate. -- Usage: To be
@@ -35,49 +31,44 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "SaleItemRebate",
-    propOrder = {"unitOfMeasure", "quantity", "rebateLabel"})
 public class SaleItemRebate {
 
   /** The Unit of measure. */
-  @XmlElement(name = "UnitOfMeasure")
+  @SerializedName("UnitOfMeasure")
   @Schema(description = "Unit of measure of a quantity --Rule: if Quantity present")
-  @XmlSchemaType(name = "string")
   protected UnitOfMeasureType unitOfMeasure;
 
   /** The Quantity. */
-  @XmlElement(name = "Quantity")
+  @SerializedName("Quantity")
   @Schema(description = "Product quantity --Rule: if rebate is additional units")
   protected BigDecimal quantity;
 
   /** The Rebate label. */
-  @XmlElement(name = "RebateLabel")
+  @SerializedName("RebateLabel")
   @Schema(
       description =
           "Short text to qualify a rebate on an line item. --Rule: If provided by the Acquirer")
   protected String rebateLabel;
 
   /** The Item id. */
-  @XmlElement(name = "ItemID", required = true)
+  @SerializedName("ItemID")
   @Schema(description = "Item identification inside a transaction (0 to n).")
   protected BigInteger itemID;
 
   /** The Product code. */
-  @XmlElement(name = "ProductCode", required = true)
+  @SerializedName("ProductCode")
   @Schema(description = "Product code of item purchased with the transaction.")
   protected String productCode;
 
   /** The Ean upc. */
-  @XmlElement(name = "EanUpc")
+  @SerializedName("EanUpc")
   @Schema(
       description =
           "Standard product code of item purchased with the transaction. --Rule: if present in the related SaleItem")
   protected String eanUpc;
 
   /** The Item amount. */
-  @XmlElement(name = "ItemAmount")
+  @SerializedName("ItemAmount")
   @Schema(description = "Total amount of the item line. --Rule: if rebate on the line item amount")
   protected BigDecimal itemAmount;
 

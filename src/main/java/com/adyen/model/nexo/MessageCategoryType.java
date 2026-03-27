@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for MessageCategoryType.
@@ -45,102 +43,100 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "MessageCategoryType")
-@XmlEnum
 public enum MessageCategoryType {
 
   /** Abort messageType request */
-  @XmlEnumValue("Abort")
+  @SerializedName("Abort")
   @Schema(description = "Abort message request")
   ABORT("Abort"),
 
   /** Admin request or response */
-  @XmlEnumValue("Admin")
+  @SerializedName("Admin")
   @Schema(description = "Admin request or response")
   ADMIN("Admin"),
 
   /** Balance Inquiry request or response */
-  @XmlEnumValue("BalanceInquiry")
+  @SerializedName("BalanceInquiry")
   @Schema(description = "Balance Inquiry request or response")
   BALANCE_INQUIRY("BalanceInquiry"),
 
   /** Batch request or response */
-  @XmlEnumValue("Batch")
+  @SerializedName("Batch")
   @Schema(description = "Batch request or response")
   BATCH("Batch"),
 
   /** Card Acquisition request or response */
-  @XmlEnumValue("CardAcquisition")
+  @SerializedName("CardAcquisition")
   @Schema(description = "Card Acquisition request or response")
   CARD_ACQUISITION("CardAcquisition"),
 
   /** Card Reader APDU request or response */
-  @XmlEnumValue("CardReaderAPDU")
+  @SerializedName("CardReaderAPDU")
   @Schema(description = "Card Reader APDU request or response")
   CARD_READER_APDU("CardReaderAPDU"),
 
   /** Card Reader Init request or response */
-  @XmlEnumValue("CardReaderInit")
+  @SerializedName("CardReaderInit")
   @Schema(description = "Card Reader Init request or response")
   CARD_READER_INIT("CardReaderInit"),
 
   /** Card Reader Power-Off request or response */
-  @XmlEnumValue("CardReaderPowerOff")
+  @SerializedName("CardReaderPowerOff")
   @Schema(description = "Card Reader Power-Off request or response")
   CARD_READER_POWER_OFF("CardReaderPowerOff"),
 
   /** Diagnosis request or response */
-  @XmlEnumValue("Diagnosis")
+  @SerializedName("Diagnosis")
   @Schema(description = "Diagnosis request or response")
   DIAGNOSIS("Diagnosis"),
 
   /** Display messageType request or response */
-  @XmlEnumValue("Display")
+  @SerializedName("Display")
   @Schema(description = "Display message request or response")
   DISPLAY("Display"),
 
   /** Enable Service messageType request or response */
-  @XmlEnumValue("EnableService")
+  @SerializedName("EnableService")
   @Schema(description = "Enable Service message request or response")
   ENABLE_SERVICE("EnableService"),
 
   /** Event Notification messageType */
-  @XmlEnumValue("Event")
+  @SerializedName("Event")
   @Schema(description = "Event Notification message")
   EVENT("Event"),
 
   /** GetTotals messageType request or response */
-  @XmlEnumValue("GetTotals")
+  @SerializedName("GetTotals")
   @Schema(description = "GetTotals message request or response")
   GET_TOTALS("GetTotals"),
 
   /** Input messageType request or response */
-  @XmlEnumValue("Input")
+  @SerializedName("Input")
   @Schema(description = "Input message request or response")
   INPUT("Input"),
 
   /** Input Update messageType */
-  @XmlEnumValue("InputUpdate")
+  @SerializedName("InputUpdate")
   @Schema(description = "Input Update message")
   INPUT_UPDATE("InputUpdate"),
 
   /** Login messageType request or response */
-  @XmlEnumValue("Login")
+  @SerializedName("Login")
   @Schema(description = "Login message request or response")
   LOGIN("Login"),
 
   /** Logout messageType request or response */
-  @XmlEnumValue("Logout")
+  @SerializedName("Logout")
   @Schema(description = "Logout message request or response")
   LOGOUT("Logout"),
 
   /** Loyalty messageType request or response */
-  @XmlEnumValue("Loyalty")
+  @SerializedName("Loyalty")
   @Schema(description = "Loyalty message request or response")
   LOYALTY("Loyalty"),
 
   /** Payment messageType request or response */
-  @XmlEnumValue("Payment")
+  @SerializedName("Payment")
   @Schema(description = "Payment message request or response")
   PAYMENT("Payment"),
 
@@ -148,37 +144,37 @@ public enum MessageCategoryType {
   PIN("PIN"),
 
   /** Print messageType request or response */
-  @XmlEnumValue("Print")
+  @SerializedName("Print")
   @Schema(description = "Print message request or response")
   PRINT("Print"),
 
   /** Reconciliation messageType request or response */
-  @XmlEnumValue("Reconciliation")
+  @SerializedName("Reconciliation")
   @Schema(description = "Reconciliation message request or response")
   RECONCILIATION("Reconciliation"),
 
   /** Reversal messageType request or response */
-  @XmlEnumValue("Reversal")
+  @SerializedName("Reversal")
   @Schema(description = "Reversal message request or response")
   REVERSAL("Reversal"),
 
   /** Sound messageType request or response */
-  @XmlEnumValue("Sound")
+  @SerializedName("Sound")
   @Schema(description = "Sound message request or response")
   SOUND("Sound"),
 
   /** Stored Value messageType request or response */
-  @XmlEnumValue("StoredValue")
+  @SerializedName("StoredValue")
   @Schema(description = "Stored Value message request or response")
   STORED_VALUE("StoredValue"),
 
   /** TransactionStatus messageType request or response */
-  @XmlEnumValue("TransactionStatus")
+  @SerializedName("TransactionStatus")
   @Schema(description = "TransactionStatus message request or response")
   TRANSACTION_STATUS("TransactionStatus"),
 
   /** Transmit messageType request or response */
-  @XmlEnumValue("Transmit")
+  @SerializedName("Transmit")
   @Schema(description = "Transmit message request or response")
   TRANSMIT("Transmit");
   private final String value;

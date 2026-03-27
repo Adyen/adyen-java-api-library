@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Cryptographic Message Syntax (CMS) data structure containing digested data --
@@ -30,26 +27,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "DigestedData",
-    propOrder = {"digestAlgorithm", "encapsulatedContent", "digest"})
 public class DigestedData {
 
   /** The Digest algorithm. */
-  @XmlElement(name = "DigestAlgorithm", required = true)
+  @SerializedName("DigestAlgorithm")
   protected AlgorithmIdentifier digestAlgorithm;
 
   /** The Encapsulated content. */
-  @XmlElement(name = "EncapsulatedContent", required = true)
+  @SerializedName("EncapsulatedContent")
   protected EncapsulatedContent encapsulatedContent;
 
   /** The Digest. */
-  @XmlElement(name = "Digest", required = true)
+  @SerializedName("Digest")
   protected byte[] digest;
 
   /** The Version. */
-  @XmlElement(name = "Version")
+  @SerializedName("Version")
   protected VersionType version;
 
   /**

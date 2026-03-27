@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for UnitOfMeasureType.
@@ -37,102 +35,100 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "UnitOfMeasureType")
-@XmlEnum
 public enum UnitOfMeasureType {
 
   /** Case or Carton */
-  @XmlEnumValue("Case")
+  @SerializedName("Case")
   @Schema(description = "Case or Carton")
   CASE("Case"),
 
   /** Foot */
-  @XmlEnumValue("Foot")
+  @SerializedName("Foot")
   @Schema(description = "Foot")
   FOOT("Foot"),
 
   /** Gallon (UK) */
-  @XmlEnumValue("UKGallon")
+  @SerializedName("UKGallon")
   @Schema(description = "Gallon (UK)")
   UK_GALLON("UKGallon"),
 
   /** Gallon (US) */
-  @XmlEnumValue("USGallon")
+  @SerializedName("USGallon")
   @Schema(description = "Gallon (US)")
   US_GALLON("USGallon"),
 
   /** Gram */
-  @XmlEnumValue("Gram")
+  @SerializedName("Gram")
   @Schema(description = "Gram")
   GRAM("Gram"),
 
   /** Inch */
-  @XmlEnumValue("Inch")
+  @SerializedName("Inch")
   @Schema(description = "Inch")
   INCH("Inch"),
 
   /** Kilogram */
-  @XmlEnumValue("Kilogram")
+  @SerializedName("Kilogram")
   @Schema(description = "Kilogram")
   KILOGRAM("Kilogram"),
 
   /** Pound */
-  @XmlEnumValue("Pound")
+  @SerializedName("Pound")
   @Schema(description = "Pound")
   POUND("Pound"),
 
   /** Meter */
-  @XmlEnumValue("Meter")
+  @SerializedName("Meter")
   @Schema(description = "Meter")
   METER("Meter"),
 
   /** Centimetre */
-  @XmlEnumValue("Centimetre")
+  @SerializedName("Centimetre")
   @Schema(description = "Centimetre")
   CENTIMETRE("Centimetre"),
 
   /** Litre */
-  @XmlEnumValue("Litre")
+  @SerializedName("Litre")
   @Schema(description = "Litre")
   LITRE("Litre"),
 
   /** Centilitre */
-  @XmlEnumValue("Centilitre")
+  @SerializedName("Centilitre")
   @Schema(description = "Centilitre")
   CENTILITRE("Centilitre"),
 
   /** Ounce */
-  @XmlEnumValue("Ounce")
+  @SerializedName("Ounce")
   @Schema(description = "Ounce")
   OUNCE("Ounce"),
 
   /** Quart */
-  @XmlEnumValue("Quart")
+  @SerializedName("Quart")
   @Schema(description = "Quart")
   QUART("Quart"),
 
   /** Pint */
-  @XmlEnumValue("Pint")
+  @SerializedName("Pint")
   @Schema(description = "Pint")
   PINT("Pint"),
 
   /** Mile */
-  @XmlEnumValue("Mile")
+  @SerializedName("Mile")
   @Schema(description = "Mile")
   MILE("Mile"),
 
   /** Kilometre */
-  @XmlEnumValue("Kilometre")
+  @SerializedName("Kilometre")
   @Schema(description = "Kilometre")
   KILOMETRE("Kilometre"),
 
   /** Yard */
-  @XmlEnumValue("Yard")
+  @SerializedName("Yard")
   @Schema(description = "Yard")
   YARD("Yard"),
 
   /** Other unit than the previous one */
-  @XmlEnumValue("Other")
+  @SerializedName("Other")
   @Schema(description = "Other unit than the previous one")
   OTHER("Other");
   private final String value;

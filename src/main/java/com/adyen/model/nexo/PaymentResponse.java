@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Payment Response messageType. -- Usage: It conveys Information related
@@ -34,58 +31,46 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentResponse",
-    propOrder = {
-      "response",
-      "saleData",
-      "poiData",
-      "paymentResult",
-      "loyaltyResult",
-      "paymentReceipt",
-      "customerOrder"
-    })
 public class PaymentResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Sale data. */
-  @XmlElement(name = "SaleData", required = true)
+  @SerializedName("SaleData")
   @Schema(description = "Data related to the Sale System. --Rule: Copy")
   protected SaleData saleData;
 
   /** The Poi data. */
-  @XmlElement(name = "POIData", required = true)
+  @SerializedName("POIData")
   @Schema(description = "Data related to the POI System.")
   protected POIData poiData;
 
   /** The Payment result. */
-  @XmlElement(name = "PaymentResult")
+  @SerializedName("PaymentResult")
   @Schema(
       description =
           "Data related to the result of a processed payment transaction. --Rule: If one data element is present")
   protected PaymentResult paymentResult;
 
   /** The Loyalty result. */
-  @XmlElement(name = "LoyaltyResult")
+  @SerializedName("LoyaltyResult")
   @Schema(
       description =
           "Data related to the result of a processed loyalty transaction. --Rule: Loyalty cards used with the payment transaction")
   protected List<LoyaltyResult> loyaltyResult;
 
   /** The Payment receipt. */
-  @XmlElement(name = "PaymentReceipt")
+  @SerializedName("PaymentReceipt")
   @Schema(
       description =
           "Customer or Merchant payment receipt. --Rule: If Basic profile implementation with no printer on the POI.")
   protected List<PaymentReceipt> paymentReceipt;
 
   /** The Customer order. */
-  @XmlElement(name = "CustomerOrder")
+  @SerializedName("CustomerOrder")
   @Schema(
       description =
           "Customer order attached to a card, recorded in the POI system. --Rule: If the list of customer orders has been requested.")

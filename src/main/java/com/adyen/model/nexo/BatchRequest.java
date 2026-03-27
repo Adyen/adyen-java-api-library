@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Batch Request messageType. -- Usage: Message to send Payment, Loyalty
@@ -30,19 +27,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "BatchRequest",
-    propOrder = {"transactionToPerform"})
 public class BatchRequest {
 
   /** The Transaction to perform. */
-  @XmlElement(name = "TransactionToPerform")
+  @SerializedName("TransactionToPerform")
   @Schema(description = "Content of the Batch Request message")
   protected List<TransactionToPerform> transactionToPerform;
 
   /** The Remove all flag. */
-  @XmlElement(name = "RemoveAllFlag")
+  @SerializedName("RemoveAllFlag")
   @Schema(
       description =
           "A flag requesting to remove the transactions stored and not yet performed. default False.")

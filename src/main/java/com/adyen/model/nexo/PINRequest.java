@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the PIN Request messageType. -- Usage: It contains the type of request
@@ -34,53 +31,49 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PINRequest",
-    propOrder = {"cardholderPIN"})
 public class PINRequest {
 
   /** The Cardholder pin. */
-  @XmlElement(name = "CardholderPIN")
+  @SerializedName("CardholderPIN")
   @Schema(
       description =
           "Encrypted PIN and related information --Rule: PINRequestTypeConformed to EPAS Acquirer protocol.")
   protected CardholderPIN cardholderPIN;
 
   /** The Pin request. */
-  @XmlElement(name = "PINRequestType", required = true)
+  @SerializedName("PINRequestType")
   @Schema(description = "Type of PIN Service.")
   protected PINRequestType pinRequestType;
 
   /** The Pin verif method. */
-  @XmlElement(name = "PINVerifMethod")
+  @SerializedName("PINVerifMethod")
   @Schema(description = "Identify the PIN verification method and keys. --Rule: PINRequestType")
   protected String pinVerifMethod;
 
   /** The Additional input. */
-  @XmlElement(name = "AdditionalInput")
+  @SerializedName("AdditionalInput")
   @Schema(
       description =
           "Additional information required to verify the PIN like part of the PAN, or driver ID. --Rule: PINRequestType")
   protected String additionalInput;
 
   /** The Pin enc algorithm. */
-  @XmlElement(name = "PINEncAlgorithm")
+  @SerializedName("PINEncAlgorithm")
   @Schema(description = "Identify the encrypted PIN block algorithm. --Rule: PINRequestType")
   protected String pinEncAlgorithm;
 
   /** The Pin format. */
-  @XmlElement(name = "PINFormat")
+  @SerializedName("PINFormat")
   @Schema(description = "Identify the format of the PIN before encryption. --Rule: PINRequestType")
   protected PINFormatType pinFormat;
 
   /** The Key reference. */
-  @XmlElement(name = "KeyReference")
+  @SerializedName("KeyReference")
   @Schema(description = "Identify the key to use to encrypt the PIN block. --Rule: PINRequestType")
   protected String keyReference;
 
   /** The Max waiting time. */
-  @XmlElement(name = "MaxWaitingTime")
+  @SerializedName("MaxWaitingTime")
   @Schema(
       description =
           "Maximum time to wait for the request processing in seconds. --Rule: PINRequestTypePINRequestType")

@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Logout Request messageType. -- Usage: Empty
@@ -23,12 +20,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LogoutRequest")
 public class LogoutRequest {
 
   /** The Maintenance allowed. */
-  @XmlElement(name = "MaintenanceAllowed")
+  @SerializedName("MaintenanceAllowed")
   @Schema(
       description = "Indicates that the POI terminal is able to (or have to) go to maintenance.")
   protected Boolean maintenanceAllowed;

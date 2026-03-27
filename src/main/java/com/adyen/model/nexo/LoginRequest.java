@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
@@ -39,74 +35,69 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoginRequest",
-    propOrder = {"dateTime", "saleSoftware", "saleTerminalData"})
 public class LoginRequest {
 
   /** The Date time. */
-  @XmlElement(name = "DateTime", required = true)
+  @SerializedName("DateTime")
   @Schema(description = "Date and Time")
-  @XmlSchemaType(name = "dateTime")
   protected XMLGregorianCalendar dateTime;
 
   /** The Sale software. */
-  @XmlElement(name = "SaleSoftware", required = true)
+  @SerializedName("SaleSoftware")
   @Schema(
       description =
           "Information related to the software of the Sale System which manages the Sale to POI protocol.")
   protected SaleSoftware saleSoftware;
 
   /** The Sale terminal data. */
-  @XmlElement(name = "SaleTerminalData")
+  @SerializedName("SaleTerminalData")
   @Schema(
       description =
           "Information related to the software and hardware feature of the Sale Terminal. --Rule: Present if the login involve a Sale Terminal")
   protected SaleTerminalData saleTerminalData;
 
   /** The Training mode flag. */
-  @XmlElement(name = "TrainingModeFlag")
+  @SerializedName("TrainingModeFlag")
   @Schema(
       description =
           "Training mode --Rule: The POI does not realise the transaction with the Acquirer")
   protected Boolean trainingModeFlag;
 
   /** The Operator language. */
-  @XmlElement(name = "OperatorLanguage", required = true)
+  @SerializedName("OperatorLanguage")
   @Schema(
       description =
           "Language of the Cashier or Operator. --Rule: Default value for Device type displays")
   protected String operatorLanguage;
 
   /** The Operator id. */
-  @XmlElement(name = "OperatorID")
+  @SerializedName("OperatorID")
   @Schema(
       description =
           "Identification of the Cashier or Operator. --Rule: 4 conditions to send it: a) the Sale System wants the POI log it in the transaction log b) because of reconciliation")
   protected String operatorID;
 
   /** The Shift number. */
-  @XmlElement(name = "ShiftNumber")
+  @SerializedName("ShiftNumber")
   @Schema(description = "Shift number. --Rule: Same as OperatorID")
   protected String shiftNumber;
 
   /** The Token requested. */
-  @XmlElement(name = "TokenRequestedType")
+  @SerializedName("TokenRequestedType")
   @Schema(
       description =
           "Type of token replacing the PAN of a payment card to identify the payment mean of the customer. --Rule: If a token is requested during the the session.")
   protected TokenRequestedType tokenRequestedType;
 
   /** The Customer order req. */
-  @XmlElement(name = "CustomerOrderReq")
+  @SerializedName("CustomerOrderReq")
   @Schema(
       description =
           "List of customer orders must be sent in response message. --Rule: If customer orders must be listed in Card Acquisition and Payment response messages during the session.")
   protected List<CustomerOrderReqType> customerOrderReq;
 
   /** The Poi serial number. */
-  @XmlElement(name = "POISerialNumber")
+  @SerializedName("POISerialNumber")
   @Schema(
       description =
           "Serial number of a POI Terminal --Rule: If the login involve a POI Terminal and not the first Login to the POI System")

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Identification of the stored value account or the stored value card -- Usage: It
@@ -33,39 +30,37 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StoredValueAccountID")
 public class StoredValueAccountID {
 
-  @XmlElement(name = "StoredValueAccountType", required = true)
+  @SerializedName("StoredValueAccountType")
   @Schema(description = "Type of stored value account")
   protected StoredValueAccountType storedValueAccountType;
 
-  @XmlElement(name = "StoredValueProvider")
+  @SerializedName("StoredValueProvider")
   @Schema(
       description =
           "Identification of the provider of the stored value account load/reload --Rule: If available for the card or account.")
   protected String storedValueProvider;
 
-  @XmlElement(name = "OwnerName")
+  @SerializedName("OwnerName")
   @Schema(description = "Owner name of an account --Rule: If available for the card or account.")
   protected String ownerName;
 
-  @XmlElement(name = "ExpiryDate")
+  @SerializedName("ExpiryDate")
   @Schema(
       description =
           "Date after which the card cannot be used. --Rule: If required for the card or account.")
   protected String expiryDate;
 
-  @XmlElement(name = "EntryMode", required = true)
+  @SerializedName("EntryMode")
   @Schema(description = "Entry mode of the payment instrument information")
   protected List<EntryModeType> entryMode;
 
-  @XmlElement(name = "IdentificationType", required = true)
+  @SerializedName("IdentificationType")
   @Schema(description = "Type of account identification")
   protected IdentificationType identificationType;
 
-  @XmlElement(name = "StoredValueID", required = true)
+  @SerializedName("StoredValueID")
   @Schema(description = "Stored value account identification")
   protected String storedValueID;
 

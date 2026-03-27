@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Certificate issuer name (see X.501-88) -- Reference: RFC 3880: Internet X.509 Public
@@ -29,14 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "Issuer",
-    propOrder = {"relativeDistinguishedName"})
 public class Issuer {
 
   /** The Relative distinguished name. */
-  @XmlElement(name = "RelativeDistinguishedName", required = true)
+  @SerializedName("RelativeDistinguishedName")
   protected List<RelativeDistinguishedName> relativeDistinguishedName;
 
   /**

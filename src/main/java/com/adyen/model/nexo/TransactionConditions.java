@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Conditions on which the transaction must be processed.
@@ -35,67 +32,63 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "TransactionConditions",
-    propOrder = {"allowedPaymentBrand", "acquirerID", "allowedLoyaltyBrand", "forceEntryMode"})
 public class TransactionConditions {
 
   /** The Allowed payment brand. */
-  @XmlElement(name = "AllowedPaymentBrand")
+  @SerializedName("AllowedPaymentBrand")
   @Schema(
       description =
           "Card payment brands allowed by the Sale System for the payment transaction. --Rule: Restrict brand if data sent")
   protected List<String> allowedPaymentBrand;
 
   /** The Acquirer id. */
-  @XmlElement(name = "AcquirerID")
+  @SerializedName("AcquirerID")
   @Schema(
       description = "Identification of the Acquirer --Rule: Restrict to these Acquirer if present")
   protected List<String> acquirerID;
 
   /** The Allowed loyalty brand. */
-  @XmlElement(name = "AllowedLoyaltyBrand")
+  @SerializedName("AllowedLoyaltyBrand")
   @Schema(
       description =
           "Loyalty brands or programs allowed by the Sale System for the loyalty transaction. --Rule: Restrict brand if data sent")
   protected List<String> allowedLoyaltyBrand;
 
   /** The Force entry mode. */
-  @XmlElement(name = "ForceEntryMode")
+  @SerializedName("ForceEntryMode")
   @Schema(
       description =
           "Payment instrument entry mode requested by the Sale System. --Rule: Restrict entry mode if sent")
   protected List<ForceEntryModeType> forceEntryMode;
 
   /** The Debit preferred flag. */
-  @XmlElement(name = "DebitPreferredFlag")
+  @SerializedName("DebitPreferredFlag")
   @Schema(
       description =
           "The preferred type of payment is a debit transaction rather a credit transaction. --Rule: The preferred type of payment is a debit transaction rather a credit transaction.")
   protected Boolean debitPreferredFlag;
 
   /** The Loyalty handling. */
-  @XmlElement(name = "LoyaltyHandling")
+  @SerializedName("LoyaltyHandling")
   @Schema(description = "Type of Loyalty processing requested by the Sale System.")
   protected LoyaltyHandlingType loyaltyHandling;
 
   /** The Customer language. */
-  @XmlElement(name = "CustomerLanguage")
+  @SerializedName("CustomerLanguage")
   @Schema(
       description =
           "Language of the Customer --Rule: If the language is selected by the Sale System before the request to the POI.")
   protected String customerLanguage;
 
   /** The Force online flag. */
-  @XmlElement(name = "ForceOnlineFlag")
+  @SerializedName("ForceOnlineFlag")
   @Schema(
       description =
           "Indicates if the Cashier requires POI forces online access to the Acquirer. --Rule:  Go online if data sent")
   protected Boolean forceOnlineFlag;
 
   /** The Merchant category code. */
-  @XmlElement(name = "MerchantCategoryCode")
+  @SerializedName("MerchantCategoryCode")
   @Schema(
       description =
           "The code which identifies the category of the transaction (MCC). --Rule: The payment implies a specific MCC.",

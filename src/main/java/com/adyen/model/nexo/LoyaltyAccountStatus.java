@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the result of a loyalty Balance Inquiry. -- Usage: In the Message
@@ -30,31 +27,27 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyAccountStatus",
-    propOrder = {"loyaltyAccount"})
 public class LoyaltyAccountStatus {
 
   /** The Loyalty account. */
-  @XmlElement(name = "LoyaltyAccount", required = true)
+  @SerializedName("LoyaltyAccount")
   @Schema(description = "Data related to a loyalty account processed in the transaction.")
   protected LoyaltyAccount loyaltyAccount;
 
   /** The Current balance. */
-  @XmlElement(name = "CurrentBalance")
+  @SerializedName("CurrentBalance")
   @Schema(
       description =
           "Balance of an account. --Rule: if known (provided by the card or an external host)")
   protected BigDecimal currentBalance;
 
   /** The Loyalty unit. */
-  @XmlElement(name = "LoyaltyUnit")
+  @SerializedName("LoyaltyUnit")
   @Schema(description = "Unit of a loyalty amount.")
   protected LoyaltyUnitType loyaltyUnit;
 
   /** The Currency. */
-  @XmlElement(name = "Currency")
+  @SerializedName("Currency")
   @Schema(
       description =
           "Currency of a monetary amount. --Rule: If Result is Success and If LoyaltyUnit is \"Monetary\"")

@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Various amounts related to the payment and loyalty request from the Sale System. --
@@ -34,59 +31,57 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AmountsReq")
 public class AmountsReq {
 
   /** The Currency. */
-  @XmlElement(name = "Currency", required = true)
+  @SerializedName("Currency")
   @Schema(description = "Currency of a monetary amount.")
   protected String currency;
 
   /** The Requested amount. */
-  @XmlElement(name = "RequestedAmount")
+  @SerializedName("RequestedAmount")
   @Schema(
       description =
           "Amount requested by the Sale for the payment. --Rule: Absent if the maximum amount is unknown for a OneTimeReservationThe value has to be greater than 0.")
   protected BigDecimal requestedAmount;
 
   /** The Cash back amount. */
-  @XmlElement(name = "CashBackAmount")
+  @SerializedName("CashBackAmount")
   @Schema(
       description =
           "The cash-back part of the amount requested by the Sale for the payment. --Rule: if payment with cash back. This data has to be performed by the POI. If cash back is not allowed, the payment is")
   protected BigDecimal cashBackAmount;
 
   /** The Tip amount. */
-  @XmlElement(name = "TipAmount")
+  @SerializedName("TipAmount")
   @Schema(
       description =
           "Amount paid for a tip. --Rule: If payment with tip requested by the Sale System.")
   protected BigDecimal tipAmount;
 
   /** The Paid amount. */
-  @XmlElement(name = "PaidAmount")
+  @SerializedName("PaidAmount")
   @Schema(
       description =
           "Amount already paid amount in case of split payment. --Rule: If SplitPaymentFlag is True (split amount of a split payment).")
   protected BigDecimal paidAmount;
 
   /** The Minimum amount to deliver. */
-  @XmlElement(name = "MinimumAmountToDeliver")
+  @SerializedName("MinimumAmountToDeliver")
   @Schema(
       description =
           "Minimum amount the Sale System is allowed to deliver for this payment. --Rule: if unknown maximum amount for a OneTimeReservation or minimum amount requested by the Sale System")
   protected BigDecimal minimumAmountToDeliver;
 
   /** The Maximum cash back amount. */
-  @XmlElement(name = "MaximumCashBackAmount")
+  @SerializedName("MaximumCashBackAmount")
   @Schema(
       description =
           "Maximum amount which could be requested for cash-back to the Sale System. --Rule: Maximum amount which could be requested for cash-back to the Sale System.")
   protected BigDecimal maximumCashBackAmount;
 
   /** The Minimum split amount. */
-  @XmlElement(name = "MinimumSplitAmount")
+  @SerializedName("MinimumSplitAmount")
   @Schema(
       description =
           "Minimum amount of a split, which could be requested by a Customer. --Rule: Minimum amount of a split, which could be requested.")

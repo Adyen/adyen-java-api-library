@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Enable Service Request messageType. -- Usage: It conveys the services
@@ -32,27 +28,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "EnableServiceRequest",
-    propOrder = {"servicesEnabled", "displayOutput"})
 public class EnableServiceRequest {
 
   /** The Services enabled. */
-  @XmlList
-  @XmlElement(name = "ServicesEnabled")
+  @SerializedName("ServicesEnabled")
   @Schema(
       description =
           "Services which are enabled before the start-up of a transaction --Rule: Mandatory if TransactionAction is \"StartTransaction\", absent if not.")
   protected List<ServicesEnabledType> servicesEnabled;
 
   /** The Display output. */
-  @XmlElement(name = "DisplayOutput")
+  @SerializedName("DisplayOutput")
   @Schema(description = "Information to display and the way to process the display.")
   protected DisplayOutput displayOutput;
 
   /** The Transaction action. */
-  @XmlElement(name = "TransactionAction", required = true)
+  @SerializedName("TransactionAction")
   @Schema(description = "Action to realise on a transaction.")
   protected TransactionActionType transactionAction;
 

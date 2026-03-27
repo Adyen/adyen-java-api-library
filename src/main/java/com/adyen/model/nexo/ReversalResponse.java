@@ -1,13 +1,10 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Reversal Response messageType. -- Usage: It conveys Information
@@ -34,43 +31,39 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "ReversalResponse",
-    propOrder = {"response", "poiData", "originalPOITransaction", "paymentReceipt"})
 public class ReversalResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Poi data. */
-  @XmlElement(name = "POIData")
+  @SerializedName("POIData")
   @Schema(description = "Data related to the POI System. --Rule: If Result is Success")
   protected POIData poiData;
 
   /** The Original poi transaction. */
-  @XmlElement(name = "OriginalPOITransaction")
+  @SerializedName("OriginalPOITransaction")
   @Schema(
       description =
           "Identification of a previous POI transaction. --Rule: Present if POITransactionID absent in the request")
   protected OriginalPOITransaction originalPOITransaction;
 
   /** The Payment receipt. */
-  @XmlElement(name = "PaymentReceipt")
+  @SerializedName("PaymentReceipt")
   @Schema(
       description =
           "Customer or Merchant payment receipt. --Rule: If Basic profile implementation with no printer on the POI.")
   protected List<PaymentReceipt> paymentReceipt;
 
   /** The Reversed amount. */
-  @XmlElement(name = "ReversedAmount")
+  @SerializedName("ReversedAmount")
   @Schema(description = "Amount of the payment or loyalty to reverse.. --Rule: Copy")
   protected BigDecimal reversedAmount;
 
   /** The Customer order id. */
-  @XmlElement(name = "CustomerOrderID")
+  @SerializedName("CustomerOrderID")
   @Schema(
       description =
           "Customer order attached to a card, recorded in the POI system. --Rule: If the reversal is performed inside a customer order.")

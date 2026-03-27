@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Filter to compute the totals. -- Usage: Used for the Get Totals, to request totals
@@ -29,40 +26,38 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TotalFilter")
 public class TotalFilter {
 
   /** The Poiid. */
-  @XmlElement(name = "POIID")
+  @SerializedName("POIID")
   @Schema(
       description =
           "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If totals in the response have to be computed only for this particular value of POIID")
   protected String poiid;
 
   /** The Sale id. */
-  @XmlElement(name = "SaleID")
+  @SerializedName("SaleID")
   @Schema(
       description =
           "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: If totals in the response have to be computed only for this particular value of SaleID")
   protected String saleID;
 
   /** The Operator id. */
-  @XmlElement(name = "OperatorID")
+  @SerializedName("OperatorID")
   @Schema(
       description =
           "Identification of the Cashier or Operator. --Rule: If totals in the response have to be computed only for this particular value of OperatorID")
   protected String operatorID;
 
   /** The Shift number. */
-  @XmlElement(name = "ShiftNumber")
+  @SerializedName("ShiftNumber")
   @Schema(
       description =
           "Shift number. --Rule: If totals in the response have to be computed only for this particular value of ShiftNumber")
   protected String shiftNumber;
 
   /** The Totals group id. */
-  @XmlElement(name = "TotalsGroupID")
+  @SerializedName("TotalsGroupID")
   @Schema(
       description =
           "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If totals in the response have to be computed only for this particular value of TotalsGroupID",

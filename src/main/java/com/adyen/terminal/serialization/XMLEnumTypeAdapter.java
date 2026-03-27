@@ -22,15 +22,15 @@
 package com.adyen.terminal.serialization;
 
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import javax.xml.bind.annotation.XmlEnumValue;
 
 /**
- * Serializes and deserializes enums that use {@link XmlEnumValue} annotations for GSON.
+ * Serializes and deserializes enums that use annotations for GSON.
  *
  * @param <T> The enum type.
  */
@@ -48,7 +48,7 @@ public class XMLEnumTypeAdapter<T> extends TypeAdapter<T> {
   }
 
   /**
-   * Writes the enum value to JSON, using the {@link XmlEnumValue} if present.
+   * Writes the enum value to JSON, using the {@link SerializedName} if present.
    *
    * @param out the GSON {@link JsonWriter} to write to.
    * @param value the enum constant to write to JSON.
@@ -62,11 +62,11 @@ public class XMLEnumTypeAdapter<T> extends TypeAdapter<T> {
 
     Enum enumValue = (Enum) value;
     try {
-      if (enumValue.getClass().getField(enumValue.name()).getAnnotation(XmlEnumValue.class)
+      if (enumValue.getClass().getField(enumValue.name()).getAnnotation(SerializedName.class)
           != null) {
-        XmlEnumValue xmlEnumValue =
-            enumValue.getClass().getField(enumValue.name()).getAnnotation(XmlEnumValue.class);
-        out.value(xmlEnumValue.value());
+        SerializedName serializedName =
+            enumValue.getClass().getField(enumValue.name()).getAnnotation(SerializedName.class);
+        out.value(serializedName.value());
       } else {
         out.value(enumValue.name());
       }

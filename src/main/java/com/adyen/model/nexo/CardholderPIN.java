@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Encrypted PIN and related information -- Usage: To request PIN Verify to the POI, or
@@ -28,24 +25,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardholderPIN",
-    propOrder = {"encrPINBlock"})
 public class CardholderPIN {
 
   /** The Encr pin block. */
-  @XmlElement(name = "EncrPINBlock", required = true)
+  @SerializedName("EncrPINBlock")
   @Schema(description = "Encrypted PIN")
   protected ContentInformation encrPINBlock;
 
   /** The Pin format. */
-  @XmlElement(name = "PINFormat", required = true)
+  @SerializedName("PINFormat")
   @Schema(description = "Identify the format of the PIN before encryption.")
   protected PINFormatType pinFormat;
 
   /** The Additional input. */
-  @XmlElement(name = "AdditionalInput")
+  @SerializedName("AdditionalInput")
   @Schema(
       description =
           "Additional information required to verify the PIN like part of the PAN, or driver ID.")

@@ -1,0 +1,4 @@
+{
+  "EventToNotify": "BeginMaintenance",
+  "EventDetails": "Maintenance window started"
+}

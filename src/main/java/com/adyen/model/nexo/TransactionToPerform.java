@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the batch of transactions to perform.
@@ -27,24 +24,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "TransactionToPerform",
-    propOrder = {"paymentRequest", "loyaltyRequest", "reversalRequest"})
 public class TransactionToPerform {
 
   /** The Payment request. */
-  @XmlElement(name = "PaymentRequest")
+  @SerializedName("PaymentRequest")
   @Schema(description = "Data related to the Payment transaction request.")
   protected PaymentRequest paymentRequest;
 
   /** The Loyalty request. */
-  @XmlElement(name = "LoyaltyRequest")
+  @SerializedName("LoyaltyRequest")
   @Schema(description = "Data related to the Loyalty transaction request.")
   protected LoyaltyRequest loyaltyRequest;
 
   /** The Reversal request. */
-  @XmlElement(name = "ReversalRequest")
+  @SerializedName("ReversalRequest")
   @Schema(description = "Data related to the Reveraal transaction request.")
   protected ReversalRequest reversalRequest;
 

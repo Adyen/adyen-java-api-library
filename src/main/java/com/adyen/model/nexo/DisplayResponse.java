@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Display Response messageType. -- Usage: It conveys the result of the
@@ -28,14 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "DisplayResponse",
-    propOrder = {"outputResult"})
 public class DisplayResponse {
 
   /** The Output result. */
-  @XmlElement(name = "OutputResult", required = true)
+  @SerializedName("OutputResult")
   @Schema(
       description =
           "Information related to the result the output (display, print, input). --Rule: One per DisplayOutput item of the request, and in the same order.")

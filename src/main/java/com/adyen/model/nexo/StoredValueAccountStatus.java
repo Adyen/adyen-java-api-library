@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the result of the stored value card transaction. -- Usage: It
@@ -30,19 +27,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "StoredValueAccountStatus",
-    propOrder = {"storedValueAccountID"})
 public class StoredValueAccountStatus {
 
   /** The Stored value account id. */
-  @XmlElement(name = "StoredValueAccountID", required = true)
+  @SerializedName("StoredValueAccountID")
   @Schema(description = "Identification of the stored value account or the stored value card")
   protected StoredValueAccountID storedValueAccountID;
 
   /** The Current balance. */
-  @XmlElement(name = "CurrentBalance")
+  @SerializedName("CurrentBalance")
   @Schema(description = "Balance of an account. --Rule: if relevant and known")
   protected BigDecimal currentBalance;
 

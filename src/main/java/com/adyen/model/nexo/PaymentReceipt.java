@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Customer or Merchant payment receipt. -- Usage: If the payment receipts are printed
@@ -29,31 +26,27 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentReceipt",
-    propOrder = {"outputContent"})
 public class PaymentReceipt {
 
   /** The Output content. */
-  @XmlElement(name = "OutputContent", required = true)
+  @SerializedName("OutputContent")
   @Schema(description = "Content to display or print.")
   protected OutputContent outputContent;
 
   /** The Document qualifier. */
-  @XmlElement(name = "DocumentQualifier", required = true)
+  @SerializedName("DocumentQualifier")
   @Schema(
       description =
           "Qualification of the document to print to the Cashier or the Customer. --Rule: SaleReceipt or CashierReceipt")
   protected DocumentQualifierType documentQualifier;
 
   /** The Integrated print flag. */
-  @XmlElement(name = "IntegratedPrintFlag")
+  @SerializedName("IntegratedPrintFlag")
   @Schema(description = "Type of the print integrated to other prints.")
   protected Boolean integratedPrintFlag;
 
   /** The Required signature flag. */
-  @XmlElement(name = "RequiredSignatureFlag")
+  @SerializedName("RequiredSignatureFlag")
   @Schema(
       description =
           "Indicate that the cardholder payment receipt requires a physical signature by the Customer.")

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Diagnosis Response messageType. -- Usage: It conveys the result of the
@@ -31,30 +28,26 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "DiagnosisResponse",
-    propOrder = {"response", "loggedSaleID", "poiStatus", "hostStatus"})
 public class DiagnosisResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Logged sale id. */
-  @XmlElement(name = "LoggedSaleID")
+  @SerializedName("LoggedSaleID")
   @Schema(
       description = "Sale Terminal logged to. --Rule: If Sale Terminal logged to this POI Terminal")
   protected List<String> loggedSaleID;
 
   /** The Poi status. */
-  @XmlElement(name = "POIStatus")
+  @SerializedName("POIStatus")
   @Schema(description = "State of a POI Terminal. --Rule: if Response.Result is Success")
   protected POIStatus poiStatus;
 
   /** The Host status. */
-  @XmlElement(name = "HostStatus")
+  @SerializedName("HostStatus")
   @Schema(description = "State of a Host.")
   protected List<HostStatus> hostStatus;
 

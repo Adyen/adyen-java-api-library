@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Stored Value Response messageType. -- Usage: It conveys Information
@@ -31,36 +28,32 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "StoredValueResponse",
-    propOrder = {"response", "saleData", "poiData", "storedValueResult", "paymentReceipt"})
 public class StoredValueResponse {
 
   /** The Response. */
-  @XmlElement(name = "Response", required = true)
+  @SerializedName("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
 
   /** The Sale data. */
-  @XmlElement(name = "SaleData", required = true)
+  @SerializedName("SaleData")
   @Schema(description = "Data related to the Sale System.")
   protected SaleData saleData;
 
   /** The Poi data. */
-  @XmlElement(name = "POIData", required = true)
+  @SerializedName("POIData")
   @Schema(description = "Data related to the POI System.")
   protected POIData poiData;
 
   /** The Stored value result. */
-  @XmlElement(name = "StoredValueResult")
+  @SerializedName("StoredValueResult")
   @Schema(
       description =
           "Result of loading/reloading a stored value card.. --Rule: If StoredValueResponse.Result is \"Success\" or \"Partial\", one entry per StoredValueRequest.StoredValueData loaded or")
   protected List<StoredValueResult> storedValueResult;
 
   /** The Payment receipt. */
-  @XmlElement(name = "PaymentReceipt")
+  @SerializedName("PaymentReceipt")
   protected List<PaymentReceipt> paymentReceipt;
 
   /**

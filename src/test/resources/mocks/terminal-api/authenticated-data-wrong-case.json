@@ -1,0 +1,7 @@
+{
+  "macalgorithm": {"Algorithm": "id-sha256"},
+  "encapsulatedcontent": {"Content": "cGF5bG9hZA==", "ContentType": "id-data"},
+  "version": "v0",
+  "mac": "bWFjLXZhbHVl",
+  "KeyTransportOrKEK": []
+}

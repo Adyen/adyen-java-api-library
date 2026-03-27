@@ -1,13 +1,10 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Input Update messageType. -- Usage: It conveys update of the display
@@ -35,44 +32,40 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "InputUpdate",
-    propOrder = {"messageReference", "outputContent", "menuEntry", "outputSignature"})
 public class InputUpdate {
 
   /** The Message reference. */
-  @XmlElement(name = "MessageReference", required = true)
+  @SerializedName("MessageReference")
   @Schema(description = "Identification of a previous POI transaction.")
   protected MessageReference messageReference;
 
   /** The Output content. */
-  @XmlElement(name = "OutputContent", required = true)
+  @SerializedName("OutputContent")
   @Schema(description = "Content to display or print.")
   protected OutputContent outputContent;
 
   /** The Menu entry. */
-  @XmlElement(name = "MenuEntry")
+  @SerializedName("MenuEntry")
   @Schema(description = "An entryof the menu to present to the Cashier")
   protected List<MenuEntry> menuEntry;
 
   /** The Output signature. */
-  @XmlElement(name = "OutputSignature")
+  @SerializedName("OutputSignature")
   @Schema(description = "Vendor specific signature of text message to display or print.")
   protected byte[] outputSignature;
 
   /** The Min length. */
-  @XmlElement(name = "MinLength")
+  @SerializedName("MinLength")
   @Schema(description = "Minimum input length --Rule: If present in the Input to update.")
   protected BigInteger minLength;
 
   /** The Max length. */
-  @XmlElement(name = "MaxLength")
+  @SerializedName("MaxLength")
   @Schema(description = "Maximum input length --Rule: If present in the Input to update.")
   protected BigInteger maxLength;
 
   /** The Max decimal length. */
-  @XmlElement(name = "MaxDecimalLength")
+  @SerializedName("MaxDecimalLength")
   @Schema(
       description =
           "Maximum input length of the decimal part (without decimal point) --Rule: If present in the Input to update.")

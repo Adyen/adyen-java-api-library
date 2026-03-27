@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the result of a processed loyalty transaction. -- Usage: In the
@@ -31,36 +28,32 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyResult",
-    propOrder = {"loyaltyAccount", "loyaltyAmount", "loyaltyAcquirerData", "rebates"})
 public class LoyaltyResult {
 
   /** The Loyalty account. */
-  @XmlElement(name = "LoyaltyAccount", required = true)
+  @SerializedName("LoyaltyAccount")
   @Schema(description = "Data related to a loyalty account processed in the transaction.")
   protected LoyaltyAccount loyaltyAccount;
 
   /** The Loyalty amount. */
-  @XmlElement(name = "LoyaltyAmount")
+  @SerializedName("LoyaltyAmount")
   @Schema(description = "Amount of a loyalty account. --Rule: If awarded amount")
   protected LoyaltyAmount loyaltyAmount;
 
   /** The Loyalty acquirer data. */
-  @XmlElement(name = "LoyaltyAcquirerData")
+  @SerializedName("LoyaltyAcquirerData")
   @Schema(
       description =
           "Data related to the loyalty Acquirer during a loyalty transaction. --Rule: if content not empty")
   protected LoyaltyAcquirerData loyaltyAcquirerData;
 
   /** The Rebates. */
-  @XmlElement(name = "Rebates")
+  @SerializedName("Rebates")
   @Schema(description = "Rebate form to an award; --Rule: if rebates awarded")
   protected Rebates rebates;
 
   /** The Current balance. */
-  @XmlElement(name = "CurrentBalance")
+  @SerializedName("CurrentBalance")
   @Schema(
       description =
           "Balance of an account. --Rule: if known (provided by the card or an external host)")

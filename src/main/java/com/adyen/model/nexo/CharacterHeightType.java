@@ -1,9 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for CharacterHeightType.
@@ -20,18 +18,16 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "CharacterHeightType")
-@XmlEnum
 public enum CharacterHeightType {
 
   /** Single height character height type. */
-  @XmlEnumValue("SingleHeight")
+  @SerializedName("SingleHeight")
   SINGLE_HEIGHT("SingleHeight"),
   /** Double height character height type. */
-  @XmlEnumValue("DoubleHeight")
+  @SerializedName("DoubleHeight")
   DOUBLE_HEIGHT("DoubleHeight"),
   /** Half height character height type. */
-  @XmlEnumValue("HalfHeight")
+  @SerializedName("HalfHeight")
   HALF_HEIGHT("HalfHeight");
   private final String value;
 

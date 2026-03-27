@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the stored value card. -- Usage: It contains: - the identification of
@@ -35,42 +32,38 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "StoredValueData",
-    propOrder = {"storedValueAccountID", "originalPOITransaction"})
 public class StoredValueData {
 
   /** The Stored value account id. */
-  @XmlElement(name = "StoredValueAccountID")
+  @SerializedName("StoredValueAccountID")
   @Schema(
       description =
           "Identification of the stored value account or the stored value card --Rule: If the identification of the Stored Value account or card has been made by the Sale System before the request")
   protected StoredValueAccountID storedValueAccountID;
 
   /** The Original poi transaction. */
-  @XmlElement(name = "OriginalPOITransaction")
+  @SerializedName("OriginalPOITransaction")
   @Schema(
       description =
           "Identification of a previous POI transaction. --Rule: if StoredValueTransactionType  is Reverse or Duplicate")
   protected OriginalPOITransaction originalPOITransaction;
 
   /** The Stored value provider. */
-  @XmlElement(name = "StoredValueProvider")
+  @SerializedName("StoredValueProvider")
   @Schema(
       description =
           "Identification of the provider of the stored value account load/reload --Rule: If more than one provider to manage on the POI, and StoredValueAccountID absent.")
   protected String storedValueProvider;
 
   /** The Stored value transaction. */
-  @XmlElement(name = "StoredValueTransactionType", required = true)
+  @SerializedName("StoredValueTransactionType")
   @Schema(
       description =
           "Identification of operation to proceed on the stored value account or the stored value card")
   protected StoredValueTransactionType storedValueTransactionType;
 
   /** The Product code. */
-  @XmlElement(name = "ProductCode")
+  @SerializedName("ProductCode")
   @Schema(
       description = "Product code of item purchased with the transaction.",
       minLength = 1,
@@ -78,17 +71,17 @@ public class StoredValueData {
   protected String productCode;
 
   /** The Ean upc. */
-  @XmlElement(name = "EanUpc")
+  @SerializedName("EanUpc")
   @Schema(description = "Standard product code of item purchased with the transaction.")
   protected String eanUpc;
 
   /** The Item amount. */
-  @XmlElement(name = "ItemAmount", required = true)
+  @SerializedName("ItemAmount")
   @Schema(description = "Total amount of the item line.")
   protected BigDecimal itemAmount;
 
   /** The Currency. */
-  @XmlElement(name = "Currency", required = true)
+  @SerializedName("Currency")
   @Schema(description = "Currency of a monetary amount.")
   protected String currency;
 

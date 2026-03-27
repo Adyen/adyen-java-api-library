@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Encryption key using previously distributed asymmetric key -- Reference: RFC 3852:
@@ -29,26 +26,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "KeyTransport",
-    propOrder = {"recipientIdentifier", "keyEncryptionAlgorithm"})
 public class KeyTransport {
 
   /** The Recipient identifier. */
-  @XmlElement(name = "RecipientIdentifier", required = true)
+  @SerializedName("RecipientIdentifier")
   protected RecipientIdentifier recipientIdentifier;
 
   /** The Key encryption algorithm. */
-  @XmlElement(name = "KeyEncryptionAlgorithm", required = true)
+  @SerializedName("KeyEncryptionAlgorithm")
   protected AlgorithmIdentifier keyEncryptionAlgorithm;
 
   /** The Version. */
-  @XmlElement(name = "Version")
+  @SerializedName("Version")
   protected VersionType version;
 
   /** The Encrypted key. */
-  @XmlElement(name = "EncryptedKey", required = true)
+  @SerializedName("EncryptedKey")
   protected byte[] encryptedKey;
 
   /**

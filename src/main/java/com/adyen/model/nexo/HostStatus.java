@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: State of a Host. -- Usage: Indicate the reachability of the host by the POI Terminal.
@@ -24,17 +21,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "HostStatus")
 public class HostStatus {
 
   /** The Acquirer id. */
-  @XmlElement(name = "AcquirerID", required = true)
+  @SerializedName("AcquirerID")
   @Schema(description = "Identification of the Acquirer")
   protected String acquirerID;
 
   /** The Is reachable flag. */
-  @XmlElement(name = "IsReachableFlag")
+  @SerializedName("IsReachableFlag")
   @Schema(description = "Indicate if a Host is reachable")
   protected Boolean isReachableFlag;
 

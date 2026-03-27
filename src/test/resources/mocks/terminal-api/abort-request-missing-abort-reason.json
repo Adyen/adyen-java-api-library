@@ -1,0 +1,8 @@
+{
+  "MessageReference": {
+    "MessageCategory": "Payment",
+    "ServiceID": "service-id",
+    "SaleID": "sale-id",
+    "POIID": "poi-id"
+  }
+}

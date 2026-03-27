@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Size of an area -- Usage: Contain the size of the pad area where the signature is
@@ -26,17 +23,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AreaSize")
 public class AreaSize {
 
   /** The X. */
-  @XmlElement(name = "X", required = true)
+  @SerializedName("X")
   @Schema(description = "Abscissa of a point coordinates.")
   protected String x;
 
   /** The Y. */
-  @XmlElement(name = "Y", required = true)
+  @SerializedName("Y")
   @Schema(description = "Ordinate of a point coordinates.")
   protected String y;
 

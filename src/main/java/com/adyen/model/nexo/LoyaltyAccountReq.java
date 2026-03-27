@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to a requested Loyalty program or account. -- Usage: In the Balance
@@ -28,21 +25,17 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyAccountReq",
-    propOrder = {"cardAcquisitionReference", "loyaltyAccountID"})
 public class LoyaltyAccountReq {
 
   /** The Card acquisition reference. */
-  @XmlElement(name = "CardAcquisitionReference")
+  @SerializedName("CardAcquisitionReference")
   @Schema(
       description =
           "Reference to the last CardAcquisition, to use the same card. --Rule: If the loyalty account ID comes from a previous CardAcquisition")
   protected TransactionIdentification cardAcquisitionReference;
 
   /** The Loyalty account id. */
-  @XmlElement(name = "LoyaltyAccountID")
+  @SerializedName("LoyaltyAccountID")
   @Schema(
       description =
           "Identification of a Loyalty account. --Rule: If loyalty identification of the loyalty account is realised by the Sale System")

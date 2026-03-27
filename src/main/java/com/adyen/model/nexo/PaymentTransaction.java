@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the payment and loyalty transaction. -- Usage: Elements requested by
@@ -31,35 +28,31 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentTransaction",
-    propOrder = {"amountsReq", "originalPOITransaction", "transactionConditions", "saleItem"})
 public class PaymentTransaction {
 
   /** The Amounts req. */
-  @XmlElement(name = "AmountsReq", required = true)
+  @SerializedName("AmountsReq")
   @Schema(
       description =
           "Various amounts related to the payment and loyalty request from the Sale System.")
   protected AmountsReq amountsReq;
 
   /** The Original poi transaction. */
-  @XmlElement(name = "OriginalPOITransaction")
+  @SerializedName("OriginalPOITransaction")
   @Schema(
       description =
           "Identification of a previous POI transaction. --Rule: if UpdateReservation, Completion or Refund")
   protected OriginalPOITransaction originalPOITransaction;
 
   /** The Transaction conditions. */
-  @XmlElement(name = "TransactionConditions")
+  @SerializedName("TransactionConditions")
   @Schema(
       description =
           "Conditions on which the transaction must be processed. --Rule: If one data element is present")
   protected TransactionConditions transactionConditions;
 
   /** The Sale item. */
-  @XmlElement(name = "SaleItem")
+  @SerializedName("SaleItem")
   @Schema(
       description =
           "Sale items of a transaction. --Rule: If purchased products are required for the payment")

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Identification of a Loyalty account. -- Usage: In the Payment or the Loyalty Request
@@ -31,23 +28,21 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LoyaltyAccountID")
 public class LoyaltyAccountID {
 
-  @XmlElement(name = "LoyaltyID", required = true)
+  @SerializedName("LoyaltyID")
   @Schema(description = "Loyalty account identification")
   protected String loyaltyID;
 
-  @XmlElement(name = "EntryMode", required = true)
+  @SerializedName("EntryMode")
   @Schema(description = "Entry mode of the payment instrument information")
   protected List<EntryModeType> entryMode;
 
-  @XmlElement(name = "IdentificationType", required = true)
+  @SerializedName("IdentificationType")
   @Schema(description = "Type of account identification")
   protected IdentificationType identificationType;
 
-  @XmlElement(name = "IdentificationSupport")
+  @SerializedName("IdentificationSupport")
   @Schema(
       description =
           "Support of the loyalty account identification --Rule: if PaymentResponse or LoyaltyResponse or BalanceInquiryResponse")

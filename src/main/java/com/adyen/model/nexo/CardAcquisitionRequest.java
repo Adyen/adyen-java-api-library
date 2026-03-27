@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Card Acquisition Request messageType. -- Usage: It conveys Information
@@ -29,19 +26,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardAcquisitionRequest",
-    propOrder = {"saleData", "cardAcquisitionTransaction"})
 public class CardAcquisitionRequest {
 
   /** The Sale data. */
-  @XmlElement(name = "SaleData", required = true)
+  @SerializedName("SaleData")
   @Schema(description = "Data related to the Sale System.")
   protected SaleData saleData;
 
   /** The Card acquisition transaction. */
-  @XmlElement(name = "CardAcquisitionTransaction", required = true)
+  @SerializedName("CardAcquisitionTransaction")
   @Schema(description = "Data related to the payment and loyalty card acquisition.")
   protected CardAcquisitionTransaction cardAcquisitionTransaction;
 

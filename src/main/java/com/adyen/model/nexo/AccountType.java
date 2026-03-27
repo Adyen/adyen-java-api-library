@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for AccountType.
@@ -26,47 +24,45 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "AccountType")
-@XmlEnum
 public enum AccountType {
 
   /** Default account */
-  @XmlEnumValue("Default")
+  @SerializedName("Default")
   @Schema(description = "Default account")
   DEFAULT("Default"),
 
   /** Savings account */
-  @XmlEnumValue("Savings")
+  @SerializedName("Savings")
   @Schema(description = "Savings account")
   SAVINGS("Savings"),
 
   /** Checking account */
-  @XmlEnumValue("Checking")
+  @SerializedName("Checking")
   @Schema(description = "Checking account")
   CHECKING("Checking"),
 
   /** Credit card account */
-  @XmlEnumValue("CreditCard")
+  @SerializedName("CreditCard")
   @Schema(description = "Credit card account")
   CREDIT_CARD("CreditCard"),
 
   /** Universal account */
-  @XmlEnumValue("Universal")
+  @SerializedName("Universal")
   @Schema(description = "Universal account")
   UNIVERSAL("Universal"),
 
   /** Investment account */
-  @XmlEnumValue("Investment")
+  @SerializedName("Investment")
   @Schema(description = "Investment account")
   INVESTMENT("Investment"),
 
   /** Card totals */
-  @XmlEnumValue("CardTotals")
+  @SerializedName("CardTotals")
   @Schema(description = "Card totals")
   CARD_TOTALS("CardTotals"),
 
   /** e-Purse card account */
-  @XmlEnumValue("EpurseCard")
+  @SerializedName("EpurseCard")
   @Schema(description = "e-Purse card account")
   EPURSE_CARD("EpurseCard");
 

@@ -1,0 +1,22 @@
+{
+  "MessageHeader": {
+    "ProtocolVersion": "3.0",
+    "SaleID": "POSSystemID12345",
+    "MessageClass": "Service",
+    "MessageCategory": "TransactionStatus",
+    "ServiceID": "0207111617",
+    "POIID": "V400m-324688179",
+    "MessageType": "Response"
+  },
+  "TransactionStatusResponse": {
+    "Response": {
+      "Result": "Success"
+    },
+    "MessageReference": {
+      "MessageCategory": "Payment",
+      "ServiceID": "service-id",
+      "SaleID": "sale-id",
+      "POIID": "poi-id"
+    }
+  }
+}

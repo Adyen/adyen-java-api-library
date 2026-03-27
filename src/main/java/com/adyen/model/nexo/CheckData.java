@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information related to the paper check used for the transaction. -- Usage: Allows the
@@ -33,47 +30,43 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CheckData",
-    propOrder = {"bankID", "accountNumber", "checkNumber", "trackData", "checkCardNumber"})
 public class CheckData {
 
   /** The Bank id. */
-  @XmlElement(name = "BankID")
+  @SerializedName("BankID")
   @Schema(description = "Identification of the bank. --Rule: Mandatory if TrackData absent")
   protected String bankID;
 
   /** The Account number. */
-  @XmlElement(name = "AccountNumber")
+  @SerializedName("AccountNumber")
   @Schema(
       description = "Identification of the customer account. --Rule: Mandatory if TrackData absent")
   protected String accountNumber;
 
   /** The Check number. */
-  @XmlElement(name = "CheckNumber")
+  @SerializedName("CheckNumber")
   @Schema(description = "Identification of the bank check. --Rule: Mandatory if TrackData absent")
   protected String checkNumber;
 
   /** The Track data. */
-  @XmlElement(name = "TrackData")
+  @SerializedName("TrackData")
   @Schema(
       description =
           "Magnetic track or magnetic ink characters line. --Rule: Mandatory if CheckNumber absent")
   protected TrackData trackData;
 
   /** The Check card number. */
-  @XmlElement(name = "CheckCardNumber")
+  @SerializedName("CheckCardNumber")
   @Schema(description = "Check guarantee card number. --Rule: If provided by the customer")
   protected String checkCardNumber;
 
   /** The Type code. */
-  @XmlElement(name = "TypeCode")
+  @SerializedName("TypeCode")
   @Schema(description = "Type of bank check.")
   protected CheckTypeCodeType typeCode;
 
   /** The Country. */
-  @XmlElement(name = "Country")
+  @SerializedName("Country")
   @Schema(description = "Country of the bank check. --Rule: Absent if country of the Sale system")
   protected String country;
 

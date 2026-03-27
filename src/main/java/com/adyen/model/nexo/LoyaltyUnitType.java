@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for LoyaltyUnitType.
@@ -20,17 +18,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "LoyaltyUnitType")
-@XmlEnum
 public enum LoyaltyUnitType {
 
   /** The amount is expressed in point. */
-  @XmlEnumValue("Point")
+  @SerializedName("Point")
   @Schema(description = "The amount is expressed in point.")
   POINT("Point"),
 
   /** The amount is expressed in a monetary value in a currency. */
-  @XmlEnumValue("Monetary")
+  @SerializedName("Monetary")
   @Schema(description = "The amount is expressed in a monetary value in a currency.")
   MONETARY("Monetary");
   private final String value;

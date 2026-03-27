@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Information to display and the way to process the display. -- Usage: It contains a
@@ -35,50 +32,46 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "DisplayOutput",
-    propOrder = {"outputContent", "menuEntry", "outputSignature"})
 public class DisplayOutput {
 
   /** The Output content. */
-  @XmlElement(name = "OutputContent", required = true)
+  @SerializedName("OutputContent")
   @Schema(description = "Content to display or print.")
   protected OutputContent outputContent;
 
   /** The Menu entry. */
-  @XmlElement(name = "MenuEntry")
+  @SerializedName("MenuEntry")
   @Schema(
       description =
           "An entryof the menu to present to the Cashier --Rule: One instance of MenuEntry per item to display in the menu for the get menu input command.")
   protected List<MenuEntry> menuEntry;
 
   /** The Output signature. */
-  @XmlElement(name = "OutputSignature")
+  @SerializedName("OutputSignature")
   @Schema(
       description =
           "Vendor specific signature of text message to display or print. --Rule: If protection has to be provided to the vendor on the text to display or print.")
   protected byte[] outputSignature;
 
   /** The Response required flag. */
-  @XmlElement(name = "ResponseRequiredFlag")
+  @SerializedName("ResponseRequiredFlag")
   @Schema(description = "Request of a message response.")
   protected Boolean responseRequiredFlag;
 
   /** The Minimum display time. */
-  @XmlElement(name = "MinimumDisplayTime")
+  @SerializedName("MinimumDisplayTime")
   @Schema(description = "Number of seconds the message has to be displayed")
   protected Integer minimumDisplayTime;
 
   /** The Device. */
-  @XmlElement(name = "Device", required = true)
+  @SerializedName("Device")
   @Schema(
       description =
           "Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print --Rule: CashierDisplay, CustomerDisplay")
   protected DeviceType device;
 
   /** The Info qualify. */
-  @XmlElement(name = "InfoQualify", required = true)
+  @SerializedName("InfoQualify")
   @Schema(
       description =
           "Qualification of the information to sent to an output logical device, to display or print to the Cashier or the --Rule: Status, Error, Display, POIReplication")

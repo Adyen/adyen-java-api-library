@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Card Reader Power-Off Request messageType. -- Usage: It contains a
@@ -29,19 +26,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardReaderPowerOffRequest",
-    propOrder = {"displayOutput"})
 public class CardReaderPowerOffRequest {
 
   /** The Display output. */
-  @XmlElement(name = "DisplayOutput")
+  @SerializedName("DisplayOutput")
   @Schema(description = "Information to display and the way to process the display.")
   protected DisplayOutput displayOutput;
 
   /** The Max waiting time. */
-  @XmlElement(name = "MaxWaitingTime")
+  @SerializedName("MaxWaitingTime")
   @Schema(description = "Maximum time to wait for the request processing in seconds.")
   protected BigInteger maxWaitingTime;
 

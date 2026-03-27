@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Card Reader APDU Request messageType. -- Usage: It contains the APDU
@@ -32,39 +29,35 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardReaderAPDURequest",
-    propOrder = {"apduData"})
 public class CardReaderAPDURequest {
 
   /** The Apdu data. */
-  @XmlElement(name = "APDUData")
+  @SerializedName("APDUData")
   @Schema(description = "Data field of the APDU command (Lc + Data)")
   protected byte[] apduData;
 
   /** The Apdu class. */
-  @XmlElement(name = "APDUClass", required = true)
+  @SerializedName("APDUClass")
   @Schema(description = "Class field of the APDU command (CLA)", minLength = 1, maxLength = 1)
   protected byte[] apduClass;
 
   /** The Apdu instruction. */
-  @XmlElement(name = "APDUInstruction", required = true)
+  @SerializedName("APDUInstruction")
   @Schema(description = "Instruction field of the APDU command (INS)", minLength = 1, maxLength = 1)
   protected byte[] apduInstruction;
 
   /** The Apdu par 1. */
-  @XmlElement(name = "APDUPar1", required = true)
+  @SerializedName("APDUPar1")
   @Schema(description = "Parameter 1 field of the APDU command (P1)", minLength = 1, maxLength = 1)
   protected byte[] apduPar1;
 
   /** The Apdu par 2. */
-  @XmlElement(name = "APDUPar2", required = true)
+  @SerializedName("APDUPar2")
   @Schema(description = "Parameter 2 field of the APDU command(P2)", minLength = 1, maxLength = 1)
   protected byte[] apduPar2;
 
   /** The Apdu expected length. */
-  @XmlElement(name = "APDUExpectedLength")
+  @SerializedName("APDUExpectedLength")
   @Schema(
       description = "Expected length of the data field of the APDU response to the command (Le)",
       minLength = 1,

@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Diagnosis Request messageType. -- Usage: It conveys Information
@@ -30,28 +27,24 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "DiagnosisRequest",
-    propOrder = {"acquirerID"})
 public class DiagnosisRequest {
 
   /** The Acquirer id. */
-  @XmlElement(name = "AcquirerID")
+  @SerializedName("AcquirerID")
   @Schema(
       description =
           "Identification of the Acquirer --Rule: Present if requesting the diagnosis of these hosts only.")
   protected List<String> acquirerID;
 
   /** The Poiid. */
-  @XmlElement(name = "POIID")
+  @SerializedName("POIID")
   @Schema(
       description =
           "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: MessageHeader.POIID")
   protected String poiid;
 
   /** The Host diagnosis flag. */
-  @XmlElement(name = "HostDiagnosisFlag")
+  @SerializedName("HostDiagnosisFlag")
   @Schema(description = "Indicates if Host Diagnosis are required")
   protected Boolean hostDiagnosisFlag;
 

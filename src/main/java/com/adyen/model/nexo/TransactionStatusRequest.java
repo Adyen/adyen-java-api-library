@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the TransactionStatus Request messageType. -- Usage: It conveys
@@ -31,29 +27,24 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "TransactionStatusRequest",
-    propOrder = {"messageReference", "documentQualifier"})
 public class TransactionStatusRequest {
 
   /** The Message reference. */
-  @XmlElement(name = "MessageReference")
+  @SerializedName("MessageReference")
   @Schema(
       description =
           "Identification of a previous POI transaction. --Rule: Present if it contains any data")
   protected MessageReference messageReference;
 
   /** The Document qualifier. */
-  @XmlElement(name = "DocumentQualifier")
+  @SerializedName("DocumentQualifier")
   @Schema(
       description =
           "Qualification of the document to print to the Cashier or the Customer. --Rule: CustomerReceipt or CashierReceipt. Mandatory if ReceiptReprintFlag is True, otherwise absent.")
-  @XmlSchemaType(name = "string")
   protected List<DocumentQualifierType> documentQualifier;
 
   /** The Receipt reprint flag. */
-  @XmlElement(name = "ReceiptReprintFlag")
+  @SerializedName("ReceiptReprintFlag")
   @Schema(description = "Request to reprint the POI receipt(s).")
   protected Boolean receiptReprintFlag;
 

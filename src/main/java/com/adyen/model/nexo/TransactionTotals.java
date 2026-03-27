@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Result of the Sale to POI Reconciliation processing. -- Usage: If Result is Success,
@@ -43,102 +40,98 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "TransactionTotals",
-    propOrder = {"paymentTotals", "loyaltyTotals"})
 public class TransactionTotals {
 
   /** The Payment totals. */
-  @XmlElement(name = "PaymentTotals")
+  @SerializedName("PaymentTotals")
   @Schema(
       description =
           "Totals of the payment transaction during the reconciliation period. --Rule: If both TransactionCount and TransactionAmount are not equal to zero")
   protected List<PaymentTotals> paymentTotals;
 
   /** The Loyalty totals. */
-  @XmlElement(name = "LoyaltyTotals")
+  @SerializedName("LoyaltyTotals")
   @Schema(
       description =
           "Totals of the loyalty transaction during the reconciliation period. --Rule: If both TransactionCount and TransactionAmount are not equal to zero")
   protected List<LoyaltyTotals> loyaltyTotals;
 
   /** The Payment instrument. */
-  @XmlElement(name = "PaymentInstrumentType", required = true)
+  @SerializedName("PaymentInstrumentType")
   @Schema(description = "Type of payment instrument.")
   protected PaymentInstrumentType paymentInstrumentType;
 
   /** The Acquirer id. */
-  @XmlElement(name = "AcquirerID")
+  @SerializedName("AcquirerID")
   @Schema(description = "Identification of the Acquirer --Rule: If available")
   protected String acquirerID;
 
   /** The Error condition. */
-  @XmlElement(name = "ErrorCondition")
+  @SerializedName("ErrorCondition")
   @Schema(
       description =
           "Condition that has produced  an error on the processing of a message request --Rule: if Response.Result is Partial, and the reconciliation with this Acquirer failed.")
   protected ErrorConditionType errorCondition;
 
   /** The Host reconciliation id. */
-  @XmlElement(name = "HostReconciliationID")
+  @SerializedName("HostReconciliationID")
   @Schema(
       description =
           "Identifier of a reconciliation period with a payment or loyalty host. --Rule: If available")
   protected String hostReconciliationID;
 
   /** The Card brand. */
-  @XmlElement(name = "CardBrand")
+  @SerializedName("CardBrand")
   @Schema(
       description =
           "Type of payment or loyalty card --Rule: If configured to present totals per card brand, and Response.Result is Success")
   protected String cardBrand;
 
   /** The Poiid. */
-  @XmlElement(name = "POIID")
+  @SerializedName("POIID")
   @Schema(
       description =
           "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If requested in the message request")
   protected String poiid;
 
   /** The Sale id. */
-  @XmlElement(name = "SaleID")
+  @SerializedName("SaleID")
   @Schema(
       description =
           "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: If requested in the message request")
   protected String saleID;
 
   /** The Operator id. */
-  @XmlElement(name = "OperatorID")
+  @SerializedName("OperatorID")
   @Schema(
       description =
           "Identification of the Cashier or Operator. --Rule: If requested in the message request")
   protected String operatorID;
 
   /** The Shift number. */
-  @XmlElement(name = "ShiftNumber")
+  @SerializedName("ShiftNumber")
   @Schema(description = "Shift number. --Rule: If requested in the message request")
   protected String shiftNumber;
 
   /** The Totals group id. */
-  @XmlElement(name = "TotalsGroupID")
+  @SerializedName("TotalsGroupID")
   @Schema(
       description =
           "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If requested in the message request")
   protected String totalsGroupID;
 
   /** The Payment currency. */
-  @XmlElement(name = "PaymentCurrency")
+  @SerializedName("PaymentCurrency")
   @Schema(description = "Currency of a monetary amount.")
   protected String paymentCurrency;
 
   /** The Loyalty unit. */
-  @XmlElement(name = "LoyaltyUnit")
+  @SerializedName("LoyaltyUnit")
   @Schema(description = "Unit of a loyalty amount.")
   protected LoyaltyUnitType loyaltyUnit;
 
   /** The Loyalty currency. */
-  @XmlElement(name = "LoyaltyCurrency")
+  @SerializedName("LoyaltyCurrency")
   @Schema(description = "Currency of a monetary amount. --Rule: If LoyaltyUnit is Monetary")
   protected String loyaltyCurrency;
 

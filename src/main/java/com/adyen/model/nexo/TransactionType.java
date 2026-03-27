@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for TransactionType.
@@ -37,39 +35,37 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "TransactionType")
-@XmlEnum
 public enum TransactionType {
 
   /** Payment Debit transactions (e.g. if PaymentType is "Normal") */
-  @XmlEnumValue("Debit")
+  @SerializedName("Debit")
   @Schema(description = "Payment Debit transactions (e.g. if PaymentType is \"Normal\")")
   DEBIT("Debit"),
 
   /** Payment Credit transactions (e.g. if PaymentType is "Refund") */
-  @XmlEnumValue("Credit")
+  @SerializedName("Credit")
   @Schema(description = "Payment Credit transactions (e.g.  if PaymentType is \"Refund\")")
   CREDIT("Credit"),
 
   /** Payment Reversal Debit transactions */
-  @XmlEnumValue("ReverseDebit")
+  @SerializedName("ReverseDebit")
   @Schema(description = "Payment Reversal Debit transactions")
   REVERSE_DEBIT("ReverseDebit"),
 
   /** Payment Reversal Credit transactions */
-  @XmlEnumValue("ReverseCredit")
+  @SerializedName("ReverseCredit")
   @Schema(description = "Payment Reversal Credit transactions")
   REVERSE_CREDIT("ReverseCredit"),
 
   /** Outstanding OneTimeReservation transactions, i.e. between OneTimeReservation and Completion */
-  @XmlEnumValue("OneTimeReservation")
+  @SerializedName("OneTimeReservation")
   @Schema(
       description =
           "Outstanding OneTimeReservation transactions, i.e. between OneTimeReservation and Completion")
   ONE_TIME_RESERVATION("OneTimeReservation"),
 
   /** OneTimeReservation transactions which have been completed by the Completion. */
-  @XmlEnumValue("CompletedDeffered")
+  @SerializedName("CompletedDeffered")
   @Schema(
       description = "OneTimeReservation transactions which have been completed by the Completion.")
   COMPLETED_DEFFERED("CompletedDeffered"),
@@ -78,7 +74,7 @@ public enum TransactionType {
    * Outstanding FirstReservation transactions, i.e. between FirstReservation and UpdateReservation
    * or Completion
    */
-  @XmlEnumValue("FirstReservation")
+  @SerializedName("FirstReservation")
   @Schema(
       description =
           "Outstanding FirstReservation transactions, i.e. between FirstReservation and UpdateReservation  or Completion")
@@ -88,64 +84,64 @@ public enum TransactionType {
    * Outstanding UpdateReservation transactions, i.e. between UpdateReservation and
    * UpdateReservation or Completion
    */
-  @XmlEnumValue("UpdateReservation")
+  @SerializedName("UpdateReservation")
   @Schema(
       description =
           "Outstanding UpdateReservation transactions, i.e. between UpdateReservation and UpdateReservation or Completion")
   UPDATE_RESERVATION("UpdateReservation"),
 
   /** Reservation transactions which have been completed by the Completion. */
-  @XmlEnumValue("CompletedReservation")
+  @SerializedName("CompletedReservation")
   @Schema(description = "Reservation transactions which have been completed by the Completion.")
   COMPLETED_RESERVATION("CompletedReservation"),
 
   /** Cash Advance transactions. */
-  @XmlEnumValue("CashAdvance")
+  @SerializedName("CashAdvance")
   @Schema(description = "Cash Advance transactions.")
   CASH_ADVANCE("CashAdvance"),
 
   /** Issuer instalment transactions. */
-  @XmlEnumValue("IssuerInstalment")
+  @SerializedName("IssuerInstalment")
   @Schema(description = "Issuer instalment transactions.")
   ISSUER_INSTALMENT("IssuerInstalment"),
 
   /** ResultErrorCondition */
-  @XmlEnumValue("Declined")
+  @SerializedName("Declined")
   @Schema(description = "ResultErrorCondition")
   DECLINED("Declined"),
 
   /** ResultErrorCondition */
-  @XmlEnumValue("Failed")
+  @SerializedName("Failed")
   @Schema(description = "ResultErrorCondition")
   FAILED("Failed"),
 
   /** Loyalty Award Transaction */
-  @XmlEnumValue("Award")
+  @SerializedName("Award")
   @Schema(description = "Loyalty Award Transaction")
   AWARD("Award"),
 
   /** Loyalty Reversal Award Transaction */
-  @XmlEnumValue("ReverseAward")
+  @SerializedName("ReverseAward")
   @Schema(description = "Loyalty Reversal Award Transaction")
   REVERSE_AWARD("ReverseAward"),
 
   /** Loyalty Redemption Transaction */
-  @XmlEnumValue("Redemption")
+  @SerializedName("Redemption")
   @Schema(description = "Loyalty Redemption Transaction")
   REDEMPTION("Redemption"),
 
   /** Loyalty Reversal Redemption Transaction */
-  @XmlEnumValue("ReverseRedemption")
+  @SerializedName("ReverseRedemption")
   @Schema(description = "Loyalty Reversal Redemption Transaction")
   REVERSE_REDEMPTION("ReverseRedemption"),
 
   /** Loyalty Rebate Transaction */
-  @XmlEnumValue("Rebate")
+  @SerializedName("Rebate")
   @Schema(description = "Loyalty Rebate Transaction")
   REBATE("Rebate"),
 
   /** Loyalty Reversal Rebate Transaction */
-  @XmlEnumValue("ReverseRebate")
+  @SerializedName("ReverseRebate")
   @Schema(description = "Loyalty Reversal Rebate Transaction")
   REVERSE_REBATE("ReverseRebate");
   private final String value;

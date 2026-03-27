@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for TerminalEnvironmentType.
@@ -21,15 +19,13 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "TerminalEnvironmentType")
-@XmlEnum
 public enum TerminalEnvironmentType {
 
   /**
    * The Sale Terminal is managed by a Cashier through the Sale System. A Cashier Interface is
    * provided by the POI System during the process of a request from the
    */
-  @XmlEnumValue("Attended")
+  @SerializedName("Attended")
   @Schema(
       description =
           "The Sale Terminal is managed by a Cashier through the Sale System. A Cashier Interface is provided by the POI System during the process of a request from the")
@@ -39,7 +35,7 @@ public enum TerminalEnvironmentType {
    * Without a Cashier Interface. The POI Terminal is managed by the Customer through the Customer
    * Interface. A Cashier could help the Cardholder during the
    */
-  @XmlEnumValue("SemiAttended")
+  @SerializedName("SemiAttended")
   @Schema(
       description =
           "Without a Cashier Interface. The POI Terminal is managed by the Customer through the Customer Interface. A Cashier could help the Cardholder during the")
@@ -49,7 +45,7 @@ public enum TerminalEnvironmentType {
    * The Sale Terminal is managed as a logical terminal without any Cashier Interface (typically a
    * background process). The POI Terminal is managed by the Customer
    */
-  @XmlEnumValue("Unattended")
+  @SerializedName("Unattended")
   @Schema(
       description =
           "The Sale Terminal is managed as a logical terminal without any Cashier Interface (typically a background process). The POI Terminal is managed by the Customer")

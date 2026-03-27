@@ -1,13 +1,10 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the payment and loyalty card acquisition. -- Usage: Elements
@@ -37,63 +34,59 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "CardAcquisitionTransaction",
-    propOrder = {"allowedPaymentBrand", "allowedLoyaltyBrand", "forceEntryMode"})
 public class CardAcquisitionTransaction {
 
   /** The Allowed payment brand. */
-  @XmlElement(name = "AllowedPaymentBrand")
+  @SerializedName("AllowedPaymentBrand")
   @Schema(
       description = "Card payment brands allowed by the Sale System for the payment transaction.")
   protected List<String> allowedPaymentBrand;
 
   /** The Allowed loyalty brand. */
-  @XmlElement(name = "AllowedLoyaltyBrand")
+  @SerializedName("AllowedLoyaltyBrand")
   @Schema(
       description =
           "Loyalty brands or programs allowed by the Sale System for the loyalty transaction.")
   protected List<String> allowedLoyaltyBrand;
 
   /** The Force entry mode. */
-  @XmlElement(name = "ForceEntryMode")
+  @SerializedName("ForceEntryMode")
   @Schema(description = "Payment instrument entry mode requested by the Sale System.")
   protected List<ForceEntryModeType> forceEntryMode;
 
   /** The Loyalty handling. */
-  @XmlElement(name = "LoyaltyHandling")
+  @SerializedName("LoyaltyHandling")
   @Schema(description = "Type of Loyalty processing requested by the Sale System.")
   protected LoyaltyHandlingType loyaltyHandling;
 
   /** The Customer language. */
-  @XmlElement(name = "CustomerLanguage")
+  @SerializedName("CustomerLanguage")
   @Schema(
       description =
           "Language of the Customer --Rule: If the language is selected by the Sale System before the request to the POI.")
   protected String customerLanguage;
 
   /** The Force customer selection flag. */
-  @XmlElement(name = "ForceCustomerSelectionFlag")
+  @SerializedName("ForceCustomerSelectionFlag")
   @Schema(description = "Indicates if the Customer realises the selection of the card application.")
   protected Boolean forceCustomerSelectionFlag;
 
   /** The Total amount. */
-  @XmlElement(name = "TotalAmount")
+  @SerializedName("TotalAmount")
   @Schema(
       description =
           "Amount of a transaction. --Rule: Mandatory for contactless card, otherwise absent")
   protected BigDecimal totalAmount;
 
   /** The Payment. */
-  @XmlElement(name = "PaymentType")
+  @SerializedName("PaymentType")
   @Schema(
       description =
           "Type of payment transaction. --Rule: Mandatory for contactless card, otherwise absent")
   protected PaymentType paymentType;
 
   /** The Cash back flag. */
-  @XmlElement(name = "CashBackFlag")
+  @SerializedName("CashBackFlag")
   @Schema(
       description =
           "Cash back has been requested with the payment transaction. --Rule: For contactless, True if cash back has been requested, default False. Otherwise absent.")

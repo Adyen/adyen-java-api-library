@@ -1,9 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Definition: Cryptographic Message Syntax (CMS) data structure containing the Recipient Identifier
@@ -26,14 +23,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "RecipientIdentifier",
-    propOrder = {"issuerAndSerialNumber"})
 public class RecipientIdentifier {
 
   /** The Issuer and serial number. */
-  @XmlElement(name = "IssuerAndSerialNumber", required = true)
+  @SerializedName("IssuerAndSerialNumber")
   protected IssuerAndSerialNumber issuerAndSerialNumber;
 
   /**

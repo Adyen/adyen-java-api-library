@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Sensitive information related to the mobile phone. -- Usage: This data structure
@@ -28,24 +25,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SensitiveMobileData")
 public class SensitiveMobileData {
 
   /** The Msisdn. */
-  @XmlElement(name = "MSISDN", required = true)
+  @SerializedName("MSISDN")
   @Schema(
       description =
           "Mobile Subscriber Integrated Service Digital Network (i.e. mobile phone number of the SIM card).")
   protected String msisdn;
 
   /** The Imsi. */
-  @XmlElement(name = "IMSI")
+  @SerializedName("IMSI")
   @Schema(description = "International Mobile Subscriber Identity. --Rule: If data available")
   protected String imsi;
 
   /** The Imei. */
-  @XmlElement(name = "IMEI")
+  @SerializedName("IMEI")
   @Schema(description = "International Mobile Equipement Identity. --Rule: If data available")
   protected String imei;
 

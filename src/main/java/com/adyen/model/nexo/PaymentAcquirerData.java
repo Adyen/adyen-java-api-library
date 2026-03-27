@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to the response from the payment Acquirer.
@@ -29,37 +26,33 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "PaymentAcquirerData",
-    propOrder = {"acquirerTransactionID", "approvalCode"})
 public class PaymentAcquirerData {
 
   /** The Acquirer transaction id. */
-  @XmlElement(name = "AcquirerTransactionID")
+  @SerializedName("AcquirerTransactionID")
   @Schema(
       description =
           "Identification of the Transaction for the Acquirer. --Rule: If provided by the Acquirer")
   protected TransactionIdentification acquirerTransactionID;
 
   /** The Approval code. */
-  @XmlElement(name = "ApprovalCode")
+  @SerializedName("ApprovalCode")
   @Schema(
       description = "Code assigned to a transaction approval by the Acquirer. --Rule: If available")
   protected String approvalCode;
 
   /** The Acquirer id. */
-  @XmlElement(name = "AcquirerID")
+  @SerializedName("AcquirerID")
   @Schema(description = "Identification of the Acquirer --Rule: If several Acquirers")
   protected String acquirerID;
 
   /** The Merchant id. */
-  @XmlElement(name = "MerchantID", required = true)
+  @SerializedName("MerchantID")
   @Schema(description = "Identification of the Merchant for the Acquirer")
   protected String merchantID;
 
   /** The Acquirer poiid. */
-  @XmlElement(name = "AcquirerPOIID", required = true)
+  @SerializedName("AcquirerPOIID")
   @Schema(description = "Identification of the POI for the payment Acquirer")
   protected String acquirerPOIID;
 

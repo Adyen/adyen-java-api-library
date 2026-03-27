@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Data related to a loyalty account processed in the transaction. -- Usage: This data
@@ -27,19 +24,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "LoyaltyAccount",
-    propOrder = {"loyaltyAccountID"})
 public class LoyaltyAccount {
 
   /** The Loyalty account id. */
-  @XmlElement(name = "LoyaltyAccountID", required = true)
+  @SerializedName("LoyaltyAccountID")
   @Schema(description = "Identification of a Loyalty account.")
   protected LoyaltyAccountID loyaltyAccountID;
 
   /** The Loyalty brand. */
-  @XmlElement(name = "LoyaltyBrand")
+  @SerializedName("LoyaltyBrand")
   @Schema(description = "Identification of a Loyalty brand. --Rule: If a card is analysed")
   protected String loyaltyBrand;
 

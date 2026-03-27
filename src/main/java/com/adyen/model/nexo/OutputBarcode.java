@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: BarCode content to display or print. -- Usage: Various usage of barcode
@@ -24,15 +21,13 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OutputBarcode")
 public class OutputBarcode {
 
-  @XmlElement(name = "BarcodeValue", required = true)
+  @SerializedName("BarcodeValue")
   @Schema(description = "Value with a BarCode coding.")
   protected String barcodeValue;
 
-  @XmlElement(name = "BarcodeType")
+  @SerializedName("BarcodeType")
   @Schema(description = "Type of BarCode coding.")
   protected BarcodeType barcodeType;
 

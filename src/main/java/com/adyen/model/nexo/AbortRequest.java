@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Body of the Abort Request messageType. -- Usage: It conveys Information requested for
@@ -29,24 +26,20 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "AbortRequest",
-    propOrder = {"messageReference", "abortReason", "displayOutput"})
 public class AbortRequest {
 
   /** The Message reference. */
-  @XmlElement(name = "MessageReference", required = true)
+  @SerializedName("MessageReference")
   @Schema(description = "Identification of a previous POI transaction.")
   protected MessageReference messageReference;
 
   /** The Abort reason. */
-  @XmlElement(name = "AbortReason", required = true)
+  @SerializedName("AbortReason")
   @Schema(description = "Reason of aborting a transaction")
   protected String abortReason;
 
   /** The Display output. */
-  @XmlElement(name = "DisplayOutput")
+  @SerializedName("DisplayOutput")
   @Schema(
       description =
           "Information to display and the way to process the display. --Rule: To display an abort message to the Customer")

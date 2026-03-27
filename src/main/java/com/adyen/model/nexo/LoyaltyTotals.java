@@ -1,12 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Totals of the loyalty transaction during the reconciliation period.
@@ -27,24 +24,22 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LoyaltyTotals")
 public class LoyaltyTotals {
 
   /** The Transaction. */
-  @XmlElement(name = "TransactionType", required = true)
+  @SerializedName("TransactionType")
   @Schema(
       description =
           "Type of transaction for which totals are grouped. --Rule: Award, ReverseAward, Redemption, ReverseRedemption, Rebate, ReverseRebate")
   protected TransactionType transactionType;
 
   /** The Transaction count. */
-  @XmlElement(name = "TransactionCount", required = true)
+  @SerializedName("TransactionCount")
   @Schema(description = "Number of processed transaction during the period.")
   protected BigInteger transactionCount;
 
   /** The Transaction amount. */
-  @XmlElement(name = "TransactionAmount", required = true)
+  @SerializedName("TransactionAmount")
   @Schema(description = "Sum of amount of processed transaction during the period.")
   protected BigDecimal transactionAmount;
 

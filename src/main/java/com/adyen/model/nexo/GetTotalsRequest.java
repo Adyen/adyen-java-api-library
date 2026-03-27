@@ -1,13 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Get Totals Request messageType. -- Usage: It conveys information from
@@ -31,22 +27,17 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "GetTotalsRequest",
-    propOrder = {"totalDetails", "totalFilter"})
 public class GetTotalsRequest {
 
   /** The Total details. */
-  @XmlList
-  @XmlElement(name = "TotalDetails")
+  @SerializedName("TotalDetails")
   @Schema(
       description =
           "Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation. --Rule: Require to present totals per value of element included in this cluster (POI Terminal, Sale Terminal, Cashier, Shift,")
   protected List<TotalDetailsType> totalDetails;
 
   /** The Total filter. */
-  @XmlElement(name = "TotalFilter")
+  @SerializedName("TotalFilter")
   @Schema(description = "Filter to compute the totals. --Rule: If structure is not empty")
   protected TotalFilter totalFilter;
 

@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Content of the Balance Inquiry Request messageType. -- Usage: It conveys Information
@@ -27,19 +24,15 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "BalanceInquiryRequest",
-    propOrder = {"paymentAccountReq", "loyaltyAccountReq"})
 public class BalanceInquiryRequest {
 
   /** The Payment account req. */
-  @XmlElement(name = "PaymentAccountReq")
+  @SerializedName("PaymentAccountReq")
   @Schema(description = "Data related to the account pointed by the payment card")
   protected PaymentAccountReq paymentAccountReq;
 
   /** The Loyalty account req. */
-  @XmlElement(name = "LoyaltyAccountReq")
+  @SerializedName("LoyaltyAccountReq")
   @Schema(description = "Data related to a requested Loyalty program or account.")
   protected LoyaltyAccountReq loyaltyAccountReq;
 

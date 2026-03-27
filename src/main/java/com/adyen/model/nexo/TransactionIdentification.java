@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
@@ -25,17 +22,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TransactionIdentification")
 public class TransactionIdentification {
 
   /** The Transaction id. */
-  @XmlElement(name = "TransactionID", required = true)
+  @SerializedName("TransactionID")
   @Schema(description = "Unique identification of a transaction")
   protected String transactionID;
 
   /** The Time stamp. */
-  @XmlElement(name = "TimeStamp", required = true)
+  @SerializedName("TimeStamp")
   @Schema(
       description =
           "Date and time of a transaction for the Sale System, the POI System or the Acquirer.")

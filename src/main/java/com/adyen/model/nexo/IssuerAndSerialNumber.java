@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Cryptographic Message Syntax (CMS) data structure containing the issuer name and
@@ -29,18 +26,14 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "IssuerAndSerialNumber",
-    propOrder = {"issuer", "serialNumber"})
 public class IssuerAndSerialNumber {
 
   /** The Issuer. */
-  @XmlElement(name = "Issuer", required = true)
+  @SerializedName("Issuer")
   protected Issuer issuer;
 
   /** The Serial number. */
-  @XmlElement(name = "SerialNumber", required = true)
+  @SerializedName("SerialNumber")
   protected BigInteger serialNumber;
 
   /**

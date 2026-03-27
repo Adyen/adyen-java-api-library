@@ -1,10 +1,7 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Definition: Identification of a previous POI transaction. -- Usage: In the Payment or the Loyalty
@@ -35,58 +32,54 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-    name = "OriginalPOITransaction",
-    propOrder = {"poiTransactionID", "approvalCode", "hostTransactionID"})
 public class OriginalPOITransaction {
 
   /** The Poi transaction id. */
-  @XmlElement(name = "POITransactionID")
+  @SerializedName("POITransactionID")
   @Schema(
       description =
           "Unique identification of a POI transaction for a POI --Rule: Absent if SaleReferenceID is sufficient to identify the transaction, or for some reversal cases.")
   protected TransactionIdentification poiTransactionID;
 
   /** The Approval code. */
-  @XmlElement(name = "ApprovalCode")
+  @SerializedName("ApprovalCode")
   @Schema(
       description = "Code assigned to a transaction approval by the Acquirer. --Rule: If referral")
   protected String approvalCode;
 
   /** The Host transaction id. */
-  @XmlElement(name = "HostTransactionID")
+  @SerializedName("HostTransactionID")
   @Schema(
       description =
           "Identification of the transaction by the host in charge of the stored value transaction --Rule: If POITransactionID not present")
   protected TransactionIdentification hostTransactionID;
 
   /** The Sale id. */
-  @XmlElement(name = "SaleID")
+  @SerializedName("SaleID")
   @Schema(
       description =
           "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
   protected String saleID;
 
   /** The Poiid. */
-  @XmlElement(name = "POIID")
+  @SerializedName("POIID")
   @Schema(
       description =
           "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If original transaction is coming from another POI")
   protected String poiid;
 
   /** The Reuse card data flag. */
-  @XmlElement(name = "ReuseCardDataFlag")
+  @SerializedName("ReuseCardDataFlag")
   @Schema(description = "Indicate if the card data has to be got from a previous transaction.")
   protected Boolean reuseCardDataFlag;
 
   /** The Customer language. */
-  @XmlElement(name = "CustomerLanguage")
+  @SerializedName("CustomerLanguage")
   @Schema(description = "Language of the Customer --Rule: Optional for Reversal, otherwise absent.")
   protected String customerLanguage;
 
   /** The Acquirer id. */
-  @XmlElement(name = "AcquirerID")
+  @SerializedName("AcquirerID")
   @Schema(
       description =
           "Identification of the Acquirer --Rule: Optional for Reversal, otherwise absent.")

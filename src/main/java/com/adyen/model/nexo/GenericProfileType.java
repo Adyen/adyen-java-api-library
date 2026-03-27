@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * Java class for GenericProfileType.
@@ -21,12 +19,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;/simpleType&gt;
  * </pre>
  */
-@XmlType(name = "GenericProfileType")
-@XmlEnum
 public enum GenericProfileType {
 
   /** Protocol services that needs to be implemented by all the Sale and POI */
-  @XmlEnumValue("Basic")
+  @SerializedName("Basic")
   @Schema(description = "Protocol services that needs to be implemented by all the Sale and POI")
   BASIC("Basic"),
 
@@ -34,14 +30,14 @@ public enum GenericProfileType {
    * Protocol services involving interaction between Sale System and POI System as devices shared
    * between the two Systems.
    */
-  @XmlEnumValue("Standard")
+  @SerializedName("Standard")
   @Schema(
       description =
           "Protocol services involving interaction between Sale System and POI System as devices shared between the two Systems.")
   STANDARD("Standard"),
 
   /** Complete Protocol services */
-  @XmlEnumValue("Extended")
+  @SerializedName("Extended")
   @Schema(description = "Complete Protocol services")
   EXTENDED("Extended");
   private final String value;
