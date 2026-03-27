@@ -3,6 +3,7 @@ package com.adyen;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -121,5 +122,63 @@ public class ServiceTest extends BaseTest {
     IllegalArgumentException e =
         assertThrows(IllegalArgumentException.class, () -> service.createBaseURL(testUrl));
     assertEquals("please provide a live url prefix in the client", e.getMessage());
+  }
+
+  @Test
+  public void testDeviceApiTestEnvironment() {
+    config.setEnvironment(Environment.TEST);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(testUrl, actualUrl);
+  }
+
+  @Test
+  public void testDeviceApiLiveUrlDefaultRegion() {
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+    String expectedUrl = "https://device-api-live.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @Test
+  public void testDeviceApiLiveUrlEuRegion() {
+    config.setTerminalApiRegion(Region.EU);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+    String expectedUrl = "https://device-api-live.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @Test
+  public void testDeviceApiLiveUrlAuRegion() {
+    config.setTerminalApiRegion(Region.AU);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+    String expectedUrl = "https://device-api-live-au.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @Test
+  public void testDeviceApiLiveUrlUsRegion() {
+    config.setTerminalApiRegion(Region.US);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+    String expectedUrl = "https://device-api-live-us.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @Test
+  public void testDeviceApiLiveUrlApseRegion() {
+    config.setTerminalApiRegion(Region.APSE);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+    String expectedUrl = "https://device-api-live-apse.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
   }
 }
