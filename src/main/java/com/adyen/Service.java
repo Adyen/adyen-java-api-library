@@ -21,6 +21,7 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
 
 /**
  * A generic service that provides shared functionality for all API services. It handles client and
@@ -136,6 +137,20 @@ public class Service {
                 "https://"
                     + config.getLiveEndpointUrlPrefix()
                     + "-checkout-live.adyenpayments.com/checkout/");
+      }
+    }
+
+    if (url.contains("device-api-")) {
+      if (config.getTerminalApiRegion() == null
+          || config.getTerminalApiRegion().equals(Region.EU)) {
+        return url.replaceFirst(
+            "https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
+      } else {
+        return url.replaceFirst(
+            "https://device-api-test.adyen.com",
+            String.format(
+                "https://device-api-live-%s.adyen.com",
+                config.getTerminalApiRegion().name().toLowerCase()));
       }
     }
 
