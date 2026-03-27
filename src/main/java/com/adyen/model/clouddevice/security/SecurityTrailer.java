@@ -14,35 +14,39 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2019 Adyen B.V.
+ * Copyright (c) 2026 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.terminal.security;
+package com.adyen.model.clouddevice.security;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Arrays;
 import java.util.Objects;
 
-public class SecurityKey {
-  @SerializedName("passphrase")
-  private String passphrase;
-
-  @SerializedName("keyIdentifier")
-  private String keyIdentifier;
-
-  @SerializedName("keyVersion")
-  private Integer keyVersion;
-
-  @SerializedName("adyenCryptoVersion")
+public class SecurityTrailer {
+  @JsonProperty("AdyenCryptoVersion")
   private Integer adyenCryptoVersion;
 
-  public String getPassphrase() {
-    return passphrase;
+  @JsonProperty("KeyIdentifier")
+  private String keyIdentifier;
+
+  @JsonProperty("KeyVersion")
+  private Integer keyVersion;
+
+  @JsonProperty("Nonce")
+  private byte[] nonce;
+
+  @JsonProperty("Hmac")
+  private byte[] hmac;
+
+  public Integer getAdyenCryptoVersion() {
+    return adyenCryptoVersion;
   }
 
-  public void setPassphrase(String passphrase) {
-    this.passphrase = passphrase;
+  public void setAdyenCryptoVersion(Integer adyenCryptoVersion) {
+    this.adyenCryptoVersion = adyenCryptoVersion;
   }
 
   public String getKeyIdentifier() {
@@ -61,12 +65,20 @@ public class SecurityKey {
     this.keyVersion = keyVersion;
   }
 
-  public Integer getAdyenCryptoVersion() {
-    return adyenCryptoVersion;
+  public byte[] getNonce() {
+    return nonce;
   }
 
-  public void setAdyenCryptoVersion(Integer adyenCryptoVersion) {
-    this.adyenCryptoVersion = adyenCryptoVersion;
+  public void setNonce(byte[] nonce) {
+    this.nonce = nonce;
+  }
+
+  public byte[] getHmac() {
+    return hmac;
+  }
+
+  public void setHmac(byte[] hmac) {
+    this.hmac = hmac;
   }
 
   @Override
@@ -77,28 +89,34 @@ public class SecurityKey {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityKey that = (SecurityKey) o;
-    return passphrase.equals(that.passphrase)
-        && keyIdentifier.equals(that.keyIdentifier)
-        && keyVersion.equals(that.keyVersion)
-        && adyenCryptoVersion.equals(that.adyenCryptoVersion);
+    SecurityTrailer that = (SecurityTrailer) o;
+    return Objects.equals(adyenCryptoVersion, that.adyenCryptoVersion)
+        && Objects.equals(keyIdentifier, that.keyIdentifier)
+        && Objects.equals(keyVersion, that.keyVersion)
+        && Arrays.equals(nonce, that.nonce)
+        && Arrays.equals(hmac, that.hmac);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(passphrase, keyIdentifier, keyVersion, adyenCryptoVersion);
+    int result = Objects.hash(adyenCryptoVersion, keyIdentifier, keyVersion);
+    result = 31 * result + Arrays.hashCode(nonce);
+    result = 31 * result + Arrays.hashCode(hmac);
+    return result;
   }
 
   @Override
   public String toString() {
-    return "SecurityKey{"
+    return "SecurityTrailer{"
+        + "adyenCryptoVersion="
+        + adyenCryptoVersion
         + ", keyIdentifier='"
         + keyIdentifier
         + '\''
         + ", keyVersion="
         + keyVersion
-        + ", adyenCryptoVersion="
-        + adyenCryptoVersion
+        + ", nonce=[redacted]"
+        + ", hmac=[redacted]"
         + '}';
   }
 }
