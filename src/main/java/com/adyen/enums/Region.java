@@ -14,9 +14,6 @@ public enum Region {
   /** United States region */
   US,
 
-  /** India region */
-  IN,
-
   /** Asia-Pacific, South East region */
   APSE;
 

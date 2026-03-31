@@ -116,15 +116,6 @@ public class ClientTest extends BaseTest {
   }
 
   @Test
-  public void testUnmappedIndiaRegionThrowsException() {
-    Config config = new Config();
-    config.setEnvironment(Environment.LIVE);
-    config.setTerminalApiRegion(Region.IN);
-
-    Assertions.assertThrows(IllegalArgumentException.class, () -> new Client(config));
-  }
-
-  @Test
   public void testClientCertificateAuth() {
     Client client = new Client(clientCertificateAuthSSLContext, "Your-X-API-KEY");
     assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
