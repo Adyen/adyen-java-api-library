@@ -20,7 +20,7 @@ public class RegionTest {
             .collect(Collectors.toList());
 
     // Define the expected list of valid regions
-    List<String> expected = List.of("eu", "au", "us", "in", "apse");
+    List<String> expected = List.of("eu", "au", "us", "apse");
 
     // Assert that the VALID_REGIONS in Region matches the expected list
     assertEquals(expected, actual);
