@@ -181,4 +181,13 @@ public class ServiceTest extends BaseTest {
     String actualUrl = service.createBaseURL(testUrl);
     assertEquals(expectedUrl, actualUrl);
   }
+
+  @Test
+  public void testDeviceApiCustomDomainFallsBackToGenericReplacement() {
+    String testUrl = "https://my-proxy-test.example.com/device-api-v1/path";
+    String expectedUrl = "https://my-proxy-live.example.com/device-api-v1/path";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
 }

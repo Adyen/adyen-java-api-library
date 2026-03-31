@@ -143,14 +143,16 @@ public class Service {
     if (url.contains("device-api-")) {
       if (config.getTerminalApiRegion() == null
           || config.getTerminalApiRegion().equals(Region.EU)) {
-        return url.replaceFirst(
-            "https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
+        url =
+            url.replaceFirst(
+                "https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
       } else {
-        return url.replaceFirst(
-            "https://device-api-test.adyen.com",
-            String.format(
-                "https://device-api-live-%s.adyen.com",
-                config.getTerminalApiRegion().name().toLowerCase()));
+        url =
+            url.replaceFirst(
+                "https://device-api-test.adyen.com",
+                String.format(
+                    "https://device-api-live-%s.adyen.com",
+                    config.getTerminalApiRegion().name().toLowerCase()));
       }
     }
 
