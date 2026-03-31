@@ -11,7 +11,6 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.tapi.*;
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -22,78 +21,57 @@ import org.junit.jupiter.api.Test;
 public class CloudDeviceApiTest extends BaseTest {
 
   @Test
-  public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
+  public void baseUrlOnTest() {
     Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-    // get field by reflection (it is protected)
-    Field baseURLField = CloudDeviceApi.class.getDeclaredField("baseURL");
-    baseURLField.setAccessible(true);
-    String baseURL = (String) baseURLField.get(cloudDeviceApi);
     assertEquals(
         String.format("https://device-api-test.adyen.com/v%s", CloudDeviceApi.API_VERSION),
-        baseURL);
+        cloudDeviceApi.baseURL);
   }
 
   @Test
-  public void baseUrlOnLive() throws NoSuchFieldException, IllegalAccessException {
+  public void baseUrlOnLive() {
     Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE));
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-    // get field by reflection (it is protected)
-    Field baseURLField = CloudDeviceApi.class.getDeclaredField("baseURL");
-    baseURLField.setAccessible(true);
-    String baseURL = (String) baseURLField.get(cloudDeviceApi);
     assertEquals(
         String.format("https://device-api-live.adyen.com/v%s", CloudDeviceApi.API_VERSION),
-        baseURL);
+        cloudDeviceApi.baseURL);
   }
 
   @Test
-  public void baseUrlOnLivePreservesVersionPath()
-      throws NoSuchFieldException, IllegalAccessException {
+  public void baseUrlOnLivePreservesVersionPath() {
     Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE));
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-    Field baseURLField = CloudDeviceApi.class.getDeclaredField("baseURL");
-    baseURLField.setAccessible(true);
-    String baseURL = (String) baseURLField.get(cloudDeviceApi);
-    // The live base URL must retain the /v1 path so that resource paths are correct
     assertEquals(
         String.format("https://device-api-live.adyen.com/v%s", CloudDeviceApi.API_VERSION),
-        baseURL);
+        cloudDeviceApi.baseURL);
   }
 
   @Test
-  public void baseUrlOnLiveWithEuRegion() throws NoSuchFieldException, IllegalAccessException {
+  public void baseUrlOnLiveWithEuRegion() {
     Client client =
         new Client(
             new Config().apiKey("test").environment(Environment.LIVE).terminalApiRegion(Region.EU));
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-    // get field by reflection (it is protected)
-    Field baseURLField = CloudDeviceApi.class.getDeclaredField("baseURL");
-    baseURLField.setAccessible(true);
-    String baseURL = (String) baseURLField.get(cloudDeviceApi);
     assertEquals(
         String.format("https://device-api-live.adyen.com/v%s", CloudDeviceApi.API_VERSION),
-        baseURL);
+        cloudDeviceApi.baseURL);
   }
 
   @Test
-  public void baseUrlOnLiveWithRegion() throws NoSuchFieldException, IllegalAccessException {
+  public void baseUrlOnLiveWithRegion() {
     Client client =
         new Client(
             new Config().apiKey("test").environment(Environment.LIVE).terminalApiRegion(Region.US));
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-    // get field by reflection (it is protected)
-    Field baseURLField = CloudDeviceApi.class.getDeclaredField("baseURL");
-    baseURLField.setAccessible(true);
-    String baseURL = (String) baseURLField.get(cloudDeviceApi);
     assertEquals(
         String.format("https://device-api-live-us.adyen.com/v%s", CloudDeviceApi.API_VERSION),
-        baseURL);
+        cloudDeviceApi.baseURL);
   }
 
   @Test
