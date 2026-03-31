@@ -2086,15 +2086,17 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * Indicates the processing flow. Possible values: * **sale**: no separate capture required, funds
-   * are captured as part of the transaction * **auth**: separate capture is required. This might be
-   * automatic, depending on your [capture
-   * settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * Indicates the processing flow. Possible values: * **sale**: You do not need to separately
+   * capture the funds, because capture happens automatically as part of the transaction. *
+   * **auth**: If you have not [configured automatic capture for the
+   * transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   * manually capture the funds.
    *
-   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: no
-   *     separate capture required, funds are captured as part of the transaction * **auth**:
-   *     separate capture is required. This might be automatic, depending on your [capture
-   *     settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: You do
+   *     not need to separately capture the funds, because capture happens automatically as part of
+   *     the transaction. * **auth**: If you have not [configured automatic capture for the
+   *     transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   *     manually capture the funds.
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
    */
   public ResponseAdditionalDataCommon networkProcessingMode(String networkProcessingMode) {
@@ -2104,15 +2106,17 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * Indicates the processing flow. Possible values: * **sale**: no separate capture required, funds
-   * are captured as part of the transaction * **auth**: separate capture is required. This might be
-   * automatic, depending on your [capture
-   * settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * Indicates the processing flow. Possible values: * **sale**: You do not need to separately
+   * capture the funds, because capture happens automatically as part of the transaction. *
+   * **auth**: If you have not [configured automatic capture for the
+   * transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   * manually capture the funds.
    *
-   * @return networkProcessingMode Indicates the processing flow. Possible values: * **sale**: no
-   *     separate capture required, funds are captured as part of the transaction * **auth**:
-   *     separate capture is required. This might be automatic, depending on your [capture
-   *     settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * @return networkProcessingMode Indicates the processing flow. Possible values: * **sale**: You
+   *     do not need to separately capture the funds, because capture happens automatically as part
+   *     of the transaction. * **auth**: If you have not [configured automatic capture for the
+   *     transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   *     manually capture the funds.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2121,15 +2125,17 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * Indicates the processing flow. Possible values: * **sale**: no separate capture required, funds
-   * are captured as part of the transaction * **auth**: separate capture is required. This might be
-   * automatic, depending on your [capture
-   * settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * Indicates the processing flow. Possible values: * **sale**: You do not need to separately
+   * capture the funds, because capture happens automatically as part of the transaction. *
+   * **auth**: If you have not [configured automatic capture for the
+   * transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   * manually capture the funds.
    *
-   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: no
-   *     separate capture required, funds are captured as part of the transaction * **auth**:
-   *     separate capture is required. This might be automatic, depending on your [capture
-   *     settings](https://docs.adyen.com/online-payments/capture#types-of-capture).
+   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: You do
+   *     not need to separately capture the funds, because capture happens automatically as part of
+   *     the transaction. * **auth**: If you have not [configured automatic capture for the
+   *     transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   *     manually capture the funds.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
