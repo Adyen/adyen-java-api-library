@@ -67,20 +67,23 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#vendorExtensions.x-is-jackson-optional-nullable}}
   {{#isContainer}}
   {{#deprecated}}
-  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  /* deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}} */
+  @Deprecated
   {{/deprecated}}
   private JsonNullable<{{{datatypeWithEnum}}}> {{name}} = JsonNullable.<{{{datatypeWithEnum}}}>undefined();
   {{/isContainer}}
   {{^isContainer}}
   {{#deprecated}}
-  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  /* deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}} */
+  @Deprecated
   {{/deprecated}}
   private JsonNullable<{{{datatypeWithEnum}}}> {{name}} = JsonNullable.<{{{datatypeWithEnum}}}>{{#defaultValue}}of({{{.}}}){{/defaultValue}}{{^defaultValue}}undefined(){{/defaultValue}};
   {{/isContainer}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
   {{^vendorExtensions.x-is-jackson-optional-nullable}}
   {{#deprecated}}
-  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  /* deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}} */
+  @Deprecated
   {{/deprecated}}
   private {{{datatypeWithEnum}}} {{name}};
   {{#handleNullableProperties}}
@@ -131,7 +134,8 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
    {{/deprecated}}
    */
   {{#deprecated}}
-  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  /* deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}} */
+  @Deprecated
   {{/deprecated}}
   public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
     {{#vendorExtensions.x-enum-as-string}}
@@ -215,7 +219,8 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{/deprecated}}
    */
 {{#deprecated}}
-  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  /* deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}} */
+  @Deprecated
 {{/deprecated}}
 {{#useBeanValidation}}
 {{>beanValidation}}
@@ -271,7 +276,8 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
    {{/deprecated}}
    */
   {{#deprecated}}
-  @Deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
+  /* deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}} */
+  @Deprecated
   {{/deprecated}}
 {{#vendorExtensions.x-setter-extra-annotation}}  {{{vendorExtensions.x-setter-extra-annotation}}}
 {{/vendorExtensions.x-setter-extra-annotation}}{{#jackson}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{> jackson_annotations}}{{/vendorExtensions.x-is-jackson-optional-nullable}}{{/jackson}}
