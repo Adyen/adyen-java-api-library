@@ -86,7 +86,7 @@ final class NexoCryptoPrimitives {
     SecureRandom secureRandom;
     try {
       secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking");
-    } catch (Exception ignored) {
+    } catch (NoSuchAlgorithmException ignored) {
       secureRandom = new SecureRandom();
     }
     secureRandom.nextBytes(ivNonce);

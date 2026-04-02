@@ -44,9 +44,4 @@ public class NexoSecurityException extends Exception {
   public NexoSecurityException(Throwable cause) {
     super(cause);
   }
-
-  @Override
-  public String toString() {
-    return "NexoSecurityException{message=" + getMessage() + '}';
-  }
 }
