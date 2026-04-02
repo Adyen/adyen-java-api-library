@@ -1,5 +1,3 @@
-package com.adyen.security.clouddevice;
-
 /*
  *                       ######
  *                       ######
@@ -20,6 +18,7 @@ package com.adyen.security.clouddevice;
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+package com.adyen.security.clouddevice;
 
 import static com.adyen.model.clouddevice.security.NexoDerivedKey.NEXO_CIPHER_KEY_LENGTH;
 import static com.adyen.model.clouddevice.security.NexoDerivedKey.NEXO_HMAC_KEY_LENGTH;
@@ -41,6 +40,7 @@ final class NexoDerivedKeyGenerator {
   static NexoDerivedKey deriveKeyMaterial(String passphrase)
       throws NoSuchAlgorithmException, InvalidKeySpecException {
     byte[] salt = "AdyenNexoV1Salt".getBytes(StandardCharsets.UTF_8);
+    // Iteration count is fixed at 4000 as mandated by the Nexo protocol specification (AdyenNexoV1)
     int iterations = 4000;
 
     PBEKeySpec spec =

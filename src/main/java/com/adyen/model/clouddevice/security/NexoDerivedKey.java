@@ -46,27 +46,27 @@ public class NexoDerivedKey {
   }
 
   public byte[] getHmacKey() {
-    return hmacKey;
+    return Arrays.copyOf(hmacKey, hmacKey.length);
   }
 
   public void setHmacKey(byte[] hmacKey) {
-    this.hmacKey = hmacKey;
+    this.hmacKey = Arrays.copyOf(hmacKey, hmacKey.length);
   }
 
   public byte[] getCipherKey() {
-    return cipherKey;
+    return Arrays.copyOf(cipherKey, cipherKey.length);
   }
 
   public void setCipherKey(byte[] cipherKey) {
-    this.cipherKey = cipherKey;
+    this.cipherKey = Arrays.copyOf(cipherKey, cipherKey.length);
   }
 
   public byte[] getIv() {
-    return iv;
+    return Arrays.copyOf(iv, iv.length);
   }
 
   public void setIv(byte[] iv) {
-    this.iv = iv;
+    this.iv = Arrays.copyOf(iv, iv.length);
   }
 
   @Override

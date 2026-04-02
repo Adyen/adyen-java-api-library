@@ -22,30 +22,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
-public class CloudDeviceApiEncryptionTest extends BaseTest {
+public class EncryptedCloudDeviceApiTest extends BaseTest {
+
+  private static final EncryptionCredentialDetails DEFAULT_CREDENTIALS =
+      new EncryptionCredentialDetails()
+          .adyenCryptoVersion(0)
+          .keyIdentifier("CryptoKeyIdentifier12345")
+          .keyVersion(0)
+          .passphrase("p@ssw0rd123456");
 
   @Test
   public void sendEncryptedSync() throws Exception {
     Client client =
         createMockClientFromFile("mocks/clouddevice/payment-sync-encrypted-success.json");
-
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-
-    CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
-
-    EncryptionCredentialDetails encryptionCredentialDetails =
-        new EncryptionCredentialDetails()
-            .adyenCryptoVersion(0)
-            .keyIdentifier("CryptoKeyIdentifier12345")
-            .keyVersion(0)
-            .passphrase("p@ssw0rd123456");
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
 
     var response =
-        cloudDeviceApi.syncEncrypted(
-            "TestMerchantAccount",
-            "MX915-284251016",
-            cloudDeviceApiRequest,
-            encryptionCredentialDetails);
+        api.sync("TestMerchantAccount", "MX915-284251016", createCloudDeviceAPIPaymentRequest());
 
     Assertions.assertNotNull(response);
     Assertions.assertNotNull(response.getSaleToPOIResponse());
@@ -72,28 +65,15 @@ public class CloudDeviceApiEncryptionTest extends BaseTest {
 
   @Test
   public void sendEncryptedAsync() throws Exception {
-    Client client = createMockClientFromFile("mocks/clouddevice/payment-async-success.json");
-
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-
-    CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
-
-    EncryptionCredentialDetails encryptionCredentialDetails =
-        new EncryptionCredentialDetails()
-            .adyenCryptoVersion(0)
-            .keyIdentifier("CryptoKeyIdentifier12345")
-            .keyVersion(0)
-            .passphrase("p@ssw0rd123456");
+    Client client =
+        createMockClientFromFile("mocks/clouddevice/payment-async-encrypted-success.json");
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
 
     var response =
-        cloudDeviceApi.asyncEncrypted(
-            "TestMerchantAccount",
-            "MX915-284251016",
-            cloudDeviceApiRequest,
-            encryptionCredentialDetails);
+        api.async("TestMerchantAccount", "MX915-284251016", createCloudDeviceAPIPaymentRequest());
 
     Assertions.assertNotNull(response);
-    Assertions.assertEquals("ok", response);
+    Assertions.assertEquals("ok", response.getResult());
 
     verify(client.getHttpClient())
         .request(
@@ -113,21 +93,55 @@ public class CloudDeviceApiEncryptionTest extends BaseTest {
   }
 
   @Test
-  public void decryptNotification() throws Exception {
+  public void asyncEncryptedEventNotification() throws Exception {
+    // Simulate the terminal returning an encrypted EventNotification instead of "ok"
+    NexoSecurityManager manager = new NexoSecurityManager(DEFAULT_CREDENTIALS);
 
-    Client client = createMockClientFromResponse(""); // nop client
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+    MessageHeader messageHeader = new MessageHeader();
+    messageHeader.setMessageClass(MessageClassType.EVENT);
+    messageHeader.setMessageCategory(MessageCategoryType.EVENT);
+    messageHeader.setMessageType(MessageType.NOTIFICATION);
+    messageHeader.setSaleID("sale-001");
+    messageHeader.setServiceID("svc-001");
+    messageHeader.setPOIID("MX915-284251016");
+
+    // The plaintext the terminal would encrypt: a SaleToPOIRequest envelope
+    String plaintextJson =
+        "{\"SaleToPOIRequest\":{\"MessageHeader\":{\"MessageCategory\":\"Event\","
+            + "\"POIID\":\"MX915-284251016\"}}}";
+    SaleToPOISecuredMessage encryptedMessage = manager.encrypt(plaintextJson, messageHeader);
+    CloudDeviceApiSecuredRequest encryptedRequest = new CloudDeviceApiSecuredRequest();
+    encryptedRequest.setSaleToPOIRequest(encryptedMessage);
+
+    Client client = createMockClientFromResponse(encryptedRequest.toJson());
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
+
+    var response =
+        api.async("TestMerchantAccount", "MX915-284251016", createCloudDeviceAPIPaymentRequest());
+
+    Assertions.assertNotNull(response);
+    Assertions.assertNull(response.getResult());
+    Assertions.assertNotNull(response.getSaleToPOIRequest());
+    Assertions.assertNotNull(response.getSaleToPOIRequest().getMessageHeader());
+    Assertions.assertEquals(
+        "MX915-284251016", response.getSaleToPOIRequest().getMessageHeader().getPOIID());
+  }
+
+  @Test
+  public void decryptNotification() throws Exception {
+    Client client = createMockClientFromResponse("");
+    EncryptedCloudDeviceApi api =
+        new EncryptedCloudDeviceApi(
+            client,
+            new EncryptionCredentialDetails()
+                .adyenCryptoVersion(1)
+                .keyIdentifier("Key123456789crypt")
+                .keyVersion(1)
+                .passphrase("P@ssw0rd123456"));
 
     String payload = getFileContents("mocks/clouddevice/encrypted-event-notification.json");
 
-    EncryptionCredentialDetails encryptionCredentialDetails =
-        new EncryptionCredentialDetails()
-            .adyenCryptoVersion(1)
-            .keyIdentifier("Key123456789crypt")
-            .keyVersion(1)
-            .passphrase("P@ssw0rd123456");
-
-    var response = cloudDeviceApi.decryptNotification(payload, encryptionCredentialDetails);
+    var response = api.decryptNotification(payload);
 
     Assertions.assertNotNull(response);
     assertFalse(response.contains("\"NexoBlob\":"));
@@ -136,38 +150,31 @@ public class CloudDeviceApiEncryptionTest extends BaseTest {
 
   @Test
   public void decryptNotificationInvalidPayload() throws Exception {
+    Client client = createMockClientFromResponse("");
+    EncryptedCloudDeviceApi api =
+        new EncryptedCloudDeviceApi(
+            client,
+            new EncryptionCredentialDetails()
+                .adyenCryptoVersion(1)
+                .keyIdentifier("Key123456789crypt")
+                .keyVersion(1)
+                .passphrase("P@ssw0rd123456"));
 
-    Client client = createMockClientFromResponse(""); // nop client
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-
-    String payload = "{...}";
-
-    EncryptionCredentialDetails encryptionCredentialDetails =
-        new EncryptionCredentialDetails()
-            .adyenCryptoVersion(1)
-            .keyIdentifier("Key123456789crypt")
-            .keyVersion(1)
-            .passphrase("P@ssw0rd123456");
-
-    Assertions.assertThrows(
-        NexoSecurityException.class,
-        () -> cloudDeviceApi.decryptNotification(payload, encryptionCredentialDetails));
+    Assertions.assertThrows(NexoSecurityException.class, () -> api.decryptNotification("{...}"));
   }
 
-  /** Point 8: decryptNotification must handle a SaleToPOIRequest envelope (event notification). */
   @Test
   public void decryptNotificationSaleToPOIRequest() throws Exception {
     Client client = createMockClientFromResponse("");
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
-
-    EncryptionCredentialDetails encryptionCredentialDetails =
+    EncryptionCredentialDetails creds =
         new EncryptionCredentialDetails()
             .adyenCryptoVersion(1)
             .keyIdentifier("CryptoKeyIdentifier12345")
             .keyVersion(1)
             .passphrase("p@ssw0rd123456");
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, creds);
+    NexoSecurityManager manager = new NexoSecurityManager(creds);
 
-    // Build a plaintext SaleToPOIRequest, encrypt it, and wrap it in the request envelope.
     String plaintextJson =
         "{\"SaleToPOIRequest\":{\"MessageHeader\":{\"MessageCategory\":\"Event\"}}}";
     MessageHeader messageHeader = new MessageHeader();
@@ -178,14 +185,11 @@ public class CloudDeviceApiEncryptionTest extends BaseTest {
     messageHeader.setServiceID("svc-001");
     messageHeader.setPOIID("MX915-000000001");
 
-    NexoSecurityManager manager = new NexoSecurityManager(encryptionCredentialDetails);
     SaleToPOISecuredMessage encryptedMessage = manager.encrypt(plaintextJson, messageHeader);
-
     CloudDeviceApiSecuredRequest securedRequest = new CloudDeviceApiSecuredRequest();
     securedRequest.setSaleToPOIRequest(encryptedMessage);
-    String payload = securedRequest.toJson();
 
-    String decrypted = cloudDeviceApi.decryptNotification(payload, encryptionCredentialDetails);
+    String decrypted = api.decryptNotification(securedRequest.toJson());
 
     Assertions.assertNotNull(decrypted);
     Assertions.assertFalse(decrypted.contains("\"NexoBlob\":"));
@@ -196,34 +200,21 @@ public class CloudDeviceApiEncryptionTest extends BaseTest {
   public void syncEncryptedSetsPoiIdInEncryptedPayload() throws Exception {
     Client client =
         createMockClientFromFile("mocks/clouddevice/payment-sync-encrypted-success.json");
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+    NexoSecurityManager manager = new NexoSecurityManager(DEFAULT_CREDENTIALS);
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
 
-    EncryptionCredentialDetails encryptionCredentialDetails =
-        new EncryptionCredentialDetails()
-            .adyenCryptoVersion(0)
-            .keyIdentifier("CryptoKeyIdentifier12345")
-            .keyVersion(0)
-            .passphrase("p@ssw0rd123456");
-
-    // Request has no POIID set — syncEncrypted must set it from deviceId before encrypting
     CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
     cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader().setPOIID(null);
 
-    cloudDeviceApi.syncEncrypted(
-        "TestMerchantAccount",
-        "MX915-284251016",
-        cloudDeviceApiRequest,
-        encryptionCredentialDetails);
+    api.sync("TestMerchantAccount", "MX915-284251016", cloudDeviceApiRequest);
 
     ArgumentCaptor<String> bodyCaptor = ArgumentCaptor.forClass(String.class);
     verify(client.getHttpClient())
         .request(anyString(), bodyCaptor.capture(), any(), anyBoolean(), isNull(), any(), any());
 
-    // Decrypt the captured request body to inspect the plain MessageHeader
     String capturedJson = bodyCaptor.getValue();
     CloudDeviceApiSecuredRequest securedRequest =
         CloudDeviceApiSecuredRequest.fromJson(capturedJson);
-    NexoSecurityManager manager = new NexoSecurityManager(encryptionCredentialDetails);
     String decryptedJson = manager.decrypt(securedRequest.getSaleToPOIRequest());
 
     Assertions.assertTrue(
@@ -234,34 +225,21 @@ public class CloudDeviceApiEncryptionTest extends BaseTest {
   @Test
   public void asyncEncryptedSetsPoiIdInEncryptedPayload() throws Exception {
     Client client = createMockClientFromFile("mocks/clouddevice/payment-async-success.json");
-    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+    NexoSecurityManager manager = new NexoSecurityManager(DEFAULT_CREDENTIALS);
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
 
-    EncryptionCredentialDetails encryptionCredentialDetails =
-        new EncryptionCredentialDetails()
-            .adyenCryptoVersion(0)
-            .keyIdentifier("CryptoKeyIdentifier12345")
-            .keyVersion(0)
-            .passphrase("p@ssw0rd123456");
-
-    // Request has no POIID set — asyncEncrypted must set it from deviceId before encrypting
     CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
     cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader().setPOIID(null);
 
-    cloudDeviceApi.asyncEncrypted(
-        "TestMerchantAccount",
-        "MX915-284251016",
-        cloudDeviceApiRequest,
-        encryptionCredentialDetails);
+    api.async("TestMerchantAccount", "MX915-284251016", cloudDeviceApiRequest);
 
     ArgumentCaptor<String> bodyCaptor = ArgumentCaptor.forClass(String.class);
     verify(client.getHttpClient())
         .request(anyString(), bodyCaptor.capture(), any(), anyBoolean(), isNull(), any(), any());
 
-    // Decrypt the captured request body to inspect the plain MessageHeader
     String capturedJson = bodyCaptor.getValue();
     CloudDeviceApiSecuredRequest securedRequest =
         CloudDeviceApiSecuredRequest.fromJson(capturedJson);
-    NexoSecurityManager manager = new NexoSecurityManager(encryptionCredentialDetails);
     String decryptedJson = manager.decrypt(securedRequest.getSaleToPOIRequest());
 
     Assertions.assertTrue(
