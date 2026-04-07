@@ -149,6 +149,44 @@ public class EncryptedCloudDeviceApiTest extends BaseTest {
   }
 
   @Test
+  public void syncUnencryptedErrorResponse() throws Exception {
+    Client client = createMockClientFromFile("mocks/clouddevice/payment-sync-error.json");
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
+
+    var response =
+        api.sync("TestMerchantAccount", "MX915-284251016", createCloudDeviceAPIPaymentRequest());
+
+    Assertions.assertNotNull(response);
+    Assertions.assertNotNull(response.getSaleToPOIResponse());
+    Assertions.assertNotNull(response.getSaleToPOIResponse().getPaymentResponse());
+    Assertions.assertEquals(
+        "Failure",
+        response.getSaleToPOIResponse().getPaymentResponse().getResponse().getResult().getValue());
+    Assertions.assertEquals(
+        "UnreachableHost",
+        response
+            .getSaleToPOIResponse()
+            .getPaymentResponse()
+            .getResponse()
+            .getErrorCondition()
+            .getValue());
+  }
+
+  @Test
+  public void asyncUnencryptedErrorResponse() throws Exception {
+    Client client = createMockClientFromFile("mocks/clouddevice/payment-async-error.json");
+    EncryptedCloudDeviceApi api = new EncryptedCloudDeviceApi(client, DEFAULT_CREDENTIALS);
+
+    var response =
+        api.async("TestMerchantAccount", "MX915-284251016", createCloudDeviceAPIPaymentRequest());
+
+    Assertions.assertNotNull(response);
+    Assertions.assertNull(response.getResult());
+    Assertions.assertNotNull(response.getSaleToPOIRequest());
+    Assertions.assertNotNull(response.getSaleToPOIRequest().getMessageHeader());
+  }
+
+  @Test
   public void decryptNotificationInvalidPayload() throws Exception {
     Client client = createMockClientFromResponse("");
     EncryptedCloudDeviceApi api =
