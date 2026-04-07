@@ -99,7 +99,7 @@ public class RecurringTest extends BaseTest {
     String baseURL = (String) baseURLField.get(recurring);
     assertEquals(
         String.format(
-            "https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v%s",
+            "https://pal-test.adyen.com/pal/servlet/Recurring/v%s",
             RecurringApi.API_VERSION),
         baseURL);
   }
@@ -120,7 +120,7 @@ public class RecurringTest extends BaseTest {
     String baseURL = (String) baseURLField.get(recurring);
     assertEquals(
         String.format(
-            "https://myCompany-paltokenization-live.adyenpayments.com/paltokenization/servlet/Recurring/v%s",
+            "https://myCompany-pal-live.adyenpayments.com/pal/servlet/Recurring/v%s",
             RecurringApi.API_VERSION),
         baseURL);
   }
@@ -147,7 +147,7 @@ public class RecurringTest extends BaseTest {
         .request(
             eq(
                 String.format(
-                    "https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v%s/listRecurringDetails",
+                    "https://pal-test.adyen.com/pal/servlet/Recurring/v%s/listRecurringDetails",
                     RecurringApi.API_VERSION)),
             requestBodyCaptor.capture(),
             eq(client.getConfig()),
