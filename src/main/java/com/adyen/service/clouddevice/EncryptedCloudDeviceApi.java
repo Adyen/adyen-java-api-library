@@ -126,8 +126,15 @@ public class EncryptedCloudDeviceApi extends Service {
     CloudDeviceApiSecuredResponse cloudDeviceApiSecuredResponse =
         CloudDeviceApiSecuredResponse.fromJson(response);
 
+    SaleToPOISecuredMessage saleToPOISecuredResponse =
+        cloudDeviceApiSecuredResponse.getSaleToPOIResponse();
+    if (saleToPOISecuredResponse == null || saleToPOISecuredResponse.getNexoBlob() == null) {
+      // Terminal returned an unencrypted error response (e.g. terminal unreachable)
+      return CloudDeviceApiResponse.fromJson(response);
+    }
+
     return CloudDeviceApiResponse.fromJson(
-        nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse()));
+        nexoSecurityManager.decrypt(saleToPOISecuredResponse));
   }
 
   /**
@@ -190,7 +197,12 @@ public class EncryptedCloudDeviceApi extends Service {
       // Error response: an encrypted EventNotification wrapped in a SaleToPOIRequest envelope.
       // Decrypt it and surface the SaleToPOIRequest to the caller.
       CloudDeviceApiSecuredRequest encryptedError = CloudDeviceApiSecuredRequest.fromJson(response);
-      String decryptedJson = nexoSecurityManager.decrypt(encryptedError.getSaleToPOIRequest());
+      SaleToPOISecuredMessage encryptedErrorRequest = encryptedError.getSaleToPOIRequest();
+      if (encryptedErrorRequest == null || encryptedErrorRequest.getNexoBlob() == null) {
+        // Terminal returned an unencrypted error response (e.g. terminal unreachable)
+        return CloudDeviceApiAsyncResponse.fromJson(response);
+      }
+      String decryptedJson = nexoSecurityManager.decrypt(encryptedErrorRequest);
       CloudDeviceApiAsyncResponse errorResponse =
           CloudDeviceApiAsyncResponse.fromJson(decryptedJson);
       cloudDeviceApiAsyncResponse.setSaleToPOIRequest(errorResponse.getSaleToPOIRequest());

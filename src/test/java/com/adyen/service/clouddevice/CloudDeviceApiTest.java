@@ -11,6 +11,7 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.tapi.*;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -222,6 +223,66 @@ public class CloudDeviceApiTest extends BaseTest {
             null,
             ApiConstants.HttpMethod.GET,
             null);
+  }
+
+  @Test
+  public void cloudDeviceApiRequestSerialisesMessageHeader() throws Exception {
+    CloudDeviceApiRequest request = createCloudDeviceAPIPaymentRequest();
+
+    String json = request.toJson();
+    JsonNode root = JSON.getMapper().readTree(json);
+    JsonNode messageHeader = root.path("SaleToPOIRequest").path("MessageHeader");
+
+    Assertions.assertEquals("3.0", messageHeader.path("ProtocolVersion").asText());
+    Assertions.assertEquals("Service", messageHeader.path("MessageClass").asText());
+    Assertions.assertEquals("Payment", messageHeader.path("MessageCategory").asText());
+    Assertions.assertEquals("Request", messageHeader.path("MessageType").asText());
+    Assertions.assertEquals("001", messageHeader.path("SaleID").asText());
+    Assertions.assertEquals("001", messageHeader.path("ServiceID").asText());
+    Assertions.assertEquals("P400Plus-123456789", messageHeader.path("POIID").asText());
+  }
+
+  @Test
+  public void cloudDeviceApiRequestSerialisesPaymentRequest() throws Exception {
+    CloudDeviceApiRequest request = createCloudDeviceAPIPaymentRequest();
+
+    String json = request.toJson();
+    JsonNode root = JSON.getMapper().readTree(json);
+    JsonNode amountsReq =
+        root.path("SaleToPOIRequest")
+            .path("PaymentRequest")
+            .path("PaymentTransaction")
+            .path("AmountsReq");
+
+    Assertions.assertEquals("EUR", amountsReq.path("Currency").asText());
+    Assertions.assertEquals(
+        BigDecimal.ONE, amountsReq.path("RequestedAmount").decimalValue().stripTrailingZeros());
+  }
+
+  @Test
+  public void cloudDeviceApiRequestSerialisesTransactionId() throws Exception {
+    CloudDeviceApiRequest request = createCloudDeviceAPIPaymentRequest();
+
+    String json = request.toJson();
+    JsonNode root = JSON.getMapper().readTree(json);
+    JsonNode saleTransactionID =
+        root.path("SaleToPOIRequest")
+            .path("PaymentRequest")
+            .path("SaleData")
+            .path("SaleTransactionID");
+
+    Assertions.assertEquals("001", saleTransactionID.path("TransactionID").asText());
+    Assertions.assertFalse(saleTransactionID.path("TimeStamp").isMissingNode());
+  }
+
+  @Test
+  public void cloudDeviceApiRequestRoundTrip() throws Exception {
+    CloudDeviceApiRequest original = createCloudDeviceAPIPaymentRequest();
+
+    String json = original.toJson();
+    CloudDeviceApiRequest deserialised = CloudDeviceApiRequest.fromJson(json);
+
+    Assertions.assertEquals(original, deserialised);
   }
 
   protected CloudDeviceApiRequest createCloudDeviceAPIPaymentRequest() {

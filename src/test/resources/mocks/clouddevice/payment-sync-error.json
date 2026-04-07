@@ -1,0 +1,20 @@
+{
+  "SaleToPOIResponse": {
+    "MessageHeader": {
+      "ProtocolVersion": "3.0",
+      "SaleID": "001",
+      "MessageClass": "Service",
+      "MessageCategory": "Payment",
+      "ServiceID": "001",
+      "POIID": "MX915-284251016",
+      "MessageType": "Response"
+    },
+    "PaymentResponse": {
+      "Response": {
+        "Result": "Failure",
+        "ErrorCondition": "UnreachableHost",
+        "AdditionalResponse": "message=Terminal+is+not+reachable"
+      }
+    }
+  }
+}
