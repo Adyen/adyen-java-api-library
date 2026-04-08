@@ -141,7 +141,7 @@ public class CloudDeviceApiTest extends BaseTest {
     Assertions.assertNotNull(response.getSaleToPOIRequest());
 
     Assertions.assertEquals(
-        EventToNotifyType.REJECT,
+        EventToNotify.REJECT,
         response.getSaleToPOIRequest().getEventNotification().getEventToNotify());
 
     verify(client.getHttpClient())
@@ -229,8 +229,8 @@ public class CloudDeviceApiTest extends BaseTest {
 
     MessageHeader messageHeader = new MessageHeader();
     messageHeader.setProtocolVersion("3.0");
-    messageHeader.setMessageClass(MessageClassType.SERVICE);
-    messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
+    messageHeader.setMessageClass(MessageClass.SERVICE);
+    messageHeader.setMessageCategory(MessageCategory.PAYMENT);
     messageHeader.setMessageType(MessageType.REQUEST);
     messageHeader.setSaleID("001");
     messageHeader.setServiceID("001");
@@ -241,7 +241,7 @@ public class CloudDeviceApiTest extends BaseTest {
     PaymentRequest paymentRequest = new PaymentRequest();
 
     SaleData saleData = new SaleData();
-    TransactionIdentification transactionIdentification = new TransactionIdentification();
+    TransactionIDType transactionIdentification = new TransactionIDType();
     transactionIdentification.setTransactionID("001");
     OffsetDateTime timestamp = OffsetDateTime.now(ZoneOffset.UTC);
     transactionIdentification.setTimeStamp(timestamp);

@@ -98,8 +98,8 @@ public class EncryptedCloudDeviceApiTest extends BaseTest {
     NexoSecurityManager manager = new NexoSecurityManager(DEFAULT_CREDENTIALS);
 
     MessageHeader messageHeader = new MessageHeader();
-    messageHeader.setMessageClass(MessageClassType.EVENT);
-    messageHeader.setMessageCategory(MessageCategoryType.EVENT);
+    messageHeader.setMessageClass(MessageClass.EVENT);
+    messageHeader.setMessageCategory(MessageCategory.EVENT);
     messageHeader.setMessageType(MessageType.NOTIFICATION);
     messageHeader.setSaleID("sale-001");
     messageHeader.setServiceID("svc-001");
@@ -178,8 +178,8 @@ public class EncryptedCloudDeviceApiTest extends BaseTest {
     String plaintextJson =
         "{\"SaleToPOIRequest\":{\"MessageHeader\":{\"MessageCategory\":\"Event\"}}}";
     MessageHeader messageHeader = new MessageHeader();
-    messageHeader.setMessageClass(MessageClassType.EVENT);
-    messageHeader.setMessageCategory(MessageCategoryType.EVENT);
+    messageHeader.setMessageClass(MessageClass.EVENT);
+    messageHeader.setMessageCategory(MessageCategory.EVENT);
     messageHeader.setMessageType(MessageType.NOTIFICATION);
     messageHeader.setSaleID("sale-001");
     messageHeader.setServiceID("svc-001");
@@ -252,8 +252,8 @@ public class EncryptedCloudDeviceApiTest extends BaseTest {
 
     MessageHeader messageHeader = new MessageHeader();
     messageHeader.setProtocolVersion("3.0");
-    messageHeader.setMessageClass(MessageClassType.SERVICE);
-    messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
+    messageHeader.setMessageClass(MessageClass.SERVICE);
+    messageHeader.setMessageCategory(MessageCategory.PAYMENT);
     messageHeader.setMessageType(MessageType.REQUEST);
     messageHeader.setSaleID("001");
     messageHeader.setServiceID("001");
@@ -264,7 +264,7 @@ public class EncryptedCloudDeviceApiTest extends BaseTest {
     PaymentRequest paymentRequest = new PaymentRequest();
 
     SaleData saleData = new SaleData();
-    TransactionIdentification transactionIdentification = new TransactionIdentification();
+    TransactionIDType transactionIdentification = new TransactionIDType();
     transactionIdentification.setTransactionID("001");
     OffsetDateTime timestamp = OffsetDateTime.now(ZoneOffset.UTC);
     transactionIdentification.setTimeStamp(timestamp);
