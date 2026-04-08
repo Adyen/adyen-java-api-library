@@ -149,8 +149,8 @@ public class Transfer {
   private boolean isSetCreatedAt = false;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
-  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
-  private OffsetDateTime creationDate;
+  /* deprecated since Transfers API v3: Use createdAt or updatedAt */
+  @Deprecated private OffsetDateTime creationDate;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCreationDate = false;
@@ -1086,7 +1086,7 @@ public class Transfer {
    * @return the current {@code Transfer} instance, allowing for method chaining
    * @deprecated since Transfers API v3 Use createdAt or updatedAt
    */
-  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
+  @Deprecated
   public Transfer creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     isSetCreationDate = true; // mark as set
@@ -1099,9 +1099,9 @@ public class Transfer {
    *
    * @return creationDate The date and time when the event was triggered, in ISO 8601 extended
    *     format. For example, **2020-12-18T10:15:30+01:00**.
-   * @deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
+   * @deprecated since Transfers API v3 Use createdAt or updatedAt
    */
-  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -1116,7 +1116,7 @@ public class Transfer {
    *     format. For example, **2020-12-18T10:15:30+01:00**.
    * @deprecated since Transfers API v3 Use createdAt or updatedAt
    */
-  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
