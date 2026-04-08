@@ -104,12 +104,9 @@ public class Instalment {
   public Instalment() {}
 
   /**
-   * Type of instalment transaction. For requesting an instalment payment transaction. Possible
-   * values: * **DeferredInstalments** * **EqualInstalments** * **InequalInstalments**
+   * instalmentType
    *
-   * @param instalmentType Type of instalment transaction. For requesting an instalment payment
-   *     transaction. Possible values: * **DeferredInstalments** * **EqualInstalments** *
-   *     **InequalInstalments**
+   * @param instalmentType
    * @return the current {@code Instalment} instance, allowing for method chaining
    */
   public Instalment instalmentType(InstalmentType instalmentType) {
@@ -119,12 +116,9 @@ public class Instalment {
   }
 
   /**
-   * Type of instalment transaction. For requesting an instalment payment transaction. Possible
-   * values: * **DeferredInstalments** * **EqualInstalments** * **InequalInstalments**
+   * Get instalmentType
    *
-   * @return instalmentType Type of instalment transaction. For requesting an instalment payment
-   *     transaction. Possible values: * **DeferredInstalments** * **EqualInstalments** *
-   *     **InequalInstalments**
+   * @return instalmentType
    */
   @JsonProperty(JSON_PROPERTY_INSTALMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,12 +127,9 @@ public class Instalment {
   }
 
   /**
-   * Type of instalment transaction. For requesting an instalment payment transaction. Possible
-   * values: * **DeferredInstalments** * **EqualInstalments** * **InequalInstalments**
+   * instalmentType
    *
-   * @param instalmentType Type of instalment transaction. For requesting an instalment payment
-   *     transaction. Possible values: * **DeferredInstalments** * **EqualInstalments** *
-   *     **InequalInstalments**
+   * @param instalmentType
    */
   @JsonProperty(JSON_PROPERTY_INSTALMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,11 +251,9 @@ public class Instalment {
   }
 
   /**
-   * Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** *
-   * **Weekly**
+   * periodUnit
    *
-   * @param periodUnit Type of instalment transaction. Possible values: * **Annual** * **Daily** *
-   *     **Monthly** * **Weekly**
+   * @param periodUnit
    * @return the current {@code Instalment} instance, allowing for method chaining
    */
   public Instalment periodUnit(PeriodUnit periodUnit) {
@@ -274,11 +263,9 @@ public class Instalment {
   }
 
   /**
-   * Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** *
-   * **Weekly**
+   * Get periodUnit
    *
-   * @return periodUnit Type of instalment transaction. Possible values: * **Annual** * **Daily** *
-   *     **Monthly** * **Weekly**
+   * @return periodUnit
    */
   @JsonProperty(JSON_PROPERTY_PERIOD_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,11 +274,9 @@ public class Instalment {
   }
 
   /**
-   * Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** *
-   * **Weekly**
+   * periodUnit
    *
-   * @param periodUnit Type of instalment transaction. Possible values: * **Annual** * **Daily** *
-   *     **Monthly** * **Weekly**
+   * @param periodUnit
    */
   @JsonProperty(JSON_PROPERTY_PERIOD_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

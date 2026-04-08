@@ -49,7 +49,7 @@ public class PaymentData {
   private boolean isSetRequestedValidityDate = false;
 
   public static final String JSON_PROPERTY_CARD_ACQUISITION_REFERENCE = "CardAcquisitionReference";
-  private TransactionIdentification cardAcquisitionReference;
+  private TransactionIDType cardAcquisitionReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardAcquisitionReference = false;
@@ -75,15 +75,9 @@ public class PaymentData {
   public PaymentData() {}
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * paymentType
    *
-   * @param paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @param paymentType
    * @return the current {@code PaymentData} instance, allowing for method chaining
    */
   public PaymentData paymentType(PaymentType paymentType) {
@@ -93,15 +87,9 @@ public class PaymentData {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * Get paymentType
    *
-   * @return paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @return paymentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,15 +98,9 @@ public class PaymentData {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * paymentType
    *
-   * @param paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @param paymentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +203,7 @@ public class PaymentData {
    * @param cardAcquisitionReference
    * @return the current {@code PaymentData} instance, allowing for method chaining
    */
-  public PaymentData cardAcquisitionReference(TransactionIdentification cardAcquisitionReference) {
+  public PaymentData cardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
     return this;
@@ -234,7 +216,7 @@ public class PaymentData {
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getCardAcquisitionReference() {
+  public TransactionIDType getCardAcquisitionReference() {
     return cardAcquisitionReference;
   }
 
@@ -245,17 +227,15 @@ public class PaymentData {
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardAcquisitionReference(TransactionIdentification cardAcquisitionReference) {
+  public void setCardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
   }
 
   /**
-   * Information related an instalment transaction. To request an instalment to the issuer, or to
-   * make individual instalments of a payment transaction.
+   * instalment
    *
-   * @param instalment Information related an instalment transaction. To request an instalment to
-   *     the issuer, or to make individual instalments of a payment transaction.
+   * @param instalment
    * @return the current {@code PaymentData} instance, allowing for method chaining
    */
   public PaymentData instalment(Instalment instalment) {
@@ -265,11 +245,9 @@ public class PaymentData {
   }
 
   /**
-   * Information related an instalment transaction. To request an instalment to the issuer, or to
-   * make individual instalments of a payment transaction.
+   * Get instalment
    *
-   * @return instalment Information related an instalment transaction. To request an instalment to
-   *     the issuer, or to make individual instalments of a payment transaction.
+   * @return instalment
    */
   @JsonProperty(JSON_PROPERTY_INSTALMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,11 +256,9 @@ public class PaymentData {
   }
 
   /**
-   * Information related an instalment transaction. To request an instalment to the issuer, or to
-   * make individual instalments of a payment transaction.
+   * instalment
    *
-   * @param instalment Information related an instalment transaction. To request an instalment to
-   *     the issuer, or to make individual instalments of a payment transaction.
+   * @param instalment
    */
   @JsonProperty(JSON_PROPERTY_INSTALMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

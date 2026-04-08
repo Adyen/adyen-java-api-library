@@ -54,21 +54,9 @@ public class PaymentTotals {
   public PaymentTotals() {}
 
   /**
-   * Type of transaction for which totals are grouped. Debit, Credit, ReverseDebit, ReverseCredit,
-   * OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation,
-   * CompletedReservation, CashAdvance. Possible values: * **Award** * **CashAdvance** *
-   * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit** * **Declined** *
-   * **Failed** * **FirstReservation** * **IssuerInstalment** * **OneTimeReservation** * **Rebate**
-   * * **Redemption** * **ReverseAward** * **ReverseCredit** * **ReverseDebit** * **ReverseRebate**
-   * * **ReverseRedemption** * **UpdateReservation**
+   * transactionType
    *
-   * @param transactionType Type of transaction for which totals are grouped. Debit, Credit,
-   *     ReverseDebit, ReverseCredit, OneTimeReservation, CompletedDeffered, FirstReservation,
-   *     UpdateReservation, CompletedReservation, CashAdvance. Possible values: * **Award** *
-   *     **CashAdvance** * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit**
-   *     * **Declined** * **Failed** * **FirstReservation** * **IssuerInstalment** *
-   *     **OneTimeReservation** * **Rebate** * **Redemption** * **ReverseAward** * **ReverseCredit**
-   *     * **ReverseDebit** * **ReverseRebate** * **ReverseRedemption** * **UpdateReservation**
+   * @param transactionType
    * @return the current {@code PaymentTotals} instance, allowing for method chaining
    */
   public PaymentTotals transactionType(TransactionType transactionType) {
@@ -78,21 +66,9 @@ public class PaymentTotals {
   }
 
   /**
-   * Type of transaction for which totals are grouped. Debit, Credit, ReverseDebit, ReverseCredit,
-   * OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation,
-   * CompletedReservation, CashAdvance. Possible values: * **Award** * **CashAdvance** *
-   * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit** * **Declined** *
-   * **Failed** * **FirstReservation** * **IssuerInstalment** * **OneTimeReservation** * **Rebate**
-   * * **Redemption** * **ReverseAward** * **ReverseCredit** * **ReverseDebit** * **ReverseRebate**
-   * * **ReverseRedemption** * **UpdateReservation**
+   * Get transactionType
    *
-   * @return transactionType Type of transaction for which totals are grouped. Debit, Credit,
-   *     ReverseDebit, ReverseCredit, OneTimeReservation, CompletedDeffered, FirstReservation,
-   *     UpdateReservation, CompletedReservation, CashAdvance. Possible values: * **Award** *
-   *     **CashAdvance** * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit**
-   *     * **Declined** * **Failed** * **FirstReservation** * **IssuerInstalment** *
-   *     **OneTimeReservation** * **Rebate** * **Redemption** * **ReverseAward** * **ReverseCredit**
-   *     * **ReverseDebit** * **ReverseRebate** * **ReverseRedemption** * **UpdateReservation**
+   * @return transactionType
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,21 +77,9 @@ public class PaymentTotals {
   }
 
   /**
-   * Type of transaction for which totals are grouped. Debit, Credit, ReverseDebit, ReverseCredit,
-   * OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation,
-   * CompletedReservation, CashAdvance. Possible values: * **Award** * **CashAdvance** *
-   * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit** * **Declined** *
-   * **Failed** * **FirstReservation** * **IssuerInstalment** * **OneTimeReservation** * **Rebate**
-   * * **Redemption** * **ReverseAward** * **ReverseCredit** * **ReverseDebit** * **ReverseRebate**
-   * * **ReverseRedemption** * **UpdateReservation**
+   * transactionType
    *
-   * @param transactionType Type of transaction for which totals are grouped. Debit, Credit,
-   *     ReverseDebit, ReverseCredit, OneTimeReservation, CompletedDeffered, FirstReservation,
-   *     UpdateReservation, CompletedReservation, CashAdvance. Possible values: * **Award** *
-   *     **CashAdvance** * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit**
-   *     * **Declined** * **Failed** * **FirstReservation** * **IssuerInstalment** *
-   *     **OneTimeReservation** * **Rebate** * **Redemption** * **ReverseAward** * **ReverseCredit**
-   *     * **ReverseDebit** * **ReverseRebate** * **ReverseRedemption** * **UpdateReservation**
+   * @param transactionType
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

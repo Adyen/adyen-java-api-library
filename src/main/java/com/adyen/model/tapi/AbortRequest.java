@@ -57,9 +57,9 @@ public class AbortRequest {
   public AbortRequest() {}
 
   /**
-   * Identification of a previous POI transaction.
+   * messageReference
    *
-   * @param messageReference Identification of a previous POI transaction.
+   * @param messageReference
    * @return the current {@code AbortRequest} instance, allowing for method chaining
    */
   public AbortRequest messageReference(MessageReference messageReference) {
@@ -69,9 +69,9 @@ public class AbortRequest {
   }
 
   /**
-   * Identification of a previous POI transaction.
+   * Get messageReference
    *
-   * @return messageReference Identification of a previous POI transaction.
+   * @return messageReference
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,9 +80,9 @@ public class AbortRequest {
   }
 
   /**
-   * Identification of a previous POI transaction.
+   * messageReference
    *
-   * @param messageReference Identification of a previous POI transaction.
+   * @param messageReference
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,11 +127,9 @@ public class AbortRequest {
   }
 
   /**
-   * Information to display and the way to process the display. To display an abort message to the
-   * Customer.
+   * displayOutput
    *
-   * @param displayOutput Information to display and the way to process the display. To display an
-   *     abort message to the Customer.
+   * @param displayOutput
    * @return the current {@code AbortRequest} instance, allowing for method chaining
    */
   public AbortRequest displayOutput(DisplayOutput displayOutput) {
@@ -141,11 +139,9 @@ public class AbortRequest {
   }
 
   /**
-   * Information to display and the way to process the display. To display an abort message to the
-   * Customer.
+   * Get displayOutput
    *
-   * @return displayOutput Information to display and the way to process the display. To display an
-   *     abort message to the Customer.
+   * @return displayOutput
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,11 +150,9 @@ public class AbortRequest {
   }
 
   /**
-   * Information to display and the way to process the display. To display an abort message to the
-   * Customer.
+   * displayOutput
    *
-   * @param displayOutput Information to display and the way to process the display. To display an
-   *     abort message to the Customer.
+   * @param displayOutput
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

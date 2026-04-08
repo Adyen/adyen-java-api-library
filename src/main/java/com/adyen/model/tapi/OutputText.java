@@ -61,25 +61,25 @@ public class OutputText {
   private boolean isSetStartColumn = false;
 
   public static final String JSON_PROPERTY_CHARACTER_WIDTH = "CharacterWidth";
-  private CharacterWidthType characterWidth;
+  private CharacterWidth characterWidth;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCharacterWidth = false;
 
   public static final String JSON_PROPERTY_CHARACTER_HEIGHT = "CharacterHeight";
-  private CharacterHeightType characterHeight;
+  private CharacterHeight characterHeight;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCharacterHeight = false;
 
   public static final String JSON_PROPERTY_CHARACTER_STYLE = "CharacterStyle";
-  private CharacterStyleType characterStyle;
+  private CharacterStyle characterStyle;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCharacterStyle = false;
 
   public static final String JSON_PROPERTY_ALIGNMENT = "Alignment";
-  private AlignmentType alignment;
+  private Alignment alignment;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAlignment = false;
@@ -245,186 +245,141 @@ public class OutputText {
   }
 
   /**
-   * Character width of the text string to display or print. Absence of this data element means the
-   * characters have normal width. Possible values: * **DoubleWidth** * **SingleWidth**
+   * characterWidth
    *
-   * @param characterWidth Character width of the text string to display or print. Absence of this
-   *     data element means the characters have normal width. Possible values: * **DoubleWidth** *
-   *     **SingleWidth**
+   * @param characterWidth
    * @return the current {@code OutputText} instance, allowing for method chaining
    */
-  public OutputText characterWidth(CharacterWidthType characterWidth) {
+  public OutputText characterWidth(CharacterWidth characterWidth) {
     this.characterWidth = characterWidth;
     isSetCharacterWidth = true; // mark as set
     return this;
   }
 
   /**
-   * Character width of the text string to display or print. Absence of this data element means the
-   * characters have normal width. Possible values: * **DoubleWidth** * **SingleWidth**
+   * Get characterWidth
    *
-   * @return characterWidth Character width of the text string to display or print. Absence of this
-   *     data element means the characters have normal width. Possible values: * **DoubleWidth** *
-   *     **SingleWidth**
+   * @return characterWidth
    */
   @JsonProperty(JSON_PROPERTY_CHARACTER_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CharacterWidthType getCharacterWidth() {
+  public CharacterWidth getCharacterWidth() {
     return characterWidth;
   }
 
   /**
-   * Character width of the text string to display or print. Absence of this data element means the
-   * characters have normal width. Possible values: * **DoubleWidth** * **SingleWidth**
+   * characterWidth
    *
-   * @param characterWidth Character width of the text string to display or print. Absence of this
-   *     data element means the characters have normal width. Possible values: * **DoubleWidth** *
-   *     **SingleWidth**
+   * @param characterWidth
    */
   @JsonProperty(JSON_PROPERTY_CHARACTER_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCharacterWidth(CharacterWidthType characterWidth) {
+  public void setCharacterWidth(CharacterWidth characterWidth) {
     this.characterWidth = characterWidth;
     isSetCharacterWidth = true; // mark as set
   }
 
   /**
-   * Character height of the text string to display or print. Absence of this data element means the
-   * characters have normal height. Possible values: * **DoubleHeight** * **HalfHeight** *
-   * **SingleHeight**
+   * characterHeight
    *
-   * @param characterHeight Character height of the text string to display or print. Absence of this
-   *     data element means the characters have normal height. Possible values: * **DoubleHeight** *
-   *     **HalfHeight** * **SingleHeight**
+   * @param characterHeight
    * @return the current {@code OutputText} instance, allowing for method chaining
    */
-  public OutputText characterHeight(CharacterHeightType characterHeight) {
+  public OutputText characterHeight(CharacterHeight characterHeight) {
     this.characterHeight = characterHeight;
     isSetCharacterHeight = true; // mark as set
     return this;
   }
 
   /**
-   * Character height of the text string to display or print. Absence of this data element means the
-   * characters have normal height. Possible values: * **DoubleHeight** * **HalfHeight** *
-   * **SingleHeight**
+   * Get characterHeight
    *
-   * @return characterHeight Character height of the text string to display or print. Absence of
-   *     this data element means the characters have normal height. Possible values: *
-   *     **DoubleHeight** * **HalfHeight** * **SingleHeight**
+   * @return characterHeight
    */
   @JsonProperty(JSON_PROPERTY_CHARACTER_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CharacterHeightType getCharacterHeight() {
+  public CharacterHeight getCharacterHeight() {
     return characterHeight;
   }
 
   /**
-   * Character height of the text string to display or print. Absence of this data element means the
-   * characters have normal height. Possible values: * **DoubleHeight** * **HalfHeight** *
-   * **SingleHeight**
+   * characterHeight
    *
-   * @param characterHeight Character height of the text string to display or print. Absence of this
-   *     data element means the characters have normal height. Possible values: * **DoubleHeight** *
-   *     **HalfHeight** * **SingleHeight**
+   * @param characterHeight
    */
   @JsonProperty(JSON_PROPERTY_CHARACTER_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCharacterHeight(CharacterHeightType characterHeight) {
+  public void setCharacterHeight(CharacterHeight characterHeight) {
     this.characterHeight = characterHeight;
     isSetCharacterHeight = true; // mark as set
   }
 
   /**
-   * Typographic style of the sequence of characters to display or print. Absence of this data
-   * element means the characters have normal style. Possible values: * **Bold** * **Italic** *
-   * **Normal** * **Underline**
+   * characterStyle
    *
-   * @param characterStyle Typographic style of the sequence of characters to display or print.
-   *     Absence of this data element means the characters have normal style. Possible values: *
-   *     **Bold** * **Italic** * **Normal** * **Underline**
+   * @param characterStyle
    * @return the current {@code OutputText} instance, allowing for method chaining
    */
-  public OutputText characterStyle(CharacterStyleType characterStyle) {
+  public OutputText characterStyle(CharacterStyle characterStyle) {
     this.characterStyle = characterStyle;
     isSetCharacterStyle = true; // mark as set
     return this;
   }
 
   /**
-   * Typographic style of the sequence of characters to display or print. Absence of this data
-   * element means the characters have normal style. Possible values: * **Bold** * **Italic** *
-   * **Normal** * **Underline**
+   * Get characterStyle
    *
-   * @return characterStyle Typographic style of the sequence of characters to display or print.
-   *     Absence of this data element means the characters have normal style. Possible values: *
-   *     **Bold** * **Italic** * **Normal** * **Underline**
+   * @return characterStyle
    */
   @JsonProperty(JSON_PROPERTY_CHARACTER_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CharacterStyleType getCharacterStyle() {
+  public CharacterStyle getCharacterStyle() {
     return characterStyle;
   }
 
   /**
-   * Typographic style of the sequence of characters to display or print. Absence of this data
-   * element means the characters have normal style. Possible values: * **Bold** * **Italic** *
-   * **Normal** * **Underline**
+   * characterStyle
    *
-   * @param characterStyle Typographic style of the sequence of characters to display or print.
-   *     Absence of this data element means the characters have normal style. Possible values: *
-   *     **Bold** * **Italic** * **Normal** * **Underline**
+   * @param characterStyle
    */
   @JsonProperty(JSON_PROPERTY_CHARACTER_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCharacterStyle(CharacterStyleType characterStyle) {
+  public void setCharacterStyle(CharacterStyle characterStyle) {
     this.characterStyle = characterStyle;
     isSetCharacterStyle = true; // mark as set
   }
 
   /**
-   * Alignment of the text string on the display line or print line. Absence of this data element
-   * means the characters have normal alignment. Possible values: * **Centred** * **Justified** *
-   * **Left** * **Right**
+   * alignment
    *
-   * @param alignment Alignment of the text string on the display line or print line. Absence of
-   *     this data element means the characters have normal alignment. Possible values: *
-   *     **Centred** * **Justified** * **Left** * **Right**
+   * @param alignment
    * @return the current {@code OutputText} instance, allowing for method chaining
    */
-  public OutputText alignment(AlignmentType alignment) {
+  public OutputText alignment(Alignment alignment) {
     this.alignment = alignment;
     isSetAlignment = true; // mark as set
     return this;
   }
 
   /**
-   * Alignment of the text string on the display line or print line. Absence of this data element
-   * means the characters have normal alignment. Possible values: * **Centred** * **Justified** *
-   * **Left** * **Right**
+   * Get alignment
    *
-   * @return alignment Alignment of the text string on the display line or print line. Absence of
-   *     this data element means the characters have normal alignment. Possible values: *
-   *     **Centred** * **Justified** * **Left** * **Right**
+   * @return alignment
    */
   @JsonProperty(JSON_PROPERTY_ALIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AlignmentType getAlignment() {
+  public Alignment getAlignment() {
     return alignment;
   }
 
   /**
-   * Alignment of the text string on the display line or print line. Absence of this data element
-   * means the characters have normal alignment. Possible values: * **Centred** * **Justified** *
-   * **Left** * **Right**
+   * alignment
    *
-   * @param alignment Alignment of the text string on the display line or print line. Absence of
-   *     this data element means the characters have normal alignment. Possible values: *
-   *     **Centred** * **Justified** * **Left** * **Right**
+   * @param alignment
    */
   @JsonProperty(JSON_PROPERTY_ALIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAlignment(AlignmentType alignment) {
+  public void setAlignment(Alignment alignment) {
     this.alignment = alignment;
     isSetAlignment = true; // mark as set
   }

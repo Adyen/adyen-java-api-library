@@ -65,9 +65,9 @@ public class PaymentRequest {
   public PaymentRequest() {}
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest saleData(SaleData saleData) {
@@ -77,9 +77,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the Sale System.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,9 +88,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,9 +100,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the payment and loyalty transaction.
+   * paymentTransaction
    *
-   * @param paymentTransaction Data related to the payment and loyalty transaction.
+   * @param paymentTransaction
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest paymentTransaction(PaymentTransaction paymentTransaction) {
@@ -112,9 +112,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the payment and loyalty transaction.
+   * Get paymentTransaction
    *
-   * @return paymentTransaction Data related to the payment and loyalty transaction.
+   * @return paymentTransaction
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,9 +123,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the payment and loyalty transaction.
+   * paymentTransaction
    *
-   * @param paymentTransaction Data related to the payment and loyalty transaction.
+   * @param paymentTransaction
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,9 +135,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the payment transaction. If one data element is present.
+   * paymentData
    *
-   * @param paymentData Data related to the payment transaction. If one data element is present.
+   * @param paymentData
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest paymentData(PaymentData paymentData) {
@@ -147,9 +147,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the payment transaction. If one data element is present.
+   * Get paymentData
    *
-   * @return paymentData Data related to the payment transaction. If one data element is present.
+   * @return paymentData
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,9 +158,9 @@ public class PaymentRequest {
   }
 
   /**
-   * Data related to the payment transaction. If one data element is present.
+   * paymentData
    *
-   * @param paymentData Data related to the payment transaction. If one data element is present.
+   * @param paymentData
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

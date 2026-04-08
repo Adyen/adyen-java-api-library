@@ -50,7 +50,7 @@ public class ReversalRequest {
   private boolean isSetReversedAmount = false;
 
   public static final String JSON_PROPERTY_REVERSAL_REASON = "ReversalReason";
-  private ReversalReasonType reversalReason;
+  private ReversalReason reversalReason;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetReversalReason = false;
@@ -99,9 +99,9 @@ public class ReversalRequest {
   }
 
   /**
-   * Identification of a previous POI transaction.
+   * originalPOITransaction
    *
-   * @param originalPOITransaction Identification of a previous POI transaction.
+   * @param originalPOITransaction
    * @return the current {@code ReversalRequest} instance, allowing for method chaining
    */
   public ReversalRequest originalPOITransaction(OriginalPOITransaction originalPOITransaction) {
@@ -111,9 +111,9 @@ public class ReversalRequest {
   }
 
   /**
-   * Identification of a previous POI transaction.
+   * Get originalPOITransaction
    *
-   * @return originalPOITransaction Identification of a previous POI transaction.
+   * @return originalPOITransaction
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,9 +122,9 @@ public class ReversalRequest {
   }
 
   /**
-   * Identification of a previous POI transaction.
+   * originalPOITransaction
    *
-   * @param originalPOITransaction Identification of a previous POI transaction.
+   * @param originalPOITransaction
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,42 +175,36 @@ public class ReversalRequest {
   }
 
   /**
-   * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction**
-   * * **MerchantCancel** * **Unable2Compl**
+   * reversalReason
    *
-   * @param reversalReason Reason of the payment or loyalty reversal. Possible values: *
-   *     **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+   * @param reversalReason
    * @return the current {@code ReversalRequest} instance, allowing for method chaining
    */
-  public ReversalRequest reversalReason(ReversalReasonType reversalReason) {
+  public ReversalRequest reversalReason(ReversalReason reversalReason) {
     this.reversalReason = reversalReason;
     isSetReversalReason = true; // mark as set
     return this;
   }
 
   /**
-   * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction**
-   * * **MerchantCancel** * **Unable2Compl**
+   * Get reversalReason
    *
-   * @return reversalReason Reason of the payment or loyalty reversal. Possible values: *
-   *     **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+   * @return reversalReason
    */
   @JsonProperty(JSON_PROPERTY_REVERSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ReversalReasonType getReversalReason() {
+  public ReversalReason getReversalReason() {
     return reversalReason;
   }
 
   /**
-   * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction**
-   * * **MerchantCancel** * **Unable2Compl**
+   * reversalReason
    *
-   * @param reversalReason Reason of the payment or loyalty reversal. Possible values: *
-   *     **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+   * @param reversalReason
    */
   @JsonProperty(JSON_PROPERTY_REVERSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReversalReason(ReversalReasonType reversalReason) {
+  public void setReversalReason(ReversalReason reversalReason) {
     this.reversalReason = reversalReason;
     isSetReversalReason = true; // mark as set
   }

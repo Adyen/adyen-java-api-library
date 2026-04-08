@@ -33,7 +33,7 @@ import java.util.*;
 })
 public class MessageReference {
   public static final String JSON_PROPERTY_MESSAGE_CATEGORY = "MessageCategory";
-  private MessageCategoryType messageCategory;
+  private MessageCategory messageCategory;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMessageCategory = false;
@@ -71,69 +71,36 @@ public class MessageReference {
   public MessageReference() {}
 
   /**
-   * Category of message. CardAcquisition, Display, Input, Loyalty, Payment, Print, CardReaderInit,
-   * CardReaderPowerOff. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch** *
-   * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** * **Display**
-   * * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** * **Login** *
-   * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** * **Reconciliation** *
-   * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * messageCategory
    *
-   * @param messageCategory Category of message. CardAcquisition, Display, Input, Loyalty, Payment,
-   *     Print, CardReaderInit, CardReaderPowerOff. Possible values: * **Abort** * **Admin** *
-   *     **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** *
-   *     **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** *
-   *     **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** *
-   *     **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
-   *     **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * @param messageCategory
    * @return the current {@code MessageReference} instance, allowing for method chaining
    */
-  public MessageReference messageCategory(MessageCategoryType messageCategory) {
+  public MessageReference messageCategory(MessageCategory messageCategory) {
     this.messageCategory = messageCategory;
     isSetMessageCategory = true; // mark as set
     return this;
   }
 
   /**
-   * Category of message. CardAcquisition, Display, Input, Loyalty, Payment, Print, CardReaderInit,
-   * CardReaderPowerOff. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch** *
-   * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** * **Display**
-   * * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** * **Login** *
-   * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** * **Reconciliation** *
-   * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * Get messageCategory
    *
-   * @return messageCategory Category of message. CardAcquisition, Display, Input, Loyalty, Payment,
-   *     Print, CardReaderInit, CardReaderPowerOff. Possible values: * **Abort** * **Admin** *
-   *     **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** *
-   *     **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** *
-   *     **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** *
-   *     **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
-   *     **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * @return messageCategory
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MessageCategoryType getMessageCategory() {
+  public MessageCategory getMessageCategory() {
     return messageCategory;
   }
 
   /**
-   * Category of message. CardAcquisition, Display, Input, Loyalty, Payment, Print, CardReaderInit,
-   * CardReaderPowerOff. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch** *
-   * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** * **Display**
-   * * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** * **Login** *
-   * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** * **Reconciliation** *
-   * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * messageCategory
    *
-   * @param messageCategory Category of message. CardAcquisition, Display, Input, Loyalty, Payment,
-   *     Print, CardReaderInit, CardReaderPowerOff. Possible values: * **Abort** * **Admin** *
-   *     **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** *
-   *     **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** *
-   *     **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** *
-   *     **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
-   *     **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * @param messageCategory
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessageCategory(MessageCategoryType messageCategory) {
+  public void setMessageCategory(MessageCategory messageCategory) {
     this.messageCategory = messageCategory;
     isSetMessageCategory = true; // mark as set
   }

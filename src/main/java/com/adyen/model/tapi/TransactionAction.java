@@ -15,19 +15,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets ResponseMode */
-public enum ResponseModeType {
-  IMMEDIATE("Immediate"),
+/**
+ * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
+ * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
+ * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
+ * service request from the Sale System to complete the transaction. Possible values: *
+ * **AbortTransaction** * **StartTransaction**
+ */
+public enum TransactionAction {
+  ABORT_TRANSACTION("AbortTransaction"),
 
-  NOT_REQUIRED("NotRequired"),
-
-  PRINT_END("PrintEnd"),
-
-  SOUND_END("SoundEnd");
+  START_TRANSACTION("StartTransaction");
 
   private String value;
 
-  ResponseModeType(String value) {
+  TransactionAction(String value) {
     this.value = value;
   }
 
@@ -42,8 +44,8 @@ public enum ResponseModeType {
   }
 
   @JsonCreator
-  public static ResponseModeType fromValue(String value) {
-    for (ResponseModeType b : ResponseModeType.values()) {
+  public static TransactionAction fromValue(String value) {
+    for (TransactionAction b : TransactionAction.values()) {
       if (b.value.equals(value)) {
         return b;
       }

@@ -31,7 +31,7 @@ import java.util.*;
 })
 public class PaymentReceipt {
   public static final String JSON_PROPERTY_DOCUMENT_QUALIFIER = "DocumentQualifier";
-  private DocumentQualifierType documentQualifier;
+  private DocumentQualifier documentQualifier;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDocumentQualifier = false;
@@ -63,48 +63,36 @@ public class PaymentReceipt {
   public PaymentReceipt() {}
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. SaleReceipt or
-   * CashierReceipt. Possible values: * **CashierReceipt** * **CustomerReceipt** * **Document** *
-   * **Journal** * **SaleReceipt** * **Voucher**
+   * documentQualifier
    *
-   * @param documentQualifier Qualification of the document to print to the Cashier or the Customer.
-   *     SaleReceipt or CashierReceipt. Possible values: * **CashierReceipt** * **CustomerReceipt**
-   *     * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @param documentQualifier
    * @return the current {@code PaymentReceipt} instance, allowing for method chaining
    */
-  public PaymentReceipt documentQualifier(DocumentQualifierType documentQualifier) {
+  public PaymentReceipt documentQualifier(DocumentQualifier documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
     return this;
   }
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. SaleReceipt or
-   * CashierReceipt. Possible values: * **CashierReceipt** * **CustomerReceipt** * **Document** *
-   * **Journal** * **SaleReceipt** * **Voucher**
+   * Get documentQualifier
    *
-   * @return documentQualifier Qualification of the document to print to the Cashier or the
-   *     Customer. SaleReceipt or CashierReceipt. Possible values: * **CashierReceipt** *
-   *     **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @return documentQualifier
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DocumentQualifierType getDocumentQualifier() {
+  public DocumentQualifier getDocumentQualifier() {
     return documentQualifier;
   }
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. SaleReceipt or
-   * CashierReceipt. Possible values: * **CashierReceipt** * **CustomerReceipt** * **Document** *
-   * **Journal** * **SaleReceipt** * **Voucher**
+   * documentQualifier
    *
-   * @param documentQualifier Qualification of the document to print to the Cashier or the Customer.
-   *     SaleReceipt or CashierReceipt. Possible values: * **CashierReceipt** * **CustomerReceipt**
-   *     * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @param documentQualifier
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocumentQualifier(DocumentQualifierType documentQualifier) {
+  public void setDocumentQualifier(DocumentQualifier documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
   }
@@ -183,9 +171,9 @@ public class PaymentReceipt {
   }
 
   /**
-   * Content to display or print.
+   * outputContent
    *
-   * @param outputContent Content to display or print.
+   * @param outputContent
    * @return the current {@code PaymentReceipt} instance, allowing for method chaining
    */
   public PaymentReceipt outputContent(OutputContent outputContent) {
@@ -195,9 +183,9 @@ public class PaymentReceipt {
   }
 
   /**
-   * Content to display or print.
+   * Get outputContent
    *
-   * @return outputContent Content to display or print.
+   * @return outputContent
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,9 +194,9 @@ public class PaymentReceipt {
   }
 
   /**
-   * Content to display or print.
+   * outputContent
    *
-   * @param outputContent Content to display or print.
+   * @param outputContent
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

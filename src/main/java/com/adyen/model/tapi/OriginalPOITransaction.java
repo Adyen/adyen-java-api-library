@@ -48,7 +48,7 @@ public class OriginalPOITransaction {
   private boolean isSetPOIID = false;
 
   public static final String JSON_PROPERTY_PO_I_TRANSACTION_I_D = "POITransactionID";
-  private TransactionIdentification poITransactionID;
+  private TransactionIDType poITransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPoITransactionID = false;
@@ -78,7 +78,7 @@ public class OriginalPOITransaction {
   private boolean isSetAmountValue = false;
 
   public static final String JSON_PROPERTY_HOST_TRANSACTION_I_D = "HostTransactionID";
-  private TransactionIdentification hostTransactionID;
+  private TransactionIDType hostTransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetHostTransactionID = false;
@@ -168,42 +168,36 @@ public class OriginalPOITransaction {
   }
 
   /**
-   * Unique identification of a POI transaction for a POI. Absent if SaleReferenceID is sufficient
-   * to identify the transaction.
+   * poITransactionID
    *
-   * @param poITransactionID Unique identification of a POI transaction for a POI. Absent if
-   *     SaleReferenceID is sufficient to identify the transaction.
+   * @param poITransactionID
    * @return the current {@code OriginalPOITransaction} instance, allowing for method chaining
    */
-  public OriginalPOITransaction poITransactionID(TransactionIdentification poITransactionID) {
+  public OriginalPOITransaction poITransactionID(TransactionIDType poITransactionID) {
     this.poITransactionID = poITransactionID;
     isSetPoITransactionID = true; // mark as set
     return this;
   }
 
   /**
-   * Unique identification of a POI transaction for a POI. Absent if SaleReferenceID is sufficient
-   * to identify the transaction.
+   * Get poITransactionID
    *
-   * @return poITransactionID Unique identification of a POI transaction for a POI. Absent if
-   *     SaleReferenceID is sufficient to identify the transaction.
+   * @return poITransactionID
    */
   @JsonProperty(JSON_PROPERTY_PO_I_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getPoITransactionID() {
+  public TransactionIDType getPoITransactionID() {
     return poITransactionID;
   }
 
   /**
-   * Unique identification of a POI transaction for a POI. Absent if SaleReferenceID is sufficient
-   * to identify the transaction.
+   * poITransactionID
    *
-   * @param poITransactionID Unique identification of a POI transaction for a POI. Absent if
-   *     SaleReferenceID is sufficient to identify the transaction.
+   * @param poITransactionID
    */
   @JsonProperty(JSON_PROPERTY_PO_I_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoITransactionID(TransactionIdentification poITransactionID) {
+  public void setPoITransactionID(TransactionIDType poITransactionID) {
     this.poITransactionID = poITransactionID;
     isSetPoITransactionID = true; // mark as set
   }
@@ -352,42 +346,36 @@ public class OriginalPOITransaction {
   }
 
   /**
-   * Identification of the transaction by the host in charge of the stored value transaction. If
-   * POITransactionID not present.
+   * hostTransactionID
    *
-   * @param hostTransactionID Identification of the transaction by the host in charge of the stored
-   *     value transaction. If POITransactionID not present.
+   * @param hostTransactionID
    * @return the current {@code OriginalPOITransaction} instance, allowing for method chaining
    */
-  public OriginalPOITransaction hostTransactionID(TransactionIdentification hostTransactionID) {
+  public OriginalPOITransaction hostTransactionID(TransactionIDType hostTransactionID) {
     this.hostTransactionID = hostTransactionID;
     isSetHostTransactionID = true; // mark as set
     return this;
   }
 
   /**
-   * Identification of the transaction by the host in charge of the stored value transaction. If
-   * POITransactionID not present.
+   * Get hostTransactionID
    *
-   * @return hostTransactionID Identification of the transaction by the host in charge of the stored
-   *     value transaction. If POITransactionID not present.
+   * @return hostTransactionID
    */
   @JsonProperty(JSON_PROPERTY_HOST_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getHostTransactionID() {
+  public TransactionIDType getHostTransactionID() {
     return hostTransactionID;
   }
 
   /**
-   * Identification of the transaction by the host in charge of the stored value transaction. If
-   * POITransactionID not present.
+   * hostTransactionID
    *
-   * @param hostTransactionID Identification of the transaction by the host in charge of the stored
-   *     value transaction. If POITransactionID not present.
+   * @param hostTransactionID
    */
   @JsonProperty(JSON_PROPERTY_HOST_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHostTransactionID(TransactionIdentification hostTransactionID) {
+  public void setHostTransactionID(TransactionIDType hostTransactionID) {
     this.hostTransactionID = hostTransactionID;
     isSetHostTransactionID = true; // mark as set
   }

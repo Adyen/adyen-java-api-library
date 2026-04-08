@@ -109,7 +109,7 @@ public class LoyaltyAccountID {
   private boolean isSetIdentificationType = false;
 
   public static final String JSON_PROPERTY_IDENTIFICATION_SUPPORT = "IdentificationSupport";
-  private IdentificationSupportType identificationSupport;
+  private IdentificationSupport identificationSupport;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIdentificationSupport = false;
@@ -172,18 +172,9 @@ public class LoyaltyAccountID {
   }
 
   /**
-   * Type of account identification. In a request message, it informs the POI System the type of the
-   * account or card identification, when provided by the Sale Terminal. (e.g. because the card
-   * information is a barcode read by the Cashier on a scanner device). In a response message, it
-   * informs the Sale System the type of the account or card identification. Possible values: *
-   * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
+   * identificationType
    *
-   * @param identificationType Type of account identification. In a request message, it informs the
-   *     POI System the type of the account or card identification, when provided by the Sale
-   *     Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner
-   *     device). In a response message, it informs the Sale System the type of the account or card
-   *     identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** *
-   *     **PAN** * **PhoneNumber**
+   * @param identificationType
    * @return the current {@code LoyaltyAccountID} instance, allowing for method chaining
    */
   public LoyaltyAccountID identificationType(IdentificationType identificationType) {
@@ -193,18 +184,9 @@ public class LoyaltyAccountID {
   }
 
   /**
-   * Type of account identification. In a request message, it informs the POI System the type of the
-   * account or card identification, when provided by the Sale Terminal. (e.g. because the card
-   * information is a barcode read by the Cashier on a scanner device). In a response message, it
-   * informs the Sale System the type of the account or card identification. Possible values: *
-   * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
+   * Get identificationType
    *
-   * @return identificationType Type of account identification. In a request message, it informs the
-   *     POI System the type of the account or card identification, when provided by the Sale
-   *     Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner
-   *     device). In a response message, it informs the Sale System the type of the account or card
-   *     identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** *
-   *     **PAN** * **PhoneNumber**
+   * @return identificationType
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,18 +195,9 @@ public class LoyaltyAccountID {
   }
 
   /**
-   * Type of account identification. In a request message, it informs the POI System the type of the
-   * account or card identification, when provided by the Sale Terminal. (e.g. because the card
-   * information is a barcode read by the Cashier on a scanner device). In a response message, it
-   * informs the Sale System the type of the account or card identification. Possible values: *
-   * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
+   * identificationType
    *
-   * @param identificationType Type of account identification. In a request message, it informs the
-   *     POI System the type of the account or card identification, when provided by the Sale
-   *     Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner
-   *     device). In a response message, it informs the Sale System the type of the account or card
-   *     identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** *
-   *     **PAN** * **PhoneNumber**
+   * @param identificationType
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,48 +207,36 @@ public class LoyaltyAccountID {
   }
 
   /**
-   * Support of the loyalty account identification. Allows knowing where and how you have found the
-   * loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** *
-   * **LoyaltyCard** * **NoCard**
+   * identificationSupport
    *
-   * @param identificationSupport Support of the loyalty account identification. Allows knowing
-   *     where and how you have found the loyalty account identification. Possible values: *
-   *     **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
+   * @param identificationSupport
    * @return the current {@code LoyaltyAccountID} instance, allowing for method chaining
    */
-  public LoyaltyAccountID identificationSupport(IdentificationSupportType identificationSupport) {
+  public LoyaltyAccountID identificationSupport(IdentificationSupport identificationSupport) {
     this.identificationSupport = identificationSupport;
     isSetIdentificationSupport = true; // mark as set
     return this;
   }
 
   /**
-   * Support of the loyalty account identification. Allows knowing where and how you have found the
-   * loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** *
-   * **LoyaltyCard** * **NoCard**
+   * Get identificationSupport
    *
-   * @return identificationSupport Support of the loyalty account identification. Allows knowing
-   *     where and how you have found the loyalty account identification. Possible values: *
-   *     **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
+   * @return identificationSupport
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_SUPPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IdentificationSupportType getIdentificationSupport() {
+  public IdentificationSupport getIdentificationSupport() {
     return identificationSupport;
   }
 
   /**
-   * Support of the loyalty account identification. Allows knowing where and how you have found the
-   * loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** *
-   * **LoyaltyCard** * **NoCard**
+   * identificationSupport
    *
-   * @param identificationSupport Support of the loyalty account identification. Allows knowing
-   *     where and how you have found the loyalty account identification. Possible values: *
-   *     **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
+   * @param identificationSupport
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_SUPPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIdentificationSupport(IdentificationSupportType identificationSupport) {
+  public void setIdentificationSupport(IdentificationSupport identificationSupport) {
     this.identificationSupport = identificationSupport;
     isSetIdentificationSupport = true; // mark as set
   }

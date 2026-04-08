@@ -60,7 +60,7 @@ public class SaleToPOIRequest {
   private boolean isSetAbortRequest = false;
 
   public static final String JSON_PROPERTY_BALANCE_INQUIRY_REQUEST = "BalanceInquiryRequest";
-  private AbortRequest balanceInquiryRequest;
+  private BalanceInquiryRequest balanceInquiryRequest;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBalanceInquiryRequest = false;
@@ -217,9 +217,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Abort Request message.
+   * abortRequest
    *
-   * @param abortRequest Content of the Abort Request message.
+   * @param abortRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest abortRequest(AbortRequest abortRequest) {
@@ -229,9 +229,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Abort Request message.
+   * Get abortRequest
    *
-   * @return abortRequest Content of the Abort Request message.
+   * @return abortRequest
    */
   @JsonProperty(JSON_PROPERTY_ABORT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,9 +240,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Abort Request message.
+   * abortRequest
    *
-   * @param abortRequest Content of the Abort Request message.
+   * @param abortRequest
    */
   @JsonProperty(JSON_PROPERTY_ABORT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,44 +252,44 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Balance Inquiry Request message.
+   * balanceInquiryRequest
    *
-   * @param balanceInquiryRequest Content of the Balance Inquiry Request message.
+   * @param balanceInquiryRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
-  public SaleToPOIRequest balanceInquiryRequest(AbortRequest balanceInquiryRequest) {
+  public SaleToPOIRequest balanceInquiryRequest(BalanceInquiryRequest balanceInquiryRequest) {
     this.balanceInquiryRequest = balanceInquiryRequest;
     isSetBalanceInquiryRequest = true; // mark as set
     return this;
   }
 
   /**
-   * Content of the Balance Inquiry Request message.
+   * Get balanceInquiryRequest
    *
-   * @return balanceInquiryRequest Content of the Balance Inquiry Request message.
+   * @return balanceInquiryRequest
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_INQUIRY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AbortRequest getBalanceInquiryRequest() {
+  public BalanceInquiryRequest getBalanceInquiryRequest() {
     return balanceInquiryRequest;
   }
 
   /**
-   * Content of the Balance Inquiry Request message.
+   * balanceInquiryRequest
    *
-   * @param balanceInquiryRequest Content of the Balance Inquiry Request message.
+   * @param balanceInquiryRequest
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_INQUIRY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBalanceInquiryRequest(AbortRequest balanceInquiryRequest) {
+  public void setBalanceInquiryRequest(BalanceInquiryRequest balanceInquiryRequest) {
     this.balanceInquiryRequest = balanceInquiryRequest;
     isSetBalanceInquiryRequest = true; // mark as set
   }
 
   /**
-   * Content of the Card Acquisition Request message.
+   * cardAcquisitionRequest
    *
-   * @param cardAcquisitionRequest Content of the Card Acquisition Request message.
+   * @param cardAcquisitionRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest cardAcquisitionRequest(CardAcquisitionRequest cardAcquisitionRequest) {
@@ -299,9 +299,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Card Acquisition Request message.
+   * Get cardAcquisitionRequest
    *
-   * @return cardAcquisitionRequest Content of the Card Acquisition Request message.
+   * @return cardAcquisitionRequest
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,9 +310,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Card Acquisition Request message.
+   * cardAcquisitionRequest
    *
-   * @param cardAcquisitionRequest Content of the Card Acquisition Request message.
+   * @param cardAcquisitionRequest
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,9 +322,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Admin Request message.
+   * adminRequest
    *
-   * @param adminRequest Content of the Admin Request message.
+   * @param adminRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest adminRequest(AdminRequest adminRequest) {
@@ -334,9 +334,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Admin Request message.
+   * Get adminRequest
    *
-   * @return adminRequest Content of the Admin Request message.
+   * @return adminRequest
    */
   @JsonProperty(JSON_PROPERTY_ADMIN_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,9 +345,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Admin Request message.
+   * adminRequest
    *
-   * @param adminRequest Content of the Admin Request message.
+   * @param adminRequest
    */
   @JsonProperty(JSON_PROPERTY_ADMIN_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -357,9 +357,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Diagnosis Request message.
+   * diagnosisRequest
    *
-   * @param diagnosisRequest Content of the Diagnosis Request message.
+   * @param diagnosisRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest diagnosisRequest(DiagnosisRequest diagnosisRequest) {
@@ -369,9 +369,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Diagnosis Request message.
+   * Get diagnosisRequest
    *
-   * @return diagnosisRequest Content of the Diagnosis Request message.
+   * @return diagnosisRequest
    */
   @JsonProperty(JSON_PROPERTY_DIAGNOSIS_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,9 +380,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Diagnosis Request message.
+   * diagnosisRequest
    *
-   * @param diagnosisRequest Content of the Diagnosis Request message.
+   * @param diagnosisRequest
    */
   @JsonProperty(JSON_PROPERTY_DIAGNOSIS_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -392,9 +392,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Display Request message.
+   * displayRequest
    *
-   * @param displayRequest Content of the Display Request message.
+   * @param displayRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest displayRequest(DisplayRequest displayRequest) {
@@ -404,9 +404,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Display Request message.
+   * Get displayRequest
    *
-   * @return displayRequest Content of the Display Request message.
+   * @return displayRequest
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,9 +415,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Display Request message.
+   * displayRequest
    *
-   * @param displayRequest Content of the Display Request message.
+   * @param displayRequest
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,9 +427,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Enable Service Request message.
+   * enableServiceRequest
    *
-   * @param enableServiceRequest Content of the Enable Service Request message.
+   * @param enableServiceRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest enableServiceRequest(EnableServiceRequest enableServiceRequest) {
@@ -439,9 +439,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Enable Service Request message.
+   * Get enableServiceRequest
    *
-   * @return enableServiceRequest Content of the Enable Service Request message.
+   * @return enableServiceRequest
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_SERVICE_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,9 +450,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Enable Service Request message.
+   * enableServiceRequest
    *
-   * @param enableServiceRequest Content of the Enable Service Request message.
+   * @param enableServiceRequest
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_SERVICE_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,9 +462,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the EventNotification message.
+   * eventNotification
    *
-   * @param eventNotification Content of the EventNotification message.
+   * @param eventNotification
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest eventNotification(EventNotification eventNotification) {
@@ -474,9 +474,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the EventNotification message.
+   * Get eventNotification
    *
-   * @return eventNotification Content of the EventNotification message.
+   * @return eventNotification
    */
   @JsonProperty(JSON_PROPERTY_EVENT_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -485,9 +485,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the EventNotification message.
+   * eventNotification
    *
-   * @param eventNotification Content of the EventNotification message.
+   * @param eventNotification
    */
   @JsonProperty(JSON_PROPERTY_EVENT_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -497,9 +497,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Get Totals Request message.
+   * getTotalsRequest
    *
-   * @param getTotalsRequest Content of the Get Totals Request message.
+   * @param getTotalsRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest getTotalsRequest(GetTotalsRequest getTotalsRequest) {
@@ -509,9 +509,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Get Totals Request message.
+   * Get getTotalsRequest
    *
-   * @return getTotalsRequest Content of the Get Totals Request message.
+   * @return getTotalsRequest
    */
   @JsonProperty(JSON_PROPERTY_GET_TOTALS_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -520,9 +520,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Get Totals Request message.
+   * getTotalsRequest
    *
-   * @param getTotalsRequest Content of the Get Totals Request message.
+   * @param getTotalsRequest
    */
   @JsonProperty(JSON_PROPERTY_GET_TOTALS_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -532,9 +532,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Input Request message.
+   * inputRequest
    *
-   * @param inputRequest Content of the Input Request message.
+   * @param inputRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest inputRequest(InputRequest inputRequest) {
@@ -544,9 +544,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Input Request message.
+   * Get inputRequest
    *
-   * @return inputRequest Content of the Input Request message.
+   * @return inputRequest
    */
   @JsonProperty(JSON_PROPERTY_INPUT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -555,9 +555,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Input Request message.
+   * inputRequest
    *
-   * @param inputRequest Content of the Input Request message.
+   * @param inputRequest
    */
   @JsonProperty(JSON_PROPERTY_INPUT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -567,9 +567,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Input Update message.
+   * inputUpdate
    *
-   * @param inputUpdate Content of the Input Update message.
+   * @param inputUpdate
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest inputUpdate(InputUpdate inputUpdate) {
@@ -579,9 +579,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Input Update message.
+   * Get inputUpdate
    *
-   * @return inputUpdate Content of the Input Update message.
+   * @return inputUpdate
    */
   @JsonProperty(JSON_PROPERTY_INPUT_UPDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -590,9 +590,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Input Update message.
+   * inputUpdate
    *
-   * @param inputUpdate Content of the Input Update message.
+   * @param inputUpdate
    */
   @JsonProperty(JSON_PROPERTY_INPUT_UPDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -602,9 +602,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Login Request message.
+   * loginRequest
    *
-   * @param loginRequest Content of the Login Request message.
+   * @param loginRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest loginRequest(LoginRequest loginRequest) {
@@ -614,9 +614,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Login Request message.
+   * Get loginRequest
    *
-   * @return loginRequest Content of the Login Request message.
+   * @return loginRequest
    */
   @JsonProperty(JSON_PROPERTY_LOGIN_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -625,9 +625,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Login Request message.
+   * loginRequest
    *
-   * @param loginRequest Content of the Login Request message.
+   * @param loginRequest
    */
   @JsonProperty(JSON_PROPERTY_LOGIN_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -637,9 +637,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Logout Request message.
+   * logoutRequest
    *
-   * @param logoutRequest Content of the Logout Request message.
+   * @param logoutRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest logoutRequest(LogoutRequest logoutRequest) {
@@ -649,9 +649,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Logout Request message.
+   * Get logoutRequest
    *
-   * @return logoutRequest Content of the Logout Request message.
+   * @return logoutRequest
    */
   @JsonProperty(JSON_PROPERTY_LOGOUT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -660,9 +660,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Logout Request message.
+   * logoutRequest
    *
-   * @param logoutRequest Content of the Logout Request message.
+   * @param logoutRequest
    */
   @JsonProperty(JSON_PROPERTY_LOGOUT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -672,9 +672,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Payment Request message.
+   * paymentRequest
    *
-   * @param paymentRequest Content of the Payment Request message.
+   * @param paymentRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest paymentRequest(PaymentRequest paymentRequest) {
@@ -684,9 +684,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Payment Request message.
+   * Get paymentRequest
    *
-   * @return paymentRequest Content of the Payment Request message.
+   * @return paymentRequest
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -695,9 +695,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Payment Request message.
+   * paymentRequest
    *
-   * @param paymentRequest Content of the Payment Request message.
+   * @param paymentRequest
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -707,9 +707,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Print Request message.
+   * printRequest
    *
-   * @param printRequest Content of the Print Request message.
+   * @param printRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest printRequest(PrintRequest printRequest) {
@@ -719,9 +719,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Print Request message.
+   * Get printRequest
    *
-   * @return printRequest Content of the Print Request message.
+   * @return printRequest
    */
   @JsonProperty(JSON_PROPERTY_PRINT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -730,9 +730,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Print Request message.
+   * printRequest
    *
-   * @param printRequest Content of the Print Request message.
+   * @param printRequest
    */
   @JsonProperty(JSON_PROPERTY_PRINT_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -742,9 +742,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Card Reader APDU Request message.
+   * cardReaderAPDURequest
    *
-   * @param cardReaderAPDURequest Content of the Card Reader APDU Request message.
+   * @param cardReaderAPDURequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest cardReaderAPDURequest(CardReaderAPDURequest cardReaderAPDURequest) {
@@ -754,9 +754,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Card Reader APDU Request message.
+   * Get cardReaderAPDURequest
    *
-   * @return cardReaderAPDURequest Content of the Card Reader APDU Request message.
+   * @return cardReaderAPDURequest
    */
   @JsonProperty(JSON_PROPERTY_CARD_READER_A_P_D_U_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -765,9 +765,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Card Reader APDU Request message.
+   * cardReaderAPDURequest
    *
-   * @param cardReaderAPDURequest Content of the Card Reader APDU Request message.
+   * @param cardReaderAPDURequest
    */
   @JsonProperty(JSON_PROPERTY_CARD_READER_A_P_D_U_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -777,9 +777,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Reconciliation Request message.
+   * reconciliationRequest
    *
-   * @param reconciliationRequest Content of the Reconciliation Request message.
+   * @param reconciliationRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest reconciliationRequest(ReconciliationRequest reconciliationRequest) {
@@ -789,9 +789,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Reconciliation Request message.
+   * Get reconciliationRequest
    *
-   * @return reconciliationRequest Content of the Reconciliation Request message.
+   * @return reconciliationRequest
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -800,9 +800,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Reconciliation Request message.
+   * reconciliationRequest
    *
-   * @param reconciliationRequest Content of the Reconciliation Request message.
+   * @param reconciliationRequest
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -812,9 +812,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Reversal Request message.
+   * reversalRequest
    *
-   * @param reversalRequest Content of the Reversal Request message.
+   * @param reversalRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest reversalRequest(ReversalRequest reversalRequest) {
@@ -824,9 +824,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Reversal Request message.
+   * Get reversalRequest
    *
-   * @return reversalRequest Content of the Reversal Request message.
+   * @return reversalRequest
    */
   @JsonProperty(JSON_PROPERTY_REVERSAL_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -835,9 +835,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Reversal Request message.
+   * reversalRequest
    *
-   * @param reversalRequest Content of the Reversal Request message.
+   * @param reversalRequest
    */
   @JsonProperty(JSON_PROPERTY_REVERSAL_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -847,9 +847,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Stored Value Request message.
+   * storedValueRequest
    *
-   * @param storedValueRequest Content of the Stored Value Request message.
+   * @param storedValueRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest storedValueRequest(StoredValueRequest storedValueRequest) {
@@ -859,9 +859,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Stored Value Request message.
+   * Get storedValueRequest
    *
-   * @return storedValueRequest Content of the Stored Value Request message.
+   * @return storedValueRequest
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -870,9 +870,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the Stored Value Request message.
+   * storedValueRequest
    *
-   * @param storedValueRequest Content of the Stored Value Request message.
+   * @param storedValueRequest
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -882,9 +882,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the TransactionStatus Request message.
+   * transactionStatusRequest
    *
-   * @param transactionStatusRequest Content of the TransactionStatus Request message.
+   * @param transactionStatusRequest
    * @return the current {@code SaleToPOIRequest} instance, allowing for method chaining
    */
   public SaleToPOIRequest transactionStatusRequest(
@@ -895,9 +895,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the TransactionStatus Request message.
+   * Get transactionStatusRequest
    *
-   * @return transactionStatusRequest Content of the TransactionStatus Request message.
+   * @return transactionStatusRequest
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -906,9 +906,9 @@ public class SaleToPOIRequest {
   }
 
   /**
-   * Content of the TransactionStatus Request message.
+   * transactionStatusRequest
    *
-   * @param transactionStatusRequest Content of the TransactionStatus Request message.
+   * @param transactionStatusRequest
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

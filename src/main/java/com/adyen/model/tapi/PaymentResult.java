@@ -189,15 +189,9 @@ public class PaymentResult {
   public PaymentResult() {}
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * paymentType
    *
-   * @param paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @param paymentType
    * @return the current {@code PaymentResult} instance, allowing for method chaining
    */
   public PaymentResult paymentType(PaymentType paymentType) {
@@ -207,15 +201,9 @@ public class PaymentResult {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * Get paymentType
    *
-   * @return paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @return paymentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,15 +212,9 @@ public class PaymentResult {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * paymentType
    *
-   * @param paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @param paymentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,17 +259,9 @@ public class PaymentResult {
   }
 
   /**
-   * Various amounts related to the payment response from the POI System. Amounts approved by the
-   * POI and the Acquirer for the payment and loyalty transaction, containing: * The authorised
-   * amount to be paid. * The amount of the rebates. * The amount of financial fees. * The cash back
-   * part of the requested amount for a payment with cash back. * The tip part of the requested
-   * amount for a payment with tip.
+   * amountsResp
    *
-   * @param amountsResp Various amounts related to the payment response from the POI System. Amounts
-   *     approved by the POI and the Acquirer for the payment and loyalty transaction, containing: *
-   *     The authorised amount to be paid. * The amount of the rebates. * The amount of financial
-   *     fees. * The cash back part of the requested amount for a payment with cash back. * The tip
-   *     part of the requested amount for a payment with tip.
+   * @param amountsResp
    * @return the current {@code PaymentResult} instance, allowing for method chaining
    */
   public PaymentResult amountsResp(AmountsResp amountsResp) {
@@ -297,17 +271,9 @@ public class PaymentResult {
   }
 
   /**
-   * Various amounts related to the payment response from the POI System. Amounts approved by the
-   * POI and the Acquirer for the payment and loyalty transaction, containing: * The authorised
-   * amount to be paid. * The amount of the rebates. * The amount of financial fees. * The cash back
-   * part of the requested amount for a payment with cash back. * The tip part of the requested
-   * amount for a payment with tip.
+   * Get amountsResp
    *
-   * @return amountsResp Various amounts related to the payment response from the POI System.
-   *     Amounts approved by the POI and the Acquirer for the payment and loyalty transaction,
-   *     containing: * The authorised amount to be paid. * The amount of the rebates. * The amount
-   *     of financial fees. * The cash back part of the requested amount for a payment with cash
-   *     back. * The tip part of the requested amount for a payment with tip.
+   * @return amountsResp
    */
   @JsonProperty(JSON_PROPERTY_AMOUNTS_RESP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,17 +282,9 @@ public class PaymentResult {
   }
 
   /**
-   * Various amounts related to the payment response from the POI System. Amounts approved by the
-   * POI and the Acquirer for the payment and loyalty transaction, containing: * The authorised
-   * amount to be paid. * The amount of the rebates. * The amount of financial fees. * The cash back
-   * part of the requested amount for a payment with cash back. * The tip part of the requested
-   * amount for a payment with tip.
+   * amountsResp
    *
-   * @param amountsResp Various amounts related to the payment response from the POI System. Amounts
-   *     approved by the POI and the Acquirer for the payment and loyalty transaction, containing: *
-   *     The authorised amount to be paid. * The amount of the rebates. * The amount of financial
-   *     fees. * The cash back part of the requested amount for a payment with cash back. * The tip
-   *     part of the requested amount for a payment with tip.
+   * @param amountsResp
    */
   @JsonProperty(JSON_PROPERTY_AMOUNTS_RESP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,11 +294,9 @@ public class PaymentResult {
   }
 
   /**
-   * Information related an instalment transaction. To request an instalment to the issuer, or to
-   * make individual instalments of a payment transaction.
+   * instalment
    *
-   * @param instalment Information related an instalment transaction. To request an instalment to
-   *     the issuer, or to make individual instalments of a payment transaction.
+   * @param instalment
    * @return the current {@code PaymentResult} instance, allowing for method chaining
    */
   public PaymentResult instalment(Instalment instalment) {
@@ -350,11 +306,9 @@ public class PaymentResult {
   }
 
   /**
-   * Information related an instalment transaction. To request an instalment to the issuer, or to
-   * make individual instalments of a payment transaction.
+   * Get instalment
    *
-   * @return instalment Information related an instalment transaction. To request an instalment to
-   *     the issuer, or to make individual instalments of a payment transaction.
+   * @return instalment
    */
   @JsonProperty(JSON_PROPERTY_INSTALMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,11 +317,9 @@ public class PaymentResult {
   }
 
   /**
-   * Information related an instalment transaction. To request an instalment to the issuer, or to
-   * make individual instalments of a payment transaction.
+   * instalment
    *
-   * @param instalment Information related an instalment transaction. To request an instalment to
-   *     the issuer, or to make individual instalments of a payment transaction.
+   * @param instalment
    */
   @JsonProperty(JSON_PROPERTY_INSTALMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -473,17 +425,9 @@ public class PaymentResult {
   }
 
   /**
-   * Numeric value of a handwritten signature. Contains the value of a handwritten signature, e.g.
-   * the signature of a cardholder on the merchant payment receipt. Only one format of the signature
-   * is allowed: * The size of the pad area where the signature is written, given with the maximum
-   * abscissa and ordinate values. * The sequence of coordinates where the pen changes direction or
-   * lift.
+   * capturedSignature
    *
-   * @param capturedSignature Numeric value of a handwritten signature. Contains the value of a
-   *     handwritten signature, e.g. the signature of a cardholder on the merchant payment receipt.
-   *     Only one format of the signature is allowed: * The size of the pad area where the signature
-   *     is written, given with the maximum abscissa and ordinate values. * The sequence of
-   *     coordinates where the pen changes direction or lift.
+   * @param capturedSignature
    * @return the current {@code PaymentResult} instance, allowing for method chaining
    */
   public PaymentResult capturedSignature(CapturedSignature capturedSignature) {
@@ -493,17 +437,9 @@ public class PaymentResult {
   }
 
   /**
-   * Numeric value of a handwritten signature. Contains the value of a handwritten signature, e.g.
-   * the signature of a cardholder on the merchant payment receipt. Only one format of the signature
-   * is allowed: * The size of the pad area where the signature is written, given with the maximum
-   * abscissa and ordinate values. * The sequence of coordinates where the pen changes direction or
-   * lift.
+   * Get capturedSignature
    *
-   * @return capturedSignature Numeric value of a handwritten signature. Contains the value of a
-   *     handwritten signature, e.g. the signature of a cardholder on the merchant payment receipt.
-   *     Only one format of the signature is allowed: * The size of the pad area where the signature
-   *     is written, given with the maximum abscissa and ordinate values. * The sequence of
-   *     coordinates where the pen changes direction or lift.
+   * @return capturedSignature
    */
   @JsonProperty(JSON_PROPERTY_CAPTURED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -512,17 +448,9 @@ public class PaymentResult {
   }
 
   /**
-   * Numeric value of a handwritten signature. Contains the value of a handwritten signature, e.g.
-   * the signature of a cardholder on the merchant payment receipt. Only one format of the signature
-   * is allowed: * The size of the pad area where the signature is written, given with the maximum
-   * abscissa and ordinate values. * The sequence of coordinates where the pen changes direction or
-   * lift.
+   * capturedSignature
    *
-   * @param capturedSignature Numeric value of a handwritten signature. Contains the value of a
-   *     handwritten signature, e.g. the signature of a cardholder on the merchant payment receipt.
-   *     Only one format of the signature is allowed: * The size of the pad area where the signature
-   *     is written, given with the maximum abscissa and ordinate values. * The sequence of
-   *     coordinates where the pen changes direction or lift.
+   * @param capturedSignature
    */
   @JsonProperty(JSON_PROPERTY_CAPTURED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

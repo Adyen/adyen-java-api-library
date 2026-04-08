@@ -28,7 +28,7 @@ import java.util.*;
 })
 public class SoundContent {
   public static final String JSON_PROPERTY_SOUND_FORMAT = "SoundFormat";
-  private SoundFormatType soundFormat;
+  private SoundFormat soundFormat;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSoundFormat = false;
@@ -60,36 +60,36 @@ public class SoundContent {
   public SoundContent() {}
 
   /**
-   * Possible values: * **MessageRef** * **SoundRef** * **Text**
+   * soundFormat
    *
-   * @param soundFormat Possible values: * **MessageRef** * **SoundRef** * **Text**
+   * @param soundFormat
    * @return the current {@code SoundContent} instance, allowing for method chaining
    */
-  public SoundContent soundFormat(SoundFormatType soundFormat) {
+  public SoundContent soundFormat(SoundFormat soundFormat) {
     this.soundFormat = soundFormat;
     isSetSoundFormat = true; // mark as set
     return this;
   }
 
   /**
-   * Possible values: * **MessageRef** * **SoundRef** * **Text**
+   * Get soundFormat
    *
-   * @return soundFormat Possible values: * **MessageRef** * **SoundRef** * **Text**
+   * @return soundFormat
    */
   @JsonProperty(JSON_PROPERTY_SOUND_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SoundFormatType getSoundFormat() {
+  public SoundFormat getSoundFormat() {
     return soundFormat;
   }
 
   /**
-   * Possible values: * **MessageRef** * **SoundRef** * **Text**
+   * soundFormat
    *
-   * @param soundFormat Possible values: * **MessageRef** * **SoundRef** * **Text**
+   * @param soundFormat
    */
   @JsonProperty(JSON_PROPERTY_SOUND_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSoundFormat(SoundFormatType soundFormat) {
+  public void setSoundFormat(SoundFormat soundFormat) {
     this.soundFormat = soundFormat;
     isSetSoundFormat = true; // mark as set
   }

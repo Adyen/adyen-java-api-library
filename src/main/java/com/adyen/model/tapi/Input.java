@@ -33,7 +33,7 @@ import java.util.List;
 })
 public class Input {
   public static final String JSON_PROPERTY_INPUT_COMMAND = "InputCommand";
-  private InputCommandType inputCommand;
+  private InputCommand inputCommand;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInputCommand = false;
@@ -83,54 +83,36 @@ public class Input {
   public Input() {}
 
   /**
-   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
-   * **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** *
-   * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** *
-   * **SiteManager** * **TextString**
+   * inputCommand
    *
-   * @param inputCommand Type of requested input. Can be: **GetConfirmation**, **TextString**,
-   *     **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: *
-   *     **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** *
-   *     **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
+   * @param inputCommand
    * @return the current {@code Input} instance, allowing for method chaining
    */
-  public Input inputCommand(InputCommandType inputCommand) {
+  public Input inputCommand(InputCommand inputCommand) {
     this.inputCommand = inputCommand;
     isSetInputCommand = true; // mark as set
     return this;
   }
 
   /**
-   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
-   * **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** *
-   * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** *
-   * **SiteManager** * **TextString**
+   * Get inputCommand
    *
-   * @return inputCommand Type of requested input. Can be: **GetConfirmation**, **TextString**,
-   *     **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: *
-   *     **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** *
-   *     **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
+   * @return inputCommand
    */
   @JsonProperty(JSON_PROPERTY_INPUT_COMMAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InputCommandType getInputCommand() {
+  public InputCommand getInputCommand() {
     return inputCommand;
   }
 
   /**
-   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
-   * **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** *
-   * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** *
-   * **SiteManager** * **TextString**
+   * inputCommand
    *
-   * @param inputCommand Type of requested input. Can be: **GetConfirmation**, **TextString**,
-   *     **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: *
-   *     **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** *
-   *     **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
+   * @param inputCommand
    */
   @JsonProperty(JSON_PROPERTY_INPUT_COMMAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInputCommand(InputCommandType inputCommand) {
+  public void setInputCommand(InputCommand inputCommand) {
     this.inputCommand = inputCommand;
     isSetInputCommand = true; // mark as set
   }

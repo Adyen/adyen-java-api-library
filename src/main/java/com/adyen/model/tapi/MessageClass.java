@@ -15,15 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO** */
-public enum TrackFormatType {
-  AAMVA("AAMVA"),
+/** Gets or Sets MessageClass */
+public enum MessageClass {
+  DEVICE("Device"),
 
-  ISO("ISO");
+  EVENT("Event"),
+
+  SERVICE("Service");
 
   private String value;
 
-  TrackFormatType(String value) {
+  MessageClass(String value) {
     this.value = value;
   }
 
@@ -38,8 +40,8 @@ public enum TrackFormatType {
   }
 
   @JsonCreator
-  public static TrackFormatType fromValue(String value) {
-    for (TrackFormatType b : TrackFormatType.values()) {
+  public static MessageClass fromValue(String value) {
+    for (MessageClass b : MessageClass.values()) {
       if (b.value.equals(value)) {
         return b;
       }

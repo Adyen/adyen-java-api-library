@@ -65,9 +65,9 @@ public class ReconciliationResponse {
   public ReconciliationResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code ReconciliationResponse} instance, allowing for method chaining
    */
   public ReconciliationResponse response(Response response) {
@@ -77,9 +77,9 @@ public class ReconciliationResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,9 +88,9 @@ public class ReconciliationResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,13 +100,9 @@ public class ReconciliationResponse {
   }
 
   /**
-   * Type of Reconciliation requested by the Sale to the POI. Possible values: *
-   * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** *
-   * **SaleReconciliation**
+   * reconciliationType
    *
-   * @param reconciliationType Type of Reconciliation requested by the Sale to the POI. Possible
-   *     values: * **AcquirerReconciliation** * **AcquirerSynchronisation** *
-   *     **PreviousReconciliation** * **SaleReconciliation**
+   * @param reconciliationType
    * @return the current {@code ReconciliationResponse} instance, allowing for method chaining
    */
   public ReconciliationResponse reconciliationType(ReconciliationType reconciliationType) {
@@ -116,13 +112,9 @@ public class ReconciliationResponse {
   }
 
   /**
-   * Type of Reconciliation requested by the Sale to the POI. Possible values: *
-   * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** *
-   * **SaleReconciliation**
+   * Get reconciliationType
    *
-   * @return reconciliationType Type of Reconciliation requested by the Sale to the POI. Possible
-   *     values: * **AcquirerReconciliation** * **AcquirerSynchronisation** *
-   *     **PreviousReconciliation** * **SaleReconciliation**
+   * @return reconciliationType
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,13 +123,9 @@ public class ReconciliationResponse {
   }
 
   /**
-   * Type of Reconciliation requested by the Sale to the POI. Possible values: *
-   * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** *
-   * **SaleReconciliation**
+   * reconciliationType
    *
-   * @param reconciliationType Type of Reconciliation requested by the Sale to the POI. Possible
-   *     values: * **AcquirerReconciliation** * **AcquirerSynchronisation** *
-   *     **PreviousReconciliation** * **SaleReconciliation**
+   * @param reconciliationType
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

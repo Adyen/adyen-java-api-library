@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
 /** Gets or Sets CharacterStyle */
-public enum CharacterStyleType {
+public enum CharacterStyle {
   BOLD("Bold"),
 
   ITALIC("Italic"),
@@ -27,7 +27,7 @@ public enum CharacterStyleType {
 
   private String value;
 
-  CharacterStyleType(String value) {
+  CharacterStyle(String value) {
     this.value = value;
   }
 
@@ -42,8 +42,8 @@ public enum CharacterStyleType {
   }
 
   @JsonCreator
-  public static CharacterStyleType fromValue(String value) {
-    for (CharacterStyleType b : CharacterStyleType.values()) {
+  public static CharacterStyle fromValue(String value) {
+    for (CharacterStyle b : CharacterStyle.values()) {
       if (b.value.equals(value)) {
         return b;
       }

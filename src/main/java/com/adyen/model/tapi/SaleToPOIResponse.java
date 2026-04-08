@@ -204,9 +204,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Balance Inquiry Response message.
+   * balanceInquiryResponse
    *
-   * @param balanceInquiryResponse Content of the Balance Inquiry Response message.
+   * @param balanceInquiryResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse balanceInquiryResponse(BalanceInquiryResponse balanceInquiryResponse) {
@@ -216,9 +216,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Balance Inquiry Response message.
+   * Get balanceInquiryResponse
    *
-   * @return balanceInquiryResponse Content of the Balance Inquiry Response message.
+   * @return balanceInquiryResponse
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_INQUIRY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,9 +227,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Balance Inquiry Response message.
+   * balanceInquiryResponse
    *
-   * @param balanceInquiryResponse Content of the Balance Inquiry Response message.
+   * @param balanceInquiryResponse
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_INQUIRY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,9 +239,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Card Acquisition Response message.
+   * cardAcquisitionResponse
    *
-   * @param cardAcquisitionResponse Content of the Card Acquisition Response message.
+   * @param cardAcquisitionResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse cardAcquisitionResponse(
@@ -252,9 +252,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Card Acquisition Response message.
+   * Get cardAcquisitionResponse
    *
-   * @return cardAcquisitionResponse Content of the Card Acquisition Response message.
+   * @return cardAcquisitionResponse
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,9 +263,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Card Acquisition Response message.
+   * cardAcquisitionResponse
    *
-   * @param cardAcquisitionResponse Content of the Card Acquisition Response message.
+   * @param cardAcquisitionResponse
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,9 +275,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Admin Response message.
+   * adminResponse
    *
-   * @param adminResponse Content of the Admin Response message.
+   * @param adminResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse adminResponse(AdminResponse adminResponse) {
@@ -287,9 +287,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Admin Response message.
+   * Get adminResponse
    *
-   * @return adminResponse Content of the Admin Response message.
+   * @return adminResponse
    */
   @JsonProperty(JSON_PROPERTY_ADMIN_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,9 +298,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Admin Response message.
+   * adminResponse
    *
-   * @param adminResponse Content of the Admin Response message.
+   * @param adminResponse
    */
   @JsonProperty(JSON_PROPERTY_ADMIN_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,9 +310,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Diagnosis Response message.
+   * diagnosisResponse
    *
-   * @param diagnosisResponse Content of the Diagnosis Response message.
+   * @param diagnosisResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse diagnosisResponse(DiagnosisResponse diagnosisResponse) {
@@ -322,9 +322,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Diagnosis Response message.
+   * Get diagnosisResponse
    *
-   * @return diagnosisResponse Content of the Diagnosis Response message.
+   * @return diagnosisResponse
    */
   @JsonProperty(JSON_PROPERTY_DIAGNOSIS_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,9 +333,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Diagnosis Response message.
+   * diagnosisResponse
    *
-   * @param diagnosisResponse Content of the Diagnosis Response message.
+   * @param diagnosisResponse
    */
   @JsonProperty(JSON_PROPERTY_DIAGNOSIS_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,9 +345,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Display Response message.
+   * displayResponse
    *
-   * @param displayResponse Content of the Display Response message.
+   * @param displayResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse displayResponse(DisplayResponse displayResponse) {
@@ -357,9 +357,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Display Response message.
+   * Get displayResponse
    *
-   * @return displayResponse Content of the Display Response message.
+   * @return displayResponse
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,9 +368,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Display Response message.
+   * displayResponse
    *
-   * @param displayResponse Content of the Display Response message.
+   * @param displayResponse
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,9 +380,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Enable Service Response message.
+   * enableServiceResponse
    *
-   * @param enableServiceResponse Content of the Enable Service Response message.
+   * @param enableServiceResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse enableServiceResponse(EnableServiceResponse enableServiceResponse) {
@@ -392,9 +392,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Enable Service Response message.
+   * Get enableServiceResponse
    *
-   * @return enableServiceResponse Content of the Enable Service Response message.
+   * @return enableServiceResponse
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_SERVICE_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -403,9 +403,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Enable Service Response message.
+   * enableServiceResponse
    *
-   * @param enableServiceResponse Content of the Enable Service Response message.
+   * @param enableServiceResponse
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_SERVICE_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,9 +415,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Get Totals Response message.
+   * getTotalsResponse
    *
-   * @param getTotalsResponse Content of the Get Totals Response message.
+   * @param getTotalsResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse getTotalsResponse(GetTotalsResponse getTotalsResponse) {
@@ -427,9 +427,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Get Totals Response message.
+   * Get getTotalsResponse
    *
-   * @return getTotalsResponse Content of the Get Totals Response message.
+   * @return getTotalsResponse
    */
   @JsonProperty(JSON_PROPERTY_GET_TOTALS_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -438,9 +438,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Get Totals Response message.
+   * getTotalsResponse
    *
-   * @param getTotalsResponse Content of the Get Totals Response message.
+   * @param getTotalsResponse
    */
   @JsonProperty(JSON_PROPERTY_GET_TOTALS_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,9 +450,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Input Response message.
+   * inputResponse
    *
-   * @param inputResponse Content of the Input Response message.
+   * @param inputResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse inputResponse(InputResponse inputResponse) {
@@ -462,9 +462,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Input Response message.
+   * Get inputResponse
    *
-   * @return inputResponse Content of the Input Response message.
+   * @return inputResponse
    */
   @JsonProperty(JSON_PROPERTY_INPUT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -473,9 +473,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Input Response message.
+   * inputResponse
    *
-   * @param inputResponse Content of the Input Response message.
+   * @param inputResponse
    */
   @JsonProperty(JSON_PROPERTY_INPUT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -485,9 +485,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Login Response message.
+   * loginResponse
    *
-   * @param loginResponse Content of the Login Response message.
+   * @param loginResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse loginResponse(LoginResponse loginResponse) {
@@ -497,9 +497,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Login Response message.
+   * Get loginResponse
    *
-   * @return loginResponse Content of the Login Response message.
+   * @return loginResponse
    */
   @JsonProperty(JSON_PROPERTY_LOGIN_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,9 +508,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Login Response message.
+   * loginResponse
    *
-   * @param loginResponse Content of the Login Response message.
+   * @param loginResponse
    */
   @JsonProperty(JSON_PROPERTY_LOGIN_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -520,9 +520,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Logout Response message.
+   * logoutResponse
    *
-   * @param logoutResponse Content of the Logout Response message.
+   * @param logoutResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse logoutResponse(LogoutResponse logoutResponse) {
@@ -532,9 +532,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Logout Response message.
+   * Get logoutResponse
    *
-   * @return logoutResponse Content of the Logout Response message.
+   * @return logoutResponse
    */
   @JsonProperty(JSON_PROPERTY_LOGOUT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -543,9 +543,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Logout Response message.
+   * logoutResponse
    *
-   * @param logoutResponse Content of the Logout Response message.
+   * @param logoutResponse
    */
   @JsonProperty(JSON_PROPERTY_LOGOUT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -555,9 +555,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Loyalty Response message.
+   * loyaltyResponse
    *
-   * @param loyaltyResponse Content of the Loyalty Response message.
+   * @param loyaltyResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse loyaltyResponse(LoyaltyResponse loyaltyResponse) {
@@ -567,9 +567,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Loyalty Response message.
+   * Get loyaltyResponse
    *
-   * @return loyaltyResponse Content of the Loyalty Response message.
+   * @return loyaltyResponse
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -578,9 +578,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Loyalty Response message.
+   * loyaltyResponse
    *
-   * @param loyaltyResponse Content of the Loyalty Response message.
+   * @param loyaltyResponse
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -590,9 +590,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Payment Response message.
+   * paymentResponse
    *
-   * @param paymentResponse Content of the Payment Response message.
+   * @param paymentResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse paymentResponse(PaymentResponse paymentResponse) {
@@ -602,9 +602,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Payment Response message.
+   * Get paymentResponse
    *
-   * @return paymentResponse Content of the Payment Response message.
+   * @return paymentResponse
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -613,9 +613,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Payment Response message.
+   * paymentResponse
    *
-   * @param paymentResponse Content of the Payment Response message.
+   * @param paymentResponse
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -625,9 +625,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Print Response message.
+   * printResponse
    *
-   * @param printResponse Content of the Print Response message.
+   * @param printResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse printResponse(PrintResponse printResponse) {
@@ -637,9 +637,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Print Response message.
+   * Get printResponse
    *
-   * @return printResponse Content of the Print Response message.
+   * @return printResponse
    */
   @JsonProperty(JSON_PROPERTY_PRINT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -648,9 +648,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Print Response message.
+   * printResponse
    *
-   * @param printResponse Content of the Print Response message.
+   * @param printResponse
    */
   @JsonProperty(JSON_PROPERTY_PRINT_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -660,9 +660,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Card Reader APDU Response message.
+   * cardReaderAPDUResponse
    *
-   * @param cardReaderAPDUResponse Content of the Card Reader APDU Response message.
+   * @param cardReaderAPDUResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse cardReaderAPDUResponse(CardReaderAPDUResponse cardReaderAPDUResponse) {
@@ -672,9 +672,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Card Reader APDU Response message.
+   * Get cardReaderAPDUResponse
    *
-   * @return cardReaderAPDUResponse Content of the Card Reader APDU Response message.
+   * @return cardReaderAPDUResponse
    */
   @JsonProperty(JSON_PROPERTY_CARD_READER_A_P_D_U_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -683,9 +683,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Card Reader APDU Response message.
+   * cardReaderAPDUResponse
    *
-   * @param cardReaderAPDUResponse Content of the Card Reader APDU Response message.
+   * @param cardReaderAPDUResponse
    */
   @JsonProperty(JSON_PROPERTY_CARD_READER_A_P_D_U_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -695,9 +695,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Reconciliation Response message.
+   * reconciliationResponse
    *
-   * @param reconciliationResponse Content of the Reconciliation Response message.
+   * @param reconciliationResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse reconciliationResponse(ReconciliationResponse reconciliationResponse) {
@@ -707,9 +707,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Reconciliation Response message.
+   * Get reconciliationResponse
    *
-   * @return reconciliationResponse Content of the Reconciliation Response message.
+   * @return reconciliationResponse
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -718,9 +718,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Reconciliation Response message.
+   * reconciliationResponse
    *
-   * @param reconciliationResponse Content of the Reconciliation Response message.
+   * @param reconciliationResponse
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -730,9 +730,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Reversal Response message.
+   * reversalResponse
    *
-   * @param reversalResponse Content of the Reversal Response message.
+   * @param reversalResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse reversalResponse(ReversalResponse reversalResponse) {
@@ -742,9 +742,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Reversal Response message.
+   * Get reversalResponse
    *
-   * @return reversalResponse Content of the Reversal Response message.
+   * @return reversalResponse
    */
   @JsonProperty(JSON_PROPERTY_REVERSAL_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -753,9 +753,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Reversal Response message.
+   * reversalResponse
    *
-   * @param reversalResponse Content of the Reversal Response message.
+   * @param reversalResponse
    */
   @JsonProperty(JSON_PROPERTY_REVERSAL_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -765,9 +765,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Stored Value Response message.
+   * storedValueResponse
    *
-   * @param storedValueResponse Content of the Stored Value Response message.
+   * @param storedValueResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse storedValueResponse(StoredValueResponse storedValueResponse) {
@@ -777,9 +777,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Stored Value Response message.
+   * Get storedValueResponse
    *
-   * @return storedValueResponse Content of the Stored Value Response message.
+   * @return storedValueResponse
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -788,9 +788,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the Stored Value Response message.
+   * storedValueResponse
    *
-   * @param storedValueResponse Content of the Stored Value Response message.
+   * @param storedValueResponse
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -800,9 +800,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the TransactionStatus Response message.
+   * transactionStatusResponse
    *
-   * @param transactionStatusResponse Content of the TransactionStatus Response message.
+   * @param transactionStatusResponse
    * @return the current {@code SaleToPOIResponse} instance, allowing for method chaining
    */
   public SaleToPOIResponse transactionStatusResponse(
@@ -813,9 +813,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the TransactionStatus Response message.
+   * Get transactionStatusResponse
    *
-   * @return transactionStatusResponse Content of the TransactionStatus Response message.
+   * @return transactionStatusResponse
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -824,9 +824,9 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Content of the TransactionStatus Response message.
+   * transactionStatusResponse
    *
-   * @param transactionStatusResponse Content of the TransactionStatus Response message.
+   * @param transactionStatusResponse
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

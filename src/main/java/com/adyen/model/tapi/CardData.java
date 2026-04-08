@@ -444,11 +444,9 @@ public class CardData {
   }
 
   /**
-   * Sensitive information related to the payment card, entered or read by the Sale System. If
-   * structure non empty and unprotected.
+   * sensitiveCardData
    *
-   * @param sensitiveCardData Sensitive information related to the payment card, entered or read by
-   *     the Sale System. If structure non empty and unprotected.
+   * @param sensitiveCardData
    * @return the current {@code CardData} instance, allowing for method chaining
    */
   public CardData sensitiveCardData(SensitiveCardData sensitiveCardData) {
@@ -458,11 +456,9 @@ public class CardData {
   }
 
   /**
-   * Sensitive information related to the payment card, entered or read by the Sale System. If
-   * structure non empty and unprotected.
+   * Get sensitiveCardData
    *
-   * @return sensitiveCardData Sensitive information related to the payment card, entered or read by
-   *     the Sale System. If structure non empty and unprotected.
+   * @return sensitiveCardData
    */
   @JsonProperty(JSON_PROPERTY_SENSITIVE_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -471,11 +467,9 @@ public class CardData {
   }
 
   /**
-   * Sensitive information related to the payment card, entered or read by the Sale System. If
-   * structure non empty and unprotected.
+   * sensitiveCardData
    *
-   * @param sensitiveCardData Sensitive information related to the payment card, entered or read by
-   *     the Sale System. If structure non empty and unprotected.
+   * @param sensitiveCardData
    */
   @JsonProperty(JSON_PROPERTY_SENSITIVE_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -485,13 +479,9 @@ public class CardData {
   }
 
   /**
-   * Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean
-   * of the customer. It allows, for a merchant, to identify the customer. Restriction of product
-   * payable by a card.
+   * paymentToken
    *
-   * @param paymentToken Surrogate of the PAN (Primary Account Number) of the payment card to
-   *     identify the payment mean of the customer. It allows, for a merchant, to identify the
-   *     customer. Restriction of product payable by a card.
+   * @param paymentToken
    * @return the current {@code CardData} instance, allowing for method chaining
    */
   public CardData paymentToken(PaymentToken paymentToken) {
@@ -501,13 +491,9 @@ public class CardData {
   }
 
   /**
-   * Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean
-   * of the customer. It allows, for a merchant, to identify the customer. Restriction of product
-   * payable by a card.
+   * Get paymentToken
    *
-   * @return paymentToken Surrogate of the PAN (Primary Account Number) of the payment card to
-   *     identify the payment mean of the customer. It allows, for a merchant, to identify the
-   *     customer. Restriction of product payable by a card.
+   * @return paymentToken
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -516,13 +502,9 @@ public class CardData {
   }
 
   /**
-   * Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean
-   * of the customer. It allows, for a merchant, to identify the customer. Restriction of product
-   * payable by a card.
+   * paymentToken
    *
-   * @param paymentToken Surrogate of the PAN (Primary Account Number) of the payment card to
-   *     identify the payment mean of the customer. It allows, for a merchant, to identify the
-   *     customer. Restriction of product payable by a card.
+   * @param paymentToken
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

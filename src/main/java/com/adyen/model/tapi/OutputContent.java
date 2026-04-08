@@ -32,7 +32,7 @@ import java.util.List;
 })
 public class OutputContent {
   public static final String JSON_PROPERTY_OUTPUT_FORMAT = "OutputFormat";
-  private OutputFormatType outputFormat;
+  private OutputFormat outputFormat;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetOutputFormat = false;
@@ -70,52 +70,44 @@ public class OutputContent {
   public OutputContent() {}
 
   /**
-   * Format of the content to display or print. Possible values: * **BarCode** * **MessageRef** *
-   * **Text** * **XHTML**
+   * outputFormat
    *
-   * @param outputFormat Format of the content to display or print. Possible values: * **BarCode** *
-   *     **MessageRef** * **Text** * **XHTML**
+   * @param outputFormat
    * @return the current {@code OutputContent} instance, allowing for method chaining
    */
-  public OutputContent outputFormat(OutputFormatType outputFormat) {
+  public OutputContent outputFormat(OutputFormat outputFormat) {
     this.outputFormat = outputFormat;
     isSetOutputFormat = true; // mark as set
     return this;
   }
 
   /**
-   * Format of the content to display or print. Possible values: * **BarCode** * **MessageRef** *
-   * **Text** * **XHTML**
+   * Get outputFormat
    *
-   * @return outputFormat Format of the content to display or print. Possible values: * **BarCode**
-   *     * **MessageRef** * **Text** * **XHTML**
+   * @return outputFormat
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OutputFormatType getOutputFormat() {
+  public OutputFormat getOutputFormat() {
     return outputFormat;
   }
 
   /**
-   * Format of the content to display or print. Possible values: * **BarCode** * **MessageRef** *
-   * **Text** * **XHTML**
+   * outputFormat
    *
-   * @param outputFormat Format of the content to display or print. Possible values: * **BarCode** *
-   *     **MessageRef** * **Text** * **XHTML**
+   * @param outputFormat
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOutputFormat(OutputFormatType outputFormat) {
+  public void setOutputFormat(OutputFormat outputFormat) {
     this.outputFormat = outputFormat;
     isSetOutputFormat = true; // mark as set
   }
 
   /**
-   * Reference of a predefined message to display or print. Mandatory, if &#x60;OutputFormat&#x60;
-   * is MessageRef, not allowed otherwise.
+   * predefinedContent
    *
-   * @param predefinedContent Reference of a predefined message to display or print. Mandatory, if
-   *     &#x60;OutputFormat&#x60; is MessageRef, not allowed otherwise.
+   * @param predefinedContent
    * @return the current {@code OutputContent} instance, allowing for method chaining
    */
   public OutputContent predefinedContent(PredefinedContent predefinedContent) {
@@ -125,11 +117,9 @@ public class OutputContent {
   }
 
   /**
-   * Reference of a predefined message to display or print. Mandatory, if &#x60;OutputFormat&#x60;
-   * is MessageRef, not allowed otherwise.
+   * Get predefinedContent
    *
-   * @return predefinedContent Reference of a predefined message to display or print. Mandatory, if
-   *     &#x60;OutputFormat&#x60; is MessageRef, not allowed otherwise.
+   * @return predefinedContent
    */
   @JsonProperty(JSON_PROPERTY_PREDEFINED_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,11 +128,9 @@ public class OutputContent {
   }
 
   /**
-   * Reference of a predefined message to display or print. Mandatory, if &#x60;OutputFormat&#x60;
-   * is MessageRef, not allowed otherwise.
+   * predefinedContent
    *
-   * @param predefinedContent Reference of a predefined message to display or print. Mandatory, if
-   *     &#x60;OutputFormat&#x60; is MessageRef, not allowed otherwise.
+   * @param predefinedContent
    */
   @JsonProperty(JSON_PROPERTY_PREDEFINED_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,11 +233,9 @@ public class OutputContent {
   }
 
   /**
-   * Barcode content to display or print. Mandatory if &#x60;OutputFormat&#x60; is Barcode, not
-   * allowed otherwise.
+   * outputBarcode
    *
-   * @param outputBarcode Barcode content to display or print. Mandatory if &#x60;OutputFormat&#x60;
-   *     is Barcode, not allowed otherwise.
+   * @param outputBarcode
    * @return the current {@code OutputContent} instance, allowing for method chaining
    */
   public OutputContent outputBarcode(OutputBarcode outputBarcode) {
@@ -259,11 +245,9 @@ public class OutputContent {
   }
 
   /**
-   * Barcode content to display or print. Mandatory if &#x60;OutputFormat&#x60; is Barcode, not
-   * allowed otherwise.
+   * Get outputBarcode
    *
-   * @return outputBarcode Barcode content to display or print. Mandatory if
-   *     &#x60;OutputFormat&#x60; is Barcode, not allowed otherwise.
+   * @return outputBarcode
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_BARCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,11 +256,9 @@ public class OutputContent {
   }
 
   /**
-   * Barcode content to display or print. Mandatory if &#x60;OutputFormat&#x60; is Barcode, not
-   * allowed otherwise.
+   * outputBarcode
    *
-   * @param outputBarcode Barcode content to display or print. Mandatory if &#x60;OutputFormat&#x60;
-   *     is Barcode, not allowed otherwise.
+   * @param outputBarcode
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_BARCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

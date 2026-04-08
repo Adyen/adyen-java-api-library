@@ -45,19 +45,19 @@ import java.util.*;
 })
 public class InputData {
   public static final String JSON_PROPERTY_DEVICE = "Device";
-  private DeviceType device;
+  private Device device;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDevice = false;
 
   public static final String JSON_PROPERTY_INFO_QUALIFY = "InfoQualify";
-  private InfoQualifyType infoQualify;
+  private InfoQualify infoQualify;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInfoQualify = false;
 
   public static final String JSON_PROPERTY_INPUT_COMMAND = "InputCommand";
-  private InputCommandType inputCommand;
+  private InputCommand inputCommand;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInputCommand = false;
@@ -179,160 +179,106 @@ public class InputData {
   public InputData() {}
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information
-   * to output (display, print or store), or input (keyboard) for the Cashier or the Customer.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * device
    *
-   * @param device Logical device located on a Sale Terminal or a POI Terminal, regarding the class
-   *     of information to output (display, print or store), or input (keyboard) for the Cashier or
-   *     the Customer. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @param device
    * @return the current {@code InputData} instance, allowing for method chaining
    */
-  public InputData device(DeviceType device) {
+  public InputData device(Device device) {
     this.device = device;
     isSetDevice = true; // mark as set
     return this;
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information
-   * to output (display, print or store), or input (keyboard) for the Cashier or the Customer.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * Get device
    *
-   * @return device Logical device located on a Sale Terminal or a POI Terminal, regarding the class
-   *     of information to output (display, print or store), or input (keyboard) for the Cashier or
-   *     the Customer. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @return device
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DeviceType getDevice() {
+  public Device getDevice() {
     return device;
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information
-   * to output (display, print or store), or input (keyboard) for the Cashier or the Customer.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * device
    *
-   * @param device Logical device located on a Sale Terminal or a POI Terminal, regarding the class
-   *     of information to output (display, print or store), or input (keyboard) for the Cashier or
-   *     the Customer. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @param device
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDevice(DeviceType device) {
+  public void setDevice(Device device) {
     this.device = device;
     isSetDevice = true; // mark as set
   }
 
   /**
-   * Qualification of the information to send to an output logical device, to display or print to
-   * the Cashier or the Customer. Possible values: * **CustomerAssistance** * **Display** *
-   * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   * **Status** * **Voucher**
+   * infoQualify
    *
-   * @param infoQualify Qualification of the information to send to an output logical device, to
-   *     display or print to the Cashier or the Customer. Possible values: * **CustomerAssistance**
-   *     * **Display** * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** *
-   *     **Sound** * **Status** * **Voucher**
+   * @param infoQualify
    * @return the current {@code InputData} instance, allowing for method chaining
    */
-  public InputData infoQualify(InfoQualifyType infoQualify) {
+  public InputData infoQualify(InfoQualify infoQualify) {
     this.infoQualify = infoQualify;
     isSetInfoQualify = true; // mark as set
     return this;
   }
 
   /**
-   * Qualification of the information to send to an output logical device, to display or print to
-   * the Cashier or the Customer. Possible values: * **CustomerAssistance** * **Display** *
-   * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   * **Status** * **Voucher**
+   * Get infoQualify
    *
-   * @return infoQualify Qualification of the information to send to an output logical device, to
-   *     display or print to the Cashier or the Customer. Possible values: * **CustomerAssistance**
-   *     * **Display** * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** *
-   *     **Sound** * **Status** * **Voucher**
+   * @return infoQualify
    */
   @JsonProperty(JSON_PROPERTY_INFO_QUALIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InfoQualifyType getInfoQualify() {
+  public InfoQualify getInfoQualify() {
     return infoQualify;
   }
 
   /**
-   * Qualification of the information to send to an output logical device, to display or print to
-   * the Cashier or the Customer. Possible values: * **CustomerAssistance** * **Display** *
-   * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   * **Status** * **Voucher**
+   * infoQualify
    *
-   * @param infoQualify Qualification of the information to send to an output logical device, to
-   *     display or print to the Cashier or the Customer. Possible values: * **CustomerAssistance**
-   *     * **Display** * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** *
-   *     **Sound** * **Status** * **Voucher**
+   * @param infoQualify
    */
   @JsonProperty(JSON_PROPERTY_INFO_QUALIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInfoQualify(InfoQualifyType infoQualify) {
+  public void setInfoQualify(InfoQualify infoQualify) {
     this.infoQualify = infoQualify;
     isSetInfoQualify = true; // mark as set
   }
 
   /**
-   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
-   * **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** *
-   * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** *
-   * **SiteManager** * **TextString**
+   * inputCommand
    *
-   * @param inputCommand Type of requested input. Can be: **GetConfirmation**, **TextString**,
-   *     **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: *
-   *     **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** *
-   *     **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
+   * @param inputCommand
    * @return the current {@code InputData} instance, allowing for method chaining
    */
-  public InputData inputCommand(InputCommandType inputCommand) {
+  public InputData inputCommand(InputCommand inputCommand) {
     this.inputCommand = inputCommand;
     isSetInputCommand = true; // mark as set
     return this;
   }
 
   /**
-   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
-   * **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** *
-   * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** *
-   * **SiteManager** * **TextString**
+   * Get inputCommand
    *
-   * @return inputCommand Type of requested input. Can be: **GetConfirmation**, **TextString**,
-   *     **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: *
-   *     **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** *
-   *     **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
+   * @return inputCommand
    */
   @JsonProperty(JSON_PROPERTY_INPUT_COMMAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InputCommandType getInputCommand() {
+  public InputCommand getInputCommand() {
     return inputCommand;
   }
 
   /**
-   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
-   * **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** *
-   * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** *
-   * **SiteManager** * **TextString**
+   * inputCommand
    *
-   * @param inputCommand Type of requested input. Can be: **GetConfirmation**, **TextString**,
-   *     **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: *
-   *     **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** *
-   *     **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
+   * @param inputCommand
    */
   @JsonProperty(JSON_PROPERTY_INPUT_COMMAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInputCommand(InputCommandType inputCommand) {
+  public void setInputCommand(InputCommand inputCommand) {
     this.inputCommand = inputCommand;
     isSetInputCommand = true; // mark as set
   }

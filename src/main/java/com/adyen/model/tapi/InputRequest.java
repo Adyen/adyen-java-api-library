@@ -50,9 +50,9 @@ public class InputRequest {
   public InputRequest() {}
 
   /**
-   * Information to display and the way to process the display.
+   * displayOutput
    *
-   * @param displayOutput Information to display and the way to process the display.
+   * @param displayOutput
    * @return the current {@code InputRequest} instance, allowing for method chaining
    */
   public InputRequest displayOutput(DisplayOutput displayOutput) {
@@ -62,9 +62,9 @@ public class InputRequest {
   }
 
   /**
-   * Information to display and the way to process the display.
+   * Get displayOutput
    *
-   * @return displayOutput Information to display and the way to process the display.
+   * @return displayOutput
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,9 +73,9 @@ public class InputRequest {
   }
 
   /**
-   * Information to display and the way to process the display.
+   * displayOutput
    *
-   * @param displayOutput Information to display and the way to process the display.
+   * @param displayOutput
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,15 +85,9 @@ public class InputRequest {
   }
 
   /**
-   * Information related to an Input request. It conveys the target input logical device, the type
-   * of input command, and possible minimum and maximum length of the input. In addition, if the
-   * requestor might require to receive an Event Notification if a card is inserted in a card
-   * reader, with the &#x60;NotifyCardInputFlag&#x60;.
+   * inputData
    *
-   * @param inputData Information related to an Input request. It conveys the target input logical
-   *     device, the type of input command, and possible minimum and maximum length of the input. In
-   *     addition, if the requestor might require to receive an Event Notification if a card is
-   *     inserted in a card reader, with the &#x60;NotifyCardInputFlag&#x60;.
+   * @param inputData
    * @return the current {@code InputRequest} instance, allowing for method chaining
    */
   public InputRequest inputData(InputData inputData) {
@@ -103,15 +97,9 @@ public class InputRequest {
   }
 
   /**
-   * Information related to an Input request. It conveys the target input logical device, the type
-   * of input command, and possible minimum and maximum length of the input. In addition, if the
-   * requestor might require to receive an Event Notification if a card is inserted in a card
-   * reader, with the &#x60;NotifyCardInputFlag&#x60;.
+   * Get inputData
    *
-   * @return inputData Information related to an Input request. It conveys the target input logical
-   *     device, the type of input command, and possible minimum and maximum length of the input. In
-   *     addition, if the requestor might require to receive an Event Notification if a card is
-   *     inserted in a card reader, with the &#x60;NotifyCardInputFlag&#x60;.
+   * @return inputData
    */
   @JsonProperty(JSON_PROPERTY_INPUT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,15 +108,9 @@ public class InputRequest {
   }
 
   /**
-   * Information related to an Input request. It conveys the target input logical device, the type
-   * of input command, and possible minimum and maximum length of the input. In addition, if the
-   * requestor might require to receive an Event Notification if a card is inserted in a card
-   * reader, with the &#x60;NotifyCardInputFlag&#x60;.
+   * inputData
    *
-   * @param inputData Information related to an Input request. It conveys the target input logical
-   *     device, the type of input command, and possible minimum and maximum length of the input. In
-   *     addition, if the requestor might require to receive an Event Notification if a card is
-   *     inserted in a card reader, with the &#x60;NotifyCardInputFlag&#x60;.
+   * @param inputData
    */
   @JsonProperty(JSON_PROPERTY_INPUT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

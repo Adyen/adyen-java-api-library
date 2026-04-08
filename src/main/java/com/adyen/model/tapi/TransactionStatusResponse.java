@@ -56,9 +56,9 @@ public class TransactionStatusResponse {
   public TransactionStatusResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code TransactionStatusResponse} instance, allowing for method chaining
    */
   public TransactionStatusResponse response(Response response) {
@@ -68,9 +68,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,9 +79,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,10 +91,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Identification of a previous POI transaction. If &#x60;Response.Result&#x60; is Success.
+   * messageReference
    *
-   * @param messageReference Identification of a previous POI transaction. If
-   *     &#x60;Response.Result&#x60; is Success.
+   * @param messageReference
    * @return the current {@code TransactionStatusResponse} instance, allowing for method chaining
    */
   public TransactionStatusResponse messageReference(MessageReference messageReference) {
@@ -104,10 +103,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Identification of a previous POI transaction. If &#x60;Response.Result&#x60; is Success.
+   * Get messageReference
    *
-   * @return messageReference Identification of a previous POI transaction. If
-   *     &#x60;Response.Result&#x60; is Success.
+   * @return messageReference
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,10 +114,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Identification of a previous POI transaction. If &#x60;Response.Result&#x60; is Success.
+   * messageReference
    *
-   * @param messageReference Identification of a previous POI transaction. If
-   *     &#x60;Response.Result&#x60; is Success.
+   * @param messageReference
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +126,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Content of the requested Message Response. If Result is Success (process completed).
+   * repeatedMessageResponse
    *
-   * @param repeatedMessageResponse Content of the requested Message Response. If Result is Success
-   *     (process completed).
+   * @param repeatedMessageResponse
    * @return the current {@code TransactionStatusResponse} instance, allowing for method chaining
    */
   public TransactionStatusResponse repeatedMessageResponse(
@@ -143,10 +139,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Content of the requested Message Response. If Result is Success (process completed).
+   * Get repeatedMessageResponse
    *
-   * @return repeatedMessageResponse Content of the requested Message Response. If Result is Success
-   *     (process completed).
+   * @return repeatedMessageResponse
    */
   @JsonProperty(JSON_PROPERTY_REPEATED_MESSAGE_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,10 +150,9 @@ public class TransactionStatusResponse {
   }
 
   /**
-   * Content of the requested Message Response. If Result is Success (process completed).
+   * repeatedMessageResponse
    *
-   * @param repeatedMessageResponse Content of the requested Message Response. If Result is Success
-   *     (process completed).
+   * @param repeatedMessageResponse
    */
   @JsonProperty(JSON_PROPERTY_REPEATED_MESSAGE_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

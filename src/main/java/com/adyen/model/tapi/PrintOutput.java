@@ -29,13 +29,13 @@ import java.util.*;
 })
 public class PrintOutput {
   public static final String JSON_PROPERTY_DOCUMENT_QUALIFIER = "DocumentQualifier";
-  private DocumentQualifierType documentQualifier;
+  private DocumentQualifier documentQualifier;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDocumentQualifier = false;
 
   public static final String JSON_PROPERTY_RESPONSE_MODE = "ResponseMode";
-  private ResponseModeType responseMode;
+  private ResponseMode responseMode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetResponseMode = false;
@@ -67,102 +67,71 @@ public class PrintOutput {
   public PrintOutput() {}
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
-   * the printer, Sale or POI Terminal, to send information to a physical printer or to use the
-   * paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** *
-   * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * documentQualifier
    *
-   * @param documentQualifier Qualification of the document to print to the Cashier or the Customer.
-   *     Allows the manager of the printer, Sale or POI Terminal, to send information to a physical
-   *     printer or to use the paper type accordingly. Possible values: * **CashierReceipt** *
-   *     **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @param documentQualifier
    * @return the current {@code PrintOutput} instance, allowing for method chaining
    */
-  public PrintOutput documentQualifier(DocumentQualifierType documentQualifier) {
+  public PrintOutput documentQualifier(DocumentQualifier documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
     return this;
   }
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
-   * the printer, Sale or POI Terminal, to send information to a physical printer or to use the
-   * paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** *
-   * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * Get documentQualifier
    *
-   * @return documentQualifier Qualification of the document to print to the Cashier or the
-   *     Customer. Allows the manager of the printer, Sale or POI Terminal, to send information to a
-   *     physical printer or to use the paper type accordingly. Possible values: *
-   *     **CashierReceipt** * **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** *
-   *     **Voucher**
+   * @return documentQualifier
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DocumentQualifierType getDocumentQualifier() {
+  public DocumentQualifier getDocumentQualifier() {
     return documentQualifier;
   }
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
-   * the printer, Sale or POI Terminal, to send information to a physical printer or to use the
-   * paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** *
-   * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * documentQualifier
    *
-   * @param documentQualifier Qualification of the document to print to the Cashier or the Customer.
-   *     Allows the manager of the printer, Sale or POI Terminal, to send information to a physical
-   *     printer or to use the paper type accordingly. Possible values: * **CashierReceipt** *
-   *     **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @param documentQualifier
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocumentQualifier(DocumentQualifierType documentQualifier) {
+  public void setDocumentQualifier(DocumentQualifier documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
   }
 
   /**
-   * Message response awaited by the initiator of the Request. Allows various types and
-   * synchronisation of requests for Print or Sound. Possible values: * **Immediate** *
-   * **NotRequired** * **PrintEnd** * **SoundEnd**
+   * responseMode
    *
-   * @param responseMode Message response awaited by the initiator of the Request. Allows various
-   *     types and synchronisation of requests for Print or Sound. Possible values: * **Immediate**
-   *     * **NotRequired** * **PrintEnd** * **SoundEnd**
+   * @param responseMode
    * @return the current {@code PrintOutput} instance, allowing for method chaining
    */
-  public PrintOutput responseMode(ResponseModeType responseMode) {
+  public PrintOutput responseMode(ResponseMode responseMode) {
     this.responseMode = responseMode;
     isSetResponseMode = true; // mark as set
     return this;
   }
 
   /**
-   * Message response awaited by the initiator of the Request. Allows various types and
-   * synchronisation of requests for Print or Sound. Possible values: * **Immediate** *
-   * **NotRequired** * **PrintEnd** * **SoundEnd**
+   * Get responseMode
    *
-   * @return responseMode Message response awaited by the initiator of the Request. Allows various
-   *     types and synchronisation of requests for Print or Sound. Possible values: * **Immediate**
-   *     * **NotRequired** * **PrintEnd** * **SoundEnd**
+   * @return responseMode
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ResponseModeType getResponseMode() {
+  public ResponseMode getResponseMode() {
     return responseMode;
   }
 
   /**
-   * Message response awaited by the initiator of the Request. Allows various types and
-   * synchronisation of requests for Print or Sound. Possible values: * **Immediate** *
-   * **NotRequired** * **PrintEnd** * **SoundEnd**
+   * responseMode
    *
-   * @param responseMode Message response awaited by the initiator of the Request. Allows various
-   *     types and synchronisation of requests for Print or Sound. Possible values: * **Immediate**
-   *     * **NotRequired** * **PrintEnd** * **SoundEnd**
+   * @param responseMode
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResponseMode(ResponseModeType responseMode) {
+  public void setResponseMode(ResponseMode responseMode) {
     this.responseMode = responseMode;
     isSetResponseMode = true; // mark as set
   }
@@ -259,10 +228,9 @@ public class PrintOutput {
   }
 
   /**
-   * Content to display or print. This is a sequence of elements if they have different formats.
+   * outputContent
    *
-   * @param outputContent Content to display or print. This is a sequence of elements if they have
-   *     different formats.
+   * @param outputContent
    * @return the current {@code PrintOutput} instance, allowing for method chaining
    */
   public PrintOutput outputContent(OutputContent outputContent) {
@@ -272,10 +240,9 @@ public class PrintOutput {
   }
 
   /**
-   * Content to display or print. This is a sequence of elements if they have different formats.
+   * Get outputContent
    *
-   * @return outputContent Content to display or print. This is a sequence of elements if they have
-   *     different formats.
+   * @return outputContent
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,10 +251,9 @@ public class PrintOutput {
   }
 
   /**
-   * Content to display or print. This is a sequence of elements if they have different formats.
+   * outputContent
    *
-   * @param outputContent Content to display or print. This is a sequence of elements if they have
-   *     different formats.
+   * @param outputContent
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

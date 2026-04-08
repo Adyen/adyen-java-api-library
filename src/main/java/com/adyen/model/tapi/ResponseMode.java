@@ -15,23 +15,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Support of the loyalty account identification. Allows knowing where and how you have found the
- * loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** *
- * **LoyaltyCard** * **NoCard**
- */
-public enum IdentificationSupportType {
-  HYBRID_CARD("HybridCard"),
+/** Gets or Sets ResponseMode */
+public enum ResponseMode {
+  IMMEDIATE("Immediate"),
 
-  LINKED_CARD("LinkedCard"),
+  NOT_REQUIRED("NotRequired"),
 
-  LOYALTY_CARD("LoyaltyCard"),
+  PRINT_END("PrintEnd"),
 
-  NO_CARD("NoCard");
+  SOUND_END("SoundEnd");
 
   private String value;
 
-  IdentificationSupportType(String value) {
+  ResponseMode(String value) {
     this.value = value;
   }
 
@@ -46,8 +42,8 @@ public enum IdentificationSupportType {
   }
 
   @JsonCreator
-  public static IdentificationSupportType fromValue(String value) {
-    for (IdentificationSupportType b : IdentificationSupportType.values()) {
+  public static ResponseMode fromValue(String value) {
+    for (ResponseMode b : ResponseMode.values()) {
       if (b.value.equals(value)) {
         return b;
       }

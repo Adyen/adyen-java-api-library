@@ -15,19 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets Alignment */
-public enum AlignmentType {
-  CENTRED("Centred"),
+/** Gets or Sets Result */
+public enum Result {
+  FAILURE("Failure"),
 
-  JUSTIFIED("Justified"),
+  PARTIAL("Partial"),
 
-  LEFT("Left"),
-
-  RIGHT("Right");
+  SUCCESS("Success");
 
   private String value;
 
-  AlignmentType(String value) {
+  Result(String value) {
     this.value = value;
   }
 
@@ -42,8 +40,8 @@ public enum AlignmentType {
   }
 
   @JsonCreator
-  public static AlignmentType fromValue(String value) {
-    for (AlignmentType b : AlignmentType.values()) {
+  public static Result fromValue(String value) {
+    for (Result b : Result.values()) {
       if (b.value.equals(value)) {
         return b;
       }

@@ -50,13 +50,13 @@ public class DisplayOutput {
   private boolean isSetMinimumDisplayTime = false;
 
   public static final String JSON_PROPERTY_DEVICE = "Device";
-  private DeviceType device;
+  private Device device;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDevice = false;
 
   public static final String JSON_PROPERTY_INFO_QUALIFY = "InfoQualify";
-  private InfoQualifyType infoQualify;
+  private InfoQualify infoQualify;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInfoQualify = false;
@@ -158,124 +158,79 @@ public class DisplayOutput {
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information
-   * to output (display, print, or store), or input (keyboard) for the Cashier or the Customer.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * device
    *
-   * @param device Logical device located on a Sale Terminal or a POI Terminal, in terms of class of
-   *     information to output (display, print, or store), or input (keyboard) for the Cashier or
-   *     the Customer. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @param device
    * @return the current {@code DisplayOutput} instance, allowing for method chaining
    */
-  public DisplayOutput device(DeviceType device) {
+  public DisplayOutput device(Device device) {
     this.device = device;
     isSetDevice = true; // mark as set
     return this;
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information
-   * to output (display, print, or store), or input (keyboard) for the Cashier or the Customer.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * Get device
    *
-   * @return device Logical device located on a Sale Terminal or a POI Terminal, in terms of class
-   *     of information to output (display, print, or store), or input (keyboard) for the Cashier or
-   *     the Customer. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @return device
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DeviceType getDevice() {
+  public Device getDevice() {
     return device;
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information
-   * to output (display, print, or store), or input (keyboard) for the Cashier or the Customer.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * device
    *
-   * @param device Logical device located on a Sale Terminal or a POI Terminal, in terms of class of
-   *     information to output (display, print, or store), or input (keyboard) for the Cashier or
-   *     the Customer. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @param device
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDevice(DeviceType device) {
+  public void setDevice(Device device) {
     this.device = device;
     isSetDevice = true; // mark as set
   }
 
   /**
-   * Qualification of the information to sent to an output logical device, to display or print to
-   * the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send
-   * the information to a particular physical device or to present the information accordingly.
-   * Possible values: * **CustomerAssistance** * **Display** * **Document** * **Error** * **Input**
-   * * **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
+   * infoQualify
    *
-   * @param infoQualify Qualification of the information to sent to an output logical device, to
-   *     display or print to the Cashier or the Customer. Allows the manager of the device, Sale or
-   *     POI Terminal, to send the information to a particular physical device or to present the
-   *     information accordingly. Possible values: * **CustomerAssistance** * **Display** *
-   *     **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   *     **Status** * **Voucher**
+   * @param infoQualify
    * @return the current {@code DisplayOutput} instance, allowing for method chaining
    */
-  public DisplayOutput infoQualify(InfoQualifyType infoQualify) {
+  public DisplayOutput infoQualify(InfoQualify infoQualify) {
     this.infoQualify = infoQualify;
     isSetInfoQualify = true; // mark as set
     return this;
   }
 
   /**
-   * Qualification of the information to sent to an output logical device, to display or print to
-   * the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send
-   * the information to a particular physical device or to present the information accordingly.
-   * Possible values: * **CustomerAssistance** * **Display** * **Document** * **Error** * **Input**
-   * * **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
+   * Get infoQualify
    *
-   * @return infoQualify Qualification of the information to sent to an output logical device, to
-   *     display or print to the Cashier or the Customer. Allows the manager of the device, Sale or
-   *     POI Terminal, to send the information to a particular physical device or to present the
-   *     information accordingly. Possible values: * **CustomerAssistance** * **Display** *
-   *     **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   *     **Status** * **Voucher**
+   * @return infoQualify
    */
   @JsonProperty(JSON_PROPERTY_INFO_QUALIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InfoQualifyType getInfoQualify() {
+  public InfoQualify getInfoQualify() {
     return infoQualify;
   }
 
   /**
-   * Qualification of the information to sent to an output logical device, to display or print to
-   * the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send
-   * the information to a particular physical device or to present the information accordingly.
-   * Possible values: * **CustomerAssistance** * **Display** * **Document** * **Error** * **Input**
-   * * **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
+   * infoQualify
    *
-   * @param infoQualify Qualification of the information to sent to an output logical device, to
-   *     display or print to the Cashier or the Customer. Allows the manager of the device, Sale or
-   *     POI Terminal, to send the information to a particular physical device or to present the
-   *     information accordingly. Possible values: * **CustomerAssistance** * **Display** *
-   *     **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   *     **Status** * **Voucher**
+   * @param infoQualify
    */
   @JsonProperty(JSON_PROPERTY_INFO_QUALIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInfoQualify(InfoQualifyType infoQualify) {
+  public void setInfoQualify(InfoQualify infoQualify) {
     this.infoQualify = infoQualify;
     isSetInfoQualify = true; // mark as set
   }
 
   /**
-   * Content to display or print.
+   * outputContent
    *
-   * @param outputContent Content to display or print.
+   * @param outputContent
    * @return the current {@code DisplayOutput} instance, allowing for method chaining
    */
   public DisplayOutput outputContent(OutputContent outputContent) {
@@ -285,9 +240,9 @@ public class DisplayOutput {
   }
 
   /**
-   * Content to display or print.
+   * Get outputContent
    *
-   * @return outputContent Content to display or print.
+   * @return outputContent
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,9 +251,9 @@ public class DisplayOutput {
   }
 
   /**
-   * Content to display or print.
+   * outputContent
    *
-   * @param outputContent Content to display or print.
+   * @param outputContent
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

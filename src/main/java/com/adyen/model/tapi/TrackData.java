@@ -38,7 +38,7 @@ public class TrackData {
   private boolean isSetTrackNumb = false;
 
   public static final String JSON_PROPERTY_TRACK_FORMAT = "TrackFormat";
-  private TrackFormatType trackFormat;
+  private TrackFormat trackFormat;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTrackFormat = false;
@@ -93,36 +93,36 @@ public class TrackData {
   }
 
   /**
-   * Card track format. Possible values: * **AAMVA** * **ISO**
+   * trackFormat
    *
-   * @param trackFormat Card track format. Possible values: * **AAMVA** * **ISO**
+   * @param trackFormat
    * @return the current {@code TrackData} instance, allowing for method chaining
    */
-  public TrackData trackFormat(TrackFormatType trackFormat) {
+  public TrackData trackFormat(TrackFormat trackFormat) {
     this.trackFormat = trackFormat;
     isSetTrackFormat = true; // mark as set
     return this;
   }
 
   /**
-   * Card track format. Possible values: * **AAMVA** * **ISO**
+   * Get trackFormat
    *
-   * @return trackFormat Card track format. Possible values: * **AAMVA** * **ISO**
+   * @return trackFormat
    */
   @JsonProperty(JSON_PROPERTY_TRACK_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TrackFormatType getTrackFormat() {
+  public TrackFormat getTrackFormat() {
     return trackFormat;
   }
 
   /**
-   * Card track format. Possible values: * **AAMVA** * **ISO**
+   * trackFormat
    *
-   * @param trackFormat Card track format. Possible values: * **AAMVA** * **ISO**
+   * @param trackFormat
    */
   @JsonProperty(JSON_PROPERTY_TRACK_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTrackFormat(TrackFormatType trackFormat) {
+  public void setTrackFormat(TrackFormat trackFormat) {
     this.trackFormat = trackFormat;
     isSetTrackFormat = true; // mark as set
   }

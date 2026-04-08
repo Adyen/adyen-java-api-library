@@ -37,7 +37,7 @@ import java.util.logging.Logger;
 })
 public class EnableServiceRequest {
   public static final String JSON_PROPERTY_TRANSACTION_ACTION = "TransactionAction";
-  private TransactionActionType transactionAction;
+  private TransactionAction transactionAction;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTransactionAction = false;
@@ -106,60 +106,36 @@ public class EnableServiceRequest {
   public EnableServiceRequest() {}
 
   /**
-   * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
-   * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
-   * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
-   * service request from the Sale System to complete the transaction. Possible values: *
-   * **AbortTransaction** * **StartTransaction**
+   * transactionAction
    *
-   * @param transactionAction Action to realise on a transaction. In an &#x60;EnableService&#x60;
-   *     request message: - Starts a transaction by a swipe-ahead mechanism, with the services which
-   *     are enabled. - Aborts a swipe-ahead transaction or started by a
-   *     &#x60;CardAcquisition&#x60;, and not followed by a service request from the Sale System to
-   *     complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
+   * @param transactionAction
    * @return the current {@code EnableServiceRequest} instance, allowing for method chaining
    */
-  public EnableServiceRequest transactionAction(TransactionActionType transactionAction) {
+  public EnableServiceRequest transactionAction(TransactionAction transactionAction) {
     this.transactionAction = transactionAction;
     isSetTransactionAction = true; // mark as set
     return this;
   }
 
   /**
-   * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
-   * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
-   * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
-   * service request from the Sale System to complete the transaction. Possible values: *
-   * **AbortTransaction** * **StartTransaction**
+   * Get transactionAction
    *
-   * @return transactionAction Action to realise on a transaction. In an &#x60;EnableService&#x60;
-   *     request message: - Starts a transaction by a swipe-ahead mechanism, with the services which
-   *     are enabled. - Aborts a swipe-ahead transaction or started by a
-   *     &#x60;CardAcquisition&#x60;, and not followed by a service request from the Sale System to
-   *     complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
+   * @return transactionAction
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionActionType getTransactionAction() {
+  public TransactionAction getTransactionAction() {
     return transactionAction;
   }
 
   /**
-   * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
-   * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
-   * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
-   * service request from the Sale System to complete the transaction. Possible values: *
-   * **AbortTransaction** * **StartTransaction**
+   * transactionAction
    *
-   * @param transactionAction Action to realise on a transaction. In an &#x60;EnableService&#x60;
-   *     request message: - Starts a transaction by a swipe-ahead mechanism, with the services which
-   *     are enabled. - Aborts a swipe-ahead transaction or started by a
-   *     &#x60;CardAcquisition&#x60;, and not followed by a service request from the Sale System to
-   *     complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
+   * @param transactionAction
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransactionAction(TransactionActionType transactionAction) {
+  public void setTransactionAction(TransactionAction transactionAction) {
     this.transactionAction = transactionAction;
     isSetTransactionAction = true; // mark as set
   }
@@ -220,9 +196,9 @@ public class EnableServiceRequest {
   }
 
   /**
-   * Information to display and the way to process the display.
+   * displayOutput
    *
-   * @param displayOutput Information to display and the way to process the display.
+   * @param displayOutput
    * @return the current {@code EnableServiceRequest} instance, allowing for method chaining
    */
   public EnableServiceRequest displayOutput(DisplayOutput displayOutput) {
@@ -232,9 +208,9 @@ public class EnableServiceRequest {
   }
 
   /**
-   * Information to display and the way to process the display.
+   * Get displayOutput
    *
-   * @return displayOutput Information to display and the way to process the display.
+   * @return displayOutput
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,9 +219,9 @@ public class EnableServiceRequest {
   }
 
   /**
-   * Information to display and the way to process the display.
+   * displayOutput
    *
-   * @param displayOutput Information to display and the way to process the display.
+   * @param displayOutput
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

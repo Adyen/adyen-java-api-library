@@ -15,15 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets CharacterWidth */
-public enum CharacterWidthType {
-  DOUBLE_WIDTH("DoubleWidth"),
+/** Gets or Sets TypeCode */
+public enum TypeCode {
+  COMPANY("Company"),
 
-  SINGLE_WIDTH("SingleWidth");
+  PERSONAL("Personal");
 
   private String value;
 
-  CharacterWidthType(String value) {
+  TypeCode(String value) {
     this.value = value;
   }
 
@@ -38,8 +38,8 @@ public enum CharacterWidthType {
   }
 
   @JsonCreator
-  public static CharacterWidthType fromValue(String value) {
-    for (CharacterWidthType b : CharacterWidthType.values()) {
+  public static TypeCode fromValue(String value) {
+    for (TypeCode b : TypeCode.values()) {
       if (b.value.equals(value)) {
         return b;
       }

@@ -15,22 +15,45 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Format of the content to display or print. Display or print device function. Possible values: *
- * **BarCode** * **MessageRef** * **Text** * **XHTML**
- */
-public enum OutputFormatType {
-  BAR_CODE("BarCode"),
+/** Gets or Sets ErrorCondition */
+public enum ErrorCondition {
+  ABORTED("Aborted"),
 
-  MESSAGE_REF("MessageRef"),
+  BUSY("Busy"),
 
-  TEXT("Text"),
+  CANCEL("Cancel"),
 
-  XHTML("XHTML");
+  DEVICE_OUT("DeviceOut"),
+
+  IN_PROGRESS("InProgress"),
+
+  INSERTED_CARD("InsertedCard"),
+
+  INVALID_CARD("InvalidCard"),
+
+  LOGGED_OUT("LoggedOut"),
+
+  MESSAGE_FORMAT("MessageFormat"),
+
+  NOT_ALLOWED("NotAllowed"),
+
+  NOT_FOUND("NotFound"),
+
+  PAYMENT_RESTRICTION("PaymentRestriction"),
+
+  REFUSAL("Refusal"),
+
+  UNAVAILABLE_DEVICE("UnavailableDevice"),
+
+  UNAVAILABLE_SERVICE("UnavailableService"),
+
+  UNREACHABLE_HOST("UnreachableHost"),
+
+  WRONG_PIN("WrongPIN");
 
   private String value;
 
-  OutputFormatType(String value) {
+  ErrorCondition(String value) {
     this.value = value;
   }
 
@@ -45,8 +68,8 @@ public enum OutputFormatType {
   }
 
   @JsonCreator
-  public static OutputFormatType fromValue(String value) {
-    for (OutputFormatType b : OutputFormatType.values()) {
+  public static ErrorCondition fromValue(String value) {
+    for (ErrorCondition b : ErrorCondition.values()) {
       if (b.value.equals(value)) {
         return b;
       }

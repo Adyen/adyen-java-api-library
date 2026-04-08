@@ -72,7 +72,7 @@ public class StoredValueResult {
   private boolean isSetStoredValueAccountStatus = false;
 
   public static final String JSON_PROPERTY_HOST_TRANSACTION_I_D = "HostTransactionID";
-  private TransactionIdentification hostTransactionID;
+  private TransactionIDType hostTransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetHostTransactionID = false;
@@ -86,13 +86,9 @@ public class StoredValueResult {
   public StoredValueResult() {}
 
   /**
-   * Identification of operation to proceed on the stored value account or the stored value card.
-   * Copy. Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** *
-   * **Unload**
+   * storedValueTransactionType
    *
-   * @param storedValueTransactionType Identification of operation to proceed on the stored value
-   *     account or the stored value card. Copy. Possible values: * **Activate** * **Duplicate** *
-   *     **Load** * **Reserve** * **Reverse** * **Unload**
+   * @param storedValueTransactionType
    * @return the current {@code StoredValueResult} instance, allowing for method chaining
    */
   public StoredValueResult storedValueTransactionType(
@@ -103,13 +99,9 @@ public class StoredValueResult {
   }
 
   /**
-   * Identification of operation to proceed on the stored value account or the stored value card.
-   * Copy. Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** *
-   * **Unload**
+   * Get storedValueTransactionType
    *
-   * @return storedValueTransactionType Identification of operation to proceed on the stored value
-   *     account or the stored value card. Copy. Possible values: * **Activate** * **Duplicate** *
-   *     **Load** * **Reserve** * **Reverse** * **Unload**
+   * @return storedValueTransactionType
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,13 +110,9 @@ public class StoredValueResult {
   }
 
   /**
-   * Identification of operation to proceed on the stored value account or the stored value card.
-   * Copy. Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** *
-   * **Unload**
+   * storedValueTransactionType
    *
-   * @param storedValueTransactionType Identification of operation to proceed on the stored value
-   *     account or the stored value card. Copy. Possible values: * **Activate** * **Duplicate** *
-   *     **Load** * **Reserve** * **Reverse** * **Unload**
+   * @param storedValueTransactionType
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,10 +262,9 @@ public class StoredValueResult {
   }
 
   /**
-   * Data related to the result of the stored value card transaction.
+   * storedValueAccountStatus
    *
-   * @param storedValueAccountStatus Data related to the result of the stored value card
-   *     transaction.
+   * @param storedValueAccountStatus
    * @return the current {@code StoredValueResult} instance, allowing for method chaining
    */
   public StoredValueResult storedValueAccountStatus(
@@ -288,10 +275,9 @@ public class StoredValueResult {
   }
 
   /**
-   * Data related to the result of the stored value card transaction.
+   * Get storedValueAccountStatus
    *
-   * @return storedValueAccountStatus Data related to the result of the stored value card
-   *     transaction.
+   * @return storedValueAccountStatus
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_ACCOUNT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,10 +286,9 @@ public class StoredValueResult {
   }
 
   /**
-   * Data related to the result of the stored value card transaction.
+   * storedValueAccountStatus
    *
-   * @param storedValueAccountStatus Data related to the result of the stored value card
-   *     transaction.
+   * @param storedValueAccountStatus
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_ACCOUNT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,42 +298,36 @@ public class StoredValueResult {
   }
 
   /**
-   * Identification of the transaction by the host in charge of the stored value transaction. If
-   * provided by the Host.
+   * hostTransactionID
    *
-   * @param hostTransactionID Identification of the transaction by the host in charge of the stored
-   *     value transaction. If provided by the Host.
+   * @param hostTransactionID
    * @return the current {@code StoredValueResult} instance, allowing for method chaining
    */
-  public StoredValueResult hostTransactionID(TransactionIdentification hostTransactionID) {
+  public StoredValueResult hostTransactionID(TransactionIDType hostTransactionID) {
     this.hostTransactionID = hostTransactionID;
     isSetHostTransactionID = true; // mark as set
     return this;
   }
 
   /**
-   * Identification of the transaction by the host in charge of the stored value transaction. If
-   * provided by the Host.
+   * Get hostTransactionID
    *
-   * @return hostTransactionID Identification of the transaction by the host in charge of the stored
-   *     value transaction. If provided by the Host.
+   * @return hostTransactionID
    */
   @JsonProperty(JSON_PROPERTY_HOST_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getHostTransactionID() {
+  public TransactionIDType getHostTransactionID() {
     return hostTransactionID;
   }
 
   /**
-   * Identification of the transaction by the host in charge of the stored value transaction. If
-   * provided by the Host.
+   * hostTransactionID
    *
-   * @param hostTransactionID Identification of the transaction by the host in charge of the stored
-   *     value transaction. If provided by the Host.
+   * @param hostTransactionID
    */
   @JsonProperty(JSON_PROPERTY_HOST_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHostTransactionID(TransactionIdentification hostTransactionID) {
+  public void setHostTransactionID(TransactionIDType hostTransactionID) {
     this.hostTransactionID = hostTransactionID;
     isSetHostTransactionID = true; // mark as set
   }

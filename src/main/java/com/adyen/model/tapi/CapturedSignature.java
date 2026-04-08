@@ -48,12 +48,9 @@ public class CapturedSignature {
   public CapturedSignature() {}
 
   /**
-   * Size of an area. Contain the size of the pad area where the signature is written, given with
-   * the maximum abscissa and ordinate values (X and Y). The maximum value is FFFF.
+   * areaSize
    *
-   * @param areaSize Size of an area. Contain the size of the pad area where the signature is
-   *     written, given with the maximum abscissa and ordinate values (X and Y). The maximum value
-   *     is FFFF.
+   * @param areaSize
    * @return the current {@code CapturedSignature} instance, allowing for method chaining
    */
   public CapturedSignature areaSize(AreaSize areaSize) {
@@ -63,12 +60,9 @@ public class CapturedSignature {
   }
 
   /**
-   * Size of an area. Contain the size of the pad area where the signature is written, given with
-   * the maximum abscissa and ordinate values (X and Y). The maximum value is FFFF.
+   * Get areaSize
    *
-   * @return areaSize Size of an area. Contain the size of the pad area where the signature is
-   *     written, given with the maximum abscissa and ordinate values (X and Y). The maximum value
-   *     is FFFF.
+   * @return areaSize
    */
   @JsonProperty(JSON_PROPERTY_AREA_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,12 +71,9 @@ public class CapturedSignature {
   }
 
   /**
-   * Size of an area. Contain the size of the pad area where the signature is written, given with
-   * the maximum abscissa and ordinate values (X and Y). The maximum value is FFFF.
+   * areaSize
    *
-   * @param areaSize Size of an area. Contain the size of the pad area where the signature is
-   *     written, given with the maximum abscissa and ordinate values (X and Y). The maximum value
-   *     is FFFF.
+   * @param areaSize
    */
   @JsonProperty(JSON_PROPERTY_AREA_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -33,13 +33,13 @@ import java.util.*;
 })
 public class Response {
   public static final String JSON_PROPERTY_RESULT = "Result";
-  private ResultType result;
+  private Result result;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetResult = false;
 
   public static final String JSON_PROPERTY_ERROR_CONDITION = "ErrorCondition";
-  private ErrorConditionType errorCondition;
+  private ErrorCondition errorCondition;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetErrorCondition = false;
@@ -59,104 +59,71 @@ public class Response {
   public Response() {}
 
   /**
-   * Result of the processing of the message. Possible values: * **Failure** * **Partial** *
-   * **Success**
+   * result
    *
-   * @param result Result of the processing of the message. Possible values: * **Failure** *
-   *     **Partial** * **Success**
+   * @param result
    * @return the current {@code Response} instance, allowing for method chaining
    */
-  public Response result(ResultType result) {
+  public Response result(Result result) {
     this.result = result;
     isSetResult = true; // mark as set
     return this;
   }
 
   /**
-   * Result of the processing of the message. Possible values: * **Failure** * **Partial** *
-   * **Success**
+   * Get result
    *
-   * @return result Result of the processing of the message. Possible values: * **Failure** *
-   *     **Partial** * **Success**
+   * @return result
    */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ResultType getResult() {
+  public Result getResult() {
     return result;
   }
 
   /**
-   * Result of the processing of the message. Possible values: * **Failure** * **Partial** *
-   * **Success**
+   * result
    *
-   * @param result Result of the processing of the message. Possible values: * **Failure** *
-   *     **Partial** * **Success**
+   * @param result
    */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResult(ResultType result) {
+  public void setResult(Result result) {
     this.result = result;
     isSetResult = true; // mark as set
   }
 
   /**
-   * Condition that has produced an error on the processing of a message request. Returned if Result
-   * is not Success. Possible values: * **Aborted** * **Busy** * **Cancel** * **DeviceOut** *
-   * **InProgress** * **InsertedCard** * **InvalidCard** * **LoggedOut** * **MessageFormat** *
-   * **NotAllowed** * **NotFound** * **PaymentRestriction** * **Refusal** * **UnavailableDevice** *
-   * **UnavailableService** * **UnreachableHost** * **WrongPIN**
+   * errorCondition
    *
-   * @param errorCondition Condition that has produced an error on the processing of a message
-   *     request. Returned if Result is not Success. Possible values: * **Aborted** * **Busy** *
-   *     **Cancel** * **DeviceOut** * **InProgress** * **InsertedCard** * **InvalidCard** *
-   *     **LoggedOut** * **MessageFormat** * **NotAllowed** * **NotFound** * **PaymentRestriction**
-   *     * **Refusal** * **UnavailableDevice** * **UnavailableService** * **UnreachableHost** *
-   *     **WrongPIN**
+   * @param errorCondition
    * @return the current {@code Response} instance, allowing for method chaining
    */
-  public Response errorCondition(ErrorConditionType errorCondition) {
+  public Response errorCondition(ErrorCondition errorCondition) {
     this.errorCondition = errorCondition;
     isSetErrorCondition = true; // mark as set
     return this;
   }
 
   /**
-   * Condition that has produced an error on the processing of a message request. Returned if Result
-   * is not Success. Possible values: * **Aborted** * **Busy** * **Cancel** * **DeviceOut** *
-   * **InProgress** * **InsertedCard** * **InvalidCard** * **LoggedOut** * **MessageFormat** *
-   * **NotAllowed** * **NotFound** * **PaymentRestriction** * **Refusal** * **UnavailableDevice** *
-   * **UnavailableService** * **UnreachableHost** * **WrongPIN**
+   * Get errorCondition
    *
-   * @return errorCondition Condition that has produced an error on the processing of a message
-   *     request. Returned if Result is not Success. Possible values: * **Aborted** * **Busy** *
-   *     **Cancel** * **DeviceOut** * **InProgress** * **InsertedCard** * **InvalidCard** *
-   *     **LoggedOut** * **MessageFormat** * **NotAllowed** * **NotFound** * **PaymentRestriction**
-   *     * **Refusal** * **UnavailableDevice** * **UnavailableService** * **UnreachableHost** *
-   *     **WrongPIN**
+   * @return errorCondition
    */
   @JsonProperty(JSON_PROPERTY_ERROR_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ErrorConditionType getErrorCondition() {
+  public ErrorCondition getErrorCondition() {
     return errorCondition;
   }
 
   /**
-   * Condition that has produced an error on the processing of a message request. Returned if Result
-   * is not Success. Possible values: * **Aborted** * **Busy** * **Cancel** * **DeviceOut** *
-   * **InProgress** * **InsertedCard** * **InvalidCard** * **LoggedOut** * **MessageFormat** *
-   * **NotAllowed** * **NotFound** * **PaymentRestriction** * **Refusal** * **UnavailableDevice** *
-   * **UnavailableService** * **UnreachableHost** * **WrongPIN**
+   * errorCondition
    *
-   * @param errorCondition Condition that has produced an error on the processing of a message
-   *     request. Returned if Result is not Success. Possible values: * **Aborted** * **Busy** *
-   *     **Cancel** * **DeviceOut** * **InProgress** * **InsertedCard** * **InvalidCard** *
-   *     **LoggedOut** * **MessageFormat** * **NotAllowed** * **NotFound** * **PaymentRestriction**
-   *     * **Refusal** * **UnavailableDevice** * **UnavailableService** * **UnreachableHost** *
-   *     **WrongPIN**
+   * @param errorCondition
    */
   @JsonProperty(JSON_PROPERTY_ERROR_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrorCondition(ErrorConditionType errorCondition) {
+  public void setErrorCondition(ErrorCondition errorCondition) {
     this.errorCondition = errorCondition;
     isSetErrorCondition = true; // mark as set
   }

@@ -33,7 +33,7 @@ public class CardHolderPIN {
   private boolean isSetEncrPINBlock = false;
 
   public static final String JSON_PROPERTY_PI_N_FORMAT = "PINFormat";
-  private PINFormatType piNFormat;
+  private PINFormat piNFormat;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPiNFormat = false;
@@ -88,36 +88,36 @@ public class CardHolderPIN {
   }
 
   /**
-   * Possible values: * **ISO0** * **ISO1** * **ISO2** * **ISO3**
+   * piNFormat
    *
-   * @param piNFormat Possible values: * **ISO0** * **ISO1** * **ISO2** * **ISO3**
+   * @param piNFormat
    * @return the current {@code CardHolderPIN} instance, allowing for method chaining
    */
-  public CardHolderPIN piNFormat(PINFormatType piNFormat) {
+  public CardHolderPIN piNFormat(PINFormat piNFormat) {
     this.piNFormat = piNFormat;
     isSetPiNFormat = true; // mark as set
     return this;
   }
 
   /**
-   * Possible values: * **ISO0** * **ISO1** * **ISO2** * **ISO3**
+   * Get piNFormat
    *
-   * @return piNFormat Possible values: * **ISO0** * **ISO1** * **ISO2** * **ISO3**
+   * @return piNFormat
    */
   @JsonProperty(JSON_PROPERTY_PI_N_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PINFormatType getPiNFormat() {
+  public PINFormat getPiNFormat() {
     return piNFormat;
   }
 
   /**
-   * Possible values: * **ISO0** * **ISO1** * **ISO2** * **ISO3**
+   * piNFormat
    *
-   * @param piNFormat Possible values: * **ISO0** * **ISO1** * **ISO2** * **ISO3**
+   * @param piNFormat
    */
   @JsonProperty(JSON_PROPERTY_PI_N_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPiNFormat(PINFormatType piNFormat) {
+  public void setPiNFormat(PINFormat piNFormat) {
     this.piNFormat = piNFormat;
     isSetPiNFormat = true; // mark as set
   }

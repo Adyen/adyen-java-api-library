@@ -15,21 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets LoyaltyHandling */
-public enum LoyaltyHandlingType {
-  ALLOWED("Allowed"),
+/** Gets or Sets CharacterWidth */
+public enum CharacterWidth {
+  DOUBLE_WIDTH("DoubleWidth"),
 
-  FORBIDDEN("Forbidden"),
-
-  PROCESSED("Processed"),
-
-  PROPOSED("Proposed"),
-
-  REQUIRED("Required");
+  SINGLE_WIDTH("SingleWidth");
 
   private String value;
 
-  LoyaltyHandlingType(String value) {
+  CharacterWidth(String value) {
     this.value = value;
   }
 
@@ -44,8 +38,8 @@ public enum LoyaltyHandlingType {
   }
 
   @JsonCreator
-  public static LoyaltyHandlingType fromValue(String value) {
-    for (LoyaltyHandlingType b : LoyaltyHandlingType.values()) {
+  public static CharacterWidth fromValue(String value) {
+    for (CharacterWidth b : CharacterWidth.values()) {
       if (b.value.equals(value)) {
         return b;
       }

@@ -149,12 +149,9 @@ public class StoredValueAccountID {
   public StoredValueAccountID() {}
 
   /**
-   * Type of stored value account. Allows the distinction of the stored value instrument to access
-   * the stored value account. Possible values: * **GiftCard** * **Other** * **PhoneCard**
+   * storedValueAccountType
    *
-   * @param storedValueAccountType Type of stored value account. Allows the distinction of the
-   *     stored value instrument to access the stored value account. Possible values: * **GiftCard**
-   *     * **Other** * **PhoneCard**
+   * @param storedValueAccountType
    * @return the current {@code StoredValueAccountID} instance, allowing for method chaining
    */
   public StoredValueAccountID storedValueAccountType(
@@ -165,12 +162,9 @@ public class StoredValueAccountID {
   }
 
   /**
-   * Type of stored value account. Allows the distinction of the stored value instrument to access
-   * the stored value account. Possible values: * **GiftCard** * **Other** * **PhoneCard**
+   * Get storedValueAccountType
    *
-   * @return storedValueAccountType Type of stored value account. Allows the distinction of the
-   *     stored value instrument to access the stored value account. Possible values: * **GiftCard**
-   *     * **Other** * **PhoneCard**
+   * @return storedValueAccountType
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,12 +173,9 @@ public class StoredValueAccountID {
   }
 
   /**
-   * Type of stored value account. Allows the distinction of the stored value instrument to access
-   * the stored value account. Possible values: * **GiftCard** * **Other** * **PhoneCard**
+   * storedValueAccountType
    *
-   * @param storedValueAccountType Type of stored value account. Allows the distinction of the
-   *     stored value instrument to access the stored value account. Possible values: * **GiftCard**
-   *     * **Other** * **PhoneCard**
+   * @param storedValueAccountType
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,18 +354,9 @@ public class StoredValueAccountID {
   }
 
   /**
-   * Type of account identification. In a request message, it informs the POI System the type of the
-   * account or card identification, when provided by the Sale Terminal. (e.g. because the card
-   * information is a barcode read by the Cashier on a scanner device). In a response message, it
-   * informs the Sale System the type of the account or card identification. Possible values: *
-   * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
+   * identificationType
    *
-   * @param identificationType Type of account identification. In a request message, it informs the
-   *     POI System the type of the account or card identification, when provided by the Sale
-   *     Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner
-   *     device). In a response message, it informs the Sale System the type of the account or card
-   *     identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** *
-   *     **PAN** * **PhoneNumber**
+   * @param identificationType
    * @return the current {@code StoredValueAccountID} instance, allowing for method chaining
    */
   public StoredValueAccountID identificationType(IdentificationType identificationType) {
@@ -384,18 +366,9 @@ public class StoredValueAccountID {
   }
 
   /**
-   * Type of account identification. In a request message, it informs the POI System the type of the
-   * account or card identification, when provided by the Sale Terminal. (e.g. because the card
-   * information is a barcode read by the Cashier on a scanner device). In a response message, it
-   * informs the Sale System the type of the account or card identification. Possible values: *
-   * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
+   * Get identificationType
    *
-   * @return identificationType Type of account identification. In a request message, it informs the
-   *     POI System the type of the account or card identification, when provided by the Sale
-   *     Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner
-   *     device). In a response message, it informs the Sale System the type of the account or card
-   *     identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** *
-   *     **PAN** * **PhoneNumber**
+   * @return identificationType
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,18 +377,9 @@ public class StoredValueAccountID {
   }
 
   /**
-   * Type of account identification. In a request message, it informs the POI System the type of the
-   * account or card identification, when provided by the Sale Terminal. (e.g. because the card
-   * information is a barcode read by the Cashier on a scanner device). In a response message, it
-   * informs the Sale System the type of the account or card identification. Possible values: *
-   * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
+   * identificationType
    *
-   * @param identificationType Type of account identification. In a request message, it informs the
-   *     POI System the type of the account or card identification, when provided by the Sale
-   *     Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner
-   *     device). In a response message, it informs the Sale System the type of the account or card
-   *     identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** *
-   *     **PAN** * **PhoneNumber**
+   * @param identificationType
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

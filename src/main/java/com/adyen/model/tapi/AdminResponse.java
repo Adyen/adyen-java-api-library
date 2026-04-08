@@ -37,9 +37,9 @@ public class AdminResponse {
   public AdminResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code AdminResponse} instance, allowing for method chaining
    */
   public AdminResponse response(Response response) {
@@ -49,9 +49,9 @@ public class AdminResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -60,9 +60,9 @@ public class AdminResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

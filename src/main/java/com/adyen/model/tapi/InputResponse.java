@@ -49,11 +49,9 @@ public class InputResponse {
   public InputResponse() {}
 
   /**
-   * Information related to the result the output (display, print, input). If DisplayOutput present
-   * in the request.
+   * outputResult
    *
-   * @param outputResult Information related to the result the output (display, print, input). If
-   *     DisplayOutput present in the request.
+   * @param outputResult
    * @return the current {@code InputResponse} instance, allowing for method chaining
    */
   public InputResponse outputResult(OutputResult outputResult) {
@@ -63,11 +61,9 @@ public class InputResponse {
   }
 
   /**
-   * Information related to the result the output (display, print, input). If DisplayOutput present
-   * in the request.
+   * Get outputResult
    *
-   * @return outputResult Information related to the result the output (display, print, input). If
-   *     DisplayOutput present in the request.
+   * @return outputResult
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,11 +72,9 @@ public class InputResponse {
   }
 
   /**
-   * Information related to the result the output (display, print, input). If DisplayOutput present
-   * in the request.
+   * outputResult
    *
-   * @param outputResult Information related to the result the output (display, print, input). If
-   *     DisplayOutput present in the request.
+   * @param outputResult
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,9 +84,9 @@ public class InputResponse {
   }
 
   /**
-   * Contains the result and the content of the input.
+   * inputResult
    *
-   * @param inputResult Contains the result and the content of the input.
+   * @param inputResult
    * @return the current {@code InputResponse} instance, allowing for method chaining
    */
   public InputResponse inputResult(InputResult inputResult) {
@@ -102,9 +96,9 @@ public class InputResponse {
   }
 
   /**
-   * Contains the result and the content of the input.
+   * Get inputResult
    *
-   * @return inputResult Contains the result and the content of the input.
+   * @return inputResult
    */
   @JsonProperty(JSON_PROPERTY_INPUT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,9 +107,9 @@ public class InputResponse {
   }
 
   /**
-   * Contains the result and the content of the input.
+   * inputResult
    *
-   * @param inputResult Contains the result and the content of the input.
+   * @param inputResult
    */
   @JsonProperty(JSON_PROPERTY_INPUT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

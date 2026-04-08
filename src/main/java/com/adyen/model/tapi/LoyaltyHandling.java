@@ -15,31 +15,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets InfoQualify */
-public enum InfoQualifyType {
-  CUSTOMER_ASSISTANCE("CustomerAssistance"),
+/** Gets or Sets LoyaltyHandling */
+public enum LoyaltyHandling {
+  ALLOWED("Allowed"),
 
-  DISPLAY("Display"),
+  FORBIDDEN("Forbidden"),
 
-  DOCUMENT("Document"),
+  PROCESSED("Processed"),
 
-  ERROR("Error"),
+  PROPOSED("Proposed"),
 
-  INPUT("Input"),
-
-  POI_REPLICATION("POIReplication"),
-
-  RECEIPT("Receipt"),
-
-  SOUND("Sound"),
-
-  STATUS("Status"),
-
-  VOUCHER("Voucher");
+  REQUIRED("Required");
 
   private String value;
 
-  InfoQualifyType(String value) {
+  LoyaltyHandling(String value) {
     this.value = value;
   }
 
@@ -54,8 +44,8 @@ public enum InfoQualifyType {
   }
 
   @JsonCreator
-  public static InfoQualifyType fromValue(String value) {
-    for (InfoQualifyType b : InfoQualifyType.values()) {
+  public static LoyaltyHandling fromValue(String value) {
+    for (LoyaltyHandling b : LoyaltyHandling.values()) {
       if (b.value.equals(value)) {
         return b;
       }

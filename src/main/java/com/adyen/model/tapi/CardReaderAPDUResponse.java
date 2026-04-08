@@ -57,9 +57,9 @@ public class CardReaderAPDUResponse {
   public CardReaderAPDUResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code CardReaderAPDUResponse} instance, allowing for method chaining
    */
   public CardReaderAPDUResponse response(Response response) {
@@ -69,9 +69,9 @@ public class CardReaderAPDUResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,9 +80,9 @@ public class CardReaderAPDUResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

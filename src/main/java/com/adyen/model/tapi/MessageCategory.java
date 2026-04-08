@@ -15,45 +15,53 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets ErrorCondition */
-public enum ErrorConditionType {
-  ABORTED("Aborted"),
+/** Gets or Sets MessageCategory */
+public enum MessageCategory {
+  ABORT("Abort"),
 
-  BUSY("Busy"),
+  ADMIN("Admin"),
 
-  CANCEL("Cancel"),
+  BALANCE_INQUIRY("BalanceInquiry"),
 
-  DEVICE_OUT("DeviceOut"),
+  CARD_ACQUISITION("CardAcquisition"),
 
-  IN_PROGRESS("InProgress"),
+  DIAGNOSIS("Diagnosis"),
 
-  INSERTED_CARD("InsertedCard"),
+  DISPLAY("Display"),
 
-  INVALID_CARD("InvalidCard"),
+  ENABLE_SERVICE("EnableService"),
 
-  LOGGED_OUT("LoggedOut"),
+  EVENT("Event"),
 
-  MESSAGE_FORMAT("MessageFormat"),
+  GET_TOTALS("GetTotals"),
 
-  NOT_ALLOWED("NotAllowed"),
+  INPUT("Input"),
 
-  NOT_FOUND("NotFound"),
+  INPUT_UPDATE("InputUpdate"),
 
-  PAYMENT_RESTRICTION("PaymentRestriction"),
+  LOGIN("Login"),
 
-  REFUSAL("Refusal"),
+  LOGOUT("Logout"),
 
-  UNAVAILABLE_DEVICE("UnavailableDevice"),
+  LOYALTY("Loyalty"),
 
-  UNAVAILABLE_SERVICE("UnavailableService"),
+  NONE("None"),
 
-  UNREACHABLE_HOST("UnreachableHost"),
+  PAYMENT("Payment"),
 
-  WRONG_PIN("WrongPIN");
+  PRINT("Print"),
+
+  RECONCILIATION("Reconciliation"),
+
+  REVERSAL("Reversal"),
+
+  STORED_VALUE("StoredValue"),
+
+  TRANSACTION_STATUS("TransactionStatus");
 
   private String value;
 
-  ErrorConditionType(String value) {
+  MessageCategory(String value) {
     this.value = value;
   }
 
@@ -68,8 +76,8 @@ public enum ErrorConditionType {
   }
 
   @JsonCreator
-  public static ErrorConditionType fromValue(String value) {
-    for (ErrorConditionType b : ErrorConditionType.values()) {
+  public static MessageCategory fromValue(String value) {
+    for (MessageCategory b : MessageCategory.values()) {
       if (b.value.equals(value)) {
         return b;
       }

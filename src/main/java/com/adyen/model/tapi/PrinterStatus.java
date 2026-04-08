@@ -15,19 +15,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets Device */
-public enum DeviceType {
-  CASHIER_DISPLAY("CashierDisplay"),
+/**
+ * Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** *
+ * **OutOfOrder** * **PaperJam** * **PaperLow**
+ */
+public enum PrinterStatus {
+  NO_PAPER("NoPaper"),
 
-  CASHIER_INPUT("CashierInput"),
+  OK("OK"),
 
-  CUSTOMER_DISPLAY("CustomerDisplay"),
+  OUT_OF_ORDER("OutOfOrder"),
 
-  CUSTOMER_INPUT("CustomerInput");
+  PAPER_JAM("PaperJam"),
+
+  PAPER_LOW("PaperLow");
 
   private String value;
 
-  DeviceType(String value) {
+  PrinterStatus(String value) {
     this.value = value;
   }
 
@@ -42,8 +47,8 @@ public enum DeviceType {
   }
 
   @JsonCreator
-  public static DeviceType fromValue(String value) {
-    for (DeviceType b : DeviceType.values()) {
+  public static PrinterStatus fromValue(String value) {
+    for (PrinterStatus b : PrinterStatus.values()) {
       if (b.value.equals(value)) {
         return b;
       }

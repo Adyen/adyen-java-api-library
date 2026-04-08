@@ -52,7 +52,7 @@ public class CardAcquisitionTransaction {
   private boolean isSetAllowedLoyaltyBrand = false;
 
   public static final String JSON_PROPERTY_LOYALTY_HANDLING = "LoyaltyHandling";
-  private LoyaltyHandlingType loyaltyHandling;
+  private LoyaltyHandling loyaltyHandling;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLoyaltyHandling = false;
@@ -254,48 +254,36 @@ public class CardAcquisitionTransaction {
   }
 
   /**
-   * Type of Loyalty processing requested by the Sale System. An way to specify what the POI has to
-   * handle concerning the loyalty. Possible values: * **Allowed** * **Forbidden** * **Processed** *
-   * **Proposed** * **Required**
+   * loyaltyHandling
    *
-   * @param loyaltyHandling Type of Loyalty processing requested by the Sale System. An way to
-   *     specify what the POI has to handle concerning the loyalty. Possible values: * **Allowed** *
-   *     **Forbidden** * **Processed** * **Proposed** * **Required**
+   * @param loyaltyHandling
    * @return the current {@code CardAcquisitionTransaction} instance, allowing for method chaining
    */
-  public CardAcquisitionTransaction loyaltyHandling(LoyaltyHandlingType loyaltyHandling) {
+  public CardAcquisitionTransaction loyaltyHandling(LoyaltyHandling loyaltyHandling) {
     this.loyaltyHandling = loyaltyHandling;
     isSetLoyaltyHandling = true; // mark as set
     return this;
   }
 
   /**
-   * Type of Loyalty processing requested by the Sale System. An way to specify what the POI has to
-   * handle concerning the loyalty. Possible values: * **Allowed** * **Forbidden** * **Processed** *
-   * **Proposed** * **Required**
+   * Get loyaltyHandling
    *
-   * @return loyaltyHandling Type of Loyalty processing requested by the Sale System. An way to
-   *     specify what the POI has to handle concerning the loyalty. Possible values: * **Allowed** *
-   *     **Forbidden** * **Processed** * **Proposed** * **Required**
+   * @return loyaltyHandling
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_HANDLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LoyaltyHandlingType getLoyaltyHandling() {
+  public LoyaltyHandling getLoyaltyHandling() {
     return loyaltyHandling;
   }
 
   /**
-   * Type of Loyalty processing requested by the Sale System. An way to specify what the POI has to
-   * handle concerning the loyalty. Possible values: * **Allowed** * **Forbidden** * **Processed** *
-   * **Proposed** * **Required**
+   * loyaltyHandling
    *
-   * @param loyaltyHandling Type of Loyalty processing requested by the Sale System. An way to
-   *     specify what the POI has to handle concerning the loyalty. Possible values: * **Allowed** *
-   *     **Forbidden** * **Processed** * **Proposed** * **Required**
+   * @param loyaltyHandling
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_HANDLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLoyaltyHandling(LoyaltyHandlingType loyaltyHandling) {
+  public void setLoyaltyHandling(LoyaltyHandling loyaltyHandling) {
     this.loyaltyHandling = loyaltyHandling;
     isSetLoyaltyHandling = true; // mark as set
   }
@@ -473,15 +461,9 @@ public class CardAcquisitionTransaction {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * paymentType
    *
-   * @param paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @param paymentType
    * @return the current {@code CardAcquisitionTransaction} instance, allowing for method chaining
    */
   public CardAcquisitionTransaction paymentType(PaymentType paymentType) {
@@ -491,15 +473,9 @@ public class CardAcquisitionTransaction {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * Get paymentType
    *
-   * @return paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @return paymentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,15 +484,9 @@ public class CardAcquisitionTransaction {
   }
 
   /**
-   * Type of payment transaction. Elements requested by the Sale System that are related to the
-   * payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
-   * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** *
-   * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * paymentType
    *
-   * @param paymentType Type of payment transaction. Elements requested by the Sale System that are
-   *     related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** *
-   *     **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
-   *     * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
+   * @param paymentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
