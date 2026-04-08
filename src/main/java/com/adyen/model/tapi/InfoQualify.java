@@ -15,53 +15,31 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets MessageCategory */
-public enum MessageCategoryType {
-  ABORT("Abort"),
-
-  ADMIN("Admin"),
-
-  BALANCE_INQUIRY("BalanceInquiry"),
-
-  CARD_ACQUISITION("CardAcquisition"),
-
-  DIAGNOSIS("Diagnosis"),
+/** Gets or Sets InfoQualify */
+public enum InfoQualify {
+  CUSTOMER_ASSISTANCE("CustomerAssistance"),
 
   DISPLAY("Display"),
 
-  ENABLE_SERVICE("EnableService"),
+  DOCUMENT("Document"),
 
-  EVENT("Event"),
-
-  GET_TOTALS("GetTotals"),
+  ERROR("Error"),
 
   INPUT("Input"),
 
-  INPUT_UPDATE("InputUpdate"),
+  POI_REPLICATION("POIReplication"),
 
-  LOGIN("Login"),
+  RECEIPT("Receipt"),
 
-  LOGOUT("Logout"),
+  SOUND("Sound"),
 
-  LOYALTY("Loyalty"),
+  STATUS("Status"),
 
-  NONE("None"),
-
-  PAYMENT("Payment"),
-
-  PRINT("Print"),
-
-  RECONCILIATION("Reconciliation"),
-
-  REVERSAL("Reversal"),
-
-  STORED_VALUE("StoredValue"),
-
-  TRANSACTION_STATUS("TransactionStatus");
+  VOUCHER("Voucher");
 
   private String value;
 
-  MessageCategoryType(String value) {
+  InfoQualify(String value) {
     this.value = value;
   }
 
@@ -76,8 +54,8 @@ public enum MessageCategoryType {
   }
 
   @JsonCreator
-  public static MessageCategoryType fromValue(String value) {
-    for (MessageCategoryType b : MessageCategoryType.values()) {
+  public static InfoQualify fromValue(String value) {
+    for (InfoQualify b : InfoQualify.values()) {
       if (b.value.equals(value)) {
         return b;
       }

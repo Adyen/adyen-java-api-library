@@ -188,10 +188,9 @@ public class MobileData {
   }
 
   /**
-   * Geographic location specified by geographic or UTM coordinates. If data available.
+   * geolocation
    *
-   * @param geolocation Geographic location specified by geographic or UTM coordinates. If data
-   *     available.
+   * @param geolocation
    * @return the current {@code MobileData} instance, allowing for method chaining
    */
   public MobileData geolocation(Geolocation geolocation) {
@@ -201,10 +200,9 @@ public class MobileData {
   }
 
   /**
-   * Geographic location specified by geographic or UTM coordinates. If data available.
+   * Get geolocation
    *
-   * @return geolocation Geographic location specified by geographic or UTM coordinates. If data
-   *     available.
+   * @return geolocation
    */
   @JsonProperty(JSON_PROPERTY_GEOLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,10 +211,9 @@ public class MobileData {
   }
 
   /**
-   * Geographic location specified by geographic or UTM coordinates. If data available.
+   * geolocation
    *
-   * @param geolocation Geographic location specified by geographic or UTM coordinates. If data
-   *     available.
+   * @param geolocation
    */
   @JsonProperty(JSON_PROPERTY_GEOLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,10 +261,9 @@ public class MobileData {
   }
 
   /**
-   * Sensitive information related to the mobile phone. If unprotected mobile data.
+   * sensitiveMobileData
    *
-   * @param sensitiveMobileData Sensitive information related to the mobile phone. If unprotected
-   *     mobile data.
+   * @param sensitiveMobileData
    * @return the current {@code MobileData} instance, allowing for method chaining
    */
   public MobileData sensitiveMobileData(SensitiveMobileData sensitiveMobileData) {
@@ -277,10 +273,9 @@ public class MobileData {
   }
 
   /**
-   * Sensitive information related to the mobile phone. If unprotected mobile data.
+   * Get sensitiveMobileData
    *
-   * @return sensitiveMobileData Sensitive information related to the mobile phone. If unprotected
-   *     mobile data.
+   * @return sensitiveMobileData
    */
   @JsonProperty(JSON_PROPERTY_SENSITIVE_MOBILE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -289,10 +284,9 @@ public class MobileData {
   }
 
   /**
-   * Sensitive information related to the mobile phone. If unprotected mobile data.
+   * sensitiveMobileData
    *
-   * @param sensitiveMobileData Sensitive information related to the mobile phone. If unprotected
-   *     mobile data.
+   * @param sensitiveMobileData
    */
   @JsonProperty(JSON_PROPERTY_SENSITIVE_MOBILE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

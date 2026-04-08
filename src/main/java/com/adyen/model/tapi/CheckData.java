@@ -65,7 +65,7 @@ public class CheckData {
   private boolean isSetCheckCardNumber = false;
 
   public static final String JSON_PROPERTY_TYPE_CODE = "TypeCode";
-  private TypeCodeType typeCode;
+  private TypeCode typeCode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTypeCode = false;
@@ -190,10 +190,9 @@ public class CheckData {
   }
 
   /**
-   * Magnetic track or magnetic ink characters line. Mandatory if CheckNumber absent.
+   * trackData
    *
-   * @param trackData Magnetic track or magnetic ink characters line. Mandatory if CheckNumber
-   *     absent.
+   * @param trackData
    * @return the current {@code CheckData} instance, allowing for method chaining
    */
   public CheckData trackData(TrackData trackData) {
@@ -203,10 +202,9 @@ public class CheckData {
   }
 
   /**
-   * Magnetic track or magnetic ink characters line. Mandatory if CheckNumber absent.
+   * Get trackData
    *
-   * @return trackData Magnetic track or magnetic ink characters line. Mandatory if CheckNumber
-   *     absent.
+   * @return trackData
    */
   @JsonProperty(JSON_PROPERTY_TRACK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,10 +213,9 @@ public class CheckData {
   }
 
   /**
-   * Magnetic track or magnetic ink characters line. Mandatory if CheckNumber absent.
+   * trackData
    *
-   * @param trackData Magnetic track or magnetic ink characters line. Mandatory if CheckNumber
-   *     absent.
+   * @param trackData
    */
   @JsonProperty(JSON_PROPERTY_TRACK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,36 +260,36 @@ public class CheckData {
   }
 
   /**
-   * Type of bank check. Possible values: * **Company** * **Personal**
+   * typeCode
    *
-   * @param typeCode Type of bank check. Possible values: * **Company** * **Personal**
+   * @param typeCode
    * @return the current {@code CheckData} instance, allowing for method chaining
    */
-  public CheckData typeCode(TypeCodeType typeCode) {
+  public CheckData typeCode(TypeCode typeCode) {
     this.typeCode = typeCode;
     isSetTypeCode = true; // mark as set
     return this;
   }
 
   /**
-   * Type of bank check. Possible values: * **Company** * **Personal**
+   * Get typeCode
    *
-   * @return typeCode Type of bank check. Possible values: * **Company** * **Personal**
+   * @return typeCode
    */
   @JsonProperty(JSON_PROPERTY_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TypeCodeType getTypeCode() {
+  public TypeCode getTypeCode() {
     return typeCode;
   }
 
   /**
-   * Type of bank check. Possible values: * **Company** * **Personal**
+   * typeCode
    *
-   * @param typeCode Type of bank check. Possible values: * **Company** * **Personal**
+   * @param typeCode
    */
   @JsonProperty(JSON_PROPERTY_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypeCode(TypeCodeType typeCode) {
+  public void setTypeCode(TypeCode typeCode) {
     this.typeCode = typeCode;
     isSetTypeCode = true; // mark as set
   }

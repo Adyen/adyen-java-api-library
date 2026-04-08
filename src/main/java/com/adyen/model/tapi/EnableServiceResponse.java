@@ -40,9 +40,9 @@ public class EnableServiceResponse {
   public EnableServiceResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code EnableServiceResponse} instance, allowing for method chaining
    */
   public EnableServiceResponse response(Response response) {
@@ -52,9 +52,9 @@ public class EnableServiceResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,9 +63,9 @@ public class EnableServiceResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

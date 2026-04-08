@@ -29,7 +29,7 @@ import java.util.*;
 })
 public class PrintResponse {
   public static final String JSON_PROPERTY_DOCUMENT_QUALIFIER = "DocumentQualifier";
-  private DocumentQualifierType documentQualifier;
+  private DocumentQualifier documentQualifier;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDocumentQualifier = false;
@@ -49,63 +49,44 @@ public class PrintResponse {
   public PrintResponse() {}
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
-   * the printer, Sale or POI Terminal, to send information to a physical printer or to use the
-   * paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** *
-   * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * documentQualifier
    *
-   * @param documentQualifier Qualification of the document to print to the Cashier or the Customer.
-   *     Allows the manager of the printer, Sale or POI Terminal, to send information to a physical
-   *     printer or to use the paper type accordingly. Possible values: * **CashierReceipt** *
-   *     **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @param documentQualifier
    * @return the current {@code PrintResponse} instance, allowing for method chaining
    */
-  public PrintResponse documentQualifier(DocumentQualifierType documentQualifier) {
+  public PrintResponse documentQualifier(DocumentQualifier documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
     return this;
   }
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
-   * the printer, Sale or POI Terminal, to send information to a physical printer or to use the
-   * paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** *
-   * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * Get documentQualifier
    *
-   * @return documentQualifier Qualification of the document to print to the Cashier or the
-   *     Customer. Allows the manager of the printer, Sale or POI Terminal, to send information to a
-   *     physical printer or to use the paper type accordingly. Possible values: *
-   *     **CashierReceipt** * **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** *
-   *     **Voucher**
+   * @return documentQualifier
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DocumentQualifierType getDocumentQualifier() {
+  public DocumentQualifier getDocumentQualifier() {
     return documentQualifier;
   }
 
   /**
-   * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
-   * the printer, Sale or POI Terminal, to send information to a physical printer or to use the
-   * paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** *
-   * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * documentQualifier
    *
-   * @param documentQualifier Qualification of the document to print to the Cashier or the Customer.
-   *     Allows the manager of the printer, Sale or POI Terminal, to send information to a physical
-   *     printer or to use the paper type accordingly. Possible values: * **CashierReceipt** *
-   *     **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
+   * @param documentQualifier
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocumentQualifier(DocumentQualifierType documentQualifier) {
+  public void setDocumentQualifier(DocumentQualifier documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code PrintResponse} instance, allowing for method chaining
    */
   public PrintResponse response(Response response) {
@@ -115,9 +96,9 @@ public class PrintResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,9 +107,9 @@ public class PrintResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

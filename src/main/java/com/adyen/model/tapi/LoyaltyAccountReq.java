@@ -26,7 +26,7 @@ import java.util.*;
 })
 public class LoyaltyAccountReq {
   public static final String JSON_PROPERTY_CARD_ACQUISITION_REFERENCE = "CardAcquisitionReference";
-  private TransactionIdentification cardAcquisitionReference;
+  private TransactionIDType cardAcquisitionReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardAcquisitionReference = false;
@@ -51,8 +51,7 @@ public class LoyaltyAccountReq {
    * @param cardAcquisitionReference
    * @return the current {@code LoyaltyAccountReq} instance, allowing for method chaining
    */
-  public LoyaltyAccountReq cardAcquisitionReference(
-      TransactionIdentification cardAcquisitionReference) {
+  public LoyaltyAccountReq cardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
     return this;
@@ -65,7 +64,7 @@ public class LoyaltyAccountReq {
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getCardAcquisitionReference() {
+  public TransactionIDType getCardAcquisitionReference() {
     return cardAcquisitionReference;
   }
 
@@ -76,7 +75,7 @@ public class LoyaltyAccountReq {
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardAcquisitionReference(TransactionIdentification cardAcquisitionReference) {
+  public void setCardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
   }

@@ -15,19 +15,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets GlobalStatus */
-public enum GlobalStatusType {
-  BUSY("Busy"),
+/** Gets or Sets Device */
+public enum Device {
+  CASHIER_DISPLAY("CashierDisplay"),
 
-  MAINTENANCE("Maintenance"),
+  CASHIER_INPUT("CashierInput"),
 
-  OK("OK"),
+  CUSTOMER_DISPLAY("CustomerDisplay"),
 
-  UNREACHABLE("Unreachable");
+  CUSTOMER_INPUT("CustomerInput");
 
   private String value;
 
-  GlobalStatusType(String value) {
+  Device(String value) {
     this.value = value;
   }
 
@@ -42,8 +42,8 @@ public enum GlobalStatusType {
   }
 
   @JsonCreator
-  public static GlobalStatusType fromValue(String value) {
-    for (GlobalStatusType b : GlobalStatusType.values()) {
+  public static Device fromValue(String value) {
+    for (Device b : Device.values()) {
       if (b.value.equals(value)) {
         return b;
       }

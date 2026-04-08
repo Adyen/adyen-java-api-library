@@ -15,23 +15,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets DocumentQualifier */
-public enum DocumentQualifierType {
-  CASHIER_RECEIPT("CashierReceipt"),
+/** Gets or Sets Alignment */
+public enum Alignment {
+  CENTRED("Centred"),
 
-  CUSTOMER_RECEIPT("CustomerReceipt"),
+  JUSTIFIED("Justified"),
 
-  DOCUMENT("Document"),
+  LEFT("Left"),
 
-  JOURNAL("Journal"),
-
-  SALE_RECEIPT("SaleReceipt"),
-
-  VOUCHER("Voucher");
+  RIGHT("Right");
 
   private String value;
 
-  DocumentQualifierType(String value) {
+  Alignment(String value) {
     this.value = value;
   }
 
@@ -46,8 +42,8 @@ public enum DocumentQualifierType {
   }
 
   @JsonCreator
-  public static DocumentQualifierType fromValue(String value) {
-    for (DocumentQualifierType b : DocumentQualifierType.values()) {
+  public static Alignment fromValue(String value) {
+    for (Alignment b : Alignment.values()) {
       if (b.value.equals(value)) {
         return b;
       }

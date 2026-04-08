@@ -15,21 +15,29 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
- * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
- * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
- * service request from the Sale System to complete the transaction. Possible values: *
- * **AbortTransaction** * **StartTransaction**
- */
-public enum TransactionActionType {
-  ABORT_TRANSACTION("AbortTransaction"),
+/** Gets or Sets InputCommand */
+public enum InputCommand {
+  DECIMAL_STRING("DecimalString"),
 
-  START_TRANSACTION("StartTransaction");
+  DIGIT_STRING("DigitString"),
+
+  GET_ANY_KEY("GetAnyKey"),
+
+  GET_CONFIRMATION("GetConfirmation"),
+
+  GET_FUNCTION_KEY("GetFunctionKey"),
+
+  GET_MENU_ENTRY("GetMenuEntry"),
+
+  PASSWORD("Password"),
+
+  SITE_MANAGER("SiteManager"),
+
+  TEXT_STRING("TextString");
 
   private String value;
 
-  TransactionActionType(String value) {
+  InputCommand(String value) {
     this.value = value;
   }
 
@@ -44,8 +52,8 @@ public enum TransactionActionType {
   }
 
   @JsonCreator
-  public static TransactionActionType fromValue(String value) {
-    for (TransactionActionType b : TransactionActionType.values()) {
+  public static InputCommand fromValue(String value) {
+    for (InputCommand b : InputCommand.values()) {
       if (b.value.equals(value)) {
         return b;
       }

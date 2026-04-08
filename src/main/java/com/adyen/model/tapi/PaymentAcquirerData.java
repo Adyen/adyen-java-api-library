@@ -48,7 +48,7 @@ public class PaymentAcquirerData {
   private boolean isSetAcquirerPOIID = false;
 
   public static final String JSON_PROPERTY_ACQUIRER_TRANSACTION_I_D = "AcquirerTransactionID";
-  private TransactionIdentification acquirerTransactionID;
+  private TransactionIDType acquirerTransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAcquirerTransactionID = false;
@@ -185,40 +185,36 @@ public class PaymentAcquirerData {
   }
 
   /**
-   * Identification of the Transaction for the Acquirer. If provided by the Acquirer.
+   * acquirerTransactionID
    *
-   * @param acquirerTransactionID Identification of the Transaction for the Acquirer. If provided by
-   *     the Acquirer.
+   * @param acquirerTransactionID
    * @return the current {@code PaymentAcquirerData} instance, allowing for method chaining
    */
-  public PaymentAcquirerData acquirerTransactionID(
-      TransactionIdentification acquirerTransactionID) {
+  public PaymentAcquirerData acquirerTransactionID(TransactionIDType acquirerTransactionID) {
     this.acquirerTransactionID = acquirerTransactionID;
     isSetAcquirerTransactionID = true; // mark as set
     return this;
   }
 
   /**
-   * Identification of the Transaction for the Acquirer. If provided by the Acquirer.
+   * Get acquirerTransactionID
    *
-   * @return acquirerTransactionID Identification of the Transaction for the Acquirer. If provided
-   *     by the Acquirer.
+   * @return acquirerTransactionID
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getAcquirerTransactionID() {
+  public TransactionIDType getAcquirerTransactionID() {
     return acquirerTransactionID;
   }
 
   /**
-   * Identification of the Transaction for the Acquirer. If provided by the Acquirer.
+   * acquirerTransactionID
    *
-   * @param acquirerTransactionID Identification of the Transaction for the Acquirer. If provided by
-   *     the Acquirer.
+   * @param acquirerTransactionID
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAcquirerTransactionID(TransactionIdentification acquirerTransactionID) {
+  public void setAcquirerTransactionID(TransactionIDType acquirerTransactionID) {
     this.acquirerTransactionID = acquirerTransactionID;
     isSetAcquirerTransactionID = true; // mark as set
   }

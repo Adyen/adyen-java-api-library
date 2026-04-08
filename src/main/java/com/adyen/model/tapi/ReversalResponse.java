@@ -28,7 +28,7 @@ import java.util.List;
  */
 @JsonPropertyOrder({
   ReversalResponse.JSON_PROPERTY_RESPONSE,
-  ReversalResponse.JSON_PROPERTY_PO_I_DATA,
+  ReversalResponse.JSON_PROPERTY_POI_DATA,
   ReversalResponse.JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION,
   ReversalResponse.JSON_PROPERTY_REVERSED_AMOUNT,
   ReversalResponse.JSON_PROPERTY_PAYMENT_RECEIPT
@@ -40,11 +40,11 @@ public class ReversalResponse {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetResponse = false;
 
-  public static final String JSON_PROPERTY_PO_I_DATA = "POIData";
-  private POIData poIData;
+  public static final String JSON_PROPERTY_POI_DATA = "POIData";
+  private POIData poiData;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPoIData = false;
+  private boolean isSetPoiData = false;
 
   public static final String JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION = "OriginalPOITransaction";
   private OriginalPOITransaction originalPOITransaction;
@@ -73,9 +73,9 @@ public class ReversalResponse {
   public ReversalResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code ReversalResponse} instance, allowing for method chaining
    */
   public ReversalResponse response(Response response) {
@@ -85,9 +85,9 @@ public class ReversalResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,9 +96,9 @@ public class ReversalResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,38 +108,38 @@ public class ReversalResponse {
   }
 
   /**
-   * Data related to the POI System. If Result is Success.
+   * poiData
    *
-   * @param poIData Data related to the POI System. If Result is Success.
+   * @param poiData
    * @return the current {@code ReversalResponse} instance, allowing for method chaining
    */
-  public ReversalResponse poIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public ReversalResponse poiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
     return this;
   }
 
   /**
-   * Data related to the POI System. If Result is Success.
+   * Get poiData
    *
-   * @return poIData Data related to the POI System. If Result is Success.
+   * @return poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public POIData getPoIData() {
-    return poIData;
+  public POIData getPoiData() {
+    return poiData;
   }
 
   /**
-   * Data related to the POI System. If Result is Success.
+   * poiData
    *
-   * @param poIData Data related to the POI System. If Result is Success.
+   * @param poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public void setPoiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
   }
 
   /**
@@ -287,8 +287,8 @@ public class ReversalResponse {
     ReversalResponse reversalResponse = (ReversalResponse) o;
     return Objects.equals(this.response, reversalResponse.response)
         && Objects.equals(this.isSetResponse, reversalResponse.isSetResponse)
-        && Objects.equals(this.poIData, reversalResponse.poIData)
-        && Objects.equals(this.isSetPoIData, reversalResponse.isSetPoIData)
+        && Objects.equals(this.poiData, reversalResponse.poiData)
+        && Objects.equals(this.isSetPoiData, reversalResponse.isSetPoiData)
         && Objects.equals(this.originalPOITransaction, reversalResponse.originalPOITransaction)
         && Objects.equals(
             this.isSetOriginalPOITransaction, reversalResponse.isSetOriginalPOITransaction)
@@ -303,8 +303,8 @@ public class ReversalResponse {
     return Objects.hash(
         response,
         isSetResponse,
-        poIData,
-        isSetPoIData,
+        poiData,
+        isSetPoiData,
         originalPOITransaction,
         isSetOriginalPOITransaction,
         reversedAmount,
@@ -318,7 +318,7 @@ public class ReversalResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReversalResponse {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
-    sb.append("    poIData: ").append(toIndentedString(poIData)).append("\n");
+    sb.append("    poiData: ").append(toIndentedString(poiData)).append("\n");
     sb.append("    originalPOITransaction: ")
         .append(toIndentedString(originalPOITransaction))
         .append("\n");
@@ -351,8 +351,8 @@ public class ReversalResponse {
     if (isSetResponse) {
       addIfNull(nulls, JSON_PROPERTY_RESPONSE, this.response);
     }
-    if (isSetPoIData) {
-      addIfNull(nulls, JSON_PROPERTY_PO_I_DATA, this.poIData);
+    if (isSetPoiData) {
+      addIfNull(nulls, JSON_PROPERTY_POI_DATA, this.poiData);
     }
     if (isSetOriginalPOITransaction) {
       addIfNull(nulls, JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION, this.originalPOITransaction);

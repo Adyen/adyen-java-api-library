@@ -57,13 +57,9 @@ public class PaymentToken {
   public PaymentToken() {}
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * tokenRequestedType
    *
-   * @param tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @param tokenRequestedType
    * @return the current {@code PaymentToken} instance, allowing for method chaining
    */
   public PaymentToken tokenRequestedType(TokenRequestedType tokenRequestedType) {
@@ -73,13 +69,9 @@ public class PaymentToken {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * Get tokenRequestedType
    *
-   * @return tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @return tokenRequestedType
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTED_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,13 +80,9 @@ public class PaymentToken {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * tokenRequestedType
    *
-   * @param tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @param tokenRequestedType
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTED_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

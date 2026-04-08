@@ -51,9 +51,9 @@ public class StoredValueRequest {
   public StoredValueRequest() {}
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    * @return the current {@code StoredValueRequest} instance, allowing for method chaining
    */
   public StoredValueRequest saleData(SaleData saleData) {
@@ -63,9 +63,9 @@ public class StoredValueRequest {
   }
 
   /**
-   * Data related to the Sale System.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,9 +74,9 @@ public class StoredValueRequest {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

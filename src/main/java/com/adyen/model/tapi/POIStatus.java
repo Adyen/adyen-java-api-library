@@ -34,7 +34,7 @@ import java.util.*;
 })
 public class POIStatus {
   public static final String JSON_PROPERTY_GLOBAL_STATUS = "GlobalStatus";
-  private GlobalStatusType globalStatus;
+  private GlobalStatus globalStatus;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetGlobalStatus = false;
@@ -58,7 +58,7 @@ public class POIStatus {
   private boolean isSetCardReaderOKFlag = false;
 
   public static final String JSON_PROPERTY_PRINTER_STATUS = "PrinterStatus";
-  private PrinterStatusType printerStatus;
+  private PrinterStatus printerStatus;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPrinterStatus = false;
@@ -84,42 +84,36 @@ public class POIStatus {
   public POIStatus() {}
 
   /**
-   * Global status of a POI Server or POI Terminal. Possible values: * **Busy** * **Maintenance** *
-   * **OK** * **Unreachable**
+   * globalStatus
    *
-   * @param globalStatus Global status of a POI Server or POI Terminal. Possible values: * **Busy**
-   *     * **Maintenance** * **OK** * **Unreachable**
+   * @param globalStatus
    * @return the current {@code POIStatus} instance, allowing for method chaining
    */
-  public POIStatus globalStatus(GlobalStatusType globalStatus) {
+  public POIStatus globalStatus(GlobalStatus globalStatus) {
     this.globalStatus = globalStatus;
     isSetGlobalStatus = true; // mark as set
     return this;
   }
 
   /**
-   * Global status of a POI Server or POI Terminal. Possible values: * **Busy** * **Maintenance** *
-   * **OK** * **Unreachable**
+   * Get globalStatus
    *
-   * @return globalStatus Global status of a POI Server or POI Terminal. Possible values: * **Busy**
-   *     * **Maintenance** * **OK** * **Unreachable**
+   * @return globalStatus
    */
   @JsonProperty(JSON_PROPERTY_GLOBAL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GlobalStatusType getGlobalStatus() {
+  public GlobalStatus getGlobalStatus() {
     return globalStatus;
   }
 
   /**
-   * Global status of a POI Server or POI Terminal. Possible values: * **Busy** * **Maintenance** *
-   * **OK** * **Unreachable**
+   * globalStatus
    *
-   * @param globalStatus Global status of a POI Server or POI Terminal. Possible values: * **Busy**
-   *     * **Maintenance** * **OK** * **Unreachable**
+   * @param globalStatus
    */
   @JsonProperty(JSON_PROPERTY_GLOBAL_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGlobalStatus(GlobalStatusType globalStatus) {
+  public void setGlobalStatus(GlobalStatus globalStatus) {
     this.globalStatus = globalStatus;
     isSetGlobalStatus = true; // mark as set
   }
@@ -236,39 +230,36 @@ public class POIStatus {
   }
 
   /**
-   * Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
+   * printerStatus
    *
-   * @param printerStatus Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** *
-   *     **PaperLow**
+   * @param printerStatus
    * @return the current {@code POIStatus} instance, allowing for method chaining
    */
-  public POIStatus printerStatus(PrinterStatusType printerStatus) {
+  public POIStatus printerStatus(PrinterStatus printerStatus) {
     this.printerStatus = printerStatus;
     isSetPrinterStatus = true; // mark as set
     return this;
   }
 
   /**
-   * Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
+   * Get printerStatus
    *
-   * @return printerStatus Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** *
-   *     **PaperLow**
+   * @return printerStatus
    */
   @JsonProperty(JSON_PROPERTY_PRINTER_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PrinterStatusType getPrinterStatus() {
+  public PrinterStatus getPrinterStatus() {
     return printerStatus;
   }
 
   /**
-   * Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
+   * printerStatus
    *
-   * @param printerStatus Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** *
-   *     **PaperLow**
+   * @param printerStatus
    */
   @JsonProperty(JSON_PROPERTY_PRINTER_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrinterStatus(PrinterStatusType printerStatus) {
+  public void setPrinterStatus(PrinterStatus printerStatus) {
     this.printerStatus = printerStatus;
     isSetPrinterStatus = true; // mark as set
   }

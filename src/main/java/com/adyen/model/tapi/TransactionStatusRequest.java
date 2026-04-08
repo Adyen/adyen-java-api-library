@@ -44,7 +44,7 @@ public class TransactionStatusRequest {
   private boolean isSetReceiptReprintFlag = false;
 
   public static final String JSON_PROPERTY_DOCUMENT_QUALIFIER = "DocumentQualifier";
-  private List<DocumentQualifierType> documentQualifier;
+  private List<DocumentQualifier> documentQualifier;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDocumentQualifier = false;
@@ -58,10 +58,9 @@ public class TransactionStatusRequest {
   public TransactionStatusRequest() {}
 
   /**
-   * Identification of a previous POI transaction. Present if it contains any data.
+   * messageReference
    *
-   * @param messageReference Identification of a previous POI transaction. Present if it contains
-   *     any data.
+   * @param messageReference
    * @return the current {@code TransactionStatusRequest} instance, allowing for method chaining
    */
   public TransactionStatusRequest messageReference(MessageReference messageReference) {
@@ -71,10 +70,9 @@ public class TransactionStatusRequest {
   }
 
   /**
-   * Identification of a previous POI transaction. Present if it contains any data.
+   * Get messageReference
    *
-   * @return messageReference Identification of a previous POI transaction. Present if it contains
-   *     any data.
+   * @return messageReference
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,10 +81,9 @@ public class TransactionStatusRequest {
   }
 
   /**
-   * Identification of a previous POI transaction. Present if it contains any data.
+   * messageReference
    *
-   * @param messageReference Identification of a previous POI transaction. Present if it contains
-   *     any data.
+   * @param messageReference
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,14 +146,14 @@ public class TransactionStatusRequest {
    *     **Voucher**
    * @return the current {@code TransactionStatusRequest} instance, allowing for method chaining
    */
-  public TransactionStatusRequest documentQualifier(List<DocumentQualifierType> documentQualifier) {
+  public TransactionStatusRequest documentQualifier(List<DocumentQualifier> documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
     return this;
   }
 
   public TransactionStatusRequest addDocumentQualifierItem(
-      DocumentQualifierType documentQualifierItem) {
+      DocumentQualifier documentQualifierItem) {
     if (this.documentQualifier == null) {
       this.documentQualifier = new ArrayList<>();
     }
@@ -178,7 +175,7 @@ public class TransactionStatusRequest {
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DocumentQualifierType> getDocumentQualifier() {
+  public List<DocumentQualifier> getDocumentQualifier() {
     return documentQualifier;
   }
 
@@ -196,7 +193,7 @@ public class TransactionStatusRequest {
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocumentQualifier(List<DocumentQualifierType> documentQualifier) {
+  public void setDocumentQualifier(List<DocumentQualifier> documentQualifier) {
     this.documentQualifier = documentQualifier;
     isSetDocumentQualifier = true; // mark as set
   }

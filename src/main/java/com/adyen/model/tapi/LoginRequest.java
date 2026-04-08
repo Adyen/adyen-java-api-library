@@ -199,10 +199,9 @@ public class LoginRequest {
   }
 
   /**
-   * Information related to the software of the Sale System which manages the Sale to POI protocol.
+   * saleSoftware
    *
-   * @param saleSoftware Information related to the software of the Sale System which manages the
-   *     Sale to POI protocol.
+   * @param saleSoftware
    * @return the current {@code LoginRequest} instance, allowing for method chaining
    */
   public LoginRequest saleSoftware(SaleSoftware saleSoftware) {
@@ -212,10 +211,9 @@ public class LoginRequest {
   }
 
   /**
-   * Information related to the software of the Sale System which manages the Sale to POI protocol.
+   * Get saleSoftware
    *
-   * @return saleSoftware Information related to the software of the Sale System which manages the
-   *     Sale to POI protocol.
+   * @return saleSoftware
    */
   @JsonProperty(JSON_PROPERTY_SALE_SOFTWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,10 +222,9 @@ public class LoginRequest {
   }
 
   /**
-   * Information related to the software of the Sale System which manages the Sale to POI protocol.
+   * saleSoftware
    *
-   * @param saleSoftware Information related to the software of the Sale System which manages the
-   *     Sale to POI protocol.
+   * @param saleSoftware
    */
   @JsonProperty(JSON_PROPERTY_SALE_SOFTWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,11 +234,9 @@ public class LoginRequest {
   }
 
   /**
-   * Information related to the software and hardware feature of the Sale Terminal. Present if the
-   * login involve a Sale Terminal.
+   * saleTerminalData
    *
-   * @param saleTerminalData Information related to the software and hardware feature of the Sale
-   *     Terminal. Present if the login involve a Sale Terminal.
+   * @param saleTerminalData
    * @return the current {@code LoginRequest} instance, allowing for method chaining
    */
   public LoginRequest saleTerminalData(SaleTerminalData saleTerminalData) {
@@ -251,11 +246,9 @@ public class LoginRequest {
   }
 
   /**
-   * Information related to the software and hardware feature of the Sale Terminal. Present if the
-   * login involve a Sale Terminal.
+   * Get saleTerminalData
    *
-   * @return saleTerminalData Information related to the software and hardware feature of the Sale
-   *     Terminal. Present if the login involve a Sale Terminal.
+   * @return saleTerminalData
    */
   @JsonProperty(JSON_PROPERTY_SALE_TERMINAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,11 +257,9 @@ public class LoginRequest {
   }
 
   /**
-   * Information related to the software and hardware feature of the Sale Terminal. Present if the
-   * login involve a Sale Terminal.
+   * saleTerminalData
    *
-   * @param saleTerminalData Information related to the software and hardware feature of the Sale
-   *     Terminal. Present if the login involve a Sale Terminal.
+   * @param saleTerminalData
    */
   @JsonProperty(JSON_PROPERTY_SALE_TERMINAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -442,13 +433,9 @@ public class LoginRequest {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * tokenRequestedType
    *
-   * @param tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @param tokenRequestedType
    * @return the current {@code LoginRequest} instance, allowing for method chaining
    */
   public LoginRequest tokenRequestedType(TokenRequestedType tokenRequestedType) {
@@ -458,13 +445,9 @@ public class LoginRequest {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * Get tokenRequestedType
    *
-   * @return tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @return tokenRequestedType
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTED_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -473,13 +456,9 @@ public class LoginRequest {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * tokenRequestedType
    *
-   * @param tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @param tokenRequestedType
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTED_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

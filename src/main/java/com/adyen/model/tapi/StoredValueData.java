@@ -138,13 +138,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of operation to proceed on the stored value account or the stored value card.
-   * Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** *
-   * **Unload**
+   * storedValueTransactionType
    *
-   * @param storedValueTransactionType Identification of operation to proceed on the stored value
-   *     account or the stored value card. Possible values: * **Activate** * **Duplicate** *
-   *     **Load** * **Reserve** * **Reverse** * **Unload**
+   * @param storedValueTransactionType
    * @return the current {@code StoredValueData} instance, allowing for method chaining
    */
   public StoredValueData storedValueTransactionType(
@@ -155,13 +151,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of operation to proceed on the stored value account or the stored value card.
-   * Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** *
-   * **Unload**
+   * Get storedValueTransactionType
    *
-   * @return storedValueTransactionType Identification of operation to proceed on the stored value
-   *     account or the stored value card. Possible values: * **Activate** * **Duplicate** *
-   *     **Load** * **Reserve** * **Reverse** * **Unload**
+   * @return storedValueTransactionType
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,13 +162,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of operation to proceed on the stored value account or the stored value card.
-   * Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** *
-   * **Unload**
+   * storedValueTransactionType
    *
-   * @param storedValueTransactionType Identification of operation to proceed on the stored value
-   *     account or the stored value card. Possible values: * **Activate** * **Duplicate** *
-   *     **Load** * **Reserve** * **Reverse** * **Unload**
+   * @param storedValueTransactionType
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,12 +174,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of the stored value account or the stored value card. If the identification of
-   * the Stored Value account or card has been made by the Sale System before the request.
+   * storedValueAccountID
    *
-   * @param storedValueAccountID Identification of the stored value account or the stored value
-   *     card. If the identification of the Stored Value account or card has been made by the Sale
-   *     System before the request.
+   * @param storedValueAccountID
    * @return the current {@code StoredValueData} instance, allowing for method chaining
    */
   public StoredValueData storedValueAccountID(StoredValueAccountID storedValueAccountID) {
@@ -201,12 +186,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of the stored value account or the stored value card. If the identification of
-   * the Stored Value account or card has been made by the Sale System before the request.
+   * Get storedValueAccountID
    *
-   * @return storedValueAccountID Identification of the stored value account or the stored value
-   *     card. If the identification of the Stored Value account or card has been made by the Sale
-   *     System before the request.
+   * @return storedValueAccountID
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_ACCOUNT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,12 +197,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of the stored value account or the stored value card. If the identification of
-   * the Stored Value account or card has been made by the Sale System before the request.
+   * storedValueAccountID
    *
-   * @param storedValueAccountID Identification of the stored value account or the stored value
-   *     card. If the identification of the Stored Value account or card has been made by the Sale
-   *     System before the request.
+   * @param storedValueAccountID
    */
   @JsonProperty(JSON_PROPERTY_STORED_VALUE_ACCOUNT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,11 +209,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of a previous POI transaction. If StoredValueTransactionType is Reverse or
-   * Duplicate.
+   * originalPOITransaction
    *
-   * @param originalPOITransaction Identification of a previous POI transaction. If
-   *     StoredValueTransactionType is Reverse or Duplicate.
+   * @param originalPOITransaction
    * @return the current {@code StoredValueData} instance, allowing for method chaining
    */
   public StoredValueData originalPOITransaction(OriginalPOITransaction originalPOITransaction) {
@@ -244,11 +221,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of a previous POI transaction. If StoredValueTransactionType is Reverse or
-   * Duplicate.
+   * Get originalPOITransaction
    *
-   * @return originalPOITransaction Identification of a previous POI transaction. If
-   *     StoredValueTransactionType is Reverse or Duplicate.
+   * @return originalPOITransaction
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,11 +232,9 @@ public class StoredValueData {
   }
 
   /**
-   * Identification of a previous POI transaction. If StoredValueTransactionType is Reverse or
-   * Duplicate.
+   * originalPOITransaction
    *
-   * @param originalPOITransaction Identification of a previous POI transaction. If
-   *     StoredValueTransactionType is Reverse or Duplicate.
+   * @param originalPOITransaction
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_P_O_I_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

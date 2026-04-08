@@ -30,7 +30,7 @@ import java.util.*;
 })
 public class LoyaltyData {
   public static final String JSON_PROPERTY_CARD_ACQUISITION_REFERENCE = "CardAcquisitionReference";
-  private TransactionIdentification cardAcquisitionReference;
+  private TransactionIDType cardAcquisitionReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardAcquisitionReference = false;
@@ -50,52 +50,44 @@ public class LoyaltyData {
   public LoyaltyData() {}
 
   /**
-   * Reference to the last CardAcquisition, to use the same card. If the loyalty account ID comes
-   * from a previous CardAcquisition.
+   * cardAcquisitionReference
    *
-   * @param cardAcquisitionReference Reference to the last CardAcquisition, to use the same card. If
-   *     the loyalty account ID comes from a previous CardAcquisition.
+   * @param cardAcquisitionReference
    * @return the current {@code LoyaltyData} instance, allowing for method chaining
    */
-  public LoyaltyData cardAcquisitionReference(TransactionIdentification cardAcquisitionReference) {
+  public LoyaltyData cardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
     return this;
   }
 
   /**
-   * Reference to the last CardAcquisition, to use the same card. If the loyalty account ID comes
-   * from a previous CardAcquisition.
+   * Get cardAcquisitionReference
    *
-   * @return cardAcquisitionReference Reference to the last CardAcquisition, to use the same card.
-   *     If the loyalty account ID comes from a previous CardAcquisition.
+   * @return cardAcquisitionReference
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getCardAcquisitionReference() {
+  public TransactionIDType getCardAcquisitionReference() {
     return cardAcquisitionReference;
   }
 
   /**
-   * Reference to the last CardAcquisition, to use the same card. If the loyalty account ID comes
-   * from a previous CardAcquisition.
+   * cardAcquisitionReference
    *
-   * @param cardAcquisitionReference Reference to the last CardAcquisition, to use the same card. If
-   *     the loyalty account ID comes from a previous CardAcquisition.
+   * @param cardAcquisitionReference
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardAcquisitionReference(TransactionIdentification cardAcquisitionReference) {
+  public void setCardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
   }
 
   /**
-   * Identification of a Loyalty account. If loyalty identification of the loyalty account is
-   * realised by the Sale System.
+   * loyaltyAccountID
    *
-   * @param loyaltyAccountID Identification of a Loyalty account. If loyalty identification of the
-   *     loyalty account is realised by the Sale System.
+   * @param loyaltyAccountID
    * @return the current {@code LoyaltyData} instance, allowing for method chaining
    */
   public LoyaltyData loyaltyAccountID(LoyaltyAccountID loyaltyAccountID) {
@@ -105,11 +97,9 @@ public class LoyaltyData {
   }
 
   /**
-   * Identification of a Loyalty account. If loyalty identification of the loyalty account is
-   * realised by the Sale System.
+   * Get loyaltyAccountID
    *
-   * @return loyaltyAccountID Identification of a Loyalty account. If loyalty identification of the
-   *     loyalty account is realised by the Sale System.
+   * @return loyaltyAccountID
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,11 +108,9 @@ public class LoyaltyData {
   }
 
   /**
-   * Identification of a Loyalty account. If loyalty identification of the loyalty account is
-   * realised by the Sale System.
+   * loyaltyAccountID
    *
-   * @param loyaltyAccountID Identification of a Loyalty account. If loyalty identification of the
-   *     loyalty account is realised by the Sale System.
+   * @param loyaltyAccountID
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -58,13 +58,9 @@ public class ReconciliationRequest {
   public ReconciliationRequest() {}
 
   /**
-   * Type of Reconciliation requested by the Sale to the POI. Possible values: *
-   * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** *
-   * **SaleReconciliation**
+   * reconciliationType
    *
-   * @param reconciliationType Type of Reconciliation requested by the Sale to the POI. Possible
-   *     values: * **AcquirerReconciliation** * **AcquirerSynchronisation** *
-   *     **PreviousReconciliation** * **SaleReconciliation**
+   * @param reconciliationType
    * @return the current {@code ReconciliationRequest} instance, allowing for method chaining
    */
   public ReconciliationRequest reconciliationType(ReconciliationType reconciliationType) {
@@ -74,13 +70,9 @@ public class ReconciliationRequest {
   }
 
   /**
-   * Type of Reconciliation requested by the Sale to the POI. Possible values: *
-   * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** *
-   * **SaleReconciliation**
+   * Get reconciliationType
    *
-   * @return reconciliationType Type of Reconciliation requested by the Sale to the POI. Possible
-   *     values: * **AcquirerReconciliation** * **AcquirerSynchronisation** *
-   *     **PreviousReconciliation** * **SaleReconciliation**
+   * @return reconciliationType
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,13 +81,9 @@ public class ReconciliationRequest {
   }
 
   /**
-   * Type of Reconciliation requested by the Sale to the POI. Possible values: *
-   * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** *
-   * **SaleReconciliation**
+   * reconciliationType
    *
-   * @param reconciliationType Type of Reconciliation requested by the Sale to the POI. Possible
-   *     values: * **AcquirerReconciliation** * **AcquirerSynchronisation** *
-   *     **PreviousReconciliation** * **SaleReconciliation**
+   * @param reconciliationType
    */
   @JsonProperty(JSON_PROPERTY_RECONCILIATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -28,7 +28,7 @@ import java.util.List;
 @JsonPropertyOrder({
   PaymentResponse.JSON_PROPERTY_RESPONSE,
   PaymentResponse.JSON_PROPERTY_SALE_DATA,
-  PaymentResponse.JSON_PROPERTY_PO_I_DATA,
+  PaymentResponse.JSON_PROPERTY_POI_DATA,
   PaymentResponse.JSON_PROPERTY_PAYMENT_RESULT,
   PaymentResponse.JSON_PROPERTY_LOYALTY_RESULT,
   PaymentResponse.JSON_PROPERTY_PAYMENT_RECEIPT
@@ -46,11 +46,11 @@ public class PaymentResponse {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSaleData = false;
 
-  public static final String JSON_PROPERTY_PO_I_DATA = "POIData";
-  private POIData poIData;
+  public static final String JSON_PROPERTY_POI_DATA = "POIData";
+  private POIData poiData;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPoIData = false;
+  private boolean isSetPoiData = false;
 
   public static final String JSON_PROPERTY_PAYMENT_RESULT = "PaymentResult";
   private PaymentResult paymentResult;
@@ -79,9 +79,9 @@ public class PaymentResponse {
   public PaymentResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code PaymentResponse} instance, allowing for method chaining
    */
   public PaymentResponse response(Response response) {
@@ -91,9 +91,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,9 +102,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,9 +114,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Data related to the Sale System. Copy.
+   * saleData
    *
-   * @param saleData Data related to the Sale System. Copy.
+   * @param saleData
    * @return the current {@code PaymentResponse} instance, allowing for method chaining
    */
   public PaymentResponse saleData(SaleData saleData) {
@@ -126,9 +126,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Data related to the Sale System. Copy.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System. Copy.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,9 +137,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Data related to the Sale System. Copy.
+   * saleData
    *
-   * @param saleData Data related to the Sale System. Copy.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,45 +149,44 @@ public class PaymentResponse {
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    * @return the current {@code PaymentResponse} instance, allowing for method chaining
    */
-  public PaymentResponse poIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public PaymentResponse poiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
     return this;
   }
 
   /**
-   * Data related to the POI System.
+   * Get poiData
    *
-   * @return poIData Data related to the POI System.
+   * @return poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public POIData getPoIData() {
-    return poIData;
+  public POIData getPoiData() {
+    return poiData;
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public void setPoiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
   }
 
   /**
-   * Data related to the result of a processed payment transaction. If one data element is present.
+   * paymentResult
    *
-   * @param paymentResult Data related to the result of a processed payment transaction. If one data
-   *     element is present.
+   * @param paymentResult
    * @return the current {@code PaymentResponse} instance, allowing for method chaining
    */
   public PaymentResponse paymentResult(PaymentResult paymentResult) {
@@ -197,10 +196,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Data related to the result of a processed payment transaction. If one data element is present.
+   * Get paymentResult
    *
-   * @return paymentResult Data related to the result of a processed payment transaction. If one
-   *     data element is present.
+   * @return paymentResult
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,10 +207,9 @@ public class PaymentResponse {
   }
 
   /**
-   * Data related to the result of a processed payment transaction. If one data element is present.
+   * paymentResult
    *
-   * @param paymentResult Data related to the result of a processed payment transaction. If one data
-   *     element is present.
+   * @param paymentResult
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -356,8 +353,8 @@ public class PaymentResponse {
         && Objects.equals(this.isSetResponse, paymentResponse.isSetResponse)
         && Objects.equals(this.saleData, paymentResponse.saleData)
         && Objects.equals(this.isSetSaleData, paymentResponse.isSetSaleData)
-        && Objects.equals(this.poIData, paymentResponse.poIData)
-        && Objects.equals(this.isSetPoIData, paymentResponse.isSetPoIData)
+        && Objects.equals(this.poiData, paymentResponse.poiData)
+        && Objects.equals(this.isSetPoiData, paymentResponse.isSetPoiData)
         && Objects.equals(this.paymentResult, paymentResponse.paymentResult)
         && Objects.equals(this.isSetPaymentResult, paymentResponse.isSetPaymentResult)
         && Objects.equals(this.loyaltyResult, paymentResponse.loyaltyResult)
@@ -373,8 +370,8 @@ public class PaymentResponse {
         isSetResponse,
         saleData,
         isSetSaleData,
-        poIData,
-        isSetPoIData,
+        poiData,
+        isSetPoiData,
         paymentResult,
         isSetPaymentResult,
         loyaltyResult,
@@ -389,7 +386,7 @@ public class PaymentResponse {
     sb.append("class PaymentResponse {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    saleData: ").append(toIndentedString(saleData)).append("\n");
-    sb.append("    poIData: ").append(toIndentedString(poIData)).append("\n");
+    sb.append("    poiData: ").append(toIndentedString(poiData)).append("\n");
     sb.append("    paymentResult: ").append(toIndentedString(paymentResult)).append("\n");
     sb.append("    loyaltyResult: ").append(toIndentedString(loyaltyResult)).append("\n");
     sb.append("    paymentReceipt: ").append(toIndentedString(paymentReceipt)).append("\n");
@@ -423,8 +420,8 @@ public class PaymentResponse {
     if (isSetSaleData) {
       addIfNull(nulls, JSON_PROPERTY_SALE_DATA, this.saleData);
     }
-    if (isSetPoIData) {
-      addIfNull(nulls, JSON_PROPERTY_PO_I_DATA, this.poIData);
+    if (isSetPoiData) {
+      addIfNull(nulls, JSON_PROPERTY_POI_DATA, this.poiData);
     }
     if (isSetPaymentResult) {
       addIfNull(nulls, JSON_PROPERTY_PAYMENT_RESULT, this.paymentResult);

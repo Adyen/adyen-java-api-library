@@ -55,9 +55,9 @@ public class LoginResponse {
   public LoginResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code LoginResponse} instance, allowing for method chaining
    */
   public LoginResponse response(Response response) {
@@ -67,9 +67,9 @@ public class LoginResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,9 +78,9 @@ public class LoginResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,10 +90,9 @@ public class LoginResponse {
   }
 
   /**
-   * Information related to the POI System. Returned if the response result is Success.
+   * poISystemData
    *
-   * @param poISystemData Information related to the POI System. Returned if the response result is
-   *     Success.
+   * @param poISystemData
    * @return the current {@code LoginResponse} instance, allowing for method chaining
    */
   public LoginResponse poISystemData(POISystemData poISystemData) {
@@ -103,10 +102,9 @@ public class LoginResponse {
   }
 
   /**
-   * Information related to the POI System. Returned if the response result is Success.
+   * Get poISystemData
    *
-   * @return poISystemData Information related to the POI System. Returned if the response result is
-   *     Success.
+   * @return poISystemData
    */
   @JsonProperty(JSON_PROPERTY_PO_I_SYSTEM_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +113,9 @@ public class LoginResponse {
   }
 
   /**
-   * Information related to the POI System. Returned if the response result is Success.
+   * poISystemData
    *
-   * @param poISystemData Information related to the POI System. Returned if the response result is
-   *     Success.
+   * @param poISystemData
    */
   @JsonProperty(JSON_PROPERTY_PO_I_SYSTEM_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

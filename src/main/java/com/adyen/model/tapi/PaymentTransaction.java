@@ -53,9 +53,9 @@ public class PaymentTransaction {
   public PaymentTransaction() {}
 
   /**
-   * Various amounts related to the payment request from the Sale System.
+   * amountsReq
    *
-   * @param amountsReq Various amounts related to the payment request from the Sale System.
+   * @param amountsReq
    * @return the current {@code PaymentTransaction} instance, allowing for method chaining
    */
   public PaymentTransaction amountsReq(AmountsReq amountsReq) {
@@ -65,9 +65,9 @@ public class PaymentTransaction {
   }
 
   /**
-   * Various amounts related to the payment request from the Sale System.
+   * Get amountsReq
    *
-   * @return amountsReq Various amounts related to the payment request from the Sale System.
+   * @return amountsReq
    */
   @JsonProperty(JSON_PROPERTY_AMOUNTS_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,9 +76,9 @@ public class PaymentTransaction {
   }
 
   /**
-   * Various amounts related to the payment request from the Sale System.
+   * amountsReq
    *
-   * @param amountsReq Various amounts related to the payment request from the Sale System.
+   * @param amountsReq
    */
   @JsonProperty(JSON_PROPERTY_AMOUNTS_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

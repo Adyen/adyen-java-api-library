@@ -16,21 +16,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
 /**
- * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** *
- * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+ * Support of the loyalty account identification. Allows knowing where and how you have found the
+ * loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** *
+ * **LoyaltyCard** * **NoCard**
  */
-public enum MenuEntryTagType {
-  NON_SELECTABLE("NonSelectable"),
+public enum IdentificationSupport {
+  HYBRID_CARD("HybridCard"),
 
-  NON_SELECTABLE_SUB_MENU("NonSelectableSubMenu"),
+  LINKED_CARD("LinkedCard"),
 
-  SELECTABLE("Selectable"),
+  LOYALTY_CARD("LoyaltyCard"),
 
-  SUB_MENU("SubMenu");
+  NO_CARD("NoCard");
 
   private String value;
 
-  MenuEntryTagType(String value) {
+  IdentificationSupport(String value) {
     this.value = value;
   }
 
@@ -45,8 +46,8 @@ public enum MenuEntryTagType {
   }
 
   @JsonCreator
-  public static MenuEntryTagType fromValue(String value) {
-    for (MenuEntryTagType b : MenuEntryTagType.values()) {
+  public static IdentificationSupport fromValue(String value) {
+    for (IdentificationSupport b : IdentificationSupport.values()) {
       if (b.value.equals(value)) {
         return b;
       }

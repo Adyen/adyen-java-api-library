@@ -33,7 +33,7 @@ public class PaymentAccountReq {
   private boolean isSetAccountType = false;
 
   public static final String JSON_PROPERTY_CARD_ACQUISITION_REFERENCE = "CardAcquisitionReference";
-  private TransactionIdentification cardAcquisitionReference;
+  private TransactionIDType cardAcquisitionReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardAcquisitionReference = false;
@@ -53,14 +53,9 @@ public class PaymentAccountReq {
   public PaymentAccountReq() {}
 
   /**
-   * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
-   * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
-   * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
+   * accountType
    *
-   * @param accountType Type of cardholder account used for the transaction. Allows a cardholder to
-   *     select the type of account used for the transaction. Possible values: * **CardTotals** *
-   *     **Checking** * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings**
-   *     * **Universal**
+   * @param accountType
    * @return the current {@code PaymentAccountReq} instance, allowing for method chaining
    */
   public PaymentAccountReq accountType(AccountType accountType) {
@@ -70,14 +65,9 @@ public class PaymentAccountReq {
   }
 
   /**
-   * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
-   * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
-   * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
+   * Get accountType
    *
-   * @return accountType Type of cardholder account used for the transaction. Allows a cardholder to
-   *     select the type of account used for the transaction. Possible values: * **CardTotals** *
-   *     **Checking** * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings**
-   *     * **Universal**
+   * @return accountType
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,14 +76,9 @@ public class PaymentAccountReq {
   }
 
   /**
-   * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
-   * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
-   * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
+   * accountType
    *
-   * @param accountType Type of cardholder account used for the transaction. Allows a cardholder to
-   *     select the type of account used for the transaction. Possible values: * **CardTotals** *
-   *     **Checking** * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings**
-   *     * **Universal**
+   * @param accountType
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,8 +93,7 @@ public class PaymentAccountReq {
    * @param cardAcquisitionReference
    * @return the current {@code PaymentAccountReq} instance, allowing for method chaining
    */
-  public PaymentAccountReq cardAcquisitionReference(
-      TransactionIdentification cardAcquisitionReference) {
+  public PaymentAccountReq cardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
     return this;
@@ -122,7 +106,7 @@ public class PaymentAccountReq {
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getCardAcquisitionReference() {
+  public TransactionIDType getCardAcquisitionReference() {
     return cardAcquisitionReference;
   }
 
@@ -133,7 +117,7 @@ public class PaymentAccountReq {
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardAcquisitionReference(TransactionIdentification cardAcquisitionReference) {
+  public void setCardAcquisitionReference(TransactionIDType cardAcquisitionReference) {
     this.cardAcquisitionReference = cardAcquisitionReference;
     isSetCardAcquisitionReference = true; // mark as set
   }

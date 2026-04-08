@@ -16,18 +16,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
 
 /** Identification of a transaction for the Sale System or the POI System. */
 @JsonPropertyOrder({
-  TransactionIdentification.JSON_PROPERTY_TRANSACTION_I_D,
-  TransactionIdentification.JSON_PROPERTY_TIME_STAMP
+  TransactionIDType.JSON_PROPERTY_TRANSACTION_I_D,
+  TransactionIDType.JSON_PROPERTY_TIME_STAMP
 })
-@JsonTypeName("TransactionIDType")
-public class TransactionIdentification {
+public class TransactionIDType {
   public static final String JSON_PROPERTY_TRANSACTION_I_D = "TransactionID";
   private String transactionID;
 
@@ -46,7 +44,7 @@ public class TransactionIdentification {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public TransactionIdentification() {}
+  public TransactionIDType() {}
 
   /**
    * Unique identification of a transaction to identify the transaction on the Sale System (e.g.
@@ -54,9 +52,9 @@ public class TransactionIdentification {
    *
    * @param transactionID Unique identification of a transaction to identify the transaction on the
    *     Sale System (e.g. ticket number), or the POI System.
-   * @return the current {@code TransactionIdentification} instance, allowing for method chaining
+   * @return the current {@code TransactionIDType} instance, allowing for method chaining
    */
-  public TransactionIdentification transactionID(String transactionID) {
+  public TransactionIDType transactionID(String transactionID) {
     this.transactionID = transactionID;
     isSetTransactionID = true; // mark as set
     return this;
@@ -97,9 +95,9 @@ public class TransactionIdentification {
    * @param timeStamp Date and time of a transaction for the Sale System, the POI System or the
    *     Acquirer. Ensures the uniqueness of a transaction and indicates the time when the event
    *     occurs in the EventNotification message.
-   * @return the current {@code TransactionIdentification} instance, allowing for method chaining
+   * @return the current {@code TransactionIDType} instance, allowing for method chaining
    */
-  public TransactionIdentification timeStamp(OffsetDateTime timeStamp) {
+  public TransactionIDType timeStamp(OffsetDateTime timeStamp) {
     this.timeStamp = timeStamp;
     isSetTimeStamp = true; // mark as set
     return this;
@@ -139,7 +137,7 @@ public class TransactionIdentification {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public TransactionIdentification includeNullValues(boolean includeNullValues) {
+  public TransactionIDType includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -165,7 +163,7 @@ public class TransactionIdentification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionIdentification transactionIDType = (TransactionIdentification) o;
+    TransactionIDType transactionIDType = (TransactionIDType) o;
     return Objects.equals(this.transactionID, transactionIDType.transactionID)
         && Objects.equals(this.isSetTransactionID, transactionIDType.isSetTransactionID)
         && Objects.equals(this.timeStamp, transactionIDType.timeStamp)
@@ -180,7 +178,7 @@ public class TransactionIdentification {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionIdentification {\n");
+    sb.append("class TransactionIDType {\n");
     sb.append("    transactionID: ").append(toIndentedString(transactionID)).append("\n");
     sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
     sb.append("}");
@@ -225,20 +223,18 @@ public class TransactionIdentification {
   }
 
   /**
-   * Create an instance of TransactionIdentification given an JSON string
+   * Create an instance of TransactionIDType given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TransactionIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TransactionIdentification
+   * @return An instance of TransactionIDType
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TransactionIDType
    */
-  public static TransactionIdentification fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, TransactionIdentification.class);
+  public static TransactionIDType fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TransactionIDType.class);
   }
 
   /**
-   * Convert an instance of TransactionIdentification to an JSON string
+   * Convert an instance of TransactionIDType to an JSON string
    *
    * @return JSON string
    */

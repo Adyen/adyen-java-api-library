@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
 /** Gets or Sets SoundFormat */
-public enum SoundFormatType {
+public enum SoundFormat {
   MESSAGE_REF("MessageRef"),
 
   SOUND_REF("SoundRef"),
@@ -25,7 +25,7 @@ public enum SoundFormatType {
 
   private String value;
 
-  SoundFormatType(String value) {
+  SoundFormat(String value) {
     this.value = value;
   }
 
@@ -40,8 +40,8 @@ public enum SoundFormatType {
   }
 
   @JsonCreator
-  public static SoundFormatType fromValue(String value) {
-    for (SoundFormatType b : SoundFormatType.values()) {
+  public static SoundFormat fromValue(String value) {
+    for (SoundFormat b : SoundFormat.values()) {
       if (b.value.equals(value)) {
         return b;
       }

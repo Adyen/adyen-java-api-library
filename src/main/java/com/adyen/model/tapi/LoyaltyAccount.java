@@ -49,9 +49,9 @@ public class LoyaltyAccount {
   public LoyaltyAccount() {}
 
   /**
-   * Identification of a Loyalty account.
+   * loyaltyAccountID
    *
-   * @param loyaltyAccountID Identification of a Loyalty account.
+   * @param loyaltyAccountID
    * @return the current {@code LoyaltyAccount} instance, allowing for method chaining
    */
   public LoyaltyAccount loyaltyAccountID(LoyaltyAccountID loyaltyAccountID) {
@@ -61,9 +61,9 @@ public class LoyaltyAccount {
   }
 
   /**
-   * Identification of a Loyalty account.
+   * Get loyaltyAccountID
    *
-   * @return loyaltyAccountID Identification of a Loyalty account.
+   * @return loyaltyAccountID
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,9 +72,9 @@ public class LoyaltyAccount {
   }
 
   /**
-   * Identification of a Loyalty account.
+   * loyaltyAccountID
    *
-   * @param loyaltyAccountID Identification of a Loyalty account.
+   * @param loyaltyAccountID
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

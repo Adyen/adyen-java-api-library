@@ -57,9 +57,9 @@ public class LoyaltyResult {
   public LoyaltyResult() {}
 
   /**
-   * Data related to a loyalty account processed in the transaction.
+   * loyaltyAccount
    *
-   * @param loyaltyAccount Data related to a loyalty account processed in the transaction.
+   * @param loyaltyAccount
    * @return the current {@code LoyaltyResult} instance, allowing for method chaining
    */
   public LoyaltyResult loyaltyAccount(LoyaltyAccount loyaltyAccount) {
@@ -69,9 +69,9 @@ public class LoyaltyResult {
   }
 
   /**
-   * Data related to a loyalty account processed in the transaction.
+   * Get loyaltyAccount
    *
-   * @return loyaltyAccount Data related to a loyalty account processed in the transaction.
+   * @return loyaltyAccount
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,9 +80,9 @@ public class LoyaltyResult {
   }
 
   /**
-   * Data related to a loyalty account processed in the transaction.
+   * loyaltyAccount
    *
-   * @param loyaltyAccount Data related to a loyalty account processed in the transaction.
+   * @param loyaltyAccount
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,10 +131,9 @@ public class LoyaltyResult {
   }
 
   /**
-   * Data related to the loyalty Acquirer during a loyalty transaction. If content not empty.
+   * loyaltyAcquirerData
    *
-   * @param loyaltyAcquirerData Data related to the loyalty Acquirer during a loyalty transaction.
-   *     If content not empty.
+   * @param loyaltyAcquirerData
    * @return the current {@code LoyaltyResult} instance, allowing for method chaining
    */
   public LoyaltyResult loyaltyAcquirerData(LoyaltyAcquirerData loyaltyAcquirerData) {
@@ -144,10 +143,9 @@ public class LoyaltyResult {
   }
 
   /**
-   * Data related to the loyalty Acquirer during a loyalty transaction. If content not empty.
+   * Get loyaltyAcquirerData
    *
-   * @return loyaltyAcquirerData Data related to the loyalty Acquirer during a loyalty transaction.
-   *     If content not empty.
+   * @return loyaltyAcquirerData
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACQUIRER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,10 +154,9 @@ public class LoyaltyResult {
   }
 
   /**
-   * Data related to the loyalty Acquirer during a loyalty transaction. If content not empty.
+   * loyaltyAcquirerData
    *
-   * @param loyaltyAcquirerData Data related to the loyalty Acquirer during a loyalty transaction.
-   *     If content not empty.
+   * @param loyaltyAcquirerData
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACQUIRER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

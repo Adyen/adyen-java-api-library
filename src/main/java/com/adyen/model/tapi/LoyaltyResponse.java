@@ -28,7 +28,7 @@ import java.util.List;
 @JsonPropertyOrder({
   LoyaltyResponse.JSON_PROPERTY_RESPONSE,
   LoyaltyResponse.JSON_PROPERTY_SALE_DATA,
-  LoyaltyResponse.JSON_PROPERTY_PO_I_DATA,
+  LoyaltyResponse.JSON_PROPERTY_POI_DATA,
   LoyaltyResponse.JSON_PROPERTY_LOYALTY_RESULT,
   LoyaltyResponse.JSON_PROPERTY_PAYMENT_RECEIPT
 })
@@ -45,11 +45,11 @@ public class LoyaltyResponse {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSaleData = false;
 
-  public static final String JSON_PROPERTY_PO_I_DATA = "POIData";
-  private POIData poIData;
+  public static final String JSON_PROPERTY_POI_DATA = "POIData";
+  private POIData poiData;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPoIData = false;
+  private boolean isSetPoiData = false;
 
   public static final String JSON_PROPERTY_LOYALTY_RESULT = "LoyaltyResult";
   private List<LoyaltyResult> loyaltyResult;
@@ -72,9 +72,9 @@ public class LoyaltyResponse {
   public LoyaltyResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code LoyaltyResponse} instance, allowing for method chaining
    */
   public LoyaltyResponse response(Response response) {
@@ -84,9 +84,9 @@ public class LoyaltyResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,9 +95,9 @@ public class LoyaltyResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,9 +107,9 @@ public class LoyaltyResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    * @return the current {@code LoyaltyResponse} instance, allowing for method chaining
    */
   public LoyaltyResponse saleData(SaleData saleData) {
@@ -119,9 +119,9 @@ public class LoyaltyResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,9 +130,9 @@ public class LoyaltyResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,38 +142,38 @@ public class LoyaltyResponse {
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    * @return the current {@code LoyaltyResponse} instance, allowing for method chaining
    */
-  public LoyaltyResponse poIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public LoyaltyResponse poiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
     return this;
   }
 
   /**
-   * Data related to the POI System.
+   * Get poiData
    *
-   * @return poIData Data related to the POI System.
+   * @return poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public POIData getPoIData() {
-    return poIData;
+  public POIData getPoiData() {
+    return poiData;
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public void setPoiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
   }
 
   /**
@@ -299,8 +299,8 @@ public class LoyaltyResponse {
         && Objects.equals(this.isSetResponse, loyaltyResponse.isSetResponse)
         && Objects.equals(this.saleData, loyaltyResponse.saleData)
         && Objects.equals(this.isSetSaleData, loyaltyResponse.isSetSaleData)
-        && Objects.equals(this.poIData, loyaltyResponse.poIData)
-        && Objects.equals(this.isSetPoIData, loyaltyResponse.isSetPoIData)
+        && Objects.equals(this.poiData, loyaltyResponse.poiData)
+        && Objects.equals(this.isSetPoiData, loyaltyResponse.isSetPoiData)
         && Objects.equals(this.loyaltyResult, loyaltyResponse.loyaltyResult)
         && Objects.equals(this.isSetLoyaltyResult, loyaltyResponse.isSetLoyaltyResult)
         && Objects.equals(this.paymentReceipt, loyaltyResponse.paymentReceipt)
@@ -314,8 +314,8 @@ public class LoyaltyResponse {
         isSetResponse,
         saleData,
         isSetSaleData,
-        poIData,
-        isSetPoIData,
+        poiData,
+        isSetPoiData,
         loyaltyResult,
         isSetLoyaltyResult,
         paymentReceipt,
@@ -328,7 +328,7 @@ public class LoyaltyResponse {
     sb.append("class LoyaltyResponse {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    saleData: ").append(toIndentedString(saleData)).append("\n");
-    sb.append("    poIData: ").append(toIndentedString(poIData)).append("\n");
+    sb.append("    poiData: ").append(toIndentedString(poiData)).append("\n");
     sb.append("    loyaltyResult: ").append(toIndentedString(loyaltyResult)).append("\n");
     sb.append("    paymentReceipt: ").append(toIndentedString(paymentReceipt)).append("\n");
     sb.append("}");
@@ -361,8 +361,8 @@ public class LoyaltyResponse {
     if (isSetSaleData) {
       addIfNull(nulls, JSON_PROPERTY_SALE_DATA, this.saleData);
     }
-    if (isSetPoIData) {
-      addIfNull(nulls, JSON_PROPERTY_PO_I_DATA, this.poIData);
+    if (isSetPoiData) {
+      addIfNull(nulls, JSON_PROPERTY_POI_DATA, this.poiData);
     }
     if (isSetLoyaltyResult) {
       addIfNull(nulls, JSON_PROPERTY_LOYALTY_RESULT, this.loyaltyResult);

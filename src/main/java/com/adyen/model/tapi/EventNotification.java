@@ -43,7 +43,7 @@ public class EventNotification {
   private boolean isSetTimeStamp = false;
 
   public static final String JSON_PROPERTY_EVENT_TO_NOTIFY = "EventToNotify";
-  private EventToNotifyType eventToNotify;
+  private EventToNotify eventToNotify;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEventToNotify = false;
@@ -119,60 +119,36 @@ public class EventNotification {
   }
 
   /**
-   * Event the POI notifies to the Sale System. Possible values: * **Abort** * **BeginMaintenance**
-   * * **CardInserted** * **CardRemoved** * **Completed** * **CustomerLanguage** *
-   * **EndMaintenance** * **Initialised** * **KeyPressed** * **OutOfOrder** * **Reject** *
-   * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** * **SecurityAlarm** * **Shutdown** *
-   * **StopAssistance** * **UseAnotherCardForPreauth**
+   * eventToNotify
    *
-   * @param eventToNotify Event the POI notifies to the Sale System. Possible values: * **Abort** *
-   *     **BeginMaintenance** * **CardInserted** * **CardRemoved** * **Completed** *
-   *     **CustomerLanguage** * **EndMaintenance** * **Initialised** * **KeyPressed** *
-   *     **OutOfOrder** * **Reject** * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** *
-   *     **SecurityAlarm** * **Shutdown** * **StopAssistance** * **UseAnotherCardForPreauth**
+   * @param eventToNotify
    * @return the current {@code EventNotification} instance, allowing for method chaining
    */
-  public EventNotification eventToNotify(EventToNotifyType eventToNotify) {
+  public EventNotification eventToNotify(EventToNotify eventToNotify) {
     this.eventToNotify = eventToNotify;
     isSetEventToNotify = true; // mark as set
     return this;
   }
 
   /**
-   * Event the POI notifies to the Sale System. Possible values: * **Abort** * **BeginMaintenance**
-   * * **CardInserted** * **CardRemoved** * **Completed** * **CustomerLanguage** *
-   * **EndMaintenance** * **Initialised** * **KeyPressed** * **OutOfOrder** * **Reject** *
-   * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** * **SecurityAlarm** * **Shutdown** *
-   * **StopAssistance** * **UseAnotherCardForPreauth**
+   * Get eventToNotify
    *
-   * @return eventToNotify Event the POI notifies to the Sale System. Possible values: * **Abort** *
-   *     **BeginMaintenance** * **CardInserted** * **CardRemoved** * **Completed** *
-   *     **CustomerLanguage** * **EndMaintenance** * **Initialised** * **KeyPressed** *
-   *     **OutOfOrder** * **Reject** * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** *
-   *     **SecurityAlarm** * **Shutdown** * **StopAssistance** * **UseAnotherCardForPreauth**
+   * @return eventToNotify
    */
   @JsonProperty(JSON_PROPERTY_EVENT_TO_NOTIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EventToNotifyType getEventToNotify() {
+  public EventToNotify getEventToNotify() {
     return eventToNotify;
   }
 
   /**
-   * Event the POI notifies to the Sale System. Possible values: * **Abort** * **BeginMaintenance**
-   * * **CardInserted** * **CardRemoved** * **Completed** * **CustomerLanguage** *
-   * **EndMaintenance** * **Initialised** * **KeyPressed** * **OutOfOrder** * **Reject** *
-   * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** * **SecurityAlarm** * **Shutdown** *
-   * **StopAssistance** * **UseAnotherCardForPreauth**
+   * eventToNotify
    *
-   * @param eventToNotify Event the POI notifies to the Sale System. Possible values: * **Abort** *
-   *     **BeginMaintenance** * **CardInserted** * **CardRemoved** * **Completed** *
-   *     **CustomerLanguage** * **EndMaintenance** * **Initialised** * **KeyPressed** *
-   *     **OutOfOrder** * **Reject** * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** *
-   *     **SecurityAlarm** * **Shutdown** * **StopAssistance** * **UseAnotherCardForPreauth**
+   * @param eventToNotify
    */
   @JsonProperty(JSON_PROPERTY_EVENT_TO_NOTIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEventToNotify(EventToNotifyType eventToNotify) {
+  public void setEventToNotify(EventToNotify eventToNotify) {
     this.eventToNotify = eventToNotify;
     isSetEventToNotify = true; // mark as set
   }

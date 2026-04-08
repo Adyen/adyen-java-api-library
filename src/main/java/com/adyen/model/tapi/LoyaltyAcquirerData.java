@@ -40,7 +40,7 @@ public class LoyaltyAcquirerData {
   private boolean isSetApprovalCode = false;
 
   public static final String JSON_PROPERTY_LOYALTY_TRANSACTION_I_D = "LoyaltyTransactionID";
-  private TransactionIdentification loyaltyTransactionID;
+  private TransactionIDType loyaltyTransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLoyaltyTransactionID = false;
@@ -147,7 +147,7 @@ public class LoyaltyAcquirerData {
    * @param loyaltyTransactionID
    * @return the current {@code LoyaltyAcquirerData} instance, allowing for method chaining
    */
-  public LoyaltyAcquirerData loyaltyTransactionID(TransactionIdentification loyaltyTransactionID) {
+  public LoyaltyAcquirerData loyaltyTransactionID(TransactionIDType loyaltyTransactionID) {
     this.loyaltyTransactionID = loyaltyTransactionID;
     isSetLoyaltyTransactionID = true; // mark as set
     return this;
@@ -160,7 +160,7 @@ public class LoyaltyAcquirerData {
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getLoyaltyTransactionID() {
+  public TransactionIDType getLoyaltyTransactionID() {
     return loyaltyTransactionID;
   }
 
@@ -171,7 +171,7 @@ public class LoyaltyAcquirerData {
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLoyaltyTransactionID(TransactionIdentification loyaltyTransactionID) {
+  public void setLoyaltyTransactionID(TransactionIDType loyaltyTransactionID) {
     this.loyaltyTransactionID = loyaltyTransactionID;
     isSetLoyaltyTransactionID = true; // mark as set
   }

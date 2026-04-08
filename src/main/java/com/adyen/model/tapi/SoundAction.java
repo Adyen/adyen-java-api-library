@@ -15,29 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets InputCommand */
-public enum InputCommandType {
-  DECIMAL_STRING("DecimalString"),
+/** Gets or Sets SoundAction */
+public enum SoundAction {
+  SET_DEFAULT_VOLUME("SetDefaultVolume"),
 
-  DIGIT_STRING("DigitString"),
+  START_SOUND("StartSound"),
 
-  GET_ANY_KEY("GetAnyKey"),
-
-  GET_CONFIRMATION("GetConfirmation"),
-
-  GET_FUNCTION_KEY("GetFunctionKey"),
-
-  GET_MENU_ENTRY("GetMenuEntry"),
-
-  PASSWORD("Password"),
-
-  SITE_MANAGER("SiteManager"),
-
-  TEXT_STRING("TextString");
+  STOP_SOUND("StopSound");
 
   private String value;
 
-  InputCommandType(String value) {
+  SoundAction(String value) {
     this.value = value;
   }
 
@@ -52,8 +40,8 @@ public enum InputCommandType {
   }
 
   @JsonCreator
-  public static InputCommandType fromValue(String value) {
-    for (InputCommandType b : InputCommandType.values()) {
+  public static SoundAction fromValue(String value) {
+    for (SoundAction b : SoundAction.values()) {
       if (b.value.equals(value)) {
         return b;
       }

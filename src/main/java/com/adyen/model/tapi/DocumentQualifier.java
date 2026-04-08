@@ -15,17 +15,23 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets Result */
-public enum ResultType {
-  FAILURE("Failure"),
+/** Gets or Sets DocumentQualifier */
+public enum DocumentQualifier {
+  CASHIER_RECEIPT("CashierReceipt"),
 
-  PARTIAL("Partial"),
+  CUSTOMER_RECEIPT("CustomerReceipt"),
 
-  SUCCESS("Success");
+  DOCUMENT("Document"),
+
+  JOURNAL("Journal"),
+
+  SALE_RECEIPT("SaleReceipt"),
+
+  VOUCHER("Voucher");
 
   private String value;
 
-  ResultType(String value) {
+  DocumentQualifier(String value) {
     this.value = value;
   }
 
@@ -40,8 +46,8 @@ public enum ResultType {
   }
 
   @JsonCreator
-  public static ResultType fromValue(String value) {
-    for (ResultType b : ResultType.values()) {
+  public static DocumentQualifier fromValue(String value) {
+    for (DocumentQualifier b : DocumentQualifier.values()) {
       if (b.value.equals(value)) {
         return b;
       }

@@ -115,11 +115,9 @@ public class TransactionTotals {
   public TransactionTotals() {}
 
   /**
-   * Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** *
-   * **StoredValue**
+   * paymentInstrumentType
    *
-   * @param paymentInstrumentType Type of payment instrument. Possible values: * **Card** * **Cash**
-   *     * **Check** * **Mobile** * **StoredValue**
+   * @param paymentInstrumentType
    * @return the current {@code TransactionTotals} instance, allowing for method chaining
    */
   public TransactionTotals paymentInstrumentType(PaymentInstrumentType paymentInstrumentType) {
@@ -129,11 +127,9 @@ public class TransactionTotals {
   }
 
   /**
-   * Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** *
-   * **StoredValue**
+   * Get paymentInstrumentType
    *
-   * @return paymentInstrumentType Type of payment instrument. Possible values: * **Card** *
-   *     **Cash** * **Check** * **Mobile** * **StoredValue**
+   * @return paymentInstrumentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,11 +138,9 @@ public class TransactionTotals {
   }
 
   /**
-   * Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** *
-   * **StoredValue**
+   * paymentInstrumentType
    *
-   * @param paymentInstrumentType Type of payment instrument. Possible values: * **Card** * **Cash**
-   *     * **Check** * **Mobile** * **StoredValue**
+   * @param paymentInstrumentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

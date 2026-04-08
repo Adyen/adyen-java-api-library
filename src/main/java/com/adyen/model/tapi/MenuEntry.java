@@ -37,7 +37,7 @@ import java.util.List;
 })
 public class MenuEntry {
   public static final String JSON_PROPERTY_MENU_ENTRY_TAG = "MenuEntryTag";
-  private MenuEntryTagType menuEntryTag;
+  private MenuEntryTag menuEntryTag;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMenuEntryTag = false;
@@ -49,7 +49,7 @@ public class MenuEntry {
   private boolean isSetDefaultSelectedFlag = false;
 
   public static final String JSON_PROPERTY_OUTPUT_FORMAT = "OutputFormat";
-  private OutputFormatType outputFormat;
+  private OutputFormat outputFormat;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetOutputFormat = false;
@@ -81,42 +81,36 @@ public class MenuEntry {
   public MenuEntry() {}
 
   /**
-   * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable**
-   * * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+   * menuEntryTag
    *
-   * @param menuEntryTag Characteristics related to the selection of a menu entry. Possible values:
-   *     * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+   * @param menuEntryTag
    * @return the current {@code MenuEntry} instance, allowing for method chaining
    */
-  public MenuEntry menuEntryTag(MenuEntryTagType menuEntryTag) {
+  public MenuEntry menuEntryTag(MenuEntryTag menuEntryTag) {
     this.menuEntryTag = menuEntryTag;
     isSetMenuEntryTag = true; // mark as set
     return this;
   }
 
   /**
-   * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable**
-   * * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+   * Get menuEntryTag
    *
-   * @return menuEntryTag Characteristics related to the selection of a menu entry. Possible values:
-   *     * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+   * @return menuEntryTag
    */
   @JsonProperty(JSON_PROPERTY_MENU_ENTRY_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MenuEntryTagType getMenuEntryTag() {
+  public MenuEntryTag getMenuEntryTag() {
     return menuEntryTag;
   }
 
   /**
-   * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable**
-   * * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+   * menuEntryTag
    *
-   * @param menuEntryTag Characteristics related to the selection of a menu entry. Possible values:
-   *     * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+   * @param menuEntryTag
    */
   @JsonProperty(JSON_PROPERTY_MENU_ENTRY_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMenuEntryTag(MenuEntryTagType menuEntryTag) {
+  public void setMenuEntryTag(MenuEntryTag menuEntryTag) {
     this.menuEntryTag = menuEntryTag;
     isSetMenuEntryTag = true; // mark as set
   }
@@ -163,36 +157,36 @@ public class MenuEntry {
   }
 
   /**
-   * Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+   * outputFormat
    *
-   * @param outputFormat Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+   * @param outputFormat
    * @return the current {@code MenuEntry} instance, allowing for method chaining
    */
-  public MenuEntry outputFormat(OutputFormatType outputFormat) {
+  public MenuEntry outputFormat(OutputFormat outputFormat) {
     this.outputFormat = outputFormat;
     isSetOutputFormat = true; // mark as set
     return this;
   }
 
   /**
-   * Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+   * Get outputFormat
    *
-   * @return outputFormat Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+   * @return outputFormat
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OutputFormatType getOutputFormat() {
+  public OutputFormat getOutputFormat() {
     return outputFormat;
   }
 
   /**
-   * Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+   * outputFormat
    *
-   * @param outputFormat Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+   * @param outputFormat
    */
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOutputFormat(OutputFormatType outputFormat) {
+  public void setOutputFormat(OutputFormat outputFormat) {
     this.outputFormat = outputFormat;
     isSetOutputFormat = true; // mark as set
   }

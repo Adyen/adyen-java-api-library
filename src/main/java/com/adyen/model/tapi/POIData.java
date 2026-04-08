@@ -28,7 +28,7 @@ import java.util.*;
 })
 public class POIData {
   public static final String JSON_PROPERTY_PO_I_TRANSACTION_I_D = "POITransactionID";
-  private TransactionIdentification poITransactionID;
+  private TransactionIDType poITransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPoITransactionID = false;
@@ -48,36 +48,36 @@ public class POIData {
   public POIData() {}
 
   /**
-   * Unique identification of a POI transaction for a POI.
+   * poITransactionID
    *
-   * @param poITransactionID Unique identification of a POI transaction for a POI.
+   * @param poITransactionID
    * @return the current {@code POIData} instance, allowing for method chaining
    */
-  public POIData poITransactionID(TransactionIdentification poITransactionID) {
+  public POIData poITransactionID(TransactionIDType poITransactionID) {
     this.poITransactionID = poITransactionID;
     isSetPoITransactionID = true; // mark as set
     return this;
   }
 
   /**
-   * Unique identification of a POI transaction for a POI.
+   * Get poITransactionID
    *
-   * @return poITransactionID Unique identification of a POI transaction for a POI.
+   * @return poITransactionID
    */
   @JsonProperty(JSON_PROPERTY_PO_I_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getPoITransactionID() {
+  public TransactionIDType getPoITransactionID() {
     return poITransactionID;
   }
 
   /**
-   * Unique identification of a POI transaction for a POI.
+   * poITransactionID
    *
-   * @param poITransactionID Unique identification of a POI transaction for a POI.
+   * @param poITransactionID
    */
   @JsonProperty(JSON_PROPERTY_PO_I_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoITransactionID(TransactionIdentification poITransactionID) {
+  public void setPoITransactionID(TransactionIDType poITransactionID) {
     this.poITransactionID = poITransactionID;
     isSetPoITransactionID = true; // mark as set
   }
@@ -149,11 +149,11 @@ public class POIData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    POIData poIData = (POIData) o;
-    return Objects.equals(this.poITransactionID, poIData.poITransactionID)
-        && Objects.equals(this.isSetPoITransactionID, poIData.isSetPoITransactionID)
-        && Objects.equals(this.poIReconciliationID, poIData.poIReconciliationID)
-        && Objects.equals(this.isSetPoIReconciliationID, poIData.isSetPoIReconciliationID);
+    POIData poiData = (POIData) o;
+    return Objects.equals(this.poITransactionID, poiData.poITransactionID)
+        && Objects.equals(this.isSetPoITransactionID, poiData.isSetPoITransactionID)
+        && Objects.equals(this.poIReconciliationID, poiData.poIReconciliationID)
+        && Objects.equals(this.isSetPoIReconciliationID, poiData.isSetPoIReconciliationID);
   }
 
   @Override

@@ -40,9 +40,9 @@ public class PrintRequest {
   public PrintRequest() {}
 
   /**
-   * Information to print and how to process it.
+   * printOutput
    *
-   * @param printOutput Information to print and how to process it.
+   * @param printOutput
    * @return the current {@code PrintRequest} instance, allowing for method chaining
    */
   public PrintRequest printOutput(PrintOutput printOutput) {
@@ -52,9 +52,9 @@ public class PrintRequest {
   }
 
   /**
-   * Information to print and how to process it.
+   * Get printOutput
    *
-   * @return printOutput Information to print and how to process it.
+   * @return printOutput
    */
   @JsonProperty(JSON_PROPERTY_PRINT_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,9 +63,9 @@ public class PrintRequest {
   }
 
   /**
-   * Information to print and how to process it.
+   * printOutput
    *
-   * @param printOutput Information to print and how to process it.
+   * @param printOutput
    */
   @JsonProperty(JSON_PROPERTY_PRINT_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

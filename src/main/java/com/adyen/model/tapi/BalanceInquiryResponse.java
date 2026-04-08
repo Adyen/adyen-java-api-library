@@ -58,9 +58,9 @@ public class BalanceInquiryResponse {
   public BalanceInquiryResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code BalanceInquiryResponse} instance, allowing for method chaining
    */
   public BalanceInquiryResponse response(Response response) {
@@ -70,9 +70,9 @@ public class BalanceInquiryResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,9 +81,9 @@ public class BalanceInquiryResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,11 +93,9 @@ public class BalanceInquiryResponse {
   }
 
   /**
-   * Data related to the result of a Balance Inquiry request. If BalanceInquiryRequest.
-   * PaymentAccount present.
+   * paymentAccountStatus
    *
-   * @param paymentAccountStatus Data related to the result of a Balance Inquiry request. If
-   *     BalanceInquiryRequest. PaymentAccount present.
+   * @param paymentAccountStatus
    * @return the current {@code BalanceInquiryResponse} instance, allowing for method chaining
    */
   public BalanceInquiryResponse paymentAccountStatus(PaymentAccountStatus paymentAccountStatus) {
@@ -107,11 +105,9 @@ public class BalanceInquiryResponse {
   }
 
   /**
-   * Data related to the result of a Balance Inquiry request. If BalanceInquiryRequest.
-   * PaymentAccount present.
+   * Get paymentAccountStatus
    *
-   * @return paymentAccountStatus Data related to the result of a Balance Inquiry request. If
-   *     BalanceInquiryRequest. PaymentAccount present.
+   * @return paymentAccountStatus
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,11 +116,9 @@ public class BalanceInquiryResponse {
   }
 
   /**
-   * Data related to the result of a Balance Inquiry request. If BalanceInquiryRequest.
-   * PaymentAccount present.
+   * paymentAccountStatus
    *
-   * @param paymentAccountStatus Data related to the result of a Balance Inquiry request. If
-   *     BalanceInquiryRequest. PaymentAccount present.
+   * @param paymentAccountStatus
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

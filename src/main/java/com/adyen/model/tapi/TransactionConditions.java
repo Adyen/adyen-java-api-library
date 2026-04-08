@@ -63,7 +63,7 @@ public class TransactionConditions {
   private boolean isSetAllowedLoyaltyBrand = false;
 
   public static final String JSON_PROPERTY_LOYALTY_HANDLING = "LoyaltyHandling";
-  private LoyaltyHandlingType loyaltyHandling;
+  private LoyaltyHandling loyaltyHandling;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLoyaltyHandling = false;
@@ -339,42 +339,36 @@ public class TransactionConditions {
   }
 
   /**
-   * Type of Loyalty processing requested by the Sale System. Possible values: * **Allowed** *
-   * **Forbidden** * **Processed** * **Proposed** * **Required**
+   * loyaltyHandling
    *
-   * @param loyaltyHandling Type of Loyalty processing requested by the Sale System. Possible
-   *     values: * **Allowed** * **Forbidden** * **Processed** * **Proposed** * **Required**
+   * @param loyaltyHandling
    * @return the current {@code TransactionConditions} instance, allowing for method chaining
    */
-  public TransactionConditions loyaltyHandling(LoyaltyHandlingType loyaltyHandling) {
+  public TransactionConditions loyaltyHandling(LoyaltyHandling loyaltyHandling) {
     this.loyaltyHandling = loyaltyHandling;
     isSetLoyaltyHandling = true; // mark as set
     return this;
   }
 
   /**
-   * Type of Loyalty processing requested by the Sale System. Possible values: * **Allowed** *
-   * **Forbidden** * **Processed** * **Proposed** * **Required**
+   * Get loyaltyHandling
    *
-   * @return loyaltyHandling Type of Loyalty processing requested by the Sale System. Possible
-   *     values: * **Allowed** * **Forbidden** * **Processed** * **Proposed** * **Required**
+   * @return loyaltyHandling
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_HANDLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LoyaltyHandlingType getLoyaltyHandling() {
+  public LoyaltyHandling getLoyaltyHandling() {
     return loyaltyHandling;
   }
 
   /**
-   * Type of Loyalty processing requested by the Sale System. Possible values: * **Allowed** *
-   * **Forbidden** * **Processed** * **Proposed** * **Required**
+   * loyaltyHandling
    *
-   * @param loyaltyHandling Type of Loyalty processing requested by the Sale System. Possible
-   *     values: * **Allowed** * **Forbidden** * **Processed** * **Proposed** * **Required**
+   * @param loyaltyHandling
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_HANDLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLoyaltyHandling(LoyaltyHandlingType loyaltyHandling) {
+  public void setLoyaltyHandling(LoyaltyHandling loyaltyHandling) {
     this.loyaltyHandling = loyaltyHandling;
     isSetLoyaltyHandling = true; // mark as set
   }

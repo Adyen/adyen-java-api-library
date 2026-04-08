@@ -58,9 +58,9 @@ public class DiagnosisResponse {
   public DiagnosisResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code DiagnosisResponse} instance, allowing for method chaining
    */
   public DiagnosisResponse response(Response response) {
@@ -70,9 +70,9 @@ public class DiagnosisResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,9 +81,9 @@ public class DiagnosisResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,9 +93,9 @@ public class DiagnosisResponse {
   }
 
   /**
-   * State of a POI Terminal. If &#x60;Response.Result&#x60; is Success.
+   * poIStatus
    *
-   * @param poIStatus State of a POI Terminal. If &#x60;Response.Result&#x60; is Success.
+   * @param poIStatus
    * @return the current {@code DiagnosisResponse} instance, allowing for method chaining
    */
   public DiagnosisResponse poIStatus(POIStatus poIStatus) {
@@ -105,9 +105,9 @@ public class DiagnosisResponse {
   }
 
   /**
-   * State of a POI Terminal. If &#x60;Response.Result&#x60; is Success.
+   * Get poIStatus
    *
-   * @return poIStatus State of a POI Terminal. If &#x60;Response.Result&#x60; is Success.
+   * @return poIStatus
    */
   @JsonProperty(JSON_PROPERTY_PO_I_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,9 +116,9 @@ public class DiagnosisResponse {
   }
 
   /**
-   * State of a POI Terminal. If &#x60;Response.Result&#x60; is Success.
+   * poIStatus
    *
-   * @param poIStatus State of a POI Terminal. If &#x60;Response.Result&#x60; is Success.
+   * @param poIStatus
    */
   @JsonProperty(JSON_PROPERTY_PO_I_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

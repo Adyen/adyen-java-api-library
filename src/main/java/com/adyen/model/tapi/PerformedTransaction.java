@@ -26,7 +26,7 @@ import java.util.List;
 @JsonPropertyOrder({
   PerformedTransaction.JSON_PROPERTY_RESPONSE,
   PerformedTransaction.JSON_PROPERTY_SALE_DATA,
-  PerformedTransaction.JSON_PROPERTY_PO_I_DATA,
+  PerformedTransaction.JSON_PROPERTY_POI_DATA,
   PerformedTransaction.JSON_PROPERTY_PAYMENT_RESULT,
   PerformedTransaction.JSON_PROPERTY_LOYALTY_RESULT,
   PerformedTransaction.JSON_PROPERTY_REVERSED_AMOUNT
@@ -44,11 +44,11 @@ public class PerformedTransaction {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSaleData = false;
 
-  public static final String JSON_PROPERTY_PO_I_DATA = "POIData";
-  private POIData poIData;
+  public static final String JSON_PROPERTY_POI_DATA = "POIData";
+  private POIData poiData;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPoIData = false;
+  private boolean isSetPoiData = false;
 
   public static final String JSON_PROPERTY_PAYMENT_RESULT = "PaymentResult";
   private PaymentResult paymentResult;
@@ -147,38 +147,38 @@ public class PerformedTransaction {
   }
 
   /**
-   * poIData
+   * poiData
    *
-   * @param poIData
+   * @param poiData
    * @return the current {@code PerformedTransaction} instance, allowing for method chaining
    */
-  public PerformedTransaction poIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public PerformedTransaction poiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
     return this;
   }
 
   /**
-   * Get poIData
+   * Get poiData
    *
-   * @return poIData
+   * @return poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public POIData getPoIData() {
-    return poIData;
+  public POIData getPoiData() {
+    return poiData;
   }
 
   /**
-   * poIData
+   * poiData
    *
-   * @param poIData
+   * @param poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public void setPoiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
   }
 
   /**
@@ -328,8 +328,8 @@ public class PerformedTransaction {
         && Objects.equals(this.isSetResponse, performedTransaction.isSetResponse)
         && Objects.equals(this.saleData, performedTransaction.saleData)
         && Objects.equals(this.isSetSaleData, performedTransaction.isSetSaleData)
-        && Objects.equals(this.poIData, performedTransaction.poIData)
-        && Objects.equals(this.isSetPoIData, performedTransaction.isSetPoIData)
+        && Objects.equals(this.poiData, performedTransaction.poiData)
+        && Objects.equals(this.isSetPoiData, performedTransaction.isSetPoiData)
         && Objects.equals(this.paymentResult, performedTransaction.paymentResult)
         && Objects.equals(this.isSetPaymentResult, performedTransaction.isSetPaymentResult)
         && Objects.equals(this.loyaltyResult, performedTransaction.loyaltyResult)
@@ -345,8 +345,8 @@ public class PerformedTransaction {
         isSetResponse,
         saleData,
         isSetSaleData,
-        poIData,
-        isSetPoIData,
+        poiData,
+        isSetPoiData,
         paymentResult,
         isSetPaymentResult,
         loyaltyResult,
@@ -361,7 +361,7 @@ public class PerformedTransaction {
     sb.append("class PerformedTransaction {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    saleData: ").append(toIndentedString(saleData)).append("\n");
-    sb.append("    poIData: ").append(toIndentedString(poIData)).append("\n");
+    sb.append("    poiData: ").append(toIndentedString(poiData)).append("\n");
     sb.append("    paymentResult: ").append(toIndentedString(paymentResult)).append("\n");
     sb.append("    loyaltyResult: ").append(toIndentedString(loyaltyResult)).append("\n");
     sb.append("    reversedAmount: ").append(toIndentedString(reversedAmount)).append("\n");
@@ -395,8 +395,8 @@ public class PerformedTransaction {
     if (isSetSaleData) {
       addIfNull(nulls, JSON_PROPERTY_SALE_DATA, this.saleData);
     }
-    if (isSetPoIData) {
-      addIfNull(nulls, JSON_PROPERTY_PO_I_DATA, this.poIData);
+    if (isSetPoiData) {
+      addIfNull(nulls, JSON_PROPERTY_POI_DATA, this.poiData);
     }
     if (isSetPaymentResult) {
       addIfNull(nulls, JSON_PROPERTY_PAYMENT_RESULT, this.paymentResult);

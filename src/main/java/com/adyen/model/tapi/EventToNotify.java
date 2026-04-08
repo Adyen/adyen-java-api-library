@@ -22,7 +22,7 @@ import java.util.*;
  * **ScanBarcodeResult** * **SecurityAlarm** * **Shutdown** * **StopAssistance** *
  * **UseAnotherCardForPreauth**
  */
-public enum EventToNotifyType {
+public enum EventToNotify {
   ABORT("Abort"),
 
   BEGIN_MAINTENANCE("BeginMaintenance"),
@@ -61,7 +61,7 @@ public enum EventToNotifyType {
 
   private String value;
 
-  EventToNotifyType(String value) {
+  EventToNotify(String value) {
     this.value = value;
   }
 
@@ -76,8 +76,8 @@ public enum EventToNotifyType {
   }
 
   @JsonCreator
-  public static EventToNotifyType fromValue(String value) {
-    for (EventToNotifyType b : EventToNotifyType.values()) {
+  public static EventToNotify fromValue(String value) {
+    for (EventToNotify b : EventToNotify.values()) {
       if (b.value.equals(value)) {
         return b;
       }

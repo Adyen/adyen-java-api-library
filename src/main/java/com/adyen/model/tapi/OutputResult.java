@@ -30,13 +30,13 @@ import java.util.*;
 })
 public class OutputResult {
   public static final String JSON_PROPERTY_DEVICE = "Device";
-  private DeviceType device;
+  private Device device;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDevice = false;
 
   public static final String JSON_PROPERTY_INFO_QUALIFY = "InfoQualify";
-  private InfoQualifyType infoQualify;
+  private InfoQualify infoQualify;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInfoQualify = false;
@@ -56,115 +56,79 @@ public class OutputResult {
   public OutputResult() {}
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to
-   * output (display, print or store), or input (keyboard) for the Cashier or the Customer. Copy.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * device
    *
-   * @param device Logical device located on a Sale Terminal or a POI Terminal, in term of class of
-   *     information to output (display, print or store), or input (keyboard) for the Cashier or the
-   *     Customer. Copy. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @param device
    * @return the current {@code OutputResult} instance, allowing for method chaining
    */
-  public OutputResult device(DeviceType device) {
+  public OutputResult device(Device device) {
     this.device = device;
     isSetDevice = true; // mark as set
     return this;
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to
-   * output (display, print or store), or input (keyboard) for the Cashier or the Customer. Copy.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * Get device
    *
-   * @return device Logical device located on a Sale Terminal or a POI Terminal, in term of class of
-   *     information to output (display, print or store), or input (keyboard) for the Cashier or the
-   *     Customer. Copy. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @return device
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DeviceType getDevice() {
+  public Device getDevice() {
     return device;
   }
 
   /**
-   * Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to
-   * output (display, print or store), or input (keyboard) for the Cashier or the Customer. Copy.
-   * Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
-   * **CustomerInput**
+   * device
    *
-   * @param device Logical device located on a Sale Terminal or a POI Terminal, in term of class of
-   *     information to output (display, print or store), or input (keyboard) for the Cashier or the
-   *     Customer. Copy. Possible values: * **CashierDisplay** * **CashierInput** *
-   *     **CustomerDisplay** * **CustomerInput**
+   * @param device
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDevice(DeviceType device) {
+  public void setDevice(Device device) {
     this.device = device;
     isSetDevice = true; // mark as set
   }
 
   /**
-   * Qualification of the information to sent to an output logical device, to display or print to
-   * the Cashier or the Customer. Copy. Possible values: * **CustomerAssistance** * **Display** *
-   * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   * **Status** * **Voucher**
+   * infoQualify
    *
-   * @param infoQualify Qualification of the information to sent to an output logical device, to
-   *     display or print to the Cashier or the Customer. Copy. Possible values: *
-   *     **CustomerAssistance** * **Display** * **Document** * **Error** * **Input** *
-   *     **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
+   * @param infoQualify
    * @return the current {@code OutputResult} instance, allowing for method chaining
    */
-  public OutputResult infoQualify(InfoQualifyType infoQualify) {
+  public OutputResult infoQualify(InfoQualify infoQualify) {
     this.infoQualify = infoQualify;
     isSetInfoQualify = true; // mark as set
     return this;
   }
 
   /**
-   * Qualification of the information to sent to an output logical device, to display or print to
-   * the Cashier or the Customer. Copy. Possible values: * **CustomerAssistance** * **Display** *
-   * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   * **Status** * **Voucher**
+   * Get infoQualify
    *
-   * @return infoQualify Qualification of the information to sent to an output logical device, to
-   *     display or print to the Cashier or the Customer. Copy. Possible values: *
-   *     **CustomerAssistance** * **Display** * **Document** * **Error** * **Input** *
-   *     **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
+   * @return infoQualify
    */
   @JsonProperty(JSON_PROPERTY_INFO_QUALIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InfoQualifyType getInfoQualify() {
+  public InfoQualify getInfoQualify() {
     return infoQualify;
   }
 
   /**
-   * Qualification of the information to sent to an output logical device, to display or print to
-   * the Cashier or the Customer. Copy. Possible values: * **CustomerAssistance** * **Display** *
-   * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** *
-   * **Status** * **Voucher**
+   * infoQualify
    *
-   * @param infoQualify Qualification of the information to sent to an output logical device, to
-   *     display or print to the Cashier or the Customer. Copy. Possible values: *
-   *     **CustomerAssistance** * **Display** * **Document** * **Error** * **Input** *
-   *     **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
+   * @param infoQualify
    */
   @JsonProperty(JSON_PROPERTY_INFO_QUALIFY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInfoQualify(InfoQualifyType infoQualify) {
+  public void setInfoQualify(InfoQualify infoQualify) {
     this.infoQualify = infoQualify;
     isSetInfoQualify = true; // mark as set
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code OutputResult} instance, allowing for method chaining
    */
   public OutputResult response(Response response) {
@@ -174,9 +138,9 @@ public class OutputResult {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,9 +149,9 @@ public class OutputResult {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -15,24 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** *
- * **OutOfOrder** * **PaperJam** * **PaperLow**
- */
-public enum PrinterStatusType {
-  NO_PAPER("NoPaper"),
+/** Gets or Sets CharacterHeight */
+public enum CharacterHeight {
+  DOUBLE_HEIGHT("DoubleHeight"),
 
-  OK("OK"),
+  HALF_HEIGHT("HalfHeight"),
 
-  OUT_OF_ORDER("OutOfOrder"),
-
-  PAPER_JAM("PaperJam"),
-
-  PAPER_LOW("PaperLow");
+  SINGLE_HEIGHT("SingleHeight");
 
   private String value;
 
-  PrinterStatusType(String value) {
+  CharacterHeight(String value) {
     this.value = value;
   }
 
@@ -47,8 +40,8 @@ public enum PrinterStatusType {
   }
 
   @JsonCreator
-  public static PrinterStatusType fromValue(String value) {
-    for (PrinterStatusType b : PrinterStatusType.values()) {
+  public static CharacterHeight fromValue(String value) {
+    for (CharacterHeight b : CharacterHeight.values()) {
       if (b.value.equals(value)) {
         return b;
       }

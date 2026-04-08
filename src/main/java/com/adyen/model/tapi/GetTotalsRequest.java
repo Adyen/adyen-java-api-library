@@ -163,13 +163,9 @@ public class GetTotalsRequest {
   }
 
   /**
-   * Filter to compute the totals. Used for the Get Totals, to request totals for a (or a
-   * combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or
-   * TotalsGroupID.
+   * totalFilter
    *
-   * @param totalFilter Filter to compute the totals. Used for the Get Totals, to request totals for
-   *     a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier,
-   *     Shift, or TotalsGroupID.
+   * @param totalFilter
    * @return the current {@code GetTotalsRequest} instance, allowing for method chaining
    */
   public GetTotalsRequest totalFilter(TotalFilter totalFilter) {
@@ -179,13 +175,9 @@ public class GetTotalsRequest {
   }
 
   /**
-   * Filter to compute the totals. Used for the Get Totals, to request totals for a (or a
-   * combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or
-   * TotalsGroupID.
+   * Get totalFilter
    *
-   * @return totalFilter Filter to compute the totals. Used for the Get Totals, to request totals
-   *     for a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier,
-   *     Shift, or TotalsGroupID.
+   * @return totalFilter
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,13 +186,9 @@ public class GetTotalsRequest {
   }
 
   /**
-   * Filter to compute the totals. Used for the Get Totals, to request totals for a (or a
-   * combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or
-   * TotalsGroupID.
+   * totalFilter
    *
-   * @param totalFilter Filter to compute the totals. Used for the Get Totals, to request totals for
-   *     a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier,
-   *     Shift, or TotalsGroupID.
+   * @param totalFilter
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

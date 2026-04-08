@@ -51,9 +51,9 @@ public class CardAcquisitionRequest {
   public CardAcquisitionRequest() {}
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    * @return the current {@code CardAcquisitionRequest} instance, allowing for method chaining
    */
   public CardAcquisitionRequest saleData(SaleData saleData) {
@@ -63,9 +63,9 @@ public class CardAcquisitionRequest {
   }
 
   /**
-   * Data related to the Sale System.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,9 +74,9 @@ public class CardAcquisitionRequest {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,9 +86,9 @@ public class CardAcquisitionRequest {
   }
 
   /**
-   * Data related to the payment and loyalty card acquisition.
+   * cardAcquisitionTransaction
    *
-   * @param cardAcquisitionTransaction Data related to the payment and loyalty card acquisition.
+   * @param cardAcquisitionTransaction
    * @return the current {@code CardAcquisitionRequest} instance, allowing for method chaining
    */
   public CardAcquisitionRequest cardAcquisitionTransaction(
@@ -99,9 +99,9 @@ public class CardAcquisitionRequest {
   }
 
   /**
-   * Data related to the payment and loyalty card acquisition.
+   * Get cardAcquisitionTransaction
    *
-   * @return cardAcquisitionTransaction Data related to the payment and loyalty card acquisition.
+   * @return cardAcquisitionTransaction
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,9 +110,9 @@ public class CardAcquisitionRequest {
   }
 
   /**
-   * Data related to the payment and loyalty card acquisition.
+   * cardAcquisitionTransaction
    *
-   * @param cardAcquisitionTransaction Data related to the payment and loyalty card acquisition.
+   * @param cardAcquisitionTransaction
    */
   @JsonProperty(JSON_PROPERTY_CARD_ACQUISITION_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

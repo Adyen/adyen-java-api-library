@@ -15,17 +15,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets CharacterHeight */
-public enum CharacterHeightType {
-  DOUBLE_HEIGHT("DoubleHeight"),
+/** Gets or Sets GlobalStatus */
+public enum GlobalStatus {
+  BUSY("Busy"),
 
-  HALF_HEIGHT("HalfHeight"),
+  MAINTENANCE("Maintenance"),
 
-  SINGLE_HEIGHT("SingleHeight");
+  OK("OK"),
+
+  UNREACHABLE("Unreachable");
 
   private String value;
 
-  CharacterHeightType(String value) {
+  GlobalStatus(String value) {
     this.value = value;
   }
 
@@ -40,8 +42,8 @@ public enum CharacterHeightType {
   }
 
   @JsonCreator
-  public static CharacterHeightType fromValue(String value) {
-    for (CharacterHeightType b : CharacterHeightType.values()) {
+  public static GlobalStatus fromValue(String value) {
+    for (GlobalStatus b : GlobalStatus.values()) {
       if (b.value.equals(value)) {
         return b;
       }

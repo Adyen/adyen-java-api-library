@@ -63,7 +63,7 @@ public class SaleData {
   private boolean isSetShiftNumber = false;
 
   public static final String JSON_PROPERTY_SALE_TRANSACTION_I_D = "SaleTransactionID";
-  private TransactionIdentification saleTransactionID;
+  private TransactionIDType saleTransactionID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSaleTransactionID = false;
@@ -273,36 +273,36 @@ public class SaleData {
   }
 
   /**
-   * Identification of a Sale transaction.
+   * saleTransactionID
    *
-   * @param saleTransactionID Identification of a Sale transaction.
+   * @param saleTransactionID
    * @return the current {@code SaleData} instance, allowing for method chaining
    */
-  public SaleData saleTransactionID(TransactionIdentification saleTransactionID) {
+  public SaleData saleTransactionID(TransactionIDType saleTransactionID) {
     this.saleTransactionID = saleTransactionID;
     isSetSaleTransactionID = true; // mark as set
     return this;
   }
 
   /**
-   * Identification of a Sale transaction.
+   * Get saleTransactionID
    *
-   * @return saleTransactionID Identification of a Sale transaction.
+   * @return saleTransactionID
    */
   @JsonProperty(JSON_PROPERTY_SALE_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TransactionIdentification getSaleTransactionID() {
+  public TransactionIDType getSaleTransactionID() {
     return saleTransactionID;
   }
 
   /**
-   * Identification of a Sale transaction.
+   * saleTransactionID
    *
-   * @param saleTransactionID Identification of a Sale transaction.
+   * @param saleTransactionID
    */
   @JsonProperty(JSON_PROPERTY_SALE_TRANSACTION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSaleTransactionID(TransactionIdentification saleTransactionID) {
+  public void setSaleTransactionID(TransactionIDType saleTransactionID) {
     this.saleTransactionID = saleTransactionID;
     isSetSaleTransactionID = true; // mark as set
   }
@@ -349,11 +349,9 @@ public class SaleData {
   }
 
   /**
-   * Information related to the software and hardware features of the Sale Terminal. If content is
-   * not empty.
+   * saleTerminalData
    *
-   * @param saleTerminalData Information related to the software and hardware features of the Sale
-   *     Terminal. If content is not empty.
+   * @param saleTerminalData
    * @return the current {@code SaleData} instance, allowing for method chaining
    */
   public SaleData saleTerminalData(SaleTerminalData saleTerminalData) {
@@ -363,11 +361,9 @@ public class SaleData {
   }
 
   /**
-   * Information related to the software and hardware features of the Sale Terminal. If content is
-   * not empty.
+   * Get saleTerminalData
    *
-   * @return saleTerminalData Information related to the software and hardware features of the Sale
-   *     Terminal. If content is not empty.
+   * @return saleTerminalData
    */
   @JsonProperty(JSON_PROPERTY_SALE_TERMINAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,11 +372,9 @@ public class SaleData {
   }
 
   /**
-   * Information related to the software and hardware features of the Sale Terminal. If content is
-   * not empty.
+   * saleTerminalData
    *
-   * @param saleTerminalData Information related to the software and hardware features of the Sale
-   *     Terminal. If content is not empty.
+   * @param saleTerminalData
    */
   @JsonProperty(JSON_PROPERTY_SALE_TERMINAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -390,13 +384,9 @@ public class SaleData {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * tokenRequestedType
    *
-   * @param tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @param tokenRequestedType
    * @return the current {@code SaleData} instance, allowing for method chaining
    */
   public SaleData tokenRequestedType(TokenRequestedType tokenRequestedType) {
@@ -406,13 +396,9 @@ public class SaleData {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * Get tokenRequestedType
    *
-   * @return tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @return tokenRequestedType
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTED_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,13 +407,9 @@ public class SaleData {
   }
 
   /**
-   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
-   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
-   * Possible values: * **Customer** * **Transaction**
+   * tokenRequestedType
    *
-   * @param tokenRequestedType Type of token replacing the PAN of a payment card to identify the
-   *     payment mean of the customer. It allows, for a merchant, to use a token for a transaction
-   *     only or for a longer period. Possible values: * **Customer** * **Transaction**
+   * @param tokenRequestedType
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTED_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -594,10 +576,9 @@ public class SaleData {
   }
 
   /**
-   * Sale information intended for the Issuer. Send to the Acquirer if present.
+   * saleToIssuerData
    *
-   * @param saleToIssuerData Sale information intended for the Issuer. Send to the Acquirer if
-   *     present.
+   * @param saleToIssuerData
    * @return the current {@code SaleData} instance, allowing for method chaining
    */
   public SaleData saleToIssuerData(SaleToIssuerData saleToIssuerData) {
@@ -607,10 +588,9 @@ public class SaleData {
   }
 
   /**
-   * Sale information intended for the Issuer. Send to the Acquirer if present.
+   * Get saleToIssuerData
    *
-   * @return saleToIssuerData Sale information intended for the Issuer. Send to the Acquirer if
-   *     present.
+   * @return saleToIssuerData
    */
   @JsonProperty(JSON_PROPERTY_SALE_TO_ISSUER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -619,10 +599,9 @@ public class SaleData {
   }
 
   /**
-   * Sale information intended for the Issuer. Send to the Acquirer if present.
+   * saleToIssuerData
    *
-   * @param saleToIssuerData Sale information intended for the Issuer. Send to the Acquirer if
-   *     present.
+   * @param saleToIssuerData
    */
   @JsonProperty(JSON_PROPERTY_SALE_TO_ISSUER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

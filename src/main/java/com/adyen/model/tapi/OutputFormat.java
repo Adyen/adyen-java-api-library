@@ -15,17 +15,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets MessageClass */
-public enum MessageClassType {
-  DEVICE("Device"),
+/**
+ * Format of the content to display or print. Display or print device function. Possible values: *
+ * **BarCode** * **MessageRef** * **Text** * **XHTML**
+ */
+public enum OutputFormat {
+  BAR_CODE("BarCode"),
 
-  EVENT("Event"),
+  MESSAGE_REF("MessageRef"),
 
-  SERVICE("Service");
+  TEXT("Text"),
+
+  XHTML("XHTML");
 
   private String value;
 
-  MessageClassType(String value) {
+  OutputFormat(String value) {
     this.value = value;
   }
 
@@ -40,8 +45,8 @@ public enum MessageClassType {
   }
 
   @JsonCreator
-  public static MessageClassType fromValue(String value) {
-    for (MessageClassType b : MessageClassType.values()) {
+  public static OutputFormat fromValue(String value) {
+    for (OutputFormat b : OutputFormat.values()) {
       if (b.value.equals(value)) {
         return b;
       }

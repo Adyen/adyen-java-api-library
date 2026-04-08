@@ -120,9 +120,9 @@ public class CurrencyConversion {
   }
 
   /**
-   * Amount after a currency conversion.
+   * convertedAmount
    *
-   * @param convertedAmount Amount after a currency conversion.
+   * @param convertedAmount
    * @return the current {@code CurrencyConversion} instance, allowing for method chaining
    */
   public CurrencyConversion convertedAmount(ConvertedAmount convertedAmount) {
@@ -132,9 +132,9 @@ public class CurrencyConversion {
   }
 
   /**
-   * Amount after a currency conversion.
+   * Get convertedAmount
    *
-   * @return convertedAmount Amount after a currency conversion.
+   * @return convertedAmount
    */
   @JsonProperty(JSON_PROPERTY_CONVERTED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,9 +143,9 @@ public class CurrencyConversion {
   }
 
   /**
-   * Amount after a currency conversion.
+   * convertedAmount
    *
-   * @param convertedAmount Amount after a currency conversion.
+   * @param convertedAmount
    */
   @JsonProperty(JSON_PROPERTY_CONVERTED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -28,7 +28,7 @@ import java.util.List;
 @JsonPropertyOrder({
   StoredValueResponse.JSON_PROPERTY_RESPONSE,
   StoredValueResponse.JSON_PROPERTY_SALE_DATA,
-  StoredValueResponse.JSON_PROPERTY_PO_I_DATA,
+  StoredValueResponse.JSON_PROPERTY_POI_DATA,
   StoredValueResponse.JSON_PROPERTY_STORED_VALUE_RESULT,
   StoredValueResponse.JSON_PROPERTY_PAYMENT_RECEIPT
 })
@@ -45,11 +45,11 @@ public class StoredValueResponse {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSaleData = false;
 
-  public static final String JSON_PROPERTY_PO_I_DATA = "POIData";
-  private POIData poIData;
+  public static final String JSON_PROPERTY_POI_DATA = "POIData";
+  private POIData poiData;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPoIData = false;
+  private boolean isSetPoiData = false;
 
   public static final String JSON_PROPERTY_STORED_VALUE_RESULT = "StoredValueResult";
   private List<StoredValueResult> storedValueResult;
@@ -72,9 +72,9 @@ public class StoredValueResponse {
   public StoredValueResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code StoredValueResponse} instance, allowing for method chaining
    */
   public StoredValueResponse response(Response response) {
@@ -84,9 +84,9 @@ public class StoredValueResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,9 +95,9 @@ public class StoredValueResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,9 +107,9 @@ public class StoredValueResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    * @return the current {@code StoredValueResponse} instance, allowing for method chaining
    */
   public StoredValueResponse saleData(SaleData saleData) {
@@ -119,9 +119,9 @@ public class StoredValueResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,9 +130,9 @@ public class StoredValueResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,38 +142,38 @@ public class StoredValueResponse {
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    * @return the current {@code StoredValueResponse} instance, allowing for method chaining
    */
-  public StoredValueResponse poIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public StoredValueResponse poiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
     return this;
   }
 
   /**
-   * Data related to the POI System.
+   * Get poiData
    *
-   * @return poIData Data related to the POI System.
+   * @return poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public POIData getPoIData() {
-    return poIData;
+  public POIData getPoiData() {
+    return poiData;
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public void setPoiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
   }
 
   /**
@@ -305,8 +305,8 @@ public class StoredValueResponse {
         && Objects.equals(this.isSetResponse, storedValueResponse.isSetResponse)
         && Objects.equals(this.saleData, storedValueResponse.saleData)
         && Objects.equals(this.isSetSaleData, storedValueResponse.isSetSaleData)
-        && Objects.equals(this.poIData, storedValueResponse.poIData)
-        && Objects.equals(this.isSetPoIData, storedValueResponse.isSetPoIData)
+        && Objects.equals(this.poiData, storedValueResponse.poiData)
+        && Objects.equals(this.isSetPoiData, storedValueResponse.isSetPoiData)
         && Objects.equals(this.storedValueResult, storedValueResponse.storedValueResult)
         && Objects.equals(this.isSetStoredValueResult, storedValueResponse.isSetStoredValueResult)
         && Objects.equals(this.paymentReceipt, storedValueResponse.paymentReceipt)
@@ -320,8 +320,8 @@ public class StoredValueResponse {
         isSetResponse,
         saleData,
         isSetSaleData,
-        poIData,
-        isSetPoIData,
+        poiData,
+        isSetPoiData,
         storedValueResult,
         isSetStoredValueResult,
         paymentReceipt,
@@ -334,7 +334,7 @@ public class StoredValueResponse {
     sb.append("class StoredValueResponse {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    saleData: ").append(toIndentedString(saleData)).append("\n");
-    sb.append("    poIData: ").append(toIndentedString(poIData)).append("\n");
+    sb.append("    poiData: ").append(toIndentedString(poiData)).append("\n");
     sb.append("    storedValueResult: ").append(toIndentedString(storedValueResult)).append("\n");
     sb.append("    paymentReceipt: ").append(toIndentedString(paymentReceipt)).append("\n");
     sb.append("}");
@@ -367,8 +367,8 @@ public class StoredValueResponse {
     if (isSetSaleData) {
       addIfNull(nulls, JSON_PROPERTY_SALE_DATA, this.saleData);
     }
-    if (isSetPoIData) {
-      addIfNull(nulls, JSON_PROPERTY_PO_I_DATA, this.poIData);
+    if (isSetPoiData) {
+      addIfNull(nulls, JSON_PROPERTY_POI_DATA, this.poiData);
     }
     if (isSetStoredValueResult) {
       addIfNull(nulls, JSON_PROPERTY_STORED_VALUE_RESULT, this.storedValueResult);

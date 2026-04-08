@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
 /** Gets or Sets PINFormat */
-public enum PINFormatType {
+public enum PINFormat {
   ISO0("ISO0"),
 
   ISO1("ISO1"),
@@ -27,7 +27,7 @@ public enum PINFormatType {
 
   private String value;
 
-  PINFormatType(String value) {
+  PINFormat(String value) {
     this.value = value;
   }
 
@@ -42,8 +42,8 @@ public enum PINFormatType {
   }
 
   @JsonCreator
-  public static PINFormatType fromValue(String value) {
-    for (PINFormatType b : PINFormatType.values()) {
+  public static PINFormat fromValue(String value) {
+    for (PINFormat b : PINFormat.values()) {
       if (b.value.equals(value)) {
         return b;
       }

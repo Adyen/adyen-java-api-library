@@ -78,11 +78,9 @@ public class PaymentInstrumentData {
   public PaymentInstrumentData() {}
 
   /**
-   * Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** *
-   * **StoredValue**
+   * paymentInstrumentType
    *
-   * @param paymentInstrumentType Type of payment instrument. Possible values: * **Card** * **Cash**
-   *     * **Check** * **Mobile** * **StoredValue**
+   * @param paymentInstrumentType
    * @return the current {@code PaymentInstrumentData} instance, allowing for method chaining
    */
   public PaymentInstrumentData paymentInstrumentType(PaymentInstrumentType paymentInstrumentType) {
@@ -92,11 +90,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** *
-   * **StoredValue**
+   * Get paymentInstrumentType
    *
-   * @return paymentInstrumentType Type of payment instrument. Possible values: * **Card** *
-   *     **Cash** * **Check** * **Mobile** * **StoredValue**
+   * @return paymentInstrumentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,11 +101,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** *
-   * **StoredValue**
+   * paymentInstrumentType
    *
-   * @param paymentInstrumentType Type of payment instrument. Possible values: * **Card** * **Cash**
-   *     * **Check** * **Mobile** * **StoredValue**
+   * @param paymentInstrumentType
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,11 +154,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the payment card used for the transaction. If PaymentInstrumentType is
-   * Card.
+   * cardData
    *
-   * @param cardData Information related to the payment card used for the transaction. If
-   *     PaymentInstrumentType is Card.
+   * @param cardData
    * @return the current {@code PaymentInstrumentData} instance, allowing for method chaining
    */
   public PaymentInstrumentData cardData(CardData cardData) {
@@ -174,11 +166,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the payment card used for the transaction. If PaymentInstrumentType is
-   * Card.
+   * Get cardData
    *
-   * @return cardData Information related to the payment card used for the transaction. If
-   *     PaymentInstrumentType is Card.
+   * @return cardData
    */
   @JsonProperty(JSON_PROPERTY_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,11 +177,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the payment card used for the transaction. If PaymentInstrumentType is
-   * Card.
+   * cardData
    *
-   * @param cardData Information related to the payment card used for the transaction. If
-   *     PaymentInstrumentType is Card.
+   * @param cardData
    */
   @JsonProperty(JSON_PROPERTY_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,11 +189,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the paper check used for the transaction. If PaymentInstrumentType is
-   * Check.
+   * checkData
    *
-   * @param checkData Information related to the paper check used for the transaction. If
-   *     PaymentInstrumentType is Check.
+   * @param checkData
    * @return the current {@code PaymentInstrumentData} instance, allowing for method chaining
    */
   public PaymentInstrumentData checkData(CheckData checkData) {
@@ -215,11 +201,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the paper check used for the transaction. If PaymentInstrumentType is
-   * Check.
+   * Get checkData
    *
-   * @return checkData Information related to the paper check used for the transaction. If
-   *     PaymentInstrumentType is Check.
+   * @return checkData
    */
   @JsonProperty(JSON_PROPERTY_CHECK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,11 +212,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the paper check used for the transaction. If PaymentInstrumentType is
-   * Check.
+   * checkData
    *
-   * @param checkData Information related to the paper check used for the transaction. If
-   *     PaymentInstrumentType is Check.
+   * @param checkData
    */
   @JsonProperty(JSON_PROPERTY_CHECK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,11 +224,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the mobile for the payment transaction. If PaymentInstrumentType is
-   * Mobile.
+   * mobileData
    *
-   * @param mobileData Information related to the mobile for the payment transaction. If
-   *     PaymentInstrumentType is Mobile.
+   * @param mobileData
    * @return the current {@code PaymentInstrumentData} instance, allowing for method chaining
    */
   public PaymentInstrumentData mobileData(MobileData mobileData) {
@@ -256,11 +236,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the mobile for the payment transaction. If PaymentInstrumentType is
-   * Mobile.
+   * Get mobileData
    *
-   * @return mobileData Information related to the mobile for the payment transaction. If
-   *     PaymentInstrumentType is Mobile.
+   * @return mobileData
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,11 +247,9 @@ public class PaymentInstrumentData {
   }
 
   /**
-   * Information related to the mobile for the payment transaction. If PaymentInstrumentType is
-   * Mobile.
+   * mobileData
    *
-   * @param mobileData Information related to the mobile for the payment transaction. If
-   *     PaymentInstrumentType is Mobile.
+   * @param mobileData
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

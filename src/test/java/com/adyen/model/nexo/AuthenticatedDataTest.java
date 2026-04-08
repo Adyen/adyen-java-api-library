@@ -32,7 +32,8 @@ public class AuthenticatedDataTest {
     KeyTransport keyTransport =
         (KeyTransport) deserializedAuthenticatedData.getKeyTransportOrKEK().get(0);
     assertNotNull(keyTransport.getRecipientIdentifier());
-    assertEquals(AlgorithmType.RSA_ENCRYPTION, keyTransport.getKeyEncryptionAlgorithm().getAlgorithm());
+    assertEquals(
+        AlgorithmType.RSA_ENCRYPTION, keyTransport.getKeyEncryptionAlgorithm().getAlgorithm());
 
     String serializedJson = terminalApiGson.toJson(deserializedAuthenticatedData);
     JsonObject expectedJsonObject = JsonParser.parseString(mockJson).getAsJsonObject();
@@ -130,12 +131,21 @@ public class AuthenticatedDataTest {
         NexoTestUtils.readResource("mocks/terminal-api/authenticated-data-wrong-case.json");
 
     AuthenticatedData result = terminalApiGson.fromJson(wrongCaseJson, AuthenticatedData.class);
-    assertNotNull(result, "Deserialization should succeed but fields with wrong casing should not be mapped");
-    assertNull(result.getMACAlgorithm(), "MACAlgorithm should be null when JSON key has wrong casing");
-    assertNull(result.getEncapsulatedContent(), "EncapsulatedContent should be null when JSON key has wrong casing");
+    assertNotNull(
+        result, "Deserialization should succeed but fields with wrong casing should not be mapped");
+    assertNull(
+        result.getMACAlgorithm(), "MACAlgorithm should be null when JSON key has wrong casing");
+    assertNull(
+        result.getEncapsulatedContent(),
+        "EncapsulatedContent should be null when JSON key has wrong casing");
     assertNull(result.getMAC(), "MAC should be null when JSON key has wrong casing");
-    assertTrue(result.getKeyTransportOrKEK().isEmpty(), "KeyTransportOrKEK should be null when JSON key has wrong casing");
-    assertEquals(VersionType.V_0, result.getVersion(), "Version should fall back to default v0 when JSON key has wrong casing");
+    assertTrue(
+        result.getKeyTransportOrKEK().isEmpty(),
+        "KeyTransportOrKEK should be null when JSON key has wrong casing");
+    assertEquals(
+        VersionType.V_0,
+        result.getVersion(),
+        "Version should fall back to default v0 when JSON key has wrong casing");
   }
 
   @Test

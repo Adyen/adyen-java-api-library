@@ -28,7 +28,7 @@ import java.util.List;
 @JsonPropertyOrder({
   CardAcquisitionResponse.JSON_PROPERTY_RESPONSE,
   CardAcquisitionResponse.JSON_PROPERTY_SALE_DATA,
-  CardAcquisitionResponse.JSON_PROPERTY_PO_I_DATA,
+  CardAcquisitionResponse.JSON_PROPERTY_POI_DATA,
   CardAcquisitionResponse.JSON_PROPERTY_PAYMENT_BRAND,
   CardAcquisitionResponse.JSON_PROPERTY_PAYMENT_INSTRUMENT_DATA,
   CardAcquisitionResponse.JSON_PROPERTY_LOYALTY_ACCOUNT
@@ -46,11 +46,11 @@ public class CardAcquisitionResponse {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSaleData = false;
 
-  public static final String JSON_PROPERTY_PO_I_DATA = "POIData";
-  private POIData poIData;
+  public static final String JSON_PROPERTY_POI_DATA = "POIData";
+  private POIData poiData;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetPoIData = false;
+  private boolean isSetPoiData = false;
 
   public static final String JSON_PROPERTY_PAYMENT_BRAND = "PaymentBrand";
   private List<String> paymentBrand;
@@ -79,9 +79,9 @@ public class CardAcquisitionResponse {
   public CardAcquisitionResponse() {}
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    * @return the current {@code CardAcquisitionResponse} instance, allowing for method chaining
    */
   public CardAcquisitionResponse response(Response response) {
@@ -91,9 +91,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * Get response
    *
-   * @return response Result of a message request processing.
+   * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,9 +102,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Result of a message request processing.
+   * response
    *
-   * @param response Result of a message request processing.
+   * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,9 +114,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    * @return the current {@code CardAcquisitionResponse} instance, allowing for method chaining
    */
   public CardAcquisitionResponse saleData(SaleData saleData) {
@@ -126,9 +126,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * Get saleData
    *
-   * @return saleData Data related to the Sale System.
+   * @return saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,9 +137,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the Sale System.
+   * saleData
    *
-   * @param saleData Data related to the Sale System.
+   * @param saleData
    */
   @JsonProperty(JSON_PROPERTY_SALE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,38 +149,38 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    * @return the current {@code CardAcquisitionResponse} instance, allowing for method chaining
    */
-  public CardAcquisitionResponse poIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public CardAcquisitionResponse poiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
     return this;
   }
 
   /**
-   * Data related to the POI System.
+   * Get poiData
    *
-   * @return poIData Data related to the POI System.
+   * @return poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public POIData getPoIData() {
-    return poIData;
+  public POIData getPoiData() {
+    return poiData;
   }
 
   /**
-   * Data related to the POI System.
+   * poiData
    *
-   * @param poIData Data related to the POI System.
+   * @param poiData
    */
-  @JsonProperty(JSON_PROPERTY_PO_I_DATA)
+  @JsonProperty(JSON_PROPERTY_POI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIData(POIData poIData) {
-    this.poIData = poIData;
-    isSetPoIData = true; // mark as set
+  public void setPoiData(POIData poiData) {
+    this.poiData = poiData;
+    isSetPoiData = true; // mark as set
   }
 
   /**
@@ -230,12 +230,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the instrument of payment for the transaction. If this type of payment card is
-   * configured to send information if the CardAcquisition response.
+   * paymentInstrumentData
    *
-   * @param paymentInstrumentData Data related to the instrument of payment for the transaction. If
-   *     this type of payment card is configured to send information if the CardAcquisition
-   *     response.
+   * @param paymentInstrumentData
    * @return the current {@code CardAcquisitionResponse} instance, allowing for method chaining
    */
   public CardAcquisitionResponse paymentInstrumentData(
@@ -246,12 +243,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the instrument of payment for the transaction. If this type of payment card is
-   * configured to send information if the CardAcquisition response.
+   * Get paymentInstrumentData
    *
-   * @return paymentInstrumentData Data related to the instrument of payment for the transaction. If
-   *     this type of payment card is configured to send information if the CardAcquisition
-   *     response.
+   * @return paymentInstrumentData
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,12 +254,9 @@ public class CardAcquisitionResponse {
   }
 
   /**
-   * Data related to the instrument of payment for the transaction. If this type of payment card is
-   * configured to send information if the CardAcquisition response.
+   * paymentInstrumentData
    *
-   * @param paymentInstrumentData Data related to the instrument of payment for the transaction. If
-   *     this type of payment card is configured to send information if the CardAcquisition
-   *     response.
+   * @param paymentInstrumentData
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,8 +342,8 @@ public class CardAcquisitionResponse {
         && Objects.equals(this.isSetResponse, cardAcquisitionResponse.isSetResponse)
         && Objects.equals(this.saleData, cardAcquisitionResponse.saleData)
         && Objects.equals(this.isSetSaleData, cardAcquisitionResponse.isSetSaleData)
-        && Objects.equals(this.poIData, cardAcquisitionResponse.poIData)
-        && Objects.equals(this.isSetPoIData, cardAcquisitionResponse.isSetPoIData)
+        && Objects.equals(this.poiData, cardAcquisitionResponse.poiData)
+        && Objects.equals(this.isSetPoiData, cardAcquisitionResponse.isSetPoiData)
         && Objects.equals(this.paymentBrand, cardAcquisitionResponse.paymentBrand)
         && Objects.equals(this.isSetPaymentBrand, cardAcquisitionResponse.isSetPaymentBrand)
         && Objects.equals(this.paymentInstrumentData, cardAcquisitionResponse.paymentInstrumentData)
@@ -369,8 +360,8 @@ public class CardAcquisitionResponse {
         isSetResponse,
         saleData,
         isSetSaleData,
-        poIData,
-        isSetPoIData,
+        poiData,
+        isSetPoiData,
         paymentBrand,
         isSetPaymentBrand,
         paymentInstrumentData,
@@ -385,7 +376,7 @@ public class CardAcquisitionResponse {
     sb.append("class CardAcquisitionResponse {\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    saleData: ").append(toIndentedString(saleData)).append("\n");
-    sb.append("    poIData: ").append(toIndentedString(poIData)).append("\n");
+    sb.append("    poiData: ").append(toIndentedString(poiData)).append("\n");
     sb.append("    paymentBrand: ").append(toIndentedString(paymentBrand)).append("\n");
     sb.append("    paymentInstrumentData: ")
         .append(toIndentedString(paymentInstrumentData))
@@ -421,8 +412,8 @@ public class CardAcquisitionResponse {
     if (isSetSaleData) {
       addIfNull(nulls, JSON_PROPERTY_SALE_DATA, this.saleData);
     }
-    if (isSetPoIData) {
-      addIfNull(nulls, JSON_PROPERTY_PO_I_DATA, this.poIData);
+    if (isSetPoiData) {
+      addIfNull(nulls, JSON_PROPERTY_POI_DATA, this.poiData);
     }
     if (isSetPaymentBrand) {
       addIfNull(nulls, JSON_PROPERTY_PAYMENT_BRAND, this.paymentBrand);

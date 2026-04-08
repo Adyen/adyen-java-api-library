@@ -15,15 +15,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets TypeCode */
-public enum TypeCodeType {
-  COMPANY("Company"),
+/**
+ * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** *
+ * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+ */
+public enum MenuEntryTag {
+  NON_SELECTABLE("NonSelectable"),
 
-  PERSONAL("Personal");
+  NON_SELECTABLE_SUB_MENU("NonSelectableSubMenu"),
+
+  SELECTABLE("Selectable"),
+
+  SUB_MENU("SubMenu");
 
   private String value;
 
-  TypeCodeType(String value) {
+  MenuEntryTag(String value) {
     this.value = value;
   }
 
@@ -38,8 +45,8 @@ public enum TypeCodeType {
   }
 
   @JsonCreator
-  public static TypeCodeType fromValue(String value) {
-    for (TypeCodeType b : TypeCodeType.values()) {
+  public static MenuEntryTag fromValue(String value) {
+    for (MenuEntryTag b : MenuEntryTag.values()) {
       if (b.value.equals(value)) {
         return b;
       }

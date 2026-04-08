@@ -15,17 +15,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/** Gets or Sets SoundAction */
-public enum SoundActionType {
-  SET_DEFAULT_VOLUME("SetDefaultVolume"),
+/**
+ * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** *
+ * **MerchantCancel** * **Unable2Compl**
+ */
+public enum ReversalReason {
+  CUST_CANCEL("CustCancel"),
 
-  START_SOUND("StartSound"),
+  MALFUNCTION("Malfunction"),
 
-  STOP_SOUND("StopSound");
+  MERCHANT_CANCEL("MerchantCancel"),
+
+  UNABLE2_COMPL("Unable2Compl");
 
   private String value;
 
-  SoundActionType(String value) {
+  ReversalReason(String value) {
     this.value = value;
   }
 
@@ -40,8 +45,8 @@ public enum SoundActionType {
   }
 
   @JsonCreator
-  public static SoundActionType fromValue(String value) {
-    for (SoundActionType b : SoundActionType.values()) {
+  public static ReversalReason fromValue(String value) {
+    for (ReversalReason b : ReversalReason.values()) {
       if (b.value.equals(value)) {
         return b;
       }

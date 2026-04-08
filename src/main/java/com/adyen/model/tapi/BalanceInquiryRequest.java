@@ -49,9 +49,9 @@ public class BalanceInquiryRequest {
   public BalanceInquiryRequest() {}
 
   /**
-   * Data related to the account pointed by the payment card.
+   * paymentAccountReq
    *
-   * @param paymentAccountReq Data related to the account pointed by the payment card.
+   * @param paymentAccountReq
    * @return the current {@code BalanceInquiryRequest} instance, allowing for method chaining
    */
   public BalanceInquiryRequest paymentAccountReq(PaymentAccountReq paymentAccountReq) {
@@ -61,9 +61,9 @@ public class BalanceInquiryRequest {
   }
 
   /**
-   * Data related to the account pointed by the payment card.
+   * Get paymentAccountReq
    *
-   * @return paymentAccountReq Data related to the account pointed by the payment card.
+   * @return paymentAccountReq
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,9 +72,9 @@ public class BalanceInquiryRequest {
   }
 
   /**
-   * Data related to the account pointed by the payment card.
+   * paymentAccountReq
    *
-   * @param paymentAccountReq Data related to the account pointed by the payment card.
+   * @param paymentAccountReq
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,9 +84,9 @@ public class BalanceInquiryRequest {
   }
 
   /**
-   * Data related to a requested Loyalty program or account.
+   * loyaltyAccountReq
    *
-   * @param loyaltyAccountReq Data related to a requested Loyalty program or account.
+   * @param loyaltyAccountReq
    * @return the current {@code BalanceInquiryRequest} instance, allowing for method chaining
    */
   public BalanceInquiryRequest loyaltyAccountReq(LoyaltyAccountReq loyaltyAccountReq) {
@@ -96,9 +96,9 @@ public class BalanceInquiryRequest {
   }
 
   /**
-   * Data related to a requested Loyalty program or account.
+   * Get loyaltyAccountReq
    *
-   * @return loyaltyAccountReq Data related to a requested Loyalty program or account.
+   * @return loyaltyAccountReq
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,9 +107,9 @@ public class BalanceInquiryRequest {
   }
 
   /**
-   * Data related to a requested Loyalty program or account.
+   * loyaltyAccountReq
    *
-   * @param loyaltyAccountReq Data related to a requested Loyalty program or account.
+   * @param loyaltyAccountReq
    */
   @JsonProperty(JSON_PROPERTY_LOYALTY_ACCOUNT_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

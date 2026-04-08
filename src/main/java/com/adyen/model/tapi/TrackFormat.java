@@ -15,22 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** *
- * **MerchantCancel** * **Unable2Compl**
- */
-public enum ReversalReasonType {
-  CUST_CANCEL("CustCancel"),
+/** Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO** */
+public enum TrackFormat {
+  AAMVA("AAMVA"),
 
-  MALFUNCTION("Malfunction"),
-
-  MERCHANT_CANCEL("MerchantCancel"),
-
-  UNABLE2_COMPL("Unable2Compl");
+  ISO("ISO");
 
   private String value;
 
-  ReversalReasonType(String value) {
+  TrackFormat(String value) {
     this.value = value;
   }
 
@@ -45,8 +38,8 @@ public enum ReversalReasonType {
   }
 
   @JsonCreator
-  public static ReversalReasonType fromValue(String value) {
-    for (ReversalReasonType b : ReversalReasonType.values()) {
+  public static TrackFormat fromValue(String value) {
+    for (TrackFormat b : TrackFormat.values()) {
       if (b.value.equals(value)) {
         return b;
       }

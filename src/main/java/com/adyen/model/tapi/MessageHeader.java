@@ -41,13 +41,13 @@ public class MessageHeader {
   private boolean isSetProtocolVersion = false;
 
   public static final String JSON_PROPERTY_MESSAGE_CLASS = "MessageClass";
-  private MessageClassType messageClass;
+  private MessageClass messageClass;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMessageClass = false;
 
   public static final String JSON_PROPERTY_MESSAGE_CATEGORY = "MessageCategory";
-  private MessageCategoryType messageCategory;
+  private MessageCategory messageCategory;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMessageCategory = false;
@@ -126,114 +126,79 @@ public class MessageHeader {
   }
 
   /**
-   * Class of the message. Possible values: * **Device** * **Event** * **Service**
+   * messageClass
    *
-   * @param messageClass Class of the message. Possible values: * **Device** * **Event** *
-   *     **Service**
+   * @param messageClass
    * @return the current {@code MessageHeader} instance, allowing for method chaining
    */
-  public MessageHeader messageClass(MessageClassType messageClass) {
+  public MessageHeader messageClass(MessageClass messageClass) {
     this.messageClass = messageClass;
     isSetMessageClass = true; // mark as set
     return this;
   }
 
   /**
-   * Class of the message. Possible values: * **Device** * **Event** * **Service**
+   * Get messageClass
    *
-   * @return messageClass Class of the message. Possible values: * **Device** * **Event** *
-   *     **Service**
+   * @return messageClass
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MessageClassType getMessageClass() {
+  public MessageClass getMessageClass() {
     return messageClass;
   }
 
   /**
-   * Class of the message. Possible values: * **Device** * **Event** * **Service**
+   * messageClass
    *
-   * @param messageClass Class of the message. Possible values: * **Device** * **Event** *
-   *     **Service**
+   * @param messageClass
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessageClass(MessageClassType messageClass) {
+  public void setMessageClass(MessageClass messageClass) {
     this.messageClass = messageClass;
     isSetMessageClass = true; // mark as set
   }
 
   /**
-   * Category of message. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch**
-   * * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** *
-   * **Display** * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** *
-   * **Login** * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** *
-   * **Reconciliation** * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** *
-   * **Transmit**
+   * messageCategory
    *
-   * @param messageCategory Category of message. Possible values: * **Abort** * **Admin** *
-   *     **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** *
-   *     **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** *
-   *     **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** *
-   *     **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
-   *     **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * @param messageCategory
    * @return the current {@code MessageHeader} instance, allowing for method chaining
    */
-  public MessageHeader messageCategory(MessageCategoryType messageCategory) {
+  public MessageHeader messageCategory(MessageCategory messageCategory) {
     this.messageCategory = messageCategory;
     isSetMessageCategory = true; // mark as set
     return this;
   }
 
   /**
-   * Category of message. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch**
-   * * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** *
-   * **Display** * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** *
-   * **Login** * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** *
-   * **Reconciliation** * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** *
-   * **Transmit**
+   * Get messageCategory
    *
-   * @return messageCategory Category of message. Possible values: * **Abort** * **Admin** *
-   *     **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** *
-   *     **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** *
-   *     **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** *
-   *     **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
-   *     **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * @return messageCategory
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MessageCategoryType getMessageCategory() {
+  public MessageCategory getMessageCategory() {
     return messageCategory;
   }
 
   /**
-   * Category of message. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch**
-   * * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** *
-   * **Display** * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** *
-   * **Login** * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** *
-   * **Reconciliation** * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** *
-   * **Transmit**
+   * messageCategory
    *
-   * @param messageCategory Category of message. Possible values: * **Abort** * **Admin** *
-   *     **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** *
-   *     **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** *
-   *     **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** *
-   *     **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
-   *     **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
+   * @param messageCategory
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessageCategory(MessageCategoryType messageCategory) {
+  public void setMessageCategory(MessageCategory messageCategory) {
     this.messageCategory = messageCategory;
     isSetMessageCategory = true; // mark as set
   }
 
   /**
-   * Type of message of the Sale to POI protocol. Possible values: * **Notification** * **Request**
-   * * **Response**
+   * messageType
    *
-   * @param messageType Type of message of the Sale to POI protocol. Possible values: *
-   *     **Notification** * **Request** * **Response**
+   * @param messageType
    * @return the current {@code MessageHeader} instance, allowing for method chaining
    */
   public MessageHeader messageType(MessageType messageType) {
@@ -243,11 +208,9 @@ public class MessageHeader {
   }
 
   /**
-   * Type of message of the Sale to POI protocol. Possible values: * **Notification** * **Request**
-   * * **Response**
+   * Get messageType
    *
-   * @return messageType Type of message of the Sale to POI protocol. Possible values: *
-   *     **Notification** * **Request** * **Response**
+   * @return messageType
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,11 +219,9 @@ public class MessageHeader {
   }
 
   /**
-   * Type of message of the Sale to POI protocol. Possible values: * **Notification** * **Request**
-   * * **Response**
+   * messageType
    *
-   * @param messageType Type of message of the Sale to POI protocol. Possible values: *
-   *     **Notification** * **Request** * **Response**
+   * @param messageType
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
