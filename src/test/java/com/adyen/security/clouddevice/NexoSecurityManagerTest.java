@@ -25,8 +25,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.adyen.model.clouddevice.SaleToPOISecuredMessage;
-import com.adyen.model.tapi.MessageCategoryType;
-import com.adyen.model.tapi.MessageClassType;
+import com.adyen.model.tapi.MessageCategory;
+import com.adyen.model.tapi.MessageClass;
 import com.adyen.model.tapi.MessageHeader;
 import com.adyen.model.tapi.MessageType;
 import java.nio.charset.StandardCharsets;
@@ -53,8 +53,8 @@ public class NexoSecurityManagerTest {
 
     messageHeader = new MessageHeader();
     messageHeader.setProtocolVersion("3.0");
-    messageHeader.setMessageClass(MessageClassType.SERVICE);
-    messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
+    messageHeader.setMessageClass(MessageClass.SERVICE);
+    messageHeader.setMessageCategory(MessageCategory.PAYMENT);
     messageHeader.setMessageType(MessageType.REQUEST);
     messageHeader.setSaleID("001");
     messageHeader.setServiceID("001");
