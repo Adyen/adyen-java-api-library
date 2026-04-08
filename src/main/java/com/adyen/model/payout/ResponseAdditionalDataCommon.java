@@ -449,17 +449,16 @@ public class ResponseAdditionalDataCommon {
 
   public static final String JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE =
       "recurring.recurringDetailReference";
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
-  private String recurringRecurringDetailReference;
+  /* deprecated since Adyen Payout API v68: Use tokenization.storedPaymentMethodId instead. */
+  @Deprecated private String recurringRecurringDetailReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringRecurringDetailReference = false;
 
   public static final String JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE =
       "recurring.shopperReference";
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead.
-  private String recurringShopperReference;
+  /* deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead. */
+  @Deprecated private String recurringShopperReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringShopperReference = false;
@@ -2516,8 +2515,7 @@ public class ResponseAdditionalDataCommon {
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
    * @deprecated since Adyen Payout API v68 Use tokenization.storedPaymentMethodId instead.
    */
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
+  @Deprecated
   public ResponseAdditionalDataCommon recurringRecurringDetailReference(
       String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
@@ -2530,11 +2528,9 @@ public class ResponseAdditionalDataCommon {
    *
    * @return recurringRecurringDetailReference The reference that uniquely identifies the recurring
    *     transaction.
-   * @deprecated // deprecated since Adyen Payout API v68: Use tokenization.storedPaymentMethodId
-   *     instead.
+   * @deprecated since Adyen Payout API v68 Use tokenization.storedPaymentMethodId instead.
    */
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringRecurringDetailReference() {
@@ -2548,8 +2544,7 @@ public class ResponseAdditionalDataCommon {
    *     transaction.
    * @deprecated since Adyen Payout API v68 Use tokenization.storedPaymentMethodId instead.
    */
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
@@ -2565,7 +2560,7 @@ public class ResponseAdditionalDataCommon {
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
    * @deprecated since Adyen Payout API v68 Use tokenization.shopperReference instead.
    */
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead.
+  @Deprecated
   public ResponseAdditionalDataCommon recurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
     isSetRecurringShopperReference = true; // mark as set
@@ -2577,10 +2572,9 @@ public class ResponseAdditionalDataCommon {
    *
    * @return recurringShopperReference The provided reference of the shopper for a recurring
    *     transaction.
-   * @deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference
-   *     instead.
+   * @deprecated since Adyen Payout API v68 Use tokenization.shopperReference instead.
    */
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringShopperReference() {
@@ -2594,7 +2588,7 @@ public class ResponseAdditionalDataCommon {
    *     transaction.
    * @deprecated since Adyen Payout API v68 Use tokenization.shopperReference instead.
    */
-  @Deprecated // deprecated since Adyen Payout API v68: Use tokenization.shopperReference instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
