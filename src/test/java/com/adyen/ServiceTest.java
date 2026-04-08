@@ -111,9 +111,9 @@ public class ServiceTest extends BaseTest {
   public void testLiveRecurringUrlWithPrefix() {
 
     config.setLiveEndpointUrlPrefix("123456789-company");
-    String testUrl = "https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68";
+    String testUrl = "https://pal-test.adyen.com/pal/servlet/Recurring/v68";
     String expectedUrl =
-        "https://123456789-company-paltokenization-live.adyenpayments.com/paltokenization/servlet/Recurring/v68";
+        "https://123456789-company-pal-live.adyenpayments.com/pal/servlet/Recurring/v68";
 
     String actualUrl = service.createBaseURL(testUrl);
     assertEquals(expectedUrl, actualUrl);
@@ -121,7 +121,7 @@ public class ServiceTest extends BaseTest {
 
   @Test
   public void testLiveRecurringUrlWithoutPrefix() {
-    String testUrl = "https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68";
+    String testUrl = "https://pal-test.adyen.com/pal/servlet/Recurring/v68";
 
     IllegalArgumentException e =
         assertThrows(IllegalArgumentException.class, () -> service.createBaseURL(testUrl));
