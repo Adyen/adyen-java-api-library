@@ -105,18 +105,6 @@ public class Service {
                   + "-pal-live.adyenpayments.com/pal/servlet/");
     }
 
-    if (url.contains("paltokenization-")) {
-      if (config.getLiveEndpointUrlPrefix() == null) {
-        throw new IllegalArgumentException("please provide a live url prefix in the client");
-      }
-      url =
-          url.replaceFirst(
-              "https://paltokenization-test.adyen.com/paltokenization/servlet/",
-              "https://"
-                  + config.getLiveEndpointUrlPrefix()
-                  + "-paltokenization-live.adyenpayments.com/paltokenization/servlet/");
-    }
-
     if (url.contains("checkout-")) {
       if (config.getLiveEndpointUrlPrefix() == null) {
         throw new IllegalArgumentException("please provide a live url prefix in the client");
