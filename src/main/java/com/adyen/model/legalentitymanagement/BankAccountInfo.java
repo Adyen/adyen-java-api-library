@@ -36,8 +36,8 @@ public class BankAccountInfo {
   private boolean isSetAccountIdentification = false;
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  @Deprecated // deprecated since Legal Entity Management API v2
-  private String accountType;
+  /* deprecated since Legal Entity Management API v2 */
+  @Deprecated private String accountType;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAccountType = false;
@@ -117,7 +117,7 @@ public class BankAccountInfo {
    * @return the current {@code BankAccountInfo} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v2
    */
-  @Deprecated // deprecated since Legal Entity Management API v2
+  @Deprecated
   public BankAccountInfo accountType(String accountType) {
     this.accountType = accountType;
     isSetAccountType = true; // mark as set
@@ -128,9 +128,9 @@ public class BankAccountInfo {
    * The type of bank account.
    *
    * @return accountType The type of bank account.
-   * @deprecated // deprecated since Legal Entity Management API v2
+   * @deprecated since Legal Entity Management API v2
    */
-  @Deprecated // deprecated since Legal Entity Management API v2
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountType() {
@@ -143,7 +143,7 @@ public class BankAccountInfo {
    * @param accountType The type of bank account.
    * @deprecated since Legal Entity Management API v2
    */
-  @Deprecated // deprecated since Legal Entity Management API v2
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {

@@ -68,8 +68,8 @@ public class Document {
   private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
-  @Deprecated // deprecated since Legal Entity Management API v1
-  private String expiryDate;
+  /* deprecated since Legal Entity Management API v1 */
+  @Deprecated private String expiryDate;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExpiryDate = false;
@@ -87,15 +87,15 @@ public class Document {
   private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
-  @Deprecated // deprecated since Legal Entity Management API v1
-  private String issuerCountry;
+  /* deprecated since Legal Entity Management API v1 */
+  @Deprecated private String issuerCountry;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIssuerCountry = false;
 
   public static final String JSON_PROPERTY_ISSUER_STATE = "issuerState";
-  @Deprecated // deprecated since Legal Entity Management API v1
-  private String issuerState;
+  /* deprecated since Legal Entity Management API v1 */
+  @Deprecated private String issuerState;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIssuerState = false;
@@ -371,7 +371,7 @@ public class Document {
    * @return the current {@code Document} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public Document expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     isSetExpiryDate = true; // mark as set
@@ -382,9 +382,9 @@ public class Document {
    * The expiry date of the document, in YYYY-MM-DD format.
    *
    * @return expiryDate The expiry date of the document, in YYYY-MM-DD format.
-   * @deprecated // deprecated since Legal Entity Management API v1
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryDate() {
@@ -397,7 +397,7 @@ public class Document {
    * @param expiryDate The expiry date of the document, in YYYY-MM-DD format.
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
@@ -461,7 +461,7 @@ public class Document {
    * @return the current {@code Document} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public Document issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
     isSetIssuerCountry = true; // mark as set
@@ -475,9 +475,9 @@ public class Document {
    * @return issuerCountry The two-character [ISO 3166-1
    *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document
    *     was issued. For example, **US**.
-   * @deprecated // deprecated since Legal Entity Management API v1
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerCountry() {
@@ -493,7 +493,7 @@ public class Document {
    *     was issued. For example, **US**.
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
@@ -508,7 +508,7 @@ public class Document {
    * @return the current {@code Document} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public Document issuerState(String issuerState) {
     this.issuerState = issuerState;
     isSetIssuerState = true; // mark as set
@@ -519,9 +519,9 @@ public class Document {
    * The state or province where the document was issued (AU only).
    *
    * @return issuerState The state or province where the document was issued (AU only).
-   * @deprecated // deprecated since Legal Entity Management API v1
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerState() {
@@ -534,7 +534,7 @@ public class Document {
    * @param issuerState The state or province where the document was issued (AU only).
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerState(String issuerState) {

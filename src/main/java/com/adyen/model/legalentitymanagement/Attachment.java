@@ -36,15 +36,15 @@ public class Attachment {
   private boolean isSetContent = false;
 
   public static final String JSON_PROPERTY_CONTENT_TYPE = "contentType";
-  @Deprecated // deprecated since Legal Entity Management API v1
-  private String contentType;
+  /* deprecated since Legal Entity Management API v1 */
+  @Deprecated private String contentType;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetContentType = false;
 
   public static final String JSON_PROPERTY_FILENAME = "filename";
-  @Deprecated // deprecated since Legal Entity Management API v1
-  private String filename;
+  /* deprecated since Legal Entity Management API v1 */
+  @Deprecated private String filename;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetFilename = false;
@@ -113,7 +113,7 @@ public class Attachment {
    * @return the current {@code Attachment} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public Attachment contentType(String contentType) {
     this.contentType = contentType;
     isSetContentType = true; // mark as set
@@ -126,9 +126,9 @@ public class Attachment {
    *
    * @return contentType The file format. Possible values: **application/pdf**, **image/jpg**,
    *     **image/jpeg**, **image/png**.
-   * @deprecated // deprecated since Legal Entity Management API v1
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContentType() {
@@ -143,7 +143,7 @@ public class Attachment {
    *     **image/jpeg**, **image/png**.
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
@@ -158,7 +158,7 @@ public class Attachment {
    * @return the current {@code Attachment} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public Attachment filename(String filename) {
     this.filename = filename;
     isSetFilename = true; // mark as set
@@ -169,9 +169,9 @@ public class Attachment {
    * The name of the file including the file extension.
    *
    * @return filename The name of the file including the file extension.
-   * @deprecated // deprecated since Legal Entity Management API v1
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFilename() {
@@ -184,7 +184,7 @@ public class Attachment {
    * @param filename The name of the file including the file extension.
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilename(String filename) {

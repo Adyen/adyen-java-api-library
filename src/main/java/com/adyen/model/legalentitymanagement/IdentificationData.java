@@ -47,8 +47,8 @@ public class IdentificationData {
   private boolean isSetExpiryDate = false;
 
   public static final String JSON_PROPERTY_ISSUER_COUNTRY = "issuerCountry";
-  @Deprecated // deprecated since Legal Entity Management API v1
-  private String issuerCountry;
+  /* deprecated since Legal Entity Management API v1 */
+  @Deprecated private String issuerCountry;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIssuerCountry = false;
@@ -217,7 +217,7 @@ public class IdentificationData {
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public IdentificationData issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
     isSetIssuerCountry = true; // mark as set
@@ -231,9 +231,9 @@ public class IdentificationData {
    * @return issuerCountry The two-character [ISO 3166-1
    *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document
    *     was issued. For example, **US**.
-   * @deprecated // deprecated since Legal Entity Management API v1
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerCountry() {
@@ -249,7 +249,7 @@ public class IdentificationData {
    *     was issued. For example, **US**.
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
