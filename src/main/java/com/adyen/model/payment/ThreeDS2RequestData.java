@@ -188,8 +188,8 @@ public class ThreeDS2RequestData {
   private boolean isSetAddrMatch = false;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
-  @Deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
-  private Boolean authenticationOnly;
+  /* deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead. */
+  @Deprecated private Boolean authenticationOnly;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAuthenticationOnly = false;
@@ -244,8 +244,8 @@ public class ThreeDS2RequestData {
   }
 
   public static final String JSON_PROPERTY_CHALLENGE_INDICATOR = "challengeIndicator";
-  @Deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead.
-  private ChallengeIndicatorEnum challengeIndicator;
+  /* deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead. */
+  @Deprecated private ChallengeIndicatorEnum challengeIndicator;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetChallengeIndicator = false;
@@ -852,9 +852,9 @@ public class ThreeDS2RequestData {
    *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
    *     and not the payment authorisation.
    * @return the current {@code ThreeDS2RequestData} instance, allowing for method chaining
-   * @deprecated since Adyen Payment API v50 Use &#x60;threeDSAuthenticationOnly&#x60; instead.
+   * @deprecated since Adyen Payment API v50 Use `threeDSAuthenticationOnly` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
+  @Deprecated
   public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
     this.authenticationOnly = authenticationOnly;
     isSetAuthenticationOnly = true; // mark as set
@@ -869,9 +869,9 @@ public class ThreeDS2RequestData {
    * @return authenticationOnly If set to true, you will only perform the [3D Secure 2
    *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
    *     and not the payment authorisation.
-   * @deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
+   * @deprecated since Adyen Payment API v50 Use `threeDSAuthenticationOnly` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAuthenticationOnly() {
@@ -886,9 +886,9 @@ public class ThreeDS2RequestData {
    * @param authenticationOnly If set to true, you will only perform the [3D Secure 2
    *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
    *     and not the payment authorisation.
-   * @deprecated since Adyen Payment API v50 Use &#x60;threeDSAuthenticationOnly&#x60; instead.
+   * @deprecated since Adyen Payment API v50 Use `threeDSAuthenticationOnly` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v50: Use `threeDSAuthenticationOnly` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationOnly(Boolean authenticationOnly) {
@@ -905,9 +905,9 @@ public class ThreeDS2RequestData {
    *     the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; *
    *     &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60;
    * @return the current {@code ThreeDS2RequestData} instance, allowing for method chaining
-   * @deprecated since Adyen Payment API v68 Use &#x60;threeDSRequestorChallengeInd&#x60; instead.
+   * @deprecated since Adyen Payment API v68 Use `threeDSRequestorChallengeInd` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead.
+  @Deprecated
   public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
     isSetChallengeIndicator = true; // mark as set
@@ -922,10 +922,9 @@ public class ThreeDS2RequestData {
    * @return challengeIndicator Possibility to specify a preference for receiving a challenge from
    *     the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; *
    *     &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60;
-   * @deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd`
-   *     instead.
+   * @deprecated since Adyen Payment API v68 Use `threeDSRequestorChallengeInd` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ChallengeIndicatorEnum getChallengeIndicator() {
@@ -940,9 +939,9 @@ public class ThreeDS2RequestData {
    * @param challengeIndicator Possibility to specify a preference for receiving a challenge from
    *     the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; *
    *     &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60;
-   * @deprecated since Adyen Payment API v68 Use &#x60;threeDSRequestorChallengeInd&#x60; instead.
+   * @deprecated since Adyen Payment API v68 Use `threeDSRequestorChallengeInd` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `threeDSRequestorChallengeInd` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
