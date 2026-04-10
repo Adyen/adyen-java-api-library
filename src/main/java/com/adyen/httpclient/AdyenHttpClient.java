@@ -249,8 +249,8 @@ public class AdyenHttpClient implements ClientInterface {
     if (config.getProtocolUpgradeEnabled() != null) {
       builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
     }
-    if (proxy != null && proxy.address() instanceof InetSocketAddress) {
-      InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
+    // Java 21 pattern matching for instanceof — eliminates redundant cast (TTYAI-1)
+    if (proxy != null && proxy.address() instanceof InetSocketAddress inetSocketAddress) {
       builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));
     }
     httpRequest.setConfig(builder.build());
@@ -299,35 +299,36 @@ public class AdyenHttpClient implements ClientInterface {
 
   private HttpUriRequestBase createHttpRequestBase(
       URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
-    StringEntity requestEntity = null;
-    if (requestBody != null && !requestBody.isEmpty()) {
-      requestEntity = new StringEntity(requestBody, Charset.forName(CHARSET));
-    }
+    // var: inferred type is StringEntity — verbose generic omitted (TTYAI-1)
+    var requestEntity =
+        (requestBody != null && !requestBody.isEmpty())
+            ? new StringEntity(requestBody, Charset.forName(CHARSET))
+            : null;
 
-    switch (httpMethod) {
-      case GET:
-        return new HttpGet(endpoint);
-      case PATCH:
-        HttpPatch httpPatch = new HttpPatch(endpoint);
+    // Java 21 switch expression — exhaustive, no fall-through, returns directly (TTYAI-1)
+    return switch (httpMethod) {
+      case GET -> new HttpGet(endpoint);
+      case PATCH -> {
+        var httpPatch = new HttpPatch(endpoint);
         httpPatch.setEntity(requestEntity);
-        return httpPatch;
-      case DELETE:
-        return new HttpDelete(endpoint);
-      default:
+        yield httpPatch;
+      }
+      case DELETE -> new HttpDelete(endpoint);
+      default -> {
         // Default to POST if httpMethod is not provided
-        HttpPost httpPost = new HttpPost(endpoint);
+        var httpPost = new HttpPost(endpoint);
         httpPost.setEntity(requestEntity);
-        return httpPost;
-    }
+        yield httpPost;
+      }
+    };
   }
 
   private URI createUri(String endpoint, Map<String, String> params) throws HTTPClientException {
     try {
-      URIBuilder uriBuilder = new URIBuilder(endpoint);
+      var uriBuilder = new URIBuilder(endpoint);
       if (params != null && !params.isEmpty()) {
-        for (String key : params.keySet()) {
-          uriBuilder.addParameter(key, params.get(key));
-        }
+        // Java 8+ forEach — more idiomatic than iterating keySet() (TTYAI-1)
+        params.forEach(uriBuilder::addParameter);
       }
       return uriBuilder.build();
     } catch (URISyntaxException e) {

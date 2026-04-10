@@ -43,7 +43,8 @@ jobs:
 
     strategy:
       matrix:
-        java: [ '11', '17', '21', '25' ]
+        # Java 11 and 17 removed: maven.compiler.release=21 makes them fail by design (TTYAI-1)
+        java: [ '21', '25' ]
 
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd

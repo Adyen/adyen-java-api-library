@@ -4,7 +4,8 @@
     <groupId>com.adyen</groupId>
     <artifactId>adyen-java-api-library</artifactId>
     <packaging>jar</packaging>
-    <version>41.1.0</version>
+    <!-- Bumped to v42.0.0: breaking change for consumers on Java 11-20 (TTYAI-1) -->
+    <version>42.0.0</version>
     <name>Adyen Java API Library</name>
     <description>Adyen API Client Library for Java</description>
     <url>https://github.com/adyen/adyen-java-api-library</url>
@@ -24,8 +25,10 @@
     </developers>
     <properties>
         <!-- Project Settings -->
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <!-- Use maven.compiler.release (Java 9+) instead of source/target pair;
+             enforces both compilation target and API compatibility in a single property.
+             Bumped from Java 11 to Java 21 LTS (TTYAI-1). -->
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <sonar.organization>adyen</sonar.organization>
