@@ -60,9 +60,8 @@ public class LegalEntity {
   private boolean isSetDocumentDetails = false;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array
-  // instead.
-  private List<EntityReference> documents;
+  /* deprecated since Legal Entity Management API v1: Use the `documentDetails` array instead. */
+  @Deprecated private List<EntityReference> documents;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDocuments = false;
@@ -322,11 +321,9 @@ public class LegalEntity {
    *
    * @param documents List of documents uploaded for the legal entity.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
-   * @deprecated since Legal Entity Management API v1 Use the &#x60;documentDetails&#x60; array
-   *     instead.
+   * @deprecated since Legal Entity Management API v1 Use the `documentDetails` array instead.
    */
-  @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array
-  // instead.
+  @Deprecated
   public LegalEntity documents(List<EntityReference> documents) {
     this.documents = documents;
     isSetDocuments = true; // mark as set
@@ -345,11 +342,9 @@ public class LegalEntity {
    * List of documents uploaded for the legal entity.
    *
    * @return documents List of documents uploaded for the legal entity.
-   * @deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array
-   *     instead.
+   * @deprecated since Legal Entity Management API v1 Use the `documentDetails` array instead.
    */
-  @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<EntityReference> getDocuments() {
@@ -360,11 +355,9 @@ public class LegalEntity {
    * List of documents uploaded for the legal entity.
    *
    * @param documents List of documents uploaded for the legal entity.
-   * @deprecated since Legal Entity Management API v1 Use the &#x60;documentDetails&#x60; array
-   *     instead.
+   * @deprecated since Legal Entity Management API v1 Use the `documentDetails` array instead.
    */
-  @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<EntityReference> documents) {

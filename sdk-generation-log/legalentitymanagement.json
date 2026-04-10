@@ -1,0 +1,8 @@
+{
+  "service": "legalentitymanagement",
+  "project": "java",
+  "generatedAt": "2026-04-10T08:24:57Z",
+  "openapiCommitSha": "aa5556ef9586980ba6c319d0750fb38d7bbda09b",
+  "automationCommitSha": "855b6c5526cb5fae757e921687c38df66d31dc4b",
+  "libraryCommitSha": "334bfa6a6af849c76a7a28c45a36a692ab0274c3"
+}
