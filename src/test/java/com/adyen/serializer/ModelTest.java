@@ -12,10 +12,17 @@ import com.adyen.model.checkout.StoredPaymentMethodDetails;
 import com.adyen.model.legalentitymanagement.*;
 import com.adyen.model.management.Connectivity;
 import com.adyen.model.management.TerminalSettings;
+import com.adyen.model.tapi.PaymentRequest;
+import com.adyen.model.tapi.PaymentResponse;
 import com.adyen.model.tapi.Response;
+import com.adyen.model.tapi.Result;
+import com.adyen.model.tapi.SaleData;
+import com.adyen.model.tapi.TransactionIDType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import org.junit.jupiter.api.Test;
 
 /** Test model serialization (toJson) and deserialization (fromJson) */
@@ -199,6 +206,85 @@ public class ModelTest {
     assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
   }
 
+  @Test
+  public void testTapiTimestampDeserialization() throws JsonProcessingException {
+    String json =
+        "{"
+            + "\"Response\":{\"Result\":\"Success\"},"
+            + "\"SaleData\":{"
+            + "  \"SaleTransactionID\":{"
+            + "    \"TransactionID\":\"txn-001\","
+            + "    \"TimeStamp\":\"2024-01-15T10:30:00+01:00\""
+            + "  }"
+            + "},"
+            + "\"POIData\":{"
+            + "  \"POITransactionID\":{"
+            + "    \"TransactionID\":\"poi-txn-001\","
+            + "    \"TimeStamp\":\"2024-01-15T10:30:05+01:00\""
+            + "  }"
+            + "}"
+            + "}";
+
+    PaymentResponse response = PaymentResponse.fromJson(json);
+
+    assertNotNull(response);
+    assertEquals(Result.SUCCESS, response.getResponse().getResult());
+
+    OffsetDateTime saleTimestamp = response.getSaleData().getSaleTransactionID().getTimeStamp();
+    assertNotNull(saleTimestamp);
+    assertEquals(2024, saleTimestamp.getYear());
+    assertEquals(Month.JANUARY, saleTimestamp.getMonth());
+    assertEquals(15, saleTimestamp.getDayOfMonth());
+    assertEquals(10, saleTimestamp.getHour());
+    assertEquals(30, saleTimestamp.getMinute());
+    assertEquals(ZoneOffset.of("+01:00"), saleTimestamp.getOffset());
+
+    OffsetDateTime poiTimestamp = response.getPoiData().getPoITransactionID().getTimeStamp();
+    assertNotNull(poiTimestamp);
+    assertEquals(5, poiTimestamp.getSecond());
+  }
+
+  @Test
+  public void testTapiTimestampSerialization() throws JsonProcessingException {
+    OffsetDateTime timestamp =
+        OffsetDateTime.of(2024, 1, 15, 10, 30, 0, 0, ZoneOffset.of("+01:00"));
+
+    PaymentRequest request =
+        new PaymentRequest()
+            .saleData(
+                new SaleData()
+                    .saleTransactionID(
+                        new TransactionIDType().transactionID("txn-001").timeStamp(timestamp)));
+
+    String json = request.toJson();
+
+    assertNotNull(json);
+    assertTrue(json.contains("\"TimeStamp\":\"2024-01-15T10:30:00+01:00\""));
+    assertTrue(json.contains("\"TransactionID\":\"txn-001\""));
+  }
+
+  @Test
+  public void testTapiPaymentResponseWithUnknownAttribute() throws JsonProcessingException {
+    String json =
+        "{"
+            + "\"Response\":{\"Result\":\"Success\"},"
+            + "\"UnknownField\":\"someValue\","
+            + "\"SaleData\":{"
+            + "  \"SaleTransactionID\":{"
+            + "    \"TransactionID\":\"txn-001\","
+            + "    \"TimeStamp\":\"2024-01-15T10:30:00+01:00\","
+            + "    \"UnknownNestedField\":123"
+            + "  }"
+            + "}"
+            + "}";
+
+    PaymentResponse response = PaymentResponse.fromJson(json);
+
+    assertNotNull(response);
+    assertEquals(Result.SUCCESS, response.getResponse().getResult());
+    assertEquals("txn-001", response.getSaleData().getSaleTransactionID().getTransactionID());
+  }
+
   // test unknown enum value for tapi model
   @Test
   public void testFromJsonTapiResponseWithInvalidEnum() throws JsonProcessingException {
@@ -278,5 +364,10 @@ public class ModelTest {
     // Expectation: 'surcharge' should NOT be present, even though the flag is true.
     // It should only be present if we called setSurcharge().
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+  }
+
+  @Test
+  public void testTapiEnumFromValueNull() {
+    assertNull(Result.fromValue(null));
   }
 }
