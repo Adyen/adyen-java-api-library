@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets IdentificationType */
 public enum IdentificationType {
@@ -26,6 +27,8 @@ public enum IdentificationType {
   PAN("PAN"),
 
   PHONE_NUMBER("PhoneNumber");
+
+  private static final Logger LOG = Logger.getLogger(IdentificationType.class.getName());
 
   private String value;
 
@@ -50,6 +53,12 @@ public enum IdentificationType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "IdentificationType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(IdentificationType.values()));
+    return null;
   }
 }

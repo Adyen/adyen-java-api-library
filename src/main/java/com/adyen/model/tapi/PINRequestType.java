@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Type of PIN Service. Possible values: * **PINEnter** * **PINVerify** * **PINVerifyOnly** */
 public enum PINRequestType {
@@ -22,6 +23,8 @@ public enum PINRequestType {
   PIN_VERIFY("PINVerify"),
 
   PIN_VERIFY_ONLY("PINVerifyOnly");
+
+  private static final Logger LOG = Logger.getLogger(PINRequestType.class.getName());
 
   private String value;
 
@@ -46,6 +49,12 @@ public enum PINRequestType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "PINRequestType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(PINRequestType.values()));
+    return null;
   }
 }

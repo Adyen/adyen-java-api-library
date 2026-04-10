@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets MessageCategory */
 public enum MessageCategory {
@@ -59,6 +60,8 @@ public enum MessageCategory {
 
   TRANSACTION_STATUS("TransactionStatus");
 
+  private static final Logger LOG = Logger.getLogger(MessageCategory.class.getName());
+
   private String value;
 
   MessageCategory(String value) {
@@ -82,6 +85,12 @@ public enum MessageCategory {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "MessageCategory: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(MessageCategory.values()));
+    return null;
   }
 }

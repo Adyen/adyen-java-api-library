@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ReconciliationType */
 public enum ReconciliationType {
@@ -24,6 +25,8 @@ public enum ReconciliationType {
   PREVIOUS_RECONCILIATION("PreviousReconciliation"),
 
   SALE_RECONCILIATION("SaleReconciliation");
+
+  private static final Logger LOG = Logger.getLogger(ReconciliationType.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum ReconciliationType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ReconciliationType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ReconciliationType.values()));
+    return null;
   }
 }

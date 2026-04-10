@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets SoundAction */
 public enum SoundAction {
@@ -22,6 +23,8 @@ public enum SoundAction {
   START_SOUND("StartSound"),
 
   STOP_SOUND("StopSound");
+
+  private static final Logger LOG = Logger.getLogger(SoundAction.class.getName());
 
   private String value;
 
@@ -46,6 +49,12 @@ public enum SoundAction {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "SoundAction: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(SoundAction.values()));
+    return null;
   }
 }

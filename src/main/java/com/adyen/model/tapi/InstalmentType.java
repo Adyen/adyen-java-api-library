@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Type of instalment transaction. For requesting an instalment payment transaction. Possible
@@ -25,6 +26,8 @@ public enum InstalmentType {
   EQUAL_INSTALMENTS("EqualInstalments"),
 
   INEQUAL_INSTALMENTS("InequalInstalments");
+
+  private static final Logger LOG = Logger.getLogger(InstalmentType.class.getName());
 
   private String value;
 
@@ -49,6 +52,12 @@ public enum InstalmentType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "InstalmentType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(InstalmentType.values()));
+    return null;
   }
 }

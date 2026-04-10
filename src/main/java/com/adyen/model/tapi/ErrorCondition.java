@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ErrorCondition */
 public enum ErrorCondition {
@@ -51,6 +52,8 @@ public enum ErrorCondition {
 
   WRONG_PIN("WrongPIN");
 
+  private static final Logger LOG = Logger.getLogger(ErrorCondition.class.getName());
+
   private String value;
 
   ErrorCondition(String value) {
@@ -74,6 +77,12 @@ public enum ErrorCondition {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ErrorCondition: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ErrorCondition.values()));
+    return null;
   }
 }

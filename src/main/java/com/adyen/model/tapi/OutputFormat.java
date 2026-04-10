@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Format of the content to display or print. Display or print device function. Possible values: *
@@ -27,6 +28,8 @@ public enum OutputFormat {
   TEXT("Text"),
 
   XHTML("XHTML");
+
+  private static final Logger LOG = Logger.getLogger(OutputFormat.class.getName());
 
   private String value;
 
@@ -51,6 +54,12 @@ public enum OutputFormat {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "OutputFormat: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(OutputFormat.values()));
+    return null;
   }
 }

@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** *
@@ -29,6 +30,8 @@ public enum PrinterStatus {
   PAPER_JAM("PaperJam"),
 
   PAPER_LOW("PaperLow");
+
+  private static final Logger LOG = Logger.getLogger(PrinterStatus.class.getName());
 
   private String value;
 
@@ -53,6 +56,12 @@ public enum PrinterStatus {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "PrinterStatus: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(PrinterStatus.values()));
+    return null;
   }
 }

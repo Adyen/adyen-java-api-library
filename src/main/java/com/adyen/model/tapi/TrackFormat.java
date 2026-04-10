@@ -14,12 +14,15 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO** */
 public enum TrackFormat {
   AAMVA("AAMVA"),
 
   ISO("ISO");
+
+  private static final Logger LOG = Logger.getLogger(TrackFormat.class.getName());
 
   private String value;
 
@@ -44,6 +47,12 @@ public enum TrackFormat {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "TrackFormat: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(TrackFormat.values()));
+    return null;
   }
 }

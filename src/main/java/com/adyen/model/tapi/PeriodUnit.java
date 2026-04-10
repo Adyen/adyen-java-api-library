@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** *
@@ -27,6 +28,8 @@ public enum PeriodUnit {
   MONTHLY("Monthly"),
 
   WEEKLY("Weekly");
+
+  private static final Logger LOG = Logger.getLogger(PeriodUnit.class.getName());
 
   private String value;
 
@@ -51,6 +54,12 @@ public enum PeriodUnit {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "PeriodUnit: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(PeriodUnit.values()));
+    return null;
   }
 }

@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets GlobalStatus */
 public enum GlobalStatus {
@@ -24,6 +25,8 @@ public enum GlobalStatus {
   OK("OK"),
 
   UNREACHABLE("Unreachable");
+
+  private static final Logger LOG = Logger.getLogger(GlobalStatus.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum GlobalStatus {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "GlobalStatus: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(GlobalStatus.values()));
+    return null;
   }
 }

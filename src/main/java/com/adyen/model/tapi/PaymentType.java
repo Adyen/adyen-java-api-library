@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets PaymentType */
 public enum PaymentType {
@@ -41,6 +42,8 @@ public enum PaymentType {
 
   UPDATE_RESERVATION("UpdateReservation");
 
+  private static final Logger LOG = Logger.getLogger(PaymentType.class.getName());
+
   private String value;
 
   PaymentType(String value) {
@@ -64,6 +67,12 @@ public enum PaymentType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "PaymentType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(PaymentType.values()));
+    return null;
   }
 }

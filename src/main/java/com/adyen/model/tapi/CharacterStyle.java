@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets CharacterStyle */
 public enum CharacterStyle {
@@ -24,6 +25,8 @@ public enum CharacterStyle {
   NORMAL("Normal"),
 
   UNDERLINE("Underline");
+
+  private static final Logger LOG = Logger.getLogger(CharacterStyle.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum CharacterStyle {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "CharacterStyle: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(CharacterStyle.values()));
+    return null;
   }
 }

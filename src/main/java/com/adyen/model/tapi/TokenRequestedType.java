@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
@@ -24,6 +25,8 @@ public enum TokenRequestedType {
   CUSTOMER("Customer"),
 
   TRANSACTION("Transaction");
+
+  private static final Logger LOG = Logger.getLogger(TokenRequestedType.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum TokenRequestedType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "TokenRequestedType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(TokenRequestedType.values()));
+    return null;
   }
 }

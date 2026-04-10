@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets InfoQualify */
 public enum InfoQualify {
@@ -36,6 +37,8 @@ public enum InfoQualify {
   STATUS("Status"),
 
   VOUCHER("Voucher");
+
+  private static final Logger LOG = Logger.getLogger(InfoQualify.class.getName());
 
   private String value;
 
@@ -60,6 +63,12 @@ public enum InfoQualify {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "InfoQualify: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(InfoQualify.values()));
+    return null;
   }
 }

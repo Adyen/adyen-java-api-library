@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets StoredValueTransactionType */
 public enum StoredValueTransactionType {
@@ -28,6 +29,8 @@ public enum StoredValueTransactionType {
   REVERSE("Reverse"),
 
   UNLOAD("Unload");
+
+  private static final Logger LOG = Logger.getLogger(StoredValueTransactionType.class.getName());
 
   private String value;
 
@@ -52,6 +55,12 @@ public enum StoredValueTransactionType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "StoredValueTransactionType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(StoredValueTransactionType.values()));
+    return null;
   }
 }

@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** *
@@ -27,6 +28,8 @@ public enum ReversalReason {
   MERCHANT_CANCEL("MerchantCancel"),
 
   UNABLE2_COMPL("Unable2Compl");
+
+  private static final Logger LOG = Logger.getLogger(ReversalReason.class.getName());
 
   private String value;
 
@@ -51,6 +54,12 @@ public enum ReversalReason {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ReversalReason: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ReversalReason.values()));
+    return null;
   }
 }

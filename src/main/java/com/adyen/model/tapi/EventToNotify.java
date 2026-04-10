@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Event the POI notifies to the Sale System. Possible values: * **Abort** * **BeginMaintenance** *
@@ -59,6 +60,8 @@ public enum EventToNotify {
 
   USE_ANOTHER_CARD_FOR_PREAUTH("UseAnotherCardForPreauth");
 
+  private static final Logger LOG = Logger.getLogger(EventToNotify.class.getName());
+
   private String value;
 
   EventToNotify(String value) {
@@ -82,6 +85,12 @@ public enum EventToNotify {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "EventToNotify: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(EventToNotify.values()));
+    return null;
   }
 }

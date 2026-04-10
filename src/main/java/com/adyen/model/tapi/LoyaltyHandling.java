@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets LoyaltyHandling */
 public enum LoyaltyHandling {
@@ -26,6 +27,8 @@ public enum LoyaltyHandling {
   PROPOSED("Proposed"),
 
   REQUIRED("Required");
+
+  private static final Logger LOG = Logger.getLogger(LoyaltyHandling.class.getName());
 
   private String value;
 
@@ -50,6 +53,12 @@ public enum LoyaltyHandling {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "LoyaltyHandling: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(LoyaltyHandling.values()));
+    return null;
   }
 }
