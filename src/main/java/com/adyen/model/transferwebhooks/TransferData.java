@@ -143,8 +143,8 @@ public class TransferData {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
-  @Deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
-  private OffsetDateTime creationDate;
+  /* deprecated since Transfer webhooks v3: Use createdAt or updatedAt */
+  @Deprecated private OffsetDateTime creationDate;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -1116,7 +1116,7 @@ public class TransferData {
    * @return the current {@code TransferData} instance, allowing for method chaining
    * @deprecated since Transfer webhooks v3 Use createdAt or updatedAt
    */
-  @Deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
+  @Deprecated
   public TransferData creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
@@ -1128,9 +1128,9 @@ public class TransferData {
    *
    * @return creationDate The date and time when the event was triggered, in ISO 8601 extended
    *     format. For example, **2020-12-18T10:15:30+01:00**.
-   * @deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
+   * @deprecated since Transfer webhooks v3 Use createdAt or updatedAt
    */
-  @Deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -1145,7 +1145,7 @@ public class TransferData {
    *     format. For example, **2020-12-18T10:15:30+01:00**.
    * @deprecated since Transfer webhooks v3 Use createdAt or updatedAt
    */
-  @Deprecated // deprecated since Transfer webhooks v3: Use createdAt or updatedAt
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
