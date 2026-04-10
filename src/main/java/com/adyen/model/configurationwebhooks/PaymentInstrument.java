@@ -44,7 +44,9 @@ import java.util.logging.Logger;
 public class PaymentInstrument {
   public static final String JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS =
       "additionalBankAccountIdentifications";
-  @Deprecated // deprecated since Configuration webhooks v2: Please use `bankAccount` object instead
+
+  /* deprecated since Configuration webhooks v2: Please use `bankAccount` object instead */
+  @Deprecated
   private List<PaymentInstrumentAdditionalBankAccountIdentificationsInner>
       additionalBankAccountIdentifications;
 
@@ -255,9 +257,9 @@ public class PaymentInstrument {
    *     details. Returned when you create a payment instrument with &#x60;type&#x60;
    *     **bankAccount**.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
-   * @deprecated since Configuration webhooks v2 Please use &#x60;bankAccount&#x60; object instead
+   * @deprecated since Configuration webhooks v2 Please use `bankAccount` object instead
    */
-  @Deprecated // deprecated since Configuration webhooks v2: Please use `bankAccount` object instead
+  @Deprecated
   public PaymentInstrument additionalBankAccountIdentifications(
       List<PaymentInstrumentAdditionalBankAccountIdentificationsInner>
           additionalBankAccountIdentifications) {
@@ -282,10 +284,9 @@ public class PaymentInstrument {
    * @return additionalBankAccountIdentifications Contains optional, additional business account
    *     details. Returned when you create a payment instrument with &#x60;type&#x60;
    *     **bankAccount**.
-   * @deprecated // deprecated since Configuration webhooks v2: Please use `bankAccount` object
-   *     instead
+   * @deprecated since Configuration webhooks v2 Please use `bankAccount` object instead
    */
-  @Deprecated // deprecated since Configuration webhooks v2: Please use `bankAccount` object instead
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentInstrumentAdditionalBankAccountIdentificationsInner>
@@ -300,9 +301,9 @@ public class PaymentInstrument {
    * @param additionalBankAccountIdentifications Contains optional, additional business account
    *     details. Returned when you create a payment instrument with &#x60;type&#x60;
    *     **bankAccount**.
-   * @deprecated since Configuration webhooks v2 Please use &#x60;bankAccount&#x60; object instead
+   * @deprecated since Configuration webhooks v2 Please use `bankAccount` object instead
    */
-  @Deprecated // deprecated since Configuration webhooks v2: Please use `bankAccount` object instead
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_ACCOUNT_IDENTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalBankAccountIdentifications(

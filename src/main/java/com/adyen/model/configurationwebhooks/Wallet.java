@@ -196,9 +196,8 @@ public class Wallet {
   private List<RecommendationReasonsEnum> recommendationReasons;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
-  // instead.
-  private String type;
+  /* deprecated since Configuration webhooks v2: Use name of the `tokenRequestor` instead. */
+  @Deprecated private String type;
 
   public Wallet() {}
 
@@ -427,10 +426,9 @@ public class Wallet {
    * @param type The type of wallet that the network token is associated with. Possible values:
    *     **applePay**, **googlePay**, **garminPay**.
    * @return the current {@code Wallet} instance, allowing for method chaining
-   * @deprecated since Configuration webhooks v2 Use name of the &#x60;tokenRequestor&#x60; instead.
+   * @deprecated since Configuration webhooks v2 Use name of the `tokenRequestor` instead.
    */
-  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
-  // instead.
+  @Deprecated
   public Wallet type(String type) {
     this.type = type;
     return this;
@@ -442,11 +440,9 @@ public class Wallet {
    *
    * @return type The type of wallet that the network token is associated with. Possible values:
    *     **applePay**, **googlePay**, **garminPay**.
-   * @deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
-   *     instead.
+   * @deprecated since Configuration webhooks v2 Use name of the `tokenRequestor` instead.
    */
-  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -459,10 +455,9 @@ public class Wallet {
    *
    * @param type The type of wallet that the network token is associated with. Possible values:
    *     **applePay**, **googlePay**, **garminPay**.
-   * @deprecated since Configuration webhooks v2 Use name of the &#x60;tokenRequestor&#x60; instead.
+   * @deprecated since Configuration webhooks v2 Use name of the `tokenRequestor` instead.
    */
-  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
