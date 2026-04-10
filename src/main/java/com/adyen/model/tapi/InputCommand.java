@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets InputCommand */
 public enum InputCommand {
@@ -34,6 +35,8 @@ public enum InputCommand {
   SITE_MANAGER("SiteManager"),
 
   TEXT_STRING("TextString");
+
+  private static final Logger LOG = Logger.getLogger(InputCommand.class.getName());
 
   private String value;
 
@@ -58,6 +61,12 @@ public enum InputCommand {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "InputCommand: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(InputCommand.values()));
+    return null;
   }
 }

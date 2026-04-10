@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets StoredValueAccountType */
 public enum StoredValueAccountType {
@@ -22,6 +23,8 @@ public enum StoredValueAccountType {
   OTHER("Other"),
 
   PHONE_CARD("PhoneCard");
+
+  private static final Logger LOG = Logger.getLogger(StoredValueAccountType.class.getName());
 
   private String value;
 
@@ -46,6 +49,12 @@ public enum StoredValueAccountType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "StoredValueAccountType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(StoredValueAccountType.values()));
+    return null;
   }
 }

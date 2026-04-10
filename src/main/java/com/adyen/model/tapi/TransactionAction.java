@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
@@ -26,6 +27,8 @@ public enum TransactionAction {
   ABORT_TRANSACTION("AbortTransaction"),
 
   START_TRANSACTION("StartTransaction");
+
+  private static final Logger LOG = Logger.getLogger(TransactionAction.class.getName());
 
   private String value;
 
@@ -50,6 +53,12 @@ public enum TransactionAction {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "TransactionAction: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(TransactionAction.values()));
+    return null;
   }
 }

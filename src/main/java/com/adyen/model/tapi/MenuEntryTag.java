@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** *
@@ -27,6 +28,8 @@ public enum MenuEntryTag {
   SELECTABLE("Selectable"),
 
   SUB_MENU("SubMenu");
+
+  private static final Logger LOG = Logger.getLogger(MenuEntryTag.class.getName());
 
   private String value;
 
@@ -51,6 +54,12 @@ public enum MenuEntryTag {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "MenuEntryTag: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(MenuEntryTag.values()));
+    return null;
   }
 }

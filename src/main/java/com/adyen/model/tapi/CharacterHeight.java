@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets CharacterHeight */
 public enum CharacterHeight {
@@ -22,6 +23,8 @@ public enum CharacterHeight {
   HALF_HEIGHT("HalfHeight"),
 
   SINGLE_HEIGHT("SingleHeight");
+
+  private static final Logger LOG = Logger.getLogger(CharacterHeight.class.getName());
 
   private String value;
 
@@ -46,6 +49,12 @@ public enum CharacterHeight {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "CharacterHeight: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(CharacterHeight.values()));
+    return null;
   }
 }

@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ResponseMode */
 public enum ResponseMode {
@@ -24,6 +25,8 @@ public enum ResponseMode {
   PRINT_END("PrintEnd"),
 
   SOUND_END("SoundEnd");
+
+  private static final Logger LOG = Logger.getLogger(ResponseMode.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum ResponseMode {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ResponseMode: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ResponseMode.values()));
+    return null;
   }
 }

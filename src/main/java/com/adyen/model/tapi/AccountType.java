@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
@@ -36,6 +37,8 @@ public enum AccountType {
   SAVINGS("Savings"),
 
   UNIVERSAL("Universal");
+
+  private static final Logger LOG = Logger.getLogger(AccountType.class.getName());
 
   private String value;
 
@@ -60,6 +63,12 @@ public enum AccountType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "AccountType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(AccountType.values()));
+    return null;
   }
 }

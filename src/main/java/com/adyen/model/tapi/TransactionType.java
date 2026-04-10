@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets TransactionType */
 public enum TransactionType {
@@ -55,6 +56,8 @@ public enum TransactionType {
 
   UPDATE_RESERVATION("UpdateReservation");
 
+  private static final Logger LOG = Logger.getLogger(TransactionType.class.getName());
+
   private String value;
 
   TransactionType(String value) {
@@ -78,6 +81,12 @@ public enum TransactionType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "TransactionType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(TransactionType.values()));
+    return null;
   }
 }

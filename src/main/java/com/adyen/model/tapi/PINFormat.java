@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets PINFormat */
 public enum PINFormat {
@@ -24,6 +25,8 @@ public enum PINFormat {
   ISO2("ISO2"),
 
   ISO3("ISO3");
+
+  private static final Logger LOG = Logger.getLogger(PINFormat.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum PINFormat {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "PINFormat: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(PINFormat.values()));
+    return null;
   }
 }

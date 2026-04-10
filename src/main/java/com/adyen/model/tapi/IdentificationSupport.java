@@ -14,6 +14,7 @@ package com.adyen.model.tapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Support of the loyalty account identification. Allows knowing where and how you have found the
@@ -28,6 +29,8 @@ public enum IdentificationSupport {
   LOYALTY_CARD("LoyaltyCard"),
 
   NO_CARD("NoCard");
+
+  private static final Logger LOG = Logger.getLogger(IdentificationSupport.class.getName());
 
   private String value;
 
@@ -52,6 +55,12 @@ public enum IdentificationSupport {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "IdentificationSupport: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(IdentificationSupport.values()));
+    return null;
   }
 }

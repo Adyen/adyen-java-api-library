@@ -12,6 +12,7 @@ import com.adyen.model.checkout.StoredPaymentMethodDetails;
 import com.adyen.model.legalentitymanagement.*;
 import com.adyen.model.management.Connectivity;
 import com.adyen.model.management.TerminalSettings;
+import com.adyen.model.tapi.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
 import java.time.ZoneId;
@@ -196,6 +197,22 @@ public class ModelTest {
     assertEquals(
         StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE, storedPaymentMethodDetails.getType());
     assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
+  }
+
+  // test unknown enum value for tapi model
+  @Test
+  public void testFromJsonTapiResponseWithInvalidEnum() throws JsonProcessingException {
+    String json =
+        "{\n"
+            + "  \"Result\": \"UNKNOWN_RESULT\",\n"
+            + "  \"AdditionalResponse\": \"some info\"\n"
+            + "}";
+
+    Response response = Response.fromJson(json);
+
+    assertNotNull(response);
+    assertEquals("some info", response.getAdditionalResponse());
+    assertNull(response.getResult());
   }
 
   // test null values are not serialized
