@@ -1,4 +1,4 @@
-/*
+ /*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -62,11 +62,10 @@ public class HMACValidator {
         throw new IllegalArgumentException("HMAC key is not provided");
       }
 
-      // var: inferred types reduce verbosity for local crypto objects (TTYAI-1)
-      var rawKey = Hex.decodeHex(key);
-      var signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
+      byte[] rawKey = Hex.decodeHex(key);
+      SecretKeySpec signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
 
-      var mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
+      Mac mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
       mac.init(signingKey);
 
       byte[] rawHmac = mac.doFinal(data.getBytes(StandardCharsets.UTF_8));
