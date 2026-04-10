@@ -49,8 +49,8 @@ public class AccountHolder {
   private Map<String, AccountHolderCapability> capabilities;
 
   public static final String JSON_PROPERTY_CONTACT_DETAILS = "contactDetails";
-  @Deprecated // deprecated
-  private ContactDetails contactDetails;
+  /* deprecated  */
+  @Deprecated private ContactDetails contactDetails;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -249,7 +249,7 @@ public class AccountHolder {
    * @return the current {@code AccountHolder} instance, allowing for method chaining
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   public AccountHolder contactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
     return this;
@@ -259,9 +259,9 @@ public class AccountHolder {
    * Get contactDetails
    *
    * @return contactDetails
-   * @deprecated // deprecated
+   * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ContactDetails getContactDetails() {
@@ -274,7 +274,7 @@ public class AccountHolder {
    * @param contactDetails
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
