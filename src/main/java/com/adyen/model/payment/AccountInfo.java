@@ -291,17 +291,15 @@ public class AccountInfo {
   private boolean isSetDeliveryAddressUsageIndicator = false;
 
   public static final String JSON_PROPERTY_HOME_PHONE = "homePhone";
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.homePhone`
-  // instead.
-  private String homePhone;
+  /* deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.homePhone` instead. */
+  @Deprecated private String homePhone;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetHomePhone = false;
 
   public static final String JSON_PROPERTY_MOBILE_PHONE = "mobilePhone";
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.mobilePhone`
-  // instead.
-  private String mobilePhone;
+  /* deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.mobilePhone` instead. */
+  @Deprecated private String mobilePhone;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMobilePhone = false;
@@ -456,9 +454,8 @@ public class AccountInfo {
   private boolean isSetSuspiciousActivity = false;
 
   public static final String JSON_PROPERTY_WORK_PHONE = "workPhone";
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.workPhone`
-  // instead.
-  private String workPhone;
+  /* deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.workPhone` instead. */
+  @Deprecated private String workPhone;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetWorkPhone = false;
@@ -797,10 +794,9 @@ public class AccountInfo {
    *
    * @param homePhone Shopper&#39;s home phone number (including the country code).
    * @return the current {@code AccountInfo} instance, allowing for method chaining
-   * @deprecated since Adyen Payment API v68 Use &#x60;ThreeDS2RequestData.homePhone&#x60; instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.homePhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.homePhone`
-  // instead.
+  @Deprecated
   public AccountInfo homePhone(String homePhone) {
     this.homePhone = homePhone;
     isSetHomePhone = true; // mark as set
@@ -811,11 +807,9 @@ public class AccountInfo {
    * Shopper&#39;s home phone number (including the country code).
    *
    * @return homePhone Shopper&#39;s home phone number (including the country code).
-   * @deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.homePhone`
-   *     instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.homePhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.homePhone`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHomePhone() {
@@ -826,10 +820,9 @@ public class AccountInfo {
    * Shopper&#39;s home phone number (including the country code).
    *
    * @param homePhone Shopper&#39;s home phone number (including the country code).
-   * @deprecated since Adyen Payment API v68 Use &#x60;ThreeDS2RequestData.homePhone&#x60; instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.homePhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.homePhone`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(String homePhone) {
@@ -842,11 +835,9 @@ public class AccountInfo {
    *
    * @param mobilePhone Shopper&#39;s mobile phone number (including the country code).
    * @return the current {@code AccountInfo} instance, allowing for method chaining
-   * @deprecated since Adyen Payment API v68 Use &#x60;ThreeDS2RequestData.mobilePhone&#x60;
-   *     instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.mobilePhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.mobilePhone`
-  // instead.
+  @Deprecated
   public AccountInfo mobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
     isSetMobilePhone = true; // mark as set
@@ -857,11 +848,9 @@ public class AccountInfo {
    * Shopper&#39;s mobile phone number (including the country code).
    *
    * @return mobilePhone Shopper&#39;s mobile phone number (including the country code).
-   * @deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.mobilePhone`
-   *     instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.mobilePhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.mobilePhone`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMobilePhone() {
@@ -872,11 +861,9 @@ public class AccountInfo {
    * Shopper&#39;s mobile phone number (including the country code).
    *
    * @param mobilePhone Shopper&#39;s mobile phone number (including the country code).
-   * @deprecated since Adyen Payment API v68 Use &#x60;ThreeDS2RequestData.mobilePhone&#x60;
-   *     instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.mobilePhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.mobilePhone`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(String mobilePhone) {
@@ -1196,10 +1183,9 @@ public class AccountInfo {
    *
    * @param workPhone Shopper&#39;s work phone number (including the country code).
    * @return the current {@code AccountInfo} instance, allowing for method chaining
-   * @deprecated since Adyen Payment API v68 Use &#x60;ThreeDS2RequestData.workPhone&#x60; instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.workPhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.workPhone`
-  // instead.
+  @Deprecated
   public AccountInfo workPhone(String workPhone) {
     this.workPhone = workPhone;
     isSetWorkPhone = true; // mark as set
@@ -1210,11 +1196,9 @@ public class AccountInfo {
    * Shopper&#39;s work phone number (including the country code).
    *
    * @return workPhone Shopper&#39;s work phone number (including the country code).
-   * @deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.workPhone`
-   *     instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.workPhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.workPhone`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWorkPhone() {
@@ -1225,10 +1209,9 @@ public class AccountInfo {
    * Shopper&#39;s work phone number (including the country code).
    *
    * @param workPhone Shopper&#39;s work phone number (including the country code).
-   * @deprecated since Adyen Payment API v68 Use &#x60;ThreeDS2RequestData.workPhone&#x60; instead.
+   * @deprecated since Adyen Payment API v68 Use `ThreeDS2RequestData.workPhone` instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `ThreeDS2RequestData.workPhone`
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(String workPhone) {
