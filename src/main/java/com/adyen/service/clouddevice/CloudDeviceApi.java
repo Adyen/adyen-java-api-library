@@ -3,6 +3,7 @@ package com.adyen.service.clouddevice;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.clouddevice.CloudDeviceApiAsyncResponse;
 import com.adyen.service.exception.ApiException;
@@ -139,11 +140,11 @@ public class CloudDeviceApi extends Service {
   }
 
   /**
-   * Get a list of connected devices for a merchant account.
+   * Get a list of connected devices
    *
-   * @param merchantAccount The unique identifier of the merchant account.
-   * @return An instance of ConnectedDevicesResponse.
-   * @throws ApiException when an error occurs
+   * @param merchantAccount {@link String } The unique identifier of the merchant account. (required)
+   * @return {@link ConnectedDevicesResponse }
+   * @throws ApiException if fails to make API call
    */
   public ConnectedDevicesResponse getConnectedDevices(String merchantAccount)
       throws ApiException, IOException {
@@ -151,12 +152,13 @@ public class CloudDeviceApi extends Service {
   }
 
   /**
-   * Get a list of connected devices for a merchant account and store.
+   * Get a list of connected devices
    *
-   * @param merchantAccount The unique identifier of the merchant account.
-   * @param store The unique identifier of the store.
-   * @return An instance of ConnectedDevicesResponse.
-   * @throws ApiException when an error occurs
+   * @param merchantAccount {@link String } The unique identifier of the merchant account. (required)
+   * @param store {@link String } Query: The store ID of the store belonging to the merchant account
+   *     specified in the path. (optional)
+   * @return {@link ConnectedDevicesResponse }
+   * @throws ApiException if fails to make API call
    */
   public ConnectedDevicesResponse getConnectedDevices(String merchantAccount, String store)
       throws ApiException, IOException {
@@ -168,18 +170,19 @@ public class CloudDeviceApi extends Service {
     }
     pathParams.put("merchantAccount", merchantAccount);
 
-    Map<String, String> queryParams = null;
+    // Add query params
+    Map<String, String> queryParams = new HashMap<>();
     if (store != null) {
-      queryParams = new HashMap<>();
       queryParams.put("store", store);
     }
 
+    String requestBody = null;
     Resource resource =
         new Resource(this, this.baseURL + "/merchants/{merchantAccount}/connectedDevices", null);
-    String response =
-        resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+    String jsonResult =
+        resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
 
-    return ConnectedDevicesResponse.fromJson(response);
+    return ConnectedDevicesResponse.fromJson(jsonResult);
   }
 
   /**
