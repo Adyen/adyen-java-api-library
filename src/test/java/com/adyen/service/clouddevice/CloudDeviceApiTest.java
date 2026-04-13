@@ -175,7 +175,7 @@ public class CloudDeviceApiTest extends BaseTest {
             false,
             null,
             ApiConstants.HttpMethod.GET,
-            null);
+            Map.of());
   }
 
   @Test
