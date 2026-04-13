@@ -28,6 +28,9 @@ import com.adyen.enums.Environment;
 import com.adyen.service.clouddevice.CloudDeviceApi;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.tapi.*;
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 // Setup Client and Service
 Client client = new Client("YOUR_API_KEY", Environment.TEST);

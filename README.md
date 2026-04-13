@@ -412,24 +412,23 @@ Build a feature-rich [in-person payments](https://docs.adyen.com/point-of-sale/)
 
 ### Using the Cloud Device API
 
-For In-Person Payments integrations, the recommended solution is the [Cloud Device API](https://docs.adyen.com/api-explorer/cloud-device-api/1/overview).
+For In-Person Payments integrations, the recommended solution is the [Cloud device API](https://docs.adyen.com/api-explorer/cloud-device-api/1/overview).
 
-Check the [Cloud Device API README](doc/CloudDeviceApi.md).
+Check the [Cloud device API README](doc/CloudDeviceApi.md).
 
 ### Using the Terminal API
 
 With the [Terminal API](https://docs.adyen.com/api-explorer/terminal-api/1/overview) you can send and receive Terminal API messages in the following ways:
 
 * Local communications: using your local network, your POS system sends the request directly to the IP address of the terminal, and receives the result synchronously.
-* Cloud communications: using the internet to access the cloud `/sync` and `/async` endpoints. You should consider adopting the [Cloud Device API](doc/CloudDeviceApi.md) instead.
+* Cloud communications: using the internet to access the cloud `/sync` and `/async` endpoints. You should consider adopting the [Cloud device API](doc/CloudDeviceApi.md) instead.
 
 
-Check the [Terminal API README](doc/TerminalApi.md).
+Check the [Terminal (Cloud) API README](doc/TerminalApi.md).
 
 ## Example integrations
 For a closer look at how our Java library works, you can clone one of our example integrations:
 * [Java Spring Boot example integration](https://github.com/adyen-examples/adyen-java-spring-online-payments).
-* [Kotlin Spring Boot example integration](https://github.com/adyen-examples/adyen-kotlin-spring-online-payments).
 
 These include commented code, highlighting key features and concepts, and examples of API calls that can be made using the library.
 

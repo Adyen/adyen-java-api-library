@@ -7,6 +7,10 @@ import com.adyen.enums.Environment;
 import com.adyen.service.TerminalCloudAPI;
 import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.*;
+import java.math.BigDecimal;
+import java.util.GregorianCalendar;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 // Step 2: Initialize the client object
 Client client = new Client("YOUR_API_KEY", Environment.TEST);
