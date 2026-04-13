@@ -9,7 +9,7 @@ import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.*;
 
 // Step 2: Initialize the client object
-Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
+Client client = new Client("YOUR_API_KEY", Environment.TEST);
 
 // for LIVE environment use
 // Config config = new Config();
@@ -49,6 +49,7 @@ XMLGregorianCalendar timestamp = DatatypeFactory.newInstance().newXMLGregorianCa
 transactionIdentification.setTimeStamp(timestamp);
 saleData.setSaleTransactionID(transactionIdentification);
       
+// Optional: set SaleToAcquirerData with merchant application info
 SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
 ApplicationInfo applicationInfo = new ApplicationInfo();
 CommonField merchantApplication = new CommonField();
@@ -61,7 +62,8 @@ saleData.setSaleToAcquirerData(saleToAcquirerData);
 PaymentTransaction paymentTransaction = new PaymentTransaction();
 AmountsReq amountsReq = new AmountsReq();
 amountsReq.setCurrency("EUR");
-amountsReq.setRequestedAmount(BigDecimal.valueOf(1000));
+// RequestedAmount is in major currency units (e.g. 10.00 EUR)
+amountsReq.setRequestedAmount(BigDecimal.valueOf(10));
 paymentTransaction.setAmountsReq(amountsReq);
     
 paymentRequest.setPaymentTransaction(paymentTransaction);
@@ -191,10 +193,10 @@ sslContext.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom()
 
 // Configure a client for TerminalLocalAPI
 Config config = new Config();
-config.setEnvironment(environment);
-config.setTerminalApiLocalEndpoint("https://" + terminalIpAddress);
+config.setEnvironment(Environment.TEST);
+config.setTerminalApiLocalEndpoint("https://" + terminalIpAddress); // IP address of your terminal
 config.setSSLContext(sslContext);
-config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(environment));
+config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(Environment.TEST));
 Client client = new Client(config);
 
 // Create your SecurityKey object used for encrypting the payload (keyIdentifier/passphrase you set up beforehand in CA)
@@ -214,35 +216,25 @@ If you wish to develop the Local Terminal API integration parallel to your encry
 
 ```java
 // Step 1: Import the required classes
-import com.adyen.service.TerminalLocalAPI;
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.service.TerminalLocalAPIUnencrypted;
 import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.*;
-import javax.net.ssl.SSLContext;
 
-// Step 2: Add your Certificate Path and Local Endpoint to the config path.
-Client client = new Client();
-client.getConfig().setTerminalApiLocalEndpoint("The IP of your terminal (eg https://192.168.47.169)");
-client.getConfig().setEnvironment(Environment.TEST);
-config.setSSLContext(createTrustSSLContext()); // Trust all certificates for testing only
-client.setConfig(config);
+// Step 2: Configure the client with the terminal endpoint
+Config config = new Config();
+config.setEnvironment(Environment.TEST);
+config.setTerminalApiLocalEndpoint("https://192.168.47.169"); // IP address of your terminal
+Client client = new Client(config);
 
-// Step 3: Create an SSL context that accepts all certificates (Use in TEST only).
-SSLContext createTrustSSLContext() throws Exception {
-    TrustManager[] trustAllCerts = new TrustManager[]{
-            new X509TrustManager() {
-                java.security.cert.X509Certificate[] getAcceptedIssuers() { return null; }
-                checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
-                checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {}
-            }
-    };
-    SSLContext sc = SSLContext.getInstance("SSL");
-    sc.init(null, trustAllCerts, new java.security.SecureRandom());
-    return sc;
-}
+// Step 3: Initialize the unencrypted local API (handles SSL context internally)
+TerminalLocalAPIUnencrypted terminalLocalAPI = new TerminalLocalAPIUnencrypted(client);
 
 // Step 4: Construct a TerminalAPIRequest object
-Gson gson = new GsonBuilder().create();
-TerminalAPIRequest terminalAPIPaymentRequest = new TerminalAPIRequest();
+TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
+// ... build your SaleToPOIRequest as shown above ...
 
 // Step 5: Make the request
 TerminalAPIResponse terminalAPIResponse = terminalLocalAPI.request(terminalAPIRequest);
