@@ -354,7 +354,7 @@ CloudDeviceApiResponse response = cloudDeviceApi.sync(
     "myMerchant", "P400Plus-123456789", cloudDeviceApiRequest);
 ```
 
-## Models not yet available in the Cloud device API
+## Models not available in the Cloud device API
 
 Some models present in the `nexo` package are not available in the `tapi` package because they are not part of the current OpenAPI specification. These represent features that were never supported by the Terminal (Cloud) API:
 
@@ -367,7 +367,7 @@ Some models present in the `nexo` package are not available in the `tapi` packag
 - `TransmitRequest` / `TransmitResponse`
 - `ContentInformation`
 
-If your integration uses these models, they are not yet supported in the Cloud device API. Contact [Adyen Support](https://www.adyen.help/hc/en-us/requests/new) for guidance.
+If your integration requires these models, please [create a new issue](https://github.com/Adyen/adyen-java-api-library/issues), so we can understand your needs and provide you with the necessary help.
 
 ### Helper classes
 
