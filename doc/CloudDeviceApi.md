@@ -120,6 +120,24 @@ System.out.println(connectedDevices.getUniqueDeviceIds());
 DeviceStatusResponse deviceStatus = cloudDeviceApi.getDeviceStatus("myMerchant", "AMS1-000168242800763");
 System.out.println(deviceStatus.getStatus());
 ```
+### Helper classes
+
+You can use `PredefinedContentHelper` to parse Display notification types which you find in `PredefinedContent->ReferenceID`
+```java
+import com.adyen.util.tapi.PredefinedContentHelper;
+
+// Parse ReferenceID (i.e. key1=value1&key2=value2)
+PredefinedContentHelper helper = new PredefinedContentHelper(predefinedContent.getReferenceID());
+
+// Safely extract and use the event type with Optional
+helper.getEvent().ifPresent(event -> {
+        System.out.println("Received event: " + event);
+    if (event == PredefinedContentHelper.DisplayNotificationEvent.PIN_ENTERED) {
+        // Handle PIN entry event
+        System.out.println("The user has entered their PIN.");
+    }
+});
+```
 
 ### Protect cloud communication
 
