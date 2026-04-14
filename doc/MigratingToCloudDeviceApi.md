@@ -369,6 +369,26 @@ Some models present in the `nexo` package are not available in the `tapi` packag
 
 If your integration uses these models, they are not yet supported in the Cloud device API. Contact [Adyen Support](https://www.adyen.help/hc/en-us/requests/new) for guidance.
 
+### Helper classes
+
+You can use `PredefinedContentHelper` to parse Display notification types which you find in `PredefinedContent->ReferenceID`
+```java
+import com.adyen.util.tapi.PredefinedContentHelper;
+
+// Parse ReferenceID (i.e. key1=value1&key2=value2)
+PredefinedContentHelper helper = new PredefinedContentHelper(predefinedContent.getReferenceID());
+
+// Safely extract and use the event type with Optional
+helper.getEvent().ifPresent(event -> {
+        System.out.println("Received event: " + event);
+    if (event == PredefinedContentHelper.DisplayNotificationEvent.PIN_ENTERED) {
+        // Handle PIN entry event
+        System.out.println("The user has entered their PIN.");
+    }
+});
+```
+You shouldn't use `PredefinedContentHelper` from the (legacy) `nexo` folder.
+
 ## Testing and validation
 Perform a thorough validation of the migration.
 
