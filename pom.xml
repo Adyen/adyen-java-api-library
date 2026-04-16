@@ -35,7 +35,7 @@
         <!-- Compile -->
         <com.fasterxml.jackson-version>2.21.0</com.fasterxml.jackson-version>
         <gson-version>2.11.0</gson-version>
-        <commons-codec-version>1.18.0</commons-codec-version>
+        <commons-codec-version>1.21.0</commons-codec-version>
         <gson-fire-version>1.9.0</gson-fire-version>
         <swagger-core-version>1.6.16</swagger-core-version>
         <swagger-annotations-v3-version>2.2.30</swagger-annotations-v3-version>
