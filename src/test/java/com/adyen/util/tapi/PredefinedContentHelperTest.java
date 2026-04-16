@@ -86,6 +86,16 @@ public class PredefinedContentHelperTest {
   }
 
   @Test
+  public void testShouldUseLastValueForDuplicateKey() {
+    PredefinedContentHelper helper = new PredefinedContentHelper("foo=first&foo=second");
+
+    Optional<String> foo = helper.get("foo");
+    assertTrue(foo.isPresent(), "Value for 'foo' should be present");
+    assertEquals("second", foo.get(), "Last value should win for duplicate keys");
+    assertEquals(1, helper.toMap().size(), "Duplicate keys should be collapsed into one entry");
+  }
+
+  @Test
   public void testShouldHandleNullReferenceId() {
     PredefinedContentHelper helper = new PredefinedContentHelper(null);
 

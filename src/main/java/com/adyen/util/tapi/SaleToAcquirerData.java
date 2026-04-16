@@ -4,13 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Base64;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -21,9 +15,6 @@ import java.util.logging.Logger;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SaleToAcquirerData {
-
-  private static final ObjectMapper MAPPER =
-      new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
   @JsonProperty("metadata")
   private Map<String, String> metadata;
@@ -81,8 +72,7 @@ public class SaleToAcquirerData {
     CARD_ON_FILE("CardOnFile"),
     UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
 
-    private static final Logger LOG =
-        Logger.getLogger(RecurringProcessingModel.class.getName());
+    private static final Logger LOG = Logger.getLogger(RecurringProcessingModel.class.getName());
 
     private final String value;
 
@@ -247,144 +237,6 @@ public class SaleToAcquirerData {
     this.redemptionType = redemptionType;
   }
 
-  /**
-   * Encodes this object to a Base64 JSON string.
-   *
-   * @return Base64-encoded JSON representation.
-   */
-  public String toBase64() {
-    try {
-      byte[] json = MAPPER.writeValueAsBytes(this);
-      return Base64.getEncoder().encodeToString(json);
-    } catch (Exception e) {
-      throw new IllegalStateException("Failed to serialize SaleToAcquirerData", e);
-    }
-  }
-
-  /**
-   * Parses a raw {@code SaleToAcquirerData} string into a {@link SaleToAcquirerData} object,
-   * auto-detecting the format. The Base64 string is decoded only once.
-   *
-   * <ul>
-   *   <li>If the string is valid Base64 and decodes to a JSON object, it is parsed as JSON.
-   *   <li>Otherwise it is parsed as form-encoded key-value pairs.
-   * </ul>
-   *
-   * @param raw The raw {@code SaleToAcquirerData} string.
-   * @return Parsed {@link SaleToAcquirerData}.
-   */
-  public static SaleToAcquirerData parse(String raw) {
-    try {
-      byte[] decoded = Base64.getDecoder().decode(raw);
-      if (new String(decoded, StandardCharsets.UTF_8).trim().startsWith("{")) {
-        return MAPPER.readValue(decoded, SaleToAcquirerData.class);
-      }
-    } catch (IllegalArgumentException e) {
-      // not valid Base64 — fall through to key-value parsing
-    } catch (Exception e) {
-      throw new IllegalStateException("Failed to deserialize SaleToAcquirerData", e);
-    }
-    return fromKeyValuePairs(raw);
-  }
-
-  /**
-   * Decodes a Base64 JSON string into a {@link SaleToAcquirerData} object.
-   *
-   * @param base64 Base64-encoded JSON string.
-   * @return Decoded {@link SaleToAcquirerData}.
-   */
-  public static SaleToAcquirerData fromBase64(String base64) {
-    try {
-      byte[] decoded = Base64.getDecoder().decode(base64);
-      return MAPPER.readValue(decoded, SaleToAcquirerData.class);
-    } catch (Exception e) {
-      throw new IllegalStateException("Failed to deserialize SaleToAcquirerData", e);
-    }
-  }
-
-  /**
-   * Parses a form-encoded key-value pair string (e.g. {@code
-   * shopperEmail=foo@bar.com&tenderOption=AskGratuity}) into a {@link SaleToAcquirerData} object.
-   * Metadata fields use dotted notation: {@code metadata.key=value}.
-   *
-   * @param keyValuePairs Form-encoded key-value string using {@code &} as separator.
-   * @return Parsed {@link SaleToAcquirerData}.
-   */
-  public static SaleToAcquirerData fromKeyValuePairs(String keyValuePairs) {
-    SaleToAcquirerData data = new SaleToAcquirerData();
-    Map<String, String> metadata = new HashMap<>();
-    Map<String, String> additionalData = new HashMap<>();
-
-    for (String pair : keyValuePairs.split("&")) {
-      int idx = pair.indexOf('=');
-      if (idx <= 0 || idx >= pair.length() - 1) {
-        continue;
-      }
-      String key = URLDecoder.decode(pair.substring(0, idx), StandardCharsets.UTF_8);
-      String value = URLDecoder.decode(pair.substring(idx + 1), StandardCharsets.UTF_8);
-
-      if (key.startsWith("metadata.")) {
-        metadata.put(key.substring("metadata.".length()), value);
-      } else {
-        switch (key) {
-          case "shopperEmail":
-            data.setShopperEmail(value);
-            break;
-          case "shopperReference":
-            data.setShopperReference(value);
-            break;
-          case "shopperStatement":
-            data.setShopperStatement(value);
-            break;
-          case "recurringContract":
-            data.setRecurringContract(value);
-            break;
-          case "recurringDetailName":
-            data.setRecurringDetailName(value);
-            break;
-          case "recurringTokenService":
-            data.setRecurringTokenService(value);
-            break;
-          case "recurringProcessingModel":
-            data.setRecurringProcessingModel(RecurringProcessingModel.fromValue(value));
-            break;
-          case "store":
-            data.setStore(value);
-            break;
-          case "merchantAccount":
-            data.setMerchantAccount(value);
-            break;
-          case "currency":
-            data.setCurrency(value);
-            break;
-          case "tenderOption":
-            data.setTenderOption(value);
-            break;
-          case "authorisationType":
-            data.setAuthorisationType(value);
-            break;
-          case "ssc":
-            data.setSsc(value);
-            break;
-          case "redemptionType":
-            data.setRedemptionType(value);
-            break;
-          default:
-            additionalData.put(key, value);
-            break;
-        }
-      }
-    }
-
-    if (!metadata.isEmpty()) {
-      data.setMetadata(metadata);
-    }
-    if (!additionalData.isEmpty()) {
-      data.setAdditionalData(additionalData);
-    }
-    return data;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -438,10 +290,9 @@ public class SaleToAcquirerData {
   @Override
   public String toString() {
     try {
-      return MAPPER.writeValueAsString(this);
+      return SaleToAcquirerDataParser.toJson(this);
     } catch (Exception e) {
       return "SaleToAcquirerData{serialization error: " + e.getMessage() + "}";
     }
   }
-
 }

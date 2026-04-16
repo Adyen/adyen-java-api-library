@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  * A helper class to parse and manage the key-value pairs within a PredefinedContent referenceID
@@ -14,6 +15,7 @@ import java.util.Optional;
  */
 public final class PredefinedContentHelper {
 
+  private static final Logger LOG = Logger.getLogger(PredefinedContentHelper.class.getName());
   private static final String KEY_EVENT = "event";
   private static final String KEY_TRANSACTION_ID = "TransactionID";
   private static final String KEY_TIME_STAMP = "TimeStamp";
@@ -79,6 +81,7 @@ public final class PredefinedContentHelper {
               try {
                 return Optional.of(DisplayNotificationEvent.valueOf(eventValue));
               } catch (IllegalArgumentException e) {
+                LOG.warning("Unknown DisplayNotificationEvent value: " + eventValue);
                 return Optional.empty();
               }
             });
@@ -130,6 +133,7 @@ public final class PredefinedContentHelper {
    */
   private static Map<String, String> parse(String referenceId) {
     if (referenceId == null || referenceId.trim().isEmpty()) {
+      LOG.warning("referenceId is null or empty, returning empty map");
       return Collections.emptyMap();
     }
 
@@ -140,7 +144,9 @@ public final class PredefinedContentHelper {
       if (idx > 0 && idx < pair.length() - 1) {
         String key = URLDecoder.decode(pair.substring(0, idx), StandardCharsets.UTF_8);
         String value = URLDecoder.decode(pair.substring(idx + 1), StandardCharsets.UTF_8);
-        queryPairs.put(key, value);
+        if (queryPairs.put(key, value) != null) {
+          LOG.warning("Duplicate key in referenceId, last value wins: " + key);
+        }
       }
     }
     return queryPairs;
