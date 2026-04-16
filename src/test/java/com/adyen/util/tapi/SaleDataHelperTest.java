@@ -17,7 +17,7 @@ public class SaleDataHelperTest {
     SaleToAcquirerData original = new SaleToAcquirerData();
     original.setMerchantAccount("TestMerchant");
     original.setStore("TestStore");
-    String base64 = original.toBase64();
+    String base64 = SaleToAcquirerDataParser.toBase64(original);
 
     SaleData saleData = new SaleData().saleToAcquirerData(base64);
     SaleDataHelper helper = new SaleDataHelper(saleData);
@@ -32,7 +32,7 @@ public class SaleDataHelperTest {
   public void testShouldDecodeRecurringProcessingModel() {
     SaleToAcquirerData original = new SaleToAcquirerData();
     original.setRecurringProcessingModel(SaleToAcquirerData.RecurringProcessingModel.CARD_ON_FILE);
-    String base64 = original.toBase64();
+    String base64 = SaleToAcquirerDataParser.toBase64(original);
 
     SaleDataHelper helper = new SaleDataHelper(new SaleData().saleToAcquirerData(base64));
 
@@ -83,7 +83,8 @@ public class SaleDataHelperTest {
   @Test
   public void testShouldParseInvalidBase64AsKeyValuePairs() {
     // Not valid Base64, but valid as key-value pairs — should fall back to key-value parsing
-    SaleData saleData = new SaleData().saleToAcquirerData("store=myStore&merchantAccount=myMerchant");
+    SaleData saleData =
+        new SaleData().saleToAcquirerData("store=myStore&merchantAccount=myMerchant");
     SaleDataHelper helper = new SaleDataHelper(saleData);
 
     Optional<SaleToAcquirerData> result = helper.getSaleToAcquirerData();

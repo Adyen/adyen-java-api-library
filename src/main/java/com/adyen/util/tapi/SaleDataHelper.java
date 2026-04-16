@@ -3,6 +3,7 @@ package com.adyen.util.tapi;
 import com.adyen.model.tapi.SaleData;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  * A helper class to work with {@code SaleData} from the TAPI model.
@@ -19,6 +20,7 @@ import java.util.Optional;
  */
 public final class SaleDataHelper {
 
+  private static final Logger LOG = Logger.getLogger(SaleDataHelper.class.getName());
   private final SaleData saleData;
 
   /**
@@ -43,10 +45,10 @@ public final class SaleDataHelper {
       return Optional.empty();
     }
     try {
-      return Optional.of(SaleToAcquirerData.parse(raw));
+      return Optional.of(SaleToAcquirerDataParser.parse(raw));
     } catch (Exception e) {
+      LOG.warning("Failed to parse SaleToAcquirerData: " + e.getMessage());
       return Optional.empty();
     }
   }
-
 }
