@@ -20,7 +20,7 @@ New features and products will be released exclusively on the Cloud device API
 
 ### Setup
 
-First you must initialise the Client **setting the closest** [Region](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/#cloud):
+First you must initialise the Client (see an example on TEST):
 ``` java
 // Import the required classes
 import com.adyen.Client;
@@ -32,12 +32,30 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-// Setup Client and Service
-Client client = new Client("YOUR_API_KEY", Environment.TEST);
+// Setup Client on TEST
+Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
+
 CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
 
 ```
+On LIVE environment you must **set the closest** [Region](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/#cloud)
+``` java
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.enums.Environment;
+import com.adyen.service.clouddevice.CloudDeviceApi;
+import com.adyen.model.clouddevice.*;
+import com.adyen.model.tapi.*;
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
+// Setup Client on LIVE (Region is required)
+Client client = new Client(new Config().apiKey("test").environment(Environment.LIVE).terminalApiRegion(Region.US));
+
+CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+
+```
 ### Send a payment SYNC request
 
 ```java
@@ -115,10 +133,12 @@ The Cloud device API allows your integration to check the status of the terminal
 // list of payment terminals or SDK mobile installation IDs
 ConnectedDevicesResponse connectedDevices = cloudDeviceApi.getConnectedDevices("myMerchant");
 System.out.println(connectedDevices.getUniqueDeviceIds());
+// [P400Plus-123456789, AMS1-000168242800763]
 
 // check the payment terminal or SDK mobile installation ID 
 DeviceStatusResponse deviceStatus = cloudDeviceApi.getDeviceStatus("myMerchant", "AMS1-000168242800763");
 System.out.println(deviceStatus.getStatus());
+// ONLINE
 ```
 ### Helper classes
 
@@ -148,9 +168,9 @@ The Adyen Java library supports encrypting request and response payloads, allowi
 //  Encryption credentials from the Terminal configuration on CA
 EncryptionCredentialDetails encryptionCredentialDetails =
     new EncryptionCredentialDetails()
-        .adyenCryptoVersion(0)
+        .adyenCryptoVersion(1)
         .keyIdentifier("CryptoKeyIdentifier12345")
-        .keyVersion(0)
+        .keyVersion(1)
         .passphrase("p@ssw0rd123456");
 
 // Use EncryptedCloudDeviceApi instead of CloudDeviceApi

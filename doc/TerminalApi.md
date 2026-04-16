@@ -13,9 +13,9 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 // Step 2: Initialize the client object
-Client client = new Client("YOUR_API_KEY", Environment.TEST);
+Client client = new Client(new Config().apiKey("test").environment(Environment.TEST));
 
-// for LIVE environment use
+// for LIVE environment set the region
 // Config config = new Config();
 // config.setEnvironment(Environment.LIVE);
 // config.setTerminalApiRegion(Region.EU);
