@@ -38,7 +38,7 @@
         <commons-codec-version>1.21.0</commons-codec-version>
         <gson-fire-version>1.9.0</gson-fire-version>
         <swagger-core-version>1.6.16</swagger-core-version>
-        <swagger-annotations-v3-version>2.2.30</swagger-annotations-v3-version>
+        <swagger-annotations-v3-version>2.2.45</swagger-annotations-v3-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <httpclient5-version>5.5</httpclient5-version>
 
