@@ -33,7 +33,7 @@
 
         <!-- Dependency Versions -->
         <!-- Compile -->
-        <com.fasterxml.jackson-version>2.21.0</com.fasterxml.jackson-version>
+        <com.fasterxml.jackson-version>2.21.2</com.fasterxml.jackson-version>
         <gson-version>2.11.0</gson-version>
         <commons-codec-version>1.21.0</commons-codec-version>
         <gson-fire-version>1.9.0</gson-fire-version>
