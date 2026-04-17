@@ -59,7 +59,7 @@
         <maven-checkstyle-plugin-version>3.6.0</maven-checkstyle-plugin-version>
         <maven-bundle-plugin-version>5.1.9</maven-bundle-plugin-version>
         <spotless-maven-plugin-version>3.4.0</spotless-maven-plugin-version>
-        <maven-surefire-plugin-version>3.5.2</maven-surefire-plugin-version>
+        <maven-surefire-plugin-version>3.5.5</maven-surefire-plugin-version>
         <google-java-format-version>1.34.1</google-java-format-version>
         <maven-enforcer-version>3.4.1</maven-enforcer-version>
     </properties>
