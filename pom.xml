@@ -61,7 +61,7 @@
         <spotless-maven-plugin-version>3.4.0</spotless-maven-plugin-version>
         <maven-surefire-plugin-version>3.5.5</maven-surefire-plugin-version>
         <google-java-format-version>1.34.1</google-java-format-version>
-        <maven-enforcer-version>3.4.1</maven-enforcer-version>
+        <maven-enforcer-version>3.6.2</maven-enforcer-version>
     </properties>
     <scm>
         <connection>scm:git:git@github.com:Adyen/adyen-java-api-library.git</connection>
