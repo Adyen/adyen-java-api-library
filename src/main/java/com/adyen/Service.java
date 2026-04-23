@@ -91,7 +91,7 @@ public class Service {
     }
 
     if (url.contains("/authe/")) {
-      return url.replaceFirst("https://test.adyen.com/", "https://authe-live.adyen.com/");
+      return url.replace("https://test.adyen.com/", "https://authe-live.adyen.com/");
     }
 
     if (url.contains("pal-")) {
