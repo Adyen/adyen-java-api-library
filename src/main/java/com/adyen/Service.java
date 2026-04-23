@@ -91,7 +91,7 @@ public class Service {
     }
 
     if (url.contains("/authe/")) {
-      return url.replaceFirst("https://test.adyen.com/", "https://authe-live.adyen.com/");
+      return url.replace("https://test.adyen.com/", "https://authe-live.adyen.com/");
     }
 
     if (url.contains("pal-")) {
@@ -99,7 +99,7 @@ public class Service {
         throw new IllegalArgumentException("please provide a live url prefix in the client");
       }
       url =
-          url.replaceFirst(
+          url.replace(
               "https://pal-test.adyen.com/pal/servlet/",
               "https://"
                   + config.getLiveEndpointUrlPrefix()
@@ -113,14 +113,14 @@ public class Service {
       if (url.contains("/possdk/")) {
         // Custom handling of POS Mobile API url
         url =
-            url.replaceFirst(
+            url.replace(
                 "https://checkout-test.adyen.com/",
                 "https://"
                     + config.getLiveEndpointUrlPrefix()
                     + "-checkout-live.adyenpayments.com/");
       } else {
         url =
-            url.replaceFirst(
+            url.replace(
                 "https://checkout-test.adyen.com/",
                 "https://"
                     + config.getLiveEndpointUrlPrefix()
@@ -132,11 +132,11 @@ public class Service {
       if (config.getTerminalApiRegion() == null
           || config.getTerminalApiRegion().equals(Region.EU)) {
         url =
-            url.replaceFirst(
+            url.replace(
                 "https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
       } else {
         url =
-            url.replaceFirst(
+            url.replace(
                 "https://device-api-test.adyen.com",
                 String.format(
                     "https://device-api-live-%s.adyen.com",

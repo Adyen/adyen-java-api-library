@@ -59,6 +59,21 @@ public class ServiceTest extends BaseTest {
   }
 
   @Test
+  public void testLivePalUrlOnlyMatchesLiteralDots() {
+    config.setLiveEndpointUrlPrefix("123456789-company");
+    // This URL matches pal-test.adyen.com structurally but has non-dot separators.
+    // The old replaceFirst() would have incorrectly matched it (dots as wildcards).
+    // String.replace() does exact literal matching so the pal- block leaves it unchanged.
+    // The final fallback still converts -test to -live as expected.
+    String urlWithNonDots = "https://pal-testXadyenYcom/pal/servlet/v52/initiate";
+    String expectedUrl = "https://pal-liveXadyenYcom/pal/servlet/v52/initiate";
+
+    String actualUrl = service.createBaseURL(urlWithNonDots);
+
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @Test
   public void testLivePalUrlWithoutPrefix() {
     String testUrl = "https://pal-test.adyen.com/pal/servlet/v52/initiate";
 
