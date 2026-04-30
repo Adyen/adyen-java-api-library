@@ -32,7 +32,8 @@ public class DisbursementRepaymentInfoUpdate {
   private boolean isSetBasisPoints = false;
 
   public static final String JSON_PROPERTY_UPDATE_DESCRIPTION = "updateDescription";
-  private String updateDescription;
+  /* deprecated  */
+  @Deprecated private String updateDescription;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetUpdateDescription = false;
@@ -99,7 +100,9 @@ public class DisbursementRepaymentInfoUpdate {
    * @param updateDescription
    * @return the current {@code DisbursementRepaymentInfoUpdate} instance, allowing for method
    *     chaining
+   * @deprecated
    */
+  @Deprecated
   public DisbursementRepaymentInfoUpdate updateDescription(String updateDescription) {
     this.updateDescription = updateDescription;
     isSetUpdateDescription = true; // mark as set
@@ -110,7 +113,9 @@ public class DisbursementRepaymentInfoUpdate {
    * Get updateDescription
    *
    * @return updateDescription
+   * @deprecated
    */
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_UPDATE_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpdateDescription() {
@@ -121,7 +126,9 @@ public class DisbursementRepaymentInfoUpdate {
    * updateDescription
    *
    * @param updateDescription
+   * @deprecated
    */
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_UPDATE_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateDescription(String updateDescription) {
