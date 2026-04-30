@@ -16,15 +16,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets SettingType */
-public enum SettingType {
-  BALANCE("balance");
+/** Gets or Sets MandateType */
+public enum MandateType {
+  BACS("bacs");
 
-  private static final Logger LOG = Logger.getLogger(SettingType.class.getName());
+  private static final Logger LOG = Logger.getLogger(MandateType.class.getName());
 
   private String value;
 
-  SettingType(String value) {
+  MandateType(String value) {
     this.value = value;
   }
 
@@ -39,18 +39,18 @@ public enum SettingType {
   }
 
   @JsonCreator
-  public static SettingType fromValue(String value) {
-    for (SettingType b : SettingType.values()) {
+  public static MandateType fromValue(String value) {
+    for (MandateType b : MandateType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
     // handling unexpected value
     LOG.warning(
-        "SettingType: unexpected enum value '"
+        "MandateType: unexpected enum value '"
             + value
             + "' - Supported values are "
-            + Arrays.toString(SettingType.values()));
+            + Arrays.toString(MandateType.values()));
     return null;
   }
 }

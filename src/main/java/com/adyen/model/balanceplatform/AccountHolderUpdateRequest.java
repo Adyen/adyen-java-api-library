@@ -54,8 +54,8 @@ public class AccountHolderUpdateRequest {
   private boolean isSetCapabilities = false;
 
   public static final String JSON_PROPERTY_CONTACT_DETAILS = "contactDetails";
-  @Deprecated // deprecated
-  private ContactDetails contactDetails;
+  /* deprecated  */
+  @Deprecated private ContactDetails contactDetails;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetContactDetails = false;
@@ -297,7 +297,7 @@ public class AccountHolderUpdateRequest {
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   public AccountHolderUpdateRequest contactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
     isSetContactDetails = true; // mark as set
@@ -308,9 +308,9 @@ public class AccountHolderUpdateRequest {
    * Get contactDetails
    *
    * @return contactDetails
-   * @deprecated // deprecated
+   * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ContactDetails getContactDetails() {
@@ -323,7 +323,7 @@ public class AccountHolderUpdateRequest {
    * @param contactDetails
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {

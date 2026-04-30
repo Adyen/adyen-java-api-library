@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The type of transfer to which the limit applies. Possible values: * **instant**: the limit
@@ -24,6 +25,8 @@ public enum TransferType {
   INSTANT("instant"),
 
   ALL("all");
+
+  private static final Logger LOG = Logger.getLogger(TransferType.class.getName());
 
   private String value;
 
@@ -48,6 +51,12 @@ public enum TransferType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "TransferType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(TransferType.values()));
+    return null;
   }
 }

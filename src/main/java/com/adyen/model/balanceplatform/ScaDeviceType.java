@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ScaDeviceType */
 public enum ScaDeviceType {
@@ -22,6 +23,8 @@ public enum ScaDeviceType {
   IOS("ios"),
 
   ANDROID("android");
+
+  private static final Logger LOG = Logger.getLogger(ScaDeviceType.class.getName());
 
   private String value;
 
@@ -46,6 +49,12 @@ public enum ScaDeviceType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ScaDeviceType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ScaDeviceType.values()));
+    return null;
   }
 }
