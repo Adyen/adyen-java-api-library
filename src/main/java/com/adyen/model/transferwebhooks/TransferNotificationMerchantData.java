@@ -22,6 +22,7 @@ import java.util.*;
   TransferNotificationMerchantData.JSON_PROPERTY_ACQUIRER_ID,
   TransferNotificationMerchantData.JSON_PROPERTY_CITY,
   TransferNotificationMerchantData.JSON_PROPERTY_COUNTRY,
+  TransferNotificationMerchantData.JSON_PROPERTY_COUNTRY_CODE,
   TransferNotificationMerchantData.JSON_PROPERTY_MCC,
   TransferNotificationMerchantData.JSON_PROPERTY_MERCHANT_ID,
   TransferNotificationMerchantData.JSON_PROPERTY_NAME,
@@ -36,6 +37,9 @@ public class TransferNotificationMerchantData {
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
+
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
+  private String countryCode;
 
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
@@ -151,6 +155,46 @@ public class TransferNotificationMerchantData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
+  }
+
+  /**
+   * The two-character country code of the merchant&#39;s location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param countryCode The two-character country code of the merchant&#39;s location, in [ISO
+   *     3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method
+   *     chaining
+   */
+  public TransferNotificationMerchantData countryCode(String countryCode) {
+    this.countryCode = countryCode;
+    return this;
+  }
+
+  /**
+   * The two-character country code of the merchant&#39;s location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @return countryCode The two-character country code of the merchant&#39;s location, in [ISO
+   *     3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCountryCode() {
+    return countryCode;
+  }
+
+  /**
+   * The two-character country code of the merchant&#39;s location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param countryCode The two-character country code of the merchant&#39;s location, in [ISO
+   *     3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
   }
 
   /**
@@ -303,6 +347,7 @@ public class TransferNotificationMerchantData {
     return Objects.equals(this.acquirerId, transferNotificationMerchantData.acquirerId)
         && Objects.equals(this.city, transferNotificationMerchantData.city)
         && Objects.equals(this.country, transferNotificationMerchantData.country)
+        && Objects.equals(this.countryCode, transferNotificationMerchantData.countryCode)
         && Objects.equals(this.mcc, transferNotificationMerchantData.mcc)
         && Objects.equals(this.merchantId, transferNotificationMerchantData.merchantId)
         && Objects.equals(this.name, transferNotificationMerchantData.name)
@@ -311,7 +356,7 @@ public class TransferNotificationMerchantData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquirerId, city, country, mcc, merchantId, name, postalCode);
+    return Objects.hash(acquirerId, city, country, countryCode, mcc, merchantId, name, postalCode);
   }
 
   @Override
@@ -321,6 +366,7 @@ public class TransferNotificationMerchantData {
     sb.append("    acquirerId: ").append(toIndentedString(acquirerId)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
