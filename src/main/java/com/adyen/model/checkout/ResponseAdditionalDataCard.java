@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 
 /** ResponseAdditionalDataCard */
 @JsonPropertyOrder({
+  ResponseAdditionalDataCard.JSON_PROPERTY_CARD_ALT_I_D,
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_BIN,
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_HOLDER_NAME,
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_ISSUING_BANK,
@@ -36,6 +37,12 @@ import java.util.logging.Logger;
   ResponseAdditionalDataCard.JSON_PROPERTY_ISSUER_BIN
 })
 public class ResponseAdditionalDataCard {
+  public static final String JSON_PROPERTY_CARD_ALT_I_D = "cardAltID";
+  private String cardAltID;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardAltID = false;
+
   public static final String JSON_PROPERTY_CARD_BIN = "cardBin";
   private String cardBin;
 
@@ -164,6 +171,47 @@ public class ResponseAdditionalDataCard {
   @JsonIgnore private boolean includeNullValues = false;
 
   public ResponseAdditionalDataCard() {}
+
+  /**
+   * This is an ALT ID (alternate ID) mapped to the Card PAN. &gt; Returned only in case of
+   * Ecommerce Card Payment in India
+   *
+   * @param cardAltID This is an ALT ID (alternate ID) mapped to the Card PAN. &gt; Returned only in
+   *     case of Ecommerce Card Payment in India
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCard cardAltID(String cardAltID) {
+    this.cardAltID = cardAltID;
+    isSetCardAltID = true; // mark as set
+    return this;
+  }
+
+  /**
+   * This is an ALT ID (alternate ID) mapped to the Card PAN. &gt; Returned only in case of
+   * Ecommerce Card Payment in India
+   *
+   * @return cardAltID This is an ALT ID (alternate ID) mapped to the Card PAN. &gt; Returned only
+   *     in case of Ecommerce Card Payment in India
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_ALT_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCardAltID() {
+    return cardAltID;
+  }
+
+  /**
+   * This is an ALT ID (alternate ID) mapped to the Card PAN. &gt; Returned only in case of
+   * Ecommerce Card Payment in India
+   *
+   * @param cardAltID This is an ALT ID (alternate ID) mapped to the Card PAN. &gt; Returned only in
+   *     case of Ecommerce Card Payment in India
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_ALT_I_D)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardAltID(String cardAltID) {
+    this.cardAltID = cardAltID;
+    isSetCardAltID = true; // mark as set
+  }
 
   /**
    * The first six digits of the card number. This is the [Bank Identification Number
@@ -595,7 +643,9 @@ public class ResponseAdditionalDataCard {
       return false;
     }
     ResponseAdditionalDataCard responseAdditionalDataCard = (ResponseAdditionalDataCard) o;
-    return Objects.equals(this.cardBin, responseAdditionalDataCard.cardBin)
+    return Objects.equals(this.cardAltID, responseAdditionalDataCard.cardAltID)
+        && Objects.equals(this.isSetCardAltID, responseAdditionalDataCard.isSetCardAltID)
+        && Objects.equals(this.cardBin, responseAdditionalDataCard.cardBin)
         && Objects.equals(this.isSetCardBin, responseAdditionalDataCard.isSetCardBin)
         && Objects.equals(this.cardHolderName, responseAdditionalDataCard.cardHolderName)
         && Objects.equals(this.isSetCardHolderName, responseAdditionalDataCard.isSetCardHolderName)
@@ -622,6 +672,8 @@ public class ResponseAdditionalDataCard {
   @Override
   public int hashCode() {
     return Objects.hash(
+        cardAltID,
+        isSetCardAltID,
         cardBin,
         isSetCardBin,
         cardHolderName,
@@ -646,6 +698,7 @@ public class ResponseAdditionalDataCard {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponseAdditionalDataCard {\n");
+    sb.append("    cardAltID: ").append(toIndentedString(cardAltID)).append("\n");
     sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
     sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
     sb.append("    cardIssuingBank: ").append(toIndentedString(cardIssuingBank)).append("\n");
@@ -681,6 +734,9 @@ public class ResponseAdditionalDataCard {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetCardAltID) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_ALT_I_D, this.cardAltID);
+    }
     if (isSetCardBin) {
       addIfNull(nulls, JSON_PROPERTY_CARD_BIN, this.cardBin);
     }

@@ -336,9 +336,9 @@ public class StoredPaymentMethod {
   }
 
   /**
-   * The unique payment method code.
+   * The name of the payment method holder.
    *
-   * @param holderName The unique payment method code.
+   * @param holderName The name of the payment method holder.
    * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
    */
   public StoredPaymentMethod holderName(String holderName) {
@@ -348,9 +348,9 @@ public class StoredPaymentMethod {
   }
 
   /**
-   * The unique payment method code.
+   * The name of the payment method holder.
    *
-   * @return holderName The unique payment method code.
+   * @return holderName The name of the payment method holder.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,9 +359,9 @@ public class StoredPaymentMethod {
   }
 
   /**
-   * The unique payment method code.
+   * The name of the payment method holder.
    *
-   * @param holderName The unique payment method code.
+   * @param holderName The name of the payment method holder.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -111,8 +111,8 @@ public class MerchantRiskIndicator {
   private boolean isSetDeliveryAddressIndicator = false;
 
   public static final String JSON_PROPERTY_DELIVERY_EMAIL = "deliveryEmail";
-  @Deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
-  private String deliveryEmail;
+  /* deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead. */
+  @Deprecated private String deliveryEmail;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDeliveryEmail = false;
@@ -331,9 +331,9 @@ public class MerchantRiskIndicator {
    *
    * @param deliveryEmail The delivery email address (for digital goods).
    * @return the current {@code MerchantRiskIndicator} instance, allowing for method chaining
-   * @deprecated since Adyen Checkout API v68 Use &#x60;deliveryEmailAddress&#x60; instead.
+   * @deprecated since Adyen Checkout API v68 Use `deliveryEmailAddress` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
+  @Deprecated
   public MerchantRiskIndicator deliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
     isSetDeliveryEmail = true; // mark as set
@@ -344,9 +344,9 @@ public class MerchantRiskIndicator {
    * The delivery email address (for digital goods).
    *
    * @return deliveryEmail The delivery email address (for digital goods).
-   * @deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
+   * @deprecated since Adyen Checkout API v68 Use `deliveryEmailAddress` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeliveryEmail() {
@@ -357,9 +357,9 @@ public class MerchantRiskIndicator {
    * The delivery email address (for digital goods).
    *
    * @param deliveryEmail The delivery email address (for digital goods).
-   * @deprecated since Adyen Checkout API v68 Use &#x60;deliveryEmailAddress&#x60; instead.
+   * @deprecated since Adyen Checkout API v68 Use `deliveryEmailAddress` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use `deliveryEmailAddress` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmail(String deliveryEmail) {

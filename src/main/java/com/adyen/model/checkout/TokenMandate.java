@@ -36,8 +36,12 @@ import java.util.logging.Logger;
   TokenMandate.JSON_PROPERTY_FREQUENCY,
   TokenMandate.JSON_PROPERTY_MANDATE_ID,
   TokenMandate.JSON_PROPERTY_MASKED_ACCOUNT_ID,
+  TokenMandate.JSON_PROPERTY_MIN_AMOUNT,
   TokenMandate.JSON_PROPERTY_PROVIDER_ID,
+  TokenMandate.JSON_PROPERTY_RECURRING_AMOUNT,
+  TokenMandate.JSON_PROPERTY_RECURRING_STATEMENT,
   TokenMandate.JSON_PROPERTY_REMARKS,
+  TokenMandate.JSON_PROPERTY_RETRY_POLICY,
   TokenMandate.JSON_PROPERTY_STARTS_AT,
   TokenMandate.JSON_PROPERTY_STATUS,
   TokenMandate.JSON_PROPERTY_TX_VARIANT
@@ -257,17 +261,82 @@ public class TokenMandate {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMaskedAccountId = false;
 
+  public static final String JSON_PROPERTY_MIN_AMOUNT = "minAmount";
+  private String minAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMinAmount = false;
+
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
   private String providerId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProviderId = false;
 
+  public static final String JSON_PROPERTY_RECURRING_AMOUNT = "recurringAmount";
+  private String recurringAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringAmount = false;
+
+  public static final String JSON_PROPERTY_RECURRING_STATEMENT = "recurringStatement";
+  private String recurringStatement;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRecurringStatement = false;
+
   public static final String JSON_PROPERTY_REMARKS = "remarks";
   private String remarks;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRemarks = false;
+
+  /** When set to true, you can retry for failed recurring payments. The default value is true. */
+  public enum RetryPolicyEnum {
+    TRUE(String.valueOf("true")),
+
+    FALSE(String.valueOf("false"));
+
+    private static final Logger LOG = Logger.getLogger(RetryPolicyEnum.class.getName());
+
+    private String value;
+
+    RetryPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static RetryPolicyEnum fromValue(String value) {
+      for (RetryPolicyEnum b : RetryPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "RetryPolicyEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RetryPolicyEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_RETRY_POLICY = "retryPolicy";
+  private RetryPolicyEnum retryPolicy;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRetryPolicy = false;
 
   public static final String JSON_PROPERTY_STARTS_AT = "startsAt";
   private String startsAt;
@@ -735,6 +804,53 @@ public class TokenMandate {
   }
 
   /**
+   * For a billing plan where the payment amounts are variable, the minimum amount to charge the
+   * shopper for each recurring payment. When a shopper approves the billing plan, they can also
+   * specify a maximum amount in their banking app.
+   *
+   * @param minAmount For a billing plan where the payment amounts are variable, the minimum amount
+   *     to charge the shopper for each recurring payment. When a shopper approves the billing plan,
+   *     they can also specify a maximum amount in their banking app.
+   * @return the current {@code TokenMandate} instance, allowing for method chaining
+   */
+  public TokenMandate minAmount(String minAmount) {
+    this.minAmount = minAmount;
+    isSetMinAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * For a billing plan where the payment amounts are variable, the minimum amount to charge the
+   * shopper for each recurring payment. When a shopper approves the billing plan, they can also
+   * specify a maximum amount in their banking app.
+   *
+   * @return minAmount For a billing plan where the payment amounts are variable, the minimum amount
+   *     to charge the shopper for each recurring payment. When a shopper approves the billing plan,
+   *     they can also specify a maximum amount in their banking app.
+   */
+  @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMinAmount() {
+    return minAmount;
+  }
+
+  /**
+   * For a billing plan where the payment amounts are variable, the minimum amount to charge the
+   * shopper for each recurring payment. When a shopper approves the billing plan, they can also
+   * specify a maximum amount in their banking app.
+   *
+   * @param minAmount For a billing plan where the payment amounts are variable, the minimum amount
+   *     to charge the shopper for each recurring payment. When a shopper approves the billing plan,
+   *     they can also specify a maximum amount in their banking app.
+   */
+  @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMinAmount(String minAmount) {
+    this.minAmount = minAmount;
+    isSetMinAmount = true; // mark as set
+  }
+
+  /**
    * The provider-specific identifier for this mandate.
    *
    * @param providerId The provider-specific identifier for this mandate.
@@ -770,6 +886,94 @@ public class TokenMandate {
   }
 
   /**
+   * For a billing plan where the payment amount is fixed, the amount the shopper will be charged
+   * for each recurring payment.
+   *
+   * @param recurringAmount For a billing plan where the payment amount is fixed, the amount the
+   *     shopper will be charged for each recurring payment.
+   * @return the current {@code TokenMandate} instance, allowing for method chaining
+   */
+  public TokenMandate recurringAmount(String recurringAmount) {
+    this.recurringAmount = recurringAmount;
+    isSetRecurringAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * For a billing plan where the payment amount is fixed, the amount the shopper will be charged
+   * for each recurring payment.
+   *
+   * @return recurringAmount For a billing plan where the payment amount is fixed, the amount the
+   *     shopper will be charged for each recurring payment.
+   */
+  @JsonProperty(JSON_PROPERTY_RECURRING_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRecurringAmount() {
+    return recurringAmount;
+  }
+
+  /**
+   * For a billing plan where the payment amount is fixed, the amount the shopper will be charged
+   * for each recurring payment.
+   *
+   * @param recurringAmount For a billing plan where the payment amount is fixed, the amount the
+   *     shopper will be charged for each recurring payment.
+   */
+  @JsonProperty(JSON_PROPERTY_RECURRING_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecurringAmount(String recurringAmount) {
+    this.recurringAmount = recurringAmount;
+    isSetRecurringAmount = true; // mark as set
+  }
+
+  /**
+   * The text that will be shown on the shopper&#39;s bank statement for the recurring payments. We
+   * recommend to add a descriptive text about the subscription to let your shoppers recognize your
+   * recurring payments. Maximum length: 35 characters.
+   *
+   * @param recurringStatement The text that will be shown on the shopper&#39;s bank statement for
+   *     the recurring payments. We recommend to add a descriptive text about the subscription to
+   *     let your shoppers recognize your recurring payments. Maximum length: 35 characters.
+   * @return the current {@code TokenMandate} instance, allowing for method chaining
+   */
+  public TokenMandate recurringStatement(String recurringStatement) {
+    this.recurringStatement = recurringStatement;
+    isSetRecurringStatement = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The text that will be shown on the shopper&#39;s bank statement for the recurring payments. We
+   * recommend to add a descriptive text about the subscription to let your shoppers recognize your
+   * recurring payments. Maximum length: 35 characters.
+   *
+   * @return recurringStatement The text that will be shown on the shopper&#39;s bank statement for
+   *     the recurring payments. We recommend to add a descriptive text about the subscription to
+   *     let your shoppers recognize your recurring payments. Maximum length: 35 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_RECURRING_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRecurringStatement() {
+    return recurringStatement;
+  }
+
+  /**
+   * The text that will be shown on the shopper&#39;s bank statement for the recurring payments. We
+   * recommend to add a descriptive text about the subscription to let your shoppers recognize your
+   * recurring payments. Maximum length: 35 characters.
+   *
+   * @param recurringStatement The text that will be shown on the shopper&#39;s bank statement for
+   *     the recurring payments. We recommend to add a descriptive text about the subscription to
+   *     let your shoppers recognize your recurring payments. Maximum length: 35 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_RECURRING_STATEMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecurringStatement(String recurringStatement) {
+    this.recurringStatement = recurringStatement;
+    isSetRecurringStatement = true; // mark as set
+  }
+
+  /**
    * Additional remarks or notes about the mandate.
    *
    * @param remarks Additional remarks or notes about the mandate.
@@ -802,6 +1006,44 @@ public class TokenMandate {
   public void setRemarks(String remarks) {
     this.remarks = remarks;
     isSetRemarks = true; // mark as set
+  }
+
+  /**
+   * When set to true, you can retry for failed recurring payments. The default value is true.
+   *
+   * @param retryPolicy When set to true, you can retry for failed recurring payments. The default
+   *     value is true.
+   * @return the current {@code TokenMandate} instance, allowing for method chaining
+   */
+  public TokenMandate retryPolicy(RetryPolicyEnum retryPolicy) {
+    this.retryPolicy = retryPolicy;
+    isSetRetryPolicy = true; // mark as set
+    return this;
+  }
+
+  /**
+   * When set to true, you can retry for failed recurring payments. The default value is true.
+   *
+   * @return retryPolicy When set to true, you can retry for failed recurring payments. The default
+   *     value is true.
+   */
+  @JsonProperty(JSON_PROPERTY_RETRY_POLICY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RetryPolicyEnum getRetryPolicy() {
+    return retryPolicy;
+  }
+
+  /**
+   * When set to true, you can retry for failed recurring payments. The default value is true.
+   *
+   * @param retryPolicy When set to true, you can retry for failed recurring payments. The default
+   *     value is true.
+   */
+  @JsonProperty(JSON_PROPERTY_RETRY_POLICY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRetryPolicy(RetryPolicyEnum retryPolicy) {
+    this.retryPolicy = retryPolicy;
+    isSetRetryPolicy = true; // mark as set
   }
 
   /**
@@ -964,10 +1206,18 @@ public class TokenMandate {
         && Objects.equals(this.isSetMandateId, tokenMandate.isSetMandateId)
         && Objects.equals(this.maskedAccountId, tokenMandate.maskedAccountId)
         && Objects.equals(this.isSetMaskedAccountId, tokenMandate.isSetMaskedAccountId)
+        && Objects.equals(this.minAmount, tokenMandate.minAmount)
+        && Objects.equals(this.isSetMinAmount, tokenMandate.isSetMinAmount)
         && Objects.equals(this.providerId, tokenMandate.providerId)
         && Objects.equals(this.isSetProviderId, tokenMandate.isSetProviderId)
+        && Objects.equals(this.recurringAmount, tokenMandate.recurringAmount)
+        && Objects.equals(this.isSetRecurringAmount, tokenMandate.isSetRecurringAmount)
+        && Objects.equals(this.recurringStatement, tokenMandate.recurringStatement)
+        && Objects.equals(this.isSetRecurringStatement, tokenMandate.isSetRecurringStatement)
         && Objects.equals(this.remarks, tokenMandate.remarks)
         && Objects.equals(this.isSetRemarks, tokenMandate.isSetRemarks)
+        && Objects.equals(this.retryPolicy, tokenMandate.retryPolicy)
+        && Objects.equals(this.isSetRetryPolicy, tokenMandate.isSetRetryPolicy)
         && Objects.equals(this.startsAt, tokenMandate.startsAt)
         && Objects.equals(this.isSetStartsAt, tokenMandate.isSetStartsAt)
         && Objects.equals(this.status, tokenMandate.status)
@@ -1001,10 +1251,18 @@ public class TokenMandate {
         isSetMandateId,
         maskedAccountId,
         isSetMaskedAccountId,
+        minAmount,
+        isSetMinAmount,
         providerId,
         isSetProviderId,
+        recurringAmount,
+        isSetRecurringAmount,
+        recurringStatement,
+        isSetRecurringStatement,
         remarks,
         isSetRemarks,
+        retryPolicy,
+        isSetRetryPolicy,
         startsAt,
         isSetStartsAt,
         status,
@@ -1030,8 +1288,12 @@ public class TokenMandate {
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    mandateId: ").append(toIndentedString(mandateId)).append("\n");
     sb.append("    maskedAccountId: ").append(toIndentedString(maskedAccountId)).append("\n");
+    sb.append("    minAmount: ").append(toIndentedString(minAmount)).append("\n");
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
+    sb.append("    recurringAmount: ").append(toIndentedString(recurringAmount)).append("\n");
+    sb.append("    recurringStatement: ").append(toIndentedString(recurringStatement)).append("\n");
     sb.append("    remarks: ").append(toIndentedString(remarks)).append("\n");
+    sb.append("    retryPolicy: ").append(toIndentedString(retryPolicy)).append("\n");
     sb.append("    startsAt: ").append(toIndentedString(startsAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    txVariant: ").append(toIndentedString(txVariant)).append("\n");
@@ -1092,11 +1354,23 @@ public class TokenMandate {
     if (isSetMaskedAccountId) {
       addIfNull(nulls, JSON_PROPERTY_MASKED_ACCOUNT_ID, this.maskedAccountId);
     }
+    if (isSetMinAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MIN_AMOUNT, this.minAmount);
+    }
     if (isSetProviderId) {
       addIfNull(nulls, JSON_PROPERTY_PROVIDER_ID, this.providerId);
     }
+    if (isSetRecurringAmount) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_AMOUNT, this.recurringAmount);
+    }
+    if (isSetRecurringStatement) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_STATEMENT, this.recurringStatement);
+    }
     if (isSetRemarks) {
       addIfNull(nulls, JSON_PROPERTY_REMARKS, this.remarks);
+    }
+    if (isSetRetryPolicy) {
+      addIfNull(nulls, JSON_PROPERTY_RETRY_POLICY, this.retryPolicy);
     }
     if (isSetStartsAt) {
       addIfNull(nulls, JSON_PROPERTY_STARTS_AT, this.startsAt);

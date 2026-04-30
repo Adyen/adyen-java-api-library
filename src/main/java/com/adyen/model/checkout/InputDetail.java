@@ -49,8 +49,8 @@ public class InputDetail {
   private boolean isSetDetails = false;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
-  @Deprecated // deprecated
-  private List<SubInputDetail> inputDetails;
+  /* deprecated  */
+  @Deprecated private List<SubInputDetail> inputDetails;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInputDetails = false;
@@ -192,7 +192,7 @@ public class InputDetail {
    * @return the current {@code InputDetail} instance, allowing for method chaining
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   public InputDetail inputDetails(List<SubInputDetail> inputDetails) {
     this.inputDetails = inputDetails;
     isSetInputDetails = true; // mark as set
@@ -211,9 +211,9 @@ public class InputDetail {
    * Input details can also be provided recursively (deprecated).
    *
    * @return inputDetails Input details can also be provided recursively (deprecated).
-   * @deprecated // deprecated
+   * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SubInputDetail> getInputDetails() {
@@ -226,7 +226,7 @@ public class InputDetail {
    * @param inputDetails Input details can also be provided recursively (deprecated).
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<SubInputDetail> inputDetails) {

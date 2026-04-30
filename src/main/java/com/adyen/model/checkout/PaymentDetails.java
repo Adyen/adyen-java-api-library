@@ -60,6 +60,8 @@ public class PaymentDetails {
 
     IRIS(String.valueOf("iris")),
 
+    WERO(String.valueOf("wero")),
+
     TRUSTLY(String.valueOf("trustly")),
 
     TRUSTLYVECTOR(String.valueOf("trustlyvector")),
@@ -115,8 +117,6 @@ public class PaymentDetails {
     WALLEY(String.valueOf("walley")),
 
     WALLEY_B2B(String.valueOf("walley_b2b")),
-
-    ALMA(String.valueOf("alma")),
 
     PAYPO(String.valueOf("paypo")),
 

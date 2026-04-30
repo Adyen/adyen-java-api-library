@@ -20,8 +20,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** PaymentMethodUPIApps */
-@JsonPropertyOrder({PaymentMethodUPIApps.JSON_PROPERTY_ID, PaymentMethodUPIApps.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  PaymentMethodUPIApps.JSON_PROPERTY_APP_IDENTIFIER_INFO,
+  PaymentMethodUPIApps.JSON_PROPERTY_ID,
+  PaymentMethodUPIApps.JSON_PROPERTY_NAME
+})
 public class PaymentMethodUPIApps {
+  public static final String JSON_PROPERTY_APP_IDENTIFIER_INFO = "appIdentifierInfo";
+  private AppIdentifierInfo appIdentifierInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAppIdentifierInfo = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -41,6 +51,41 @@ public class PaymentMethodUPIApps {
   @JsonIgnore private boolean includeNullValues = false;
 
   public PaymentMethodUPIApps() {}
+
+  /**
+   * appIdentifierInfo
+   *
+   * @param appIdentifierInfo
+   * @return the current {@code PaymentMethodUPIApps} instance, allowing for method chaining
+   */
+  public PaymentMethodUPIApps appIdentifierInfo(AppIdentifierInfo appIdentifierInfo) {
+    this.appIdentifierInfo = appIdentifierInfo;
+    isSetAppIdentifierInfo = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get appIdentifierInfo
+   *
+   * @return appIdentifierInfo
+   */
+  @JsonProperty(JSON_PROPERTY_APP_IDENTIFIER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AppIdentifierInfo getAppIdentifierInfo() {
+    return appIdentifierInfo;
+  }
+
+  /**
+   * appIdentifierInfo
+   *
+   * @param appIdentifierInfo
+   */
+  @JsonProperty(JSON_PROPERTY_APP_IDENTIFIER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAppIdentifierInfo(AppIdentifierInfo appIdentifierInfo) {
+    this.appIdentifierInfo = appIdentifierInfo;
+    isSetAppIdentifierInfo = true; // mark as set
+  }
 
   /**
    * The unique identifier of this app, to submit in requests to /payments.
@@ -142,7 +187,9 @@ public class PaymentMethodUPIApps {
       return false;
     }
     PaymentMethodUPIApps paymentMethodUPIApps = (PaymentMethodUPIApps) o;
-    return Objects.equals(this.id, paymentMethodUPIApps.id)
+    return Objects.equals(this.appIdentifierInfo, paymentMethodUPIApps.appIdentifierInfo)
+        && Objects.equals(this.isSetAppIdentifierInfo, paymentMethodUPIApps.isSetAppIdentifierInfo)
+        && Objects.equals(this.id, paymentMethodUPIApps.id)
         && Objects.equals(this.isSetId, paymentMethodUPIApps.isSetId)
         && Objects.equals(this.name, paymentMethodUPIApps.name)
         && Objects.equals(this.isSetName, paymentMethodUPIApps.isSetName);
@@ -150,13 +197,14 @@ public class PaymentMethodUPIApps {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isSetId, name, isSetName);
+    return Objects.hash(appIdentifierInfo, isSetAppIdentifierInfo, id, isSetId, name, isSetName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentMethodUPIApps {\n");
+    sb.append("    appIdentifierInfo: ").append(toIndentedString(appIdentifierInfo)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
@@ -183,6 +231,9 @@ public class PaymentMethodUPIApps {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAppIdentifierInfo) {
+      addIfNull(nulls, JSON_PROPERTY_APP_IDENTIFIER_INFO, this.appIdentifierInfo);
+    }
     if (isSetId) {
       addIfNull(nulls, JSON_PROPERTY_ID, this.id);
     }

@@ -122,8 +122,8 @@ public class PaymentMethod {
   private boolean isSetGroup = false;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
-  @Deprecated // deprecated
-  private List<InputDetail> inputDetails;
+  /* deprecated  */
+  @Deprecated private List<InputDetail> inputDetails;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInputDetails = false;
@@ -402,7 +402,7 @@ public class PaymentMethod {
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
     isSetInputDetails = true; // mark as set
@@ -422,9 +422,9 @@ public class PaymentMethod {
    *
    * @return inputDetails All input details to be provided to complete the payment with this payment
    *     method.
-   * @deprecated // deprecated
+   * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<InputDetail> getInputDetails() {
@@ -438,7 +438,7 @@ public class PaymentMethod {
    *     method.
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<InputDetail> inputDetails) {

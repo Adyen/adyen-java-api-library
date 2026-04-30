@@ -58,6 +58,7 @@ import java.util.logging.Logger;
   ResponseAdditionalDataCommon.JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER,
   ResponseAdditionalDataCommon.JSON_PROPERTY_MERCHANT_ADVICE_CODE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_MERCHANT_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_NETWORK_PROCESSING_MODE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_NETWORK_TX_REFERENCE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_OWNER_NAME,
   ResponseAdditionalDataCommon.JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE,
@@ -385,6 +386,12 @@ public class ResponseAdditionalDataCommon {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantReference = false;
 
+  public static final String JSON_PROPERTY_NETWORK_PROCESSING_MODE = "networkProcessingMode";
+  private String networkProcessingMode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkProcessingMode = false;
+
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
 
@@ -449,17 +456,16 @@ public class ResponseAdditionalDataCommon {
 
   public static final String JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE =
       "recurring.recurringDetailReference";
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
-  private String recurringRecurringDetailReference;
+  /* deprecated since Adyen Checkout API v68: Use tokenization.storedPaymentMethodId instead. */
+  @Deprecated private String recurringRecurringDetailReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringRecurringDetailReference = false;
 
   public static final String JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE =
       "recurring.shopperReference";
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.shopperReference instead.
-  private String recurringShopperReference;
+  /* deprecated since Adyen Checkout API v68: Use tokenization.shopperReference instead. */
+  @Deprecated private String recurringShopperReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringShopperReference = false;
@@ -2079,6 +2085,65 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
+   * Indicates the processing flow. Possible values: * **sale**: You do not need to separately
+   * capture the funds, because capture happens automatically as part of the transaction. *
+   * **auth**: If you have not [configured automatic capture for the
+   * transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   * manually capture the funds.
+   *
+   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: You do
+   *     not need to separately capture the funds, because capture happens automatically as part of
+   *     the transaction. * **auth**: If you have not [configured automatic capture for the
+   *     transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   *     manually capture the funds.
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon networkProcessingMode(String networkProcessingMode) {
+    this.networkProcessingMode = networkProcessingMode;
+    isSetNetworkProcessingMode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates the processing flow. Possible values: * **sale**: You do not need to separately
+   * capture the funds, because capture happens automatically as part of the transaction. *
+   * **auth**: If you have not [configured automatic capture for the
+   * transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   * manually capture the funds.
+   *
+   * @return networkProcessingMode Indicates the processing flow. Possible values: * **sale**: You
+   *     do not need to separately capture the funds, because capture happens automatically as part
+   *     of the transaction. * **auth**: If you have not [configured automatic capture for the
+   *     transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   *     manually capture the funds.
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNetworkProcessingMode() {
+    return networkProcessingMode;
+  }
+
+  /**
+   * Indicates the processing flow. Possible values: * **sale**: You do not need to separately
+   * capture the funds, because capture happens automatically as part of the transaction. *
+   * **auth**: If you have not [configured automatic capture for the
+   * transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   * manually capture the funds.
+   *
+   * @param networkProcessingMode Indicates the processing flow. Possible values: * **sale**: You do
+   *     not need to separately capture the funds, because capture happens automatically as part of
+   *     the transaction. * **auth**: If you have not [configured automatic capture for the
+   *     transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must
+   *     manually capture the funds.
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkProcessingMode(String networkProcessingMode) {
+    this.networkProcessingMode = networkProcessingMode;
+    isSetNetworkProcessingMode = true; // mark as set
+  }
+
+  /**
    * Returned in the response if you are not tokenizing with Adyen and are using the
    * Merchant-initiated transactions (MIT) framework from Mastercard or Visa. This contains either
    * the Mastercard Trace ID or the Visa Transaction ID.
@@ -2516,8 +2581,7 @@ public class ResponseAdditionalDataCommon {
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v68 Use tokenization.storedPaymentMethodId instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
+  @Deprecated
   public ResponseAdditionalDataCommon recurringRecurringDetailReference(
       String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
@@ -2530,11 +2594,9 @@ public class ResponseAdditionalDataCommon {
    *
    * @return recurringRecurringDetailReference The reference that uniquely identifies the recurring
    *     transaction.
-   * @deprecated // deprecated since Adyen Checkout API v68: Use tokenization.storedPaymentMethodId
-   *     instead.
+   * @deprecated since Adyen Checkout API v68 Use tokenization.storedPaymentMethodId instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringRecurringDetailReference() {
@@ -2548,8 +2610,7 @@ public class ResponseAdditionalDataCommon {
    *     transaction.
    * @deprecated since Adyen Checkout API v68 Use tokenization.storedPaymentMethodId instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.storedPaymentMethodId
-  // instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
@@ -2565,7 +2626,7 @@ public class ResponseAdditionalDataCommon {
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v68 Use tokenization.shopperReference instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.shopperReference instead.
+  @Deprecated
   public ResponseAdditionalDataCommon recurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
     isSetRecurringShopperReference = true; // mark as set
@@ -2577,10 +2638,9 @@ public class ResponseAdditionalDataCommon {
    *
    * @return recurringShopperReference The provided reference of the shopper for a recurring
    *     transaction.
-   * @deprecated // deprecated since Adyen Checkout API v68: Use tokenization.shopperReference
-   *     instead.
+   * @deprecated since Adyen Checkout API v68 Use tokenization.shopperReference instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.shopperReference instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringShopperReference() {
@@ -2594,7 +2654,7 @@ public class ResponseAdditionalDataCommon {
    *     transaction.
    * @deprecated since Adyen Checkout API v68 Use tokenization.shopperReference instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v68: Use tokenization.shopperReference instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
@@ -3433,6 +3493,11 @@ public class ResponseAdditionalDataCommon {
         && Objects.equals(this.merchantReference, responseAdditionalDataCommon.merchantReference)
         && Objects.equals(
             this.isSetMerchantReference, responseAdditionalDataCommon.isSetMerchantReference)
+        && Objects.equals(
+            this.networkProcessingMode, responseAdditionalDataCommon.networkProcessingMode)
+        && Objects.equals(
+            this.isSetNetworkProcessingMode,
+            responseAdditionalDataCommon.isSetNetworkProcessingMode)
         && Objects.equals(this.networkTxReference, responseAdditionalDataCommon.networkTxReference)
         && Objects.equals(
             this.isSetNetworkTxReference, responseAdditionalDataCommon.isSetNetworkTxReference)
@@ -3621,6 +3686,8 @@ public class ResponseAdditionalDataCommon {
         isSetMerchantAdviceCode,
         merchantReference,
         isSetMerchantReference,
+        networkProcessingMode,
+        isSetNetworkProcessingMode,
         networkTxReference,
         isSetNetworkTxReference,
         ownerName,
@@ -3732,6 +3799,9 @@ public class ResponseAdditionalDataCommon {
         .append("\n");
     sb.append("    merchantAdviceCode: ").append(toIndentedString(merchantAdviceCode)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    networkProcessingMode: ")
+        .append(toIndentedString(networkProcessingMode))
+        .append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    paymentAccountReference: ")
@@ -3917,6 +3987,9 @@ public class ResponseAdditionalDataCommon {
     }
     if (isSetMerchantReference) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetNetworkProcessingMode) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_PROCESSING_MODE, this.networkProcessingMode);
     }
     if (isSetNetworkTxReference) {
       addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);

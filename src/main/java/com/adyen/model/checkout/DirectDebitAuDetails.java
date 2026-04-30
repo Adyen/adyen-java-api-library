@@ -23,15 +23,29 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** StoredPaymentMethodDetails */
+/** DirectDebitAuDetails */
 @JsonPropertyOrder({
-  StoredPaymentMethodDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  StoredPaymentMethodDetails.JSON_PROPERTY_SDK_DATA,
-  StoredPaymentMethodDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_TYPE
+  DirectDebitAuDetails.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
+  DirectDebitAuDetails.JSON_PROPERTY_BANK_BRANCH_CODE,
+  DirectDebitAuDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  DirectDebitAuDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  DirectDebitAuDetails.JSON_PROPERTY_SDK_DATA,
+  DirectDebitAuDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  DirectDebitAuDetails.JSON_PROPERTY_TYPE
 })
-public class StoredPaymentMethodDetails {
+public class DirectDebitAuDetails {
+  public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
+  private String bankAccountNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankAccountNumber = false;
+
+  public static final String JSON_PROPERTY_BANK_BRANCH_CODE = "bankBranchCode";
+  private String bankBranchCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBankBranchCode = false;
+
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
@@ -57,67 +71,9 @@ public class StoredPaymentMethodDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoredPaymentMethodId = false;
 
-  /** The payment method type. */
+  /** **directdebit_AU** */
   public enum TypeEnum {
-    ALIPAY_PLUS(String.valueOf("alipay_plus")),
-
-    ALIPAY_PLUS_ALIPAY_CN(String.valueOf("alipay_plus_alipay_cn")),
-
-    ALIPAY_PLUS_ALIPAY_HK(String.valueOf("alipay_plus_alipay_hk")),
-
-    ALIPAY_PLUS_DANA(String.valueOf("alipay_plus_dana")),
-
-    ALIPAY_PLUS_GCASH(String.valueOf("alipay_plus_gcash")),
-
-    ALIPAY_PLUS_KAKAOPAY(String.valueOf("alipay_plus_kakaopay")),
-
-    ALIPAY_PLUS_KPLUS(String.valueOf("alipay_plus_kplus")),
-
-    ALIPAY_PLUS_NAVERPAY(String.valueOf("alipay_plus_naverpay")),
-
-    ALIPAY_PLUS_RABBITLINEPAY(String.valueOf("alipay_plus_rabbitlinepay")),
-
-    ALIPAY_PLUS_TOSSPAY(String.valueOf("alipay_plus_tosspay")),
-
-    ALIPAY_PLUS_TOUCHNGO(String.valueOf("alipay_plus_touchngo")),
-
-    ALIPAY_PLUS_TRUEMONEY(String.valueOf("alipay_plus_truemoney")),
-
-    BCMC_MOBILE(String.valueOf("bcmc_mobile")),
-
-    BCMC_MOBILE_QR(String.valueOf("bcmc_mobile_QR")),
-
-    BCMC_MOBILE_APP(String.valueOf("bcmc_mobile_app")),
-
-    MOMO_WALLET(String.valueOf("momo_wallet")),
-
-    MOMO_WALLET_APP(String.valueOf("momo_wallet_app")),
-
-    PAYMAYA_WALLET(String.valueOf("paymaya_wallet")),
-
-    GRABPAY_SG(String.valueOf("grabpay_SG")),
-
-    GRABPAY_MY(String.valueOf("grabpay_MY")),
-
-    GRABPAY_TH(String.valueOf("grabpay_TH")),
-
-    GRABPAY_ID(String.valueOf("grabpay_ID")),
-
-    GRABPAY_VN(String.valueOf("grabpay_VN")),
-
-    GRABPAY_PH(String.valueOf("grabpay_PH")),
-
-    OXXO(String.valueOf("oxxo")),
-
-    GCASH(String.valueOf("gcash")),
-
-    DANA(String.valueOf("dana")),
-
-    KAKAOPAY(String.valueOf("kakaopay")),
-
-    TRUEMONEY(String.valueOf("truemoney")),
-
-    PAYSAFECARD(String.valueOf("paysafecard"));
+    DIRECTDEBIT_AU(String.valueOf("directdebit_AU"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -166,15 +122,88 @@ public class StoredPaymentMethodDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredPaymentMethodDetails() {}
+  public DirectDebitAuDetails() {}
+
+  /**
+   * The shopper&#39;s banking account number used to complete payment.
+   *
+   * @param bankAccountNumber The shopper&#39;s banking account number used to complete payment.
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
+   */
+  public DirectDebitAuDetails bankAccountNumber(String bankAccountNumber) {
+    this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The shopper&#39;s banking account number used to complete payment.
+   *
+   * @return bankAccountNumber The shopper&#39;s banking account number used to complete payment.
+   */
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBankAccountNumber() {
+    return bankAccountNumber;
+  }
+
+  /**
+   * The shopper&#39;s banking account number used to complete payment.
+   *
+   * @param bankAccountNumber The shopper&#39;s banking account number used to complete payment.
+   */
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankAccountNumber(String bankAccountNumber) {
+    this.bankAccountNumber = bankAccountNumber;
+    isSetBankAccountNumber = true; // mark as set
+  }
+
+  /**
+   * The shopper&#39;s BSB (their bank&#39;s branch code) number used to complete payment.
+   *
+   * @param bankBranchCode The shopper&#39;s BSB (their bank&#39;s branch code) number used to
+   *     complete payment.
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
+   */
+  public DirectDebitAuDetails bankBranchCode(String bankBranchCode) {
+    this.bankBranchCode = bankBranchCode;
+    isSetBankBranchCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The shopper&#39;s BSB (their bank&#39;s branch code) number used to complete payment.
+   *
+   * @return bankBranchCode The shopper&#39;s BSB (their bank&#39;s branch code) number used to
+   *     complete payment.
+   */
+  @JsonProperty(JSON_PROPERTY_BANK_BRANCH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBankBranchCode() {
+    return bankBranchCode;
+  }
+
+  /**
+   * The shopper&#39;s BSB (their bank&#39;s branch code) number used to complete payment.
+   *
+   * @param bankBranchCode The shopper&#39;s BSB (their bank&#39;s branch code) number used to
+   *     complete payment.
+   */
+  @JsonProperty(JSON_PROPERTY_BANK_BRANCH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankBranchCode(String bankBranchCode) {
+    this.bankBranchCode = bankBranchCode;
+    isSetBankBranchCode = true; // mark as set
+  }
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails checkoutAttemptId(String checkoutAttemptId) {
+  public DirectDebitAuDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -209,11 +238,11 @@ public class StoredPaymentMethodDetails {
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
   @Deprecated
-  public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
+  public DirectDebitAuDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -254,9 +283,9 @@ public class StoredPaymentMethodDetails {
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails sdkData(String sdkData) {
+  public DirectDebitAuDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -292,9 +321,9 @@ public class StoredPaymentMethodDetails {
    *
    * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
    *     response when you created the token.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public DirectDebitAuDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     isSetStoredPaymentMethodId = true; // mark as set
     return this;
@@ -328,21 +357,21 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * The payment method type.
+   * **directdebit_AU**
    *
-   * @param type The payment method type.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @param type **directdebit_AU**
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails type(TypeEnum type) {
+  public DirectDebitAuDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * The payment method type.
+   * **directdebit_AU**
    *
-   * @return type The payment method type.
+   * @return type **directdebit_AU**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,9 +380,9 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * The payment method type.
+   * **directdebit_AU**
    *
-   * @param type The payment method type.
+   * @param type **directdebit_AU**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +394,7 @@ public class StoredPaymentMethodDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredPaymentMethodDetails includeNullValues(boolean includeNullValues) {
+  public DirectDebitAuDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -382,7 +411,7 @@ public class StoredPaymentMethodDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredPaymentMethodDetails object is equal to o. */
+  /** Return true if this DirectDebitAuDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -391,28 +420,33 @@ public class StoredPaymentMethodDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredPaymentMethodDetails storedPaymentMethodDetails = (StoredPaymentMethodDetails) o;
-    return Objects.equals(this.checkoutAttemptId, storedPaymentMethodDetails.checkoutAttemptId)
+    DirectDebitAuDetails directDebitAuDetails = (DirectDebitAuDetails) o;
+    return Objects.equals(this.bankAccountNumber, directDebitAuDetails.bankAccountNumber)
+        && Objects.equals(this.isSetBankAccountNumber, directDebitAuDetails.isSetBankAccountNumber)
+        && Objects.equals(this.bankBranchCode, directDebitAuDetails.bankBranchCode)
+        && Objects.equals(this.isSetBankBranchCode, directDebitAuDetails.isSetBankBranchCode)
+        && Objects.equals(this.checkoutAttemptId, directDebitAuDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, directDebitAuDetails.isSetCheckoutAttemptId)
         && Objects.equals(
-            this.isSetCheckoutAttemptId, storedPaymentMethodDetails.isSetCheckoutAttemptId)
+            this.recurringDetailReference, directDebitAuDetails.recurringDetailReference)
         && Objects.equals(
-            this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference)
+            this.isSetRecurringDetailReference, directDebitAuDetails.isSetRecurringDetailReference)
+        && Objects.equals(this.sdkData, directDebitAuDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, directDebitAuDetails.isSetSdkData)
+        && Objects.equals(this.storedPaymentMethodId, directDebitAuDetails.storedPaymentMethodId)
         && Objects.equals(
-            this.isSetRecurringDetailReference,
-            storedPaymentMethodDetails.isSetRecurringDetailReference)
-        && Objects.equals(this.sdkData, storedPaymentMethodDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, storedPaymentMethodDetails.isSetSdkData)
-        && Objects.equals(
-            this.storedPaymentMethodId, storedPaymentMethodDetails.storedPaymentMethodId)
-        && Objects.equals(
-            this.isSetStoredPaymentMethodId, storedPaymentMethodDetails.isSetStoredPaymentMethodId)
-        && Objects.equals(this.type, storedPaymentMethodDetails.type)
-        && Objects.equals(this.isSetType, storedPaymentMethodDetails.isSetType);
+            this.isSetStoredPaymentMethodId, directDebitAuDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, directDebitAuDetails.type)
+        && Objects.equals(this.isSetType, directDebitAuDetails.isSetType);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        bankAccountNumber,
+        isSetBankAccountNumber,
+        bankBranchCode,
+        isSetBankBranchCode,
         checkoutAttemptId,
         isSetCheckoutAttemptId,
         recurringDetailReference,
@@ -428,7 +462,9 @@ public class StoredPaymentMethodDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredPaymentMethodDetails {\n");
+    sb.append("class DirectDebitAuDetails {\n");
+    sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
+    sb.append("    bankBranchCode: ").append(toIndentedString(bankBranchCode)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
@@ -462,6 +498,12 @@ public class StoredPaymentMethodDetails {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetBankAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_ACCOUNT_NUMBER, this.bankAccountNumber);
+    }
+    if (isSetBankBranchCode) {
+      addIfNull(nulls, JSON_PROPERTY_BANK_BRANCH_CODE, this.bankBranchCode);
+    }
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
@@ -489,20 +531,19 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * Create an instance of StoredPaymentMethodDetails given an JSON string
+   * Create an instance of DirectDebitAuDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredPaymentMethodDetails
+   * @return An instance of DirectDebitAuDetails
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredPaymentMethodDetails
+   *     DirectDebitAuDetails
    */
-  public static StoredPaymentMethodDetails fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredPaymentMethodDetails.class);
+  public static DirectDebitAuDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DirectDebitAuDetails.class);
   }
 
   /**
-   * Convert an instance of StoredPaymentMethodDetails to an JSON string
+   * Convert an instance of DirectDebitAuDetails to an JSON string
    *
    * @return JSON string
    */
