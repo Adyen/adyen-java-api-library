@@ -35,11 +35,11 @@ public class PlatformChargebackLogic {
    * **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    */
   public enum BehaviorEnum {
+    DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount")),
+
     DEDUCTACCORDINGTOSPLITRATIO(String.valueOf("deductAccordingToSplitRatio")),
 
-    DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
-
-    DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+    DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount"));
 
     private static final Logger LOG = Logger.getLogger(BehaviorEnum.class.getName());
 

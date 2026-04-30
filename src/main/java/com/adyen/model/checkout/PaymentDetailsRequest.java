@@ -47,9 +47,8 @@ public class PaymentDetailsRequest {
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY =
       "threeDSAuthenticationOnly";
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.authenticationOnly` instead.
-  private Boolean threeDSAuthenticationOnly;
+  /* deprecated since Adyen Checkout API v69: Use `authenticationData.authenticationOnly` instead. */
+  @Deprecated private Boolean threeDSAuthenticationOnly;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetThreeDSAuthenticationOnly = false;
@@ -209,11 +208,9 @@ public class PaymentDetailsRequest {
    *     set in the &#x60;/payments&#x60; request. Only needs to be set if you want to modify the
    *     value set previously.
    * @return the current {@code PaymentDetailsRequest} instance, allowing for method chaining
-   * @deprecated since Adyen Checkout API v69 Use &#x60;authenticationData.authenticationOnly&#x60;
-   *     instead.
+   * @deprecated since Adyen Checkout API v69 Use `authenticationData.authenticationOnly` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.authenticationOnly` instead.
+  @Deprecated
   public PaymentDetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
     this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     isSetThreeDSAuthenticationOnly = true; // mark as set
@@ -227,11 +224,9 @@ public class PaymentDetailsRequest {
    * @return threeDSAuthenticationOnly Change the &#x60;authenticationOnly&#x60; indicator
    *     originally set in the &#x60;/payments&#x60; request. Only needs to be set if you want to
    *     modify the value set previously.
-   * @deprecated // deprecated since Adyen Checkout API v69: Use
-   *     `authenticationData.authenticationOnly` instead.
+   * @deprecated since Adyen Checkout API v69 Use `authenticationData.authenticationOnly` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.authenticationOnly` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getThreeDSAuthenticationOnly() {
@@ -245,11 +240,9 @@ public class PaymentDetailsRequest {
    * @param threeDSAuthenticationOnly Change the &#x60;authenticationOnly&#x60; indicator originally
    *     set in the &#x60;/payments&#x60; request. Only needs to be set if you want to modify the
    *     value set previously.
-   * @deprecated since Adyen Checkout API v69 Use &#x60;authenticationData.authenticationOnly&#x60;
-   *     instead.
+   * @deprecated since Adyen Checkout API v69 Use `authenticationData.authenticationOnly` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.authenticationOnly` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
