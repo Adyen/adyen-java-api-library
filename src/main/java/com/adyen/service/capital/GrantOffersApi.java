@@ -53,20 +53,22 @@ public class GrantOffersApi extends Service {
   }
 
   /**
-   * Get all available grant offers
+   * Get all available static offers
    *
+   * @param accountHolderId {@link String } Query: The unique identifier of the account holder for
+   *     which you want to get the available static offers. (required)
    * @return {@link GrantOffers }
    * @throws ApiException if fails to make API call
    */
-  public GrantOffers getAllGrantOffers() throws ApiException, IOException {
-    return getAllGrantOffers(null, null);
+  public GrantOffers getAllGrantOffers(String accountHolderId) throws ApiException, IOException {
+    return getAllGrantOffers(accountHolderId, null);
   }
 
   /**
-   * Get all available grant offers
+   * Get all available static offers
    *
    * @param accountHolderId {@link String } Query: The unique identifier of the account holder for
-   *     which you want to get the available grant offers. (optional)
+   *     which you want to get the available static offers. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GrantOffers }
@@ -89,9 +91,9 @@ public class GrantOffersApi extends Service {
   }
 
   /**
-   * Get the details of a grant offer
+   * Get the details of a static offer
    *
-   * @param id {@link String } The unique identifier of the grant offer. (required)
+   * @param id {@link String } The unique identifier of the static offer. (required)
    * @return {@link GrantOffer }
    * @throws ApiException if fails to make API call
    */
@@ -100,9 +102,9 @@ public class GrantOffersApi extends Service {
   }
 
   /**
-   * Get the details of a grant offer
+   * Get the details of a static offer
    *
-   * @param id {@link String } The unique identifier of the grant offer. (required)
+   * @param id {@link String } The unique identifier of the static offer. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GrantOffer }

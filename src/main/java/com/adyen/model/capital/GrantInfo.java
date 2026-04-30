@@ -123,11 +123,11 @@ public class GrantInfo {
   }
 
   /**
-   * The unique identifier of the selected grant offer. Adyen uses the details of the selected grant
-   * offer to create a grant.
+   * The unique identifier of the selected offer. Adyen uses the details of the selected offer to
+   * create a grant.
    *
-   * @param grantOfferId The unique identifier of the selected grant offer. Adyen uses the details
-   *     of the selected grant offer to create a grant.
+   * @param grantOfferId The unique identifier of the selected offer. Adyen uses the details of the
+   *     selected offer to create a grant.
    * @return the current {@code GrantInfo} instance, allowing for method chaining
    */
   public GrantInfo grantOfferId(String grantOfferId) {
@@ -137,11 +137,11 @@ public class GrantInfo {
   }
 
   /**
-   * The unique identifier of the selected grant offer. Adyen uses the details of the selected grant
-   * offer to create a grant.
+   * The unique identifier of the selected offer. Adyen uses the details of the selected offer to
+   * create a grant.
    *
-   * @return grantOfferId The unique identifier of the selected grant offer. Adyen uses the details
-   *     of the selected grant offer to create a grant.
+   * @return grantOfferId The unique identifier of the selected offer. Adyen uses the details of the
+   *     selected offer to create a grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,11 +150,11 @@ public class GrantInfo {
   }
 
   /**
-   * The unique identifier of the selected grant offer. Adyen uses the details of the selected grant
-   * offer to create a grant.
+   * The unique identifier of the selected offer. Adyen uses the details of the selected offer to
+   * create a grant.
    *
-   * @param grantOfferId The unique identifier of the selected grant offer. Adyen uses the details
-   *     of the selected grant offer to create a grant.
+   * @param grantOfferId The unique identifier of the selected offer. Adyen uses the details of the
+   *     selected offer to create a grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

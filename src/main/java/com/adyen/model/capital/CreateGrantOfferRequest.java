@@ -18,17 +18,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 
-/** GrantOffers */
-@JsonPropertyOrder({GrantOffers.JSON_PROPERTY_GRANT_OFFERS})
-public class GrantOffers {
-  public static final String JSON_PROPERTY_GRANT_OFFERS = "grantOffers";
-  private List<GrantOffer> grantOffers;
+/** CreateGrantOfferRequest */
+@JsonPropertyOrder({CreateGrantOfferRequest.JSON_PROPERTY_AMOUNT})
+public class CreateGrantOfferRequest {
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
+  private Amount amount;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetGrantOffers = false;
+  private boolean isSetAmount = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -36,55 +34,47 @@ public class GrantOffers {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public GrantOffers() {}
+  public CreateGrantOfferRequest() {}
 
   /**
-   * Contains a list of available offers for the specified account holder.
+   * amount
    *
-   * @param grantOffers Contains a list of available offers for the specified account holder.
-   * @return the current {@code GrantOffers} instance, allowing for method chaining
+   * @param amount
+   * @return the current {@code CreateGrantOfferRequest} instance, allowing for method chaining
    */
-  public GrantOffers grantOffers(List<GrantOffer> grantOffers) {
-    this.grantOffers = grantOffers;
-    isSetGrantOffers = true; // mark as set
-    return this;
-  }
-
-  public GrantOffers addGrantOffersItem(GrantOffer grantOffersItem) {
-    if (this.grantOffers == null) {
-      this.grantOffers = new ArrayList<>();
-    }
-    this.grantOffers.add(grantOffersItem);
+  public CreateGrantOfferRequest amount(Amount amount) {
+    this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
   /**
-   * Contains a list of available offers for the specified account holder.
+   * Get amount
    *
-   * @return grantOffers Contains a list of available offers for the specified account holder.
+   * @return amount
    */
-  @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<GrantOffer> getGrantOffers() {
-    return grantOffers;
+  public Amount getAmount() {
+    return amount;
   }
 
   /**
-   * Contains a list of available offers for the specified account holder.
+   * amount
    *
-   * @param grantOffers Contains a list of available offers for the specified account holder.
+   * @param amount
    */
-  @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGrantOffers(List<GrantOffer> grantOffers) {
-    this.grantOffers = grantOffers;
-    isSetGrantOffers = true; // mark as set
+  public void setAmount(Amount amount) {
+    this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public GrantOffers includeNullValues(boolean includeNullValues) {
+  public CreateGrantOfferRequest includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -101,7 +91,7 @@ public class GrantOffers {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this GrantOffers object is equal to o. */
+  /** Return true if this CreateGrantOfferRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,21 +100,21 @@ public class GrantOffers {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GrantOffers grantOffers = (GrantOffers) o;
-    return Objects.equals(this.grantOffers, grantOffers.grantOffers)
-        && Objects.equals(this.isSetGrantOffers, grantOffers.isSetGrantOffers);
+    CreateGrantOfferRequest createGrantOfferRequest = (CreateGrantOfferRequest) o;
+    return Objects.equals(this.amount, createGrantOfferRequest.amount)
+        && Objects.equals(this.isSetAmount, createGrantOfferRequest.isSetAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grantOffers, isSetGrantOffers);
+    return Objects.hash(amount, isSetAmount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GrantOffers {\n");
-    sb.append("    grantOffers: ").append(toIndentedString(grantOffers)).append("\n");
+    sb.append("class CreateGrantOfferRequest {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,8 +139,8 @@ public class GrantOffers {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetGrantOffers) {
-      addIfNull(nulls, JSON_PROPERTY_GRANT_OFFERS, this.grantOffers);
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
     }
 
     return nulls;
@@ -164,18 +154,19 @@ public class GrantOffers {
   }
 
   /**
-   * Create an instance of GrantOffers given an JSON string
+   * Create an instance of CreateGrantOfferRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GrantOffers
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantOffers
+   * @return An instance of CreateGrantOfferRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     CreateGrantOfferRequest
    */
-  public static GrantOffers fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, GrantOffers.class);
+  public static CreateGrantOfferRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CreateGrantOfferRequest.class);
   }
 
   /**
-   * Convert an instance of GrantOffers to an JSON string
+   * Convert an instance of CreateGrantOfferRequest to an JSON string
    *
    * @return JSON string
    */
