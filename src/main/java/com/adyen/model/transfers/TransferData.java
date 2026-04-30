@@ -56,6 +56,7 @@ import java.util.logging.Logger;
   TransferData.JSON_PROPERTY_TRACKING,
   TransferData.JSON_PROPERTY_TRANSACTION_RULES_RESULT,
   TransferData.JSON_PROPERTY_TYPE,
+  TransferData.JSON_PROPERTY_ULTIMATE_PARTY,
   TransferData.JSON_PROPERTY_UPDATED_AT
 })
 public class TransferData {
@@ -625,6 +626,8 @@ public class TransferData {
 
     PAYMENTCOSTPENDING(String.valueOf("paymentCostPending")),
 
+    PENDING(String.valueOf("pending")),
+
     PENDINGAPPROVAL(String.valueOf("pendingApproval")),
 
     PENDINGEXECUTION(String.valueOf("pendingExecution")),
@@ -650,6 +653,8 @@ public class TransferData {
     RESERVEADJUSTMENTPENDING(String.valueOf("reserveAdjustmentPending")),
 
     RETURNED(String.valueOf("returned")),
+
+    REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),
 
@@ -831,6 +836,12 @@ public class TransferData {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetType = false;
+
+  public static final String JSON_PROPERTY_ULTIMATE_PARTY = "ultimateParty";
+  private UltimatePartyIdentification ultimateParty;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUltimateParty = false;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
@@ -2023,6 +2034,41 @@ public class TransferData {
   }
 
   /**
+   * ultimateParty
+   *
+   * @param ultimateParty
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData ultimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+    isSetUltimateParty = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ultimateParty
+   *
+   * @return ultimateParty
+   */
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UltimatePartyIdentification getUltimateParty() {
+    return ultimateParty;
+  }
+
+  /**
+   * ultimateParty
+   *
+   * @param ultimateParty
+   */
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUltimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+    isSetUltimateParty = true; // mark as set
+  }
+
+  /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
    * **2020-12-18T10:15:30+01:00**.
    *
@@ -2152,6 +2198,8 @@ public class TransferData {
             this.isSetTransactionRulesResult, transferData.isSetTransactionRulesResult)
         && Objects.equals(this.type, transferData.type)
         && Objects.equals(this.isSetType, transferData.isSetType)
+        && Objects.equals(this.ultimateParty, transferData.ultimateParty)
+        && Objects.equals(this.isSetUltimateParty, transferData.isSetUltimateParty)
         && Objects.equals(this.updatedAt, transferData.updatedAt)
         && Objects.equals(this.isSetUpdatedAt, transferData.isSetUpdatedAt);
   }
@@ -2215,6 +2263,8 @@ public class TransferData {
         isSetTransactionRulesResult,
         type,
         isSetType,
+        ultimateParty,
+        isSetUltimateParty,
         updatedAt,
         isSetUpdatedAt);
   }
@@ -2257,6 +2307,7 @@ public class TransferData {
         .append(toIndentedString(transactionRulesResult))
         .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    ultimateParty: ").append(toIndentedString(ultimateParty)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -2365,6 +2416,9 @@ public class TransferData {
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUltimateParty) {
+      addIfNull(nulls, JSON_PROPERTY_ULTIMATE_PARTY, this.ultimateParty);
     }
     if (isSetUpdatedAt) {
       addIfNull(nulls, JSON_PROPERTY_UPDATED_AT, this.updatedAt);

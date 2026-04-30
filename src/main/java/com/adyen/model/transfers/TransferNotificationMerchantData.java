@@ -24,6 +24,7 @@ import java.util.*;
   TransferNotificationMerchantData.JSON_PROPERTY_ACQUIRER_ID,
   TransferNotificationMerchantData.JSON_PROPERTY_CITY,
   TransferNotificationMerchantData.JSON_PROPERTY_COUNTRY,
+  TransferNotificationMerchantData.JSON_PROPERTY_COUNTRY_CODE,
   TransferNotificationMerchantData.JSON_PROPERTY_MCC,
   TransferNotificationMerchantData.JSON_PROPERTY_MERCHANT_ID,
   TransferNotificationMerchantData.JSON_PROPERTY_NAME,
@@ -47,6 +48,12 @@ public class TransferNotificationMerchantData {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCountry = false;
+
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
+  private String countryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
 
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
@@ -186,6 +193,48 @@ public class TransferNotificationMerchantData {
   public void setCountry(String country) {
     this.country = country;
     isSetCountry = true; // mark as set
+  }
+
+  /**
+   * The two-character country code of the merchant&#39;s location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param countryCode The two-character country code of the merchant&#39;s location, in [ISO
+   *     3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   * @return the current {@code TransferNotificationMerchantData} instance, allowing for method
+   *     chaining
+   */
+  public TransferNotificationMerchantData countryCode(String countryCode) {
+    this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The two-character country code of the merchant&#39;s location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @return countryCode The two-character country code of the merchant&#39;s location, in [ISO
+   *     3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCountryCode() {
+    return countryCode;
+  }
+
+  /**
+   * The two-character country code of the merchant&#39;s location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   *
+   * @param countryCode The two-character country code of the merchant&#39;s location, in [ISO
+   *     3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -369,6 +418,8 @@ public class TransferNotificationMerchantData {
         && Objects.equals(this.isSetCity, transferNotificationMerchantData.isSetCity)
         && Objects.equals(this.country, transferNotificationMerchantData.country)
         && Objects.equals(this.isSetCountry, transferNotificationMerchantData.isSetCountry)
+        && Objects.equals(this.countryCode, transferNotificationMerchantData.countryCode)
+        && Objects.equals(this.isSetCountryCode, transferNotificationMerchantData.isSetCountryCode)
         && Objects.equals(this.mcc, transferNotificationMerchantData.mcc)
         && Objects.equals(this.isSetMcc, transferNotificationMerchantData.isSetMcc)
         && Objects.equals(this.merchantId, transferNotificationMerchantData.merchantId)
@@ -388,6 +439,8 @@ public class TransferNotificationMerchantData {
         isSetCity,
         country,
         isSetCountry,
+        countryCode,
+        isSetCountryCode,
         mcc,
         isSetMcc,
         merchantId,
@@ -405,6 +458,7 @@ public class TransferNotificationMerchantData {
     sb.append("    acquirerId: ").append(toIndentedString(acquirerId)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -441,6 +495,9 @@ public class TransferNotificationMerchantData {
     }
     if (isSetCountry) {
       addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
     }
     if (isSetMcc) {
       addIfNull(nulls, JSON_PROPERTY_MCC, this.mcc);
