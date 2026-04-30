@@ -56,7 +56,11 @@ public class PosMobileApi extends Service {
    * @param createSessionRequest {@link CreateSessionRequest } (required)
    * @return {@link CreateSessionResponse }
    * @throws ApiException if fails to make API call
+   * @deprecated since POS Mobile API v68 Use POST
+   *     [/auth/certificate](https://docs.adyen.com/api-explorer/softpos-configuration-api/latest/post/auth/certificate)
+   *     to establish secure communications.
    */
+  @Deprecated
   public CreateSessionResponse createCommunicationSession(CreateSessionRequest createSessionRequest)
       throws ApiException, IOException {
     return createCommunicationSession(createSessionRequest, null);
@@ -70,7 +74,11 @@ public class PosMobileApi extends Service {
    *     idempotency-keys (optional)
    * @return {@link CreateSessionResponse }
    * @throws ApiException if fails to make API call
+   * @deprecated since POS Mobile API v68 Use POST
+   *     [/auth/certificate](https://docs.adyen.com/api-explorer/softpos-configuration-api/latest/post/auth/certificate)
+   *     to establish secure communications.
    */
+  @Deprecated
   public CreateSessionResponse createCommunicationSession(
       CreateSessionRequest createSessionRequest, RequestOptions requestOptions)
       throws ApiException, IOException {
