@@ -14,18 +14,17 @@ package com.adyen.model.sessionauthentication;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ResourceType */
 public enum ResourceType {
   LEGALENTITY("legalEntity"),
 
-  BALANCEACCOUNT("balanceAccount"),
-
   ACCOUNTHOLDER("accountHolder"),
 
-  MERCHANTACCOUNT("merchantAccount"),
-
   PAYMENTINSTRUMENT("paymentInstrument");
+
+  private static final Logger LOG = Logger.getLogger(ResourceType.class.getName());
 
   private String value;
 
@@ -50,6 +49,12 @@ public enum ResourceType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ResourceType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ResourceType.values()));
+    return null;
   }
 }

@@ -14,6 +14,7 @@ package com.adyen.model.sessionauthentication;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ProductType */
 public enum ProductType {
@@ -22,6 +23,8 @@ public enum ProductType {
   PLATFORM("platform"),
 
   BANK("bank");
+
+  private static final Logger LOG = Logger.getLogger(ProductType.class.getName());
 
   private String value;
 
@@ -46,6 +49,12 @@ public enum ProductType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ProductType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ProductType.values()));
+    return null;
   }
 }
