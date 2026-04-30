@@ -12,6 +12,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,6 +25,7 @@ import java.util.List;
 /** BusinessLineInfoUpdate */
 @JsonPropertyOrder({
   BusinessLineInfoUpdate.JSON_PROPERTY_INDUSTRY_CODE,
+  BusinessLineInfoUpdate.JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION,
   BusinessLineInfoUpdate.JSON_PROPERTY_SALES_CHANNELS,
   BusinessLineInfoUpdate.JSON_PROPERTY_SOURCE_OF_FUNDS,
   BusinessLineInfoUpdate.JSON_PROPERTY_WEB_DATA,
@@ -35,6 +37,12 @@ public class BusinessLineInfoUpdate {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIndustryCode = false;
+
+  public static final String JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION = "industryCodeDescription";
+  private String industryCodeDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndustryCodeDescription = false;
 
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
   private List<String> salesChannels;
@@ -67,6 +75,13 @@ public class BusinessLineInfoUpdate {
   @JsonIgnore private boolean includeNullValues = false;
 
   public BusinessLineInfoUpdate() {}
+
+  @JsonCreator
+  public BusinessLineInfoUpdate(
+      @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION) String industryCodeDescription) {
+    this();
+    this.industryCodeDescription = industryCodeDescription;
+  }
 
   /**
    * A code that represents the industry of your legal entity. For example, **4431A** for computer
@@ -107,6 +122,17 @@ public class BusinessLineInfoUpdate {
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
     isSetIndustryCode = true; // mark as set
+  }
+
+  /**
+   * The description of the industry code.
+   *
+   * @return industryCodeDescription The description of the industry code.
+   */
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIndustryCodeDescription() {
+    return industryCodeDescription;
   }
 
   /**
@@ -321,6 +347,10 @@ public class BusinessLineInfoUpdate {
     BusinessLineInfoUpdate businessLineInfoUpdate = (BusinessLineInfoUpdate) o;
     return Objects.equals(this.industryCode, businessLineInfoUpdate.industryCode)
         && Objects.equals(this.isSetIndustryCode, businessLineInfoUpdate.isSetIndustryCode)
+        && Objects.equals(
+            this.industryCodeDescription, businessLineInfoUpdate.industryCodeDescription)
+        && Objects.equals(
+            this.isSetIndustryCodeDescription, businessLineInfoUpdate.isSetIndustryCodeDescription)
         && Objects.equals(this.salesChannels, businessLineInfoUpdate.salesChannels)
         && Objects.equals(this.isSetSalesChannels, businessLineInfoUpdate.isSetSalesChannels)
         && Objects.equals(this.sourceOfFunds, businessLineInfoUpdate.sourceOfFunds)
@@ -336,6 +366,8 @@ public class BusinessLineInfoUpdate {
     return Objects.hash(
         industryCode,
         isSetIndustryCode,
+        industryCodeDescription,
+        isSetIndustryCodeDescription,
         salesChannels,
         isSetSalesChannels,
         sourceOfFunds,
@@ -351,6 +383,9 @@ public class BusinessLineInfoUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class BusinessLineInfoUpdate {\n");
     sb.append("    industryCode: ").append(toIndentedString(industryCode)).append("\n");
+    sb.append("    industryCodeDescription: ")
+        .append(toIndentedString(industryCodeDescription))
+        .append("\n");
     sb.append("    salesChannels: ").append(toIndentedString(salesChannels)).append("\n");
     sb.append("    sourceOfFunds: ").append(toIndentedString(sourceOfFunds)).append("\n");
     sb.append("    webData: ").append(toIndentedString(webData)).append("\n");
@@ -381,6 +416,9 @@ public class BusinessLineInfoUpdate {
 
     if (isSetIndustryCode) {
       addIfNull(nulls, JSON_PROPERTY_INDUSTRY_CODE, this.industryCode);
+    }
+    if (isSetIndustryCodeDescription) {
+      addIfNull(nulls, JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION, this.industryCodeDescription);
     }
     if (isSetSalesChannels) {
       addIfNull(nulls, JSON_PROPERTY_SALES_CHANNELS, this.salesChannels);

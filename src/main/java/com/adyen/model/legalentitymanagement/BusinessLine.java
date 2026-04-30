@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   BusinessLine.JSON_PROPERTY_ID,
   BusinessLine.JSON_PROPERTY_INDUSTRY_CODE,
+  BusinessLine.JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION,
   BusinessLine.JSON_PROPERTY_LEGAL_ENTITY_ID,
   BusinessLine.JSON_PROPERTY_PROBLEMS,
   BusinessLine.JSON_PROPERTY_SALES_CHANNELS,
@@ -49,6 +50,12 @@ public class BusinessLine {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIndustryCode = false;
+
+  public static final String JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION = "industryCodeDescription";
+  private String industryCodeDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndustryCodeDescription = false;
 
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
@@ -147,9 +154,12 @@ public class BusinessLine {
   public BusinessLine() {}
 
   @JsonCreator
-  public BusinessLine(@JsonProperty(JSON_PROPERTY_ID) String id) {
+  public BusinessLine(
+      @JsonProperty(JSON_PROPERTY_ID) String id,
+      @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION) String industryCodeDescription) {
     this();
     this.id = id;
+    this.industryCodeDescription = industryCodeDescription;
   }
 
   /**
@@ -220,6 +230,17 @@ public class BusinessLine {
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
     isSetIndustryCode = true; // mark as set
+  }
+
+  /**
+   * The description of the industry code.
+   *
+   * @return industryCodeDescription The description of the industry code.
+   */
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIndustryCodeDescription() {
+    return industryCodeDescription;
   }
 
   /**
@@ -567,6 +588,9 @@ public class BusinessLine {
         && Objects.equals(this.isSetId, businessLine.isSetId)
         && Objects.equals(this.industryCode, businessLine.industryCode)
         && Objects.equals(this.isSetIndustryCode, businessLine.isSetIndustryCode)
+        && Objects.equals(this.industryCodeDescription, businessLine.industryCodeDescription)
+        && Objects.equals(
+            this.isSetIndustryCodeDescription, businessLine.isSetIndustryCodeDescription)
         && Objects.equals(this.legalEntityId, businessLine.legalEntityId)
         && Objects.equals(this.isSetLegalEntityId, businessLine.isSetLegalEntityId)
         && Objects.equals(this.problems, businessLine.problems)
@@ -590,6 +614,8 @@ public class BusinessLine {
         isSetId,
         industryCode,
         isSetIndustryCode,
+        industryCodeDescription,
+        isSetIndustryCodeDescription,
         legalEntityId,
         isSetLegalEntityId,
         problems,
@@ -612,6 +638,9 @@ public class BusinessLine {
     sb.append("class BusinessLine {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    industryCode: ").append(toIndentedString(industryCode)).append("\n");
+    sb.append("    industryCodeDescription: ")
+        .append(toIndentedString(industryCodeDescription))
+        .append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    problems: ").append(toIndentedString(problems)).append("\n");
     sb.append("    salesChannels: ").append(toIndentedString(salesChannels)).append("\n");
@@ -648,6 +677,9 @@ public class BusinessLine {
     }
     if (isSetIndustryCode) {
       addIfNull(nulls, JSON_PROPERTY_INDUSTRY_CODE, this.industryCode);
+    }
+    if (isSetIndustryCodeDescription) {
+      addIfNull(nulls, JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION, this.industryCodeDescription);
     }
     if (isSetLegalEntityId) {
       addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
