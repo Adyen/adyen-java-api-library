@@ -34,6 +34,7 @@ import java.util.List;
   CardConfiguration.JSON_PROPERTY_LANGUAGES,
   CardConfiguration.JSON_PROPERTY_LOGO_IMAGE_ID,
   CardConfiguration.JSON_PROPERTY_PIN_MAILER,
+  CardConfiguration.JSON_PROPERTY_PRINT_LINE,
   CardConfiguration.JSON_PROPERTY_SHIPMENT_METHOD
 })
 public class CardConfiguration {
@@ -75,6 +76,9 @@ public class CardConfiguration {
 
   public static final String JSON_PROPERTY_PIN_MAILER = "pinMailer";
   private String pinMailer;
+
+  public static final String JSON_PROPERTY_PRINT_LINE = "printLine";
+  private String printLine;
 
   public static final String JSON_PROPERTY_SHIPMENT_METHOD = "shipmentMethod";
   private String shipmentMethod;
@@ -633,6 +637,45 @@ public class CardConfiguration {
   }
 
   /**
+   * Print Line. Text printed on the physical card below the cardholder name. You provide the value,
+   * which can be up to 26 characters.
+   *
+   * @param printLine Print Line. Text printed on the physical card below the cardholder name. You
+   *     provide the value, which can be up to 26 characters.
+   * @return the current {@code CardConfiguration} instance, allowing for method chaining
+   */
+  public CardConfiguration printLine(String printLine) {
+    this.printLine = printLine;
+    return this;
+  }
+
+  /**
+   * Print Line. Text printed on the physical card below the cardholder name. You provide the value,
+   * which can be up to 26 characters.
+   *
+   * @return printLine Print Line. Text printed on the physical card below the cardholder name. You
+   *     provide the value, which can be up to 26 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_PRINT_LINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrintLine() {
+    return printLine;
+  }
+
+  /**
+   * Print Line. Text printed on the physical card below the cardholder name. You provide the value,
+   * which can be up to 26 characters.
+   *
+   * @param printLine Print Line. Text printed on the physical card below the cardholder name. You
+   *     provide the value, which can be up to 26 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_PRINT_LINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPrintLine(String printLine) {
+    this.printLine = printLine;
+  }
+
+  /**
    * The logistics company that ships the card. This field overrides the logistics company defined
    * in the card configuration profile.
    *
@@ -694,6 +737,7 @@ public class CardConfiguration {
         && Objects.equals(this.languages, cardConfiguration.languages)
         && Objects.equals(this.logoImageId, cardConfiguration.logoImageId)
         && Objects.equals(this.pinMailer, cardConfiguration.pinMailer)
+        && Objects.equals(this.printLine, cardConfiguration.printLine)
         && Objects.equals(this.shipmentMethod, cardConfiguration.shipmentMethod);
   }
 
@@ -713,6 +757,7 @@ public class CardConfiguration {
         languages,
         logoImageId,
         pinMailer,
+        printLine,
         shipmentMethod);
   }
 
@@ -735,6 +780,7 @@ public class CardConfiguration {
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    logoImageId: ").append(toIndentedString(logoImageId)).append("\n");
     sb.append("    pinMailer: ").append(toIndentedString(pinMailer)).append("\n");
+    sb.append("    printLine: ").append(toIndentedString(printLine)).append("\n");
     sb.append("    shipmentMethod: ").append(toIndentedString(shipmentMethod)).append("\n");
     sb.append("}");
     return sb.toString();
