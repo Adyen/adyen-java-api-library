@@ -14,12 +14,15 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets ScaEntityType */
 public enum ScaEntityType {
   ACCOUNTHOLDER("accountHolder"),
 
   PAYMENTINSTRUMENT("paymentInstrument");
+
+  private static final Logger LOG = Logger.getLogger(ScaEntityType.class.getName());
 
   private String value;
 
@@ -44,6 +47,12 @@ public enum ScaEntityType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ScaEntityType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ScaEntityType.values()));
+    return null;
   }
 }
