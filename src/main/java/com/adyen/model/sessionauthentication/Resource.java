@@ -37,9 +37,7 @@ import java.util.*;
     visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = AccountHolderResource.class, name = "accountHolder"),
-  @JsonSubTypes.Type(value = BalanceAccountResource.class, name = "balanceAccount"),
   @JsonSubTypes.Type(value = LegalEntityResource.class, name = "legalEntity"),
-  @JsonSubTypes.Type(value = MerchantAccountResource.class, name = "merchantAccount"),
   @JsonSubTypes.Type(value = PaymentInstrumentResource.class, name = "paymentInstrument"),
 })
 public class Resource {
@@ -154,9 +152,7 @@ public class Resource {
     // Initialize and register the discriminator mappings.
     Map<String, Class<?>> mappings = new HashMap<>();
     mappings.put("accountHolder", AccountHolderResource.class);
-    mappings.put("balanceAccount", BalanceAccountResource.class);
     mappings.put("legalEntity", LegalEntityResource.class);
-    mappings.put("merchantAccount", MerchantAccountResource.class);
     mappings.put("paymentInstrument", PaymentInstrumentResource.class);
     mappings.put("Resource", Resource.class);
     JSON.registerDiscriminator(Resource.class, "type", mappings);
