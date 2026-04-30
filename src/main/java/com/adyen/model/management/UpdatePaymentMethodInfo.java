@@ -203,9 +203,8 @@ public class UpdatePaymentMethodInfo {
   private boolean isSetStoreId = false;
 
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
-  private List<String> storeIds;
+  /* deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed. */
+  @Deprecated private List<String> storeIds;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoreIds = false;
@@ -1143,11 +1142,10 @@ public class UpdatePaymentMethodInfo {
    *
    * @param storeIds The list of stores for this payment method
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
-   * @deprecated since Management API v3 Use &#x60;storeId&#x60; instead. Only one store per payment
-   *     method is allowed.
+   * @deprecated since Management API v3 Use `storeId` instead. Only one store per payment method is
+   *     allowed.
    */
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
+  @Deprecated
   public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
     isSetStoreIds = true; // mark as set
@@ -1166,11 +1164,10 @@ public class UpdatePaymentMethodInfo {
    * The list of stores for this payment method
    *
    * @return storeIds The list of stores for this payment method
-   * @deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-   *     payment method is allowed.
+   * @deprecated since Management API v3 Use `storeId` instead. Only one store per payment method is
+   *     allowed.
    */
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getStoreIds() {
@@ -1181,11 +1178,10 @@ public class UpdatePaymentMethodInfo {
    * The list of stores for this payment method
    *
    * @param storeIds The list of stores for this payment method
-   * @deprecated since Management API v3 Use &#x60;storeId&#x60; instead. Only one store per payment
-   *     method is allowed.
+   * @deprecated since Management API v3 Use `storeId` instead. Only one store per payment method is
+   *     allowed.
    */
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {

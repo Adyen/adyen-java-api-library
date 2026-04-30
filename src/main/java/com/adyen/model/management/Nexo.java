@@ -49,8 +49,8 @@ public class Nexo {
   private boolean isSetEventUrls = false;
 
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
-  private List<String> nexoEventUrls;
+  /* deprecated since Management API v1: Use `eventUrls` instead. */
+  @Deprecated private List<String> nexoEventUrls;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetNexoEventUrls = false;
@@ -179,9 +179,9 @@ public class Nexo {
    *
    * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
-   * @deprecated since Management API v1 Use &#x60;eventUrls&#x60; instead.
+   * @deprecated since Management API v1 Use `eventUrls` instead.
    */
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
+  @Deprecated
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
     isSetNexoEventUrls = true; // mark as set
@@ -200,9 +200,9 @@ public class Nexo {
    * One or more URLs to send event messages to when using Terminal API.
    *
    * @return nexoEventUrls One or more URLs to send event messages to when using Terminal API.
-   * @deprecated // deprecated since Management API v1: Use `eventUrls` instead.
+   * @deprecated since Management API v1 Use `eventUrls` instead.
    */
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNexoEventUrls() {
@@ -213,9 +213,9 @@ public class Nexo {
    * One or more URLs to send event messages to when using Terminal API.
    *
    * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
-   * @deprecated since Management API v1 Use &#x60;eventUrls&#x60; instead.
+   * @deprecated since Management API v1 Use `eventUrls` instead.
    */
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexoEventUrls(List<String> nexoEventUrls) {
