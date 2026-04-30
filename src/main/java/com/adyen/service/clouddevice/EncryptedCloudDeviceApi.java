@@ -133,8 +133,7 @@ public class EncryptedCloudDeviceApi extends Service {
       return CloudDeviceApiResponse.fromJson(response);
     }
 
-    return CloudDeviceApiResponse.fromJson(
-        nexoSecurityManager.decrypt(saleToPOISecuredResponse));
+    return CloudDeviceApiResponse.fromJson(nexoSecurityManager.decrypt(saleToPOISecuredResponse));
   }
 
   /**
