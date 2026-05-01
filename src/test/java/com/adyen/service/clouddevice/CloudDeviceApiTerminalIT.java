@@ -54,7 +54,8 @@ public class CloudDeviceApiTerminalIT extends BaseIntegrationTest {
 
     Assertions.assertNotNull(response);
     Assertions.assertNotNull(response.getSaleToPOIResponse());
-    Assertions.assertEquals(getTerminalDeviceId(), response.getSaleToPOIResponse().getMessageHeader().getPOIID());
+    Assertions.assertEquals(
+        getTerminalDeviceId(), response.getSaleToPOIResponse().getMessageHeader().getPOIID());
   }
 
   @Disabled("Enable when you want to test with the Terminal")
@@ -96,7 +97,8 @@ public class CloudDeviceApiTerminalIT extends BaseIntegrationTest {
 
     Assertions.assertNotNull(response);
     Assertions.assertNotNull(response.getSaleToPOIResponse());
-    Assertions.assertEquals(getTerminalDeviceId(), response.getSaleToPOIResponse().getMessageHeader().getPOIID());
+    Assertions.assertEquals(
+        getTerminalDeviceId(), response.getSaleToPOIResponse().getMessageHeader().getPOIID());
   }
 
   @Disabled("Enable when you want to test with the Terminal")

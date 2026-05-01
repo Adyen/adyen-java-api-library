@@ -47,13 +47,13 @@ public class CurrencyConversion {
   private boolean isSetConvertedAmount = false;
 
   public static final String JSON_PROPERTY_RATE = "Rate";
-  private String rate;
+  private BigDecimal rate;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRate = false;
 
   public static final String JSON_PROPERTY_MARKUP = "Markup";
-  private String markup;
+  private BigDecimal markup;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMarkup = false;
@@ -160,7 +160,7 @@ public class CurrencyConversion {
    * @param rate Rate of currency conversion.
    * @return the current {@code CurrencyConversion} instance, allowing for method chaining
    */
-  public CurrencyConversion rate(String rate) {
+  public CurrencyConversion rate(BigDecimal rate) {
     this.rate = rate;
     isSetRate = true; // mark as set
     return this;
@@ -173,7 +173,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRate() {
+  public BigDecimal getRate() {
     return rate;
   }
 
@@ -184,7 +184,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRate(String rate) {
+  public void setRate(BigDecimal rate) {
     this.rate = rate;
     isSetRate = true; // mark as set
   }
@@ -195,7 +195,7 @@ public class CurrencyConversion {
    * @param markup Markup of a currency conversion amount as a percentage.
    * @return the current {@code CurrencyConversion} instance, allowing for method chaining
    */
-  public CurrencyConversion markup(String markup) {
+  public CurrencyConversion markup(BigDecimal markup) {
     this.markup = markup;
     isSetMarkup = true; // mark as set
     return this;
@@ -208,7 +208,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMarkup() {
+  public BigDecimal getMarkup() {
     return markup;
   }
 
@@ -219,7 +219,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarkup(String markup) {
+  public void setMarkup(BigDecimal markup) {
     this.markup = markup;
     isSetMarkup = true; // mark as set
   }
