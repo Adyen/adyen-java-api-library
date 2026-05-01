@@ -33,8 +33,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 /**
- * Terminal API for cloud integrations.
- * You should consider migrating to {@link com.adyen.service.clouddevice.CloudDeviceApi}.
+ * Terminal API for cloud integrations. You should consider migrating to {@link
+ * com.adyen.service.clouddevice.CloudDeviceApi}.
  */
 public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
 
