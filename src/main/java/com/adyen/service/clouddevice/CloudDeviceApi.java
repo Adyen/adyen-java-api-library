@@ -3,7 +3,6 @@ package com.adyen.service.clouddevice;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.RequestOptions;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.clouddevice.CloudDeviceApiAsyncResponse;
 import com.adyen.service.exception.ApiException;
@@ -142,7 +141,8 @@ public class CloudDeviceApi extends Service {
   /**
    * Get a list of connected devices
    *
-   * @param merchantAccount {@link String } The unique identifier of the merchant account. (required)
+   * @param merchantAccount {@link String } The unique identifier of the merchant account.
+   *     (required)
    * @return {@link ConnectedDevicesResponse }
    * @throws ApiException if fails to make API call
    */
@@ -154,7 +154,8 @@ public class CloudDeviceApi extends Service {
   /**
    * Get a list of connected devices
    *
-   * @param merchantAccount {@link String } The unique identifier of the merchant account. (required)
+   * @param merchantAccount {@link String } The unique identifier of the merchant account.
+   *     (required)
    * @param store {@link String } Query: The store ID of the store belonging to the merchant account
    *     specified in the path. (optional)
    * @return {@link ConnectedDevicesResponse }
