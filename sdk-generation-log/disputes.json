@@ -1,0 +1,8 @@
+{
+  "service": "disputes",
+  "project": "java",
+  "generatedAt": "2026-05-01T07:58:00Z",
+  "openapiCommitSha": "ec69ba3c5e5893b5bff377652eb0a65bdb9bdc24",
+  "automationCommitSha": "4c065f4314ebb286f05dc38fd80f19058281c63c",
+  "libraryCommitSha": "039fe6c5dfc76f775fbda396c7ac54498aa73770"
+}
