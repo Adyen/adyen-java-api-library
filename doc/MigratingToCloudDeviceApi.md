@@ -12,16 +12,16 @@ Because the Cloud device API models are generated from the spec rather than hand
 
 The Cloud device API introduces several improvements over the Terminal (Cloud) API:
 
-- **API logs in the Customer Area**: troubleshoot errors using the API logs available in your Adyen Customer Area.
+- **API logs in the Customer Area**: troubleshoot errors using the API logs available in your Customer Area.
 - **Versioned endpoints**: the API uses a version strategy for controlled and safer rollouts.
 - **Improved security**: supports OAuth authentication alongside API key authentication.
 - **Device management endpoints**: query connected devices and check their status directly from your integration.
-- **New features**: future In-Person Payments features and products will be released exclusively on the Cloud device API.
+- **New features**: new In-Person Payments features and products are released exclusively on the Cloud device API.
 
 ### Who should migrate?
 
 - **New integrations**: use the Cloud device API from the start. See the [Cloud device API documentation](CloudDeviceApi.md).
-- **Updating your cloud integration**: you should consider migrating to the Cloud device API to benefit from the improvements listed below.
+- **Updating your cloud integration**: consider migrating to the Cloud device API to benefit from the improvements listed below.
 - **Not making changes**: you can continue using the Terminal (Cloud) API. It remains functional, but you will miss out on the benefits of the Cloud device API.
 
 - **Generated from the OpenAPI specification**: unlike the hand-crafted Terminal (Cloud) API models, the Cloud device API is auto-generated from the [Adyen OpenAPI spec](https://github.com/Adyen/adyen-openapi). This brings consistency with every other service in the library (Checkout, Management, Transfers, etc.), ensures the models stay in sync with the API, and provides built-in `fromJson()`/`toJson()` serialization, fluent setters, and Jackson support out of the box.
@@ -99,7 +99,7 @@ Several enum classes are named differently in the Cloud device API to match the 
 | `TrackFormatType`           | `TrackFormat`             |
 | `TransactionActionType`     | `TransactionAction`       |
 
-**Note**: enums that already end with `Type` in the spec (e.g. `MessageType`, `TokenRequestedType`, `AccountType`) are **not** renamed.
+**Note**: enums that already end with `Type` in the spec (for example, `MessageType`, `TokenRequestedType`, `AccountType`) are **not** renamed.
 
 #### Model classes
 
@@ -130,7 +130,7 @@ Some field types differ in the generated models.
 The most common change. The Cloud device API models use `java.time.OffsetDateTime` for timestamp fields, whereas the Terminal (Cloud) API models use `XMLGregorianCalendar`.
 
 The key difference is how each type handles timezone information. `XMLGregorianCalendar` allows an undefined timezone: when constructed from `new GregorianCalendar()` without an explicit timezone, it inherits the JVM default. 
-This means the same wall-clock time (e.g. 14:30:00) could be serialized as `14:30:00+01:00` on a server in Amsterdam or `14:30:00-05:00` on one in New York — two different points in time. `OffsetDateTime` always carries an explicit offset, so `OffsetDateTime.now(ZoneOffset.UTC)` always serializes as `2025-01-15T14:30:00Z`, unambiguously.
+This means the same wall-clock time (for example, 14:30:00) could be serialized as `14:30:00+01:00` on a server in Amsterdam or `14:30:00-05:00` on one in New York — two different points in time. `OffsetDateTime` always carries an explicit offset, so `OffsetDateTime.now(ZoneOffset.UTC)` always serializes as `2025-01-15T14:30:00Z`, unambiguously.
 
 **Terminal (Cloud) API:**
 ```java
@@ -151,7 +151,7 @@ transactionIDType.setTimeStamp(OffsetDateTime.now(ZoneOffset.UTC));
 
 #### Date fields: `String` -> `LocalDate`
 
-Some date fields (e.g. `Instalment.firstPaymentDate`) use `java.time.LocalDate` in the Cloud device API instead of `String`.
+Some date fields (for example, `Instalment.firstPaymentDate`) use `java.time.LocalDate` in the Cloud device API instead of `String`.
 
 `LocalDate` has no timezone or offset information — it represents a calendar date only (year, month, day). When the library serializes a `LocalDate`, it uses the date as-is without any timezone conversion. 
 This means the date sent to the API is whatever date your system clock shows in its local timezone. If your server runs in a timezone that is behind UTC and the transaction happens near midnight UTC, the local date may be one day behind. 
@@ -176,7 +176,7 @@ instalment.setFirstPaymentDate(LocalDate.of(2025, 1, 15));
 
 #### Boolean helper methods
 
-The Terminal (Cloud) API `nexo` models include boolean helper methods with default values (e.g. `PaymentResult.isOnlineFlag()` defaulting to `true`). The Cloud device API `tapi` models do not include these convenience methods, so null checks are needed.
+The Terminal (Cloud) API `nexo` models include boolean helper methods with default values (for example, `PaymentResult.isOnlineFlag()` defaulting to `true`). The Cloud device API `tapi` models do not include these convenience methods, so null checks are needed.
 
 **Terminal (Cloud) API:**
 ```java
@@ -383,7 +383,7 @@ You can use `PredefinedContentHelper` to parse Display notification types which 
 ```java
 import com.adyen.util.tapi.PredefinedContentHelper;
 
-// Parse ReferenceID (i.e. key1=value1&key2=value2)
+// Parse ReferenceID (for example, key1=value1&key2=value2)
 PredefinedContentHelper helper = new PredefinedContentHelper(predefinedContent.getReferenceID());
 
 // Safely extract and use the event type with Optional
@@ -395,7 +395,7 @@ helper.getEvent().ifPresent(event -> {
     }
 });
 ```
-You shouldn't use `PredefinedContentHelper` from the (legacy) `nexo` folder.
+Do not use `PredefinedContentHelper` from the (legacy) `nexo` folder.
 
 ## Testing and validation
 Perform a thorough validation of the migration.
@@ -416,7 +416,7 @@ Perform a thorough validation of the migration.
 ### 3. Validate response handling
 
 - Check that `PaymentResponse`, `ReversalResponse`, and other response models deserialize without errors.
-- Verify that the accessor name changes (e.g. `getPoITransactionID()`) are correctly updated in your business logic.
+- Verify that the accessor name changes (for example, `getPoITransactionID()`) are correctly updated in your business logic.
 - Confirm that boolean field handling works correctly without the old default-value helpers.
 
 ### 4. Device management (new)
