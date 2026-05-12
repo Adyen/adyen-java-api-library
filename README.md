@@ -20,7 +20,7 @@ The Library supports all APIs under the following services:
 | [DataProtection API](https://docs.adyen.com/development-resources/data-protection-api)                                     | Adyen Data Protection API provides a way for you to process [Subject Erasure Requests](https://gdpr-info.eu/art-17-gdpr/) as mandated in GDPR. Use our API to submit a request to delete shopper's data, including payment details and other related information (for example, delivery address or shopper email)                                                                                                                                                      | DataProtection       | **v1**            |
 | [Disputes API](https://docs.adyen.com/api-explorer/Disputes/30/overview)                                                   | You can use the [Disputes API](https://docs.adyen.com/risk-management/disputes-api) to automate the dispute handling process so that you can respond to disputes and chargebacks as soon as they are initiated. The Disputes API lets you retrieve defense reasons, supply and delete defense documents, and accept or defend disputes.                                                                                                                                | DisputesApi          | **v30**           |
 | [Legal Entity Management API](https://docs.adyen.com/api-explorer/legalentity/4/overview)                                  | Manage legal entities that contain information required for verification.                                                                                                                                                                                                                                                                                                                                                                                              | legalentitymanagement package subclasses | **v4**            |
-| [Cloud Terminal API](https://docs.adyen.com/api-explorer/terminal-api/latest/overview)                                   | Our former point-of-sale solution for cloud integrations. You should consider migrating to the [Cloud device API](https://docs.adyen.com/api-explorer/cloud-device-api/latest/overview) for building your In-Person Payments cloud integration.                                                                                                                                                                                                                        | TerminalCloudAPI     | **v1**            |
+| [Cloud Terminal API](https://docs.adyen.com/api-explorer/terminal-api/latest/overview)                                   | Our former point-of-sale solution for cloud integrations. Consider migrating to the [Cloud device API](https://docs.adyen.com/api-explorer/cloud-device-api/latest/overview) for building your In-Person Payments cloud integration.                                                                                                                                                                                                                        | TerminalCloudAPI     | **v1**            |
 | [Local Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture)                | Our point-of-sale solution for local integrations.                                                                                                                                                                                                                                                                                                                                                                                                                     | TerminalLocalAPI | **v1**            |
 | [Management API](https://docs.adyen.com/api-explorer/Management/3/overview)                                                | Configure and manage your Adyen company and merchant accounts, stores, and payment terminals.                                                                                                                                                                                                                                                                                                                                                                          | management package subclasses | **v3**            |
 | [Open Banking API](https://docs.adyen.com/api-explorer/open-banking/1/overview)                                            | The Open Banking API provides secure endpoints to share financial data and services with third parties.                                                                                                                                                                                                                                                                                                                                                                | openbanking package subclasses | **v1**            |
@@ -65,7 +65,7 @@ the [API Explorer](https://docs.adyen.com/api-explorer/).
 
 * An [Adyen account](https://docs.adyen.com/get-started-with-adyen)
 * An [API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). 
-* Build on Java 11 or higher
+* Built on Java 11 or later
 
 ## Installation
 
@@ -292,7 +292,7 @@ if (!hmacValidator.validateHMAC(hmacsignature, hmacKey, payload)) {
    throw new RuntimeException("Invalid HMAC signature");
 }
 ~~~~
-Use then the relevant webhook handler (i.e. ConfigurationWebhooksHandler) to obtain the object representing the event:
+Then use the relevant webhook handler (for example, ConfigurationWebhooksHandler) to obtain the object representing the event:
 ~~~~ java
 ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(payload);
 // onAccountHolderNotificationRequest
@@ -360,8 +360,8 @@ The library provides configurable timeout settings on the `Config` object. These
 **Best practices:**
 
 - Always set explicit timeouts for production environments. The 60-second defaults may be too high for latency-sensitive services.
-- Set `readTimeoutMillis` to match your maximum acceptable API response time. For example, if your SLA requires failing fast on slow downstream calls, use a lower value (e.g. 10-15 seconds).
-- Keep `connectionTimeoutMillis` relatively low (e.g. 5-15 seconds) since a healthy server should accept connections quickly.
+- Set `readTimeoutMillis` to match your maximum acceptable API response time. For example, if your SLA requires failing fast on slow downstream calls, use a lower value (for example, 10-15 seconds).
+- Keep `connectionTimeoutMillis` relatively low (for example, 5-15 seconds) since a healthy server should accept connections quickly.
 
 ~~~~ java
 // Example: Configure timeouts via Config object
@@ -421,7 +421,7 @@ Check the [Cloud device API README](doc/CloudDeviceApi.md).
 With the [Terminal API](https://docs.adyen.com/api-explorer/terminal-api/1/overview) you can send and receive Terminal API messages in the following ways:
 
 * Local communications: using your local network, your POS system sends the request directly to the IP address of the terminal, and receives the result synchronously.
-* Cloud communications: using the internet to access the cloud `/sync` and `/async` endpoints. You should consider adopting the [Cloud device API](doc/CloudDeviceApi.md) instead.
+* Cloud communications: using the internet to access the cloud `/sync` and `/async` endpoints. Consider adopting the [Cloud device API](doc/CloudDeviceApi.md) instead.
 
 
 Check the [Terminal (Cloud) API README](doc/TerminalApi.md).
@@ -445,7 +445,7 @@ If you have a feature request, or spotted a bug or a technical problem, [create 
  
 For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/requests/new?ticket_form_id=39.0.0705420).
 
-## Licence
+## License
 This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/main/LICENSE).
  
  
