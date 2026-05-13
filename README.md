@@ -27,7 +27,7 @@ The Library supports all APIs under the following services:
 | [Payments API](https://docs.adyen.com/api-explorer/Payment/68/overview)                                                    | Our classic integration for online payments.                                                                                                                                                                                                                                                                                                                                                                                                                           | Payment              | **v68**           |
 | [Payments App API](https://docs.adyen.com/api-explorer/payments-app/1/overview)                                            | The Payments App API is used to Board and manage the Adyen Payments App on your Android mobile devices.                                                                                                                                                                                                                                                                                                                                                                | PaymentsAppApi       | **v1**            |
 | [Payouts API](https://docs.adyen.com/api-explorer/Payout/68/overview)                                                      | Endpoints for sending funds to your customers.                                                                                                                                                                                                                                                                                                                                                                                                                         | Payout               | **v68**           |
-| [POS Mobile API](https://docs.adyen.com/api-explorer/possdk/68/overview)                                                   | The POS Mobile API is used in the mutual authentication flow between an Adyen Android or iOS [POS Mobile SDK](https://docs.adyen.com/point-of-sale/ipp-mobile/) and the Adyen payments platform. The POS Mobile SDK for Android or iOS devices enables businesses to accept in-person payments using a commercial off-the-shelf (COTS) device like a phone. For example, Tap to Pay transactions, or transactions on a mobile device in combination with a card reader | POS Mobile           | **v68**           |
+| [POS Mobile API](https://docs.adyen.com/api-explorer/possdk/68/overview)                                                   | Use the POS Mobile API in the mutual authentication flow between an Adyen Android or iOS [POS Mobile SDK](https://docs.adyen.com/point-of-sale/ipp-mobile/) and the Adyen payments platform. The POS Mobile SDK for Android or iOS devices enables businesses to accept in-person payments using a commercial off-the-shelf (COTS) device like a phone. For example, Tap to Pay transactions, or transactions on a mobile device in combination with a card reader | POS Mobile           | **v68**           |
 | [~~POS Terminal Management API~~](https://docs.adyen.com/api-explorer/postfmapi/1/overview)                                | ~~Endpoints for managing your point-of-sale payment terminals.~~<br/>‼️ **Deprecated**: use instead the [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview) for the management of your terminal fleet.                                                                                                                                                                                                                                    | ~~TerminalManagement~~ | ~~**v1**~~        |
 | [Recurring API](https://docs.adyen.com/api-explorer/Recurring/68/overview)                                                 | Endpoints for managing saved payment details.                                                                                                                                                                                                                                                                                                                                                                                                                          | Recurring            | **v68**           |
 | [Session Authentication API](https://docs.adyen.com/api-explorer/sessionauthentication/1/overview)                         | Create and manage the JSON Web Tokens (JWT) required for integrating [Onboarding](https://docs.adyen.com/platforms/onboard-users/components) and [Platform Experience](https://docs.adyen.com/platforms/build-user-dashboards) components.                                                                                                                                                                                                                             | SessionAuthentication | **v1**            |
@@ -110,7 +110,7 @@ PaymentsApi paymentsApi = new PaymentsApi(client);
 CardDetails cardDetails =
     new CardDetails()
       .type(CardDetails.TypeEnum.SCHEME)
-      .encryptedCardNumber("5136333333333335")
+      .encryptedCardNumber("ENCRYPTED_CARD_NUMBER")
       .holderName("John Doe")
       .cvc("737")
       .encryptedExpiryMonth("08")
@@ -138,9 +138,9 @@ import com.adyen.enums.Environment;
 import com.adyen.service.checkout.PaymentLinksApi
 
 // Setup Client and Service passing prefix  
-Client client = new Client("Your username", "Your password", Environment.LIVE, "mycompany123");
+Client client = new Client("YOUR_USERNAME", "YOUR_PASSWORD", Environment.LIVE, "mycompany123");
 // Or setup Client and Service passing prefix and application name 
-//Client client = new Client("Your username", "Your password", Environment.LIVE, "mycompany123", "Your application name");
+//Client client = new Client("YOUR_USERNAME", "YOUR_PASSWORD", Environment.LIVE, "mycompany123", "YOUR_APPLICATION_NAME");
 
 PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
@@ -309,7 +309,7 @@ To deserialize Management Webhooks use instead the specific webhook handler `Man
 ~~~~ java
 ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(payload);
 // onMerchantCreatedNotificationRequest
-webhookHandler.getMerchantCreatedNotificationRequest().isPresent((MerchantCreatedNotificationRequest event) -> {
+webhookHandler.getMerchantCreatedNotificationRequest().ifPresent((MerchantCreatedNotificationRequest event) -> {
 System.out.println(event.getData().getMerchantId());
 });
 ~~~~
