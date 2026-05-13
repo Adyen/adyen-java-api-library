@@ -1,0 +1,8 @@
+{
+  "service": "checkout",
+  "project": "java",
+  "generatedAt": "2026-05-13T08:56:18Z",
+  "openapiCommitSha": "d422828d831ea1bcbb81e7fb483ea2811ff47848",
+  "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
+  "libraryCommitSha": "3653edbb62e06f986f9d010b6e9f0a9c5945cf6f"
+}

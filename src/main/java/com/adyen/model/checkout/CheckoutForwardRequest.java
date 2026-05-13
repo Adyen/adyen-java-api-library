@@ -21,6 +21,7 @@ import java.util.*;
 
 /** CheckoutForwardRequest */
 @JsonPropertyOrder({
+  CheckoutForwardRequest.JSON_PROPERTY_AMOUNT,
   CheckoutForwardRequest.JSON_PROPERTY_BASE_URL,
   CheckoutForwardRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   CheckoutForwardRequest.JSON_PROPERTY_MERCHANT_REFERENCE,
@@ -31,6 +32,12 @@ import java.util.*;
   CheckoutForwardRequest.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
 })
 public class CheckoutForwardRequest {
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
+  private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_BASE_URL = "baseUrl";
   private String baseUrl;
 
@@ -86,6 +93,41 @@ public class CheckoutForwardRequest {
   @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutForwardRequest() {}
+
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code CheckoutForwardRequest} instance, allowing for method chaining
+   */
+  public CheckoutForwardRequest amount(Amount amount) {
+    this.amount = amount;
+    isSetAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get amount
+   *
+   * @return amount
+   */
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Amount getAmount() {
+    return amount;
+  }
+
+  /**
+   * amount
+   *
+   * @param amount
+   */
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAmount(Amount amount) {
+    this.amount = amount;
+    isSetAmount = true; // mark as set
+  }
 
   /**
    * The base URL of the third party API, where Adyen will send the request to forward the payment
@@ -427,7 +469,9 @@ public class CheckoutForwardRequest {
       return false;
     }
     CheckoutForwardRequest checkoutForwardRequest = (CheckoutForwardRequest) o;
-    return Objects.equals(this.baseUrl, checkoutForwardRequest.baseUrl)
+    return Objects.equals(this.amount, checkoutForwardRequest.amount)
+        && Objects.equals(this.isSetAmount, checkoutForwardRequest.isSetAmount)
+        && Objects.equals(this.baseUrl, checkoutForwardRequest.baseUrl)
         && Objects.equals(this.isSetBaseUrl, checkoutForwardRequest.isSetBaseUrl)
         && Objects.equals(this.merchantAccount, checkoutForwardRequest.merchantAccount)
         && Objects.equals(this.isSetMerchantAccount, checkoutForwardRequest.isSetMerchantAccount)
@@ -450,6 +494,8 @@ public class CheckoutForwardRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
+        amount,
+        isSetAmount,
         baseUrl,
         isSetBaseUrl,
         merchantAccount,
@@ -472,6 +518,7 @@ public class CheckoutForwardRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckoutForwardRequest {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
@@ -506,6 +553,9 @@ public class CheckoutForwardRequest {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
     if (isSetBaseUrl) {
       addIfNull(nulls, JSON_PROPERTY_BASE_URL, this.baseUrl);
     }
