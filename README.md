@@ -65,7 +65,7 @@ the [API Explorer](https://docs.adyen.com/api-explorer/).
 
 * An [Adyen account](https://docs.adyen.com/get-started-with-adyen)
 * An [API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). 
-* Built on Java 11 or later
+* Java 11 or later
 
 ## Installation
 
