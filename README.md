@@ -360,7 +360,7 @@ The library provides configurable timeout settings on the `Config` object. These
 **Best practices:**
 
 - Always set explicit timeouts for production environments. The 60-second defaults may be too high for latency-sensitive services.
-- Set `readTimeoutMillis` to match your maximum acceptable API response time. For example, if your SLA requires failing fast on slow downstream calls, use a lower value (for example, 10-15 seconds).
+- Set readTimeoutMillis to match your maximum acceptable API response time. For example, if your SLA requires failing fast on slow downstream calls, use a lower value such as 10-15 seconds.
 - Keep `connectionTimeoutMillis` relatively low (for example, 5-15 seconds) since a healthy server should accept connections quickly.
 
 ~~~~ java
