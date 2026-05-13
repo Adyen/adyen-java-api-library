@@ -35,6 +35,8 @@ jobs:
             ${{ runner.os }}-m2-
       - name: Check code style
         run: mvn -B checkstyle:check --no-transfer-progress
+      - name: Check Java Formatting
+        run: mvn spotless:check --no-transfer-progress
 
   java-test:
     name: Build and Test
