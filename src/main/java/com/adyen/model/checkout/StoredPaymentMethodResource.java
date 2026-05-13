@@ -23,6 +23,8 @@ import java.util.List;
 
 /** StoredPaymentMethodResource */
 @JsonPropertyOrder({
+  StoredPaymentMethodResource.JSON_PROPERTY_ALIAS,
+  StoredPaymentMethodResource.JSON_PROPERTY_ALIAS_TYPE,
   StoredPaymentMethodResource.JSON_PROPERTY_BRAND,
   StoredPaymentMethodResource.JSON_PROPERTY_CARD_BIN,
   StoredPaymentMethodResource.JSON_PROPERTY_EXPIRY_MONTH,
@@ -44,6 +46,18 @@ import java.util.List;
   StoredPaymentMethodResource.JSON_PROPERTY_TYPE
 })
 public class StoredPaymentMethodResource {
+  public static final String JSON_PROPERTY_ALIAS = "alias";
+  private String alias;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlias = false;
+
+  public static final String JSON_PROPERTY_ALIAS_TYPE = "aliasType";
+  private String aliasType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAliasType = false;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
@@ -166,6 +180,88 @@ public class StoredPaymentMethodResource {
   @JsonIgnore private boolean includeNullValues = false;
 
   public StoredPaymentMethodResource() {}
+
+  /**
+   * The alias of the credit card number. Applies only to recurring contracts storing credit card
+   * details
+   *
+   * @param alias The alias of the credit card number. Applies only to recurring contracts storing
+   *     credit card details
+   * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
+   */
+  public StoredPaymentMethodResource alias(String alias) {
+    this.alias = alias;
+    isSetAlias = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The alias of the credit card number. Applies only to recurring contracts storing credit card
+   * details
+   *
+   * @return alias The alias of the credit card number. Applies only to recurring contracts storing
+   *     credit card details
+   */
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAlias() {
+    return alias;
+  }
+
+  /**
+   * The alias of the credit card number. Applies only to recurring contracts storing credit card
+   * details
+   *
+   * @param alias The alias of the credit card number. Applies only to recurring contracts storing
+   *     credit card details
+   */
+  @JsonProperty(JSON_PROPERTY_ALIAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlias(String alias) {
+    this.alias = alias;
+    isSetAlias = true; // mark as set
+  }
+
+  /**
+   * The alias type of the credit card number. Applies only to recurring contracts storing credit
+   * card details.
+   *
+   * @param aliasType The alias type of the credit card number. Applies only to recurring contracts
+   *     storing credit card details.
+   * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
+   */
+  public StoredPaymentMethodResource aliasType(String aliasType) {
+    this.aliasType = aliasType;
+    isSetAliasType = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The alias type of the credit card number. Applies only to recurring contracts storing credit
+   * card details.
+   *
+   * @return aliasType The alias type of the credit card number. Applies only to recurring contracts
+   *     storing credit card details.
+   */
+  @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAliasType() {
+    return aliasType;
+  }
+
+  /**
+   * The alias type of the credit card number. Applies only to recurring contracts storing credit
+   * card details.
+   *
+   * @param aliasType The alias type of the credit card number. Applies only to recurring contracts
+   *     storing credit card details.
+   */
+  @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAliasType(String aliasType) {
+    this.aliasType = aliasType;
+    isSetAliasType = true; // mark as set
+  }
 
   /**
    * The brand of the card.
@@ -957,7 +1053,11 @@ public class StoredPaymentMethodResource {
       return false;
     }
     StoredPaymentMethodResource storedPaymentMethodResource = (StoredPaymentMethodResource) o;
-    return Objects.equals(this.brand, storedPaymentMethodResource.brand)
+    return Objects.equals(this.alias, storedPaymentMethodResource.alias)
+        && Objects.equals(this.isSetAlias, storedPaymentMethodResource.isSetAlias)
+        && Objects.equals(this.aliasType, storedPaymentMethodResource.aliasType)
+        && Objects.equals(this.isSetAliasType, storedPaymentMethodResource.isSetAliasType)
+        && Objects.equals(this.brand, storedPaymentMethodResource.brand)
         && Objects.equals(this.isSetBrand, storedPaymentMethodResource.isSetBrand)
         && Objects.equals(this.cardBin, storedPaymentMethodResource.cardBin)
         && Objects.equals(this.isSetCardBin, storedPaymentMethodResource.isSetCardBin)
@@ -1011,6 +1111,10 @@ public class StoredPaymentMethodResource {
   @Override
   public int hashCode() {
     return Objects.hash(
+        alias,
+        isSetAlias,
+        aliasType,
+        isSetAliasType,
         brand,
         isSetBrand,
         cardBin,
@@ -1055,6 +1159,8 @@ public class StoredPaymentMethodResource {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoredPaymentMethodResource {\n");
+    sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
+    sb.append("    aliasType: ").append(toIndentedString(aliasType)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
@@ -1104,6 +1210,12 @@ public class StoredPaymentMethodResource {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAlias) {
+      addIfNull(nulls, JSON_PROPERTY_ALIAS, this.alias);
+    }
+    if (isSetAliasType) {
+      addIfNull(nulls, JSON_PROPERTY_ALIAS_TYPE, this.aliasType);
+    }
     if (isSetBrand) {
       addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
     }

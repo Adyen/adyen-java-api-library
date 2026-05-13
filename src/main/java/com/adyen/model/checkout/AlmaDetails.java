@@ -23,27 +23,66 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** PayPayDetails */
+/** AlmaDetails */
 @JsonPropertyOrder({
-  PayPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  PayPayDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  PayPayDetails.JSON_PROPERTY_SDK_DATA,
-  PayPayDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  PayPayDetails.JSON_PROPERTY_TYPE
+  AlmaDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  AlmaDetails.JSON_PROPERTY_FEE_TYPE,
+  AlmaDetails.JSON_PROPERTY_SDK_DATA,
+  AlmaDetails.JSON_PROPERTY_TYPE
 })
-public class PayPayDetails {
+public class AlmaDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
 
-  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
-  @Deprecated private String recurringDetailReference;
+  /** **Alma payment request fee type** */
+  public enum FeeTypeEnum {
+    MERCHANTPAYS(String.valueOf("merchantPays")),
+
+    SHOPPERPAYS(String.valueOf("shopperPays"));
+
+    private static final Logger LOG = Logger.getLogger(FeeTypeEnum.class.getName());
+
+    private String value;
+
+    FeeTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FeeTypeEnum fromValue(String value) {
+      for (FeeTypeEnum b : FeeTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "FeeTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FeeTypeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_FEE_TYPE = "feeType";
+  private FeeTypeEnum feeType;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetRecurringDetailReference = false;
+  private boolean isSetFeeType = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
@@ -51,15 +90,9 @@ public class PayPayDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSdkData = false;
 
-  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
-  private String storedPaymentMethodId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetStoredPaymentMethodId = false;
-
-  /** **paypay** */
+  /** The payment method type. */
   public enum TypeEnum {
-    PAYPAY(String.valueOf("paypay"));
+    ALMA(String.valueOf("alma"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -108,15 +141,15 @@ public class PayPayDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public PayPayDetails() {}
+  public AlmaDetails() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code PayPayDetails} instance, allowing for method chaining
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  public PayPayDetails checkoutAttemptId(String checkoutAttemptId) {
+  public AlmaDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -146,59 +179,47 @@ public class PayPayDetails {
   }
 
   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
-   * token.
+   * **Alma payment request fee type**
    *
-   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
-   *     the response when you created the token.
-   * @return the current {@code PayPayDetails} instance, allowing for method chaining
-   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
+   * @param feeType **Alma payment request fee type**
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  @Deprecated
-  public PayPayDetails recurringDetailReference(String recurringDetailReference) {
-    this.recurringDetailReference = recurringDetailReference;
-    isSetRecurringDetailReference = true; // mark as set
+  public AlmaDetails feeType(FeeTypeEnum feeType) {
+    this.feeType = feeType;
+    isSetFeeType = true; // mark as set
     return this;
   }
 
   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
-   * token.
+   * **Alma payment request fee type**
    *
-   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
-   *     the response when you created the token.
-   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
+   * @return feeType **Alma payment request fee type**
    */
-  @Deprecated
-  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonProperty(JSON_PROPERTY_FEE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRecurringDetailReference() {
-    return recurringDetailReference;
+  public FeeTypeEnum getFeeType() {
+    return feeType;
   }
 
   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
-   * token.
+   * **Alma payment request fee type**
    *
-   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
-   *     the response when you created the token.
-   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
+   * @param feeType **Alma payment request fee type**
    */
-  @Deprecated
-  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonProperty(JSON_PROPERTY_FEE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecurringDetailReference(String recurringDetailReference) {
-    this.recurringDetailReference = recurringDetailReference;
-    isSetRecurringDetailReference = true; // mark as set
+  public void setFeeType(FeeTypeEnum feeType) {
+    this.feeType = feeType;
+    isSetFeeType = true; // mark as set
   }
 
   /**
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code PayPayDetails} instance, allowing for method chaining
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  public PayPayDetails sdkData(String sdkData) {
+  public AlmaDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -229,62 +250,21 @@ public class PayPayDetails {
   }
 
   /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
-   * token.
+   * The payment method type.
    *
-   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
-   *     response when you created the token.
-   * @return the current {@code PayPayDetails} instance, allowing for method chaining
+   * @param type The payment method type.
+   * @return the current {@code AlmaDetails} instance, allowing for method chaining
    */
-  public PayPayDetails storedPaymentMethodId(String storedPaymentMethodId) {
-    this.storedPaymentMethodId = storedPaymentMethodId;
-    isSetStoredPaymentMethodId = true; // mark as set
-    return this;
-  }
-
-  /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
-   * token.
-   *
-   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
-   *     response when you created the token.
-   */
-  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStoredPaymentMethodId() {
-    return storedPaymentMethodId;
-  }
-
-  /**
-   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
-   * token.
-   *
-   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
-   *     response when you created the token.
-   */
-  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
-    this.storedPaymentMethodId = storedPaymentMethodId;
-    isSetStoredPaymentMethodId = true; // mark as set
-  }
-
-  /**
-   * **paypay**
-   *
-   * @param type **paypay**
-   * @return the current {@code PayPayDetails} instance, allowing for method chaining
-   */
-  public PayPayDetails type(TypeEnum type) {
+  public AlmaDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * **paypay**
+   * The payment method type.
    *
-   * @return type **paypay**
+   * @return type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,9 +273,9 @@ public class PayPayDetails {
   }
 
   /**
-   * **paypay**
+   * The payment method type.
    *
-   * @param type **paypay**
+   * @param type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +287,7 @@ public class PayPayDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public PayPayDetails includeNullValues(boolean includeNullValues) {
+  public AlmaDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -324,7 +304,7 @@ public class PayPayDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this PayPayDetails object is equal to o. */
+  /** Return true if this AlmaDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -333,18 +313,15 @@ public class PayPayDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayPayDetails payPayDetails = (PayPayDetails) o;
-    return Objects.equals(this.checkoutAttemptId, payPayDetails.checkoutAttemptId)
-        && Objects.equals(this.isSetCheckoutAttemptId, payPayDetails.isSetCheckoutAttemptId)
-        && Objects.equals(this.recurringDetailReference, payPayDetails.recurringDetailReference)
-        && Objects.equals(
-            this.isSetRecurringDetailReference, payPayDetails.isSetRecurringDetailReference)
-        && Objects.equals(this.sdkData, payPayDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, payPayDetails.isSetSdkData)
-        && Objects.equals(this.storedPaymentMethodId, payPayDetails.storedPaymentMethodId)
-        && Objects.equals(this.isSetStoredPaymentMethodId, payPayDetails.isSetStoredPaymentMethodId)
-        && Objects.equals(this.type, payPayDetails.type)
-        && Objects.equals(this.isSetType, payPayDetails.isSetType);
+    AlmaDetails almaDetails = (AlmaDetails) o;
+    return Objects.equals(this.checkoutAttemptId, almaDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, almaDetails.isSetCheckoutAttemptId)
+        && Objects.equals(this.feeType, almaDetails.feeType)
+        && Objects.equals(this.isSetFeeType, almaDetails.isSetFeeType)
+        && Objects.equals(this.sdkData, almaDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, almaDetails.isSetSdkData)
+        && Objects.equals(this.type, almaDetails.type)
+        && Objects.equals(this.isSetType, almaDetails.isSetType);
   }
 
   @Override
@@ -352,12 +329,10 @@ public class PayPayDetails {
     return Objects.hash(
         checkoutAttemptId,
         isSetCheckoutAttemptId,
-        recurringDetailReference,
-        isSetRecurringDetailReference,
+        feeType,
+        isSetFeeType,
         sdkData,
         isSetSdkData,
-        storedPaymentMethodId,
-        isSetStoredPaymentMethodId,
         type,
         isSetType);
   }
@@ -365,15 +340,10 @@ public class PayPayDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayPayDetails {\n");
+    sb.append("class AlmaDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
-    sb.append("    recurringDetailReference: ")
-        .append(toIndentedString(recurringDetailReference))
-        .append("\n");
+    sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
-    sb.append("    storedPaymentMethodId: ")
-        .append(toIndentedString(storedPaymentMethodId))
-        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -402,14 +372,11 @@ public class PayPayDetails {
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
-    if (isSetRecurringDetailReference) {
-      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    if (isSetFeeType) {
+      addIfNull(nulls, JSON_PROPERTY_FEE_TYPE, this.feeType);
     }
     if (isSetSdkData) {
       addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
-    }
-    if (isSetStoredPaymentMethodId) {
-      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
@@ -426,18 +393,18 @@ public class PayPayDetails {
   }
 
   /**
-   * Create an instance of PayPayDetails given an JSON string
+   * Create an instance of AlmaDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PayPayDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PayPayDetails
+   * @return An instance of AlmaDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to AlmaDetails
    */
-  public static PayPayDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PayPayDetails.class);
+  public static AlmaDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, AlmaDetails.class);
   }
 
   /**
-   * Convert an instance of PayPayDetails to an JSON string
+   * Convert an instance of AlmaDetails to an JSON string
    *
    * @return JSON string
    */

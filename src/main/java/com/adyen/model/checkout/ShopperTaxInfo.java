@@ -21,21 +21,21 @@ import java.util.*;
 
 /** ShopperTaxInfo */
 @JsonPropertyOrder({
-  ShopperTaxInfo.JSON_PROPERTY_TAX_ID,
-  ShopperTaxInfo.JSON_PROPERTY_TAX_ID_COUNTRY_CODE
+  ShopperTaxInfo.JSON_PROPERTY_TAX_COUNTRY_CODE,
+  ShopperTaxInfo.JSON_PROPERTY_TAX_IDENTIFICATION_NUMBER
 })
 public class ShopperTaxInfo {
-  public static final String JSON_PROPERTY_TAX_ID = "taxId";
-  private String taxId;
+  public static final String JSON_PROPERTY_TAX_COUNTRY_CODE = "taxCountryCode";
+  private String taxCountryCode;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTaxId = false;
+  private boolean isSetTaxCountryCode = false;
 
-  public static final String JSON_PROPERTY_TAX_ID_COUNTRY_CODE = "taxIdCountryCode";
-  private String taxIdCountryCode;
+  public static final String JSON_PROPERTY_TAX_IDENTIFICATION_NUMBER = "taxIdentificationNumber";
+  private String taxIdentificationNumber;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetTaxIdCountryCode = false;
+  private boolean isSetTaxIdentificationNumber = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -46,73 +46,88 @@ public class ShopperTaxInfo {
   public ShopperTaxInfo() {}
 
   /**
-   * The tax-id of the shopper doing the transaction.
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * country code associated with the provided tax identification number. Currently used only for
+   * Indian PA-CB tax verification, when applicable.
    *
-   * @param taxId The tax-id of the shopper doing the transaction.
+   * @param taxCountryCode The two-character [ISO 3166-1
+   *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code associated with the
+   *     provided tax identification number. Currently used only for Indian PA-CB tax verification,
+   *     when applicable.
    * @return the current {@code ShopperTaxInfo} instance, allowing for method chaining
    */
-  public ShopperTaxInfo taxId(String taxId) {
-    this.taxId = taxId;
-    isSetTaxId = true; // mark as set
+  public ShopperTaxInfo taxCountryCode(String taxCountryCode) {
+    this.taxCountryCode = taxCountryCode;
+    isSetTaxCountryCode = true; // mark as set
     return this;
   }
 
   /**
-   * The tax-id of the shopper doing the transaction.
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * country code associated with the provided tax identification number. Currently used only for
+   * Indian PA-CB tax verification, when applicable.
    *
-   * @return taxId The tax-id of the shopper doing the transaction.
+   * @return taxCountryCode The two-character [ISO 3166-1
+   *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code associated with the
+   *     provided tax identification number. Currently used only for Indian PA-CB tax verification,
+   *     when applicable.
    */
-  @JsonProperty(JSON_PROPERTY_TAX_ID)
+  @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTaxId() {
-    return taxId;
+  public String getTaxCountryCode() {
+    return taxCountryCode;
   }
 
   /**
-   * The tax-id of the shopper doing the transaction.
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * country code associated with the provided tax identification number. Currently used only for
+   * Indian PA-CB tax verification, when applicable.
    *
-   * @param taxId The tax-id of the shopper doing the transaction.
+   * @param taxCountryCode The two-character [ISO 3166-1
+   *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code associated with the
+   *     provided tax identification number. Currently used only for Indian PA-CB tax verification,
+   *     when applicable.
    */
-  @JsonProperty(JSON_PROPERTY_TAX_ID)
+  @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxId(String taxId) {
-    this.taxId = taxId;
-    isSetTaxId = true; // mark as set
+  public void setTaxCountryCode(String taxCountryCode) {
+    this.taxCountryCode = taxCountryCode;
+    isSetTaxCountryCode = true; // mark as set
   }
 
   /**
-   * The country to which the tax-id belongs to.
+   * The shopper’s tax identification number.
    *
-   * @param taxIdCountryCode The country to which the tax-id belongs to.
+   * @param taxIdentificationNumber The shopper’s tax identification number.
    * @return the current {@code ShopperTaxInfo} instance, allowing for method chaining
    */
-  public ShopperTaxInfo taxIdCountryCode(String taxIdCountryCode) {
-    this.taxIdCountryCode = taxIdCountryCode;
-    isSetTaxIdCountryCode = true; // mark as set
+  public ShopperTaxInfo taxIdentificationNumber(String taxIdentificationNumber) {
+    this.taxIdentificationNumber = taxIdentificationNumber;
+    isSetTaxIdentificationNumber = true; // mark as set
     return this;
   }
 
   /**
-   * The country to which the tax-id belongs to.
+   * The shopper’s tax identification number.
    *
-   * @return taxIdCountryCode The country to which the tax-id belongs to.
+   * @return taxIdentificationNumber The shopper’s tax identification number.
    */
-  @JsonProperty(JSON_PROPERTY_TAX_ID_COUNTRY_CODE)
+  @JsonProperty(JSON_PROPERTY_TAX_IDENTIFICATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTaxIdCountryCode() {
-    return taxIdCountryCode;
+  public String getTaxIdentificationNumber() {
+    return taxIdentificationNumber;
   }
 
   /**
-   * The country to which the tax-id belongs to.
+   * The shopper’s tax identification number.
    *
-   * @param taxIdCountryCode The country to which the tax-id belongs to.
+   * @param taxIdentificationNumber The shopper’s tax identification number.
    */
-  @JsonProperty(JSON_PROPERTY_TAX_ID_COUNTRY_CODE)
+  @JsonProperty(JSON_PROPERTY_TAX_IDENTIFICATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxIdCountryCode(String taxIdCountryCode) {
-    this.taxIdCountryCode = taxIdCountryCode;
-    isSetTaxIdCountryCode = true; // mark as set
+  public void setTaxIdentificationNumber(String taxIdentificationNumber) {
+    this.taxIdentificationNumber = taxIdentificationNumber;
+    isSetTaxIdentificationNumber = true; // mark as set
   }
 
   /**
@@ -145,23 +160,27 @@ public class ShopperTaxInfo {
       return false;
     }
     ShopperTaxInfo shopperTaxInfo = (ShopperTaxInfo) o;
-    return Objects.equals(this.taxId, shopperTaxInfo.taxId)
-        && Objects.equals(this.isSetTaxId, shopperTaxInfo.isSetTaxId)
-        && Objects.equals(this.taxIdCountryCode, shopperTaxInfo.taxIdCountryCode)
-        && Objects.equals(this.isSetTaxIdCountryCode, shopperTaxInfo.isSetTaxIdCountryCode);
+    return Objects.equals(this.taxCountryCode, shopperTaxInfo.taxCountryCode)
+        && Objects.equals(this.isSetTaxCountryCode, shopperTaxInfo.isSetTaxCountryCode)
+        && Objects.equals(this.taxIdentificationNumber, shopperTaxInfo.taxIdentificationNumber)
+        && Objects.equals(
+            this.isSetTaxIdentificationNumber, shopperTaxInfo.isSetTaxIdentificationNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taxId, isSetTaxId, taxIdCountryCode, isSetTaxIdCountryCode);
+    return Objects.hash(
+        taxCountryCode, isSetTaxCountryCode, taxIdentificationNumber, isSetTaxIdentificationNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShopperTaxInfo {\n");
-    sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
-    sb.append("    taxIdCountryCode: ").append(toIndentedString(taxIdCountryCode)).append("\n");
+    sb.append("    taxCountryCode: ").append(toIndentedString(taxCountryCode)).append("\n");
+    sb.append("    taxIdentificationNumber: ")
+        .append(toIndentedString(taxIdentificationNumber))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -186,11 +205,11 @@ public class ShopperTaxInfo {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetTaxId) {
-      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    if (isSetTaxCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_COUNTRY_CODE, this.taxCountryCode);
     }
-    if (isSetTaxIdCountryCode) {
-      addIfNull(nulls, JSON_PROPERTY_TAX_ID_COUNTRY_CODE, this.taxIdCountryCode);
+    if (isSetTaxIdentificationNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_IDENTIFICATION_NUMBER, this.taxIdentificationNumber);
     }
 
     return nulls;

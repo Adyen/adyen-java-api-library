@@ -23,20 +23,35 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** StoredPaymentMethodDetails */
+/** PixPayByBankDetails */
 @JsonPropertyOrder({
-  StoredPaymentMethodDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  StoredPaymentMethodDetails.JSON_PROPERTY_SDK_DATA,
-  StoredPaymentMethodDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_TYPE
+  PixPayByBankDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  PixPayByBankDetails.JSON_PROPERTY_DEVICE_ID,
+  PixPayByBankDetails.JSON_PROPERTY_ISSUER,
+  PixPayByBankDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  PixPayByBankDetails.JSON_PROPERTY_RISK_SIGNALS,
+  PixPayByBankDetails.JSON_PROPERTY_SDK_DATA,
+  PixPayByBankDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  PixPayByBankDetails.JSON_PROPERTY_TYPE
 })
-public class StoredPaymentMethodDetails {
+public class PixPayByBankDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
+
+  public static final String JSON_PROPERTY_DEVICE_ID = "deviceId";
+  private String deviceId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceId = false;
+
+  public static final String JSON_PROPERTY_ISSUER = "issuer";
+  private String issuer;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIssuer = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
@@ -44,6 +59,12 @@ public class StoredPaymentMethodDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringDetailReference = false;
+
+  public static final String JSON_PROPERTY_RISK_SIGNALS = "riskSignals";
+  private PixPayByBankRiskSignals riskSignals;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskSignals = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
@@ -57,67 +78,9 @@ public class StoredPaymentMethodDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoredPaymentMethodId = false;
 
-  /** The payment method type. */
+  /** **paybybank_pix** */
   public enum TypeEnum {
-    ALIPAY_PLUS(String.valueOf("alipay_plus")),
-
-    ALIPAY_PLUS_ALIPAY_CN(String.valueOf("alipay_plus_alipay_cn")),
-
-    ALIPAY_PLUS_ALIPAY_HK(String.valueOf("alipay_plus_alipay_hk")),
-
-    ALIPAY_PLUS_DANA(String.valueOf("alipay_plus_dana")),
-
-    ALIPAY_PLUS_GCASH(String.valueOf("alipay_plus_gcash")),
-
-    ALIPAY_PLUS_KAKAOPAY(String.valueOf("alipay_plus_kakaopay")),
-
-    ALIPAY_PLUS_KPLUS(String.valueOf("alipay_plus_kplus")),
-
-    ALIPAY_PLUS_NAVERPAY(String.valueOf("alipay_plus_naverpay")),
-
-    ALIPAY_PLUS_RABBITLINEPAY(String.valueOf("alipay_plus_rabbitlinepay")),
-
-    ALIPAY_PLUS_TOSSPAY(String.valueOf("alipay_plus_tosspay")),
-
-    ALIPAY_PLUS_TOUCHNGO(String.valueOf("alipay_plus_touchngo")),
-
-    ALIPAY_PLUS_TRUEMONEY(String.valueOf("alipay_plus_truemoney")),
-
-    BCMC_MOBILE(String.valueOf("bcmc_mobile")),
-
-    BCMC_MOBILE_QR(String.valueOf("bcmc_mobile_QR")),
-
-    BCMC_MOBILE_APP(String.valueOf("bcmc_mobile_app")),
-
-    MOMO_WALLET(String.valueOf("momo_wallet")),
-
-    MOMO_WALLET_APP(String.valueOf("momo_wallet_app")),
-
-    PAYMAYA_WALLET(String.valueOf("paymaya_wallet")),
-
-    GRABPAY_SG(String.valueOf("grabpay_SG")),
-
-    GRABPAY_MY(String.valueOf("grabpay_MY")),
-
-    GRABPAY_TH(String.valueOf("grabpay_TH")),
-
-    GRABPAY_ID(String.valueOf("grabpay_ID")),
-
-    GRABPAY_VN(String.valueOf("grabpay_VN")),
-
-    GRABPAY_PH(String.valueOf("grabpay_PH")),
-
-    OXXO(String.valueOf("oxxo")),
-
-    GCASH(String.valueOf("gcash")),
-
-    DANA(String.valueOf("dana")),
-
-    KAKAOPAY(String.valueOf("kakaopay")),
-
-    TRUEMONEY(String.valueOf("truemoney")),
-
-    PAYSAFECARD(String.valueOf("paysafecard"));
+    PAYBYBANK_PIX(String.valueOf("paybybank_pix"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -166,15 +129,15 @@ public class StoredPaymentMethodDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredPaymentMethodDetails() {}
+  public PixPayByBankDetails() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails checkoutAttemptId(String checkoutAttemptId) {
+  public PixPayByBankDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -204,16 +167,86 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
+   * deviceId
+   *
+   * @param deviceId
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
+   */
+  public PixPayByBankDetails deviceId(String deviceId) {
+    this.deviceId = deviceId;
+    isSetDeviceId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get deviceId
+   *
+   * @return deviceId
+   */
+  @JsonProperty(JSON_PROPERTY_DEVICE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDeviceId() {
+    return deviceId;
+  }
+
+  /**
+   * deviceId
+   *
+   * @param deviceId
+   */
+  @JsonProperty(JSON_PROPERTY_DEVICE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeviceId(String deviceId) {
+    this.deviceId = deviceId;
+    isSetDeviceId = true; // mark as set
+  }
+
+  /**
+   * issuer
+   *
+   * @param issuer
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
+   */
+  public PixPayByBankDetails issuer(String issuer) {
+    this.issuer = issuer;
+    isSetIssuer = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get issuer
+   *
+   * @return issuer
+   */
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIssuer() {
+    return issuer;
+  }
+
+  /**
+   * issuer
+   *
+   * @param issuer
+   */
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIssuer(String issuer) {
+    this.issuer = issuer;
+    isSetIssuer = true; // mark as set
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
   @Deprecated
-  public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
+  public PixPayByBankDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -251,12 +284,47 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
+   * riskSignals
+   *
+   * @param riskSignals
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
+   */
+  public PixPayByBankDetails riskSignals(PixPayByBankRiskSignals riskSignals) {
+    this.riskSignals = riskSignals;
+    isSetRiskSignals = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get riskSignals
+   *
+   * @return riskSignals
+   */
+  @JsonProperty(JSON_PROPERTY_RISK_SIGNALS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PixPayByBankRiskSignals getRiskSignals() {
+    return riskSignals;
+  }
+
+  /**
+   * riskSignals
+   *
+   * @param riskSignals
+   */
+  @JsonProperty(JSON_PROPERTY_RISK_SIGNALS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRiskSignals(PixPayByBankRiskSignals riskSignals) {
+    this.riskSignals = riskSignals;
+    isSetRiskSignals = true; // mark as set
+  }
+
+  /**
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails sdkData(String sdkData) {
+  public PixPayByBankDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -292,9 +360,9 @@ public class StoredPaymentMethodDetails {
    *
    * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
    *     response when you created the token.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public PixPayByBankDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     isSetStoredPaymentMethodId = true; // mark as set
     return this;
@@ -328,21 +396,21 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * The payment method type.
+   * **paybybank_pix**
    *
-   * @param type The payment method type.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @param type **paybybank_pix**
+   * @return the current {@code PixPayByBankDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails type(TypeEnum type) {
+  public PixPayByBankDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * The payment method type.
+   * **paybybank_pix**
    *
-   * @return type The payment method type.
+   * @return type **paybybank_pix**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,9 +419,9 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * The payment method type.
+   * **paybybank_pix**
    *
-   * @param type The payment method type.
+   * @param type **paybybank_pix**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +433,7 @@ public class StoredPaymentMethodDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredPaymentMethodDetails includeNullValues(boolean includeNullValues) {
+  public PixPayByBankDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -382,7 +450,7 @@ public class StoredPaymentMethodDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredPaymentMethodDetails object is equal to o. */
+  /** Return true if this PixPayByBankDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -391,23 +459,26 @@ public class StoredPaymentMethodDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredPaymentMethodDetails storedPaymentMethodDetails = (StoredPaymentMethodDetails) o;
-    return Objects.equals(this.checkoutAttemptId, storedPaymentMethodDetails.checkoutAttemptId)
+    PixPayByBankDetails pixPayByBankDetails = (PixPayByBankDetails) o;
+    return Objects.equals(this.checkoutAttemptId, pixPayByBankDetails.checkoutAttemptId)
+        && Objects.equals(this.isSetCheckoutAttemptId, pixPayByBankDetails.isSetCheckoutAttemptId)
+        && Objects.equals(this.deviceId, pixPayByBankDetails.deviceId)
+        && Objects.equals(this.isSetDeviceId, pixPayByBankDetails.isSetDeviceId)
+        && Objects.equals(this.issuer, pixPayByBankDetails.issuer)
+        && Objects.equals(this.isSetIssuer, pixPayByBankDetails.isSetIssuer)
         && Objects.equals(
-            this.isSetCheckoutAttemptId, storedPaymentMethodDetails.isSetCheckoutAttemptId)
+            this.recurringDetailReference, pixPayByBankDetails.recurringDetailReference)
         && Objects.equals(
-            this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference)
+            this.isSetRecurringDetailReference, pixPayByBankDetails.isSetRecurringDetailReference)
+        && Objects.equals(this.riskSignals, pixPayByBankDetails.riskSignals)
+        && Objects.equals(this.isSetRiskSignals, pixPayByBankDetails.isSetRiskSignals)
+        && Objects.equals(this.sdkData, pixPayByBankDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, pixPayByBankDetails.isSetSdkData)
+        && Objects.equals(this.storedPaymentMethodId, pixPayByBankDetails.storedPaymentMethodId)
         && Objects.equals(
-            this.isSetRecurringDetailReference,
-            storedPaymentMethodDetails.isSetRecurringDetailReference)
-        && Objects.equals(this.sdkData, storedPaymentMethodDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, storedPaymentMethodDetails.isSetSdkData)
-        && Objects.equals(
-            this.storedPaymentMethodId, storedPaymentMethodDetails.storedPaymentMethodId)
-        && Objects.equals(
-            this.isSetStoredPaymentMethodId, storedPaymentMethodDetails.isSetStoredPaymentMethodId)
-        && Objects.equals(this.type, storedPaymentMethodDetails.type)
-        && Objects.equals(this.isSetType, storedPaymentMethodDetails.isSetType);
+            this.isSetStoredPaymentMethodId, pixPayByBankDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, pixPayByBankDetails.type)
+        && Objects.equals(this.isSetType, pixPayByBankDetails.isSetType);
   }
 
   @Override
@@ -415,8 +486,14 @@ public class StoredPaymentMethodDetails {
     return Objects.hash(
         checkoutAttemptId,
         isSetCheckoutAttemptId,
+        deviceId,
+        isSetDeviceId,
+        issuer,
+        isSetIssuer,
         recurringDetailReference,
         isSetRecurringDetailReference,
+        riskSignals,
+        isSetRiskSignals,
         sdkData,
         isSetSdkData,
         storedPaymentMethodId,
@@ -428,11 +505,14 @@ public class StoredPaymentMethodDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredPaymentMethodDetails {\n");
+    sb.append("class PixPayByBankDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    riskSignals: ").append(toIndentedString(riskSignals)).append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
@@ -465,8 +545,17 @@ public class StoredPaymentMethodDetails {
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
+    if (isSetDeviceId) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_ID, this.deviceId);
+    }
+    if (isSetIssuer) {
+      addIfNull(nulls, JSON_PROPERTY_ISSUER, this.issuer);
+    }
     if (isSetRecurringDetailReference) {
       addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
+    }
+    if (isSetRiskSignals) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_SIGNALS, this.riskSignals);
     }
     if (isSetSdkData) {
       addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
@@ -489,20 +578,19 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * Create an instance of StoredPaymentMethodDetails given an JSON string
+   * Create an instance of PixPayByBankDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredPaymentMethodDetails
+   * @return An instance of PixPayByBankDetails
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredPaymentMethodDetails
+   *     PixPayByBankDetails
    */
-  public static StoredPaymentMethodDetails fromJson(String jsonString)
-      throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredPaymentMethodDetails.class);
+  public static PixPayByBankDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PixPayByBankDetails.class);
   }
 
   /**
-   * Convert an instance of StoredPaymentMethodDetails to an JSON string
+   * Convert an instance of PixPayByBankDetails to an JSON string
    *
    * @return JSON string
    */

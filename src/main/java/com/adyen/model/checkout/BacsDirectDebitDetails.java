@@ -61,8 +61,8 @@ public class BacsDirectDebitDetails {
   private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
-  private String recurringDetailReference;
+  /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
+  @Deprecated private String recurringDetailReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringDetailReference = false;
@@ -285,9 +285,9 @@ public class BacsDirectDebitDetails {
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
-   * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public BacsDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
@@ -300,9 +300,9 @@ public class BacsDirectDebitDetails {
    *
    * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -315,9 +315,9 @@ public class BacsDirectDebitDetails {
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {

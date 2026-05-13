@@ -74,8 +74,8 @@ public class CardDetails {
   private boolean isSetCheckoutAttemptId = false;
 
   public static final String JSON_PROPERTY_CUPSECUREPLUS_SMSCODE = "cupsecureplus.smscode";
-  @Deprecated // deprecated
-  private String cupsecureplusSmscode;
+  /* deprecated  */
+  @Deprecated private String cupsecureplusSmscode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCupsecureplusSmscode = false;
@@ -211,8 +211,8 @@ public class CardDetails {
   private boolean isSetNumber = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
-  private String recurringDetailReference;
+  /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
+  @Deprecated private String recurringDetailReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRecurringDetailReference = false;
@@ -453,7 +453,7 @@ public class CardDetails {
    * @return the current {@code CardDetails} instance, allowing for method chaining
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   public CardDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
     isSetCupsecureplusSmscode = true; // mark as set
@@ -464,9 +464,9 @@ public class CardDetails {
    * Get cupsecureplusSmscode
    *
    * @return cupsecureplusSmscode
-   * @deprecated // deprecated
+   * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCupsecureplusSmscode() {
@@ -479,7 +479,7 @@ public class CardDetails {
    * @param cupsecureplusSmscode
    * @deprecated
    */
-  @Deprecated // deprecated
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
@@ -1041,9 +1041,9 @@ public class CardDetails {
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
    * @return the current {@code CardDetails} instance, allowing for method chaining
-   * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public CardDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
@@ -1056,9 +1056,9 @@ public class CardDetails {
    *
    * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -1071,9 +1071,9 @@ public class CardDetails {
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {

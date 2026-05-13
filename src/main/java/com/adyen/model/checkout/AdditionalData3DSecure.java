@@ -34,9 +34,8 @@ import java.util.logging.Logger;
 })
 public class AdditionalData3DSecure {
   public static final String JSON_PROPERTY_ALLOW3_D_S2 = "allow3DS2";
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.threeDSRequestData.nativeThreeDS` instead.
-  private String allow3DS2;
+  /* deprecated since Adyen Checkout API v69: Use `authenticationData.threeDSRequestData.nativeThreeDS` instead. */
+  @Deprecated private String allow3DS2;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAllow3DS2 = false;
@@ -99,9 +98,8 @@ public class AdditionalData3DSecure {
   private boolean isSetChallengeWindowSize = false;
 
   public static final String JSON_PROPERTY_EXECUTE_THREE_D = "executeThreeD";
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication) instead
-  private String executeThreeD;
+  /* deprecated since Adyen Checkout API v69: Use [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication) instead */
+  @Deprecated private String executeThreeD;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExecuteThreeD = false;
@@ -160,10 +158,9 @@ public class AdditionalData3DSecure {
    *     instead, based on your configuration.
    * @return the current {@code AdditionalData3DSecure} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v69 Use
-   *     &#x60;authenticationData.threeDSRequestData.nativeThreeDS&#x60; instead.
+   *     `authenticationData.threeDSRequestData.nativeThreeDS` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.threeDSRequestData.nativeThreeDS` instead.
+  @Deprecated
   public AdditionalData3DSecure allow3DS2(String allow3DS2) {
     this.allow3DS2 = allow3DS2;
     isSetAllow3DS2 = true; // mark as set
@@ -196,11 +193,10 @@ public class AdditionalData3DSecure {
    *     authorization rates and improve the shopper&#39;s experience. * **false** – Not ready to
    *     support native 3D Secure 2 authentication. Adyen offers redirect 3D Secure 2 authentication
    *     instead, based on your configuration.
-   * @deprecated // deprecated since Adyen Checkout API v69: Use
+   * @deprecated since Adyen Checkout API v69 Use
    *     `authenticationData.threeDSRequestData.nativeThreeDS` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.threeDSRequestData.nativeThreeDS` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ALLOW3_D_S2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAllow3DS2() {
@@ -234,10 +230,9 @@ public class AdditionalData3DSecure {
    *     support native 3D Secure 2 authentication. Adyen offers redirect 3D Secure 2 authentication
    *     instead, based on your configuration.
    * @deprecated since Adyen Checkout API v69 Use
-   *     &#x60;authenticationData.threeDSRequestData.nativeThreeDS&#x60; instead.
+   *     `authenticationData.threeDSRequestData.nativeThreeDS` instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // `authenticationData.threeDSRequestData.nativeThreeDS` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ALLOW3_D_S2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllow3DS2(String allow3DS2) {
@@ -307,11 +302,10 @@ public class AdditionalData3DSecure {
    *     mandates 3D Secure because of the PSD2 directive or other, national regulations.
    * @return the current {@code AdditionalData3DSecure} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v69 Use
-   *     [&#x60;authenticationData.attemptAuthentication&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target&#x3D;_blank#request-authenticationData-attemptAuthentication)
+   *     [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication)
    *     instead
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication) instead
+  @Deprecated
   public AdditionalData3DSecure executeThreeD(String executeThreeD) {
     this.executeThreeD = executeThreeD;
     isSetExecuteThreeD = true; // mark as set
@@ -331,12 +325,11 @@ public class AdditionalData3DSecure {
    *     Possible values: * **true** – Perform 3D Secure authentication. * **false** – Don&#39;t
    *     perform 3D Secure authentication. Note that this setting results in refusals if the issuer
    *     mandates 3D Secure because of the PSD2 directive or other, national regulations.
-   * @deprecated // deprecated since Adyen Checkout API v69: Use
+   * @deprecated since Adyen Checkout API v69 Use
    *     [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication)
    *     instead
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication) instead
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_EXECUTE_THREE_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExecuteThreeD() {
@@ -357,11 +350,10 @@ public class AdditionalData3DSecure {
    *     perform 3D Secure authentication. Note that this setting results in refusals if the issuer
    *     mandates 3D Secure because of the PSD2 directive or other, national regulations.
    * @deprecated since Adyen Checkout API v69 Use
-   *     [&#x60;authenticationData.attemptAuthentication&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target&#x3D;_blank#request-authenticationData-attemptAuthentication)
+   *     [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication)
    *     instead
    */
-  @Deprecated // deprecated since Adyen Checkout API v69: Use
-  // [`authenticationData.attemptAuthentication`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments?target=_blank#request-authenticationData-attemptAuthentication) instead
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_EXECUTE_THREE_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExecuteThreeD(String executeThreeD) {

@@ -27,7 +27,8 @@ import java.util.List;
   CheckoutForwardRequestOptions.JSON_PROPERTY_DRY_RUN,
   CheckoutForwardRequestOptions.JSON_PROPERTY_NETWORK_TOKEN,
   CheckoutForwardRequestOptions.JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS,
-  CheckoutForwardRequestOptions.JSON_PROPERTY_TOKENIZE
+  CheckoutForwardRequestOptions.JSON_PROPERTY_TOKENIZE,
+  CheckoutForwardRequestOptions.JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS
 })
 public class CheckoutForwardRequestOptions {
   public static final String JSON_PROPERTY_ACCOUNT_UPDATE = "accountUpdate";
@@ -59,6 +60,12 @@ public class CheckoutForwardRequestOptions {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTokenize = false;
+
+  public static final String JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS = "transactionLinkIdPaths";
+  private List<String> transactionLinkIdPaths;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionLinkIdPaths = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -283,6 +290,57 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
+   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
+   * transactionLinkId in the incoming 3rd party response
+   *
+   * @param transactionLinkIdPaths Set in tokenize:true case when forwarding PAN. Addresses to the
+   *     possible location(s) of transactionLinkId in the incoming 3rd party response
+   * @return the current {@code CheckoutForwardRequestOptions} instance, allowing for method
+   *     chaining
+   */
+  public CheckoutForwardRequestOptions transactionLinkIdPaths(List<String> transactionLinkIdPaths) {
+    this.transactionLinkIdPaths = transactionLinkIdPaths;
+    isSetTransactionLinkIdPaths = true; // mark as set
+    return this;
+  }
+
+  public CheckoutForwardRequestOptions addTransactionLinkIdPathsItem(
+      String transactionLinkIdPathsItem) {
+    if (this.transactionLinkIdPaths == null) {
+      this.transactionLinkIdPaths = new ArrayList<>();
+    }
+    this.transactionLinkIdPaths.add(transactionLinkIdPathsItem);
+    return this;
+  }
+
+  /**
+   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
+   * transactionLinkId in the incoming 3rd party response
+   *
+   * @return transactionLinkIdPaths Set in tokenize:true case when forwarding PAN. Addresses to the
+   *     possible location(s) of transactionLinkId in the incoming 3rd party response
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTransactionLinkIdPaths() {
+    return transactionLinkIdPaths;
+  }
+
+  /**
+   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
+   * transactionLinkId in the incoming 3rd party response
+   *
+   * @param transactionLinkIdPaths Set in tokenize:true case when forwarding PAN. Addresses to the
+   *     possible location(s) of transactionLinkId in the incoming 3rd party response
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionLinkIdPaths(List<String> transactionLinkIdPaths) {
+    this.transactionLinkIdPaths = transactionLinkIdPaths;
+    isSetTransactionLinkIdPaths = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public CheckoutForwardRequestOptions includeNullValues(boolean includeNullValues) {
@@ -324,7 +382,12 @@ public class CheckoutForwardRequestOptions {
             this.isSetNetworkTxReferencePaths,
             checkoutForwardRequestOptions.isSetNetworkTxReferencePaths)
         && Objects.equals(this.tokenize, checkoutForwardRequestOptions.tokenize)
-        && Objects.equals(this.isSetTokenize, checkoutForwardRequestOptions.isSetTokenize);
+        && Objects.equals(this.isSetTokenize, checkoutForwardRequestOptions.isSetTokenize)
+        && Objects.equals(
+            this.transactionLinkIdPaths, checkoutForwardRequestOptions.transactionLinkIdPaths)
+        && Objects.equals(
+            this.isSetTransactionLinkIdPaths,
+            checkoutForwardRequestOptions.isSetTransactionLinkIdPaths);
   }
 
   @Override
@@ -339,7 +402,9 @@ public class CheckoutForwardRequestOptions {
         networkTxReferencePaths,
         isSetNetworkTxReferencePaths,
         tokenize,
-        isSetTokenize);
+        isSetTokenize,
+        transactionLinkIdPaths,
+        isSetTransactionLinkIdPaths);
   }
 
   @Override
@@ -353,6 +418,9 @@ public class CheckoutForwardRequestOptions {
         .append(toIndentedString(networkTxReferencePaths))
         .append("\n");
     sb.append("    tokenize: ").append(toIndentedString(tokenize)).append("\n");
+    sb.append("    transactionLinkIdPaths: ")
+        .append(toIndentedString(transactionLinkIdPaths))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -391,6 +459,9 @@ public class CheckoutForwardRequestOptions {
     }
     if (isSetTokenize) {
       addIfNull(nulls, JSON_PROPERTY_TOKENIZE, this.tokenize);
+    }
+    if (isSetTransactionLinkIdPaths) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS, this.transactionLinkIdPaths);
     }
 
     return nulls;
