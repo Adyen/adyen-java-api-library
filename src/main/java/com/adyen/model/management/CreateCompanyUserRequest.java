@@ -236,12 +236,10 @@ public class CreateCompanyUserRequest {
 
   /**
    * The requested login method for the user. To use SSO, you must already have SSO configured with
-   * Adyen before creating the user. Possible values: **Username &amp; account**, **Email**, or
-   * **SSO**
+   * Adyen before creating the user. Possible values: **Email** or **SSO**
    *
    * @param loginMethod The requested login method for the user. To use SSO, you must already have
-   *     SSO configured with Adyen before creating the user. Possible values: **Username &amp;
-   *     account**, **Email**, or **SSO**
+   *     SSO configured with Adyen before creating the user. Possible values: **Email** or **SSO**
    * @return the current {@code CreateCompanyUserRequest} instance, allowing for method chaining
    */
   public CreateCompanyUserRequest loginMethod(String loginMethod) {
@@ -252,12 +250,10 @@ public class CreateCompanyUserRequest {
 
   /**
    * The requested login method for the user. To use SSO, you must already have SSO configured with
-   * Adyen before creating the user. Possible values: **Username &amp; account**, **Email**, or
-   * **SSO**
+   * Adyen before creating the user. Possible values: **Email** or **SSO**
    *
    * @return loginMethod The requested login method for the user. To use SSO, you must already have
-   *     SSO configured with Adyen before creating the user. Possible values: **Username &amp;
-   *     account**, **Email**, or **SSO**
+   *     SSO configured with Adyen before creating the user. Possible values: **Email** or **SSO**
    */
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,12 +263,10 @@ public class CreateCompanyUserRequest {
 
   /**
    * The requested login method for the user. To use SSO, you must already have SSO configured with
-   * Adyen before creating the user. Possible values: **Username &amp; account**, **Email**, or
-   * **SSO**
+   * Adyen before creating the user. Possible values: **Email** or **SSO**
    *
    * @param loginMethod The requested login method for the user. To use SSO, you must already have
-   *     SSO configured with Adyen before creating the user. Possible values: **Username &amp;
-   *     account**, **Email**, or **SSO**
+   *     SSO configured with Adyen before creating the user. Possible values: **Email** or **SSO**
    */
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

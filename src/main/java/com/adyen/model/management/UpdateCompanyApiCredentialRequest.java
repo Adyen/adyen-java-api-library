@@ -27,7 +27,8 @@ import java.util.List;
   UpdateCompanyApiCredentialRequest.JSON_PROPERTY_ALLOWED_ORIGINS,
   UpdateCompanyApiCredentialRequest.JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS,
   UpdateCompanyApiCredentialRequest.JSON_PROPERTY_DESCRIPTION,
-  UpdateCompanyApiCredentialRequest.JSON_PROPERTY_ROLES
+  UpdateCompanyApiCredentialRequest.JSON_PROPERTY_ROLES,
+  UpdateCompanyApiCredentialRequest.JSON_PROPERTY_SUBJECT_D_N
 })
 public class UpdateCompanyApiCredentialRequest {
   public static final String JSON_PROPERTY_ACTIVE = "active";
@@ -60,6 +61,12 @@ public class UpdateCompanyApiCredentialRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRoles = false;
+
+  public static final String JSON_PROPERTY_SUBJECT_D_N = "subjectDN";
+  private String subjectDN;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubjectDN = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -306,6 +313,42 @@ public class UpdateCompanyApiCredentialRequest {
   }
 
   /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   * @return the current {@code UpdateCompanyApiCredentialRequest} instance, allowing for method
+   *     chaining
+   */
+  public UpdateCompanyApiCredentialRequest subjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @return subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubjectDN() {
+    return subjectDN;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public UpdateCompanyApiCredentialRequest includeNullValues(boolean includeNullValues) {
@@ -350,7 +393,9 @@ public class UpdateCompanyApiCredentialRequest {
         && Objects.equals(this.description, updateCompanyApiCredentialRequest.description)
         && Objects.equals(this.isSetDescription, updateCompanyApiCredentialRequest.isSetDescription)
         && Objects.equals(this.roles, updateCompanyApiCredentialRequest.roles)
-        && Objects.equals(this.isSetRoles, updateCompanyApiCredentialRequest.isSetRoles);
+        && Objects.equals(this.isSetRoles, updateCompanyApiCredentialRequest.isSetRoles)
+        && Objects.equals(this.subjectDN, updateCompanyApiCredentialRequest.subjectDN)
+        && Objects.equals(this.isSetSubjectDN, updateCompanyApiCredentialRequest.isSetSubjectDN);
   }
 
   @Override
@@ -365,7 +410,9 @@ public class UpdateCompanyApiCredentialRequest {
         description,
         isSetDescription,
         roles,
-        isSetRoles);
+        isSetRoles,
+        subjectDN,
+        isSetSubjectDN);
   }
 
   @Override
@@ -379,6 +426,7 @@ public class UpdateCompanyApiCredentialRequest {
         .append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    subjectDN: ").append(toIndentedString(subjectDN)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -417,6 +465,9 @@ public class UpdateCompanyApiCredentialRequest {
     }
     if (isSetRoles) {
       addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetSubjectDN) {
+      addIfNull(nulls, JSON_PROPERTY_SUBJECT_D_N, this.subjectDN);
     }
 
     return nulls;

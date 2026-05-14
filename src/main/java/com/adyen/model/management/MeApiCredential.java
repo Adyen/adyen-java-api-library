@@ -32,6 +32,7 @@ import java.util.List;
   MeApiCredential.JSON_PROPERTY_DESCRIPTION,
   MeApiCredential.JSON_PROPERTY_ID,
   MeApiCredential.JSON_PROPERTY_ROLES,
+  MeApiCredential.JSON_PROPERTY_SUBJECT_D_N,
   MeApiCredential.JSON_PROPERTY_USERNAME
 })
 public class MeApiCredential {
@@ -88,6 +89,12 @@ public class MeApiCredential {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRoles = false;
+
+  public static final String JSON_PROPERTY_SUBJECT_D_N = "subjectDN";
+  private String subjectDN;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubjectDN = false;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
@@ -494,6 +501,41 @@ public class MeApiCredential {
   }
 
   /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   * @return the current {@code MeApiCredential} instance, allowing for method chaining
+   */
+  public MeApiCredential subjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @return subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubjectDN() {
+    return subjectDN;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+  }
+
+  /**
    * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials),
    * for example **ws@Company.TestCompany**.
    *
@@ -585,6 +627,8 @@ public class MeApiCredential {
         && Objects.equals(this.isSetId, meApiCredential.isSetId)
         && Objects.equals(this.roles, meApiCredential.roles)
         && Objects.equals(this.isSetRoles, meApiCredential.isSetRoles)
+        && Objects.equals(this.subjectDN, meApiCredential.subjectDN)
+        && Objects.equals(this.isSetSubjectDN, meApiCredential.isSetSubjectDN)
         && Objects.equals(this.username, meApiCredential.username)
         && Objects.equals(this.isSetUsername, meApiCredential.isSetUsername);
   }
@@ -610,6 +654,8 @@ public class MeApiCredential {
         isSetId,
         roles,
         isSetRoles,
+        subjectDN,
+        isSetSubjectDN,
         username,
         isSetUsername);
   }
@@ -627,6 +673,7 @@ public class MeApiCredential {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    subjectDN: ").append(toIndentedString(subjectDN)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -678,6 +725,9 @@ public class MeApiCredential {
     }
     if (isSetRoles) {
       addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetSubjectDN) {
+      addIfNull(nulls, JSON_PROPERTY_SUBJECT_D_N, this.subjectDN);
     }
     if (isSetUsername) {
       addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);

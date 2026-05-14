@@ -21,11 +21,25 @@ import java.util.*;
 
 /** ReceiptOptions */
 @JsonPropertyOrder({
+  ReceiptOptions.JSON_PROPERTY_HEADER_LINE1,
+  ReceiptOptions.JSON_PROPERTY_HEADER_LINE2,
   ReceiptOptions.JSON_PROPERTY_LOGO,
   ReceiptOptions.JSON_PROPERTY_PROMPT_BEFORE_PRINTING,
   ReceiptOptions.JSON_PROPERTY_QR_CODE_DATA
 })
 public class ReceiptOptions {
+  public static final String JSON_PROPERTY_HEADER_LINE1 = "headerLine1";
+  private String headerLine1;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHeaderLine1 = false;
+
+  public static final String JSON_PROPERTY_HEADER_LINE2 = "headerLine2";
+  private String headerLine2;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHeaderLine2 = false;
+
   public static final String JSON_PROPERTY_LOGO = "logo";
   private String logo;
 
@@ -51,6 +65,76 @@ public class ReceiptOptions {
   @JsonIgnore private boolean includeNullValues = false;
 
   public ReceiptOptions() {}
+
+  /**
+   * The text of the first header line to be shown on the receipt.
+   *
+   * @param headerLine1 The text of the first header line to be shown on the receipt.
+   * @return the current {@code ReceiptOptions} instance, allowing for method chaining
+   */
+  public ReceiptOptions headerLine1(String headerLine1) {
+    this.headerLine1 = headerLine1;
+    isSetHeaderLine1 = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The text of the first header line to be shown on the receipt.
+   *
+   * @return headerLine1 The text of the first header line to be shown on the receipt.
+   */
+  @JsonProperty(JSON_PROPERTY_HEADER_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHeaderLine1() {
+    return headerLine1;
+  }
+
+  /**
+   * The text of the first header line to be shown on the receipt.
+   *
+   * @param headerLine1 The text of the first header line to be shown on the receipt.
+   */
+  @JsonProperty(JSON_PROPERTY_HEADER_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHeaderLine1(String headerLine1) {
+    this.headerLine1 = headerLine1;
+    isSetHeaderLine1 = true; // mark as set
+  }
+
+  /**
+   * The text of the second header line to be shown on the receipt.
+   *
+   * @param headerLine2 The text of the second header line to be shown on the receipt.
+   * @return the current {@code ReceiptOptions} instance, allowing for method chaining
+   */
+  public ReceiptOptions headerLine2(String headerLine2) {
+    this.headerLine2 = headerLine2;
+    isSetHeaderLine2 = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The text of the second header line to be shown on the receipt.
+   *
+   * @return headerLine2 The text of the second header line to be shown on the receipt.
+   */
+  @JsonProperty(JSON_PROPERTY_HEADER_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHeaderLine2() {
+    return headerLine2;
+  }
+
+  /**
+   * The text of the second header line to be shown on the receipt.
+   *
+   * @param headerLine2 The text of the second header line to be shown on the receipt.
+   */
+  @JsonProperty(JSON_PROPERTY_HEADER_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHeaderLine2(String headerLine2) {
+    this.headerLine2 = headerLine2;
+    isSetHeaderLine2 = true; // mark as set
+  }
 
   /**
    * The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of &lt;
@@ -214,7 +298,11 @@ public class ReceiptOptions {
       return false;
     }
     ReceiptOptions receiptOptions = (ReceiptOptions) o;
-    return Objects.equals(this.logo, receiptOptions.logo)
+    return Objects.equals(this.headerLine1, receiptOptions.headerLine1)
+        && Objects.equals(this.isSetHeaderLine1, receiptOptions.isSetHeaderLine1)
+        && Objects.equals(this.headerLine2, receiptOptions.headerLine2)
+        && Objects.equals(this.isSetHeaderLine2, receiptOptions.isSetHeaderLine2)
+        && Objects.equals(this.logo, receiptOptions.logo)
         && Objects.equals(this.isSetLogo, receiptOptions.isSetLogo)
         && Objects.equals(this.promptBeforePrinting, receiptOptions.promptBeforePrinting)
         && Objects.equals(this.isSetPromptBeforePrinting, receiptOptions.isSetPromptBeforePrinting)
@@ -225,6 +313,10 @@ public class ReceiptOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
+        headerLine1,
+        isSetHeaderLine1,
+        headerLine2,
+        isSetHeaderLine2,
         logo,
         isSetLogo,
         promptBeforePrinting,
@@ -237,6 +329,8 @@ public class ReceiptOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReceiptOptions {\n");
+    sb.append("    headerLine1: ").append(toIndentedString(headerLine1)).append("\n");
+    sb.append("    headerLine2: ").append(toIndentedString(headerLine2)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
     sb.append("    promptBeforePrinting: ")
         .append(toIndentedString(promptBeforePrinting))
@@ -266,6 +360,12 @@ public class ReceiptOptions {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetHeaderLine1) {
+      addIfNull(nulls, JSON_PROPERTY_HEADER_LINE1, this.headerLine1);
+    }
+    if (isSetHeaderLine2) {
+      addIfNull(nulls, JSON_PROPERTY_HEADER_LINE2, this.headerLine2);
+    }
     if (isSetLogo) {
       addIfNull(nulls, JSON_PROPERTY_LOGO, this.logo);
     }

@@ -31,6 +31,7 @@ import java.util.List;
   ApiCredential.JSON_PROPERTY_DESCRIPTION,
   ApiCredential.JSON_PROPERTY_ID,
   ApiCredential.JSON_PROPERTY_ROLES,
+  ApiCredential.JSON_PROPERTY_SUBJECT_D_N,
   ApiCredential.JSON_PROPERTY_USERNAME
 })
 public class ApiCredential {
@@ -81,6 +82,12 @@ public class ApiCredential {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRoles = false;
+
+  public static final String JSON_PROPERTY_SUBJECT_D_N = "subjectDN";
+  private String subjectDN;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubjectDN = false;
 
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
@@ -452,6 +459,41 @@ public class ApiCredential {
   }
 
   /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   * @return the current {@code ApiCredential} instance, allowing for method chaining
+   */
+  public ApiCredential subjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @return subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubjectDN() {
+    return subjectDN;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+  }
+
+  /**
    * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials),
    * for example **ws@Company.TestCompany**.
    *
@@ -541,6 +583,8 @@ public class ApiCredential {
         && Objects.equals(this.isSetId, apiCredential.isSetId)
         && Objects.equals(this.roles, apiCredential.roles)
         && Objects.equals(this.isSetRoles, apiCredential.isSetRoles)
+        && Objects.equals(this.subjectDN, apiCredential.subjectDN)
+        && Objects.equals(this.isSetSubjectDN, apiCredential.isSetSubjectDN)
         && Objects.equals(this.username, apiCredential.username)
         && Objects.equals(this.isSetUsername, apiCredential.isSetUsername);
   }
@@ -564,6 +608,8 @@ public class ApiCredential {
         isSetId,
         roles,
         isSetRoles,
+        subjectDN,
+        isSetSubjectDN,
         username,
         isSetUsername);
   }
@@ -580,6 +626,7 @@ public class ApiCredential {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    subjectDN: ").append(toIndentedString(subjectDN)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -628,6 +675,9 @@ public class ApiCredential {
     }
     if (isSetRoles) {
       addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetSubjectDN) {
+      addIfNull(nulls, JSON_PROPERTY_SUBJECT_D_N, this.subjectDN);
     }
     if (isSetUsername) {
       addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);

@@ -24,7 +24,9 @@ import java.util.List;
 /** UpdatePaymentMethodInfo */
 @JsonPropertyOrder({
   UpdatePaymentMethodInfo.JSON_PROPERTY_ACCEL,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_AFFIRM,
   UpdatePaymentMethodInfo.JSON_PROPERTY_BCMC,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_CARNET,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARTES_BANCAIRES,
   UpdatePaymentMethodInfo.JSON_PROPERTY_COUNTRIES,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CUP,
@@ -53,19 +55,31 @@ import java.util.List;
 })
 public class UpdatePaymentMethodInfo {
   public static final String JSON_PROPERTY_ACCEL = "accel";
-  private AccelInfo accel;
+  private AccelUpdateInfo accel;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAccel = false;
 
+  public static final String JSON_PROPERTY_AFFIRM = "affirm";
+  private AffirmUpdateInfo affirm;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAffirm = false;
+
   public static final String JSON_PROPERTY_BCMC = "bcmc";
-  private BcmcInfo bcmc;
+  private BcmcUpdateInfo bcmc;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBcmc = false;
 
+  public static final String JSON_PROPERTY_CARNET = "carnet";
+  private GenericPmWithTdiUpdateInfo carnet;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarnet = false;
+
   public static final String JSON_PROPERTY_CARTES_BANCAIRES = "cartesBancaires";
-  private CartesBancairesInfo cartesBancaires;
+  private CartesBancairesUpdateInfo cartesBancaires;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCartesBancaires = false;
@@ -77,7 +91,7 @@ public class UpdatePaymentMethodInfo {
   private boolean isSetCountries = false;
 
   public static final String JSON_PROPERTY_CUP = "cup";
-  private GenericPmWithTdiInfo cup;
+  private GenericPmWithTdiUpdateInfo cup;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCup = false;
@@ -95,25 +109,25 @@ public class UpdatePaymentMethodInfo {
   private boolean isSetCustomRoutingFlags = false;
 
   public static final String JSON_PROPERTY_DINERS = "diners";
-  private GenericPmWithTdiInfo diners;
+  private GenericPmWithTdiUpdateInfo diners;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiners = false;
 
   public static final String JSON_PROPERTY_DISCOVER = "discover";
-  private GenericPmWithTdiInfo discover;
+  private GenericPmWithTdiUpdateInfo discover;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiscover = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
-  private GenericPmWithTdiInfo eftDirectdebitCA;
+  private GenericPmWithTdiUpdateInfo eftDirectdebitCA;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEftDirectdebitCA = false;
 
   public static final String JSON_PROPERTY_EFTPOS_AUSTRALIA = "eftpos_australia";
-  private GenericPmWithTdiInfo eftposAustralia;
+  private GenericPmWithTdiUpdateInfo eftposAustralia;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEftposAustralia = false;
@@ -125,73 +139,73 @@ public class UpdatePaymentMethodInfo {
   private boolean isSetEnabled = false;
 
   public static final String JSON_PROPERTY_GIROCARD = "girocard";
-  private GenericPmWithTdiInfo girocard;
+  private GenericPmWithTdiUpdateInfo girocard;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetGirocard = false;
 
   public static final String JSON_PROPERTY_IDEAL = "ideal";
-  private GenericPmWithTdiInfo ideal;
+  private GenericPmWithTdiUpdateInfo ideal;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIdeal = false;
 
   public static final String JSON_PROPERTY_INTERAC_CARD = "interac_card";
-  private GenericPmWithTdiInfo interacCard;
+  private GenericPmWithTdiUpdateInfo interacCard;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetInteracCard = false;
 
   public static final String JSON_PROPERTY_JCB = "jcb";
-  private GenericPmWithTdiInfo jcb;
+  private GenericPmWithTdiUpdateInfo jcb;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetJcb = false;
 
   public static final String JSON_PROPERTY_MAESTRO = "maestro";
-  private GenericPmWithTdiInfo maestro;
+  private GenericPmWithTdiUpdateInfo maestro;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMaestro = false;
 
   public static final String JSON_PROPERTY_MAESTRO_USA = "maestro_usa";
-  private GenericPmWithTdiInfo maestroUsa;
+  private GenericPmWithTdiUpdateInfo maestroUsa;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMaestroUsa = false;
 
   public static final String JSON_PROPERTY_MC = "mc";
-  private GenericPmWithTdiInfo mc;
+  private GenericPmWithTdiUpdateInfo mc;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMc = false;
 
   public static final String JSON_PROPERTY_NYCE = "nyce";
-  private NyceInfo nyce;
+  private NyceUpdateInfo nyce;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetNyce = false;
 
   public static final String JSON_PROPERTY_PAYBYBANK_PLAID = "paybybank_plaid";
-  private PayByBankPlaidInfo paybybankPlaid;
+  private PayByBankPlaidUpdateInfo paybybankPlaid;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPaybybankPlaid = false;
 
   public static final String JSON_PROPERTY_PULSE = "pulse";
-  private PulseInfo pulse;
+  private PulseUpdateInfo pulse;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPulse = false;
 
   public static final String JSON_PROPERTY_SEPADIRECTDEBIT = "sepadirectdebit";
-  private SepaDirectDebitInfo sepadirectdebit;
+  private SepaDirectDebitUpdateInfo sepadirectdebit;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSepadirectdebit = false;
 
   public static final String JSON_PROPERTY_STAR = "star";
-  private StarInfo star;
+  private StarUpdateInfo star;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStar = false;
@@ -203,15 +217,14 @@ public class UpdatePaymentMethodInfo {
   private boolean isSetStoreId = false;
 
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
-  private List<String> storeIds;
+  /* deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed. */
+  @Deprecated private List<String> storeIds;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoreIds = false;
 
   public static final String JSON_PROPERTY_VISA = "visa";
-  private GenericPmWithTdiInfo visa;
+  private GenericPmWithTdiUpdateInfo visa;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetVisa = false;
@@ -230,7 +243,7 @@ public class UpdatePaymentMethodInfo {
    * @param accel
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo accel(AccelInfo accel) {
+  public UpdatePaymentMethodInfo accel(AccelUpdateInfo accel) {
     this.accel = accel;
     isSetAccel = true; // mark as set
     return this;
@@ -243,7 +256,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AccelInfo getAccel() {
+  public AccelUpdateInfo getAccel() {
     return accel;
   }
 
@@ -254,9 +267,44 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccel(AccelInfo accel) {
+  public void setAccel(AccelUpdateInfo accel) {
     this.accel = accel;
     isSetAccel = true; // mark as set
+  }
+
+  /**
+   * affirm
+   *
+   * @param affirm
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo affirm(AffirmUpdateInfo affirm) {
+    this.affirm = affirm;
+    isSetAffirm = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get affirm
+   *
+   * @return affirm
+   */
+  @JsonProperty(JSON_PROPERTY_AFFIRM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AffirmUpdateInfo getAffirm() {
+    return affirm;
+  }
+
+  /**
+   * affirm
+   *
+   * @param affirm
+   */
+  @JsonProperty(JSON_PROPERTY_AFFIRM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAffirm(AffirmUpdateInfo affirm) {
+    this.affirm = affirm;
+    isSetAffirm = true; // mark as set
   }
 
   /**
@@ -265,7 +313,7 @@ public class UpdatePaymentMethodInfo {
    * @param bcmc
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo bcmc(BcmcInfo bcmc) {
+  public UpdatePaymentMethodInfo bcmc(BcmcUpdateInfo bcmc) {
     this.bcmc = bcmc;
     isSetBcmc = true; // mark as set
     return this;
@@ -278,7 +326,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BcmcInfo getBcmc() {
+  public BcmcUpdateInfo getBcmc() {
     return bcmc;
   }
 
@@ -289,9 +337,44 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBcmc(BcmcInfo bcmc) {
+  public void setBcmc(BcmcUpdateInfo bcmc) {
     this.bcmc = bcmc;
     isSetBcmc = true; // mark as set
+  }
+
+  /**
+   * carnet
+   *
+   * @param carnet
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo carnet(GenericPmWithTdiUpdateInfo carnet) {
+    this.carnet = carnet;
+    isSetCarnet = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get carnet
+   *
+   * @return carnet
+   */
+  @JsonProperty(JSON_PROPERTY_CARNET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiUpdateInfo getCarnet() {
+    return carnet;
+  }
+
+  /**
+   * carnet
+   *
+   * @param carnet
+   */
+  @JsonProperty(JSON_PROPERTY_CARNET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCarnet(GenericPmWithTdiUpdateInfo carnet) {
+    this.carnet = carnet;
+    isSetCarnet = true; // mark as set
   }
 
   /**
@@ -300,7 +383,7 @@ public class UpdatePaymentMethodInfo {
    * @param cartesBancaires
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo cartesBancaires(CartesBancairesInfo cartesBancaires) {
+  public UpdatePaymentMethodInfo cartesBancaires(CartesBancairesUpdateInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
     isSetCartesBancaires = true; // mark as set
     return this;
@@ -313,7 +396,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CartesBancairesInfo getCartesBancaires() {
+  public CartesBancairesUpdateInfo getCartesBancaires() {
     return cartesBancaires;
   }
 
@@ -324,7 +407,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
+  public void setCartesBancaires(CartesBancairesUpdateInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
     isSetCartesBancaires = true; // mark as set
   }
@@ -384,7 +467,7 @@ public class UpdatePaymentMethodInfo {
    * @param cup
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo cup(GenericPmWithTdiInfo cup) {
+  public UpdatePaymentMethodInfo cup(GenericPmWithTdiUpdateInfo cup) {
     this.cup = cup;
     isSetCup = true; // mark as set
     return this;
@@ -397,7 +480,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getCup() {
+  public GenericPmWithTdiUpdateInfo getCup() {
     return cup;
   }
 
@@ -408,7 +491,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCup(GenericPmWithTdiInfo cup) {
+  public void setCup(GenericPmWithTdiUpdateInfo cup) {
     this.cup = cup;
     isSetCup = true; // mark as set
   }
@@ -511,7 +594,7 @@ public class UpdatePaymentMethodInfo {
    * @param diners
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo diners(GenericPmWithTdiInfo diners) {
+  public UpdatePaymentMethodInfo diners(GenericPmWithTdiUpdateInfo diners) {
     this.diners = diners;
     isSetDiners = true; // mark as set
     return this;
@@ -524,7 +607,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getDiners() {
+  public GenericPmWithTdiUpdateInfo getDiners() {
     return diners;
   }
 
@@ -535,7 +618,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDiners(GenericPmWithTdiInfo diners) {
+  public void setDiners(GenericPmWithTdiUpdateInfo diners) {
     this.diners = diners;
     isSetDiners = true; // mark as set
   }
@@ -546,7 +629,7 @@ public class UpdatePaymentMethodInfo {
    * @param discover
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo discover(GenericPmWithTdiInfo discover) {
+  public UpdatePaymentMethodInfo discover(GenericPmWithTdiUpdateInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
     return this;
@@ -559,7 +642,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getDiscover() {
+  public GenericPmWithTdiUpdateInfo getDiscover() {
     return discover;
   }
 
@@ -570,7 +653,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDiscover(GenericPmWithTdiInfo discover) {
+  public void setDiscover(GenericPmWithTdiUpdateInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
   }
@@ -581,7 +664,7 @@ public class UpdatePaymentMethodInfo {
    * @param eftDirectdebitCA
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo eftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
+  public UpdatePaymentMethodInfo eftDirectdebitCA(GenericPmWithTdiUpdateInfo eftDirectdebitCA) {
     this.eftDirectdebitCA = eftDirectdebitCA;
     isSetEftDirectdebitCA = true; // mark as set
     return this;
@@ -594,7 +677,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getEftDirectdebitCA() {
+  public GenericPmWithTdiUpdateInfo getEftDirectdebitCA() {
     return eftDirectdebitCA;
   }
 
@@ -605,7 +688,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
+  public void setEftDirectdebitCA(GenericPmWithTdiUpdateInfo eftDirectdebitCA) {
     this.eftDirectdebitCA = eftDirectdebitCA;
     isSetEftDirectdebitCA = true; // mark as set
   }
@@ -616,7 +699,7 @@ public class UpdatePaymentMethodInfo {
    * @param eftposAustralia
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo eftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
+  public UpdatePaymentMethodInfo eftposAustralia(GenericPmWithTdiUpdateInfo eftposAustralia) {
     this.eftposAustralia = eftposAustralia;
     isSetEftposAustralia = true; // mark as set
     return this;
@@ -629,7 +712,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getEftposAustralia() {
+  public GenericPmWithTdiUpdateInfo getEftposAustralia() {
     return eftposAustralia;
   }
 
@@ -640,7 +723,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
+  public void setEftposAustralia(GenericPmWithTdiUpdateInfo eftposAustralia) {
     this.eftposAustralia = eftposAustralia;
     isSetEftposAustralia = true; // mark as set
   }
@@ -689,7 +772,7 @@ public class UpdatePaymentMethodInfo {
    * @param girocard
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo girocard(GenericPmWithTdiInfo girocard) {
+  public UpdatePaymentMethodInfo girocard(GenericPmWithTdiUpdateInfo girocard) {
     this.girocard = girocard;
     isSetGirocard = true; // mark as set
     return this;
@@ -702,7 +785,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getGirocard() {
+  public GenericPmWithTdiUpdateInfo getGirocard() {
     return girocard;
   }
 
@@ -713,7 +796,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGirocard(GenericPmWithTdiInfo girocard) {
+  public void setGirocard(GenericPmWithTdiUpdateInfo girocard) {
     this.girocard = girocard;
     isSetGirocard = true; // mark as set
   }
@@ -724,7 +807,7 @@ public class UpdatePaymentMethodInfo {
    * @param ideal
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo ideal(GenericPmWithTdiInfo ideal) {
+  public UpdatePaymentMethodInfo ideal(GenericPmWithTdiUpdateInfo ideal) {
     this.ideal = ideal;
     isSetIdeal = true; // mark as set
     return this;
@@ -737,7 +820,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getIdeal() {
+  public GenericPmWithTdiUpdateInfo getIdeal() {
     return ideal;
   }
 
@@ -748,7 +831,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIdeal(GenericPmWithTdiInfo ideal) {
+  public void setIdeal(GenericPmWithTdiUpdateInfo ideal) {
     this.ideal = ideal;
     isSetIdeal = true; // mark as set
   }
@@ -759,7 +842,7 @@ public class UpdatePaymentMethodInfo {
    * @param interacCard
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo interacCard(GenericPmWithTdiInfo interacCard) {
+  public UpdatePaymentMethodInfo interacCard(GenericPmWithTdiUpdateInfo interacCard) {
     this.interacCard = interacCard;
     isSetInteracCard = true; // mark as set
     return this;
@@ -772,7 +855,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getInteracCard() {
+  public GenericPmWithTdiUpdateInfo getInteracCard() {
     return interacCard;
   }
 
@@ -783,7 +866,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInteracCard(GenericPmWithTdiInfo interacCard) {
+  public void setInteracCard(GenericPmWithTdiUpdateInfo interacCard) {
     this.interacCard = interacCard;
     isSetInteracCard = true; // mark as set
   }
@@ -794,7 +877,7 @@ public class UpdatePaymentMethodInfo {
    * @param jcb
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo jcb(GenericPmWithTdiInfo jcb) {
+  public UpdatePaymentMethodInfo jcb(GenericPmWithTdiUpdateInfo jcb) {
     this.jcb = jcb;
     isSetJcb = true; // mark as set
     return this;
@@ -807,7 +890,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getJcb() {
+  public GenericPmWithTdiUpdateInfo getJcb() {
     return jcb;
   }
 
@@ -818,7 +901,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setJcb(GenericPmWithTdiInfo jcb) {
+  public void setJcb(GenericPmWithTdiUpdateInfo jcb) {
     this.jcb = jcb;
     isSetJcb = true; // mark as set
   }
@@ -829,7 +912,7 @@ public class UpdatePaymentMethodInfo {
    * @param maestro
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo maestro(GenericPmWithTdiInfo maestro) {
+  public UpdatePaymentMethodInfo maestro(GenericPmWithTdiUpdateInfo maestro) {
     this.maestro = maestro;
     isSetMaestro = true; // mark as set
     return this;
@@ -842,7 +925,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getMaestro() {
+  public GenericPmWithTdiUpdateInfo getMaestro() {
     return maestro;
   }
 
@@ -853,7 +936,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaestro(GenericPmWithTdiInfo maestro) {
+  public void setMaestro(GenericPmWithTdiUpdateInfo maestro) {
     this.maestro = maestro;
     isSetMaestro = true; // mark as set
   }
@@ -864,7 +947,7 @@ public class UpdatePaymentMethodInfo {
    * @param maestroUsa
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo maestroUsa(GenericPmWithTdiInfo maestroUsa) {
+  public UpdatePaymentMethodInfo maestroUsa(GenericPmWithTdiUpdateInfo maestroUsa) {
     this.maestroUsa = maestroUsa;
     isSetMaestroUsa = true; // mark as set
     return this;
@@ -877,7 +960,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getMaestroUsa() {
+  public GenericPmWithTdiUpdateInfo getMaestroUsa() {
     return maestroUsa;
   }
 
@@ -888,7 +971,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaestroUsa(GenericPmWithTdiInfo maestroUsa) {
+  public void setMaestroUsa(GenericPmWithTdiUpdateInfo maestroUsa) {
     this.maestroUsa = maestroUsa;
     isSetMaestroUsa = true; // mark as set
   }
@@ -899,7 +982,7 @@ public class UpdatePaymentMethodInfo {
    * @param mc
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo mc(GenericPmWithTdiInfo mc) {
+  public UpdatePaymentMethodInfo mc(GenericPmWithTdiUpdateInfo mc) {
     this.mc = mc;
     isSetMc = true; // mark as set
     return this;
@@ -912,7 +995,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getMc() {
+  public GenericPmWithTdiUpdateInfo getMc() {
     return mc;
   }
 
@@ -923,7 +1006,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMc(GenericPmWithTdiInfo mc) {
+  public void setMc(GenericPmWithTdiUpdateInfo mc) {
     this.mc = mc;
     isSetMc = true; // mark as set
   }
@@ -934,7 +1017,7 @@ public class UpdatePaymentMethodInfo {
    * @param nyce
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo nyce(NyceInfo nyce) {
+  public UpdatePaymentMethodInfo nyce(NyceUpdateInfo nyce) {
     this.nyce = nyce;
     isSetNyce = true; // mark as set
     return this;
@@ -947,7 +1030,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public NyceInfo getNyce() {
+  public NyceUpdateInfo getNyce() {
     return nyce;
   }
 
@@ -958,7 +1041,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNyce(NyceInfo nyce) {
+  public void setNyce(NyceUpdateInfo nyce) {
     this.nyce = nyce;
     isSetNyce = true; // mark as set
   }
@@ -969,7 +1052,7 @@ public class UpdatePaymentMethodInfo {
    * @param paybybankPlaid
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo paybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+  public UpdatePaymentMethodInfo paybybankPlaid(PayByBankPlaidUpdateInfo paybybankPlaid) {
     this.paybybankPlaid = paybybankPlaid;
     isSetPaybybankPlaid = true; // mark as set
     return this;
@@ -982,7 +1065,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PayByBankPlaidInfo getPaybybankPlaid() {
+  public PayByBankPlaidUpdateInfo getPaybybankPlaid() {
     return paybybankPlaid;
   }
 
@@ -993,7 +1076,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+  public void setPaybybankPlaid(PayByBankPlaidUpdateInfo paybybankPlaid) {
     this.paybybankPlaid = paybybankPlaid;
     isSetPaybybankPlaid = true; // mark as set
   }
@@ -1004,7 +1087,7 @@ public class UpdatePaymentMethodInfo {
    * @param pulse
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo pulse(PulseInfo pulse) {
+  public UpdatePaymentMethodInfo pulse(PulseUpdateInfo pulse) {
     this.pulse = pulse;
     isSetPulse = true; // mark as set
     return this;
@@ -1017,7 +1100,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PulseInfo getPulse() {
+  public PulseUpdateInfo getPulse() {
     return pulse;
   }
 
@@ -1028,7 +1111,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPulse(PulseInfo pulse) {
+  public void setPulse(PulseUpdateInfo pulse) {
     this.pulse = pulse;
     isSetPulse = true; // mark as set
   }
@@ -1039,7 +1122,7 @@ public class UpdatePaymentMethodInfo {
    * @param sepadirectdebit
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo sepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+  public UpdatePaymentMethodInfo sepadirectdebit(SepaDirectDebitUpdateInfo sepadirectdebit) {
     this.sepadirectdebit = sepadirectdebit;
     isSetSepadirectdebit = true; // mark as set
     return this;
@@ -1052,7 +1135,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SepaDirectDebitInfo getSepadirectdebit() {
+  public SepaDirectDebitUpdateInfo getSepadirectdebit() {
     return sepadirectdebit;
   }
 
@@ -1063,7 +1146,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+  public void setSepadirectdebit(SepaDirectDebitUpdateInfo sepadirectdebit) {
     this.sepadirectdebit = sepadirectdebit;
     isSetSepadirectdebit = true; // mark as set
   }
@@ -1074,7 +1157,7 @@ public class UpdatePaymentMethodInfo {
    * @param star
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo star(StarInfo star) {
+  public UpdatePaymentMethodInfo star(StarUpdateInfo star) {
     this.star = star;
     isSetStar = true; // mark as set
     return this;
@@ -1087,7 +1170,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StarInfo getStar() {
+  public StarUpdateInfo getStar() {
     return star;
   }
 
@@ -1098,7 +1181,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStar(StarInfo star) {
+  public void setStar(StarUpdateInfo star) {
     this.star = star;
     isSetStar = true; // mark as set
   }
@@ -1143,11 +1226,10 @@ public class UpdatePaymentMethodInfo {
    *
    * @param storeIds The list of stores for this payment method
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
-   * @deprecated since Management API v3 Use &#x60;storeId&#x60; instead. Only one store per payment
-   *     method is allowed.
+   * @deprecated since Management API v3 Use `storeId` instead. Only one store per payment method is
+   *     allowed.
    */
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
+  @Deprecated
   public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
     isSetStoreIds = true; // mark as set
@@ -1166,11 +1248,10 @@ public class UpdatePaymentMethodInfo {
    * The list of stores for this payment method
    *
    * @return storeIds The list of stores for this payment method
-   * @deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-   *     payment method is allowed.
+   * @deprecated since Management API v3 Use `storeId` instead. Only one store per payment method is
+   *     allowed.
    */
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getStoreIds() {
@@ -1181,11 +1262,10 @@ public class UpdatePaymentMethodInfo {
    * The list of stores for this payment method
    *
    * @param storeIds The list of stores for this payment method
-   * @deprecated since Management API v3 Use &#x60;storeId&#x60; instead. Only one store per payment
-   *     method is allowed.
+   * @deprecated since Management API v3 Use `storeId` instead. Only one store per payment method is
+   *     allowed.
    */
-  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per
-  // payment method is allowed.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
@@ -1199,7 +1279,7 @@ public class UpdatePaymentMethodInfo {
    * @param visa
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
    */
-  public UpdatePaymentMethodInfo visa(GenericPmWithTdiInfo visa) {
+  public UpdatePaymentMethodInfo visa(GenericPmWithTdiUpdateInfo visa) {
     this.visa = visa;
     isSetVisa = true; // mark as set
     return this;
@@ -1212,7 +1292,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getVisa() {
+  public GenericPmWithTdiUpdateInfo getVisa() {
     return visa;
   }
 
@@ -1223,7 +1303,7 @@ public class UpdatePaymentMethodInfo {
    */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVisa(GenericPmWithTdiInfo visa) {
+  public void setVisa(GenericPmWithTdiUpdateInfo visa) {
     this.visa = visa;
     isSetVisa = true; // mark as set
   }
@@ -1260,8 +1340,12 @@ public class UpdatePaymentMethodInfo {
     UpdatePaymentMethodInfo updatePaymentMethodInfo = (UpdatePaymentMethodInfo) o;
     return Objects.equals(this.accel, updatePaymentMethodInfo.accel)
         && Objects.equals(this.isSetAccel, updatePaymentMethodInfo.isSetAccel)
+        && Objects.equals(this.affirm, updatePaymentMethodInfo.affirm)
+        && Objects.equals(this.isSetAffirm, updatePaymentMethodInfo.isSetAffirm)
         && Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc)
         && Objects.equals(this.isSetBcmc, updatePaymentMethodInfo.isSetBcmc)
+        && Objects.equals(this.carnet, updatePaymentMethodInfo.carnet)
+        && Objects.equals(this.isSetCarnet, updatePaymentMethodInfo.isSetCarnet)
         && Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires)
         && Objects.equals(this.isSetCartesBancaires, updatePaymentMethodInfo.isSetCartesBancaires)
         && Objects.equals(this.countries, updatePaymentMethodInfo.countries)
@@ -1320,8 +1404,12 @@ public class UpdatePaymentMethodInfo {
     return Objects.hash(
         accel,
         isSetAccel,
+        affirm,
+        isSetAffirm,
         bcmc,
         isSetBcmc,
+        carnet,
+        isSetCarnet,
         cartesBancaires,
         isSetCartesBancaires,
         countries,
@@ -1379,7 +1467,9 @@ public class UpdatePaymentMethodInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePaymentMethodInfo {\n");
     sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
+    sb.append("    affirm: ").append(toIndentedString(affirm)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
+    sb.append("    carnet: ").append(toIndentedString(carnet)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    cup: ").append(toIndentedString(cup)).append("\n");
@@ -1432,8 +1522,14 @@ public class UpdatePaymentMethodInfo {
     if (isSetAccel) {
       addIfNull(nulls, JSON_PROPERTY_ACCEL, this.accel);
     }
+    if (isSetAffirm) {
+      addIfNull(nulls, JSON_PROPERTY_AFFIRM, this.affirm);
+    }
     if (isSetBcmc) {
       addIfNull(nulls, JSON_PROPERTY_BCMC, this.bcmc);
+    }
+    if (isSetCarnet) {
+      addIfNull(nulls, JSON_PROPERTY_CARNET, this.carnet);
     }
     if (isSetCartesBancaires) {
       addIfNull(nulls, JSON_PROPERTY_CARTES_BANCAIRES, this.cartesBancaires);

@@ -35,6 +35,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_APPLE_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_BCMC,
   PaymentMethodSetupInfo.JSON_PROPERTY_BUSINESS_LINE_ID,
+  PaymentMethodSetupInfo.JSON_PROPERTY_CARNET,
   PaymentMethodSetupInfo.JSON_PROPERTY_CARTES_BANCAIRES,
   PaymentMethodSetupInfo.JSON_PROPERTY_CLEARPAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_COUNTRIES,
@@ -128,6 +129,12 @@ public class PaymentMethodSetupInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBusinessLineId = false;
+
+  public static final String JSON_PROPERTY_CARNET = "carnet";
+  private GenericPmWithTdiInfo carnet;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarnet = false;
 
   public static final String JSON_PROPERTY_CARTES_BANCAIRES = "cartesBancaires";
   private CartesBancairesInfo cartesBancaires;
@@ -304,9 +311,10 @@ public class PaymentMethodSetupInfo {
   private boolean isSetSepadirectdebit = false;
 
   /**
-   * The sales channel. Required if the merchant account does not have a sales channel. When you
-   * provide this field, it overrides the default sales channel set on the merchant account.
-   * Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * The sales channel. Required if: - The merchant account does not have a sales channel. -
+   * &#x60;type&#x60; is **alipay**. When you provide this field, it overrides the default sales
+   * channel set on the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and
+   * **moto**.
    */
   public enum ShopperInteractionEnum {
     ECOMMERCE(String.valueOf("eCommerce")),
@@ -435,6 +443,28 @@ public class PaymentMethodSetupInfo {
 
     ALIPAY_PLUS(String.valueOf("alipay_plus")),
 
+    ALIPAY_PLUS_ALIPAY_CN(String.valueOf("alipay_plus_alipay_cn")),
+
+    ALIPAY_PLUS_ALIPAY_HK(String.valueOf("alipay_plus_alipay_hk")),
+
+    ALIPAY_PLUS_DANA(String.valueOf("alipay_plus_dana")),
+
+    ALIPAY_PLUS_GCASH(String.valueOf("alipay_plus_gcash")),
+
+    ALIPAY_PLUS_KAKAOPAY(String.valueOf("alipay_plus_kakaopay")),
+
+    ALIPAY_PLUS_KPLUS(String.valueOf("alipay_plus_kplus")),
+
+    ALIPAY_PLUS_NAVERPAY(String.valueOf("alipay_plus_naverpay")),
+
+    ALIPAY_PLUS_RABBITLINEPAY(String.valueOf("alipay_plus_rabbitlinepay")),
+
+    ALIPAY_PLUS_TOSSPAY(String.valueOf("alipay_plus_tosspay")),
+
+    ALIPAY_PLUS_TOUCHNGO(String.valueOf("alipay_plus_touchngo")),
+
+    ALIPAY_PLUS_TRUEMONEY(String.valueOf("alipay_plus_truemoney")),
+
     ALIPAY_WAP(String.valueOf("alipay_wap")),
 
     AMEX(String.valueOf("amex")),
@@ -462,6 +492,8 @@ public class PaymentMethodSetupInfo {
     BLIK_POS(String.valueOf("blik_pos")),
 
     BR_SCHEMES(String.valueOf("br_schemes")),
+
+    CARNET(String.valueOf("carnet")),
 
     CARTEBANCAIRE(String.valueOf("cartebancaire")),
 
@@ -1044,6 +1076,41 @@ public class PaymentMethodSetupInfo {
   public void setBusinessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
     isSetBusinessLineId = true; // mark as set
+  }
+
+  /**
+   * carnet
+   *
+   * @param carnet
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo carnet(GenericPmWithTdiInfo carnet) {
+    this.carnet = carnet;
+    isSetCarnet = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get carnet
+   *
+   * @return carnet
+   */
+  @JsonProperty(JSON_PROPERTY_CARNET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiInfo getCarnet() {
+    return carnet;
+  }
+
+  /**
+   * carnet
+   *
+   * @param carnet
+   */
+  @JsonProperty(JSON_PROPERTY_CARNET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCarnet(GenericPmWithTdiInfo carnet) {
+    this.carnet = carnet;
+    isSetCarnet = true; // mark as set
   }
 
   /**
@@ -2101,13 +2168,15 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
-   * The sales channel. Required if the merchant account does not have a sales channel. When you
-   * provide this field, it overrides the default sales channel set on the merchant account.
-   * Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * The sales channel. Required if: - The merchant account does not have a sales channel. -
+   * &#x60;type&#x60; is **alipay**. When you provide this field, it overrides the default sales
+   * channel set on the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and
+   * **moto**.
    *
-   * @param shopperInteraction The sales channel. Required if the merchant account does not have a
-   *     sales channel. When you provide this field, it overrides the default sales channel set on
-   *     the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * @param shopperInteraction The sales channel. Required if: - The merchant account does not have
+   *     a sales channel. - &#x60;type&#x60; is **alipay**. When you provide this field, it
+   *     overrides the default sales channel set on the merchant account. Possible values:
+   *     **eCommerce**, **pos**, **contAuth**, and **moto**.
    * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
    */
   public PaymentMethodSetupInfo shopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -2117,13 +2186,15 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
-   * The sales channel. Required if the merchant account does not have a sales channel. When you
-   * provide this field, it overrides the default sales channel set on the merchant account.
-   * Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * The sales channel. Required if: - The merchant account does not have a sales channel. -
+   * &#x60;type&#x60; is **alipay**. When you provide this field, it overrides the default sales
+   * channel set on the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and
+   * **moto**.
    *
-   * @return shopperInteraction The sales channel. Required if the merchant account does not have a
-   *     sales channel. When you provide this field, it overrides the default sales channel set on
-   *     the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * @return shopperInteraction The sales channel. Required if: - The merchant account does not have
+   *     a sales channel. - &#x60;type&#x60; is **alipay**. When you provide this field, it
+   *     overrides the default sales channel set on the merchant account. Possible values:
+   *     **eCommerce**, **pos**, **contAuth**, and **moto**.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2132,13 +2203,15 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
-   * The sales channel. Required if the merchant account does not have a sales channel. When you
-   * provide this field, it overrides the default sales channel set on the merchant account.
-   * Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * The sales channel. Required if: - The merchant account does not have a sales channel. -
+   * &#x60;type&#x60; is **alipay**. When you provide this field, it overrides the default sales
+   * channel set on the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and
+   * **moto**.
    *
-   * @param shopperInteraction The sales channel. Required if the merchant account does not have a
-   *     sales channel. When you provide this field, it overrides the default sales channel set on
-   *     the merchant account. Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   * @param shopperInteraction The sales channel. Required if: - The merchant account does not have
+   *     a sales channel. - &#x60;type&#x60; is **alipay**. When you provide this field, it
+   *     overrides the default sales channel set on the merchant account. Possible values:
+   *     **eCommerce**, **pos**, **contAuth**, and **moto**.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2700,6 +2773,8 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.isSetBcmc, paymentMethodSetupInfo.isSetBcmc)
         && Objects.equals(this.businessLineId, paymentMethodSetupInfo.businessLineId)
         && Objects.equals(this.isSetBusinessLineId, paymentMethodSetupInfo.isSetBusinessLineId)
+        && Objects.equals(this.carnet, paymentMethodSetupInfo.carnet)
+        && Objects.equals(this.isSetCarnet, paymentMethodSetupInfo.isSetCarnet)
         && Objects.equals(this.cartesBancaires, paymentMethodSetupInfo.cartesBancaires)
         && Objects.equals(this.isSetCartesBancaires, paymentMethodSetupInfo.isSetCartesBancaires)
         && Objects.equals(this.clearpay, paymentMethodSetupInfo.clearpay)
@@ -2811,6 +2886,8 @@ public class PaymentMethodSetupInfo {
         isSetBcmc,
         businessLineId,
         isSetBusinessLineId,
+        carnet,
+        isSetCarnet,
         cartesBancaires,
         isSetCartesBancaires,
         clearpay,
@@ -2913,6 +2990,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");
+    sb.append("    carnet: ").append(toIndentedString(carnet)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    clearpay: ").append(toIndentedString(clearpay)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
@@ -3004,6 +3082,9 @@ public class PaymentMethodSetupInfo {
     }
     if (isSetBusinessLineId) {
       addIfNull(nulls, JSON_PROPERTY_BUSINESS_LINE_ID, this.businessLineId);
+    }
+    if (isSetCarnet) {
+      addIfNull(nulls, JSON_PROPERTY_CARNET, this.carnet);
     }
     if (isSetCartesBancaires) {
       addIfNull(nulls, JSON_PROPERTY_CARTES_BANCAIRES, this.cartesBancaires);
