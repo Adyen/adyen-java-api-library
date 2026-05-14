@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The status of Strong Customer Authentication (SCA). Possible values: * **notPerformed**: the
@@ -27,6 +28,8 @@ public enum ScaStatus {
   PENDING("pending"),
 
   PERFORMED("performed");
+
+  private static final Logger LOG = Logger.getLogger(ScaStatus.class.getName());
 
   private String value;
 
@@ -51,6 +54,12 @@ public enum ScaStatus {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ScaStatus: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ScaStatus.values()));
+    return null;
   }
 }

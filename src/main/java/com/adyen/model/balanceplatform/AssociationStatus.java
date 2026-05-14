@@ -14,12 +14,15 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets AssociationStatus */
 public enum AssociationStatus {
   PENDINGAPPROVAL("pendingApproval"),
 
   ACTIVE("active");
+
+  private static final Logger LOG = Logger.getLogger(AssociationStatus.class.getName());
 
   private String value;
 
@@ -44,6 +47,12 @@ public enum AssociationStatus {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "AssociationStatus: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(AssociationStatus.values()));
+    return null;
   }
 }

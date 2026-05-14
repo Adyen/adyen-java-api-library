@@ -90,8 +90,8 @@ public class ScaAssociationManagementApi extends Service {
    * Get a list of devices associated with an entity
    *
    * @param entityType {@link ScaEntityType } Query: The type of entity you want to retrieve a list
-   *     of associations for. Possible values: **accountHolder** or **paymentInstrument**.
-   *     (required)
+   *     of associations for. Possible values: **accountHolder**, **legalEntity** or
+   *     **paymentInstrument**. (required)
    * @param entityId {@link String } Query: The unique identifier of the entity. (required)
    * @param pageSize {@link Integer } Query: The number of items to have on a page. Default: **5**.
    *     (required)
@@ -110,8 +110,8 @@ public class ScaAssociationManagementApi extends Service {
    * Get a list of devices associated with an entity
    *
    * @param entityType {@link ScaEntityType } Query: The type of entity you want to retrieve a list
-   *     of associations for. Possible values: **accountHolder** or **paymentInstrument**.
-   *     (required)
+   *     of associations for. Possible values: **accountHolder**, **legalEntity** or
+   *     **paymentInstrument**. (required)
    * @param entityId {@link String } Query: The unique identifier of the entity. (required)
    * @param pageSize {@link Integer } Query: The number of items to have on a page. Default: **5**.
    *     (required)

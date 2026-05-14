@@ -31,6 +31,7 @@ import java.util.logging.Logger;
   TransactionRuleInfo.JSON_PROPERTY_ENTITY_KEY,
   TransactionRuleInfo.JSON_PROPERTY_INTERVAL,
   TransactionRuleInfo.JSON_PROPERTY_OUTCOME_TYPE,
+  TransactionRuleInfo.JSON_PROPERTY_PURPOSE,
   TransactionRuleInfo.JSON_PROPERTY_REFERENCE,
   TransactionRuleInfo.JSON_PROPERTY_REQUEST_TYPE,
   TransactionRuleInfo.JSON_PROPERTY_RULE_RESTRICTIONS,
@@ -130,6 +131,65 @@ public class TransactionRuleInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetOutcomeType = false;
+
+  /**
+   * Specifies the reason for creating the rule. Possible values: * **fraud**: the rule is created
+   * to regulate fraudulent activity. * **policy**: the rule is created to ensure that the
+   * transaction adheres to your business&#39; policies. For example, if your business has policies
+   * about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to
+   * block transactions that have specific MCCs.
+   */
+  public enum PurposeEnum {
+    COMPLIANCE(String.valueOf("compliance")),
+
+    FRAUD(String.valueOf("fraud")),
+
+    INTERNALPOLICY(String.valueOf("internalPolicy")),
+
+    POLICY(String.valueOf("policy")),
+
+    SYSTEM(String.valueOf("system"));
+
+    private static final Logger LOG = Logger.getLogger(PurposeEnum.class.getName());
+
+    private String value;
+
+    PurposeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PurposeEnum fromValue(String value) {
+      for (PurposeEnum b : PurposeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "PurposeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PurposeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_PURPOSE = "purpose";
+  private PurposeEnum purpose;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPurpose = false;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -632,6 +692,65 @@ public class TransactionRuleInfo {
   }
 
   /**
+   * Specifies the reason for creating the rule. Possible values: * **fraud**: the rule is created
+   * to regulate fraudulent activity. * **policy**: the rule is created to ensure that the
+   * transaction adheres to your business&#39; policies. For example, if your business has policies
+   * about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to
+   * block transactions that have specific MCCs.
+   *
+   * @param purpose Specifies the reason for creating the rule. Possible values: * **fraud**: the
+   *     rule is created to regulate fraudulent activity. * **policy**: the rule is created to
+   *     ensure that the transaction adheres to your business&#39; policies. For example, if your
+   *     business has policies about the Merchant Category Codes (MCCs) allowed on a transaction,
+   *     you can create a rule to block transactions that have specific MCCs.
+   * @return the current {@code TransactionRuleInfo} instance, allowing for method chaining
+   */
+  public TransactionRuleInfo purpose(PurposeEnum purpose) {
+    this.purpose = purpose;
+    isSetPurpose = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Specifies the reason for creating the rule. Possible values: * **fraud**: the rule is created
+   * to regulate fraudulent activity. * **policy**: the rule is created to ensure that the
+   * transaction adheres to your business&#39; policies. For example, if your business has policies
+   * about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to
+   * block transactions that have specific MCCs.
+   *
+   * @return purpose Specifies the reason for creating the rule. Possible values: * **fraud**: the
+   *     rule is created to regulate fraudulent activity. * **policy**: the rule is created to
+   *     ensure that the transaction adheres to your business&#39; policies. For example, if your
+   *     business has policies about the Merchant Category Codes (MCCs) allowed on a transaction,
+   *     you can create a rule to block transactions that have specific MCCs.
+   */
+  @JsonProperty(JSON_PROPERTY_PURPOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PurposeEnum getPurpose() {
+    return purpose;
+  }
+
+  /**
+   * Specifies the reason for creating the rule. Possible values: * **fraud**: the rule is created
+   * to regulate fraudulent activity. * **policy**: the rule is created to ensure that the
+   * transaction adheres to your business&#39; policies. For example, if your business has policies
+   * about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to
+   * block transactions that have specific MCCs.
+   *
+   * @param purpose Specifies the reason for creating the rule. Possible values: * **fraud**: the
+   *     rule is created to regulate fraudulent activity. * **policy**: the rule is created to
+   *     ensure that the transaction adheres to your business&#39; policies. For example, if your
+   *     business has policies about the Merchant Category Codes (MCCs) allowed on a transaction,
+   *     you can create a rule to block transactions that have specific MCCs.
+   */
+  @JsonProperty(JSON_PROPERTY_PURPOSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPurpose(PurposeEnum purpose) {
+    this.purpose = purpose;
+    isSetPurpose = true; // mark as set
+  }
+
+  /**
    * Your reference for the transaction rule.
    *
    * @param reference Your reference for the transaction rule.
@@ -1005,6 +1124,8 @@ public class TransactionRuleInfo {
         && Objects.equals(this.isSetInterval, transactionRuleInfo.isSetInterval)
         && Objects.equals(this.outcomeType, transactionRuleInfo.outcomeType)
         && Objects.equals(this.isSetOutcomeType, transactionRuleInfo.isSetOutcomeType)
+        && Objects.equals(this.purpose, transactionRuleInfo.purpose)
+        && Objects.equals(this.isSetPurpose, transactionRuleInfo.isSetPurpose)
         && Objects.equals(this.reference, transactionRuleInfo.reference)
         && Objects.equals(this.isSetReference, transactionRuleInfo.isSetReference)
         && Objects.equals(this.requestType, transactionRuleInfo.requestType)
@@ -1036,6 +1157,8 @@ public class TransactionRuleInfo {
         isSetInterval,
         outcomeType,
         isSetOutcomeType,
+        purpose,
+        isSetPurpose,
         reference,
         isSetReference,
         requestType,
@@ -1062,6 +1185,7 @@ public class TransactionRuleInfo {
     sb.append("    entityKey: ").append(toIndentedString(entityKey)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    outcomeType: ").append(toIndentedString(outcomeType)).append("\n");
+    sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    ruleRestrictions: ").append(toIndentedString(ruleRestrictions)).append("\n");
@@ -1110,6 +1234,9 @@ public class TransactionRuleInfo {
     }
     if (isSetOutcomeType) {
       addIfNull(nulls, JSON_PROPERTY_OUTCOME_TYPE, this.outcomeType);
+    }
+    if (isSetPurpose) {
+      addIfNull(nulls, JSON_PROPERTY_PURPOSE, this.purpose);
     }
     if (isSetReference) {
       addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);

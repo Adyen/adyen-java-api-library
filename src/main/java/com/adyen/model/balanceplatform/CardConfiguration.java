@@ -34,6 +34,7 @@ import java.util.*;
   CardConfiguration.JSON_PROPERTY_LANGUAGE,
   CardConfiguration.JSON_PROPERTY_LOGO_IMAGE_ID,
   CardConfiguration.JSON_PROPERTY_PIN_MAILER,
+  CardConfiguration.JSON_PROPERTY_PRINT_LINE,
   CardConfiguration.JSON_PROPERTY_SHIPMENT_METHOD
 })
 public class CardConfiguration {
@@ -114,6 +115,12 @@ public class CardConfiguration {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPinMailer = false;
+
+  public static final String JSON_PROPERTY_PRINT_LINE = "printLine";
+  private String printLine;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPrintLine = false;
 
   public static final String JSON_PROPERTY_SHIPMENT_METHOD = "shipmentMethod";
   private String shipmentMethod;
@@ -699,6 +706,47 @@ public class CardConfiguration {
   }
 
   /**
+   * Print Line. Text printed on the physical card below the cardholder name. You provide the value,
+   * which can be up to 26 characters.
+   *
+   * @param printLine Print Line. Text printed on the physical card below the cardholder name. You
+   *     provide the value, which can be up to 26 characters.
+   * @return the current {@code CardConfiguration} instance, allowing for method chaining
+   */
+  public CardConfiguration printLine(String printLine) {
+    this.printLine = printLine;
+    isSetPrintLine = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Print Line. Text printed on the physical card below the cardholder name. You provide the value,
+   * which can be up to 26 characters.
+   *
+   * @return printLine Print Line. Text printed on the physical card below the cardholder name. You
+   *     provide the value, which can be up to 26 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_PRINT_LINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrintLine() {
+    return printLine;
+  }
+
+  /**
+   * Print Line. Text printed on the physical card below the cardholder name. You provide the value,
+   * which can be up to 26 characters.
+   *
+   * @param printLine Print Line. Text printed on the physical card below the cardholder name. You
+   *     provide the value, which can be up to 26 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_PRINT_LINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPrintLine(String printLine) {
+    this.printLine = printLine;
+    isSetPrintLine = true; // mark as set
+  }
+
+  /**
    * The logistics company that ships the card. This field overrides the logistics company defined
    * in the card configuration profile.
    *
@@ -796,6 +844,8 @@ public class CardConfiguration {
         && Objects.equals(this.isSetLogoImageId, cardConfiguration.isSetLogoImageId)
         && Objects.equals(this.pinMailer, cardConfiguration.pinMailer)
         && Objects.equals(this.isSetPinMailer, cardConfiguration.isSetPinMailer)
+        && Objects.equals(this.printLine, cardConfiguration.printLine)
+        && Objects.equals(this.isSetPrintLine, cardConfiguration.isSetPrintLine)
         && Objects.equals(this.shipmentMethod, cardConfiguration.shipmentMethod)
         && Objects.equals(this.isSetShipmentMethod, cardConfiguration.isSetShipmentMethod);
   }
@@ -829,6 +879,8 @@ public class CardConfiguration {
         isSetLogoImageId,
         pinMailer,
         isSetPinMailer,
+        printLine,
+        isSetPrintLine,
         shipmentMethod,
         isSetShipmentMethod);
   }
@@ -852,6 +904,7 @@ public class CardConfiguration {
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    logoImageId: ").append(toIndentedString(logoImageId)).append("\n");
     sb.append("    pinMailer: ").append(toIndentedString(pinMailer)).append("\n");
+    sb.append("    printLine: ").append(toIndentedString(printLine)).append("\n");
     sb.append("    shipmentMethod: ").append(toIndentedString(shipmentMethod)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -915,6 +968,9 @@ public class CardConfiguration {
     }
     if (isSetPinMailer) {
       addIfNull(nulls, JSON_PROPERTY_PIN_MAILER, this.pinMailer);
+    }
+    if (isSetPrintLine) {
+      addIfNull(nulls, JSON_PROPERTY_PRINT_LINE, this.printLine);
     }
     if (isSetShipmentMethod) {
       addIfNull(nulls, JSON_PROPERTY_SHIPMENT_METHOD, this.shipmentMethod);
