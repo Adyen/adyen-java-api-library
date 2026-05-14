@@ -14,26 +14,19 @@ package com.adyen.model.capital;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
-/** Gets or Sets AdditionalBankIdentificationTypes */
-public enum AdditionalBankIdentificationTypes {
-  AUBSBCODE("auBsbCode"),
+/** Gets or Sets FinancingType */
+public enum FinancingType {
+  HARDWAREFINANCING("hardwareFinancing"),
 
-  CAROUTINGNUMBER("caRoutingNumber"),
+  BUSINESSFINANCING("businessFinancing");
 
-  GBSORTCODE("gbSortCode"),
-
-  HKBANKCODE("hkBankCode"),
-
-  JPZENGINCODE("jpZenginCode"),
-
-  NZBANKBRANCHCODE("nzBankBranchCode"),
-
-  USROUTINGNUMBER("usRoutingNumber");
+  private static final Logger LOG = Logger.getLogger(FinancingType.class.getName());
 
   private String value;
 
-  AdditionalBankIdentificationTypes(String value) {
+  FinancingType(String value) {
     this.value = value;
   }
 
@@ -48,12 +41,18 @@ public enum AdditionalBankIdentificationTypes {
   }
 
   @JsonCreator
-  public static AdditionalBankIdentificationTypes fromValue(String value) {
-    for (AdditionalBankIdentificationTypes b : AdditionalBankIdentificationTypes.values()) {
+  public static FinancingType fromValue(String value) {
+    for (FinancingType b : FinancingType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "FinancingType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(FinancingType.values()));
+    return null;
   }
 }
