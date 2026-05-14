@@ -54,6 +54,7 @@ import java.util.logging.Logger;
   TransferData.JSON_PROPERTY_TRACKING,
   TransferData.JSON_PROPERTY_TRANSACTION_RULES_RESULT,
   TransferData.JSON_PROPERTY_TYPE,
+  TransferData.JSON_PROPERTY_ULTIMATE_PARTY,
   TransferData.JSON_PROPERTY_UPDATED_AT
 })
 public class TransferData {
@@ -551,6 +552,8 @@ public class TransferData {
 
     PAYMENTCOSTPENDING(String.valueOf("paymentCostPending")),
 
+    PENDING(String.valueOf("pending")),
+
     PENDINGAPPROVAL(String.valueOf("pendingApproval")),
 
     PENDINGEXECUTION(String.valueOf("pendingExecution")),
@@ -576,6 +579,8 @@ public class TransferData {
     RESERVEADJUSTMENTPENDING(String.valueOf("reserveAdjustmentPending")),
 
     RETURNED(String.valueOf("returned")),
+
+    REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),
 
@@ -745,6 +750,9 @@ public class TransferData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_ULTIMATE_PARTY = "ultimateParty";
+  private UltimatePartyIdentification ultimateParty;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
@@ -1872,6 +1880,39 @@ public class TransferData {
   }
 
   /**
+   * ultimateParty
+   *
+   * @param ultimateParty
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData ultimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+    return this;
+  }
+
+  /**
+   * Get ultimateParty
+   *
+   * @return ultimateParty
+   */
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UltimatePartyIdentification getUltimateParty() {
+    return ultimateParty;
+  }
+
+  /**
+   * ultimateParty
+   *
+   * @param ultimateParty
+   */
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUltimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+  }
+
+  /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
    * **2020-12-18T10:15:30+01:00**.
    *
@@ -1948,6 +1989,7 @@ public class TransferData {
         && Objects.equals(this.tracking, transferData.tracking)
         && Objects.equals(this.transactionRulesResult, transferData.transactionRulesResult)
         && Objects.equals(this.type, transferData.type)
+        && Objects.equals(this.ultimateParty, transferData.ultimateParty)
         && Objects.equals(this.updatedAt, transferData.updatedAt);
   }
 
@@ -1982,6 +2024,7 @@ public class TransferData {
         tracking,
         transactionRulesResult,
         type,
+        ultimateParty,
         updatedAt);
   }
 
@@ -2023,6 +2066,7 @@ public class TransferData {
         .append(toIndentedString(transactionRulesResult))
         .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    ultimateParty: ").append(toIndentedString(ultimateParty)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
