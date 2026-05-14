@@ -97,8 +97,9 @@ public class IssuedCard {
   private PanEntryModeEnum panEntryMode;
 
   /**
-   * Contains information about how the payment was processed. For example, **ecommerce** for online
-   * or **pos** for in-person payments.
+   * Contains information about how the payment was processed. Possible values: **atmWithdraw**,
+   * **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**,
+   * **token**.
    */
   public enum ProcessingTypeEnum {
     ATMWITHDRAW(String.valueOf("atmWithdraw")),
@@ -297,11 +298,13 @@ public class IssuedCard {
   }
 
   /**
-   * Contains information about how the payment was processed. For example, **ecommerce** for online
-   * or **pos** for in-person payments.
+   * Contains information about how the payment was processed. Possible values: **atmWithdraw**,
+   * **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**,
+   * **token**.
    *
-   * @param processingType Contains information about how the payment was processed. For example,
-   *     **ecommerce** for online or **pos** for in-person payments.
+   * @param processingType Contains information about how the payment was processed. Possible
+   *     values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**,
+   *     **purchaseWithCashback**, **recurring**, **token**.
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard processingType(ProcessingTypeEnum processingType) {
@@ -310,11 +313,13 @@ public class IssuedCard {
   }
 
   /**
-   * Contains information about how the payment was processed. For example, **ecommerce** for online
-   * or **pos** for in-person payments.
+   * Contains information about how the payment was processed. Possible values: **atmWithdraw**,
+   * **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**,
+   * **token**.
    *
-   * @return processingType Contains information about how the payment was processed. For example,
-   *     **ecommerce** for online or **pos** for in-person payments.
+   * @return processingType Contains information about how the payment was processed. Possible
+   *     values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**,
+   *     **purchaseWithCashback**, **recurring**, **token**.
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,11 +328,13 @@ public class IssuedCard {
   }
 
   /**
-   * Contains information about how the payment was processed. For example, **ecommerce** for online
-   * or **pos** for in-person payments.
+   * Contains information about how the payment was processed. Possible values: **atmWithdraw**,
+   * **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**,
+   * **token**.
    *
-   * @param processingType Contains information about how the payment was processed. For example,
-   *     **ecommerce** for online or **pos** for in-person payments.
+   * @param processingType Contains information about how the payment was processed. Possible
+   *     values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**,
+   *     **purchaseWithCashback**, **recurring**, **token**.
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -396,6 +396,8 @@ public class TransferEvent {
 
     PAYMENTCOSTPENDING(String.valueOf("paymentCostPending")),
 
+    PENDING(String.valueOf("pending")),
+
     PENDINGAPPROVAL(String.valueOf("pendingApproval")),
 
     PENDINGEXECUTION(String.valueOf("pendingExecution")),
@@ -421,6 +423,8 @@ public class TransferEvent {
     RESERVEADJUSTMENTPENDING(String.valueOf("reserveAdjustmentPending")),
 
     RETURNED(String.valueOf("returned")),
+
+    REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),
 
