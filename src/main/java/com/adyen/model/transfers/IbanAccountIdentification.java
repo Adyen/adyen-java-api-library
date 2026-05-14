@@ -25,10 +25,17 @@ import java.util.logging.Logger;
 
 /** IbanAccountIdentification */
 @JsonPropertyOrder({
+  IbanAccountIdentification.JSON_PROPERTY_BIC,
   IbanAccountIdentification.JSON_PROPERTY_IBAN,
   IbanAccountIdentification.JSON_PROPERTY_TYPE
 })
 public class IbanAccountIdentification {
+  public static final String JSON_PROPERTY_BIC = "bic";
+  private String bic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBic = false;
+
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
@@ -87,6 +94,41 @@ public class IbanAccountIdentification {
   @JsonIgnore private boolean includeNullValues = false;
 
   public IbanAccountIdentification() {}
+
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
+   */
+  public IbanAccountIdentification bic(String bic) {
+    this.bic = bic;
+    isSetBic = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @return bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   */
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBic() {
+    return bic;
+  }
+
+  /**
+   * The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   *
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   */
+  @JsonProperty(JSON_PROPERTY_BIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBic(String bic) {
+    this.bic = bic;
+    isSetBic = true; // mark as set
+  }
 
   /**
    * The international bank account number as defined in the
@@ -194,7 +236,9 @@ public class IbanAccountIdentification {
       return false;
     }
     IbanAccountIdentification ibanAccountIdentification = (IbanAccountIdentification) o;
-    return Objects.equals(this.iban, ibanAccountIdentification.iban)
+    return Objects.equals(this.bic, ibanAccountIdentification.bic)
+        && Objects.equals(this.isSetBic, ibanAccountIdentification.isSetBic)
+        && Objects.equals(this.iban, ibanAccountIdentification.iban)
         && Objects.equals(this.isSetIban, ibanAccountIdentification.isSetIban)
         && Objects.equals(this.type, ibanAccountIdentification.type)
         && Objects.equals(this.isSetType, ibanAccountIdentification.isSetType);
@@ -202,13 +246,14 @@ public class IbanAccountIdentification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(iban, isSetIban, type, isSetType);
+    return Objects.hash(bic, isSetBic, iban, isSetIban, type, isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IbanAccountIdentification {\n");
+    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -235,6 +280,9 @@ public class IbanAccountIdentification {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetBic) {
+      addIfNull(nulls, JSON_PROPERTY_BIC, this.bic);
+    }
     if (isSetIban) {
       addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
     }

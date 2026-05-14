@@ -159,13 +159,15 @@ public class TransfersApi extends Service {
    * @param reference {@link String } Query: The reference you provided in the POST
    *     [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) request
    *     (optional)
-   * @param category {@link String } Query: The type of transfer. Possible values: - **bank**:
-   *     Transfer to a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **internal**: Transfer to another [balance
-   *     account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: Transfer initiated by a Adyen-issued card. -
-   *     **platformPayment**: Fund movements related to payments that are acquired for your users.
+   * @param category {@link String } Query: The category of the transfer. Possible values: -
+   *     **bank**: A transfer involving a [transfer
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
+   *     transfer between [balance
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *     (optional)
    * @param createdSince {@link OffsetDateTime } Query: Only include transfers that have been
    *     created on or after this point in time. The value must be in ISO 8601 format and not
