@@ -45,7 +45,8 @@ import java.util.logging.Logger;
   Transfer.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
   Transfer.JSON_PROPERTY_REVIEW,
   Transfer.JSON_PROPERTY_STATUS,
-  Transfer.JSON_PROPERTY_TYPE
+  Transfer.JSON_PROPERTY_TYPE,
+  Transfer.JSON_PROPERTY_ULTIMATE_PARTY
 })
 public class Transfer {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
@@ -578,6 +579,8 @@ public class Transfer {
 
     PAYMENTCOSTPENDING(String.valueOf("paymentCostPending")),
 
+    PENDING(String.valueOf("pending")),
+
     PENDINGAPPROVAL(String.valueOf("pendingApproval")),
 
     PENDINGEXECUTION(String.valueOf("pendingExecution")),
@@ -603,6 +606,8 @@ public class Transfer {
     RESERVEADJUSTMENTPENDING(String.valueOf("reserveAdjustmentPending")),
 
     RETURNED(String.valueOf("returned")),
+
+    REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),
 
@@ -772,6 +777,12 @@ public class Transfer {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetType = false;
+
+  public static final String JSON_PROPERTY_ULTIMATE_PARTY = "ultimateParty";
+  private UltimatePartyIdentification ultimateParty;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUltimateParty = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -1644,6 +1655,41 @@ public class Transfer {
   }
 
   /**
+   * ultimateParty
+   *
+   * @param ultimateParty
+   * @return the current {@code Transfer} instance, allowing for method chaining
+   */
+  public Transfer ultimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+    isSetUltimateParty = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ultimateParty
+   *
+   * @return ultimateParty
+   */
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UltimatePartyIdentification getUltimateParty() {
+    return ultimateParty;
+  }
+
+  /**
+   * ultimateParty
+   *
+   * @param ultimateParty
+   */
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUltimateParty(UltimatePartyIdentification ultimateParty) {
+    this.ultimateParty = ultimateParty;
+    isSetUltimateParty = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public Transfer includeNullValues(boolean includeNullValues) {
@@ -1712,7 +1758,9 @@ public class Transfer {
         && Objects.equals(this.status, transfer.status)
         && Objects.equals(this.isSetStatus, transfer.isSetStatus)
         && Objects.equals(this.type, transfer.type)
-        && Objects.equals(this.isSetType, transfer.isSetType);
+        && Objects.equals(this.isSetType, transfer.isSetType)
+        && Objects.equals(this.ultimateParty, transfer.ultimateParty)
+        && Objects.equals(this.isSetUltimateParty, transfer.isSetUltimateParty);
   }
 
   @Override
@@ -1757,7 +1805,9 @@ public class Transfer {
         status,
         isSetStatus,
         type,
-        isSetType);
+        isSetType,
+        ultimateParty,
+        isSetUltimateParty);
   }
 
   @Override
@@ -1788,6 +1838,7 @@ public class Transfer {
     sb.append("    review: ").append(toIndentedString(review)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    ultimateParty: ").append(toIndentedString(ultimateParty)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1871,6 +1922,9 @@ public class Transfer {
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUltimateParty) {
+      addIfNull(nulls, JSON_PROPERTY_ULTIMATE_PARTY, this.ultimateParty);
     }
 
     return nulls;
