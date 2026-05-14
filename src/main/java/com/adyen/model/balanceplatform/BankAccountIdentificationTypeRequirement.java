@@ -50,7 +50,15 @@ public class BankAccountIdentificationTypeRequirement {
 
     IBAN(String.valueOf("iban")),
 
+    INLOCAL(String.valueOf("inLocal")),
+
+    JPLOCAL(String.valueOf("jpLocal")),
+
     LEGACY(String.valueOf("legacy")),
+
+    MXLOCAL(String.valueOf("mxLocal")),
+
+    MYLOCAL(String.valueOf("myLocal")),
 
     NOLOCAL(String.valueOf("noLocal")),
 

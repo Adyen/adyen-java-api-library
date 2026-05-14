@@ -94,11 +94,14 @@ public class PlatformPaymentConfiguration {
 
   /**
    * Specifies after how many business days the funds in a settlement batch are made available in
-   * this balance account. Possible values: **1** to **20**, or **null**. Default value: **null**.
+   * this balance account. Requires Custom Sales Day Payout to be enabled for your balance account.
+   * Contact your account manager or implementation manager to enable this. Possible values: **1**
+   * to **20**, or **null**. Default value: **null**.
    *
    * @param settlementDelayDays Specifies after how many business days the funds in a settlement
-   *     batch are made available in this balance account. Possible values: **1** to **20**, or
-   *     **null**. Default value: **null**.
+   *     batch are made available in this balance account. Requires Custom Sales Day Payout to be
+   *     enabled for your balance account. Contact your account manager or implementation manager to
+   *     enable this. Possible values: **1** to **20**, or **null**. Default value: **null**.
    * @return the current {@code PlatformPaymentConfiguration} instance, allowing for method chaining
    */
   public PlatformPaymentConfiguration settlementDelayDays(Integer settlementDelayDays) {
@@ -109,11 +112,14 @@ public class PlatformPaymentConfiguration {
 
   /**
    * Specifies after how many business days the funds in a settlement batch are made available in
-   * this balance account. Possible values: **1** to **20**, or **null**. Default value: **null**.
+   * this balance account. Requires Custom Sales Day Payout to be enabled for your balance account.
+   * Contact your account manager or implementation manager to enable this. Possible values: **1**
+   * to **20**, or **null**. Default value: **null**.
    *
    * @return settlementDelayDays Specifies after how many business days the funds in a settlement
-   *     batch are made available in this balance account. Possible values: **1** to **20**, or
-   *     **null**. Default value: **null**.
+   *     batch are made available in this balance account. Requires Custom Sales Day Payout to be
+   *     enabled for your balance account. Contact your account manager or implementation manager to
+   *     enable this. Possible values: **1** to **20**, or **null**. Default value: **null**.
    */
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_DELAY_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,11 +129,14 @@ public class PlatformPaymentConfiguration {
 
   /**
    * Specifies after how many business days the funds in a settlement batch are made available in
-   * this balance account. Possible values: **1** to **20**, or **null**. Default value: **null**.
+   * this balance account. Requires Custom Sales Day Payout to be enabled for your balance account.
+   * Contact your account manager or implementation manager to enable this. Possible values: **1**
+   * to **20**, or **null**. Default value: **null**.
    *
    * @param settlementDelayDays Specifies after how many business days the funds in a settlement
-   *     batch are made available in this balance account. Possible values: **1** to **20**, or
-   *     **null**. Default value: **null**.
+   *     batch are made available in this balance account. Requires Custom Sales Day Payout to be
+   *     enabled for your balance account. Contact your account manager or implementation manager to
+   *     enable this. Possible values: **1** to **20**, or **null**. Default value: **null**.
    */
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_DELAY_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The scope to which the transfer limit applies. Possible values: * **perTransaction**: you set a
@@ -25,6 +26,8 @@ public enum Scope {
   PERDAY("perDay"),
 
   PERTRANSACTION("perTransaction");
+
+  private static final Logger LOG = Logger.getLogger(Scope.class.getName());
 
   private String value;
 
@@ -49,6 +52,12 @@ public enum Scope {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "Scope: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(Scope.values()));
+    return null;
   }
 }

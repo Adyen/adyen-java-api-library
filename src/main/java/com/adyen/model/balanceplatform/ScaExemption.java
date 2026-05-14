@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The type of exemption for Strong Customer Authentication (SCA). Possible values: *
@@ -34,6 +35,8 @@ public enum ScaExemption {
   NOTREGULATED("notRegulated"),
 
   ALREADYPERFORMED("alreadyPerformed");
+
+  private static final Logger LOG = Logger.getLogger(ScaExemption.class.getName());
 
   private String value;
 
@@ -58,6 +61,12 @@ public enum ScaExemption {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "ScaExemption: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(ScaExemption.values()));
+    return null;
   }
 }

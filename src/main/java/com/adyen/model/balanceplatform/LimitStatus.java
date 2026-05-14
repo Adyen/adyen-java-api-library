@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The status of the transfer limit. Possible values: * **active**: the limit is currently active. *
@@ -28,6 +29,8 @@ public enum LimitStatus {
   PENDINGSCA("pendingSCA"),
 
   SCHEDULED("scheduled");
+
+  private static final Logger LOG = Logger.getLogger(LimitStatus.class.getName());
 
   private String value;
 
@@ -52,6 +55,12 @@ public enum LimitStatus {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "LimitStatus: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(LimitStatus.values()));
+    return null;
   }
 }
