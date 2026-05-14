@@ -205,9 +205,9 @@ public class VerificationError {
   }
 
   /**
-   * More granular information about the verification error.
+   * subErrors
    *
-   * @param subErrors More granular information about the verification error.
+   * @param subErrors
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
@@ -224,9 +224,9 @@ public class VerificationError {
   }
 
   /**
-   * More granular information about the verification error.
+   * Get subErrors
    *
-   * @return subErrors More granular information about the verification error.
+   * @return subErrors
    */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,9 +235,9 @@ public class VerificationError {
   }
 
   /**
-   * More granular information about the verification error.
+   * subErrors
    *
-   * @param subErrors More granular information about the verification error.
+   * @param subErrors
    */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
