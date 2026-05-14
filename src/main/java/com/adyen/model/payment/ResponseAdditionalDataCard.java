@@ -12,16 +12,12 @@
 package com.adyen.model.payment;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.Arrays;
-import java.util.logging.Logger;
 
 /** ResponseAdditionalDataCard */
 @JsonPropertyOrder({
@@ -79,75 +75,8 @@ public class ResponseAdditionalDataCard {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardPaymentMethod = false;
 
-  /**
-   * The Card Product ID represents the type of card following card scheme product definitions and
-   * can be returned for Adyen Acquiring service level payments. Possible values Visa: * **A** -
-   * Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
-   * Signature Preferred * **F** - Visa Classic Possible values Mastercard: * **MCC** - Mastercard
-   * Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card *
-   * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard
-   * Select Debit
-   */
-  public enum CardProductIdEnum {
-    A(String.valueOf("A")),
-
-    B(String.valueOf("B")),
-
-    C(String.valueOf("C")),
-
-    D(String.valueOf("D")),
-
-    F(String.valueOf("F")),
-
-    MCC(String.valueOf("MCC")),
-
-    MCE(String.valueOf("MCE")),
-
-    MCF(String.valueOf("MCF")),
-
-    MCG(String.valueOf("MCG")),
-
-    MCH(String.valueOf("MCH")),
-
-    MCI(String.valueOf("MCI"));
-
-    private static final Logger LOG = Logger.getLogger(CardProductIdEnum.class.getName());
-
-    private String value;
-
-    CardProductIdEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static CardProductIdEnum fromValue(String value) {
-      for (CardProductIdEnum b : CardProductIdEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      // handling unexpected value
-      LOG.warning(
-          "CardProductIdEnum: unexpected enum value '"
-              + value
-              + "' - Supported values are "
-              + Arrays.toString(CardProductIdEnum.values()));
-      return null;
-    }
-  }
-
   public static final String JSON_PROPERTY_CARD_PRODUCT_ID = "cardProductId";
-  private CardProductIdEnum cardProductId;
+  private String cardProductId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardProductId = false;
@@ -453,23 +382,23 @@ public class ResponseAdditionalDataCard {
 
   /**
    * The Card Product ID represents the type of card following card scheme product definitions and
-   * can be returned for Adyen Acquiring service level payments. Possible values Visa: * **A** -
-   * Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
-   * Signature Preferred * **F** - Visa Classic Possible values Mastercard: * **MCC** - Mastercard
+   * can be returned for Adyen Acquiring service level payments. Example values Visa: * **A** - Visa
+   * Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
+   * Signature Preferred * **F** - Visa Classic Example values Mastercard: * **MCC** - Mastercard
    * Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card *
    * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard
    * Select Debit
    *
    * @param cardProductId The Card Product ID represents the type of card following card scheme
-   *     product definitions and can be returned for Adyen Acquiring service level payments.
-   *     Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C**
-   *     - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic Possible values
+   *     product definitions and can be returned for Adyen Acquiring service level payments. Example
+   *     values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa
+   *     Signature * **D** - Visa Signature Preferred * **F** - Visa Classic Example values
    *     Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** -
    *     Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard
    *     Premium Charge * **MCI** - Mastercard Select Debit
    * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
    */
-  public ResponseAdditionalDataCard cardProductId(CardProductIdEnum cardProductId) {
+  public ResponseAdditionalDataCard cardProductId(String cardProductId) {
     this.cardProductId = cardProductId;
     isSetCardProductId = true; // mark as set
     return this;
@@ -477,47 +406,47 @@ public class ResponseAdditionalDataCard {
 
   /**
    * The Card Product ID represents the type of card following card scheme product definitions and
-   * can be returned for Adyen Acquiring service level payments. Possible values Visa: * **A** -
-   * Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
-   * Signature Preferred * **F** - Visa Classic Possible values Mastercard: * **MCC** - Mastercard
+   * can be returned for Adyen Acquiring service level payments. Example values Visa: * **A** - Visa
+   * Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
+   * Signature Preferred * **F** - Visa Classic Example values Mastercard: * **MCC** - Mastercard
    * Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card *
    * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard
    * Select Debit
    *
    * @return cardProductId The Card Product ID represents the type of card following card scheme
-   *     product definitions and can be returned for Adyen Acquiring service level payments.
-   *     Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C**
-   *     - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic Possible values
+   *     product definitions and can be returned for Adyen Acquiring service level payments. Example
+   *     values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa
+   *     Signature * **D** - Visa Signature Preferred * **F** - Visa Classic Example values
    *     Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** -
    *     Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard
    *     Premium Charge * **MCI** - Mastercard Select Debit
    */
   @JsonProperty(JSON_PROPERTY_CARD_PRODUCT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CardProductIdEnum getCardProductId() {
+  public String getCardProductId() {
     return cardProductId;
   }
 
   /**
    * The Card Product ID represents the type of card following card scheme product definitions and
-   * can be returned for Adyen Acquiring service level payments. Possible values Visa: * **A** -
-   * Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
-   * Signature Preferred * **F** - Visa Classic Possible values Mastercard: * **MCC** - Mastercard
+   * can be returned for Adyen Acquiring service level payments. Example values Visa: * **A** - Visa
+   * Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa
+   * Signature Preferred * **F** - Visa Classic Example values Mastercard: * **MCC** - Mastercard
    * Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card *
    * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard
    * Select Debit
    *
    * @param cardProductId The Card Product ID represents the type of card following card scheme
-   *     product definitions and can be returned for Adyen Acquiring service level payments.
-   *     Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C**
-   *     - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic Possible values
+   *     product definitions and can be returned for Adyen Acquiring service level payments. Example
+   *     values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa
+   *     Signature * **D** - Visa Signature Preferred * **F** - Visa Classic Example values
    *     Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** -
    *     Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard
    *     Premium Charge * **MCI** - Mastercard Select Debit
    */
   @JsonProperty(JSON_PROPERTY_CARD_PRODUCT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardProductId(CardProductIdEnum cardProductId) {
+  public void setCardProductId(String cardProductId) {
     this.cardProductId = cardProductId;
     isSetCardProductId = true; // mark as set
   }
