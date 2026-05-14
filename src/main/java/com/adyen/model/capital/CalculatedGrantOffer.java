@@ -24,18 +24,17 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** GrantOffer */
+/** CalculatedGrantOffer */
 @JsonPropertyOrder({
-  GrantOffer.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
-  GrantOffer.JSON_PROPERTY_AMOUNT,
-  GrantOffer.JSON_PROPERTY_CONTRACT_TYPE,
-  GrantOffer.JSON_PROPERTY_EXPIRES_AT,
-  GrantOffer.JSON_PROPERTY_FEE,
-  GrantOffer.JSON_PROPERTY_ID,
-  GrantOffer.JSON_PROPERTY_REPAYMENT,
-  GrantOffer.JSON_PROPERTY_STARTS_AT
+  CalculatedGrantOffer.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
+  CalculatedGrantOffer.JSON_PROPERTY_AMOUNT,
+  CalculatedGrantOffer.JSON_PROPERTY_CONTRACT_TYPE,
+  CalculatedGrantOffer.JSON_PROPERTY_EXPIRES_AT,
+  CalculatedGrantOffer.JSON_PROPERTY_FEE,
+  CalculatedGrantOffer.JSON_PROPERTY_REPAYMENT,
+  CalculatedGrantOffer.JSON_PROPERTY_STARTS_AT
 })
-public class GrantOffer {
+public class CalculatedGrantOffer {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
@@ -107,12 +106,6 @@ public class GrantOffer {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetFee = false;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetId = false;
-
   public static final String JSON_PROPERTY_REPAYMENT = "repayment";
   private Repayment repayment;
 
@@ -131,26 +124,26 @@ public class GrantOffer {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public GrantOffer() {}
+  public CalculatedGrantOffer() {}
 
   /**
-   * The unique identifier of the account holder to which the grant is offered.
+   * The unique identifier of the account holder that the dynamic offer is for.
    *
-   * @param accountHolderId The unique identifier of the account holder to which the grant is
-   *     offered.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @param accountHolderId The unique identifier of the account holder that the dynamic offer is
+   *     for.
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer accountHolderId(String accountHolderId) {
+  public CalculatedGrantOffer accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
     isSetAccountHolderId = true; // mark as set
     return this;
   }
 
   /**
-   * The unique identifier of the account holder to which the grant is offered.
+   * The unique identifier of the account holder that the dynamic offer is for.
    *
-   * @return accountHolderId The unique identifier of the account holder to which the grant is
-   *     offered.
+   * @return accountHolderId The unique identifier of the account holder that the dynamic offer is
+   *     for.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,10 +152,10 @@ public class GrantOffer {
   }
 
   /**
-   * The unique identifier of the account holder to which the grant is offered.
+   * The unique identifier of the account holder that the dynamic offer is for.
    *
-   * @param accountHolderId The unique identifier of the account holder to which the grant is
-   *     offered.
+   * @param accountHolderId The unique identifier of the account holder that the dynamic offer is
+   *     for.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,9 +168,9 @@ public class GrantOffer {
    * amount
    *
    * @param amount
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer amount(Amount amount) {
+  public CalculatedGrantOffer amount(Amount amount) {
     this.amount = amount;
     isSetAmount = true; // mark as set
     return this;
@@ -211,9 +204,9 @@ public class GrantOffer {
    *
    * @param contractType The contract type of the offer. Possible values: * **loan** *
    *     **cashAdvance**
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer contractType(ContractTypeEnum contractType) {
+  public CalculatedGrantOffer contractType(ContractTypeEnum contractType) {
     this.contractType = contractType;
     isSetContractType = true; // mark as set
     return this;
@@ -248,9 +241,9 @@ public class GrantOffer {
    * The expiration date and time of the offer validity period.
    *
    * @param expiresAt The expiration date and time of the offer validity period.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer expiresAt(OffsetDateTime expiresAt) {
+  public CalculatedGrantOffer expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     isSetExpiresAt = true; // mark as set
     return this;
@@ -283,9 +276,9 @@ public class GrantOffer {
    * fee
    *
    * @param fee
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer fee(GrantOfferFee fee) {
+  public CalculatedGrantOffer fee(GrantOfferFee fee) {
     this.fee = fee;
     isSetFee = true; // mark as set
     return this;
@@ -315,47 +308,12 @@ public class GrantOffer {
   }
 
   /**
-   * The unique identifier of the offer.
-   *
-   * @param id The unique identifier of the offer.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
-   */
-  public GrantOffer id(String id) {
-    this.id = id;
-    isSetId = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The unique identifier of the offer.
-   *
-   * @return id The unique identifier of the offer.
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  /**
-   * The unique identifier of the offer.
-   *
-   * @param id The unique identifier of the offer.
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-    isSetId = true; // mark as set
-  }
-
-  /**
    * repayment
    *
    * @param repayment
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer repayment(Repayment repayment) {
+  public CalculatedGrantOffer repayment(Repayment repayment) {
     this.repayment = repayment;
     isSetRepayment = true; // mark as set
     return this;
@@ -388,9 +346,9 @@ public class GrantOffer {
    * The starting date and time of the offer validity period.
    *
    * @param startsAt The starting date and time of the offer validity period.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code CalculatedGrantOffer} instance, allowing for method chaining
    */
-  public GrantOffer startsAt(OffsetDateTime startsAt) {
+  public CalculatedGrantOffer startsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
     isSetStartsAt = true; // mark as set
     return this;
@@ -422,7 +380,7 @@ public class GrantOffer {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public GrantOffer includeNullValues(boolean includeNullValues) {
+  public CalculatedGrantOffer includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -439,7 +397,7 @@ public class GrantOffer {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this GrantOffer object is equal to o. */
+  /** Return true if this CalculatedGrantOffer object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -448,23 +406,21 @@ public class GrantOffer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GrantOffer grantOffer = (GrantOffer) o;
-    return Objects.equals(this.accountHolderId, grantOffer.accountHolderId)
-        && Objects.equals(this.isSetAccountHolderId, grantOffer.isSetAccountHolderId)
-        && Objects.equals(this.amount, grantOffer.amount)
-        && Objects.equals(this.isSetAmount, grantOffer.isSetAmount)
-        && Objects.equals(this.contractType, grantOffer.contractType)
-        && Objects.equals(this.isSetContractType, grantOffer.isSetContractType)
-        && Objects.equals(this.expiresAt, grantOffer.expiresAt)
-        && Objects.equals(this.isSetExpiresAt, grantOffer.isSetExpiresAt)
-        && Objects.equals(this.fee, grantOffer.fee)
-        && Objects.equals(this.isSetFee, grantOffer.isSetFee)
-        && Objects.equals(this.id, grantOffer.id)
-        && Objects.equals(this.isSetId, grantOffer.isSetId)
-        && Objects.equals(this.repayment, grantOffer.repayment)
-        && Objects.equals(this.isSetRepayment, grantOffer.isSetRepayment)
-        && Objects.equals(this.startsAt, grantOffer.startsAt)
-        && Objects.equals(this.isSetStartsAt, grantOffer.isSetStartsAt);
+    CalculatedGrantOffer calculatedGrantOffer = (CalculatedGrantOffer) o;
+    return Objects.equals(this.accountHolderId, calculatedGrantOffer.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, calculatedGrantOffer.isSetAccountHolderId)
+        && Objects.equals(this.amount, calculatedGrantOffer.amount)
+        && Objects.equals(this.isSetAmount, calculatedGrantOffer.isSetAmount)
+        && Objects.equals(this.contractType, calculatedGrantOffer.contractType)
+        && Objects.equals(this.isSetContractType, calculatedGrantOffer.isSetContractType)
+        && Objects.equals(this.expiresAt, calculatedGrantOffer.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, calculatedGrantOffer.isSetExpiresAt)
+        && Objects.equals(this.fee, calculatedGrantOffer.fee)
+        && Objects.equals(this.isSetFee, calculatedGrantOffer.isSetFee)
+        && Objects.equals(this.repayment, calculatedGrantOffer.repayment)
+        && Objects.equals(this.isSetRepayment, calculatedGrantOffer.isSetRepayment)
+        && Objects.equals(this.startsAt, calculatedGrantOffer.startsAt)
+        && Objects.equals(this.isSetStartsAt, calculatedGrantOffer.isSetStartsAt);
   }
 
   @Override
@@ -480,8 +436,6 @@ public class GrantOffer {
         isSetExpiresAt,
         fee,
         isSetFee,
-        id,
-        isSetId,
         repayment,
         isSetRepayment,
         startsAt,
@@ -491,13 +445,12 @@ public class GrantOffer {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GrantOffer {\n");
+    sb.append("class CalculatedGrantOffer {\n");
     sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    contractType: ").append(toIndentedString(contractType)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    repayment: ").append(toIndentedString(repayment)).append("\n");
     sb.append("    startsAt: ").append(toIndentedString(startsAt)).append("\n");
     sb.append("}");
@@ -539,9 +492,6 @@ public class GrantOffer {
     if (isSetFee) {
       addIfNull(nulls, JSON_PROPERTY_FEE, this.fee);
     }
-    if (isSetId) {
-      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
-    }
     if (isSetRepayment) {
       addIfNull(nulls, JSON_PROPERTY_REPAYMENT, this.repayment);
     }
@@ -560,18 +510,19 @@ public class GrantOffer {
   }
 
   /**
-   * Create an instance of GrantOffer given an JSON string
+   * Create an instance of CalculatedGrantOffer given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GrantOffer
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantOffer
+   * @return An instance of CalculatedGrantOffer
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     CalculatedGrantOffer
    */
-  public static GrantOffer fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, GrantOffer.class);
+  public static CalculatedGrantOffer fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CalculatedGrantOffer.class);
   }
 
   /**
-   * Convert an instance of GrantOffer to an JSON string
+   * Convert an instance of CalculatedGrantOffer to an JSON string
    *
    * @return JSON string
    */

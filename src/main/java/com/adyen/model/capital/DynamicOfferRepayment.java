@@ -18,17 +18,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 
-/** GrantOffers */
-@JsonPropertyOrder({GrantOffers.JSON_PROPERTY_GRANT_OFFERS})
-public class GrantOffers {
-  public static final String JSON_PROPERTY_GRANT_OFFERS = "grantOffers";
-  private List<GrantOffer> grantOffers;
+/** DynamicOfferRepayment */
+@JsonPropertyOrder({DynamicOfferRepayment.JSON_PROPERTY_TERM})
+public class DynamicOfferRepayment {
+  public static final String JSON_PROPERTY_TERM = "term";
+  private RepaymentTerm term;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetGrantOffers = false;
+  private boolean isSetTerm = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -36,55 +34,47 @@ public class GrantOffers {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public GrantOffers() {}
+  public DynamicOfferRepayment() {}
 
   /**
-   * Contains a list of available offers for the specified account holder.
+   * term
    *
-   * @param grantOffers Contains a list of available offers for the specified account holder.
-   * @return the current {@code GrantOffers} instance, allowing for method chaining
+   * @param term
+   * @return the current {@code DynamicOfferRepayment} instance, allowing for method chaining
    */
-  public GrantOffers grantOffers(List<GrantOffer> grantOffers) {
-    this.grantOffers = grantOffers;
-    isSetGrantOffers = true; // mark as set
-    return this;
-  }
-
-  public GrantOffers addGrantOffersItem(GrantOffer grantOffersItem) {
-    if (this.grantOffers == null) {
-      this.grantOffers = new ArrayList<>();
-    }
-    this.grantOffers.add(grantOffersItem);
+  public DynamicOfferRepayment term(RepaymentTerm term) {
+    this.term = term;
+    isSetTerm = true; // mark as set
     return this;
   }
 
   /**
-   * Contains a list of available offers for the specified account holder.
+   * Get term
    *
-   * @return grantOffers Contains a list of available offers for the specified account holder.
+   * @return term
    */
-  @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
+  @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<GrantOffer> getGrantOffers() {
-    return grantOffers;
+  public RepaymentTerm getTerm() {
+    return term;
   }
 
   /**
-   * Contains a list of available offers for the specified account holder.
+   * term
    *
-   * @param grantOffers Contains a list of available offers for the specified account holder.
+   * @param term
    */
-  @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
+  @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGrantOffers(List<GrantOffer> grantOffers) {
-    this.grantOffers = grantOffers;
-    isSetGrantOffers = true; // mark as set
+  public void setTerm(RepaymentTerm term) {
+    this.term = term;
+    isSetTerm = true; // mark as set
   }
 
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public GrantOffers includeNullValues(boolean includeNullValues) {
+  public DynamicOfferRepayment includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -101,7 +91,7 @@ public class GrantOffers {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this GrantOffers object is equal to o. */
+  /** Return true if this DynamicOfferRepayment object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,21 +100,21 @@ public class GrantOffers {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GrantOffers grantOffers = (GrantOffers) o;
-    return Objects.equals(this.grantOffers, grantOffers.grantOffers)
-        && Objects.equals(this.isSetGrantOffers, grantOffers.isSetGrantOffers);
+    DynamicOfferRepayment dynamicOfferRepayment = (DynamicOfferRepayment) o;
+    return Objects.equals(this.term, dynamicOfferRepayment.term)
+        && Objects.equals(this.isSetTerm, dynamicOfferRepayment.isSetTerm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grantOffers, isSetGrantOffers);
+    return Objects.hash(term, isSetTerm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GrantOffers {\n");
-    sb.append("    grantOffers: ").append(toIndentedString(grantOffers)).append("\n");
+    sb.append("class DynamicOfferRepayment {\n");
+    sb.append("    term: ").append(toIndentedString(term)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,8 +139,8 @@ public class GrantOffers {
 
     Map<String, Object> nulls = new HashMap<>();
 
-    if (isSetGrantOffers) {
-      addIfNull(nulls, JSON_PROPERTY_GRANT_OFFERS, this.grantOffers);
+    if (isSetTerm) {
+      addIfNull(nulls, JSON_PROPERTY_TERM, this.term);
     }
 
     return nulls;
@@ -164,18 +154,19 @@ public class GrantOffers {
   }
 
   /**
-   * Create an instance of GrantOffers given an JSON string
+   * Create an instance of DynamicOfferRepayment given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GrantOffers
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantOffers
+   * @return An instance of DynamicOfferRepayment
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     DynamicOfferRepayment
    */
-  public static GrantOffers fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, GrantOffers.class);
+  public static DynamicOfferRepayment fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DynamicOfferRepayment.class);
   }
 
   /**
-   * Convert an instance of GrantOffers to an JSON string
+   * Convert an instance of DynamicOfferRepayment to an JSON string
    *
    * @return JSON string
    */

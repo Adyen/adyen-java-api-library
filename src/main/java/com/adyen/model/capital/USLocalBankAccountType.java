@@ -14,12 +14,15 @@ package com.adyen.model.capital;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
+import java.util.logging.Logger;
 
 /** Gets or Sets USLocalBankAccountType */
 public enum USLocalBankAccountType {
   CHECKING("checking"),
 
   SAVINGS("savings");
+
+  private static final Logger LOG = Logger.getLogger(USLocalBankAccountType.class.getName());
 
   private String value;
 
@@ -44,6 +47,12 @@ public enum USLocalBankAccountType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    // handling unexpected value
+    LOG.warning(
+        "USLocalBankAccountType: unexpected enum value '"
+            + value
+            + "' - Supported values are "
+            + Arrays.toString(USLocalBankAccountType.values()));
+    return null;
   }
 }

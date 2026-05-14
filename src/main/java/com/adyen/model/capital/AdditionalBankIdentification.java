@@ -12,12 +12,16 @@
 package com.adyen.model.capital;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AdditionalBankIdentification */
 @JsonPropertyOrder({
@@ -31,8 +35,64 @@ public class AdditionalBankIdentification {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCode = false;
 
+  /**
+   * The type of additional bank identification, depending on the country. Possible values: *
+   * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   * code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   * **caRoutingNumber**: The 9-digit [Canadian routing
+   * number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   * separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   * code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   * **usRoutingNumber**: The 9-digit [routing
+   * number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   * spaces.
+   */
+  public enum TypeEnum {
+    AUBSBCODE(String.valueOf("auBsbCode")),
+
+    CAROUTINGNUMBER(String.valueOf("caRoutingNumber")),
+
+    GBSORTCODE(String.valueOf("gbSortCode")),
+
+    USROUTINGNUMBER(String.valueOf("usRoutingNumber"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
+    }
+  }
+
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AdditionalBankIdentificationTypes type;
+  private TypeEnum type;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetType = false;
@@ -81,36 +141,90 @@ public class AdditionalBankIdentification {
   }
 
   /**
-   * type
+   * The type of additional bank identification, depending on the country. Possible values: *
+   * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   * code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   * **caRoutingNumber**: The 9-digit [Canadian routing
+   * number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   * separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   * code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   * **usRoutingNumber**: The 9-digit [routing
+   * number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   * spaces.
    *
-   * @param type
+   * @param type The type of additional bank identification, depending on the country. Possible
+   *     values: * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   *     code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   *     **caRoutingNumber**: The 9-digit [Canadian routing
+   *     number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   *     separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   *     code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   *     **usRoutingNumber**: The 9-digit [routing
+   *     number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   *     spaces.
    * @return the current {@code AdditionalBankIdentification} instance, allowing for method chaining
    */
-  public AdditionalBankIdentification type(AdditionalBankIdentificationTypes type) {
+  public AdditionalBankIdentification type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * Get type
+   * The type of additional bank identification, depending on the country. Possible values: *
+   * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   * code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   * **caRoutingNumber**: The 9-digit [Canadian routing
+   * number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   * separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   * code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   * **usRoutingNumber**: The 9-digit [routing
+   * number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   * spaces.
    *
-   * @return type
+   * @return type The type of additional bank identification, depending on the country. Possible
+   *     values: * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   *     code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   *     **caRoutingNumber**: The 9-digit [Canadian routing
+   *     number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   *     separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   *     code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   *     **usRoutingNumber**: The 9-digit [routing
+   *     number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   *     spaces.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AdditionalBankIdentificationTypes getType() {
+  public TypeEnum getType() {
     return type;
   }
 
   /**
-   * type
+   * The type of additional bank identification, depending on the country. Possible values: *
+   * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   * code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   * **caRoutingNumber**: The 9-digit [Canadian routing
+   * number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   * separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   * code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   * **usRoutingNumber**: The 9-digit [routing
+   * number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   * spaces.
    *
-   * @param type
+   * @param type The type of additional bank identification, depending on the country. Possible
+   *     values: * **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB)
+   *     code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces. *
+   *     **caRoutingNumber**: The 9-digit [Canadian routing
+   *     number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without
+   *     separators or spaces. * **gbSortCode**: The 6-digit [UK sort
+   *     code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces *
+   *     **usRoutingNumber**: The 9-digit [routing
+   *     number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or
+   *     spaces.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(AdditionalBankIdentificationTypes type) {
+  public void setType(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
   }

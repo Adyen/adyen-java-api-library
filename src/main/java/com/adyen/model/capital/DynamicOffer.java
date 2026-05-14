@@ -24,29 +24,24 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** GrantOffer */
+/** DynamicOffer */
 @JsonPropertyOrder({
-  GrantOffer.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
-  GrantOffer.JSON_PROPERTY_AMOUNT,
-  GrantOffer.JSON_PROPERTY_CONTRACT_TYPE,
-  GrantOffer.JSON_PROPERTY_EXPIRES_AT,
-  GrantOffer.JSON_PROPERTY_FEE,
-  GrantOffer.JSON_PROPERTY_ID,
-  GrantOffer.JSON_PROPERTY_REPAYMENT,
-  GrantOffer.JSON_PROPERTY_STARTS_AT
+  DynamicOffer.JSON_PROPERTY_ACCOUNT_HOLDER_ID,
+  DynamicOffer.JSON_PROPERTY_CONTRACT_TYPE,
+  DynamicOffer.JSON_PROPERTY_EXPIRES_AT,
+  DynamicOffer.JSON_PROPERTY_FINANCING_TYPE,
+  DynamicOffer.JSON_PROPERTY_ID,
+  DynamicOffer.JSON_PROPERTY_MAXIMUM_AMOUNT,
+  DynamicOffer.JSON_PROPERTY_MINIMUM_AMOUNT,
+  DynamicOffer.JSON_PROPERTY_REPAYMENT,
+  DynamicOffer.JSON_PROPERTY_STARTS_AT
 })
-public class GrantOffer {
+public class DynamicOffer {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAccountHolderId = false;
-
-  public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private Amount amount;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetAmount = false;
 
   /** The contract type of the offer. Possible values: * **loan** * **cashAdvance** */
   public enum ContractTypeEnum {
@@ -101,11 +96,11 @@ public class GrantOffer {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExpiresAt = false;
 
-  public static final String JSON_PROPERTY_FEE = "fee";
-  private GrantOfferFee fee;
+  public static final String JSON_PROPERTY_FINANCING_TYPE = "financingType";
+  private FinancingType financingType;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetFee = false;
+  private boolean isSetFinancingType = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -113,8 +108,20 @@ public class GrantOffer {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetId = false;
 
+  public static final String JSON_PROPERTY_MAXIMUM_AMOUNT = "maximumAmount";
+  private Amount maximumAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMaximumAmount = false;
+
+  public static final String JSON_PROPERTY_MINIMUM_AMOUNT = "minimumAmount";
+  private Amount minimumAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMinimumAmount = false;
+
   public static final String JSON_PROPERTY_REPAYMENT = "repayment";
-  private Repayment repayment;
+  private DynamicOfferRepayment repayment;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRepayment = false;
@@ -131,26 +138,26 @@ public class GrantOffer {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public GrantOffer() {}
+  public DynamicOffer() {}
 
   /**
-   * The unique identifier of the account holder to which the grant is offered.
+   * The unique identifier of the account holder that the dynamic offer is for.
    *
-   * @param accountHolderId The unique identifier of the account holder to which the grant is
-   *     offered.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @param accountHolderId The unique identifier of the account holder that the dynamic offer is
+   *     for.
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer accountHolderId(String accountHolderId) {
+  public DynamicOffer accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
     isSetAccountHolderId = true; // mark as set
     return this;
   }
 
   /**
-   * The unique identifier of the account holder to which the grant is offered.
+   * The unique identifier of the account holder that the dynamic offer is for.
    *
-   * @return accountHolderId The unique identifier of the account holder to which the grant is
-   *     offered.
+   * @return accountHolderId The unique identifier of the account holder that the dynamic offer is
+   *     for.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,10 +166,10 @@ public class GrantOffer {
   }
 
   /**
-   * The unique identifier of the account holder to which the grant is offered.
+   * The unique identifier of the account holder that the dynamic offer is for.
    *
-   * @param accountHolderId The unique identifier of the account holder to which the grant is
-   *     offered.
+   * @param accountHolderId The unique identifier of the account holder that the dynamic offer is
+   *     for.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,48 +179,13 @@ public class GrantOffer {
   }
 
   /**
-   * amount
-   *
-   * @param amount
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
-   */
-  public GrantOffer amount(Amount amount) {
-    this.amount = amount;
-    isSetAmount = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Get amount
-   *
-   * @return amount
-   */
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Amount getAmount() {
-    return amount;
-  }
-
-  /**
-   * amount
-   *
-   * @param amount
-   */
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(Amount amount) {
-    this.amount = amount;
-    isSetAmount = true; // mark as set
-  }
-
-  /**
    * The contract type of the offer. Possible values: * **loan** * **cashAdvance**
    *
    * @param contractType The contract type of the offer. Possible values: * **loan** *
    *     **cashAdvance**
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer contractType(ContractTypeEnum contractType) {
+  public DynamicOffer contractType(ContractTypeEnum contractType) {
     this.contractType = contractType;
     isSetContractType = true; // mark as set
     return this;
@@ -248,9 +220,9 @@ public class GrantOffer {
    * The expiration date and time of the offer validity period.
    *
    * @param expiresAt The expiration date and time of the offer validity period.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer expiresAt(OffsetDateTime expiresAt) {
+  public DynamicOffer expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     isSetExpiresAt = true; // mark as set
     return this;
@@ -280,56 +252,56 @@ public class GrantOffer {
   }
 
   /**
-   * fee
+   * financingType
    *
-   * @param fee
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @param financingType
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer fee(GrantOfferFee fee) {
-    this.fee = fee;
-    isSetFee = true; // mark as set
+  public DynamicOffer financingType(FinancingType financingType) {
+    this.financingType = financingType;
+    isSetFinancingType = true; // mark as set
     return this;
   }
 
   /**
-   * Get fee
+   * Get financingType
    *
-   * @return fee
+   * @return financingType
    */
-  @JsonProperty(JSON_PROPERTY_FEE)
+  @JsonProperty(JSON_PROPERTY_FINANCING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GrantOfferFee getFee() {
-    return fee;
+  public FinancingType getFinancingType() {
+    return financingType;
   }
 
   /**
-   * fee
+   * financingType
    *
-   * @param fee
+   * @param financingType
    */
-  @JsonProperty(JSON_PROPERTY_FEE)
+  @JsonProperty(JSON_PROPERTY_FINANCING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFee(GrantOfferFee fee) {
-    this.fee = fee;
-    isSetFee = true; // mark as set
+  public void setFinancingType(FinancingType financingType) {
+    this.financingType = financingType;
+    isSetFinancingType = true; // mark as set
   }
 
   /**
-   * The unique identifier of the offer.
+   * The unique identifier of the dynamic offer.
    *
-   * @param id The unique identifier of the offer.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @param id The unique identifier of the dynamic offer.
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer id(String id) {
+  public DynamicOffer id(String id) {
     this.id = id;
     isSetId = true; // mark as set
     return this;
   }
 
   /**
-   * The unique identifier of the offer.
+   * The unique identifier of the dynamic offer.
    *
-   * @return id The unique identifier of the offer.
+   * @return id The unique identifier of the dynamic offer.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,9 +310,9 @@ public class GrantOffer {
   }
 
   /**
-   * The unique identifier of the offer.
+   * The unique identifier of the dynamic offer.
    *
-   * @param id The unique identifier of the offer.
+   * @param id The unique identifier of the dynamic offer.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,12 +322,82 @@ public class GrantOffer {
   }
 
   /**
+   * maximumAmount
+   *
+   * @param maximumAmount
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
+   */
+  public DynamicOffer maximumAmount(Amount maximumAmount) {
+    this.maximumAmount = maximumAmount;
+    isSetMaximumAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get maximumAmount
+   *
+   * @return maximumAmount
+   */
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Amount getMaximumAmount() {
+    return maximumAmount;
+  }
+
+  /**
+   * maximumAmount
+   *
+   * @param maximumAmount
+   */
+  @JsonProperty(JSON_PROPERTY_MAXIMUM_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaximumAmount(Amount maximumAmount) {
+    this.maximumAmount = maximumAmount;
+    isSetMaximumAmount = true; // mark as set
+  }
+
+  /**
+   * minimumAmount
+   *
+   * @param minimumAmount
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
+   */
+  public DynamicOffer minimumAmount(Amount minimumAmount) {
+    this.minimumAmount = minimumAmount;
+    isSetMinimumAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get minimumAmount
+   *
+   * @return minimumAmount
+   */
+  @JsonProperty(JSON_PROPERTY_MINIMUM_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Amount getMinimumAmount() {
+    return minimumAmount;
+  }
+
+  /**
+   * minimumAmount
+   *
+   * @param minimumAmount
+   */
+  @JsonProperty(JSON_PROPERTY_MINIMUM_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMinimumAmount(Amount minimumAmount) {
+    this.minimumAmount = minimumAmount;
+    isSetMinimumAmount = true; // mark as set
+  }
+
+  /**
    * repayment
    *
    * @param repayment
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer repayment(Repayment repayment) {
+  public DynamicOffer repayment(DynamicOfferRepayment repayment) {
     this.repayment = repayment;
     isSetRepayment = true; // mark as set
     return this;
@@ -368,7 +410,7 @@ public class GrantOffer {
    */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Repayment getRepayment() {
+  public DynamicOfferRepayment getRepayment() {
     return repayment;
   }
 
@@ -379,7 +421,7 @@ public class GrantOffer {
    */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRepayment(Repayment repayment) {
+  public void setRepayment(DynamicOfferRepayment repayment) {
     this.repayment = repayment;
     isSetRepayment = true; // mark as set
   }
@@ -388,9 +430,9 @@ public class GrantOffer {
    * The starting date and time of the offer validity period.
    *
    * @param startsAt The starting date and time of the offer validity period.
-   * @return the current {@code GrantOffer} instance, allowing for method chaining
+   * @return the current {@code DynamicOffer} instance, allowing for method chaining
    */
-  public GrantOffer startsAt(OffsetDateTime startsAt) {
+  public DynamicOffer startsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
     isSetStartsAt = true; // mark as set
     return this;
@@ -422,7 +464,7 @@ public class GrantOffer {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public GrantOffer includeNullValues(boolean includeNullValues) {
+  public DynamicOffer includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -439,7 +481,7 @@ public class GrantOffer {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this GrantOffer object is equal to o. */
+  /** Return true if this DynamicOffer object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -448,23 +490,25 @@ public class GrantOffer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GrantOffer grantOffer = (GrantOffer) o;
-    return Objects.equals(this.accountHolderId, grantOffer.accountHolderId)
-        && Objects.equals(this.isSetAccountHolderId, grantOffer.isSetAccountHolderId)
-        && Objects.equals(this.amount, grantOffer.amount)
-        && Objects.equals(this.isSetAmount, grantOffer.isSetAmount)
-        && Objects.equals(this.contractType, grantOffer.contractType)
-        && Objects.equals(this.isSetContractType, grantOffer.isSetContractType)
-        && Objects.equals(this.expiresAt, grantOffer.expiresAt)
-        && Objects.equals(this.isSetExpiresAt, grantOffer.isSetExpiresAt)
-        && Objects.equals(this.fee, grantOffer.fee)
-        && Objects.equals(this.isSetFee, grantOffer.isSetFee)
-        && Objects.equals(this.id, grantOffer.id)
-        && Objects.equals(this.isSetId, grantOffer.isSetId)
-        && Objects.equals(this.repayment, grantOffer.repayment)
-        && Objects.equals(this.isSetRepayment, grantOffer.isSetRepayment)
-        && Objects.equals(this.startsAt, grantOffer.startsAt)
-        && Objects.equals(this.isSetStartsAt, grantOffer.isSetStartsAt);
+    DynamicOffer dynamicOffer = (DynamicOffer) o;
+    return Objects.equals(this.accountHolderId, dynamicOffer.accountHolderId)
+        && Objects.equals(this.isSetAccountHolderId, dynamicOffer.isSetAccountHolderId)
+        && Objects.equals(this.contractType, dynamicOffer.contractType)
+        && Objects.equals(this.isSetContractType, dynamicOffer.isSetContractType)
+        && Objects.equals(this.expiresAt, dynamicOffer.expiresAt)
+        && Objects.equals(this.isSetExpiresAt, dynamicOffer.isSetExpiresAt)
+        && Objects.equals(this.financingType, dynamicOffer.financingType)
+        && Objects.equals(this.isSetFinancingType, dynamicOffer.isSetFinancingType)
+        && Objects.equals(this.id, dynamicOffer.id)
+        && Objects.equals(this.isSetId, dynamicOffer.isSetId)
+        && Objects.equals(this.maximumAmount, dynamicOffer.maximumAmount)
+        && Objects.equals(this.isSetMaximumAmount, dynamicOffer.isSetMaximumAmount)
+        && Objects.equals(this.minimumAmount, dynamicOffer.minimumAmount)
+        && Objects.equals(this.isSetMinimumAmount, dynamicOffer.isSetMinimumAmount)
+        && Objects.equals(this.repayment, dynamicOffer.repayment)
+        && Objects.equals(this.isSetRepayment, dynamicOffer.isSetRepayment)
+        && Objects.equals(this.startsAt, dynamicOffer.startsAt)
+        && Objects.equals(this.isSetStartsAt, dynamicOffer.isSetStartsAt);
   }
 
   @Override
@@ -472,16 +516,18 @@ public class GrantOffer {
     return Objects.hash(
         accountHolderId,
         isSetAccountHolderId,
-        amount,
-        isSetAmount,
         contractType,
         isSetContractType,
         expiresAt,
         isSetExpiresAt,
-        fee,
-        isSetFee,
+        financingType,
+        isSetFinancingType,
         id,
         isSetId,
+        maximumAmount,
+        isSetMaximumAmount,
+        minimumAmount,
+        isSetMinimumAmount,
         repayment,
         isSetRepayment,
         startsAt,
@@ -491,13 +537,14 @@ public class GrantOffer {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GrantOffer {\n");
+    sb.append("class DynamicOffer {\n");
     sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    contractType: ").append(toIndentedString(contractType)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    financingType: ").append(toIndentedString(financingType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    maximumAmount: ").append(toIndentedString(maximumAmount)).append("\n");
+    sb.append("    minimumAmount: ").append(toIndentedString(minimumAmount)).append("\n");
     sb.append("    repayment: ").append(toIndentedString(repayment)).append("\n");
     sb.append("    startsAt: ").append(toIndentedString(startsAt)).append("\n");
     sb.append("}");
@@ -527,20 +574,23 @@ public class GrantOffer {
     if (isSetAccountHolderId) {
       addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER_ID, this.accountHolderId);
     }
-    if (isSetAmount) {
-      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
-    }
     if (isSetContractType) {
       addIfNull(nulls, JSON_PROPERTY_CONTRACT_TYPE, this.contractType);
     }
     if (isSetExpiresAt) {
       addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
     }
-    if (isSetFee) {
-      addIfNull(nulls, JSON_PROPERTY_FEE, this.fee);
+    if (isSetFinancingType) {
+      addIfNull(nulls, JSON_PROPERTY_FINANCING_TYPE, this.financingType);
     }
     if (isSetId) {
       addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetMaximumAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MAXIMUM_AMOUNT, this.maximumAmount);
+    }
+    if (isSetMinimumAmount) {
+      addIfNull(nulls, JSON_PROPERTY_MINIMUM_AMOUNT, this.minimumAmount);
     }
     if (isSetRepayment) {
       addIfNull(nulls, JSON_PROPERTY_REPAYMENT, this.repayment);
@@ -560,18 +610,18 @@ public class GrantOffer {
   }
 
   /**
-   * Create an instance of GrantOffer given an JSON string
+   * Create an instance of DynamicOffer given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GrantOffer
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantOffer
+   * @return An instance of DynamicOffer
+   * @throws JsonProcessingException if the JSON string is invalid with respect to DynamicOffer
    */
-  public static GrantOffer fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, GrantOffer.class);
+  public static DynamicOffer fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, DynamicOffer.class);
   }
 
   /**
-   * Convert an instance of GrantOffer to an JSON string
+   * Convert an instance of DynamicOffer to an JSON string
    *
    * @return JSON string
    */
