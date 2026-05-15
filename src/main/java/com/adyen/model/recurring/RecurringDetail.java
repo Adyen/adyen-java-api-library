@@ -42,6 +42,7 @@ import java.util.Map;
   RecurringDetail.JSON_PROPERTY_SHOPPER_NAME,
   RecurringDetail.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
   RecurringDetail.JSON_PROPERTY_TOKEN_DETAILS,
+  RecurringDetail.JSON_PROPERTY_TRANSACTION_LINK_ID,
   RecurringDetail.JSON_PROPERTY_VARIANT
 })
 public class RecurringDetail {
@@ -140,6 +141,12 @@ public class RecurringDetail {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTokenDetails = false;
+
+  public static final String JSON_PROPERTY_TRANSACTION_LINK_ID = "transactionLinkId";
+  private String transactionLinkId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionLinkId = false;
 
   public static final String JSON_PROPERTY_VARIANT = "variant";
   private String variant;
@@ -783,6 +790,44 @@ public class RecurringDetail {
   }
 
   /**
+   * The unique identifier for the transaction link, used for Mastercard recurring transactions.
+   *
+   * @param transactionLinkId The unique identifier for the transaction link, used for Mastercard
+   *     recurring transactions.
+   * @return the current {@code RecurringDetail} instance, allowing for method chaining
+   */
+  public RecurringDetail transactionLinkId(String transactionLinkId) {
+    this.transactionLinkId = transactionLinkId;
+    isSetTransactionLinkId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The unique identifier for the transaction link, used for Mastercard recurring transactions.
+   *
+   * @return transactionLinkId The unique identifier for the transaction link, used for Mastercard
+   *     recurring transactions.
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTransactionLinkId() {
+    return transactionLinkId;
+  }
+
+  /**
+   * The unique identifier for the transaction link, used for Mastercard recurring transactions.
+   *
+   * @param transactionLinkId The unique identifier for the transaction link, used for Mastercard
+   *     recurring transactions.
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionLinkId(String transactionLinkId) {
+    this.transactionLinkId = transactionLinkId;
+    isSetTransactionLinkId = true; // mark as set
+  }
+
+  /**
    * The payment method, such as “mc\&quot;, \&quot;visa\&quot;, \&quot;ideal\&quot;,
    * \&quot;paypal\&quot;.
    *
@@ -886,6 +931,8 @@ public class RecurringDetail {
         && Objects.equals(this.isSetSocialSecurityNumber, recurringDetail.isSetSocialSecurityNumber)
         && Objects.equals(this.tokenDetails, recurringDetail.tokenDetails)
         && Objects.equals(this.isSetTokenDetails, recurringDetail.isSetTokenDetails)
+        && Objects.equals(this.transactionLinkId, recurringDetail.transactionLinkId)
+        && Objects.equals(this.isSetTransactionLinkId, recurringDetail.isSetTransactionLinkId)
         && Objects.equals(this.variant, recurringDetail.variant)
         && Objects.equals(this.isSetVariant, recurringDetail.isSetVariant);
   }
@@ -925,6 +972,8 @@ public class RecurringDetail {
         isSetSocialSecurityNumber,
         tokenDetails,
         isSetTokenDetails,
+        transactionLinkId,
+        isSetTransactionLinkId,
         variant,
         isSetVariant);
   }
@@ -955,6 +1004,7 @@ public class RecurringDetail {
         .append(toIndentedString(socialSecurityNumber))
         .append("\n");
     sb.append("    tokenDetails: ").append(toIndentedString(tokenDetails)).append("\n");
+    sb.append("    transactionLinkId: ").append(toIndentedString(transactionLinkId)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1027,6 +1077,9 @@ public class RecurringDetail {
     }
     if (isSetTokenDetails) {
       addIfNull(nulls, JSON_PROPERTY_TOKEN_DETAILS, this.tokenDetails);
+    }
+    if (isSetTransactionLinkId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_LINK_ID, this.transactionLinkId);
     }
     if (isSetVariant) {
       addIfNull(nulls, JSON_PROPERTY_VARIANT, this.variant);
