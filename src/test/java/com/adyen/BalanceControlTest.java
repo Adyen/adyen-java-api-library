@@ -19,12 +19,7 @@ public class BalanceControlTest extends BaseTest {
 
   @Test
   public void baseUrlOnTest() throws NoSuchFieldException, IllegalAccessException {
-    Client client =
-        new Client(
-            new Config()
-                .apiKey("test")
-                .environment(Environment.TEST)
-                .liveEndpointUrlPrefix("myCompany"));
+    Client client = new Client(new Config().apiKey("test").environment(Environment.TEST).liveEndpointUrlPrefix("myCompany"));
 
     BalanceControlApi balanceControlApi = new BalanceControlApi(client);
     // get field by reflection (it is protected)
