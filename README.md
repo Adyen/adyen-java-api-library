@@ -257,7 +257,7 @@ var notificationRequestItem = notificationRequest.getNotificationItems().stream(
 
 if (notificationRequestItem.isPresent()) {
     // validate the HMAC signature
-    if ( hmacValidator.validateHMAC(notificationRequestItem, hmacKey) ) {
+    if ( hmacValidator.validateHMAC(notificationRequestItem.get(), hmacKey) ) {
       // Process the notification based on the eventCode
       log.info("Received webhook with event {} : \n" +
         "Merchant Reference: {}\n" +
