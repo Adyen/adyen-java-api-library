@@ -26,6 +26,36 @@ The Cloud device API introduces several improvements over the Terminal (Cloud) A
 
 - **Generated from the OpenAPI specification**: unlike the hand-crafted Terminal (Cloud) API models, the Cloud device API is auto-generated from the [Adyen OpenAPI spec](https://github.com/Adyen/adyen-openapi). This brings consistency with every other service in the library (Checkout, Management, Transfers, etc.), ensures the models stay in sync with the API, and provides built-in `fromJson()`/`toJson()` serialization, fluent setters, and Jackson support out of the box.
 
+## Prerequisites
+
+Before you start using the Cloud device API, make sure the following are in place.
+
+### API key role
+
+Your API key must have the **Cloud device API** user role assigned. You can manage roles in the Customer Area under **Developers > API credentials**.
+
+### Live environment: region configuration
+
+On the TEST environment, no region configuration is needed. On the LIVE environment, you must configure `terminalApiRegion` to the region closest to your terminals:
+
+```java
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
+import com.adyen.service.clouddevice.CloudDeviceApi;
+
+Config config = new Config();
+config.setApiKey("Your X-API-KEY");
+config.setEnvironment(Environment.LIVE);
+config.setTerminalApiRegion(Region.EU); // set to the region closest to your terminals
+
+Client client = new Client(config);
+CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+```
+
+See the [Terminal API cloud documentation](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/#cloud) for available regions.
+
 ## Key differences
 
 The following sections describe the key differences between the Terminal (Cloud) API and the Cloud device API.
