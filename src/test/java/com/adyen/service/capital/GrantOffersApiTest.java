@@ -21,6 +21,7 @@
 package com.adyen.service.capital;
 
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.BaseTest;
@@ -54,7 +55,7 @@ public class GrantOffersApiTest extends BaseTest {
     verify(client.getHttpClient())
         .request(
             eq("https://balanceplatform-api-test.adyen.com/capital/v1/grantOffers"),
-            eq(null),
+            isNull(),
             eq(client.getConfig()),
             eq(false),
             optionsCaptor.capture(),
