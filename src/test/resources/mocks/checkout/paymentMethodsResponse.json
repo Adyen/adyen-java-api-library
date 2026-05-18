@@ -4,5 +4,26 @@
       "name": "Pay later with Klarna.",
       "type": "klarna"
     }
+  ],
+  "storedPaymentMethods": [
+    {
+      "brand": "visa",
+      "expiryMonth": "03",
+      "expiryYear": "2030",
+      "holderName": "John Doe",
+      "id": "STORED_PAYMENT_METHOD_ID",
+      "lastFour": "1111",
+      "name": "VISA",
+      "type": "scheme",
+      "supportedShopperInteractions": ["Ecommerce", "ContAuth"]
+    },
+    {
+      "cashtag": "$CASHTAG_C_TOKEN ---this is an unknown field and will be silently ignored",
+      "id": "CASHAPP_STORED_PAYMENT_METHOD_ID",
+      "name": "Cash App Pay",
+      "supportedRecurringProcessingModels": ["CardOnFile", "Subscription", "UnscheduledCardOnFile"],
+      "supportedShopperInteractions": ["Ecommerce", "ContAuth"],
+      "type": "cashapp"
+    }
   ]
 }

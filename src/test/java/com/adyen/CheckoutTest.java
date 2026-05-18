@@ -173,6 +173,19 @@ public class CheckoutTest extends BaseTest {
     PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
     assertEquals(1, paymentMethodsResponse.getPaymentMethods().size());
     assertEquals("klarna", paymentMethodsResponse.getPaymentMethods().get(0).getType());
+
+    assertEquals(2, paymentMethodsResponse.getStoredPaymentMethods().size());
+    StoredPaymentMethod storedMethod = paymentMethodsResponse.getStoredPaymentMethods().get(0);
+    assertEquals("visa", storedMethod.getBrand());
+    assertEquals("STORED_PAYMENT_METHOD_ID", storedMethod.getId());
+    assertEquals("1111", storedMethod.getLastFour());
+    assertEquals("scheme", storedMethod.getType());
+
+    StoredPaymentMethod other = paymentMethodsResponse.getStoredPaymentMethods().get(1);
+    assertNull(other.getBrand()); // there is no card brand
+    assertNull(other.getLastFour()); // there is no last four digits
+    assertEquals("CASHAPP_STORED_PAYMENT_METHOD_ID", other.getId());
+    assertEquals("cashapp", other.getType());
   }
 
   /** Should make paymentLink call */
