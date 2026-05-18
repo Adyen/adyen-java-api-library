@@ -45,12 +45,11 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.service.clouddevice.CloudDeviceApi;
 
-Config config = new Config();
-config.setApiKey("Your X-API-KEY");
-config.setEnvironment(Environment.LIVE);
-config.setTerminalApiRegion(Region.EU); // set to the region closest to your terminals
+Client client = new Client(new Config()
+    .apiKey("Your X-API-KEY")
+    .environment(Environment.LIVE)
+    .terminalApiRegion(Region.EU)); // set to the region closest to your terminals
 
-Client client = new Client(config);
 CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
 ```
 
