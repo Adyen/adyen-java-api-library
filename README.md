@@ -256,17 +256,18 @@ NotificationRequest notificationRequest = webhookHandler.handleNotificationJson(
 var notificationRequestItem = notificationRequest.getNotificationItems().stream().findFirst();
 
 if (notificationRequestItem.isPresent()) {
+    var item = notificationRequestItem.get();
     // validate the HMAC signature
-    if ( hmacValidator.validateHMAC(notificationRequestItem.get(), hmacKey) ) {
+    if (hmacValidator.validateHMAC(item, hmacKey)) {
       // Process the notification based on the eventCode
       log.info("Received webhook with event {} : \n" +
         "Merchant Reference: {}\n" +
         "Alias : {}\n" +
         "PSP reference : {}", 
-        notificationRequestItem.getEventCode(), 
-        notificationRequestItem.getMerchantReference(),
-        notificationRequestItem.getAdditionalData().get("alias"),
-        notificationRequestItem.getPspReference());
+        item.getEventCode(), 
+        item.getMerchantReference(),
+        item.getAdditionalData().get("alias"),
+        item.getPspReference());
     } else {
       // Non valid NotificationRequest
 	  throw new RuntimeException("Invalid HMAC signature");
