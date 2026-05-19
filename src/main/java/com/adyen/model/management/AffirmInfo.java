@@ -12,65 +12,18 @@
 package com.adyen.model.management;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.Arrays;
-import java.util.logging.Logger;
 
 /** AffirmInfo */
 @JsonPropertyOrder({AffirmInfo.JSON_PROPERTY_PRICE_PLAN, AffirmInfo.JSON_PROPERTY_SUPPORT_EMAIL})
 public class AffirmInfo {
-  /** Merchant price plan */
-  public enum PricePlanEnum {
-    BRONZE(String.valueOf("BRONZE")),
-
-    SILVER(String.valueOf("SILVER")),
-
-    GOLD(String.valueOf("GOLD"));
-
-    private static final Logger LOG = Logger.getLogger(PricePlanEnum.class.getName());
-
-    private String value;
-
-    PricePlanEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static PricePlanEnum fromValue(String value) {
-      for (PricePlanEnum b : PricePlanEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      // handling unexpected value
-      LOG.warning(
-          "PricePlanEnum: unexpected enum value '"
-              + value
-              + "' - Supported values are "
-              + Arrays.toString(PricePlanEnum.values()));
-      return null;
-    }
-  }
-
   public static final String JSON_PROPERTY_PRICE_PLAN = "pricePlan";
-  private PricePlanEnum pricePlan;
+  private String pricePlan;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPricePlan = false;
@@ -90,44 +43,50 @@ public class AffirmInfo {
   public AffirmInfo() {}
 
   /**
-   * Merchant price plan
+   * Selected Affirm financing package. Choose from **core**, **standard**, or **signature**.
+   * Defaults to **core** if no selection made.
    *
-   * @param pricePlan Merchant price plan
+   * @param pricePlan Selected Affirm financing package. Choose from **core**, **standard**, or
+   *     **signature**. Defaults to **core** if no selection made.
    * @return the current {@code AffirmInfo} instance, allowing for method chaining
    */
-  public AffirmInfo pricePlan(PricePlanEnum pricePlan) {
+  public AffirmInfo pricePlan(String pricePlan) {
     this.pricePlan = pricePlan;
     isSetPricePlan = true; // mark as set
     return this;
   }
 
   /**
-   * Merchant price plan
+   * Selected Affirm financing package. Choose from **core**, **standard**, or **signature**.
+   * Defaults to **core** if no selection made.
    *
-   * @return pricePlan Merchant price plan
+   * @return pricePlan Selected Affirm financing package. Choose from **core**, **standard**, or
+   *     **signature**. Defaults to **core** if no selection made.
    */
   @JsonProperty(JSON_PROPERTY_PRICE_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PricePlanEnum getPricePlan() {
+  public String getPricePlan() {
     return pricePlan;
   }
 
   /**
-   * Merchant price plan
+   * Selected Affirm financing package. Choose from **core**, **standard**, or **signature**.
+   * Defaults to **core** if no selection made.
    *
-   * @param pricePlan Merchant price plan
+   * @param pricePlan Selected Affirm financing package. Choose from **core**, **standard**, or
+   *     **signature**. Defaults to **core** if no selection made.
    */
   @JsonProperty(JSON_PROPERTY_PRICE_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPricePlan(PricePlanEnum pricePlan) {
+  public void setPricePlan(String pricePlan) {
     this.pricePlan = pricePlan;
     isSetPricePlan = true; // mark as set
   }
 
   /**
-   * Merchant support email
+   * Merchant support email used to manage disputes.
    *
-   * @param supportEmail Merchant support email
+   * @param supportEmail Merchant support email used to manage disputes.
    * @return the current {@code AffirmInfo} instance, allowing for method chaining
    */
   public AffirmInfo supportEmail(String supportEmail) {
@@ -137,9 +96,9 @@ public class AffirmInfo {
   }
 
   /**
-   * Merchant support email
+   * Merchant support email used to manage disputes.
    *
-   * @return supportEmail Merchant support email
+   * @return supportEmail Merchant support email used to manage disputes.
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,9 +107,9 @@ public class AffirmInfo {
   }
 
   /**
-   * Merchant support email
+   * Merchant support email used to manage disputes.
    *
-   * @param supportEmail Merchant support email
+   * @param supportEmail Merchant support email used to manage disputes.
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

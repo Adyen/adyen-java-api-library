@@ -1,0 +1,8 @@
+{
+  "service": "management",
+  "project": "java",
+  "generatedAt": "2026-05-19T12:23:38Z",
+  "openapiCommitSha": "75b5618c8524d3adf4c19c365400d017320c85e0",
+  "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
+  "libraryCommitSha": "b155c3941b7c46a0682b3e5aa205136e7e73308a"
+}

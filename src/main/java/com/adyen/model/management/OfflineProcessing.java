@@ -92,10 +92,11 @@ public class OfflineProcessing {
   }
 
   /**
-   * The maximum offline transaction amount for swiped cards, in the specified currency.
+   * The maximum offline transaction amount for swiped cards, in the specified currency. Updating
+   * this field is forbidden.
    *
    * @param offlineSwipeLimits The maximum offline transaction amount for swiped cards, in the
-   *     specified currency.
+   *     specified currency. Updating this field is forbidden.
    * @return the current {@code OfflineProcessing} instance, allowing for method chaining
    */
   public OfflineProcessing offlineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
@@ -114,10 +115,11 @@ public class OfflineProcessing {
   }
 
   /**
-   * The maximum offline transaction amount for swiped cards, in the specified currency.
+   * The maximum offline transaction amount for swiped cards, in the specified currency. Updating
+   * this field is forbidden.
    *
    * @return offlineSwipeLimits The maximum offline transaction amount for swiped cards, in the
-   *     specified currency.
+   *     specified currency. Updating this field is forbidden.
    */
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,10 +128,11 @@ public class OfflineProcessing {
   }
 
   /**
-   * The maximum offline transaction amount for swiped cards, in the specified currency.
+   * The maximum offline transaction amount for swiped cards, in the specified currency. Updating
+   * this field is forbidden.
    *
    * @param offlineSwipeLimits The maximum offline transaction amount for swiped cards, in the
-   *     specified currency.
+   *     specified currency. Updating this field is forbidden.
    */
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

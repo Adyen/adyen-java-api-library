@@ -26,7 +26,8 @@ import java.util.*;
 })
 public class PayByBankPlaidInfo {
   public static final String JSON_PROPERTY_LOGO = "logo";
-  private String logo;
+  /* deprecated  */
+  @Deprecated private String logo;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLogo = false;
@@ -50,7 +51,9 @@ public class PayByBankPlaidInfo {
    *
    * @param logo Merchant logo (max. size 150kB). Format: Base64-encoded string.
    * @return the current {@code PayByBankPlaidInfo} instance, allowing for method chaining
+   * @deprecated
    */
+  @Deprecated
   public PayByBankPlaidInfo logo(String logo) {
     this.logo = logo;
     isSetLogo = true; // mark as set
@@ -61,7 +64,9 @@ public class PayByBankPlaidInfo {
    * Merchant logo (max. size 150kB). Format: Base64-encoded string.
    *
    * @return logo Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * @deprecated
    */
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
@@ -72,7 +77,9 @@ public class PayByBankPlaidInfo {
    * Merchant logo (max. size 150kB). Format: Base64-encoded string.
    *
    * @param logo Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * @deprecated
    */
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
