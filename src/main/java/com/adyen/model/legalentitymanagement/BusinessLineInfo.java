@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 /** BusinessLineInfo */
 @JsonPropertyOrder({
   BusinessLineInfo.JSON_PROPERTY_INDUSTRY_CODE,
+  BusinessLineInfo.JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION,
   BusinessLineInfo.JSON_PROPERTY_LEGAL_ENTITY_ID,
   BusinessLineInfo.JSON_PROPERTY_SALES_CHANNELS,
   BusinessLineInfo.JSON_PROPERTY_SERVICE,
@@ -41,6 +42,12 @@ public class BusinessLineInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIndustryCode = false;
+
+  public static final String JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION = "industryCodeDescription";
+  private String industryCodeDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIndustryCodeDescription = false;
 
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
@@ -132,6 +139,13 @@ public class BusinessLineInfo {
 
   public BusinessLineInfo() {}
 
+  @JsonCreator
+  public BusinessLineInfo(
+      @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION) String industryCodeDescription) {
+    this();
+    this.industryCodeDescription = industryCodeDescription;
+  }
+
   /**
    * A code that represents the industry of the legal entity for
    * [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes)
@@ -189,6 +203,17 @@ public class BusinessLineInfo {
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
     isSetIndustryCode = true; // mark as set
+  }
+
+  /**
+   * The description of the industry code.
+   *
+   * @return industryCodeDescription The description of the industry code.
+   */
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIndustryCodeDescription() {
+    return industryCodeDescription;
   }
 
   /**
@@ -491,6 +516,9 @@ public class BusinessLineInfo {
     BusinessLineInfo businessLineInfo = (BusinessLineInfo) o;
     return Objects.equals(this.industryCode, businessLineInfo.industryCode)
         && Objects.equals(this.isSetIndustryCode, businessLineInfo.isSetIndustryCode)
+        && Objects.equals(this.industryCodeDescription, businessLineInfo.industryCodeDescription)
+        && Objects.equals(
+            this.isSetIndustryCodeDescription, businessLineInfo.isSetIndustryCodeDescription)
         && Objects.equals(this.legalEntityId, businessLineInfo.legalEntityId)
         && Objects.equals(this.isSetLegalEntityId, businessLineInfo.isSetLegalEntityId)
         && Objects.equals(this.salesChannels, businessLineInfo.salesChannels)
@@ -510,6 +538,8 @@ public class BusinessLineInfo {
     return Objects.hash(
         industryCode,
         isSetIndustryCode,
+        industryCodeDescription,
+        isSetIndustryCodeDescription,
         legalEntityId,
         isSetLegalEntityId,
         salesChannels,
@@ -529,6 +559,9 @@ public class BusinessLineInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class BusinessLineInfo {\n");
     sb.append("    industryCode: ").append(toIndentedString(industryCode)).append("\n");
+    sb.append("    industryCodeDescription: ")
+        .append(toIndentedString(industryCodeDescription))
+        .append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    salesChannels: ").append(toIndentedString(salesChannels)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
@@ -561,6 +594,9 @@ public class BusinessLineInfo {
 
     if (isSetIndustryCode) {
       addIfNull(nulls, JSON_PROPERTY_INDUSTRY_CODE, this.industryCode);
+    }
+    if (isSetIndustryCodeDescription) {
+      addIfNull(nulls, JSON_PROPERTY_INDUSTRY_CODE_DESCRIPTION, this.industryCodeDescription);
     }
     if (isSetLegalEntityId) {
       addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
