@@ -58,6 +58,31 @@ public class ConfigurationWebhooksHandler {
   }
 
   /**
+   * Attempts to deserialize the webhook payload into a
+   * AccountPayoutAutoApplicationNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<AccountPayoutAutoApplicationNotificationRequest>
+      getAccountPayoutAutoApplicationNotificationRequest() {
+
+    var optionalAccountPayoutAutoApplicationNotificationRequest =
+        getOptionalField(AccountPayoutAutoApplicationNotificationRequest.class);
+
+    if (optionalAccountPayoutAutoApplicationNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : AccountPayoutAutoApplicationNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalAccountPayoutAutoApplicationNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalAccountPayoutAutoApplicationNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
    * Attempts to deserialize the webhook payload into a BalanceAccountNotificationRequest
    *
    * @return an Optional containing the deserialized object, or empty if deserialization fails
@@ -162,6 +187,76 @@ public class ConfigurationWebhooksHandler {
         if (value.equals(optionalPaymentNotificationRequest.get().getType())) {
           // found matching event type
           return optionalPaymentNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
+   * Attempts to deserialize the webhook payload into a PayoutScheduleBANotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<PayoutScheduleBANotificationRequest> getPayoutScheduleBANotificationRequest() {
+
+    var optionalPayoutScheduleBANotificationRequest =
+        getOptionalField(PayoutScheduleBANotificationRequest.class);
+
+    if (optionalPayoutScheduleBANotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PayoutScheduleBANotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalPayoutScheduleBANotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPayoutScheduleBANotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
+   * Attempts to deserialize the webhook payload into a PayoutScheduleBPNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<PayoutScheduleBPNotificationRequest> getPayoutScheduleBPNotificationRequest() {
+
+    var optionalPayoutScheduleBPNotificationRequest =
+        getOptionalField(PayoutScheduleBPNotificationRequest.class);
+
+    if (optionalPayoutScheduleBPNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PayoutScheduleBPNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalPayoutScheduleBPNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPayoutScheduleBPNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
+   * Attempts to deserialize the webhook payload into a PayoutScheduleStateNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<PayoutScheduleStateNotificationRequest>
+      getPayoutScheduleStateNotificationRequest() {
+
+    var optionalPayoutScheduleStateNotificationRequest =
+        getOptionalField(PayoutScheduleStateNotificationRequest.class);
+
+    if (optionalPayoutScheduleStateNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PayoutScheduleStateNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalPayoutScheduleStateNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPayoutScheduleStateNotificationRequest;
         }
       }
     }
