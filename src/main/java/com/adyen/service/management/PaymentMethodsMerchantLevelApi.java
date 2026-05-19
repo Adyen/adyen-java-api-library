@@ -16,6 +16,7 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.management.ApplePayInfo;
+import com.adyen.model.management.ApplePayResponseInfo;
 import com.adyen.model.management.PaymentMethod;
 import com.adyen.model.management.PaymentMethodResponse;
 import com.adyen.model.management.PaymentMethodSetupInfo;
@@ -178,10 +179,10 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
-   * @return {@link ApplePayInfo }
+   * @return {@link ApplePayResponseInfo }
    * @throws ApiException if fails to make API call
    */
-  public ApplePayInfo getApplePayDomains(String merchantId, String paymentMethodId)
+  public ApplePayResponseInfo getApplePayDomains(String merchantId, String paymentMethodId)
       throws ApiException, IOException {
     return getApplePayDomains(merchantId, paymentMethodId, null);
   }
@@ -193,10 +194,10 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
-   * @return {@link ApplePayInfo }
+   * @return {@link ApplePayResponseInfo }
    * @throws ApiException if fails to make API call
    */
-  public ApplePayInfo getApplePayDomains(
+  public ApplePayResponseInfo getApplePayDomains(
       String merchantId, String paymentMethodId, RequestOptions requestOptions)
       throws ApiException, IOException {
     // Add path params
@@ -219,7 +220,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
             null);
     String jsonResult =
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
-    return ApplePayInfo.fromJson(jsonResult);
+    return ApplePayResponseInfo.fromJson(jsonResult);
   }
 
   /**

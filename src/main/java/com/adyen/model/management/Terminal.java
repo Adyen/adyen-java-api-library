@@ -25,7 +25,9 @@ import java.util.List;
 /** Terminal */
 @JsonPropertyOrder({
   Terminal.JSON_PROPERTY_ASSIGNMENT,
+  Terminal.JSON_PROPERTY_CLOUD_DEVICE_API_ENDPOINT,
   Terminal.JSON_PROPERTY_CONNECTIVITY,
+  Terminal.JSON_PROPERTY_COUNTRY_CODE,
   Terminal.JSON_PROPERTY_FIRMWARE_VERSION,
   Terminal.JSON_PROPERTY_ID,
   Terminal.JSON_PROPERTY_INSTALLED_A_P_KS,
@@ -42,11 +44,23 @@ public class Terminal {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAssignment = false;
 
+  public static final String JSON_PROPERTY_CLOUD_DEVICE_API_ENDPOINT = "cloudDeviceApiEndpoint";
+  private String cloudDeviceApiEndpoint;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCloudDeviceApiEndpoint = false;
+
   public static final String JSON_PROPERTY_CONNECTIVITY = "connectivity";
   private TerminalConnectivity connectivity;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetConnectivity = false;
+
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
+  private String countryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountryCode = false;
 
   public static final String JSON_PROPERTY_FIRMWARE_VERSION = "firmwareVersion";
   private String firmwareVersion;
@@ -140,6 +154,53 @@ public class Terminal {
   }
 
   /**
+   * The [regional base
+   * URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications)
+   * to use for sending Terminal API requests when using cloud communications.
+   *
+   * @param cloudDeviceApiEndpoint The [regional base
+   *     URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications)
+   *     to use for sending Terminal API requests when using cloud communications.
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
+  public Terminal cloudDeviceApiEndpoint(String cloudDeviceApiEndpoint) {
+    this.cloudDeviceApiEndpoint = cloudDeviceApiEndpoint;
+    isSetCloudDeviceApiEndpoint = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The [regional base
+   * URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications)
+   * to use for sending Terminal API requests when using cloud communications.
+   *
+   * @return cloudDeviceApiEndpoint The [regional base
+   *     URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications)
+   *     to use for sending Terminal API requests when using cloud communications.
+   */
+  @JsonProperty(JSON_PROPERTY_CLOUD_DEVICE_API_ENDPOINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCloudDeviceApiEndpoint() {
+    return cloudDeviceApiEndpoint;
+  }
+
+  /**
+   * The [regional base
+   * URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications)
+   * to use for sending Terminal API requests when using cloud communications.
+   *
+   * @param cloudDeviceApiEndpoint The [regional base
+   *     URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications)
+   *     to use for sending Terminal API requests when using cloud communications.
+   */
+  @JsonProperty(JSON_PROPERTY_CLOUD_DEVICE_API_ENDPOINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCloudDeviceApiEndpoint(String cloudDeviceApiEndpoint) {
+    this.cloudDeviceApiEndpoint = cloudDeviceApiEndpoint;
+    isSetCloudDeviceApiEndpoint = true; // mark as set
+  }
+
+  /**
    * connectivity
    *
    * @param connectivity
@@ -172,6 +233,41 @@ public class Terminal {
   public void setConnectivity(TerminalConnectivity connectivity) {
     this.connectivity = connectivity;
     isSetConnectivity = true; // mark as set
+  }
+
+  /**
+   * The country code of the country where the terminal is located.
+   *
+   * @param countryCode The country code of the country where the terminal is located.
+   * @return the current {@code Terminal} instance, allowing for method chaining
+   */
+  public Terminal countryCode(String countryCode) {
+    this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The country code of the country where the terminal is located.
+   *
+   * @return countryCode The country code of the country where the terminal is located.
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCountryCode() {
+    return countryCode;
+  }
+
+  /**
+   * The country code of the country where the terminal is located.
+   *
+   * @param countryCode The country code of the country where the terminal is located.
+   */
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+    isSetCountryCode = true; // mark as set
   }
 
   /**
@@ -509,8 +605,12 @@ public class Terminal {
     Terminal terminal = (Terminal) o;
     return Objects.equals(this.assignment, terminal.assignment)
         && Objects.equals(this.isSetAssignment, terminal.isSetAssignment)
+        && Objects.equals(this.cloudDeviceApiEndpoint, terminal.cloudDeviceApiEndpoint)
+        && Objects.equals(this.isSetCloudDeviceApiEndpoint, terminal.isSetCloudDeviceApiEndpoint)
         && Objects.equals(this.connectivity, terminal.connectivity)
         && Objects.equals(this.isSetConnectivity, terminal.isSetConnectivity)
+        && Objects.equals(this.countryCode, terminal.countryCode)
+        && Objects.equals(this.isSetCountryCode, terminal.isSetCountryCode)
         && Objects.equals(this.firmwareVersion, terminal.firmwareVersion)
         && Objects.equals(this.isSetFirmwareVersion, terminal.isSetFirmwareVersion)
         && Objects.equals(this.id, terminal.id)
@@ -534,8 +634,12 @@ public class Terminal {
     return Objects.hash(
         assignment,
         isSetAssignment,
+        cloudDeviceApiEndpoint,
+        isSetCloudDeviceApiEndpoint,
         connectivity,
         isSetConnectivity,
+        countryCode,
+        isSetCountryCode,
         firmwareVersion,
         isSetFirmwareVersion,
         id,
@@ -559,7 +663,11 @@ public class Terminal {
     StringBuilder sb = new StringBuilder();
     sb.append("class Terminal {\n");
     sb.append("    assignment: ").append(toIndentedString(assignment)).append("\n");
+    sb.append("    cloudDeviceApiEndpoint: ")
+        .append(toIndentedString(cloudDeviceApiEndpoint))
+        .append("\n");
     sb.append("    connectivity: ").append(toIndentedString(connectivity)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    firmwareVersion: ").append(toIndentedString(firmwareVersion)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    installedAPKs: ").append(toIndentedString(installedAPKs)).append("\n");
@@ -595,8 +703,14 @@ public class Terminal {
     if (isSetAssignment) {
       addIfNull(nulls, JSON_PROPERTY_ASSIGNMENT, this.assignment);
     }
+    if (isSetCloudDeviceApiEndpoint) {
+      addIfNull(nulls, JSON_PROPERTY_CLOUD_DEVICE_API_ENDPOINT, this.cloudDeviceApiEndpoint);
+    }
     if (isSetConnectivity) {
       addIfNull(nulls, JSON_PROPERTY_CONNECTIVITY, this.connectivity);
+    }
+    if (isSetCountryCode) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY_CODE, this.countryCode);
     }
     if (isSetFirmwareVersion) {
       addIfNull(nulls, JSON_PROPERTY_FIRMWARE_VERSION, this.firmwareVersion);

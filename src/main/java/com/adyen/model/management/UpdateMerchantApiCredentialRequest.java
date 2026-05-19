@@ -26,7 +26,8 @@ import java.util.List;
   UpdateMerchantApiCredentialRequest.JSON_PROPERTY_ACTIVE,
   UpdateMerchantApiCredentialRequest.JSON_PROPERTY_ALLOWED_ORIGINS,
   UpdateMerchantApiCredentialRequest.JSON_PROPERTY_DESCRIPTION,
-  UpdateMerchantApiCredentialRequest.JSON_PROPERTY_ROLES
+  UpdateMerchantApiCredentialRequest.JSON_PROPERTY_ROLES,
+  UpdateMerchantApiCredentialRequest.JSON_PROPERTY_SUBJECT_D_N
 })
 public class UpdateMerchantApiCredentialRequest {
   public static final String JSON_PROPERTY_ACTIVE = "active";
@@ -52,6 +53,12 @@ public class UpdateMerchantApiCredentialRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRoles = false;
+
+  public static final String JSON_PROPERTY_SUBJECT_D_N = "subjectDN";
+  private String subjectDN;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubjectDN = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -249,6 +256,42 @@ public class UpdateMerchantApiCredentialRequest {
   }
 
   /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method
+   *     chaining
+   */
+  public UpdateMerchantApiCredentialRequest subjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @return subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubjectDN() {
+    return subjectDN;
+  }
+
+  /**
+   * The subject DN of the certificate issued by Adyen.
+   *
+   * @param subjectDN The subject DN of the certificate issued by Adyen.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBJECT_D_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubjectDN(String subjectDN) {
+    this.subjectDN = subjectDN;
+    isSetSubjectDN = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public UpdateMerchantApiCredentialRequest includeNullValues(boolean includeNullValues) {
@@ -288,7 +331,9 @@ public class UpdateMerchantApiCredentialRequest {
         && Objects.equals(
             this.isSetDescription, updateMerchantApiCredentialRequest.isSetDescription)
         && Objects.equals(this.roles, updateMerchantApiCredentialRequest.roles)
-        && Objects.equals(this.isSetRoles, updateMerchantApiCredentialRequest.isSetRoles);
+        && Objects.equals(this.isSetRoles, updateMerchantApiCredentialRequest.isSetRoles)
+        && Objects.equals(this.subjectDN, updateMerchantApiCredentialRequest.subjectDN)
+        && Objects.equals(this.isSetSubjectDN, updateMerchantApiCredentialRequest.isSetSubjectDN);
   }
 
   @Override
@@ -301,7 +346,9 @@ public class UpdateMerchantApiCredentialRequest {
         description,
         isSetDescription,
         roles,
-        isSetRoles);
+        isSetRoles,
+        subjectDN,
+        isSetSubjectDN);
   }
 
   @Override
@@ -312,6 +359,7 @@ public class UpdateMerchantApiCredentialRequest {
     sb.append("    allowedOrigins: ").append(toIndentedString(allowedOrigins)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    subjectDN: ").append(toIndentedString(subjectDN)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -347,6 +395,9 @@ public class UpdateMerchantApiCredentialRequest {
     }
     if (isSetRoles) {
       addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetSubjectDN) {
+      addIfNull(nulls, JSON_PROPERTY_SUBJECT_D_N, this.subjectDN);
     }
 
     return nulls;

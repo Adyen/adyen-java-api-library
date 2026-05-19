@@ -45,10 +45,14 @@ public class SplitConfigurationRule {
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
-   * **ANY**: Applies to all transactions, regardless of the processing and issuing country/region.
+   * **intraEEA**: The card issuer and the store where the transaction is processed are registered
+   * in different countries, but in the European Economic Area (EEA). * **ANY**: Applies to all
+   * transactions, regardless of the processing and issuing country/region.
    */
   public enum CardRegionEnum {
     INTERNATIONAL(String.valueOf("international")),
+
+    INTRAEEA(String.valueOf("intraEEA")),
 
     INTRAREGIONAL(String.valueOf("intraRegional")),
 
@@ -267,7 +271,9 @@ public class SplitConfigurationRule {
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
-   * **ANY**: Applies to all transactions, regardless of the processing and issuing country/region.
+   * **intraEEA**: The card issuer and the store where the transaction is processed are registered
+   * in different countries, but in the European Economic Area (EEA). * **ANY**: Applies to all
+   * transactions, regardless of the processing and issuing country/region.
    *
    * @param cardRegion The card region condition that determines whether the [split
    *     logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
@@ -279,8 +285,9 @@ public class SplitConfigurationRule {
    *     **interRegional**: The card issuer and the store where the transaction is processed are
    *     registered in different regions. * **intraRegional**: The card issuer and the store where
    *     the transaction is processed are registered in different countries, but in the same region.
-   *     * **ANY**: Applies to all transactions, regardless of the processing and issuing
-   *     country/region.
+   *     * **intraEEA**: The card issuer and the store where the transaction is processed are
+   *     registered in different countries, but in the European Economic Area (EEA). * **ANY**:
+   *     Applies to all transactions, regardless of the processing and issuing country/region.
    * @return the current {@code SplitConfigurationRule} instance, allowing for method chaining
    */
   public SplitConfigurationRule cardRegion(CardRegionEnum cardRegion) {
@@ -300,7 +307,9 @@ public class SplitConfigurationRule {
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
-   * **ANY**: Applies to all transactions, regardless of the processing and issuing country/region.
+   * **intraEEA**: The card issuer and the store where the transaction is processed are registered
+   * in different countries, but in the European Economic Area (EEA). * **ANY**: Applies to all
+   * transactions, regardless of the processing and issuing country/region.
    *
    * @return cardRegion The card region condition that determines whether the [split
    *     logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
@@ -312,8 +321,9 @@ public class SplitConfigurationRule {
    *     **interRegional**: The card issuer and the store where the transaction is processed are
    *     registered in different regions. * **intraRegional**: The card issuer and the store where
    *     the transaction is processed are registered in different countries, but in the same region.
-   *     * **ANY**: Applies to all transactions, regardless of the processing and issuing
-   *     country/region.
+   *     * **intraEEA**: The card issuer and the store where the transaction is processed are
+   *     registered in different countries, but in the European Economic Area (EEA). * **ANY**:
+   *     Applies to all transactions, regardless of the processing and issuing country/region.
    */
   @JsonProperty(JSON_PROPERTY_CARD_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,7 +342,9 @@ public class SplitConfigurationRule {
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
-   * **ANY**: Applies to all transactions, regardless of the processing and issuing country/region.
+   * **intraEEA**: The card issuer and the store where the transaction is processed are registered
+   * in different countries, but in the European Economic Area (EEA). * **ANY**: Applies to all
+   * transactions, regardless of the processing and issuing country/region.
    *
    * @param cardRegion The card region condition that determines whether the [split
    *     logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
@@ -344,8 +356,9 @@ public class SplitConfigurationRule {
    *     **interRegional**: The card issuer and the store where the transaction is processed are
    *     registered in different regions. * **intraRegional**: The card issuer and the store where
    *     the transaction is processed are registered in different countries, but in the same region.
-   *     * **ANY**: Applies to all transactions, regardless of the processing and issuing
-   *     country/region.
+   *     * **intraEEA**: The card issuer and the store where the transaction is processed are
+   *     registered in different countries, but in the European Economic Area (EEA). * **ANY**:
+   *     Applies to all transactions, regardless of the processing and issuing country/region.
    */
   @JsonProperty(JSON_PROPERTY_CARD_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

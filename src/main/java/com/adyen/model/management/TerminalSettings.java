@@ -25,6 +25,7 @@ import java.util.List;
 @JsonPropertyOrder({
   TerminalSettings.JSON_PROPERTY_CARDHOLDER_RECEIPT,
   TerminalSettings.JSON_PROPERTY_CONNECTIVITY,
+  TerminalSettings.JSON_PROPERTY_DCC,
   TerminalSettings.JSON_PROPERTY_GRATUITIES,
   TerminalSettings.JSON_PROPERTY_HARDWARE,
   TerminalSettings.JSON_PROPERTY_HOME_SCREEN,
@@ -61,6 +62,12 @@ public class TerminalSettings {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetConnectivity = false;
+
+  public static final String JSON_PROPERTY_DCC = "dcc";
+  private Dcc dcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDcc = false;
 
   public static final String JSON_PROPERTY_GRATUITIES = "gratuities";
   private List<Gratuity> gratuities;
@@ -276,6 +283,41 @@ public class TerminalSettings {
   public void setConnectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
     isSetConnectivity = true; // mark as set
+  }
+
+  /**
+   * dcc
+   *
+   * @param dcc
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
+  public TerminalSettings dcc(Dcc dcc) {
+    this.dcc = dcc;
+    isSetDcc = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get dcc
+   *
+   * @return dcc
+   */
+  @JsonProperty(JSON_PROPERTY_DCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Dcc getDcc() {
+    return dcc;
+  }
+
+  /**
+   * dcc
+   *
+   * @param dcc
+   */
+  @JsonProperty(JSON_PROPERTY_DCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDcc(Dcc dcc) {
+    this.dcc = dcc;
+    isSetDcc = true; // mark as set
   }
 
   /**
@@ -1134,6 +1176,8 @@ public class TerminalSettings {
         && Objects.equals(this.isSetCardholderReceipt, terminalSettings.isSetCardholderReceipt)
         && Objects.equals(this.connectivity, terminalSettings.connectivity)
         && Objects.equals(this.isSetConnectivity, terminalSettings.isSetConnectivity)
+        && Objects.equals(this.dcc, terminalSettings.dcc)
+        && Objects.equals(this.isSetDcc, terminalSettings.isSetDcc)
         && Objects.equals(this.gratuities, terminalSettings.gratuities)
         && Objects.equals(this.isSetGratuities, terminalSettings.isSetGratuities)
         && Objects.equals(this.hardware, terminalSettings.hardware)
@@ -1190,6 +1234,8 @@ public class TerminalSettings {
         isSetCardholderReceipt,
         connectivity,
         isSetConnectivity,
+        dcc,
+        isSetDcc,
         gratuities,
         isSetGratuities,
         hardware,
@@ -1244,6 +1290,7 @@ public class TerminalSettings {
     sb.append("class TerminalSettings {\n");
     sb.append("    cardholderReceipt: ").append(toIndentedString(cardholderReceipt)).append("\n");
     sb.append("    connectivity: ").append(toIndentedString(connectivity)).append("\n");
+    sb.append("    dcc: ").append(toIndentedString(dcc)).append("\n");
     sb.append("    gratuities: ").append(toIndentedString(gratuities)).append("\n");
     sb.append("    hardware: ").append(toIndentedString(hardware)).append("\n");
     sb.append("    homeScreen: ").append(toIndentedString(homeScreen)).append("\n");
@@ -1298,6 +1345,9 @@ public class TerminalSettings {
     }
     if (isSetConnectivity) {
       addIfNull(nulls, JSON_PROPERTY_CONNECTIVITY, this.connectivity);
+    }
+    if (isSetDcc) {
+      addIfNull(nulls, JSON_PROPERTY_DCC, this.dcc);
     }
     if (isSetGratuities) {
       addIfNull(nulls, JSON_PROPERTY_GRATUITIES, this.gratuities);

@@ -45,8 +45,8 @@ public class AndroidApp {
   private boolean isSetDescription = false;
 
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
-  @Deprecated // deprecated since Management API v3: Use `errors` instead.
-  private String errorCode;
+  /* deprecated since Management API v3: Use `errors` instead. */
+  @Deprecated private String errorCode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetErrorCode = false;
@@ -204,9 +204,9 @@ public class AndroidApp {
    * @param errorCode The error code of the Android app with the &#x60;status&#x60; of either
    *     **error** or **invalid**.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
-   * @deprecated since Management API v3 Use &#x60;errors&#x60; instead.
+   * @deprecated since Management API v3 Use `errors` instead.
    */
-  @Deprecated // deprecated since Management API v3: Use `errors` instead.
+  @Deprecated
   public AndroidApp errorCode(String errorCode) {
     this.errorCode = errorCode;
     isSetErrorCode = true; // mark as set
@@ -219,9 +219,9 @@ public class AndroidApp {
    *
    * @return errorCode The error code of the Android app with the &#x60;status&#x60; of either
    *     **error** or **invalid**.
-   * @deprecated // deprecated since Management API v3: Use `errors` instead.
+   * @deprecated since Management API v3 Use `errors` instead.
    */
-  @Deprecated // deprecated since Management API v3: Use `errors` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -234,9 +234,9 @@ public class AndroidApp {
    *
    * @param errorCode The error code of the Android app with the &#x60;status&#x60; of either
    *     **error** or **invalid**.
-   * @deprecated since Management API v3 Use &#x60;errors&#x60; instead.
+   * @deprecated since Management API v3 Use `errors` instead.
    */
-  @Deprecated // deprecated since Management API v3: Use `errors` instead.
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
