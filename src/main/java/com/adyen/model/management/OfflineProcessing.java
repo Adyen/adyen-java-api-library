@@ -18,26 +18,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /** OfflineProcessing */
-@JsonPropertyOrder({
-  OfflineProcessing.JSON_PROPERTY_CHIP_FLOOR_LIMIT,
-  OfflineProcessing.JSON_PROPERTY_OFFLINE_SWIPE_LIMITS
-})
+@JsonPropertyOrder({OfflineProcessing.JSON_PROPERTY_CHIP_FLOOR_LIMIT})
 public class OfflineProcessing {
   public static final String JSON_PROPERTY_CHIP_FLOOR_LIMIT = "chipFloorLimit";
   private Integer chipFloorLimit;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetChipFloorLimit = false;
-
-  public static final String JSON_PROPERTY_OFFLINE_SWIPE_LIMITS = "offlineSwipeLimits";
-  private List<MinorUnitsMonetaryValue> offlineSwipeLimits;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetOfflineSwipeLimits = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -92,56 +81,6 @@ public class OfflineProcessing {
   }
 
   /**
-   * The maximum offline transaction amount for swiped cards, in the specified currency. Updating
-   * this field is forbidden.
-   *
-   * @param offlineSwipeLimits The maximum offline transaction amount for swiped cards, in the
-   *     specified currency. Updating this field is forbidden.
-   * @return the current {@code OfflineProcessing} instance, allowing for method chaining
-   */
-  public OfflineProcessing offlineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
-    this.offlineSwipeLimits = offlineSwipeLimits;
-    isSetOfflineSwipeLimits = true; // mark as set
-    return this;
-  }
-
-  public OfflineProcessing addOfflineSwipeLimitsItem(
-      MinorUnitsMonetaryValue offlineSwipeLimitsItem) {
-    if (this.offlineSwipeLimits == null) {
-      this.offlineSwipeLimits = new ArrayList<>();
-    }
-    this.offlineSwipeLimits.add(offlineSwipeLimitsItem);
-    return this;
-  }
-
-  /**
-   * The maximum offline transaction amount for swiped cards, in the specified currency. Updating
-   * this field is forbidden.
-   *
-   * @return offlineSwipeLimits The maximum offline transaction amount for swiped cards, in the
-   *     specified currency. Updating this field is forbidden.
-   */
-  @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MinorUnitsMonetaryValue> getOfflineSwipeLimits() {
-    return offlineSwipeLimits;
-  }
-
-  /**
-   * The maximum offline transaction amount for swiped cards, in the specified currency. Updating
-   * this field is forbidden.
-   *
-   * @param offlineSwipeLimits The maximum offline transaction amount for swiped cards, in the
-   *     specified currency. Updating this field is forbidden.
-   */
-  @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOfflineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
-    this.offlineSwipeLimits = offlineSwipeLimits;
-    isSetOfflineSwipeLimits = true; // mark as set
-  }
-
-  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public OfflineProcessing includeNullValues(boolean includeNullValues) {
@@ -172,15 +111,12 @@ public class OfflineProcessing {
     }
     OfflineProcessing offlineProcessing = (OfflineProcessing) o;
     return Objects.equals(this.chipFloorLimit, offlineProcessing.chipFloorLimit)
-        && Objects.equals(this.isSetChipFloorLimit, offlineProcessing.isSetChipFloorLimit)
-        && Objects.equals(this.offlineSwipeLimits, offlineProcessing.offlineSwipeLimits)
-        && Objects.equals(this.isSetOfflineSwipeLimits, offlineProcessing.isSetOfflineSwipeLimits);
+        && Objects.equals(this.isSetChipFloorLimit, offlineProcessing.isSetChipFloorLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        chipFloorLimit, isSetChipFloorLimit, offlineSwipeLimits, isSetOfflineSwipeLimits);
+    return Objects.hash(chipFloorLimit, isSetChipFloorLimit);
   }
 
   @Override
@@ -188,7 +124,6 @@ public class OfflineProcessing {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfflineProcessing {\n");
     sb.append("    chipFloorLimit: ").append(toIndentedString(chipFloorLimit)).append("\n");
-    sb.append("    offlineSwipeLimits: ").append(toIndentedString(offlineSwipeLimits)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -215,9 +150,6 @@ public class OfflineProcessing {
 
     if (isSetChipFloorLimit) {
       addIfNull(nulls, JSON_PROPERTY_CHIP_FLOOR_LIMIT, this.chipFloorLimit);
-    }
-    if (isSetOfflineSwipeLimits) {
-      addIfNull(nulls, JSON_PROPERTY_OFFLINE_SWIPE_LIMITS, this.offlineSwipeLimits);
     }
 
     return nulls;
