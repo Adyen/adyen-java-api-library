@@ -837,9 +837,12 @@ public class Organization {
   }
 
   /**
-   * The global legal entity identifier for the organization.
+   * The global legal entity identifier for the organization. This field is not required if the
+   * &#x60;registrationNumber&#x60; for the organization has been provided.
    *
    * @param globalLegalEntityIdentifier The global legal entity identifier for the organization.
+   *     This field is not required if the &#x60;registrationNumber&#x60; for the organization has
+   *     been provided.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization globalLegalEntityIdentifier(String globalLegalEntityIdentifier) {
@@ -849,9 +852,12 @@ public class Organization {
   }
 
   /**
-   * The global legal entity identifier for the organization.
+   * The global legal entity identifier for the organization. This field is not required if the
+   * &#x60;registrationNumber&#x60; for the organization has been provided.
    *
    * @return globalLegalEntityIdentifier The global legal entity identifier for the organization.
+   *     This field is not required if the &#x60;registrationNumber&#x60; for the organization has
+   *     been provided.
    */
   @JsonProperty(JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -860,9 +866,12 @@ public class Organization {
   }
 
   /**
-   * The global legal entity identifier for the organization.
+   * The global legal entity identifier for the organization. This field is not required if the
+   * &#x60;registrationNumber&#x60; for the organization has been provided.
    *
    * @param globalLegalEntityIdentifier The global legal entity identifier for the organization.
+   *     This field is not required if the &#x60;registrationNumber&#x60; for the organization has
+   *     been provided.
    */
   @JsonProperty(JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
