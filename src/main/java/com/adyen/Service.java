@@ -131,9 +131,7 @@ public class Service {
     if (url.contains("device-api-")) {
       if (config.getTerminalApiRegion() == null
           || config.getTerminalApiRegion().equals(Region.EU)) {
-        url =
-            url.replace(
-                "https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
+        url = url.replace("https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
       } else {
         url =
             url.replace(
