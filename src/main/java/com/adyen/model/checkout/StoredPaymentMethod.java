@@ -26,6 +26,7 @@ import java.util.List;
   StoredPaymentMethod.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
   StoredPaymentMethod.JSON_PROPERTY_BANK_LOCATION_ID,
   StoredPaymentMethod.JSON_PROPERTY_BRAND,
+  StoredPaymentMethod.JSON_PROPERTY_CASHTAG,
   StoredPaymentMethod.JSON_PROPERTY_EXPIRY_MONTH,
   StoredPaymentMethod.JSON_PROPERTY_EXPIRY_YEAR,
   StoredPaymentMethod.JSON_PROPERTY_HOLDER_NAME,
@@ -59,6 +60,12 @@ public class StoredPaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBrand = false;
+
+  public static final String JSON_PROPERTY_CASHTAG = "cashtag";
+  private String cashtag;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCashtag = false;
 
   public static final String JSON_PROPERTY_EXPIRY_MONTH = "expiryMonth";
   private String expiryMonth;
@@ -260,6 +267,41 @@ public class StoredPaymentMethod {
   public void setBrand(String brand) {
     this.brand = brand;
     isSetBrand = true; // mark as set
+  }
+
+  /**
+   * The shopper’s Cash App Pay Cashtag.
+   *
+   * @param cashtag The shopper’s Cash App Pay Cashtag.
+   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   */
+  public StoredPaymentMethod cashtag(String cashtag) {
+    this.cashtag = cashtag;
+    isSetCashtag = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The shopper’s Cash App Pay Cashtag.
+   *
+   * @return cashtag The shopper’s Cash App Pay Cashtag.
+   */
+  @JsonProperty(JSON_PROPERTY_CASHTAG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCashtag() {
+    return cashtag;
+  }
+
+  /**
+   * The shopper’s Cash App Pay Cashtag.
+   *
+   * @param cashtag The shopper’s Cash App Pay Cashtag.
+   */
+  @JsonProperty(JSON_PROPERTY_CASHTAG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCashtag(String cashtag) {
+    this.cashtag = cashtag;
+    isSetCashtag = true; // mark as set
   }
 
   /**
@@ -830,6 +872,8 @@ public class StoredPaymentMethod {
         && Objects.equals(this.isSetBankLocationId, storedPaymentMethod.isSetBankLocationId)
         && Objects.equals(this.brand, storedPaymentMethod.brand)
         && Objects.equals(this.isSetBrand, storedPaymentMethod.isSetBrand)
+        && Objects.equals(this.cashtag, storedPaymentMethod.cashtag)
+        && Objects.equals(this.isSetCashtag, storedPaymentMethod.isSetCashtag)
         && Objects.equals(this.expiryMonth, storedPaymentMethod.expiryMonth)
         && Objects.equals(this.isSetExpiryMonth, storedPaymentMethod.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, storedPaymentMethod.expiryYear)
@@ -876,6 +920,8 @@ public class StoredPaymentMethod {
         isSetBankLocationId,
         brand,
         isSetBrand,
+        cashtag,
+        isSetCashtag,
         expiryMonth,
         isSetExpiryMonth,
         expiryYear,
@@ -913,6 +959,7 @@ public class StoredPaymentMethod {
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
     sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+    sb.append("    cashtag: ").append(toIndentedString(cashtag)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
@@ -963,6 +1010,9 @@ public class StoredPaymentMethod {
     }
     if (isSetBrand) {
       addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetCashtag) {
+      addIfNull(nulls, JSON_PROPERTY_CASHTAG, this.cashtag);
     }
     if (isSetExpiryMonth) {
       addIfNull(nulls, JSON_PROPERTY_EXPIRY_MONTH, this.expiryMonth);
