@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   DirectDebitAuDetails.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
   DirectDebitAuDetails.JSON_PROPERTY_BANK_BRANCH_CODE,
   DirectDebitAuDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  DirectDebitAuDetails.JSON_PROPERTY_HOLDER_NAME,
   DirectDebitAuDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   DirectDebitAuDetails.JSON_PROPERTY_SDK_DATA,
   DirectDebitAuDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
@@ -51,6 +52,12 @@ public class DirectDebitAuDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
+
+  public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
+  private String holderName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHolderName = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
@@ -230,6 +237,41 @@ public class DirectDebitAuDetails {
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
+  }
+
+  /**
+   * The name of the bank account holder.
+   *
+   * @param holderName The name of the bank account holder.
+   * @return the current {@code DirectDebitAuDetails} instance, allowing for method chaining
+   */
+  public DirectDebitAuDetails holderName(String holderName) {
+    this.holderName = holderName;
+    isSetHolderName = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The name of the bank account holder.
+   *
+   * @return holderName The name of the bank account holder.
+   */
+  @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHolderName() {
+    return holderName;
+  }
+
+  /**
+   * The name of the bank account holder.
+   *
+   * @param holderName The name of the bank account holder.
+   */
+  @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHolderName(String holderName) {
+    this.holderName = holderName;
+    isSetHolderName = true; // mark as set
   }
 
   /**
@@ -427,6 +469,8 @@ public class DirectDebitAuDetails {
         && Objects.equals(this.isSetBankBranchCode, directDebitAuDetails.isSetBankBranchCode)
         && Objects.equals(this.checkoutAttemptId, directDebitAuDetails.checkoutAttemptId)
         && Objects.equals(this.isSetCheckoutAttemptId, directDebitAuDetails.isSetCheckoutAttemptId)
+        && Objects.equals(this.holderName, directDebitAuDetails.holderName)
+        && Objects.equals(this.isSetHolderName, directDebitAuDetails.isSetHolderName)
         && Objects.equals(
             this.recurringDetailReference, directDebitAuDetails.recurringDetailReference)
         && Objects.equals(
@@ -449,6 +493,8 @@ public class DirectDebitAuDetails {
         isSetBankBranchCode,
         checkoutAttemptId,
         isSetCheckoutAttemptId,
+        holderName,
+        isSetHolderName,
         recurringDetailReference,
         isSetRecurringDetailReference,
         sdkData,
@@ -466,6 +512,7 @@ public class DirectDebitAuDetails {
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
     sb.append("    bankBranchCode: ").append(toIndentedString(bankBranchCode)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
@@ -506,6 +553,9 @@ public class DirectDebitAuDetails {
     }
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetHolderName) {
+      addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);
     }
     if (isSetRecurringDetailReference) {
       addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
