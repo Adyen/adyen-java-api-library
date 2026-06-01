@@ -37,9 +37,13 @@ public class Dcc {
   public Dcc() {}
 
   /**
-   * Enable Dynamic Currency Conversion (DCC).
+   * Enable Dynamic Currency Conversion (DCC). When you enable DCC, you are responsible for
+   * complying with [DCC receipt requirements and terms of
+   * use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-features/dynamic-currency-conversion-dcc-rules-regulations).
    *
-   * @param enableDcc Enable Dynamic Currency Conversion (DCC).
+   * @param enableDcc Enable Dynamic Currency Conversion (DCC). When you enable DCC, you are
+   *     responsible for complying with [DCC receipt requirements and terms of
+   *     use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-features/dynamic-currency-conversion-dcc-rules-regulations).
    * @return the current {@code Dcc} instance, allowing for method chaining
    */
   public Dcc enableDcc(Boolean enableDcc) {
@@ -49,9 +53,13 @@ public class Dcc {
   }
 
   /**
-   * Enable Dynamic Currency Conversion (DCC).
+   * Enable Dynamic Currency Conversion (DCC). When you enable DCC, you are responsible for
+   * complying with [DCC receipt requirements and terms of
+   * use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-features/dynamic-currency-conversion-dcc-rules-regulations).
    *
-   * @return enableDcc Enable Dynamic Currency Conversion (DCC).
+   * @return enableDcc Enable Dynamic Currency Conversion (DCC). When you enable DCC, you are
+   *     responsible for complying with [DCC receipt requirements and terms of
+   *     use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-features/dynamic-currency-conversion-dcc-rules-regulations).
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_DCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -60,9 +68,13 @@ public class Dcc {
   }
 
   /**
-   * Enable Dynamic Currency Conversion (DCC).
+   * Enable Dynamic Currency Conversion (DCC). When you enable DCC, you are responsible for
+   * complying with [DCC receipt requirements and terms of
+   * use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-features/dynamic-currency-conversion-dcc-rules-regulations).
    *
-   * @param enableDcc Enable Dynamic Currency Conversion (DCC).
+   * @param enableDcc Enable Dynamic Currency Conversion (DCC). When you enable DCC, you are
+   *     responsible for complying with [DCC receipt requirements and terms of
+   *     use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-features/dynamic-currency-conversion-dcc-rules-regulations).
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_DCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
