@@ -1,8 +1,8 @@
 {
   "service": "configurationwebhooks",
   "project": "java",
-  "generatedAt": "2026-05-19T12:23:29Z",
-  "openapiCommitSha": "75b5618c8524d3adf4c19c365400d017320c85e0",
+  "generatedAt": "2026-06-02T15:30:09Z",
+  "openapiCommitSha": "f3894fd6b47d9076841b04852378251de3bba2de",
   "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
-  "libraryCommitSha": "b155c3941b7c46a0682b3e5aa205136e7e73308a"
+  "libraryCommitSha": "9539e092f2160ca341916c804f01f0f699a64415"
 }
