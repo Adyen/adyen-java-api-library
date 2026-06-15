@@ -1,8 +1,8 @@
 {
   "service": "payout",
   "project": "java",
-  "generatedAt": "2026-05-14T14:22:09Z",
-  "openapiCommitSha": "cbc5406a2df1f24d50e40742f18342f7ca7f21fc",
+  "generatedAt": "2026-06-15T16:42:59Z",
+  "openapiCommitSha": "fe790646de44602c0531c3ebd57c966876c7a1c7",
   "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
-  "libraryCommitSha": "5790580db2f8a931a68baba2bff9760b8aed2067"
+  "libraryCommitSha": "b2998c6eecc506e2d7ef07cc9b1eed1ee389a21b"
 }
