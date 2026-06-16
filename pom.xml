@@ -45,7 +45,7 @@
         <!-- Test -->
         <okio-version>3.17.0</okio-version>
         <hamcrest-version>3.0</hamcrest-version>
-        <junit-jupiter-version>5.14.4</junit-jupiter-version>
+        <junit-jupiter-version>6.1.0</junit-jupiter-version>
         <mockito-version>5.23.0</mockito-version>
 
         <!-- Plugin Versions -->
