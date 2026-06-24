@@ -448,6 +448,10 @@ public class TransferData {
    * bank.
    */
   public enum StatusEnum {
+    ADVICEAUTHORISED(String.valueOf("adviceAuthorised")),
+
+    ADVICEREFUSED(String.valueOf("adviceRefused")),
+
     APPROVALPENDING(String.valueOf("approvalPending")),
 
     ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
