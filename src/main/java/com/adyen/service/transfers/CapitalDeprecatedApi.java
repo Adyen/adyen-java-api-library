@@ -24,31 +24,31 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CapitalApi extends Service {
+public class CapitalDeprecatedApi extends Service {
 
   public static final String API_VERSION = "4";
 
   protected String baseURL;
 
   /**
-   * Capital constructor in {@link com.adyen.service.transfers package}.
+   * Capital (deprecated) constructor in {@link com.adyen.service.transfers package}.
    *
    * @param client {@link Client } (required)
    */
-  public CapitalApi(Client client) {
+  public CapitalDeprecatedApi(Client client) {
     super(client);
     this.baseURL = createBaseURL("https://balanceplatform-api-test.adyen.com/btl/v4");
   }
 
   /**
-   * Capital constructor in {@link com.adyen.service.transfers package}. Please use this constructor
-   * only if you would like to pass along your own url for routing or testing purposes. The latest
-   * API version is defined in this class as a constant.
+   * Capital (deprecated) constructor in {@link com.adyen.service.transfers package}. Please use
+   * this constructor only if you would like to pass along your own url for routing or testing
+   * purposes. The latest API version is defined in this class as a constant.
    *
    * @param client {@link Client } (required)
    * @param baseURL {@link String } (required)
    */
-  public CapitalApi(Client client, String baseURL) {
+  public CapitalDeprecatedApi(Client client, String baseURL) {
     super(client);
     this.baseURL = baseURL;
   }
