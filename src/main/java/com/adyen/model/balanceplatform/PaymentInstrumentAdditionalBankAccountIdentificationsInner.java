@@ -151,6 +151,15 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner
     JSON.registerDescendants(
         PaymentInstrumentAdditionalBankAccountIdentificationsInner.class,
         Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("iban", IbanAccountIdentification.class);
+    mappings.put("IbanAccountIdentification", IbanAccountIdentification.class);
+    mappings.put(
+        "PaymentInstrument_additionalBankAccountIdentifications_inner",
+        PaymentInstrumentAdditionalBankAccountIdentificationsInner.class);
+    JSON.registerDiscriminator(
+        PaymentInstrumentAdditionalBankAccountIdentificationsInner.class, "type", mappings);
   }
 
   @Override
