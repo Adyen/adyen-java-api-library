@@ -292,6 +292,10 @@ public class TransferEvent {
 
   /** The status of the transfer event. */
   public enum StatusEnum {
+    ADVICEAUTHORISED(String.valueOf("adviceAuthorised")),
+
+    ADVICEREFUSED(String.valueOf("adviceRefused")),
+
     APPROVALPENDING(String.valueOf("approvalPending")),
 
     ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
