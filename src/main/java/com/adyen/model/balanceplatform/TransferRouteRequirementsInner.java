@@ -476,6 +476,40 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
         new GenericType<USInternationalAchPriorityRequirement>() {});
     JSON.registerDescendants(
         TransferRouteRequirementsInner.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put(
+        "additionalBankIdentificationRequirement", AdditionalBankIdentificationRequirement.class);
+    mappings.put("addressRequirement", AddressRequirement.class);
+    mappings.put("amountMinMaxRequirement", AmountMinMaxRequirement.class);
+    mappings.put("amountNonZeroDecimalsRequirement", AmountNonZeroDecimalsRequirement.class);
+    mappings.put(
+        "bankAccountIdentificationTypeRequirement", BankAccountIdentificationTypeRequirement.class);
+    mappings.put(
+        "ibanAccountIdentificationRequirement", IbanAccountIdentificationRequirement.class);
+    mappings.put("paymentInstrumentRequirement", PaymentInstrumentRequirement.class);
+    mappings.put("usInstantPayoutAddressRequirement", USInstantPayoutAddressRequirement.class);
+    mappings.put(
+        "usInternationalAchAddressRequirement", USInternationalAchAddressRequirement.class);
+    mappings.put(
+        "usInternationalAchPriorityRequirement", USInternationalAchPriorityRequirement.class);
+    mappings.put(
+        "AdditionalBankIdentificationRequirement", AdditionalBankIdentificationRequirement.class);
+    mappings.put("AddressRequirement", AddressRequirement.class);
+    mappings.put("AmountMinMaxRequirement", AmountMinMaxRequirement.class);
+    mappings.put("AmountNonZeroDecimalsRequirement", AmountNonZeroDecimalsRequirement.class);
+    mappings.put(
+        "BankAccountIdentificationTypeRequirement", BankAccountIdentificationTypeRequirement.class);
+    mappings.put(
+        "IbanAccountIdentificationRequirement", IbanAccountIdentificationRequirement.class);
+    mappings.put("PaymentInstrumentRequirement", PaymentInstrumentRequirement.class);
+    mappings.put("USInstantPayoutAddressRequirement", USInstantPayoutAddressRequirement.class);
+    mappings.put(
+        "USInternationalAchAddressRequirement", USInternationalAchAddressRequirement.class);
+    mappings.put(
+        "USInternationalAchPriorityRequirement", USInternationalAchPriorityRequirement.class);
+    mappings.put("TransferRoute_requirements_inner", TransferRouteRequirementsInner.class);
+    JSON.registerDiscriminator(TransferRouteRequirementsInner.class, "type", mappings);
   }
 
   @Override
