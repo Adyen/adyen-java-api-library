@@ -201,6 +201,16 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     schemas.put("MerchantPurchaseData", new GenericType<MerchantPurchaseData>() {});
     JSON.registerDescendants(
         TransferEventEventsDataInner.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("interchangeData", InterchangeData.class);
+    mappings.put("issuingTransactionData", IssuingTransactionData.class);
+    mappings.put("merchantPurchaseData", MerchantPurchaseData.class);
+    mappings.put("InterchangeData", InterchangeData.class);
+    mappings.put("IssuingTransactionData", IssuingTransactionData.class);
+    mappings.put("MerchantPurchaseData", MerchantPurchaseData.class);
+    mappings.put("TransferEvent_eventsData_inner", TransferEventEventsDataInner.class);
+    JSON.registerDiscriminator(TransferEventEventsDataInner.class, "type", mappings);
   }
 
   @Override

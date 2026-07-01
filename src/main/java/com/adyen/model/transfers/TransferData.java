@@ -515,13 +515,17 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    */
   public enum StatusEnum {
+    ADVICEAUTHORISED(String.valueOf("adviceAuthorised")),
+
+    ADVICEREFUSED(String.valueOf("adviceRefused")),
+
     APPROVALPENDING(String.valueOf("approvalPending")),
 
     ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
@@ -1851,20 +1855,19 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData status(StatusEnum status) {
@@ -1876,20 +1879,19 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @return status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1900,20 +1902,19 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
