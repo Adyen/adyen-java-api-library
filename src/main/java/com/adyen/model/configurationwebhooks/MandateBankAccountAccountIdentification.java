@@ -152,6 +152,13 @@ public class MandateBankAccountAccountIdentification extends AbstractOpenApiSche
         new GenericType<UKLocalMandateAccountIdentification>() {});
     JSON.registerDescendants(
         MandateBankAccountAccountIdentification.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("ukLocal", UKLocalMandateAccountIdentification.class);
+    mappings.put("UKLocalMandateAccountIdentification", UKLocalMandateAccountIdentification.class);
+    mappings.put(
+        "MandateBankAccount_accountIdentification", MandateBankAccountAccountIdentification.class);
+    JSON.registerDiscriminator(MandateBankAccountAccountIdentification.class, "type", mappings);
   }
 
   @Override
