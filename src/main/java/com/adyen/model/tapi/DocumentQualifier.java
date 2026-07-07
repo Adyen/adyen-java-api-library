@@ -16,19 +16,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets DocumentQualifier */
+/**
+ * Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** *
+ * **Voucher** * **Journal**
+ */
 public enum DocumentQualifier {
+  SALE_RECEIPT("SaleReceipt"),
+
   CASHIER_RECEIPT("CashierReceipt"),
 
   CUSTOMER_RECEIPT("CustomerReceipt"),
 
   DOCUMENT("Document"),
 
-  JOURNAL("Journal"),
+  VOUCHER("Voucher"),
 
-  SALE_RECEIPT("SaleReceipt"),
-
-  VOUCHER("Voucher");
+  JOURNAL("Journal");
 
   private static final Logger LOG = Logger.getLogger(DocumentQualifier.class.getName());
 

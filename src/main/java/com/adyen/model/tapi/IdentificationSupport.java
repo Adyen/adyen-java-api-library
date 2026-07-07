@@ -18,17 +18,17 @@ import java.util.logging.Logger;
 
 /**
  * Support of the loyalty account identification. Allows knowing where and how you have found the
- * loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** *
- * **LoyaltyCard** * **NoCard**
+ * loyalty account identification. Possible values: * **NoCard** * **LoyaltyCard** * **HybridCard**
+ * * **LinkedCard**
  */
 public enum IdentificationSupport {
-  HYBRID_CARD("HybridCard"),
-
-  LINKED_CARD("LinkedCard"),
+  NO_CARD("NoCard"),
 
   LOYALTY_CARD("LoyaltyCard"),
 
-  NO_CARD("NoCard");
+  HYBRID_CARD("HybridCard"),
+
+  LINKED_CARD("LinkedCard");
 
   private static final Logger LOG = Logger.getLogger(IdentificationSupport.class.getName());
 

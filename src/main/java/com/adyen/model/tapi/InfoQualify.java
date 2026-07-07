@@ -16,25 +16,28 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets InfoQualify */
+/**
+ * Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** *
+ * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+ */
 public enum InfoQualify {
-  CUSTOMER_ASSISTANCE("CustomerAssistance"),
+  STATUS("Status"),
+
+  ERROR("Error"),
 
   DISPLAY("Display"),
 
-  DOCUMENT("Document"),
-
-  ERROR("Error"),
+  SOUND("Sound"),
 
   INPUT("Input"),
 
   POI_REPLICATION("POIReplication"),
 
+  CUSTOMER_ASSISTANCE("CustomerAssistance"),
+
   RECEIPT("Receipt"),
 
-  SOUND("Sound"),
-
-  STATUS("Status"),
+  DOCUMENT("Document"),
 
   VOUCHER("Voucher");
 

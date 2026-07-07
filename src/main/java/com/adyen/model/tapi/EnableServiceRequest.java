@@ -46,9 +46,9 @@ public class EnableServiceRequest {
   public enum ServicesEnabledEnum {
     CARD_ACQUISITION(String.valueOf("CardAcquisition")),
 
-    LOYALTY(String.valueOf("Loyalty")),
+    PAYMENT(String.valueOf("Payment")),
 
-    PAYMENT(String.valueOf("Payment"));
+    LOYALTY(String.valueOf("Loyalty"));
 
     private static final Logger LOG = Logger.getLogger(ServicesEnabledEnum.class.getName());
 

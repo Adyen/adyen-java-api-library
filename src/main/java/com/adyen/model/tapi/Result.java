@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets Result */
+/** Possible values: * **Success** * **Failure** * **Partial** */
 public enum Result {
+  SUCCESS("Success"),
+
   FAILURE("Failure"),
 
-  PARTIAL("Partial"),
-
-  SUCCESS("Success");
+  PARTIAL("Partial");
 
   private static final Logger LOG = Logger.getLogger(Result.class.getName());
 

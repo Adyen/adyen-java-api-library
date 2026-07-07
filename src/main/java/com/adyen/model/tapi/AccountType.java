@@ -18,25 +18,25 @@ import java.util.logging.Logger;
 
 /**
  * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
- * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
- * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
+ * account used for the transaction. Possible values: * **Default** * **Savings** * **Checking** *
+ * **CreditCard** * **Universal** * **Investment** * **CardTotals** * **EpurseCard**
  */
 public enum AccountType {
-  CARD_TOTALS("CardTotals"),
+  DEFAULT("Default"),
+
+  SAVINGS("Savings"),
 
   CHECKING("Checking"),
 
   CREDIT_CARD("CreditCard"),
 
-  DEFAULT("Default"),
-
-  EPURSE_CARD("EpurseCard"),
+  UNIVERSAL("Universal"),
 
   INVESTMENT("Investment"),
 
-  SAVINGS("Savings"),
+  CARD_TOTALS("CardTotals"),
 
-  UNIVERSAL("Universal");
+  EPURSE_CARD("EpurseCard");
 
   private static final Logger LOG = Logger.getLogger(AccountType.class.getName());
 

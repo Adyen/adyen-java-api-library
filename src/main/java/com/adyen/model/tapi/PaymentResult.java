@@ -117,11 +117,11 @@ public class PaymentResult {
 
     PAPER_SIGNATURE(String.valueOf("PaperSignature")),
 
+    SECURED_CHANNEL(String.valueOf("SecuredChannel")),
+
     SECURE_CERTIFICATE(String.valueOf("SecureCertificate")),
 
     SECURE_NO_CERTIFICATE(String.valueOf("SecureNoCertificate")),
-
-    SECURED_CHANNEL(String.valueOf("SecuredChannel")),
 
     SIGNATURE_CAPTURE(String.valueOf("SignatureCapture")),
 

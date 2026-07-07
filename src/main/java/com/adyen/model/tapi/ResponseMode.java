@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets ResponseMode */
+/** Possible values: * **NotRequired** * **Immediate** * **PrintEnd** * **SoundEnd** */
 public enum ResponseMode {
-  IMMEDIATE("Immediate"),
-
   NOT_REQUIRED("NotRequired"),
+
+  IMMEDIATE("Immediate"),
 
   PRINT_END("PrintEnd"),
 

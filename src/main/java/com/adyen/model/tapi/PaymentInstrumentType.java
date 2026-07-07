@@ -16,17 +16,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets PaymentInstrumentType */
+/** Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash** */
 public enum PaymentInstrumentType {
   CARD("Card"),
-
-  CASH("Cash"),
 
   CHECK("Check"),
 
   MOBILE("Mobile"),
 
-  STORED_VALUE("StoredValue");
+  STORED_VALUE("StoredValue"),
+
+  CASH("Cash");
 
   private static final Logger LOG = Logger.getLogger(PaymentInstrumentType.class.getName());
 

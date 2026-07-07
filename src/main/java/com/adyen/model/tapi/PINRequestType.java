@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Type of PIN Service. Possible values: * **PINEnter** * **PINVerify** * **PINVerifyOnly** */
+/** Type of PIN Service. Possible values: * **PINVerify** * **PINVerifyOnly** * **PINEnter** */
 public enum PINRequestType {
-  PIN_ENTER("PINEnter"),
-
   PIN_VERIFY("PINVerify"),
 
-  PIN_VERIFY_ONLY("PINVerifyOnly");
+  PIN_VERIFY_ONLY("PINVerifyOnly"),
+
+  PIN_ENTER("PINEnter");
 
   private static final Logger LOG = Logger.getLogger(PINRequestType.class.getName());
 

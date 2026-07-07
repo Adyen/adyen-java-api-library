@@ -16,13 +16,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets Device */
+/**
+ * Possible values: * **CashierDisplay** * **CustomerDisplay** * **CashierInput** *
+ * **CustomerInput**
+ */
 public enum Device {
   CASHIER_DISPLAY("CashierDisplay"),
 
-  CASHIER_INPUT("CashierInput"),
-
   CUSTOMER_DISPLAY("CustomerDisplay"),
+
+  CASHIER_INPUT("CashierInput"),
 
   CUSTOMER_INPUT("CustomerInput");
 

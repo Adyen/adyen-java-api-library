@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets CharacterStyle */
+/** Possible values: * **Normal** * **Bold** * **Italic** * **Underline** */
 public enum CharacterStyle {
+  NORMAL("Normal"),
+
   BOLD("Bold"),
 
   ITALIC("Italic"),
-
-  NORMAL("Normal"),
 
   UNDERLINE("Underline");
 

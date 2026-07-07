@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets TypeCode */
+/** Possible values: * **Personal** * **Company** */
 public enum TypeCode {
-  COMPANY("Company"),
+  PERSONAL("Personal"),
 
-  PERSONAL("Personal");
+  COMPANY("Company");
 
   private static final Logger LOG = Logger.getLogger(TypeCode.class.getName());
 

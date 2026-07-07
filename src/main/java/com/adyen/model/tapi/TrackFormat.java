@@ -16,11 +16,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO** */
+/**
+ * Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** *
+ * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
+ */
 public enum TrackFormat {
+  ISO("ISO"),
+
+  JIS_I("JIS-I"),
+
+  JIS_II("JIS-II"),
+
   AAMVA("AAMVA"),
 
-  ISO("ISO");
+  CMC_7("CMC-7"),
+
+  E_13_B("E-13B");
 
   private static final Logger LOG = Logger.getLogger(TrackFormat.class.getName());
 

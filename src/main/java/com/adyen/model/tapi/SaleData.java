@@ -94,11 +94,11 @@ public class SaleData {
 
   /** Gets or Sets customerOrderReq */
   public enum CustomerOrderReqEnum {
-    BOTH(String.valueOf("Both")),
+    OPEN(String.valueOf("Open")),
 
     CLOSED(String.valueOf("Closed")),
 
-    OPEN(String.valueOf("Open"));
+    BOTH(String.valueOf("Both"));
 
     private static final Logger LOG = Logger.getLogger(CustomerOrderReqEnum.class.getName());
 

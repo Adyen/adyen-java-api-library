@@ -16,25 +16,28 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets InputCommand */
+/**
+ * Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** *
+ * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
+ */
 public enum InputCommand {
-  DECIMAL_STRING("DecimalString"),
-
-  DIGIT_STRING("DigitString"),
-
   GET_ANY_KEY("GetAnyKey"),
 
   GET_CONFIRMATION("GetConfirmation"),
+
+  SITE_MANAGER("SiteManager"),
+
+  TEXT_STRING("TextString"),
+
+  DIGIT_STRING("DigitString"),
+
+  DECIMAL_STRING("DecimalString"),
 
   GET_FUNCTION_KEY("GetFunctionKey"),
 
   GET_MENU_ENTRY("GetMenuEntry"),
 
-  PASSWORD("Password"),
-
-  SITE_MANAGER("SiteManager"),
-
-  TEXT_STRING("TextString");
+  PASSWORD("Password");
 
   private static final Logger LOG = Logger.getLogger(InputCommand.class.getName());
 

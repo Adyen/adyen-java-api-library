@@ -16,15 +16,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets IdentificationType */
+/**
+ * Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
+ */
 public enum IdentificationType {
-  ACCOUNT_NUMBER("AccountNumber"),
-
-  BAR_CODE("BarCode"),
+  PAN("PAN"),
 
   ISO_TRACK2("ISOTrack2"),
 
-  PAN("PAN"),
+  BAR_CODE("BarCode"),
+
+  ACCOUNT_NUMBER("AccountNumber"),
 
   PHONE_NUMBER("PhoneNumber");
 

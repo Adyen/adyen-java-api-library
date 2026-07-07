@@ -17,19 +17,19 @@ import java.util.*;
 import java.util.logging.Logger;
 
 /**
- * Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** *
- * **OutOfOrder** * **PaperJam** * **PaperLow**
+ * Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** *
+ * **NoPaper** * **PaperJam** * **OutOfOrder**
  */
 public enum PrinterStatus {
-  NO_PAPER("NoPaper"),
-
   OK("OK"),
 
-  OUT_OF_ORDER("OutOfOrder"),
+  PAPER_LOW("PaperLow"),
+
+  NO_PAPER("NoPaper"),
 
   PAPER_JAM("PaperJam"),
 
-  PAPER_LOW("PaperLow");
+  OUT_OF_ORDER("OutOfOrder");
 
   private static final Logger LOG = Logger.getLogger(PrinterStatus.class.getName());
 

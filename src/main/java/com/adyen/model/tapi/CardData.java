@@ -61,27 +61,27 @@ public class CardData {
 
   /** Gets or Sets entryMode */
   public enum EntryModeEnum {
-    CONTACTLESS(String.valueOf("Contactless")),
-
-    FILE(String.valueOf("File")),
-
-    ICC(String.valueOf("ICC")),
+    RFID(String.valueOf("RFID")),
 
     KEYED(String.valueOf("Keyed")),
 
-    MAG_STRIPE(String.valueOf("MagStripe")),
-
     MANUAL(String.valueOf("Manual")),
 
-    MOBILE(String.valueOf("Mobile")),
-
-    RFID(String.valueOf("RFID")),
+    FILE(String.valueOf("File")),
 
     SCANNED(String.valueOf("Scanned")),
 
+    MAG_STRIPE(String.valueOf("MagStripe")),
+
+    ICC(String.valueOf("ICC")),
+
     SYNCHRONOUS_ICC(String.valueOf("SynchronousICC")),
 
-    TAPPED(String.valueOf("Tapped"));
+    TAPPED(String.valueOf("Tapped")),
+
+    CONTACTLESS(String.valueOf("Contactless")),
+
+    MOBILE(String.valueOf("Mobile"));
 
     private static final Logger LOG = Logger.getLogger(EntryModeEnum.class.getName());
 

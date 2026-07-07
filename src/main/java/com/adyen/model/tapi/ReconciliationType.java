@@ -16,15 +16,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets ReconciliationType */
+/**
+ * Possible values: * **SaleReconciliation** * **AcquirerSynchronisation** *
+ * **AcquirerReconciliation** * **PreviousReconciliation**
+ */
 public enum ReconciliationType {
-  ACQUIRER_RECONCILIATION("AcquirerReconciliation"),
+  SALE_RECONCILIATION("SaleReconciliation"),
 
   ACQUIRER_SYNCHRONISATION("AcquirerSynchronisation"),
 
-  PREVIOUS_RECONCILIATION("PreviousReconciliation"),
+  ACQUIRER_RECONCILIATION("AcquirerReconciliation"),
 
-  SALE_RECONCILIATION("SaleReconciliation");
+  PREVIOUS_RECONCILIATION("PreviousReconciliation");
 
   private static final Logger LOG = Logger.getLogger(ReconciliationType.class.getName());
 

@@ -36,11 +36,11 @@ import java.util.logging.Logger;
 public class GetTotalsRequest {
   /** Gets or Sets totalDetails */
   public enum TotalDetailsEnum {
-    OPERATOR_ID(String.valueOf("OperatorID")),
-
     POIID(String.valueOf("POIID")),
 
     SALE_ID(String.valueOf("SaleID")),
+
+    OPERATOR_ID(String.valueOf("OperatorID")),
 
     SHIFT_NUMBER(String.valueOf("ShiftNumber")),
 

@@ -17,17 +17,17 @@ import java.util.*;
 import java.util.logging.Logger;
 
 /**
- * Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** *
- * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+ * Characteristics related to the selection of a menu entry. Possible values: * **Selectable** *
+ * **NonSelectable** * **SubMenu** * **NonSelectableSubMenu**
  */
 public enum MenuEntryTag {
-  NON_SELECTABLE("NonSelectable"),
-
-  NON_SELECTABLE_SUB_MENU("NonSelectableSubMenu"),
-
   SELECTABLE("Selectable"),
 
-  SUB_MENU("SubMenu");
+  NON_SELECTABLE("NonSelectable"),
+
+  SUB_MENU("SubMenu"),
+
+  NON_SELECTABLE_SUB_MENU("NonSelectableSubMenu");
 
   private static final Logger LOG = Logger.getLogger(MenuEntryTag.class.getName());
 

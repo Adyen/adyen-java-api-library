@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets GlobalStatus */
+/** Possible values: * **OK** * **Busy** * **Maintenance** * **Unreachable** */
 public enum GlobalStatus {
+  OK("OK"),
+
   BUSY("Busy"),
 
   MAINTENANCE("Maintenance"),
-
-  OK("OK"),
 
   UNREACHABLE("Unreachable");
 

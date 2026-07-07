@@ -18,16 +18,16 @@ import java.util.logging.Logger;
 
 /**
  * Format of the content to display or print. Display or print device function. Possible values: *
- * **BarCode** * **MessageRef** * **Text** * **XHTML**
+ * **MessageRef** * **Text** * **XHTML** * **BarCode**
  */
 public enum OutputFormat {
-  BAR_CODE("BarCode"),
-
   MESSAGE_REF("MessageRef"),
 
   TEXT("Text"),
 
-  XHTML("XHTML");
+  XHTML("XHTML"),
+
+  BAR_CODE("BarCode");
 
   private static final Logger LOG = Logger.getLogger(OutputFormat.class.getName());
 

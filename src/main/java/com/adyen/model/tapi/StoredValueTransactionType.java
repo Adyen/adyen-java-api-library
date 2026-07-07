@@ -16,19 +16,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets StoredValueTransactionType */
+/**
+ * Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** *
+ * **Duplicate**
+ */
 public enum StoredValueTransactionType {
-  ACTIVATE("Activate"),
+  RESERVE("Reserve"),
 
-  DUPLICATE("Duplicate"),
+  ACTIVATE("Activate"),
 
   LOAD("Load"),
 
-  RESERVE("Reserve"),
+  UNLOAD("Unload"),
 
   REVERSE("Reverse"),
 
-  UNLOAD("Unload");
+  DUPLICATE("Duplicate");
 
   private static final Logger LOG = Logger.getLogger(StoredValueTransactionType.class.getName());
 
