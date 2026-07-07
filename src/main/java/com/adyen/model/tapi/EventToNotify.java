@@ -17,48 +17,48 @@ import java.util.*;
 import java.util.logging.Logger;
 
 /**
- * Event the POI notifies to the Sale System. Possible values: * **Abort** * **BeginMaintenance** *
- * **CardInserted** * **CardRemoved** * **Completed** * **CustomerLanguage** * **EndMaintenance** *
- * **Initialised** * **KeyPressed** * **OutOfOrder** * **Reject** * **SaleAdmin** * **SaleWakeUp** *
- * **ScanBarcodeResult** * **SecurityAlarm** * **Shutdown** * **StopAssistance** *
- * **UseAnotherCardForPreauth**
+ * Event the POI notifies to the Sale System. Possible values: * **BeginMaintenance** *
+ * **EndMaintenance** * **Shutdown** * **Initialised** * **OutOfOrder** * **Completed** * **Abort**
+ * * **SaleWakeUp** * **SaleAdmin** * **CustomerLanguage** * **KeyPressed** * **SecurityAlarm** *
+ * **StopAssistance** * **CardInserted** * **CardRemoved** * **Reject** *
+ * **UseAnotherCardForPreauth** * **ScanBarcodeResult**
  */
 public enum EventToNotify {
+  BEGIN_MAINTENANCE("BeginMaintenance"),
+
+  END_MAINTENANCE("EndMaintenance"),
+
+  SHUTDOWN("Shutdown"),
+
+  INITIALISED("Initialised"),
+
+  OUT_OF_ORDER("OutOfOrder"),
+
+  COMPLETED("Completed"),
+
   ABORT("Abort"),
 
-  BEGIN_MAINTENANCE("BeginMaintenance"),
+  SALE_WAKE_UP("SaleWakeUp"),
+
+  SALE_ADMIN("SaleAdmin"),
+
+  CUSTOMER_LANGUAGE("CustomerLanguage"),
+
+  KEY_PRESSED("KeyPressed"),
+
+  SECURITY_ALARM("SecurityAlarm"),
+
+  STOP_ASSISTANCE("StopAssistance"),
 
   CARD_INSERTED("CardInserted"),
 
   CARD_REMOVED("CardRemoved"),
 
-  COMPLETED("Completed"),
-
-  CUSTOMER_LANGUAGE("CustomerLanguage"),
-
-  END_MAINTENANCE("EndMaintenance"),
-
-  INITIALISED("Initialised"),
-
-  KEY_PRESSED("KeyPressed"),
-
-  OUT_OF_ORDER("OutOfOrder"),
-
   REJECT("Reject"),
 
-  SALE_ADMIN("SaleAdmin"),
+  USE_ANOTHER_CARD_FOR_PREAUTH("UseAnotherCardForPreauth"),
 
-  SALE_WAKE_UP("SaleWakeUp"),
-
-  SCAN_BARCODE_RESULT("ScanBarcodeResult"),
-
-  SECURITY_ALARM("SecurityAlarm"),
-
-  SHUTDOWN("Shutdown"),
-
-  STOP_ASSISTANCE("StopAssistance"),
-
-  USE_ANOTHER_CARD_FOR_PREAUTH("UseAnotherCardForPreauth");
+  SCAN_BARCODE_RESULT("ScanBarcodeResult");
 
   private static final Logger LOG = Logger.getLogger(EventToNotify.class.getName());
 

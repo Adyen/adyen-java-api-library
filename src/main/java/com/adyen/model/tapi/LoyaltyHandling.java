@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets LoyaltyHandling */
+/** Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required** */
 public enum LoyaltyHandling {
-  ALLOWED("Allowed"),
-
   FORBIDDEN("Forbidden"),
 
   PROCESSED("Processed"),
+
+  ALLOWED("Allowed"),
 
   PROPOSED("Proposed"),
 

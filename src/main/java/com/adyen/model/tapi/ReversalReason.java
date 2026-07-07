@@ -17,15 +17,15 @@ import java.util.*;
 import java.util.logging.Logger;
 
 /**
- * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** *
- * **MerchantCancel** * **Unable2Compl**
+ * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **MerchantCancel**
+ * * **Malfunction** * **Unable2Compl**
  */
 public enum ReversalReason {
   CUST_CANCEL("CustCancel"),
 
-  MALFUNCTION("Malfunction"),
-
   MERCHANT_CANCEL("MerchantCancel"),
+
+  MALFUNCTION("Malfunction"),
 
   UNABLE2_COMPL("Unable2Compl");
 

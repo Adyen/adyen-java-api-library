@@ -16,7 +16,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets ErrorCondition */
+/**
+ * Possible values: * **Aborted** * **Busy** * **Cancel** * **DeviceOut** * **InsertedCard** *
+ * **InProgress** * **LoggedOut** * **MessageFormat** * **NotAllowed** * **NotFound** *
+ * **PaymentRestriction** * **Refusal** * **UnavailableDevice** * **UnavailableService** *
+ * **InvalidCard** * **UnreachableHost** * **WrongPIN**
+ */
 public enum ErrorCondition {
   ABORTED("Aborted"),
 
@@ -26,11 +31,9 @@ public enum ErrorCondition {
 
   DEVICE_OUT("DeviceOut"),
 
-  IN_PROGRESS("InProgress"),
-
   INSERTED_CARD("InsertedCard"),
 
-  INVALID_CARD("InvalidCard"),
+  IN_PROGRESS("InProgress"),
 
   LOGGED_OUT("LoggedOut"),
 
@@ -47,6 +50,8 @@ public enum ErrorCondition {
   UNAVAILABLE_DEVICE("UnavailableDevice"),
 
   UNAVAILABLE_SERVICE("UnavailableService"),
+
+  INVALID_CARD("InvalidCard"),
 
   UNREACHABLE_HOST("UnreachableHost"),
 

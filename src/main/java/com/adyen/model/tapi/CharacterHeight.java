@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets CharacterHeight */
+/** Possible values: * **SingleHeight** * **DoubleHeight** * **HalfHeight** */
 public enum CharacterHeight {
+  SINGLE_HEIGHT("SingleHeight"),
+
   DOUBLE_HEIGHT("DoubleHeight"),
 
-  HALF_HEIGHT("HalfHeight"),
-
-  SINGLE_HEIGHT("SingleHeight");
+  HALF_HEIGHT("HalfHeight");
 
   private static final Logger LOG = Logger.getLogger(CharacterHeight.class.getName());
 

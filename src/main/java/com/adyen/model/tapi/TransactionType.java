@@ -16,45 +16,51 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets TransactionType */
+/**
+ * Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** *
+ * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** *
+ * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** *
+ * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** *
+ * **ReverseRebate**
+ */
 public enum TransactionType {
-  AWARD("Award"),
-
-  CASH_ADVANCE("CashAdvance"),
-
-  COMPLETED_DEFFERED("CompletedDeffered"),
-
-  COMPLETED_RESERVATION("CompletedReservation"),
+  DEBIT("Debit"),
 
   CREDIT("Credit"),
 
-  DEBIT("Debit"),
+  REVERSE_DEBIT("ReverseDebit"),
+
+  REVERSE_CREDIT("ReverseCredit"),
+
+  ONE_TIME_RESERVATION("OneTimeReservation"),
+
+  COMPLETED_DEFFERED("CompletedDeffered"),
+
+  FIRST_RESERVATION("FirstReservation"),
+
+  UPDATE_RESERVATION("UpdateReservation"),
+
+  COMPLETED_RESERVATION("CompletedReservation"),
+
+  CASH_ADVANCE("CashAdvance"),
+
+  ISSUER_INSTALMENT("IssuerInstalment"),
 
   DECLINED("Declined"),
 
   FAILED("Failed"),
 
-  FIRST_RESERVATION("FirstReservation"),
-
-  ISSUER_INSTALMENT("IssuerInstalment"),
-
-  ONE_TIME_RESERVATION("OneTimeReservation"),
-
-  REBATE("Rebate"),
-
-  REDEMPTION("Redemption"),
+  AWARD("Award"),
 
   REVERSE_AWARD("ReverseAward"),
 
-  REVERSE_CREDIT("ReverseCredit"),
-
-  REVERSE_DEBIT("ReverseDebit"),
-
-  REVERSE_REBATE("ReverseRebate"),
+  REDEMPTION("Redemption"),
 
   REVERSE_REDEMPTION("ReverseRedemption"),
 
-  UPDATE_RESERVATION("UpdateReservation");
+  REBATE("Rebate"),
+
+  REVERSE_REBATE("ReverseRebate");
 
   private static final Logger LOG = Logger.getLogger(TransactionType.class.getName());
 

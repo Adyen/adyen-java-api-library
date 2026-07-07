@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets CharacterWidth */
+/** Possible values: * **SingleWidth** * **DoubleWidth** */
 public enum CharacterWidth {
-  DOUBLE_WIDTH("DoubleWidth"),
+  SINGLE_WIDTH("SingleWidth"),
 
-  SINGLE_WIDTH("SingleWidth");
+  DOUBLE_WIDTH("DoubleWidth");
 
   private static final Logger LOG = Logger.getLogger(CharacterWidth.class.getName());
 

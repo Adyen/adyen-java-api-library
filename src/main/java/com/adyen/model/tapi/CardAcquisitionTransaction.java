@@ -65,27 +65,27 @@ public class CardAcquisitionTransaction {
 
   /** Gets or Sets forceEntryMode */
   public enum ForceEntryModeEnum {
-    CHECK_READER(String.valueOf("CheckReader")),
-
-    CONTACTLESS(String.valueOf("Contactless")),
-
-    FILE(String.valueOf("File")),
-
-    ICC(String.valueOf("ICC")),
+    RFID(String.valueOf("RFID")),
 
     KEYED(String.valueOf("Keyed")),
 
-    MAG_STRIPE(String.valueOf("MagStripe")),
-
     MANUAL(String.valueOf("Manual")),
 
-    RFID(String.valueOf("RFID")),
+    FILE(String.valueOf("File")),
 
     SCANNED(String.valueOf("Scanned")),
 
+    MAG_STRIPE(String.valueOf("MagStripe")),
+
+    ICC(String.valueOf("ICC")),
+
     SYNCHRONOUS_ICC(String.valueOf("SynchronousICC")),
 
-    TAPPED(String.valueOf("Tapped"));
+    TAPPED(String.valueOf("Tapped")),
+
+    CONTACTLESS(String.valueOf("Contactless")),
+
+    CHECK_READER(String.valueOf("CheckReader"));
 
     private static final Logger LOG = Logger.getLogger(ForceEntryModeEnum.class.getName());
 

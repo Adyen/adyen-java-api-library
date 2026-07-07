@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets SoundAction */
+/** Possible values: * **StartSound** * **StopSound** * **SetDefaultVolume** */
 public enum SoundAction {
-  SET_DEFAULT_VOLUME("SetDefaultVolume"),
-
   START_SOUND("StartSound"),
 
-  STOP_SOUND("StopSound");
+  STOP_SOUND("StopSound"),
+
+  SET_DEFAULT_VOLUME("SetDefaultVolume");
 
   private static final Logger LOG = Logger.getLogger(SoundAction.class.getName());
 

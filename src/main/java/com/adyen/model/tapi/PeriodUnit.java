@@ -17,17 +17,17 @@ import java.util.*;
 import java.util.logging.Logger;
 
 /**
- * Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** *
- * **Weekly**
+ * Type of instalment transaction. Possible values: * **Daily** * **Weekly** * **Monthly** *
+ * **Annual**
  */
 public enum PeriodUnit {
-  ANNUAL("Annual"),
-
   DAILY("Daily"),
+
+  WEEKLY("Weekly"),
 
   MONTHLY("Monthly"),
 
-  WEEKLY("Weekly");
+  ANNUAL("Annual");
 
   private static final Logger LOG = Logger.getLogger(PeriodUnit.class.getName());
 

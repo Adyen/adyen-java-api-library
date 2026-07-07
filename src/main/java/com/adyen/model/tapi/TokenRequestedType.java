@@ -19,12 +19,12 @@ import java.util.logging.Logger;
 /**
  * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
  * It allows, for a merchant, to use a token for a transaction only or for a longer period. Possible
- * values: * **Customer** * **Transaction**
+ * values: * **Transaction** * **Customer**
  */
 public enum TokenRequestedType {
-  CUSTOMER("Customer"),
+  TRANSACTION("Transaction"),
 
-  TRANSACTION("Transaction");
+  CUSTOMER("Customer");
 
   private static final Logger LOG = Logger.getLogger(TokenRequestedType.class.getName());
 

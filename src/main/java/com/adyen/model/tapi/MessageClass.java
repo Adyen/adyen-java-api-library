@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets MessageClass */
+/** Possible values: * **Service** * **Device** * **Event** */
 public enum MessageClass {
+  SERVICE("Service"),
+
   DEVICE("Device"),
 
-  EVENT("Event"),
-
-  SERVICE("Service");
+  EVENT("Event");
 
   private static final Logger LOG = Logger.getLogger(MessageClass.class.getName());
 

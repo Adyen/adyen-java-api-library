@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets SoundFormat */
+/** Possible values: * **SoundRef** * **MessageRef** * **Text** */
 public enum SoundFormat {
-  MESSAGE_REF("MessageRef"),
-
   SOUND_REF("SoundRef"),
+
+  MESSAGE_REF("MessageRef"),
 
   TEXT("Text");
 

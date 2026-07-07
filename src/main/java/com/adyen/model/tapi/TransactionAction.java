@@ -21,12 +21,12 @@ import java.util.logging.Logger;
  * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
  * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
  * service request from the Sale System to complete the transaction. Possible values: *
- * **AbortTransaction** * **StartTransaction**
+ * **StartTransaction** * **AbortTransaction**
  */
 public enum TransactionAction {
-  ABORT_TRANSACTION("AbortTransaction"),
+  START_TRANSACTION("StartTransaction"),
 
-  START_TRANSACTION("StartTransaction");
+  ABORT_TRANSACTION("AbortTransaction");
 
   private static final Logger LOG = Logger.getLogger(TransactionAction.class.getName());
 

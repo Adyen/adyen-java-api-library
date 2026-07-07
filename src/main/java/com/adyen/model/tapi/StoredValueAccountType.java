@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets StoredValueAccountType */
+/** Possible values: * **GiftCard** * **PhoneCard** * **Other** */
 public enum StoredValueAccountType {
   GIFT_CARD("GiftCard"),
 
-  OTHER("Other"),
+  PHONE_CARD("PhoneCard"),
 
-  PHONE_CARD("PhoneCard");
+  OTHER("Other");
 
   private static final Logger LOG = Logger.getLogger(StoredValueAccountType.class.getName());
 

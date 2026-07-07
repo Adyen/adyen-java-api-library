@@ -16,31 +16,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets PaymentType */
+/**
+ * Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** *
+ * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** *
+ * **Instalment** * **IssuerInstalment** * **PaidOut**
+ */
 public enum PaymentType {
+  NORMAL("Normal"),
+
+  REFUND("Refund"),
+
+  ONE_TIME_RESERVATION("OneTimeReservation"),
+
+  FIRST_RESERVATION("FirstReservation"),
+
+  UPDATE_RESERVATION("UpdateReservation"),
+
+  COMPLETION("Completion"),
+
   CASH_ADVANCE("CashAdvance"),
 
   CASH_DEPOSIT("CashDeposit"),
 
-  COMPLETION("Completion"),
-
-  FIRST_RESERVATION("FirstReservation"),
+  RECURRING("Recurring"),
 
   INSTALMENT("Instalment"),
 
   ISSUER_INSTALMENT("IssuerInstalment"),
 
-  NORMAL("Normal"),
-
-  ONE_TIME_RESERVATION("OneTimeReservation"),
-
-  PAID_OUT("PaidOut"),
-
-  RECURRING("Recurring"),
-
-  REFUND("Refund"),
-
-  UPDATE_RESERVATION("UpdateReservation");
+  PAID_OUT("PaidOut");
 
   private static final Logger LOG = Logger.getLogger(PaymentType.class.getName());
 

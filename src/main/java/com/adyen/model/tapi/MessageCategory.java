@@ -16,7 +16,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets MessageCategory */
+/**
+ * Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **CardAcquisition** *
+ * **Diagnosis** * **Display** * **EnableService** * **Event** * **GetTotals** * **Input** *
+ * **InputUpdate** * **Login** * **Logout** * **Loyalty** * **Payment** * **Print** *
+ * **Reconciliation** * **Reversal** * **StoredValue** * **TransactionStatus** * **None**
+ */
 public enum MessageCategory {
   ABORT("Abort"),
 
@@ -46,8 +51,6 @@ public enum MessageCategory {
 
   LOYALTY("Loyalty"),
 
-  NONE("None"),
-
   PAYMENT("Payment"),
 
   PRINT("Print"),
@@ -58,7 +61,9 @@ public enum MessageCategory {
 
   STORED_VALUE("StoredValue"),
 
-  TRANSACTION_STATUS("TransactionStatus");
+  TRANSACTION_STATUS("TransactionStatus"),
+
+  NONE("None");
 
   private static final Logger LOG = Logger.getLogger(MessageCategory.class.getName());
 

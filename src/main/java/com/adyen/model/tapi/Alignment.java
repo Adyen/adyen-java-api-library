@@ -16,15 +16,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Gets or Sets Alignment */
+/** Possible values: * **Left** * **Right** * **Centred** * **Justified** */
 public enum Alignment {
-  CENTRED("Centred"),
-
-  JUSTIFIED("Justified"),
-
   LEFT("Left"),
 
-  RIGHT("Right");
+  RIGHT("Right"),
+
+  CENTRED("Centred"),
+
+  JUSTIFIED("Justified");
 
   private static final Logger LOG = Logger.getLogger(Alignment.class.getName());
 
