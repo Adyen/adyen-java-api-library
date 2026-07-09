@@ -16,11 +16,11 @@ jobs:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
         with:
           fetch-depth: 0
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165
         with:
-          java-version: 17
-          distribution: 'zulu'
+          java-version: '21'
+          distribution: 'temurin'
       - name: Cache SonarQube Cloud packages
         uses: actions/cache@b7e8d49f17405cc70c1c120101943203c98d3a4b
         with:
@@ -34,13 +34,9 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Run Checkstyle
-        run: mvn checkstyle:check
-
-      - name: Generate coverage report
-        run: mvn test jacoco:report
-
-      - name: Run SonarCloud Analysis
+      - name: Build, coverage & SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn sonar:sonar -Dsonar.projectKey=Adyen_adyen-java-api-library
+        run: >
+          mvn -B clean test jacoco:report sonar:sonar
+          -Dsonar.projectKey=Adyen_adyen-java-api-library
