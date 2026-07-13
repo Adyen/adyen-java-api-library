@@ -1,8 +1,8 @@
 {
   "service": "relayedauthorizationwebhooks",
   "project": "java",
-  "generatedAt": "2026-05-14T14:22:11Z",
-  "openapiCommitSha": "cbc5406a2df1f24d50e40742f18342f7ca7f21fc",
-  "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
-  "libraryCommitSha": "5790580db2f8a931a68baba2bff9760b8aed2067"
+  "generatedAt": "2026-07-13T14:23:06Z",
+  "openapiCommitSha": "8ca5e35a2df8646fbed1793daeba735ebfcb821b",
+  "automationCommitSha": "5d4b281c0c2fc1bf24530386ae54ce50888f6ae4",
+  "libraryCommitSha": "037bd8e53b9ade8da600fa0cf34aa2140187016d"
 }
