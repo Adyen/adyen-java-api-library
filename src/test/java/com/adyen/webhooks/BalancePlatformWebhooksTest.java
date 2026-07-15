@@ -18,8 +18,11 @@ import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
+import com.adyen.model.transferwebhooks.BalanceMutation;
 import com.adyen.model.transferwebhooks.InterchangeData;
 import com.adyen.model.transferwebhooks.PlatformPayment;
+import com.adyen.model.transferwebhooks.TransferData;
+import com.adyen.model.transferwebhooks.TransferEvent;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.adyen.model.transferwebhooks.TransferWebhooksHandler;
 import com.adyen.util.HMACValidator;
@@ -443,6 +446,61 @@ public class BalancePlatformWebhooksTest extends BaseTest {
             .getEventsData()
             .get(0)
             .getActualInstance());
+  }
+
+  @Test
+  public void testTransferCreatedNotificationRequest() {
+    String json = getFileContents("mocks/balancePlatform-webhooks/transfer-created.json");
+
+    Optional<TransferNotificationRequest> optionalTransferNotificationRequest =
+        new TransferWebhooksHandler(json).getTransferNotificationRequest();
+    assertTrue(optionalTransferNotificationRequest.isPresent());
+
+    TransferNotificationRequest transferNotificationRequest =
+        optionalTransferNotificationRequest.get();
+    assertEquals(
+        TransferNotificationRequest.TypeEnum.BALANCEPLATFORM_TRANSFER_CREATED,
+        transferNotificationRequest.getType());
+    assertEquals("test", transferNotificationRequest.getEnvironment());
+    assertNotNull(transferNotificationRequest.getTimestamp());
+
+    TransferData data = transferNotificationRequest.getData();
+    assertNotNull(data);
+    assertEquals("2WT1N05XXY7P9XH9", data.getId());
+    assertEquals(TransferData.TypeEnum.INTERNALTRANSFER, data.getType());
+    assertEquals("YOUR_BALANCE_PLATFORM", data.getBalancePlatform());
+    assertEquals(TransferData.CategoryEnum.INTERNAL, data.getCategory());
+    assertEquals("2023-02-28T13:30:05+02:00", data.getCreationDate().toString());
+    assertEquals(TransferData.DirectionEnum.INCOMING, data.getDirection());
+    assertEquals(TransferData.ReasonEnum.APPROVED, data.getReason());
+    assertEquals(TransferData.StatusEnum.RECEIVED, data.getStatus());
+    assertEquals(Integer.valueOf(1), data.getSequenceNumber());
+
+    assertNotNull(data.getAccountHolder());
+    assertEquals("AH00000000000000000000002", data.getAccountHolder().getId());
+    assertEquals("Your reference of the account holder", data.getAccountHolder().getReference());
+    assertNotNull(data.getAmount());
+    assertEquals("EUR", data.getAmount().getCurrency());
+    assertEquals(Long.valueOf(1000), data.getAmount().getValue());
+    assertNotNull(data.getBalanceAccount());
+    assertEquals("BA00000000000000000000002", data.getBalanceAccount().getId());
+
+    assertNotNull(data.getBalances());
+    assertEquals(1, data.getBalances().size());
+    BalanceMutation balance = data.getBalances().get(0);
+    assertEquals("EUR", balance.getCurrency());
+    assertEquals(Long.valueOf(1000), balance.getReceived());
+
+    assertNotNull(data.getEvents());
+    assertEquals(1, data.getEvents().size());
+    TransferEvent event = data.getEvents().get(0);
+    assertEquals("JDRF00000000000000000000000001", event.getId());
+    assertEquals("2023-02-28T13:30:18+02:00", event.getBookingDate().toString());
+    assertEquals(TransferEvent.StatusEnum.RECEIVED, event.getStatus());
+    assertEquals(TransferEvent.TypeEnum.ACCOUNTING, event.getType());
+    assertNotNull(event.getMutations());
+    assertEquals(1, event.getMutations().size());
+    assertEquals(Long.valueOf(1000), event.getMutations().get(0).getReceived());
   }
 
   @Test
