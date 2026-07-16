@@ -16,6 +16,7 @@ import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensatio
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceWarningWebhooksHandler;
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
+import com.adyen.model.transactionwebhooks.BankCategoryData;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
 import com.adyen.model.transferwebhooks.BalanceMutation;
@@ -257,6 +258,24 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     TransactionNotificationRequestV4 request =
         webhookHandler.getTransactionNotificationRequestV4().get();
     Assertions.assertEquals("EVJN42272224222B5JB8BRC84N686ZEUR", request.getData().getId());
+  }
+
+  @Test
+  public void testTransactionWebhookBankCategoryDataParsing() {
+    String json =
+        getFileContents(
+            "mocks/notification/balancePlatform-transaction-created-bank-category.json");
+    TransactionWebhooksHandler webhookHandler = new TransactionWebhooksHandler(json);
+    Assertions.assertTrue(webhookHandler.getTransactionNotificationRequestV4().isPresent());
+    TransactionNotificationRequestV4 request =
+        webhookHandler.getTransactionNotificationRequestV4().get();
+    Assertions.assertEquals("EVJN00000000000000000000000003EUR", request.getData().getId());
+
+    BankCategoryData bankCategoryData =
+        request.getData().getTransfer().getCategoryData().getBankCategoryData();
+    Assertions.assertNotNull(bankCategoryData);
+    Assertions.assertEquals(BankCategoryData.TypeEnum.BANK, bankCategoryData.getType());
+    Assertions.assertEquals(BankCategoryData.PriorityEnum.REGULAR, bankCategoryData.getPriority());
   }
 
   @Test

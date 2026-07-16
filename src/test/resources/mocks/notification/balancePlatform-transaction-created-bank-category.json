@@ -1,0 +1,40 @@
+{
+  "data": {
+    "id": "EVJN00000000000000000000000003EUR",
+    "amount": {
+      "value": -10000,
+      "currency": "EUR"
+    },
+    "status": "booked",
+    "transfer": {
+      "categoryData": {
+        "priority": "regular",
+        "type": "bank"
+      },
+      "id": "3JNC3O5ZVFLLGV4B",
+      "reference": " Your internal reference for the transfer"
+    },
+    "valueDate": "2023-08-11T16:19:35+02:00",
+    "bookingDate": "2023-08-11T16:31:02+02:00",
+    "creationDate": "2023-08-11T16:19:35+02:00",
+    "description": "Your description of the transfer",
+    "referenceForBeneficiary": "Your reference sent to the beneficiary of the transfer",
+    "accountHolder": {
+      "id": "AH00000000000000000000001",
+      "reference": "Your reference for the account holder",
+      "description": "Your description of the account holder"
+    },
+    "balanceAccount": {
+      "id": "BA00000000000000000000001",
+      "description": "Your description of the balance account from where the amount is debited."
+    },
+    "paymentInstrument": {
+      "id": "PI00000000000000000000001",
+      "description": "Your description of the payment instrument"
+    },
+    "balancePlatform": "YOUR_BALANCE_PLATFORM"
+  },
+  "environment": "test",
+  "timestamp": "2023-08-11T16:16:35+02:00",
+  "type": "balancePlatform.transaction.created"
+}
