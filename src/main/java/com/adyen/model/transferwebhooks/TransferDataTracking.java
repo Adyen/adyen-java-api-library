@@ -198,6 +198,16 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
     schemas.put("EstimationTrackingData", new GenericType<EstimationTrackingData>() {});
     schemas.put("InternalReviewTrackingData", new GenericType<InternalReviewTrackingData>() {});
     JSON.registerDescendants(TransferDataTracking.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("confirmation", ConfirmationTrackingData.class);
+    mappings.put("estimation", EstimationTrackingData.class);
+    mappings.put("internalReview", InternalReviewTrackingData.class);
+    mappings.put("ConfirmationTrackingData", ConfirmationTrackingData.class);
+    mappings.put("EstimationTrackingData", EstimationTrackingData.class);
+    mappings.put("InternalReviewTrackingData", InternalReviewTrackingData.class);
+    mappings.put("TransferData_tracking", TransferDataTracking.class);
+    JSON.registerDiscriminator(TransferDataTracking.class, "type", mappings);
   }
 
   @Override

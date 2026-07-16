@@ -230,6 +230,18 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
     schemas.put("IssuedCard", new GenericType<IssuedCard>() {});
     schemas.put("PlatformPayment", new GenericType<PlatformPayment>() {});
     JSON.registerDescendants(TransferDataCategoryData.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("bank", BankCategoryData.class);
+    mappings.put("internal", InternalCategoryData.class);
+    mappings.put("issuedCard", IssuedCard.class);
+    mappings.put("platformPayment", PlatformPayment.class);
+    mappings.put("BankCategoryData", BankCategoryData.class);
+    mappings.put("InternalCategoryData", InternalCategoryData.class);
+    mappings.put("IssuedCard", IssuedCard.class);
+    mappings.put("PlatformPayment", PlatformPayment.class);
+    mappings.put("TransferData_categoryData", TransferDataCategoryData.class);
+    JSON.registerDiscriminator(TransferDataCategoryData.class, "type", mappings);
   }
 
   @Override
