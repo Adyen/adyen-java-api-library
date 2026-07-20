@@ -1,0 +1,8 @@
+{
+  "service": "storedvalue",
+  "project": "java",
+  "generatedAt": "2026-07-20T14:14:57Z",
+  "openapiCommitSha": "c43ebe2c218116a98ddfa97cd5e4d63f6c427d6e",
+  "automationCommitSha": "0c108bd8050cf480d2710b78b770afdfbdd89397",
+  "libraryCommitSha": "d74a6278bcfdad690c3371f38186f04c516a1995"
+}
