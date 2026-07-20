@@ -2,17 +2,17 @@
     * {{summary}}
     *
 {{#pathParams}}
-    * @param {{paramName}} {@link {{dataType}} } {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+    * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
 {{/pathParams}}
 {{#bodyParams}}
-    * @param {{paramName}} {@link {{dataType}} } {{description}} (required)
+    * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} {{description}} (required)
 {{/bodyParams}}
 {{#queryParams}}
-    * @param {{paramName}} {@link {{dataType}} } Query: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+    * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} Query: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
 {{/queryParams}}
     * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as idempotency-keys (optional)
 {{#returnType}}
-    * @return {@link {{.}} }
+    * @return {{#returnContainer}}{@code {{{returnType}}} }{{/returnContainer}}{{^returnContainer}}{@link {{.}} }{{/returnContainer}}
 {{/returnType}}
     * @throws ApiException if fails to make API call
 {{#isDeprecated}}
