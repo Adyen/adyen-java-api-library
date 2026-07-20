@@ -64,7 +64,7 @@ public class {{classname}} extends Service {
         if ({{{paramName}}} == null) {
             throw new IllegalArgumentException("Please provide the {{{paramName}}} path parameter");
         }
-        pathParams.put("{{baseName}}", {{{paramName}}});
+        pathParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
         {{/pathParams}}
 
         {{/hasPathParams}}
