@@ -44,7 +44,7 @@ public class StoredValueLoadRequest {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmount = false;
 
-  /** The type of load you are trying to do, when absent we default to &#39;Load&#39; */
+  /** The type of load you are trying to do, when absent we default to &#39;load&#39; */
   public enum LoadTypeEnum {
     MERCHANDISERETURN(String.valueOf("merchandiseReturn")),
 
@@ -234,9 +234,9 @@ public class StoredValueLoadRequest {
   }
 
   /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
+   * The type of load you are trying to do, when absent we default to &#39;load&#39;
    *
-   * @param loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
+   * @param loadType The type of load you are trying to do, when absent we default to &#39;load&#39;
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest loadType(LoadTypeEnum loadType) {
@@ -246,10 +246,10 @@ public class StoredValueLoadRequest {
   }
 
   /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
+   * The type of load you are trying to do, when absent we default to &#39;load&#39;
    *
    * @return loadType The type of load you are trying to do, when absent we default to
-   *     &#39;Load&#39;
+   *     &#39;load&#39;
    */
   @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,9 +258,9 @@ public class StoredValueLoadRequest {
   }
 
   /**
-   * The type of load you are trying to do, when absent we default to &#39;Load&#39;
+   * The type of load you are trying to do, when absent we default to &#39;load&#39;
    *
-   * @param loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
+   * @param loadType The type of load you are trying to do, when absent we default to &#39;load&#39;
    */
   @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
