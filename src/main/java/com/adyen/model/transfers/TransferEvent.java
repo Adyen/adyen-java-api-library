@@ -41,6 +41,7 @@ import java.util.logging.Logger;
   TransferEvent.JSON_PROPERTY_ORIGINAL_AMOUNT,
   TransferEvent.JSON_PROPERTY_REASON,
   TransferEvent.JSON_PROPERTY_STATUS,
+  TransferEvent.JSON_PROPERTY_TRACING_DATA,
   TransferEvent.JSON_PROPERTY_TRACKING_DATA,
   TransferEvent.JSON_PROPERTY_TRANSACTION_ID,
   TransferEvent.JSON_PROPERTY_TYPE,
@@ -510,6 +511,12 @@ public class TransferEvent {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStatus = false;
+
+  public static final String JSON_PROPERTY_TRACING_DATA = "tracingData";
+  private TransferEventTracingData tracingData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTracingData = false;
 
   public static final String JSON_PROPERTY_TRACKING_DATA = "trackingData";
   private TransferEventTrackingData trackingData;
@@ -1082,6 +1089,41 @@ public class TransferEvent {
   }
 
   /**
+   * tracingData
+   *
+   * @param tracingData
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
+  public TransferEvent tracingData(TransferEventTracingData tracingData) {
+    this.tracingData = tracingData;
+    isSetTracingData = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get tracingData
+   *
+   * @return tracingData
+   */
+  @JsonProperty(JSON_PROPERTY_TRACING_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TransferEventTracingData getTracingData() {
+    return tracingData;
+  }
+
+  /**
+   * tracingData
+   *
+   * @param tracingData
+   */
+  @JsonProperty(JSON_PROPERTY_TRACING_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTracingData(TransferEventTracingData tracingData) {
+    this.tracingData = tracingData;
+    isSetTracingData = true; // mark as set
+  }
+
+  /**
    * trackingData
    *
    * @param trackingData
@@ -1324,6 +1366,8 @@ public class TransferEvent {
         && Objects.equals(this.isSetReason, transferEvent.isSetReason)
         && Objects.equals(this.status, transferEvent.status)
         && Objects.equals(this.isSetStatus, transferEvent.isSetStatus)
+        && Objects.equals(this.tracingData, transferEvent.tracingData)
+        && Objects.equals(this.isSetTracingData, transferEvent.isSetTracingData)
         && Objects.equals(this.trackingData, transferEvent.trackingData)
         && Objects.equals(this.isSetTrackingData, transferEvent.isSetTrackingData)
         && Objects.equals(this.transactionId, transferEvent.transactionId)
@@ -1365,6 +1409,8 @@ public class TransferEvent {
         isSetReason,
         status,
         isSetStatus,
+        tracingData,
+        isSetTracingData,
         trackingData,
         isSetTrackingData,
         transactionId,
@@ -1396,6 +1442,7 @@ public class TransferEvent {
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tracingData: ").append(toIndentedString(tracingData)).append("\n");
     sb.append("    trackingData: ").append(toIndentedString(trackingData)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -1463,6 +1510,9 @@ public class TransferEvent {
     }
     if (isSetStatus) {
       addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTracingData) {
+      addIfNull(nulls, JSON_PROPERTY_TRACING_DATA, this.tracingData);
     }
     if (isSetTrackingData) {
       addIfNull(nulls, JSON_PROPERTY_TRACKING_DATA, this.trackingData);
