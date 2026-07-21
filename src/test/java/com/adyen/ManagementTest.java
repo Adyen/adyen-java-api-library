@@ -159,6 +159,130 @@ public class ManagementTest extends BaseTest {
             null);
   }
 
+  // Breaking change: PaymentMethodSetupInfo.carnet type changed from GenericPmWithTdiInfo to
+  // CarnetInfo. Verifies the new type round-trips through serialization.
+  @Test
+  public void paymentMethodSetupInfoCarnetType() throws IOException {
+    PaymentMethodSetupInfo request = new PaymentMethodSetupInfo();
+    request.setType(PaymentMethodSetupInfo.TypeEnum.CARNET);
+    request.setCarnet(new CarnetInfo().addMccAcronym(true));
+
+    String json = request.toJson();
+    PaymentMethodSetupInfo parsed = PaymentMethodSetupInfo.fromJson(json);
+
+    CarnetInfo carnet = parsed.getCarnet();
+    assertNotNull(carnet);
+    assertTrue(carnet.getAddMccAcronym());
+  }
+
+  // Non-breaking: new DonationCampaignsApi service create endpoint.
+  @Test
+  public void createDonationCampaign() throws IOException, ApiException, HTTPClientException {
+    Client client = createMockClientFromFile("mocks/management/donation-campaign.json");
+    DonationCampaignsApi service = new DonationCampaignsApi(client);
+    DonationCampaignRequest request =
+        new DonationCampaignRequest().name("Clean water campaign").nonprofitCauseId("CAUSE123");
+
+    DonationCampaign campaign = service.createDonationCampaign("YOUR_COMPANY_ID", request);
+
+    assertEquals("DC123456789", campaign.getId());
+    assertEquals("Clean water campaign", campaign.getName());
+    assertEquals(DonationCampaignStatus.ACTIVE, campaign.getStatus());
+    assertNotNull(campaign.getNonprofitCause());
+    assertEquals("Water for All", campaign.getNonprofitCause().getNonprofitName());
+    verify(client.getHttpClient())
+        .request(
+            String.format(
+                "https://management-test.adyen.com/v%s/companies/YOUR_COMPANY_ID/campaignManagement",
+                DonationCampaignsApi.API_VERSION),
+            "{\"name\":\"Clean water campaign\",\"nonprofitCauseId\":\"CAUSE123\"}",
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  // Non-breaking: DonationCampaignsApi status transition; guards the enum path param that
+  // previously failed to compile (CampaignStatusTransition put into a String path map).
+  @Test
+  public void updateDonationCampaignStatus() throws IOException, ApiException, HTTPClientException {
+    Client client = createMockClientFromFile("mocks/management/donation-campaign.json");
+    DonationCampaignsApi service = new DonationCampaignsApi(client);
+
+    DonationCampaign campaign =
+        service.updateDonationCampaignStatus(
+            "YOUR_COMPANY_ID", "DC123456789", CampaignStatusTransition.ACTIVATE);
+
+    assertEquals(DonationCampaignStatus.ACTIVE, campaign.getStatus());
+    verify(client.getHttpClient())
+        .request(
+            String.format(
+                "https://management-test.adyen.com/v%s/companies/YOUR_COMPANY_ID/campaignManagement/DC123456789/status/activate",
+                DonationCampaignsApi.API_VERSION),
+            null,
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  // Non-breaking: new PaymentMethod.associatedPaymentMethods field deserializes.
+  @Test
+  public void paymentMethodAssociatedPaymentMethods() throws IOException {
+    String json =
+        "{\"type\":\"visa\",\"associatedPaymentMethods\":"
+            + "[{\"id\":\"PM123\",\"type\":\"cartebancaire\",\"enabled\":true}]}";
+
+    PaymentMethod parsed = PaymentMethod.fromJson(json);
+
+    assertNotNull(parsed.getAssociatedPaymentMethods());
+    assertEquals(1, parsed.getAssociatedPaymentMethods().size());
+    AssociatedPaymentMethod associated = parsed.getAssociatedPaymentMethods().get(0);
+    assertEquals("PM123", associated.getId());
+    assertEquals("cartebancaire", associated.getType());
+    assertTrue(associated.getEnabled());
+  }
+
+  // Non-breaking: new Surcharge.disclosureOnPresentCard field round-trips.
+  @Test
+  public void surchargeDisclosureOnPresentCard() throws IOException {
+    Surcharge surcharge = new Surcharge().disclosureOnPresentCard(true);
+
+    Surcharge parsed = Surcharge.fromJson(surcharge.toJson());
+
+    assertTrue(parsed.getDisclosureOnPresentCard());
+  }
+
+  // Non-breaking: new SplitConfigurationLogic.dcc field (SplitDcc) round-trips.
+  @Test
+  public void splitConfigurationLogicDcc() throws IOException {
+    SplitConfigurationLogic logic =
+        new SplitConfigurationLogic().dcc(new SplitDcc().accountHolderPercentage(50L));
+
+    SplitConfigurationLogic parsed = SplitConfigurationLogic.fromJson(logic.toJson());
+
+    assertNotNull(parsed.getDcc());
+    assertEquals(Long.valueOf(50L), parsed.getDcc().getAccountHolderPercentage());
+  }
+
+  // Value rename: MealVoucherFRInfo.subTypes allowed value is mealVoucher_FR_endenred per the
+  // Management v3 spec. Verifies the documented value round-trips.
+  @Test
+  public void mealVoucherFRInfoSubTypes() throws IOException {
+    MealVoucherFRInfo info =
+        new MealVoucherFRInfo()
+            .conecsId("123456")
+            .siret("12345678901234")
+            .addSubTypesItem("mealVoucher_FR_endenred");
+
+    MealVoucherFRInfo parsed = MealVoucherFRInfo.fromJson(info.toJson());
+
+    assertNotNull(parsed.getSubTypes());
+    assertEquals("mealVoucher_FR_endenred", parsed.getSubTypes().get(0));
+  }
+
   @Test
   @Disabled("Integration test")
   public void me() throws IOException, ApiException {
