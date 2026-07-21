@@ -235,7 +235,7 @@ public class BalancePlatformTest extends BaseTest {
   public void BalanceAccountsListSweepsTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/balancePlatform/BalanceSweepConfigurationsResponse.json");
-    BalanceAccountsApi service = new BalanceAccountsApi(client);
+    CustomPayoutSchedulesSweepsApi service = new CustomPayoutSchedulesSweepsApi(client);
     BalanceSweepConfigurationsResponse response =
         service.getAllSweepsForBalanceAccount("AH32272223222B59K6ZKBBFNQ");
     assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getSweeps().get(0).getId());
@@ -266,7 +266,7 @@ public class BalancePlatformTest extends BaseTest {
   @Test
   public void BalanceAccountsCreateSweepTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
-    BalanceAccountsApi service = new BalanceAccountsApi(client);
+    CustomPayoutSchedulesSweepsApi service = new CustomPayoutSchedulesSweepsApi(client);
     CreateSweepConfigurationV2 request =
         new CreateSweepConfigurationV2()
             .counterparty(new SweepCounterparty().merchantAccount("YOUR_MERCHANT_ACCOUNT"))
@@ -344,14 +344,14 @@ public class BalancePlatformTest extends BaseTest {
   public void BalanceAccountsDeleteSweepTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/balancePlatform/BalanceSweepConfigurationsResponse.json");
-    BalanceAccountsApi service = new BalanceAccountsApi(client);
+    CustomPayoutSchedulesSweepsApi service = new CustomPayoutSchedulesSweepsApi(client);
     service.deleteSweep("AH32272223222B59K6ZKBBFNQ", "SWPC4227C224555B5FTD2NT2JV4WN5");
   }
 
   @Test
   public void BalanceAccountsRetrieveSweepTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
-    BalanceAccountsApi service = new BalanceAccountsApi(client);
+    CustomPayoutSchedulesSweepsApi service = new CustomPayoutSchedulesSweepsApi(client);
     SweepConfigurationV2 response =
         service.getSweep("AH32272223222B59K6ZKBBFNQ", "SWPC4227C224555B5FTD2NT2JV4WN5");
     assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getId());
@@ -361,7 +361,7 @@ public class BalancePlatformTest extends BaseTest {
   @Test
   public void BalanceAccountsUpdateSweepTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
-    BalanceAccountsApi service = new BalanceAccountsApi(client);
+    CustomPayoutSchedulesSweepsApi service = new CustomPayoutSchedulesSweepsApi(client);
     UpdateSweepConfigurationV2 request =
         new UpdateSweepConfigurationV2()
             .counterparty(new SweepCounterparty().merchantAccount("YOUR_MERCHANT_ACCOUNT"))
