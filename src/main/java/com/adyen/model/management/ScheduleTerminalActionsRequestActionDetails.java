@@ -317,6 +317,24 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         new GenericType<UninstallAndroidCertificateDetails>() {});
     JSON.registerDescendants(
         ScheduleTerminalActionsRequestActionDetails.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("ForceReboot", ForceRebootDetails.class);
+    mappings.put("InstallAndroidApp", InstallAndroidAppDetails.class);
+    mappings.put("InstallAndroidCertificate", InstallAndroidCertificateDetails.class);
+    mappings.put("ReleaseUpdate", ReleaseUpdateDetails.class);
+    mappings.put("UninstallAndroidApp", UninstallAndroidAppDetails.class);
+    mappings.put("UninstallAndroidCertificate", UninstallAndroidCertificateDetails.class);
+    mappings.put("ForceRebootDetails", ForceRebootDetails.class);
+    mappings.put("InstallAndroidAppDetails", InstallAndroidAppDetails.class);
+    mappings.put("InstallAndroidCertificateDetails", InstallAndroidCertificateDetails.class);
+    mappings.put("ReleaseUpdateDetails", ReleaseUpdateDetails.class);
+    mappings.put("UninstallAndroidAppDetails", UninstallAndroidAppDetails.class);
+    mappings.put("UninstallAndroidCertificateDetails", UninstallAndroidCertificateDetails.class);
+    mappings.put(
+        "ScheduleTerminalActionsRequest_actionDetails",
+        ScheduleTerminalActionsRequestActionDetails.class);
+    JSON.registerDiscriminator(ScheduleTerminalActionsRequestActionDetails.class, "type", mappings);
   }
 
   @Override

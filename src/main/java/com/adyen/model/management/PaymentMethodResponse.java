@@ -138,6 +138,8 @@ public class PaymentMethodResponse {
 
     CARTEBANCAIRE(String.valueOf("cartebancaire")),
 
+    CASHAPP(String.valueOf("cashapp")),
+
     CLEARPAY(String.valueOf("clearpay")),
 
     CLICKTOPAY(String.valueOf("clicktopay")),

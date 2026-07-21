@@ -38,10 +38,17 @@ public class Unreferenced {
   public Unreferenced() {}
 
   /**
-   * Indicates whether unreferenced refunds are enabled on the terminal.
+   * Indicates whether unreferenced refunds are enabled on the terminal. &gt; You&#39;re fully
+   * liable for losses resulting from fraudulent or duplicate unreferenced refunds. We recommend
+   * that you [set an unreferenced refund limit and a refund
+   * delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-payment/unreferenced/#risk-with-unreferenced-refunds)
+   * to reduce this risk.
    *
    * @param enableUnreferencedRefunds Indicates whether unreferenced refunds are enabled on the
-   *     terminal.
+   *     terminal. &gt; You&#39;re fully liable for losses resulting from fraudulent or duplicate
+   *     unreferenced refunds. We recommend that you [set an unreferenced refund limit and a refund
+   *     delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-payment/unreferenced/#risk-with-unreferenced-refunds)
+   *     to reduce this risk.
    * @return the current {@code Unreferenced} instance, allowing for method chaining
    */
   public Unreferenced enableUnreferencedRefunds(Boolean enableUnreferencedRefunds) {
@@ -51,10 +58,17 @@ public class Unreferenced {
   }
 
   /**
-   * Indicates whether unreferenced refunds are enabled on the terminal.
+   * Indicates whether unreferenced refunds are enabled on the terminal. &gt; You&#39;re fully
+   * liable for losses resulting from fraudulent or duplicate unreferenced refunds. We recommend
+   * that you [set an unreferenced refund limit and a refund
+   * delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-payment/unreferenced/#risk-with-unreferenced-refunds)
+   * to reduce this risk.
    *
    * @return enableUnreferencedRefunds Indicates whether unreferenced refunds are enabled on the
-   *     terminal.
+   *     terminal. &gt; You&#39;re fully liable for losses resulting from fraudulent or duplicate
+   *     unreferenced refunds. We recommend that you [set an unreferenced refund limit and a refund
+   *     delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-payment/unreferenced/#risk-with-unreferenced-refunds)
+   *     to reduce this risk.
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_UNREFERENCED_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,10 +77,17 @@ public class Unreferenced {
   }
 
   /**
-   * Indicates whether unreferenced refunds are enabled on the terminal.
+   * Indicates whether unreferenced refunds are enabled on the terminal. &gt; You&#39;re fully
+   * liable for losses resulting from fraudulent or duplicate unreferenced refunds. We recommend
+   * that you [set an unreferenced refund limit and a refund
+   * delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-payment/unreferenced/#risk-with-unreferenced-refunds)
+   * to reduce this risk.
    *
    * @param enableUnreferencedRefunds Indicates whether unreferenced refunds are enabled on the
-   *     terminal.
+   *     terminal. &gt; You&#39;re fully liable for losses resulting from fraudulent or duplicate
+   *     unreferenced refunds. We recommend that you [set an unreferenced refund limit and a refund
+   *     delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-payment/unreferenced/#risk-with-unreferenced-refunds)
+   *     to reduce this risk.
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_UNREFERENCED_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

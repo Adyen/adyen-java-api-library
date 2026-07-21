@@ -25,6 +25,7 @@ import java.util.List;
 @JsonPropertyOrder({
   Surcharge.JSON_PROPERTY_ASK_CONFIRMATION,
   Surcharge.JSON_PROPERTY_CONFIGURATIONS,
+  Surcharge.JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD,
   Surcharge.JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE
 })
 public class Surcharge {
@@ -39,6 +40,12 @@ public class Surcharge {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetConfigurations = false;
+
+  public static final String JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD = "disclosureOnPresentCard";
+  private Boolean disclosureOnPresentCard;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisclosureOnPresentCard = false;
 
   public static final String JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE =
       "excludeGratuityFromSurcharge";
@@ -140,6 +147,44 @@ public class Surcharge {
   }
 
   /**
+   * Show the maximum surcharge rate to the shopper on the present card screen before they tap.
+   *
+   * @param disclosureOnPresentCard Show the maximum surcharge rate to the shopper on the present
+   *     card screen before they tap.
+   * @return the current {@code Surcharge} instance, allowing for method chaining
+   */
+  public Surcharge disclosureOnPresentCard(Boolean disclosureOnPresentCard) {
+    this.disclosureOnPresentCard = disclosureOnPresentCard;
+    isSetDisclosureOnPresentCard = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Show the maximum surcharge rate to the shopper on the present card screen before they tap.
+   *
+   * @return disclosureOnPresentCard Show the maximum surcharge rate to the shopper on the present
+   *     card screen before they tap.
+   */
+  @JsonProperty(JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisclosureOnPresentCard() {
+    return disclosureOnPresentCard;
+  }
+
+  /**
+   * Show the maximum surcharge rate to the shopper on the present card screen before they tap.
+   *
+   * @param disclosureOnPresentCard Show the maximum surcharge rate to the shopper on the present
+   *     card screen before they tap.
+   */
+  @JsonProperty(JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDisclosureOnPresentCard(Boolean disclosureOnPresentCard) {
+    this.disclosureOnPresentCard = disclosureOnPresentCard;
+    isSetDisclosureOnPresentCard = true; // mark as set
+  }
+
+  /**
    * Exclude the tip amount from the surcharge calculation.
    *
    * @param excludeGratuityFromSurcharge Exclude the tip amount from the surcharge calculation.
@@ -208,6 +253,8 @@ public class Surcharge {
         && Objects.equals(this.isSetAskConfirmation, surcharge.isSetAskConfirmation)
         && Objects.equals(this.configurations, surcharge.configurations)
         && Objects.equals(this.isSetConfigurations, surcharge.isSetConfigurations)
+        && Objects.equals(this.disclosureOnPresentCard, surcharge.disclosureOnPresentCard)
+        && Objects.equals(this.isSetDisclosureOnPresentCard, surcharge.isSetDisclosureOnPresentCard)
         && Objects.equals(this.excludeGratuityFromSurcharge, surcharge.excludeGratuityFromSurcharge)
         && Objects.equals(
             this.isSetExcludeGratuityFromSurcharge, surcharge.isSetExcludeGratuityFromSurcharge);
@@ -220,6 +267,8 @@ public class Surcharge {
         isSetAskConfirmation,
         configurations,
         isSetConfigurations,
+        disclosureOnPresentCard,
+        isSetDisclosureOnPresentCard,
         excludeGratuityFromSurcharge,
         isSetExcludeGratuityFromSurcharge);
   }
@@ -230,6 +279,9 @@ public class Surcharge {
     sb.append("class Surcharge {\n");
     sb.append("    askConfirmation: ").append(toIndentedString(askConfirmation)).append("\n");
     sb.append("    configurations: ").append(toIndentedString(configurations)).append("\n");
+    sb.append("    disclosureOnPresentCard: ")
+        .append(toIndentedString(disclosureOnPresentCard))
+        .append("\n");
     sb.append("    excludeGratuityFromSurcharge: ")
         .append(toIndentedString(excludeGratuityFromSurcharge))
         .append("\n");
@@ -262,6 +314,9 @@ public class Surcharge {
     }
     if (isSetConfigurations) {
       addIfNull(nulls, JSON_PROPERTY_CONFIGURATIONS, this.configurations);
+    }
+    if (isSetDisclosureOnPresentCard) {
+      addIfNull(nulls, JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD, this.disclosureOnPresentCard);
     }
     if (isSetExcludeGratuityFromSurcharge) {
       addIfNull(

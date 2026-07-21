@@ -33,6 +33,7 @@ import java.util.logging.Logger;
   SplitConfigurationLogic.JSON_PROPERTY_CHARGEBACK,
   SplitConfigurationLogic.JSON_PROPERTY_CHARGEBACK_COST_ALLOCATION,
   SplitConfigurationLogic.JSON_PROPERTY_COMMISSION,
+  SplitConfigurationLogic.JSON_PROPERTY_DCC,
   SplitConfigurationLogic.JSON_PROPERTY_INTERCHANGE,
   SplitConfigurationLogic.JSON_PROPERTY_PAYMENT_FEE,
   SplitConfigurationLogic.JSON_PROPERTY_REFUND,
@@ -363,6 +364,12 @@ public class SplitConfigurationLogic {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCommission = false;
+
+  public static final String JSON_PROPERTY_DCC = "dcc";
+  private SplitDcc dcc;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDcc = false;
 
   /**
    * Deducts the interchange fee from specified balance account. Possible values:
@@ -1159,6 +1166,41 @@ public class SplitConfigurationLogic {
   }
 
   /**
+   * dcc
+   *
+   * @param dcc
+   * @return the current {@code SplitConfigurationLogic} instance, allowing for method chaining
+   */
+  public SplitConfigurationLogic dcc(SplitDcc dcc) {
+    this.dcc = dcc;
+    isSetDcc = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get dcc
+   *
+   * @return dcc
+   */
+  @JsonProperty(JSON_PROPERTY_DCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SplitDcc getDcc() {
+    return dcc;
+  }
+
+  /**
+   * dcc
+   *
+   * @param dcc
+   */
+  @JsonProperty(JSON_PROPERTY_DCC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDcc(SplitDcc dcc) {
+    this.dcc = dcc;
+    isSetDcc = true; // mark as set
+  }
+
+  /**
    * Deducts the interchange fee from specified balance account. Possible values:
    * **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    *
@@ -1688,6 +1730,8 @@ public class SplitConfigurationLogic {
             splitConfigurationLogic.isSetChargebackCostAllocation)
         && Objects.equals(this.commission, splitConfigurationLogic.commission)
         && Objects.equals(this.isSetCommission, splitConfigurationLogic.isSetCommission)
+        && Objects.equals(this.dcc, splitConfigurationLogic.dcc)
+        && Objects.equals(this.isSetDcc, splitConfigurationLogic.isSetDcc)
         && Objects.equals(this.interchange, splitConfigurationLogic.interchange)
         && Objects.equals(this.isSetInterchange, splitConfigurationLogic.isSetInterchange)
         && Objects.equals(this.paymentFee, splitConfigurationLogic.paymentFee)
@@ -1728,6 +1772,8 @@ public class SplitConfigurationLogic {
         isSetChargebackCostAllocation,
         commission,
         isSetCommission,
+        dcc,
+        isSetDcc,
         interchange,
         isSetInterchange,
         paymentFee,
@@ -1764,6 +1810,7 @@ public class SplitConfigurationLogic {
         .append(toIndentedString(chargebackCostAllocation))
         .append("\n");
     sb.append("    commission: ").append(toIndentedString(commission)).append("\n");
+    sb.append("    dcc: ").append(toIndentedString(dcc)).append("\n");
     sb.append("    interchange: ").append(toIndentedString(interchange)).append("\n");
     sb.append("    paymentFee: ").append(toIndentedString(paymentFee)).append("\n");
     sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
@@ -1822,6 +1869,9 @@ public class SplitConfigurationLogic {
     }
     if (isSetCommission) {
       addIfNull(nulls, JSON_PROPERTY_COMMISSION, this.commission);
+    }
+    if (isSetDcc) {
+      addIfNull(nulls, JSON_PROPERTY_DCC, this.dcc);
     }
     if (isSetInterchange) {
       addIfNull(nulls, JSON_PROPERTY_INTERCHANGE, this.interchange);

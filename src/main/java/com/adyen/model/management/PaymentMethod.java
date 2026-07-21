@@ -34,6 +34,7 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_ALLOWED,
   PaymentMethod.JSON_PROPERTY_AMEX,
   PaymentMethod.JSON_PROPERTY_APPLE_PAY,
+  PaymentMethod.JSON_PROPERTY_ASSOCIATED_PAYMENT_METHODS,
   PaymentMethod.JSON_PROPERTY_BCMC,
   PaymentMethod.JSON_PROPERTY_BUSINESS_LINE_ID,
   PaymentMethod.JSON_PROPERTY_CARNET,
@@ -127,6 +128,12 @@ public class PaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetApplePay = false;
+
+  public static final String JSON_PROPERTY_ASSOCIATED_PAYMENT_METHODS = "associatedPaymentMethods";
+  private List<AssociatedPaymentMethod> associatedPaymentMethods;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssociatedPaymentMethods = false;
 
   public static final String JSON_PROPERTY_BCMC = "bcmc";
   private BcmcResponseInfo bcmc;
@@ -732,6 +739,54 @@ public class PaymentMethod {
   public void setApplePay(ApplePayResponseInfo applePay) {
     this.applePay = applePay;
     isSetApplePay = true; // mark as set
+  }
+
+  /**
+   * Payment methods that were also updated as part of an associated transition.
+   *
+   * @param associatedPaymentMethods Payment methods that were also updated as part of an associated
+   *     transition.
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod associatedPaymentMethods(
+      List<AssociatedPaymentMethod> associatedPaymentMethods) {
+    this.associatedPaymentMethods = associatedPaymentMethods;
+    isSetAssociatedPaymentMethods = true; // mark as set
+    return this;
+  }
+
+  public PaymentMethod addAssociatedPaymentMethodsItem(
+      AssociatedPaymentMethod associatedPaymentMethodsItem) {
+    if (this.associatedPaymentMethods == null) {
+      this.associatedPaymentMethods = new ArrayList<>();
+    }
+    this.associatedPaymentMethods.add(associatedPaymentMethodsItem);
+    return this;
+  }
+
+  /**
+   * Payment methods that were also updated as part of an associated transition.
+   *
+   * @return associatedPaymentMethods Payment methods that were also updated as part of an
+   *     associated transition.
+   */
+  @JsonProperty(JSON_PROPERTY_ASSOCIATED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AssociatedPaymentMethod> getAssociatedPaymentMethods() {
+    return associatedPaymentMethods;
+  }
+
+  /**
+   * Payment methods that were also updated as part of an associated transition.
+   *
+   * @param associatedPaymentMethods Payment methods that were also updated as part of an associated
+   *     transition.
+   */
+  @JsonProperty(JSON_PROPERTY_ASSOCIATED_PAYMENT_METHODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAssociatedPaymentMethods(List<AssociatedPaymentMethod> associatedPaymentMethods) {
+    this.associatedPaymentMethods = associatedPaymentMethods;
+    isSetAssociatedPaymentMethods = true; // mark as set
   }
 
   /**
@@ -2596,6 +2651,9 @@ public class PaymentMethod {
         && Objects.equals(this.isSetAmex, paymentMethod.isSetAmex)
         && Objects.equals(this.applePay, paymentMethod.applePay)
         && Objects.equals(this.isSetApplePay, paymentMethod.isSetApplePay)
+        && Objects.equals(this.associatedPaymentMethods, paymentMethod.associatedPaymentMethods)
+        && Objects.equals(
+            this.isSetAssociatedPaymentMethods, paymentMethod.isSetAssociatedPaymentMethods)
         && Objects.equals(this.bcmc, paymentMethod.bcmc)
         && Objects.equals(this.isSetBcmc, paymentMethod.isSetBcmc)
         && Objects.equals(this.businessLineId, paymentMethod.businessLineId)
@@ -2715,6 +2773,8 @@ public class PaymentMethod {
         isSetAmex,
         applePay,
         isSetApplePay,
+        associatedPaymentMethods,
+        isSetAssociatedPaymentMethods,
         bcmc,
         isSetBcmc,
         businessLineId,
@@ -2828,6 +2888,9 @@ public class PaymentMethod {
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
+    sb.append("    associatedPaymentMethods: ")
+        .append(toIndentedString(associatedPaymentMethods))
+        .append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");
     sb.append("    carnet: ").append(toIndentedString(carnet)).append("\n");
@@ -2922,6 +2985,9 @@ public class PaymentMethod {
     }
     if (isSetApplePay) {
       addIfNull(nulls, JSON_PROPERTY_APPLE_PAY, this.applePay);
+    }
+    if (isSetAssociatedPaymentMethods) {
+      addIfNull(nulls, JSON_PROPERTY_ASSOCIATED_PAYMENT_METHODS, this.associatedPaymentMethods);
     }
     if (isSetBcmc) {
       addIfNull(nulls, JSON_PROPERTY_BCMC, this.bcmc);
