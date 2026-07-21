@@ -28,6 +28,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_BCMC,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARNET,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARTES_BANCAIRES,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_CASHAPP,
   UpdatePaymentMethodInfo.JSON_PROPERTY_COUNTRIES,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CUP,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CURRENCIES,
@@ -83,6 +84,12 @@ public class UpdatePaymentMethodInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCartesBancaires = false;
+
+  public static final String JSON_PROPERTY_CASHAPP = "cashapp";
+  private CashAppUpdateInfo cashapp;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCashapp = false;
 
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private List<String> countries;
@@ -410,6 +417,41 @@ public class UpdatePaymentMethodInfo {
   public void setCartesBancaires(CartesBancairesUpdateInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
     isSetCartesBancaires = true; // mark as set
+  }
+
+  /**
+   * cashapp
+   *
+   * @param cashapp
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo cashapp(CashAppUpdateInfo cashapp) {
+    this.cashapp = cashapp;
+    isSetCashapp = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get cashapp
+   *
+   * @return cashapp
+   */
+  @JsonProperty(JSON_PROPERTY_CASHAPP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CashAppUpdateInfo getCashapp() {
+    return cashapp;
+  }
+
+  /**
+   * cashapp
+   *
+   * @param cashapp
+   */
+  @JsonProperty(JSON_PROPERTY_CASHAPP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCashapp(CashAppUpdateInfo cashapp) {
+    this.cashapp = cashapp;
+    isSetCashapp = true; // mark as set
   }
 
   /**
@@ -1348,6 +1390,8 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.isSetCarnet, updatePaymentMethodInfo.isSetCarnet)
         && Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires)
         && Objects.equals(this.isSetCartesBancaires, updatePaymentMethodInfo.isSetCartesBancaires)
+        && Objects.equals(this.cashapp, updatePaymentMethodInfo.cashapp)
+        && Objects.equals(this.isSetCashapp, updatePaymentMethodInfo.isSetCashapp)
         && Objects.equals(this.countries, updatePaymentMethodInfo.countries)
         && Objects.equals(this.isSetCountries, updatePaymentMethodInfo.isSetCountries)
         && Objects.equals(this.cup, updatePaymentMethodInfo.cup)
@@ -1412,6 +1456,8 @@ public class UpdatePaymentMethodInfo {
         isSetCarnet,
         cartesBancaires,
         isSetCartesBancaires,
+        cashapp,
+        isSetCashapp,
         countries,
         isSetCountries,
         cup,
@@ -1471,6 +1517,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    carnet: ").append(toIndentedString(carnet)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
+    sb.append("    cashapp: ").append(toIndentedString(cashapp)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    cup: ").append(toIndentedString(cup)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
@@ -1533,6 +1580,9 @@ public class UpdatePaymentMethodInfo {
     }
     if (isSetCartesBancaires) {
       addIfNull(nulls, JSON_PROPERTY_CARTES_BANCAIRES, this.cartesBancaires);
+    }
+    if (isSetCashapp) {
+      addIfNull(nulls, JSON_PROPERTY_CASHAPP, this.cashapp);
     }
     if (isSetCountries) {
       addIfNull(nulls, JSON_PROPERTY_COUNTRIES, this.countries);

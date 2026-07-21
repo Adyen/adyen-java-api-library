@@ -131,7 +131,7 @@ public class PaymentMethodSetupInfo {
   private boolean isSetBusinessLineId = false;
 
   public static final String JSON_PROPERTY_CARNET = "carnet";
-  private GenericPmWithTdiInfo carnet;
+  private CarnetInfo carnet;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCarnet = false;
@@ -496,6 +496,8 @@ public class PaymentMethodSetupInfo {
     CARNET(String.valueOf("carnet")),
 
     CARTEBANCAIRE(String.valueOf("cartebancaire")),
+
+    CASHAPP(String.valueOf("cashapp")),
 
     CLEARPAY(String.valueOf("clearpay")),
 
@@ -1084,7 +1086,7 @@ public class PaymentMethodSetupInfo {
    * @param carnet
    * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
    */
-  public PaymentMethodSetupInfo carnet(GenericPmWithTdiInfo carnet) {
+  public PaymentMethodSetupInfo carnet(CarnetInfo carnet) {
     this.carnet = carnet;
     isSetCarnet = true; // mark as set
     return this;
@@ -1097,7 +1099,7 @@ public class PaymentMethodSetupInfo {
    */
   @JsonProperty(JSON_PROPERTY_CARNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getCarnet() {
+  public CarnetInfo getCarnet() {
     return carnet;
   }
 
@@ -1108,7 +1110,7 @@ public class PaymentMethodSetupInfo {
    */
   @JsonProperty(JSON_PROPERTY_CARNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCarnet(GenericPmWithTdiInfo carnet) {
+  public void setCarnet(CarnetInfo carnet) {
     this.carnet = carnet;
     isSetCarnet = true; // mark as set
   }

@@ -125,11 +125,11 @@ public class MealVoucherFRInfo {
   }
 
   /**
-   * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**,
+   * The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**,
    * **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    *
    * @param subTypes The list of additional payment methods. Allowed values:
-   *     **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**,
+   *     **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**,
    *     **mealVoucher_FR_sodexo**.
    * @return the current {@code MealVoucherFRInfo} instance, allowing for method chaining
    */
@@ -148,11 +148,11 @@ public class MealVoucherFRInfo {
   }
 
   /**
-   * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**,
+   * The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**,
    * **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    *
    * @return subTypes The list of additional payment methods. Allowed values:
-   *     **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**,
+   *     **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**,
    *     **mealVoucher_FR_sodexo**.
    */
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
@@ -162,11 +162,11 @@ public class MealVoucherFRInfo {
   }
 
   /**
-   * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**,
+   * The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**,
    * **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    *
    * @param subTypes The list of additional payment methods. Allowed values:
-   *     **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**,
+   *     **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**,
    *     **mealVoucher_FR_sodexo**.
    */
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
