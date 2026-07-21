@@ -2,7 +2,9 @@ package com.adyen;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
 
+import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
 import com.adyen.model.transfers.*;
 import com.adyen.service.transfers.*;
@@ -44,7 +46,7 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void ApproveInitiatedTransfersTest() throws Exception {
+  public void approveInitiatedTransfersTest() throws Exception {
     Client client = createMockClientFromResponse("");
     TransfersApi transfers = new TransfersApi(client);
     ApproveTransfersRequest approveTransfersRequest = new ApproveTransfersRequest();
@@ -53,7 +55,7 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void GetAllTransfersTest() throws Exception {
+  public void getAllTransfersTest() throws Exception {
     Client client = createMockClientFromFile("mocks/transfers/get-all-transfers-success.json");
     TransfersApi transfers = new TransfersApi(client);
     FindTransfersResponse response =
@@ -71,7 +73,7 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void GetTransferTest() throws Exception {
+  public void getTransferTest() throws Exception {
     Client client = createMockClientFromFile("mocks/transfers/get-transfer-success.json");
 
     TransfersApi transfers = new TransfersApi(client);
@@ -93,10 +95,31 @@ public class TransfersTest extends BaseTest {
     assertInstanceOf(
         InterchangeData.class,
         response.getEvents().get(0).getEventsData().get(0).getActualInstance());
+
+    // check networkReason and tracing (new TransferData fields)
+    assertEquals(
+        new NetworkReason()
+            .code("R01")
+            .description("Insufficient funds")
+            .namespace(NetworkReason.NamespaceEnum.USACHRETURNREASONCODE),
+        response.getNetworkReason());
+    assertNotNull(response.getTracing());
+    assertInstanceOf(USAchTracingData.class, response.getTracing().getActualInstance());
+    USAchTracingData tracing = response.getTracing().getUSAchTracingData();
+    assertEquals("091000010000001", tracing.getTraceNumber());
+    assertEquals(USAchTracingData.TypeEnum.USACH, tracing.getType());
+
+    // check tracingData (new TransferEvent field)
+    TransferEventTracingData eventTracingData = response.getEvents().get(0).getTracingData();
+    assertNotNull(eventTracingData);
+    assertInstanceOf(UKFpsTracingData.class, eventTracingData.getActualInstance());
+    UKFpsTracingData eventTracing = eventTracingData.getUKFpsTracingData();
+    assertEquals("FP123456789", eventTracing.getFpid());
+    assertEquals(UKFpsTracingData.TypeEnum.UKFPS, eventTracing.getType());
   }
 
   @Test
-  public void TransferTest() throws Exception {
+  public void transferTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/transfers/post-transfers-payout-cross-border-200.json");
 
@@ -112,7 +135,71 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void GetAllTransactionsTest() throws Exception {
+  public void initiateCashoutTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/transfers/post-cashouts-200.json");
+    CashOutApi cashOut = new CashOutApi(client);
+
+    CashOutInfo cashOutInfo =
+        new CashOutInfo()
+            .instructingBalanceAccountId("BA00000000000000000000001")
+            .amount(new Amount().currency("EUR").value(50000L));
+
+    CashOut response = cashOut.initiateCashout(cashOutInfo);
+
+    assertEquals("CO00000000000000000000001", response.getId());
+    assertEquals("BA00000000000000000000001", response.getInstructingBalanceAccountId());
+    assertEquals(new Amount().currency("EUR").value(50000L), response.getAmount());
+    assertEquals(
+        new CashOutInfoCounterparty().transferInstrumentId("SE00000000000000000000001"),
+        response.getCounterparty());
+    assertEquals("Cashout to bank account", response.getDescription());
+    assertEquals("CASHOUT-REF-001", response.getReferenceForBeneficiary());
+    assertEquals(new Fee().amount(new Amount().currency("EUR").value(500L)), response.getFee());
+
+    assertEquals(2, response.getTransfers().size());
+    assertEquals(
+        new CashOutTransfer()
+            .id("400F6060JMB1I0AB")
+            .type(CashOutTransfer.TypeEnum.CASHOUTREPAYMENT)
+            .amount(new Amount().currency("EUR").value(50500L)),
+        response.getTransfers().get(0));
+    assertEquals(
+        new CashOutTransfer()
+            .id("400F6060JMB1I0AA")
+            .type(CashOutTransfer.TypeEnum.CASHOUTFEE)
+            .amount(new Amount().currency("EUR").value(500L)),
+        response.getTransfers().get(1));
+
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/btl/v4/cashouts",
+            cashOutInfo.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  @Test
+  public void defaultErrorResponseEntityTest() throws Exception {
+    String json =
+        "{\"type\":\"https://docs.adyen.com/errors/forbidden\",\"title\":\"Forbidden\","
+            + "\"status\":403,\"detail\":\"Insufficient permissions\",\"errorCode\":\"00_401\","
+            + "\"instance\":\"/cashouts\",\"requestId\":\"REQ123\"}";
+    DefaultErrorResponseEntity error = DefaultErrorResponseEntity.fromJson(json);
+
+    assertEquals("https://docs.adyen.com/errors/forbidden", error.getType());
+    assertEquals("Forbidden", error.getTitle());
+    assertEquals(Integer.valueOf(403), error.getStatus());
+    assertEquals("Insufficient permissions", error.getDetail());
+    assertEquals("00_401", error.getErrorCode());
+    assertEquals("/cashouts", error.getInstance());
+    assertEquals("REQ123", error.getRequestId());
+  }
+
+  @Test
+  public void getAllTransactionsTest() throws Exception {
     Client client = createMockClientFromFile("mocks/transfers/get-transactions-success-200.json");
     TransactionsApi transactions = new TransactionsApi(client);
     TransactionSearchResponse response = transactions.getAllTransactions(null, null);
@@ -123,7 +210,7 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
-  public void GetTransactionTest() throws Exception {
+  public void getTransactionTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
     TransactionsApi transactions = new TransactionsApi(client);
