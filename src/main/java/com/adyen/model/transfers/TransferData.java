@@ -46,6 +46,7 @@ import java.util.logging.Logger;
   TransferData.JSON_PROPERTY_EXECUTION_DATE,
   TransferData.JSON_PROPERTY_EXTERNAL_REASON,
   TransferData.JSON_PROPERTY_ID,
+  TransferData.JSON_PROPERTY_NETWORK_REASON,
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT,
   TransferData.JSON_PROPERTY_REASON,
   TransferData.JSON_PROPERTY_REFERENCE,
@@ -53,6 +54,7 @@ import java.util.logging.Logger;
   TransferData.JSON_PROPERTY_REVIEW,
   TransferData.JSON_PROPERTY_SEQUENCE_NUMBER,
   TransferData.JSON_PROPERTY_STATUS,
+  TransferData.JSON_PROPERTY_TRACING,
   TransferData.JSON_PROPERTY_TRACKING,
   TransferData.JSON_PROPERTY_TRANSACTION_RULES_RESULT,
   TransferData.JSON_PROPERTY_TYPE,
@@ -267,6 +269,12 @@ public class TransferData {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetId = false;
+
+  public static final String JSON_PROPERTY_NETWORK_REASON = "networkReason";
+  private NetworkReason networkReason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkReason = false;
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT = "paymentInstrument";
   private PaymentInstrument paymentInstrument;
@@ -515,11 +523,11 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    */
   public enum StatusEnum {
     APPROVALPENDING(String.valueOf("approvalPending")),
@@ -702,6 +710,12 @@ public class TransferData {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStatus = false;
+
+  public static final String JSON_PROPERTY_TRACING = "tracing";
+  private TransferDataTracing tracing;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTracing = false;
 
   public static final String JSON_PROPERTY_TRACKING = "tracking";
   private TransferDataTracking tracking;
@@ -1597,6 +1611,41 @@ public class TransferData {
   }
 
   /**
+   * networkReason
+   *
+   * @param networkReason
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData networkReason(NetworkReason networkReason) {
+    this.networkReason = networkReason;
+    isSetNetworkReason = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get networkReason
+   *
+   * @return networkReason
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NetworkReason getNetworkReason() {
+    return networkReason;
+  }
+
+  /**
+   * networkReason
+   *
+   * @param networkReason
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkReason(NetworkReason networkReason) {
+    this.networkReason = networkReason;
+    isSetNetworkReason = true; // mark as set
+  }
+
+  /**
    * paymentInstrument
    *
    * @param paymentInstrument
@@ -1851,20 +1900,19 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData status(StatusEnum status) {
@@ -1876,20 +1924,19 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @return status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1900,26 +1947,60 @@ public class TransferData {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
     isSetStatus = true; // mark as set
+  }
+
+  /**
+   * tracing
+   *
+   * @param tracing
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData tracing(TransferDataTracing tracing) {
+    this.tracing = tracing;
+    isSetTracing = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get tracing
+   *
+   * @return tracing
+   */
+  @JsonProperty(JSON_PROPERTY_TRACING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TransferDataTracing getTracing() {
+    return tracing;
+  }
+
+  /**
+   * tracing
+   *
+   * @param tracing
+   */
+  @JsonProperty(JSON_PROPERTY_TRACING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTracing(TransferDataTracing tracing) {
+    this.tracing = tracing;
+    isSetTracing = true; // mark as set
   }
 
   /**
@@ -2176,6 +2257,8 @@ public class TransferData {
         && Objects.equals(this.isSetExternalReason, transferData.isSetExternalReason)
         && Objects.equals(this.id, transferData.id)
         && Objects.equals(this.isSetId, transferData.isSetId)
+        && Objects.equals(this.networkReason, transferData.networkReason)
+        && Objects.equals(this.isSetNetworkReason, transferData.isSetNetworkReason)
         && Objects.equals(this.paymentInstrument, transferData.paymentInstrument)
         && Objects.equals(this.isSetPaymentInstrument, transferData.isSetPaymentInstrument)
         && Objects.equals(this.reason, transferData.reason)
@@ -2191,6 +2274,8 @@ public class TransferData {
         && Objects.equals(this.isSetSequenceNumber, transferData.isSetSequenceNumber)
         && Objects.equals(this.status, transferData.status)
         && Objects.equals(this.isSetStatus, transferData.isSetStatus)
+        && Objects.equals(this.tracing, transferData.tracing)
+        && Objects.equals(this.isSetTracing, transferData.isSetTracing)
         && Objects.equals(this.tracking, transferData.tracking)
         && Objects.equals(this.isSetTracking, transferData.isSetTracking)
         && Objects.equals(this.transactionRulesResult, transferData.transactionRulesResult)
@@ -2243,6 +2328,8 @@ public class TransferData {
         isSetExternalReason,
         id,
         isSetId,
+        networkReason,
+        isSetNetworkReason,
         paymentInstrument,
         isSetPaymentInstrument,
         reason,
@@ -2257,6 +2344,8 @@ public class TransferData {
         isSetSequenceNumber,
         status,
         isSetStatus,
+        tracing,
+        isSetTracing,
         tracking,
         isSetTracking,
         transactionRulesResult,
@@ -2293,6 +2382,7 @@ public class TransferData {
     sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
     sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    networkReason: ").append(toIndentedString(networkReason)).append("\n");
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
@@ -2302,6 +2392,7 @@ public class TransferData {
     sb.append("    review: ").append(toIndentedString(review)).append("\n");
     sb.append("    sequenceNumber: ").append(toIndentedString(sequenceNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tracing: ").append(toIndentedString(tracing)).append("\n");
     sb.append("    tracking: ").append(toIndentedString(tracking)).append("\n");
     sb.append("    transactionRulesResult: ")
         .append(toIndentedString(transactionRulesResult))
@@ -2387,6 +2478,9 @@ public class TransferData {
     if (isSetId) {
       addIfNull(nulls, JSON_PROPERTY_ID, this.id);
     }
+    if (isSetNetworkReason) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_REASON, this.networkReason);
+    }
     if (isSetPaymentInstrument) {
       addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT, this.paymentInstrument);
     }
@@ -2407,6 +2501,9 @@ public class TransferData {
     }
     if (isSetStatus) {
       addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetTracing) {
+      addIfNull(nulls, JSON_PROPERTY_TRACING, this.tracing);
     }
     if (isSetTracking) {
       addIfNull(nulls, JSON_PROPERTY_TRACKING, this.tracking);

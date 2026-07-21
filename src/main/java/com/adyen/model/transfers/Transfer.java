@@ -468,11 +468,11 @@ public class Transfer {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    */
   public enum StatusEnum {
     APPROVALPENDING(String.valueOf("approvalPending")),
@@ -1542,20 +1542,19 @@ public class Transfer {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer status(StatusEnum status) {
@@ -1567,20 +1566,19 @@ public class Transfer {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @return status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1591,20 +1589,19 @@ public class Transfer {
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
    * created. - **refused**: the transfer request is rejected by Adyen for one of the following
-   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
-   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
-   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   * transfer is returned by the counterparty&#39;s bank.
+   * reasons: - Transfer limit exceeded. - Transaction rule requirements violated. - **authorised**:
+   * the transfer request is authorized and the funds are reserved. - **booked**: the funds are
+   * deducted from your user&#39;s balance account. - **failed**: the transfer is rejected by the
+   * counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   * bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
    *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
-   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
-   *     Transaction rule requirements violated. - **authorised**: the transfer request is
-   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
-   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
-   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
-   *     bank.
+   *     following reasons: - Transfer limit exceeded. - Transaction rule requirements violated. -
+   *     **authorised**: the transfer request is authorized and the funds are reserved. -
+   *     **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   *     transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is
+   *     returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
