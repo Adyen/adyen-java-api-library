@@ -1,0 +1,12 @@
+{
+  "id": "DC123456789",
+  "name": "Clean water campaign",
+  "status": "active",
+  "accountHolderIds": ["AH123", "AH456"],
+  "nonprofitCause": {
+    "causeId": "CAUSE123",
+    "nonprofitName": "Water for All",
+    "description": "Providing clean water access",
+    "goals": ["unsdg_6"]
+  }
+}
