@@ -26,6 +26,15 @@
   "reason": "approved",
   "reference": "312M2060T6S4UOIF",
   "status": "booked",
+  "networkReason": {
+    "code": "R01",
+    "description": "Insufficient funds",
+    "namespace": "usAchReturnReasonCode"
+  },
+  "tracing": {
+    "type": "usAch",
+    "traceNumber": "091000010000001"
+  },
   "balances": [
     {
       "balance": -5400,
@@ -48,6 +57,10 @@
           "interchangeRateIndicator": "x"
         }
       ],
+      "tracingData": {
+        "type": "ukFps",
+        "fpid": "FP123456789"
+      },
       "mutations": [
         {
           "currency": "EUR",
