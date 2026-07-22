@@ -52,8 +52,6 @@ public class PaymentDetails {
 
     BANKTRANSFER_IBAN(String.valueOf("bankTransfer_IBAN")),
 
-    PAYBRIGHT(String.valueOf("paybright")),
-
     PAYNOW(String.valueOf("paynow")),
 
     AFFIRM_POS(String.valueOf("affirm_pos")),

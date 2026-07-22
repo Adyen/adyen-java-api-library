@@ -261,6 +261,22 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     schemas.put("IdealDonations", new GenericType<IdealDonations>() {});
     schemas.put("PayWithGoogleDonations", new GenericType<PayWithGoogleDonations>() {});
     JSON.registerDescendants(DonationPaymentMethod.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("applepay", ApplePayDonations.class);
+    mappings.put("card", CardDonations.class);
+    mappings.put("googlepay", GooglePayDonations.class);
+    mappings.put("ideal", IdealDonations.class);
+    mappings.put("networkToken", CardDonations.class);
+    mappings.put("paywithgoogle", PayWithGoogleDonations.class);
+    mappings.put("scheme", CardDonations.class);
+    mappings.put("ApplePayDonations", ApplePayDonations.class);
+    mappings.put("CardDonations", CardDonations.class);
+    mappings.put("GooglePayDonations", GooglePayDonations.class);
+    mappings.put("IdealDonations", IdealDonations.class);
+    mappings.put("PayWithGoogleDonations", PayWithGoogleDonations.class);
+    mappings.put("DonationPaymentMethod", DonationPaymentMethod.class);
+    JSON.registerDiscriminator(DonationPaymentMethod.class, "type", mappings);
   }
 
   @Override

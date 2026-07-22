@@ -45,11 +45,13 @@ public class TravelAgency {
   /**
    * The unique identifier from IATA or ARC for the travel agency that issues the ticket. *
    * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a
-   * space or be all spaces. * Must not be all zeros.
+   * space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   * &#x60;airline.travel_agency_code&#x60;
    *
    * @param code The unique identifier from IATA or ARC for the travel agency that issues the
    *     ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not
-   *     start with a space or be all spaces. * Must not be all zeros.
+   *     start with a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   *     &#x60;airline.travel_agency_code&#x60;
    * @return the current {@code TravelAgency} instance, allowing for method chaining
    */
   public TravelAgency code(String code) {
@@ -61,11 +63,13 @@ public class TravelAgency {
   /**
    * The unique identifier from IATA or ARC for the travel agency that issues the ticket. *
    * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a
-   * space or be all spaces. * Must not be all zeros.
+   * space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   * &#x60;airline.travel_agency_code&#x60;
    *
    * @return code The unique identifier from IATA or ARC for the travel agency that issues the
    *     ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not
-   *     start with a space or be all spaces. * Must not be all zeros.
+   *     start with a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   *     &#x60;airline.travel_agency_code&#x60;
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,11 +80,13 @@ public class TravelAgency {
   /**
    * The unique identifier from IATA or ARC for the travel agency that issues the ticket. *
    * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a
-   * space or be all spaces. * Must not be all zeros.
+   * space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   * &#x60;airline.travel_agency_code&#x60;
    *
    * @param code The unique identifier from IATA or ARC for the travel agency that issues the
    *     ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not
-   *     start with a space or be all spaces. * Must not be all zeros.
+   *     start with a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   *     &#x60;airline.travel_agency_code&#x60;
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,11 +97,12 @@ public class TravelAgency {
 
   /**
    * The name of the travel agency. * Encoding: ASCII * minLength: 1 character * maxLength: 25
-   * characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   * characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   * **additionalData key:** &#x60;airline.travel_agency_name&#x60;
    *
    * @param name The name of the travel agency. * Encoding: ASCII * minLength: 1 character *
    *     maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all
-   *     zeros.
+   *     zeros. * **additionalData key:** &#x60;airline.travel_agency_name&#x60;
    * @return the current {@code TravelAgency} instance, allowing for method chaining
    */
   public TravelAgency name(String name) {
@@ -106,11 +113,12 @@ public class TravelAgency {
 
   /**
    * The name of the travel agency. * Encoding: ASCII * minLength: 1 character * maxLength: 25
-   * characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   * characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   * **additionalData key:** &#x60;airline.travel_agency_name&#x60;
    *
    * @return name The name of the travel agency. * Encoding: ASCII * minLength: 1 character *
    *     maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all
-   *     zeros.
+   *     zeros. * **additionalData key:** &#x60;airline.travel_agency_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,11 +128,12 @@ public class TravelAgency {
 
   /**
    * The name of the travel agency. * Encoding: ASCII * minLength: 1 character * maxLength: 25
-   * characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   * characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   * **additionalData key:** &#x60;airline.travel_agency_name&#x60;
    *
    * @param name The name of the travel agency. * Encoding: ASCII * minLength: 1 character *
    *     maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all
-   *     zeros.
+   *     zeros. * **additionalData key:** &#x60;airline.travel_agency_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

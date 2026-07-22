@@ -30,6 +30,7 @@ import java.util.logging.Logger;
   RivertyDetails.JSON_PROPERTY_DELIVERY_ADDRESS,
   RivertyDetails.JSON_PROPERTY_DEVICE_FINGERPRINT,
   RivertyDetails.JSON_PROPERTY_IBAN,
+  RivertyDetails.JSON_PROPERTY_MERCHANT_DATA,
   RivertyDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   RivertyDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   RivertyDetails.JSON_PROPERTY_SDK_DATA,
@@ -67,6 +68,12 @@ public class RivertyDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIban = false;
+
+  public static final String JSON_PROPERTY_MERCHANT_DATA = "merchantData";
+  private String merchantData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantData = false;
 
   public static final String JSON_PROPERTY_PERSONAL_DETAILS = "personalDetails";
   private String personalDetails;
@@ -343,6 +350,44 @@ public class RivertyDetails {
   }
 
   /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty at authorization.
+   *
+   * @param merchantData Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty
+   *     at authorization.
+   * @return the current {@code RivertyDetails} instance, allowing for method chaining
+   */
+  public RivertyDetails merchantData(String merchantData) {
+    this.merchantData = merchantData;
+    isSetMerchantData = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty at authorization.
+   *
+   * @return merchantData Base64-encoded merchant metadata (Extra Merchant Data) forwarded to
+   *     Riverty at authorization.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantData() {
+    return merchantData;
+  }
+
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty at authorization.
+   *
+   * @param merchantData Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty
+   *     at authorization.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantData(String merchantData) {
+    this.merchantData = merchantData;
+    isSetMerchantData = true; // mark as set
+  }
+
+  /**
    * Shopper name, date of birth, phone number, and email address.
    *
    * @param personalDetails Shopper name, date of birth, phone number, and email address.
@@ -611,6 +656,8 @@ public class RivertyDetails {
         && Objects.equals(this.isSetDeviceFingerprint, rivertyDetails.isSetDeviceFingerprint)
         && Objects.equals(this.iban, rivertyDetails.iban)
         && Objects.equals(this.isSetIban, rivertyDetails.isSetIban)
+        && Objects.equals(this.merchantData, rivertyDetails.merchantData)
+        && Objects.equals(this.isSetMerchantData, rivertyDetails.isSetMerchantData)
         && Objects.equals(this.personalDetails, rivertyDetails.personalDetails)
         && Objects.equals(this.isSetPersonalDetails, rivertyDetails.isSetPersonalDetails)
         && Objects.equals(this.recurringDetailReference, rivertyDetails.recurringDetailReference)
@@ -640,6 +687,8 @@ public class RivertyDetails {
         isSetDeviceFingerprint,
         iban,
         isSetIban,
+        merchantData,
+        isSetMerchantData,
         personalDetails,
         isSetPersonalDetails,
         recurringDetailReference,
@@ -663,6 +712,7 @@ public class RivertyDetails {
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    merchantData: ").append(toIndentedString(merchantData)).append("\n");
     sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
@@ -711,6 +761,9 @@ public class RivertyDetails {
     }
     if (isSetIban) {
       addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetMerchantData) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_DATA, this.merchantData);
     }
     if (isSetPersonalDetails) {
       addIfNull(nulls, JSON_PROPERTY_PERSONAL_DETAILS, this.personalDetails);

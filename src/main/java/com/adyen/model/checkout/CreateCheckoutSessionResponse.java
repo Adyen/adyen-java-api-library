@@ -90,6 +90,7 @@ import java.util.logging.Logger;
   CreateCheckoutSessionResponse.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   CreateCheckoutSessionResponse.JSON_PROPERTY_TELEPHONE_NUMBER,
   CreateCheckoutSessionResponse.JSON_PROPERTY_THEME_ID,
+  CreateCheckoutSessionResponse.JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
   CreateCheckoutSessionResponse.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   CreateCheckoutSessionResponse.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
   CreateCheckoutSessionResponse.JSON_PROPERTY_TRUSTED_SHOPPER,
@@ -757,6 +758,13 @@ public class CreateCheckoutSessionResponse {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetThemeId = false;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO =
+      "thirdPartyTokenRedundancyInfo";
+  private ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThirdPartyTokenRedundancyInfo = false;
 
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
@@ -3699,6 +3707,44 @@ public class CreateCheckoutSessionResponse {
   }
 
   /**
+   * thirdPartyTokenRedundancyInfo
+   *
+   * @param thirdPartyTokenRedundancyInfo
+   * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method
+   *     chaining
+   */
+  public CreateCheckoutSessionResponse thirdPartyTokenRedundancyInfo(
+      ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo) {
+    this.thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+    isSetThirdPartyTokenRedundancyInfo = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get thirdPartyTokenRedundancyInfo
+   *
+   * @return thirdPartyTokenRedundancyInfo
+   */
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ThirdPartyTokenRedundancyInfo getThirdPartyTokenRedundancyInfo() {
+    return thirdPartyTokenRedundancyInfo;
+  }
+
+  /**
+   * thirdPartyTokenRedundancyInfo
+   *
+   * @param thirdPartyTokenRedundancyInfo
+   */
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThirdPartyTokenRedundancyInfo(
+      ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo) {
+    this.thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+    isSetThirdPartyTokenRedundancyInfo = true; // mark as set
+  }
+
+  /**
    * threeDS2RequestData
    *
    * @param threeDS2RequestData
@@ -4081,6 +4127,12 @@ public class CreateCheckoutSessionResponse {
         && Objects.equals(this.themeId, createCheckoutSessionResponse.themeId)
         && Objects.equals(this.isSetThemeId, createCheckoutSessionResponse.isSetThemeId)
         && Objects.equals(
+            this.thirdPartyTokenRedundancyInfo,
+            createCheckoutSessionResponse.thirdPartyTokenRedundancyInfo)
+        && Objects.equals(
+            this.isSetThirdPartyTokenRedundancyInfo,
+            createCheckoutSessionResponse.isSetThirdPartyTokenRedundancyInfo)
+        && Objects.equals(
             this.threeDS2RequestData, createCheckoutSessionResponse.threeDS2RequestData)
         && Objects.equals(
             this.isSetThreeDS2RequestData, createCheckoutSessionResponse.isSetThreeDS2RequestData)
@@ -4219,6 +4271,8 @@ public class CreateCheckoutSessionResponse {
         isSetTelephoneNumber,
         themeId,
         isSetThemeId,
+        thirdPartyTokenRedundancyInfo,
+        isSetThirdPartyTokenRedundancyInfo,
         threeDS2RequestData,
         isSetThreeDS2RequestData,
         threeDSAuthenticationOnly,
@@ -4319,6 +4373,9 @@ public class CreateCheckoutSessionResponse {
         .append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
+    sb.append("    thirdPartyTokenRedundancyInfo: ")
+        .append(toIndentedString(thirdPartyTokenRedundancyInfo))
+        .append("\n");
     sb.append("    threeDS2RequestData: ")
         .append(toIndentedString(threeDS2RequestData))
         .append("\n");
@@ -4533,6 +4590,12 @@ public class CreateCheckoutSessionResponse {
     }
     if (isSetThemeId) {
       addIfNull(nulls, JSON_PROPERTY_THEME_ID, this.themeId);
+    }
+    if (isSetThirdPartyTokenRedundancyInfo) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
+          this.thirdPartyTokenRedundancyInfo);
     }
     if (isSetThreeDS2RequestData) {
       addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);

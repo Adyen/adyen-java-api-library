@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   KlarnaDetails.JSON_PROPERTY_BILLING_ADDRESS,
   KlarnaDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   KlarnaDetails.JSON_PROPERTY_DELIVERY_ADDRESS,
+  KlarnaDetails.JSON_PROPERTY_MERCHANT_DATA,
   KlarnaDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   KlarnaDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   KlarnaDetails.JSON_PROPERTY_SDK_DATA,
@@ -53,6 +54,12 @@ public class KlarnaDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDeliveryAddress = false;
+
+  public static final String JSON_PROPERTY_MERCHANT_DATA = "merchantData";
+  private String merchantData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantData = false;
 
   public static final String JSON_PROPERTY_PERSONAL_DETAILS = "personalDetails";
   private String personalDetails;
@@ -253,6 +260,44 @@ public class KlarnaDetails {
   public void setDeliveryAddress(String deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     isSetDeliveryAddress = true; // mark as set
+  }
+
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna at authorization.
+   *
+   * @param merchantData Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna
+   *     at authorization.
+   * @return the current {@code KlarnaDetails} instance, allowing for method chaining
+   */
+  public KlarnaDetails merchantData(String merchantData) {
+    this.merchantData = merchantData;
+    isSetMerchantData = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna at authorization.
+   *
+   * @return merchantData Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna
+   *     at authorization.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantData() {
+    return merchantData;
+  }
+
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna at authorization.
+   *
+   * @param merchantData Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna
+   *     at authorization.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantData(String merchantData) {
+    this.merchantData = merchantData;
+    isSetMerchantData = true; // mark as set
   }
 
   /**
@@ -520,6 +565,8 @@ public class KlarnaDetails {
         && Objects.equals(this.isSetCheckoutAttemptId, klarnaDetails.isSetCheckoutAttemptId)
         && Objects.equals(this.deliveryAddress, klarnaDetails.deliveryAddress)
         && Objects.equals(this.isSetDeliveryAddress, klarnaDetails.isSetDeliveryAddress)
+        && Objects.equals(this.merchantData, klarnaDetails.merchantData)
+        && Objects.equals(this.isSetMerchantData, klarnaDetails.isSetMerchantData)
         && Objects.equals(this.personalDetails, klarnaDetails.personalDetails)
         && Objects.equals(this.isSetPersonalDetails, klarnaDetails.isSetPersonalDetails)
         && Objects.equals(this.recurringDetailReference, klarnaDetails.recurringDetailReference)
@@ -544,6 +591,8 @@ public class KlarnaDetails {
         isSetCheckoutAttemptId,
         deliveryAddress,
         isSetDeliveryAddress,
+        merchantData,
+        isSetMerchantData,
         personalDetails,
         isSetPersonalDetails,
         recurringDetailReference,
@@ -565,6 +614,7 @@ public class KlarnaDetails {
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
+    sb.append("    merchantData: ").append(toIndentedString(merchantData)).append("\n");
     sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
@@ -607,6 +657,9 @@ public class KlarnaDetails {
     }
     if (isSetDeliveryAddress) {
       addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
+    if (isSetMerchantData) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_DATA, this.merchantData);
     }
     if (isSetPersonalDetails) {
       addIfNull(nulls, JSON_PROPERTY_PERSONAL_DETAILS, this.personalDetails);

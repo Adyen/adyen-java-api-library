@@ -100,6 +100,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_SUB_MERCHANTS,
   PaymentRequest.JSON_PROPERTY_SURCHARGE,
   PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
+  PaymentRequest.JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
   PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
   PaymentRequest.JSON_PROPERTY_TRUSTED_SHOPPER
@@ -772,6 +773,13 @@ public class PaymentRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTelephoneNumber = false;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO =
+      "thirdPartyTokenRedundancyInfo";
+  private ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThirdPartyTokenRedundancyInfo = false;
 
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private ThreeDS2RequestFields threeDS2RequestData;
@@ -4070,6 +4078,43 @@ public class PaymentRequest {
   }
 
   /**
+   * thirdPartyTokenRedundancyInfo
+   *
+   * @param thirdPartyTokenRedundancyInfo
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest thirdPartyTokenRedundancyInfo(
+      ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo) {
+    this.thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+    isSetThirdPartyTokenRedundancyInfo = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get thirdPartyTokenRedundancyInfo
+   *
+   * @return thirdPartyTokenRedundancyInfo
+   */
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ThirdPartyTokenRedundancyInfo getThirdPartyTokenRedundancyInfo() {
+    return thirdPartyTokenRedundancyInfo;
+  }
+
+  /**
+   * thirdPartyTokenRedundancyInfo
+   *
+   * @param thirdPartyTokenRedundancyInfo
+   */
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThirdPartyTokenRedundancyInfo(
+      ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo) {
+    this.thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+    isSetThirdPartyTokenRedundancyInfo = true; // mark as set
+  }
+
+  /**
    * threeDS2RequestData
    *
    * @param threeDS2RequestData
@@ -4375,6 +4420,11 @@ public class PaymentRequest {
         && Objects.equals(this.isSetSurcharge, paymentRequest.isSetSurcharge)
         && Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber)
         && Objects.equals(this.isSetTelephoneNumber, paymentRequest.isSetTelephoneNumber)
+        && Objects.equals(
+            this.thirdPartyTokenRedundancyInfo, paymentRequest.thirdPartyTokenRedundancyInfo)
+        && Objects.equals(
+            this.isSetThirdPartyTokenRedundancyInfo,
+            paymentRequest.isSetThirdPartyTokenRedundancyInfo)
         && Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData)
         && Objects.equals(this.isSetThreeDS2RequestData, paymentRequest.isSetThreeDS2RequestData)
         && Objects.equals(this.threeDSAuthenticationOnly, paymentRequest.threeDSAuthenticationOnly)
@@ -4527,6 +4577,8 @@ public class PaymentRequest {
         isSetSurcharge,
         telephoneNumber,
         isSetTelephoneNumber,
+        thirdPartyTokenRedundancyInfo,
+        isSetThirdPartyTokenRedundancyInfo,
         threeDS2RequestData,
         isSetThreeDS2RequestData,
         threeDSAuthenticationOnly,
@@ -4627,6 +4679,9 @@ public class PaymentRequest {
     sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+    sb.append("    thirdPartyTokenRedundancyInfo: ")
+        .append(toIndentedString(thirdPartyTokenRedundancyInfo))
+        .append("\n");
     sb.append("    threeDS2RequestData: ")
         .append(toIndentedString(threeDS2RequestData))
         .append("\n");
@@ -4867,6 +4922,12 @@ public class PaymentRequest {
     }
     if (isSetTelephoneNumber) {
       addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
+    }
+    if (isSetThirdPartyTokenRedundancyInfo) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
+          this.thirdPartyTokenRedundancyInfo);
     }
     if (isSetThreeDS2RequestData) {
       addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);

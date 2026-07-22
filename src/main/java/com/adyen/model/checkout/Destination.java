@@ -56,12 +56,14 @@ public class Destination {
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or
    * three-letter [ISO 3166-1 alpha-3 country
    * code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address. *
-   * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters
+   * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters * **additionalData key:**
+   * &#x60;enhancedSchemeData.destinationCountryCode&#x60;
    *
    * @param countryCode The two-letter [ISO 3166-1
    *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or three-letter [ISO 3166-1
    *     alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination
-   *     address. * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters
+   *     address. * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters *
+   *     **additionalData key:** &#x60;enhancedSchemeData.destinationCountryCode&#x60;
    * @return the current {@code Destination} instance, allowing for method chaining
    */
   public Destination countryCode(String countryCode) {
@@ -74,12 +76,14 @@ public class Destination {
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or
    * three-letter [ISO 3166-1 alpha-3 country
    * code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address. *
-   * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters
+   * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters * **additionalData key:**
+   * &#x60;enhancedSchemeData.destinationCountryCode&#x60;
    *
    * @return countryCode The two-letter [ISO 3166-1
    *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or three-letter [ISO 3166-1
    *     alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination
-   *     address. * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters
+   *     address. * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters *
+   *     **additionalData key:** &#x60;enhancedSchemeData.destinationCountryCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,12 +95,14 @@ public class Destination {
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or
    * three-letter [ISO 3166-1 alpha-3 country
    * code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination address. *
-   * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters
+   * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters * **additionalData key:**
+   * &#x60;enhancedSchemeData.destinationCountryCode&#x60;
    *
    * @param countryCode The two-letter [ISO 3166-1
    *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or three-letter [ISO 3166-1
    *     alpha-3 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) for the destination
-   *     address. * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters
+   *     address. * Encoding: ASCII * Min length: 2 characters * Max length: 3 characters *
+   *     **additionalData key:** &#x60;enhancedSchemeData.destinationCountryCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,12 +115,13 @@ public class Destination {
    * The postal code of the destination address. * Encoding: ASCII * Max length: 10 characters *
    * Must not start with a space. * For the US, it must be in five or nine digits format. For
    * example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B
-   * 1G5.
+   * 1G5. * **additionalData key:** &#x60;enhancedSchemeData.destinationPostalCode&#x60;
    *
    * @param postalCode The postal code of the destination address. * Encoding: ASCII * Max length:
    *     10 characters * Must not start with a space. * For the US, it must be in five or nine
    *     digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits
-   *     format. For example, M4B 1G5.
+   *     format. For example, M4B 1G5. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.destinationPostalCode&#x60;
    * @return the current {@code Destination} instance, allowing for method chaining
    */
   public Destination postalCode(String postalCode) {
@@ -127,12 +134,13 @@ public class Destination {
    * The postal code of the destination address. * Encoding: ASCII * Max length: 10 characters *
    * Must not start with a space. * For the US, it must be in five or nine digits format. For
    * example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B
-   * 1G5.
+   * 1G5. * **additionalData key:** &#x60;enhancedSchemeData.destinationPostalCode&#x60;
    *
    * @return postalCode The postal code of the destination address. * Encoding: ASCII * Max length:
    *     10 characters * Must not start with a space. * For the US, it must be in five or nine
    *     digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits
-   *     format. For example, M4B 1G5.
+   *     format. For example, M4B 1G5. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.destinationPostalCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,12 +152,13 @@ public class Destination {
    * The postal code of the destination address. * Encoding: ASCII * Max length: 10 characters *
    * Must not start with a space. * For the US, it must be in five or nine digits format. For
    * example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B
-   * 1G5.
+   * 1G5. * **additionalData key:** &#x60;enhancedSchemeData.destinationPostalCode&#x60;
    *
    * @param postalCode The postal code of the destination address. * Encoding: ASCII * Max length:
    *     10 characters * Must not start with a space. * For the US, it must be in five or nine
    *     digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits
-   *     format. For example, M4B 1G5.
+   *     format. For example, M4B 1G5. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.destinationPostalCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,10 +169,12 @@ public class Destination {
 
   /**
    * The state or province code of the destination address. * Encoding: ASCII * Max length: 3
-   * characters * Must not start with a space.
+   * characters * Must not start with a space. * **additionalData key:**
+   * &#x60;enhancedSchemeData.destinationStateProvinceCode&#x60;
    *
    * @param stateOrProvince The state or province code of the destination address. * Encoding: ASCII
-   *     * Max length: 3 characters * Must not start with a space.
+   *     * Max length: 3 characters * Must not start with a space. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.destinationStateProvinceCode&#x60;
    * @return the current {@code Destination} instance, allowing for method chaining
    */
   public Destination stateOrProvince(String stateOrProvince) {
@@ -174,10 +185,12 @@ public class Destination {
 
   /**
    * The state or province code of the destination address. * Encoding: ASCII * Max length: 3
-   * characters * Must not start with a space.
+   * characters * Must not start with a space. * **additionalData key:**
+   * &#x60;enhancedSchemeData.destinationStateProvinceCode&#x60;
    *
    * @return stateOrProvince The state or province code of the destination address. * Encoding:
-   *     ASCII * Max length: 3 characters * Must not start with a space.
+   *     ASCII * Max length: 3 characters * Must not start with a space. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.destinationStateProvinceCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,10 +200,12 @@ public class Destination {
 
   /**
    * The state or province code of the destination address. * Encoding: ASCII * Max length: 3
-   * characters * Must not start with a space.
+   * characters * Must not start with a space. * **additionalData key:**
+   * &#x60;enhancedSchemeData.destinationStateProvinceCode&#x60;
    *
    * @param stateOrProvince The state or province code of the destination address. * Encoding: ASCII
-   *     * Max length: 3 characters * Must not start with a space.
+   *     * Max length: 3 characters * Must not start with a space. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.destinationStateProvinceCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

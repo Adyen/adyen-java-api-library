@@ -55,10 +55,11 @@ public class Ticket {
 
   /**
    * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength:
-   * 16 characters
+   * 16 characters * **additionalData key:** &#x60;airline.ticket_issue_address&#x60;
    *
    * @param issueAddress The address of the organization that issued the ticket. * minLength: 0
-   *     characters * maxLength: 16 characters
+   *     characters * maxLength: 16 characters * **additionalData key:**
+   *     &#x60;airline.ticket_issue_address&#x60;
    * @return the current {@code Ticket} instance, allowing for method chaining
    */
   public Ticket issueAddress(String issueAddress) {
@@ -69,10 +70,11 @@ public class Ticket {
 
   /**
    * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength:
-   * 16 characters
+   * 16 characters * **additionalData key:** &#x60;airline.ticket_issue_address&#x60;
    *
    * @return issueAddress The address of the organization that issued the ticket. * minLength: 0
-   *     characters * maxLength: 16 characters
+   *     characters * maxLength: 16 characters * **additionalData key:**
+   *     &#x60;airline.ticket_issue_address&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ISSUE_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,10 +84,11 @@ public class Ticket {
 
   /**
    * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength:
-   * 16 characters
+   * 16 characters * **additionalData key:** &#x60;airline.ticket_issue_address&#x60;
    *
    * @param issueAddress The address of the organization that issued the ticket. * minLength: 0
-   *     characters * maxLength: 16 characters
+   *     characters * maxLength: 16 characters * **additionalData key:**
+   *     &#x60;airline.ticket_issue_address&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ISSUE_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,11 +99,13 @@ public class Ticket {
 
   /**
    * The date that the ticket was issued to the passenger. * minLength: 10 characters * maxLength:
-   * 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd *
+   * **additionalData key:** &#x60;airline.issue_date&#x60;
    *
    * @param issueDate The date that the ticket was issued to the passenger. * minLength: 10
    *     characters * maxLength: 10 characters * Format [ISO
-   *     8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   *     8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:**
+   *     &#x60;airline.issue_date&#x60;
    * @return the current {@code Ticket} instance, allowing for method chaining
    */
   public Ticket issueDate(LocalDate issueDate) {
@@ -111,11 +116,13 @@ public class Ticket {
 
   /**
    * The date that the ticket was issued to the passenger. * minLength: 10 characters * maxLength:
-   * 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd *
+   * **additionalData key:** &#x60;airline.issue_date&#x60;
    *
    * @return issueDate The date that the ticket was issued to the passenger. * minLength: 10
    *     characters * maxLength: 10 characters * Format [ISO
-   *     8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   *     8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:**
+   *     &#x60;airline.issue_date&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ISSUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,11 +132,13 @@ public class Ticket {
 
   /**
    * The date that the ticket was issued to the passenger. * minLength: 10 characters * maxLength:
-   * 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd *
+   * **additionalData key:** &#x60;airline.issue_date&#x60;
    *
    * @param issueDate The date that the ticket was issued to the passenger. * minLength: 10
    *     characters * maxLength: 10 characters * Format [ISO
-   *     8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   *     8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:**
+   *     &#x60;airline.issue_date&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ISSUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,10 +149,12 @@ public class Ticket {
 
   /**
    * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must
-   * not start with a space or be all spaces. * Must not be all zeros.
+   * not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   * &#x60;airline.ticket_number&#x60;
    *
    * @param number The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15
-   *     characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   *     characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   *     **additionalData key:** &#x60;airline.ticket_number&#x60;
    * @return the current {@code Ticket} instance, allowing for method chaining
    */
   public Ticket number(String number) {
@@ -154,10 +165,12 @@ public class Ticket {
 
   /**
    * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must
-   * not start with a space or be all spaces. * Must not be all zeros.
+   * not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   * &#x60;airline.ticket_number&#x60;
    *
    * @return number The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15
-   *     characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   *     characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   *     **additionalData key:** &#x60;airline.ticket_number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,10 +180,12 @@ public class Ticket {
 
   /**
    * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must
-   * not start with a space or be all spaces. * Must not be all zeros.
+   * not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   * &#x60;airline.ticket_number&#x60;
    *
    * @param number The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15
-   *     characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   *     characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   *     **additionalData key:** &#x60;airline.ticket_number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

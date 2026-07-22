@@ -71,6 +71,7 @@ import java.util.logging.Logger;
   CreateCheckoutSessionRequest.JSON_PROPERTY_REFERENCE,
   CreateCheckoutSessionRequest.JSON_PROPERTY_RETURN_URL,
   CreateCheckoutSessionRequest.JSON_PROPERTY_RISK_DATA,
+  CreateCheckoutSessionRequest.JSON_PROPERTY_SHOPPER_CONVERSION_ID,
   CreateCheckoutSessionRequest.JSON_PROPERTY_SHOPPER_EMAIL,
   CreateCheckoutSessionRequest.JSON_PROPERTY_SHOPPER_I_P,
   CreateCheckoutSessionRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
@@ -89,6 +90,7 @@ import java.util.logging.Logger;
   CreateCheckoutSessionRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE,
   CreateCheckoutSessionRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   CreateCheckoutSessionRequest.JSON_PROPERTY_THEME_ID,
+  CreateCheckoutSessionRequest.JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
   CreateCheckoutSessionRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   CreateCheckoutSessionRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
   CreateCheckoutSessionRequest.JSON_PROPERTY_TRUSTED_SHOPPER
@@ -480,6 +482,12 @@ public class CreateCheckoutSessionRequest {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRiskData = false;
 
+  public static final String JSON_PROPERTY_SHOPPER_CONVERSION_ID = "shopperConversionId";
+  private String shopperConversionId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperConversionId = false;
+
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
 
@@ -743,6 +751,13 @@ public class CreateCheckoutSessionRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetThemeId = false;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO =
+      "thirdPartyTokenRedundancyInfo";
+  private ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetThirdPartyTokenRedundancyInfo = false;
 
   public static final String JSON_PROPERTY_THREE_D_S2_REQUEST_DATA = "threeDS2RequestData";
   private CheckoutSessionThreeDS2RequestData threeDS2RequestData;
@@ -2601,6 +2616,62 @@ public class CreateCheckoutSessionRequest {
   }
 
   /**
+   * Use this if you made a &#x60;/paymentMethods&#x60; request to get the payment methods for the
+   * shopper&#39;s checkout session. A unique ID to [connect the shopper to a single checkout
+   * session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id)
+   * that uses multiple API requests. You can use this to get insights into conversion rates.
+   *
+   * @param shopperConversionId Use this if you made a &#x60;/paymentMethods&#x60; request to get
+   *     the payment methods for the shopper&#39;s checkout session. A unique ID to [connect the
+   *     shopper to a single checkout
+   *     session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id)
+   *     that uses multiple API requests. You can use this to get insights into conversion rates.
+   * @return the current {@code CreateCheckoutSessionRequest} instance, allowing for method chaining
+   */
+  public CreateCheckoutSessionRequest shopperConversionId(String shopperConversionId) {
+    this.shopperConversionId = shopperConversionId;
+    isSetShopperConversionId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Use this if you made a &#x60;/paymentMethods&#x60; request to get the payment methods for the
+   * shopper&#39;s checkout session. A unique ID to [connect the shopper to a single checkout
+   * session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id)
+   * that uses multiple API requests. You can use this to get insights into conversion rates.
+   *
+   * @return shopperConversionId Use this if you made a &#x60;/paymentMethods&#x60; request to get
+   *     the payment methods for the shopper&#39;s checkout session. A unique ID to [connect the
+   *     shopper to a single checkout
+   *     session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id)
+   *     that uses multiple API requests. You can use this to get insights into conversion rates.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShopperConversionId() {
+    return shopperConversionId;
+  }
+
+  /**
+   * Use this if you made a &#x60;/paymentMethods&#x60; request to get the payment methods for the
+   * shopper&#39;s checkout session. A unique ID to [connect the shopper to a single checkout
+   * session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id)
+   * that uses multiple API requests. You can use this to get insights into conversion rates.
+   *
+   * @param shopperConversionId Use this if you made a &#x60;/paymentMethods&#x60; request to get
+   *     the payment methods for the shopper&#39;s checkout session. A unique ID to [connect the
+   *     shopper to a single checkout
+   *     session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id)
+   *     that uses multiple API requests. You can use this to get insights into conversion rates.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperConversionId(String shopperConversionId) {
+    this.shopperConversionId = shopperConversionId;
+    isSetShopperConversionId = true; // mark as set
+  }
+
+  /**
    * The shopper&#39;s email address.
    *
    * @param shopperEmail The shopper&#39;s email address.
@@ -3567,6 +3638,43 @@ public class CreateCheckoutSessionRequest {
   }
 
   /**
+   * thirdPartyTokenRedundancyInfo
+   *
+   * @param thirdPartyTokenRedundancyInfo
+   * @return the current {@code CreateCheckoutSessionRequest} instance, allowing for method chaining
+   */
+  public CreateCheckoutSessionRequest thirdPartyTokenRedundancyInfo(
+      ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo) {
+    this.thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+    isSetThirdPartyTokenRedundancyInfo = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get thirdPartyTokenRedundancyInfo
+   *
+   * @return thirdPartyTokenRedundancyInfo
+   */
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ThirdPartyTokenRedundancyInfo getThirdPartyTokenRedundancyInfo() {
+    return thirdPartyTokenRedundancyInfo;
+  }
+
+  /**
+   * thirdPartyTokenRedundancyInfo
+   *
+   * @param thirdPartyTokenRedundancyInfo
+   */
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThirdPartyTokenRedundancyInfo(
+      ThirdPartyTokenRedundancyInfo thirdPartyTokenRedundancyInfo) {
+    this.thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+    isSetThirdPartyTokenRedundancyInfo = true; // mark as set
+  }
+
+  /**
    * threeDS2RequestData
    *
    * @param threeDS2RequestData
@@ -3840,6 +3948,10 @@ public class CreateCheckoutSessionRequest {
         && Objects.equals(this.isSetReturnUrl, createCheckoutSessionRequest.isSetReturnUrl)
         && Objects.equals(this.riskData, createCheckoutSessionRequest.riskData)
         && Objects.equals(this.isSetRiskData, createCheckoutSessionRequest.isSetRiskData)
+        && Objects.equals(
+            this.shopperConversionId, createCheckoutSessionRequest.shopperConversionId)
+        && Objects.equals(
+            this.isSetShopperConversionId, createCheckoutSessionRequest.isSetShopperConversionId)
         && Objects.equals(this.shopperEmail, createCheckoutSessionRequest.shopperEmail)
         && Objects.equals(this.isSetShopperEmail, createCheckoutSessionRequest.isSetShopperEmail)
         && Objects.equals(this.shopperIP, createCheckoutSessionRequest.shopperIP)
@@ -3898,6 +4010,12 @@ public class CreateCheckoutSessionRequest {
             this.isSetTelephoneNumber, createCheckoutSessionRequest.isSetTelephoneNumber)
         && Objects.equals(this.themeId, createCheckoutSessionRequest.themeId)
         && Objects.equals(this.isSetThemeId, createCheckoutSessionRequest.isSetThemeId)
+        && Objects.equals(
+            this.thirdPartyTokenRedundancyInfo,
+            createCheckoutSessionRequest.thirdPartyTokenRedundancyInfo)
+        && Objects.equals(
+            this.isSetThirdPartyTokenRedundancyInfo,
+            createCheckoutSessionRequest.isSetThirdPartyTokenRedundancyInfo)
         && Objects.equals(
             this.threeDS2RequestData, createCheckoutSessionRequest.threeDS2RequestData)
         && Objects.equals(
@@ -3995,6 +4113,8 @@ public class CreateCheckoutSessionRequest {
         isSetReturnUrl,
         riskData,
         isSetRiskData,
+        shopperConversionId,
+        isSetShopperConversionId,
         shopperEmail,
         isSetShopperEmail,
         shopperIP,
@@ -4031,6 +4151,8 @@ public class CreateCheckoutSessionRequest {
         isSetTelephoneNumber,
         themeId,
         isSetThemeId,
+        thirdPartyTokenRedundancyInfo,
+        isSetThirdPartyTokenRedundancyInfo,
         threeDS2RequestData,
         isSetThreeDS2RequestData,
         threeDSAuthenticationOnly,
@@ -4097,6 +4219,9 @@ public class CreateCheckoutSessionRequest {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
+    sb.append("    shopperConversionId: ")
+        .append(toIndentedString(shopperConversionId))
+        .append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
@@ -4127,6 +4252,9 @@ public class CreateCheckoutSessionRequest {
         .append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
+    sb.append("    thirdPartyTokenRedundancyInfo: ")
+        .append(toIndentedString(thirdPartyTokenRedundancyInfo))
+        .append("\n");
     sb.append("    threeDS2RequestData: ")
         .append(toIndentedString(threeDS2RequestData))
         .append("\n");
@@ -4278,6 +4406,9 @@ public class CreateCheckoutSessionRequest {
     if (isSetRiskData) {
       addIfNull(nulls, JSON_PROPERTY_RISK_DATA, this.riskData);
     }
+    if (isSetShopperConversionId) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_CONVERSION_ID, this.shopperConversionId);
+    }
     if (isSetShopperEmail) {
       addIfNull(nulls, JSON_PROPERTY_SHOPPER_EMAIL, this.shopperEmail);
     }
@@ -4334,6 +4465,12 @@ public class CreateCheckoutSessionRequest {
     }
     if (isSetThemeId) {
       addIfNull(nulls, JSON_PROPERTY_THEME_ID, this.themeId);
+    }
+    if (isSetThirdPartyTokenRedundancyInfo) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
+          this.thirdPartyTokenRedundancyInfo);
     }
     if (isSetThreeDS2RequestData) {
       addIfNull(nulls, JSON_PROPERTY_THREE_D_S2_REQUEST_DATA, this.threeDS2RequestData);

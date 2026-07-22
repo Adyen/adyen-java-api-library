@@ -20,8 +20,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** CardBrandDetails */
-@JsonPropertyOrder({CardBrandDetails.JSON_PROPERTY_SUPPORTED, CardBrandDetails.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({
+  CardBrandDetails.JSON_PROPERTY_HEALTHCARE,
+  CardBrandDetails.JSON_PROPERTY_SUPPORTED,
+  CardBrandDetails.JSON_PROPERTY_TYPE
+})
 public class CardBrandDetails {
+  public static final String JSON_PROPERTY_HEALTHCARE = "healthcare";
+  private Boolean healthcare;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHealthcare = false;
+
   public static final String JSON_PROPERTY_SUPPORTED = "supported";
   private Boolean supported;
 
@@ -41,6 +51,41 @@ public class CardBrandDetails {
   @JsonIgnore private boolean includeNullValues = false;
 
   public CardBrandDetails() {}
+
+  /**
+   * Indicates if the card supports FSA/HSA healthcare payments.
+   *
+   * @param healthcare Indicates if the card supports FSA/HSA healthcare payments.
+   * @return the current {@code CardBrandDetails} instance, allowing for method chaining
+   */
+  public CardBrandDetails healthcare(Boolean healthcare) {
+    this.healthcare = healthcare;
+    isSetHealthcare = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates if the card supports FSA/HSA healthcare payments.
+   *
+   * @return healthcare Indicates if the card supports FSA/HSA healthcare payments.
+   */
+  @JsonProperty(JSON_PROPERTY_HEALTHCARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHealthcare() {
+    return healthcare;
+  }
+
+  /**
+   * Indicates if the card supports FSA/HSA healthcare payments.
+   *
+   * @param healthcare Indicates if the card supports FSA/HSA healthcare payments.
+   */
+  @JsonProperty(JSON_PROPERTY_HEALTHCARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHealthcare(Boolean healthcare) {
+    this.healthcare = healthcare;
+    isSetHealthcare = true; // mark as set
+  }
 
   /**
    * Indicates if you support the card brand.
@@ -142,7 +187,9 @@ public class CardBrandDetails {
       return false;
     }
     CardBrandDetails cardBrandDetails = (CardBrandDetails) o;
-    return Objects.equals(this.supported, cardBrandDetails.supported)
+    return Objects.equals(this.healthcare, cardBrandDetails.healthcare)
+        && Objects.equals(this.isSetHealthcare, cardBrandDetails.isSetHealthcare)
+        && Objects.equals(this.supported, cardBrandDetails.supported)
         && Objects.equals(this.isSetSupported, cardBrandDetails.isSetSupported)
         && Objects.equals(this.type, cardBrandDetails.type)
         && Objects.equals(this.isSetType, cardBrandDetails.isSetType);
@@ -150,13 +197,14 @@ public class CardBrandDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(supported, isSetSupported, type, isSetType);
+    return Objects.hash(healthcare, isSetHealthcare, supported, isSetSupported, type, isSetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardBrandDetails {\n");
+    sb.append("    healthcare: ").append(toIndentedString(healthcare)).append("\n");
     sb.append("    supported: ").append(toIndentedString(supported)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -183,6 +231,9 @@ public class CardBrandDetails {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetHealthcare) {
+      addIfNull(nulls, JSON_PROPERTY_HEALTHCARE, this.healthcare);
+    }
     if (isSetSupported) {
       addIfNull(nulls, JSON_PROPERTY_SUPPORTED, this.supported);
     }

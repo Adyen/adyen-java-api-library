@@ -34,10 +34,17 @@ import java.util.*;
   LineItem.JSON_PROPERTY_PRODUCT_URL,
   LineItem.JSON_PROPERTY_QUANTITY,
   LineItem.JSON_PROPERTY_RECEIVER_EMAIL,
+  LineItem.JSON_PROPERTY_RETURN_SHIPPING_COMPANY,
+  LineItem.JSON_PROPERTY_RETURN_TRACKING_NUMBER,
+  LineItem.JSON_PROPERTY_RETURN_TRACKING_URI,
+  LineItem.JSON_PROPERTY_SHIPPING_COMPANY,
+  LineItem.JSON_PROPERTY_SHIPPING_METHOD,
   LineItem.JSON_PROPERTY_SIZE,
   LineItem.JSON_PROPERTY_SKU,
   LineItem.JSON_PROPERTY_TAX_AMOUNT,
   LineItem.JSON_PROPERTY_TAX_PERCENTAGE,
+  LineItem.JSON_PROPERTY_TRACKING_NUMBER,
+  LineItem.JSON_PROPERTY_TRACKING_URI,
   LineItem.JSON_PROPERTY_UPC
 })
 public class LineItem {
@@ -119,6 +126,36 @@ public class LineItem {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetReceiverEmail = false;
 
+  public static final String JSON_PROPERTY_RETURN_SHIPPING_COMPANY = "returnShippingCompany";
+  private String returnShippingCompany;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnShippingCompany = false;
+
+  public static final String JSON_PROPERTY_RETURN_TRACKING_NUMBER = "returnTrackingNumber";
+  private String returnTrackingNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnTrackingNumber = false;
+
+  public static final String JSON_PROPERTY_RETURN_TRACKING_URI = "returnTrackingUri";
+  private String returnTrackingUri;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReturnTrackingUri = false;
+
+  public static final String JSON_PROPERTY_SHIPPING_COMPANY = "shippingCompany";
+  private String shippingCompany;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShippingCompany = false;
+
+  public static final String JSON_PROPERTY_SHIPPING_METHOD = "shippingMethod";
+  private String shippingMethod;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShippingMethod = false;
+
   public static final String JSON_PROPERTY_SIZE = "size";
   private String size;
 
@@ -142,6 +179,18 @@ public class LineItem {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTaxPercentage = false;
+
+  public static final String JSON_PROPERTY_TRACKING_NUMBER = "trackingNumber";
+  private String trackingNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrackingNumber = false;
+
+  public static final String JSON_PROPERTY_TRACKING_URI = "trackingUri";
+  private String trackingUri;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTrackingUri = false;
 
   public static final String JSON_PROPERTY_UPC = "upc";
   private String upc;
@@ -628,6 +677,181 @@ public class LineItem {
   }
 
   /**
+   * Shipping company handling the return of the item.
+   *
+   * @param returnShippingCompany Shipping company handling the return of the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem returnShippingCompany(String returnShippingCompany) {
+    this.returnShippingCompany = returnShippingCompany;
+    isSetReturnShippingCompany = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Shipping company handling the return of the item.
+   *
+   * @return returnShippingCompany Shipping company handling the return of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReturnShippingCompany() {
+    return returnShippingCompany;
+  }
+
+  /**
+   * Shipping company handling the return of the item.
+   *
+   * @param returnShippingCompany Shipping company handling the return of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReturnShippingCompany(String returnShippingCompany) {
+    this.returnShippingCompany = returnShippingCompany;
+    isSetReturnShippingCompany = true; // mark as set
+  }
+
+  /**
+   * Tracking number for the return of the item.
+   *
+   * @param returnTrackingNumber Tracking number for the return of the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem returnTrackingNumber(String returnTrackingNumber) {
+    this.returnTrackingNumber = returnTrackingNumber;
+    isSetReturnTrackingNumber = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Tracking number for the return of the item.
+   *
+   * @return returnTrackingNumber Tracking number for the return of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReturnTrackingNumber() {
+    return returnTrackingNumber;
+  }
+
+  /**
+   * Tracking number for the return of the item.
+   *
+   * @param returnTrackingNumber Tracking number for the return of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReturnTrackingNumber(String returnTrackingNumber) {
+    this.returnTrackingNumber = returnTrackingNumber;
+    isSetReturnTrackingNumber = true; // mark as set
+  }
+
+  /**
+   * Tracking URI for the return of the item.
+   *
+   * @param returnTrackingUri Tracking URI for the return of the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem returnTrackingUri(String returnTrackingUri) {
+    this.returnTrackingUri = returnTrackingUri;
+    isSetReturnTrackingUri = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Tracking URI for the return of the item.
+   *
+   * @return returnTrackingUri Tracking URI for the return of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReturnTrackingUri() {
+    return returnTrackingUri;
+  }
+
+  /**
+   * Tracking URI for the return of the item.
+   *
+   * @param returnTrackingUri Tracking URI for the return of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_RETURN_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReturnTrackingUri(String returnTrackingUri) {
+    this.returnTrackingUri = returnTrackingUri;
+    isSetReturnTrackingUri = true; // mark as set
+  }
+
+  /**
+   * Shipping company handling the delivery of the item.
+   *
+   * @param shippingCompany Shipping company handling the delivery of the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem shippingCompany(String shippingCompany) {
+    this.shippingCompany = shippingCompany;
+    isSetShippingCompany = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Shipping company handling the delivery of the item.
+   *
+   * @return shippingCompany Shipping company handling the delivery of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShippingCompany() {
+    return shippingCompany;
+  }
+
+  /**
+   * Shipping company handling the delivery of the item.
+   *
+   * @param shippingCompany Shipping company handling the delivery of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_SHIPPING_COMPANY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShippingCompany(String shippingCompany) {
+    this.shippingCompany = shippingCompany;
+    isSetShippingCompany = true; // mark as set
+  }
+
+  /**
+   * Shipping method used to deliver the item.
+   *
+   * @param shippingMethod Shipping method used to deliver the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem shippingMethod(String shippingMethod) {
+    this.shippingMethod = shippingMethod;
+    isSetShippingMethod = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Shipping method used to deliver the item.
+   *
+   * @return shippingMethod Shipping method used to deliver the item.
+   */
+  @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShippingMethod() {
+    return shippingMethod;
+  }
+
+  /**
+   * Shipping method used to deliver the item.
+   *
+   * @param shippingMethod Shipping method used to deliver the item.
+   */
+  @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShippingMethod(String shippingMethod) {
+    this.shippingMethod = shippingMethod;
+    isSetShippingMethod = true; // mark as set
+  }
+
+  /**
    * Size of the item.
    *
    * @param size Size of the item.
@@ -786,6 +1010,76 @@ public class LineItem {
   }
 
   /**
+   * Tracking number for the delivery of the item.
+   *
+   * @param trackingNumber Tracking number for the delivery of the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem trackingNumber(String trackingNumber) {
+    this.trackingNumber = trackingNumber;
+    isSetTrackingNumber = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Tracking number for the delivery of the item.
+   *
+   * @return trackingNumber Tracking number for the delivery of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTrackingNumber() {
+    return trackingNumber;
+  }
+
+  /**
+   * Tracking number for the delivery of the item.
+   *
+   * @param trackingNumber Tracking number for the delivery of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrackingNumber(String trackingNumber) {
+    this.trackingNumber = trackingNumber;
+    isSetTrackingNumber = true; // mark as set
+  }
+
+  /**
+   * Tracking URI for the delivery of the item.
+   *
+   * @param trackingUri Tracking URI for the delivery of the item.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem trackingUri(String trackingUri) {
+    this.trackingUri = trackingUri;
+    isSetTrackingUri = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Tracking URI for the delivery of the item.
+   *
+   * @return trackingUri Tracking URI for the delivery of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTrackingUri() {
+    return trackingUri;
+  }
+
+  /**
+   * Tracking URI for the delivery of the item.
+   *
+   * @param trackingUri Tracking URI for the delivery of the item.
+   */
+  @JsonProperty(JSON_PROPERTY_TRACKING_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrackingUri(String trackingUri) {
+    this.trackingUri = trackingUri;
+    isSetTrackingUri = true; // mark as set
+  }
+
+  /**
    * Universal Product Code.
    *
    * @param upc Universal Product Code.
@@ -876,6 +1170,16 @@ public class LineItem {
         && Objects.equals(this.isSetQuantity, lineItem.isSetQuantity)
         && Objects.equals(this.receiverEmail, lineItem.receiverEmail)
         && Objects.equals(this.isSetReceiverEmail, lineItem.isSetReceiverEmail)
+        && Objects.equals(this.returnShippingCompany, lineItem.returnShippingCompany)
+        && Objects.equals(this.isSetReturnShippingCompany, lineItem.isSetReturnShippingCompany)
+        && Objects.equals(this.returnTrackingNumber, lineItem.returnTrackingNumber)
+        && Objects.equals(this.isSetReturnTrackingNumber, lineItem.isSetReturnTrackingNumber)
+        && Objects.equals(this.returnTrackingUri, lineItem.returnTrackingUri)
+        && Objects.equals(this.isSetReturnTrackingUri, lineItem.isSetReturnTrackingUri)
+        && Objects.equals(this.shippingCompany, lineItem.shippingCompany)
+        && Objects.equals(this.isSetShippingCompany, lineItem.isSetShippingCompany)
+        && Objects.equals(this.shippingMethod, lineItem.shippingMethod)
+        && Objects.equals(this.isSetShippingMethod, lineItem.isSetShippingMethod)
         && Objects.equals(this.size, lineItem.size)
         && Objects.equals(this.isSetSize, lineItem.isSetSize)
         && Objects.equals(this.sku, lineItem.sku)
@@ -884,6 +1188,10 @@ public class LineItem {
         && Objects.equals(this.isSetTaxAmount, lineItem.isSetTaxAmount)
         && Objects.equals(this.taxPercentage, lineItem.taxPercentage)
         && Objects.equals(this.isSetTaxPercentage, lineItem.isSetTaxPercentage)
+        && Objects.equals(this.trackingNumber, lineItem.trackingNumber)
+        && Objects.equals(this.isSetTrackingNumber, lineItem.isSetTrackingNumber)
+        && Objects.equals(this.trackingUri, lineItem.trackingUri)
+        && Objects.equals(this.isSetTrackingUri, lineItem.isSetTrackingUri)
         && Objects.equals(this.upc, lineItem.upc)
         && Objects.equals(this.isSetUpc, lineItem.isSetUpc);
   }
@@ -917,6 +1225,16 @@ public class LineItem {
         isSetQuantity,
         receiverEmail,
         isSetReceiverEmail,
+        returnShippingCompany,
+        isSetReturnShippingCompany,
+        returnTrackingNumber,
+        isSetReturnTrackingNumber,
+        returnTrackingUri,
+        isSetReturnTrackingUri,
+        shippingCompany,
+        isSetShippingCompany,
+        shippingMethod,
+        isSetShippingMethod,
         size,
         isSetSize,
         sku,
@@ -925,6 +1243,10 @@ public class LineItem {
         isSetTaxAmount,
         taxPercentage,
         isSetTaxPercentage,
+        trackingNumber,
+        isSetTrackingNumber,
+        trackingUri,
+        isSetTrackingUri,
         upc,
         isSetUpc);
   }
@@ -948,10 +1270,21 @@ public class LineItem {
     sb.append("    productUrl: ").append(toIndentedString(productUrl)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    receiverEmail: ").append(toIndentedString(receiverEmail)).append("\n");
+    sb.append("    returnShippingCompany: ")
+        .append(toIndentedString(returnShippingCompany))
+        .append("\n");
+    sb.append("    returnTrackingNumber: ")
+        .append(toIndentedString(returnTrackingNumber))
+        .append("\n");
+    sb.append("    returnTrackingUri: ").append(toIndentedString(returnTrackingUri)).append("\n");
+    sb.append("    shippingCompany: ").append(toIndentedString(shippingCompany)).append("\n");
+    sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
     sb.append("    taxPercentage: ").append(toIndentedString(taxPercentage)).append("\n");
+    sb.append("    trackingNumber: ").append(toIndentedString(trackingNumber)).append("\n");
+    sb.append("    trackingUri: ").append(toIndentedString(trackingUri)).append("\n");
     sb.append("    upc: ").append(toIndentedString(upc)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1016,6 +1349,21 @@ public class LineItem {
     if (isSetReceiverEmail) {
       addIfNull(nulls, JSON_PROPERTY_RECEIVER_EMAIL, this.receiverEmail);
     }
+    if (isSetReturnShippingCompany) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_SHIPPING_COMPANY, this.returnShippingCompany);
+    }
+    if (isSetReturnTrackingNumber) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_TRACKING_NUMBER, this.returnTrackingNumber);
+    }
+    if (isSetReturnTrackingUri) {
+      addIfNull(nulls, JSON_PROPERTY_RETURN_TRACKING_URI, this.returnTrackingUri);
+    }
+    if (isSetShippingCompany) {
+      addIfNull(nulls, JSON_PROPERTY_SHIPPING_COMPANY, this.shippingCompany);
+    }
+    if (isSetShippingMethod) {
+      addIfNull(nulls, JSON_PROPERTY_SHIPPING_METHOD, this.shippingMethod);
+    }
     if (isSetSize) {
       addIfNull(nulls, JSON_PROPERTY_SIZE, this.size);
     }
@@ -1027,6 +1375,12 @@ public class LineItem {
     }
     if (isSetTaxPercentage) {
       addIfNull(nulls, JSON_PROPERTY_TAX_PERCENTAGE, this.taxPercentage);
+    }
+    if (isSetTrackingNumber) {
+      addIfNull(nulls, JSON_PROPERTY_TRACKING_NUMBER, this.trackingNumber);
+    }
+    if (isSetTrackingUri) {
+      addIfNull(nulls, JSON_PROPERTY_TRACKING_URI, this.trackingUri);
     }
     if (isSetUpc) {
       addIfNull(nulls, JSON_PROPERTY_UPC, this.upc);

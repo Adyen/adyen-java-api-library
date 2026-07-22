@@ -69,10 +69,11 @@ public class Passenger {
 
   /**
    * The passenger&#39;s date of birth. * Format &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength:
-   * 10
+   * 10 * **additionalData key:** &#x60;airline.passenger[N].date_of_birth&#x60;
    *
    * @param dateOfBirth The passenger&#39;s date of birth. * Format &#x60;yyyy-MM-dd&#x60; *
-   *     minLength: 10 * maxLength: 10
+   *     minLength: 10 * maxLength: 10 * **additionalData key:**
+   *     &#x60;airline.passenger[N].date_of_birth&#x60;
    * @return the current {@code Passenger} instance, allowing for method chaining
    */
   public Passenger dateOfBirth(LocalDate dateOfBirth) {
@@ -83,10 +84,11 @@ public class Passenger {
 
   /**
    * The passenger&#39;s date of birth. * Format &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength:
-   * 10
+   * 10 * **additionalData key:** &#x60;airline.passenger[N].date_of_birth&#x60;
    *
    * @return dateOfBirth The passenger&#39;s date of birth. * Format &#x60;yyyy-MM-dd&#x60; *
-   *     minLength: 10 * maxLength: 10
+   *     minLength: 10 * maxLength: 10 * **additionalData key:**
+   *     &#x60;airline.passenger[N].date_of_birth&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,10 +98,11 @@ public class Passenger {
 
   /**
    * The passenger&#39;s date of birth. * Format &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength:
-   * 10
+   * 10 * **additionalData key:** &#x60;airline.passenger[N].date_of_birth&#x60;
    *
    * @param dateOfBirth The passenger&#39;s date of birth. * Format &#x60;yyyy-MM-dd&#x60; *
-   *     minLength: 10 * maxLength: 10
+   *     minLength: 10 * maxLength: 10 * **additionalData key:**
+   *     &#x60;airline.passenger[N].date_of_birth&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,10 +113,12 @@ public class Passenger {
 
   /**
    * The passenger&#39;s first name. &gt; This field is required if the airline data includes
-   * passenger details or leg details. * Encoding: ASCII
+   * passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   * &#x60;airline.passenger[N].first_name&#x60;
    *
    * @param firstName The passenger&#39;s first name. &gt; This field is required if the airline
-   *     data includes passenger details or leg details. * Encoding: ASCII
+   *     data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   *     &#x60;airline.passenger[N].first_name&#x60;
    * @return the current {@code Passenger} instance, allowing for method chaining
    */
   public Passenger firstName(String firstName) {
@@ -124,10 +129,12 @@ public class Passenger {
 
   /**
    * The passenger&#39;s first name. &gt; This field is required if the airline data includes
-   * passenger details or leg details. * Encoding: ASCII
+   * passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   * &#x60;airline.passenger[N].first_name&#x60;
    *
    * @return firstName The passenger&#39;s first name. &gt; This field is required if the airline
-   *     data includes passenger details or leg details. * Encoding: ASCII
+   *     data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   *     &#x60;airline.passenger[N].first_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,10 +144,12 @@ public class Passenger {
 
   /**
    * The passenger&#39;s first name. &gt; This field is required if the airline data includes
-   * passenger details or leg details. * Encoding: ASCII
+   * passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   * &#x60;airline.passenger[N].first_name&#x60;
    *
    * @param firstName The passenger&#39;s first name. &gt; This field is required if the airline
-   *     data includes passenger details or leg details. * Encoding: ASCII
+   *     data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   *     &#x60;airline.passenger[N].first_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,10 +160,12 @@ public class Passenger {
 
   /**
    * The passenger&#39;s last name. &gt; This field is required if the airline data includes
-   * passenger details or leg details. * Encoding: ASCII
+   * passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   * &#x60;airline.passenger[N].last_name&#x60;
    *
    * @param lastName The passenger&#39;s last name. &gt; This field is required if the airline data
-   *     includes passenger details or leg details. * Encoding: ASCII
+   *     includes passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   *     &#x60;airline.passenger[N].last_name&#x60;
    * @return the current {@code Passenger} instance, allowing for method chaining
    */
   public Passenger lastName(String lastName) {
@@ -165,10 +176,12 @@ public class Passenger {
 
   /**
    * The passenger&#39;s last name. &gt; This field is required if the airline data includes
-   * passenger details or leg details. * Encoding: ASCII
+   * passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   * &#x60;airline.passenger[N].last_name&#x60;
    *
    * @return lastName The passenger&#39;s last name. &gt; This field is required if the airline data
-   *     includes passenger details or leg details. * Encoding: ASCII
+   *     includes passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   *     &#x60;airline.passenger[N].last_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,10 +191,12 @@ public class Passenger {
 
   /**
    * The passenger&#39;s last name. &gt; This field is required if the airline data includes
-   * passenger details or leg details. * Encoding: ASCII
+   * passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   * &#x60;airline.passenger[N].last_name&#x60;
    *
    * @param lastName The passenger&#39;s last name. &gt; This field is required if the airline data
-   *     includes passenger details or leg details. * Encoding: ASCII
+   *     includes passenger details or leg details. * Encoding: ASCII * **additionalData key:**
+   *     &#x60;airline.passenger[N].last_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,11 +208,13 @@ public class Passenger {
   /**
    * The passenger&#39;s phone number, including country code. This is an alphanumeric field that
    * can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters
-   * * maxLength: 30 characters
+   * * maxLength: 30 characters * **additionalData key:**
+   * &#x60;airline.passenger[N].phone_number&#x60;
    *
    * @param phoneNumber The passenger&#39;s phone number, including country code. This is an
    *     alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding:
-   *     ASCII * minLength: 3 characters * maxLength: 30 characters
+   *     ASCII * minLength: 3 characters * maxLength: 30 characters * **additionalData key:**
+   *     &#x60;airline.passenger[N].phone_number&#x60;
    * @return the current {@code Passenger} instance, allowing for method chaining
    */
   public Passenger phoneNumber(String phoneNumber) {
@@ -209,11 +226,13 @@ public class Passenger {
   /**
    * The passenger&#39;s phone number, including country code. This is an alphanumeric field that
    * can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters
-   * * maxLength: 30 characters
+   * * maxLength: 30 characters * **additionalData key:**
+   * &#x60;airline.passenger[N].phone_number&#x60;
    *
    * @return phoneNumber The passenger&#39;s phone number, including country code. This is an
    *     alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding:
-   *     ASCII * minLength: 3 characters * maxLength: 30 characters
+   *     ASCII * minLength: 3 characters * maxLength: 30 characters * **additionalData key:**
+   *     &#x60;airline.passenger[N].phone_number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,11 +243,13 @@ public class Passenger {
   /**
    * The passenger&#39;s phone number, including country code. This is an alphanumeric field that
    * can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters
-   * * maxLength: 30 characters
+   * * maxLength: 30 characters * **additionalData key:**
+   * &#x60;airline.passenger[N].phone_number&#x60;
    *
    * @param phoneNumber The passenger&#39;s phone number, including country code. This is an
    *     alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding:
-   *     ASCII * minLength: 3 characters * maxLength: 30 characters
+   *     ASCII * minLength: 3 characters * maxLength: 30 characters * **additionalData key:**
+   *     &#x60;airline.passenger[N].phone_number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,10 +260,11 @@ public class Passenger {
 
   /**
    * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6
-   * characters
+   * characters * **additionalData key:** &#x60;airline.passenger[N].traveller_type&#x60;
    *
    * @param travellerType The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3
-   *     characters * maxLength: 6 characters
+   *     characters * maxLength: 6 characters * **additionalData key:**
+   *     &#x60;airline.passenger[N].traveller_type&#x60;
    * @return the current {@code Passenger} instance, allowing for method chaining
    */
   public Passenger travellerType(String travellerType) {
@@ -253,10 +275,11 @@ public class Passenger {
 
   /**
    * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6
-   * characters
+   * characters * **additionalData key:** &#x60;airline.passenger[N].traveller_type&#x60;
    *
    * @return travellerType The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3
-   *     characters * maxLength: 6 characters
+   *     characters * maxLength: 6 characters * **additionalData key:**
+   *     &#x60;airline.passenger[N].traveller_type&#x60;
    */
   @JsonProperty(JSON_PROPERTY_TRAVELLER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,10 +289,11 @@ public class Passenger {
 
   /**
    * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6
-   * characters
+   * characters * **additionalData key:** &#x60;airline.passenger[N].traveller_type&#x60;
    *
    * @param travellerType The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3
-   *     characters * maxLength: 6 characters
+   *     characters * maxLength: 6 characters * **additionalData key:**
+   *     &#x60;airline.passenger[N].traveller_type&#x60;
    */
   @JsonProperty(JSON_PROPERTY_TRAVELLER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
