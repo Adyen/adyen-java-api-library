@@ -401,6 +401,30 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     schemas.put("CheckoutThreeDS2Action", new GenericType<CheckoutThreeDS2Action>() {});
     schemas.put("CheckoutVoucherAction", new GenericType<CheckoutVoucherAction>() {});
     JSON.registerDescendants(PaymentResponseAction.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("await", CheckoutAwaitAction.class);
+    mappings.put("bankTransfer", CheckoutBankTransferAction.class);
+    mappings.put("delegatedAuthentication", CheckoutDelegatedAuthenticationAction.class);
+    mappings.put("nativeRedirect", CheckoutNativeRedirectAction.class);
+    mappings.put("qrCode", CheckoutQrCodeAction.class);
+    mappings.put("redirect", CheckoutRedirectAction.class);
+    mappings.put("sdk", CheckoutSDKAction.class);
+    mappings.put("threeDS2", CheckoutThreeDS2Action.class);
+    mappings.put("voucher", CheckoutVoucherAction.class);
+    mappings.put("wechatpaySDK", CheckoutSDKAction.class);
+    mappings.put("CheckoutAwaitAction", CheckoutAwaitAction.class);
+    mappings.put("CheckoutBankTransferAction", CheckoutBankTransferAction.class);
+    mappings.put(
+        "CheckoutDelegatedAuthenticationAction", CheckoutDelegatedAuthenticationAction.class);
+    mappings.put("CheckoutNativeRedirectAction", CheckoutNativeRedirectAction.class);
+    mappings.put("CheckoutQrCodeAction", CheckoutQrCodeAction.class);
+    mappings.put("CheckoutRedirectAction", CheckoutRedirectAction.class);
+    mappings.put("CheckoutSDKAction", CheckoutSDKAction.class);
+    mappings.put("CheckoutThreeDS2Action", CheckoutThreeDS2Action.class);
+    mappings.put("CheckoutVoucherAction", CheckoutVoucherAction.class);
+    mappings.put("PaymentResponse_action", PaymentResponseAction.class);
+    JSON.registerDiscriminator(PaymentResponseAction.class, "type", mappings);
   }
 
   @Override

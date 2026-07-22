@@ -22,7 +22,11 @@ import java.util.*;
 /** EnhancedSchemeData */
 @JsonPropertyOrder({
   EnhancedSchemeData.JSON_PROPERTY_AIRLINE,
-  EnhancedSchemeData.JSON_PROPERTY_LEVEL_TWO_THREE
+  EnhancedSchemeData.JSON_PROPERTY_CAR_RENTAL,
+  EnhancedSchemeData.JSON_PROPERTY_HEALTHCARE,
+  EnhancedSchemeData.JSON_PROPERTY_LEVEL_TWO_THREE,
+  EnhancedSchemeData.JSON_PROPERTY_LODGING,
+  EnhancedSchemeData.JSON_PROPERTY_TEMPORARY_SERVICES
 })
 public class EnhancedSchemeData {
   public static final String JSON_PROPERTY_AIRLINE = "airline";
@@ -31,11 +35,35 @@ public class EnhancedSchemeData {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAirline = false;
 
+  public static final String JSON_PROPERTY_CAR_RENTAL = "carRental";
+  private CarRental carRental;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCarRental = false;
+
+  public static final String JSON_PROPERTY_HEALTHCARE = "healthcare";
+  private Healthcare healthcare;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHealthcare = false;
+
   public static final String JSON_PROPERTY_LEVEL_TWO_THREE = "levelTwoThree";
   private LevelTwoThree levelTwoThree;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLevelTwoThree = false;
+
+  public static final String JSON_PROPERTY_LODGING = "lodging";
+  private Lodging lodging;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLodging = false;
+
+  public static final String JSON_PROPERTY_TEMPORARY_SERVICES = "temporaryServices";
+  private TemporaryServices temporaryServices;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTemporaryServices = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -81,6 +109,76 @@ public class EnhancedSchemeData {
   }
 
   /**
+   * carRental
+   *
+   * @param carRental
+   * @return the current {@code EnhancedSchemeData} instance, allowing for method chaining
+   */
+  public EnhancedSchemeData carRental(CarRental carRental) {
+    this.carRental = carRental;
+    isSetCarRental = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get carRental
+   *
+   * @return carRental
+   */
+  @JsonProperty(JSON_PROPERTY_CAR_RENTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CarRental getCarRental() {
+    return carRental;
+  }
+
+  /**
+   * carRental
+   *
+   * @param carRental
+   */
+  @JsonProperty(JSON_PROPERTY_CAR_RENTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCarRental(CarRental carRental) {
+    this.carRental = carRental;
+    isSetCarRental = true; // mark as set
+  }
+
+  /**
+   * healthcare
+   *
+   * @param healthcare
+   * @return the current {@code EnhancedSchemeData} instance, allowing for method chaining
+   */
+  public EnhancedSchemeData healthcare(Healthcare healthcare) {
+    this.healthcare = healthcare;
+    isSetHealthcare = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get healthcare
+   *
+   * @return healthcare
+   */
+  @JsonProperty(JSON_PROPERTY_HEALTHCARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Healthcare getHealthcare() {
+    return healthcare;
+  }
+
+  /**
+   * healthcare
+   *
+   * @param healthcare
+   */
+  @JsonProperty(JSON_PROPERTY_HEALTHCARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHealthcare(Healthcare healthcare) {
+    this.healthcare = healthcare;
+    isSetHealthcare = true; // mark as set
+  }
+
+  /**
    * levelTwoThree
    *
    * @param levelTwoThree
@@ -116,6 +214,76 @@ public class EnhancedSchemeData {
   }
 
   /**
+   * lodging
+   *
+   * @param lodging
+   * @return the current {@code EnhancedSchemeData} instance, allowing for method chaining
+   */
+  public EnhancedSchemeData lodging(Lodging lodging) {
+    this.lodging = lodging;
+    isSetLodging = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get lodging
+   *
+   * @return lodging
+   */
+  @JsonProperty(JSON_PROPERTY_LODGING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Lodging getLodging() {
+    return lodging;
+  }
+
+  /**
+   * lodging
+   *
+   * @param lodging
+   */
+  @JsonProperty(JSON_PROPERTY_LODGING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLodging(Lodging lodging) {
+    this.lodging = lodging;
+    isSetLodging = true; // mark as set
+  }
+
+  /**
+   * temporaryServices
+   *
+   * @param temporaryServices
+   * @return the current {@code EnhancedSchemeData} instance, allowing for method chaining
+   */
+  public EnhancedSchemeData temporaryServices(TemporaryServices temporaryServices) {
+    this.temporaryServices = temporaryServices;
+    isSetTemporaryServices = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get temporaryServices
+   *
+   * @return temporaryServices
+   */
+  @JsonProperty(JSON_PROPERTY_TEMPORARY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TemporaryServices getTemporaryServices() {
+    return temporaryServices;
+  }
+
+  /**
+   * temporaryServices
+   *
+   * @param temporaryServices
+   */
+  @JsonProperty(JSON_PROPERTY_TEMPORARY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTemporaryServices(TemporaryServices temporaryServices) {
+    this.temporaryServices = temporaryServices;
+    isSetTemporaryServices = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public EnhancedSchemeData includeNullValues(boolean includeNullValues) {
@@ -147,13 +315,33 @@ public class EnhancedSchemeData {
     EnhancedSchemeData enhancedSchemeData = (EnhancedSchemeData) o;
     return Objects.equals(this.airline, enhancedSchemeData.airline)
         && Objects.equals(this.isSetAirline, enhancedSchemeData.isSetAirline)
+        && Objects.equals(this.carRental, enhancedSchemeData.carRental)
+        && Objects.equals(this.isSetCarRental, enhancedSchemeData.isSetCarRental)
+        && Objects.equals(this.healthcare, enhancedSchemeData.healthcare)
+        && Objects.equals(this.isSetHealthcare, enhancedSchemeData.isSetHealthcare)
         && Objects.equals(this.levelTwoThree, enhancedSchemeData.levelTwoThree)
-        && Objects.equals(this.isSetLevelTwoThree, enhancedSchemeData.isSetLevelTwoThree);
+        && Objects.equals(this.isSetLevelTwoThree, enhancedSchemeData.isSetLevelTwoThree)
+        && Objects.equals(this.lodging, enhancedSchemeData.lodging)
+        && Objects.equals(this.isSetLodging, enhancedSchemeData.isSetLodging)
+        && Objects.equals(this.temporaryServices, enhancedSchemeData.temporaryServices)
+        && Objects.equals(this.isSetTemporaryServices, enhancedSchemeData.isSetTemporaryServices);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(airline, isSetAirline, levelTwoThree, isSetLevelTwoThree);
+    return Objects.hash(
+        airline,
+        isSetAirline,
+        carRental,
+        isSetCarRental,
+        healthcare,
+        isSetHealthcare,
+        levelTwoThree,
+        isSetLevelTwoThree,
+        lodging,
+        isSetLodging,
+        temporaryServices,
+        isSetTemporaryServices);
   }
 
   @Override
@@ -161,7 +349,11 @@ public class EnhancedSchemeData {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnhancedSchemeData {\n");
     sb.append("    airline: ").append(toIndentedString(airline)).append("\n");
+    sb.append("    carRental: ").append(toIndentedString(carRental)).append("\n");
+    sb.append("    healthcare: ").append(toIndentedString(healthcare)).append("\n");
     sb.append("    levelTwoThree: ").append(toIndentedString(levelTwoThree)).append("\n");
+    sb.append("    lodging: ").append(toIndentedString(lodging)).append("\n");
+    sb.append("    temporaryServices: ").append(toIndentedString(temporaryServices)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -189,8 +381,20 @@ public class EnhancedSchemeData {
     if (isSetAirline) {
       addIfNull(nulls, JSON_PROPERTY_AIRLINE, this.airline);
     }
+    if (isSetCarRental) {
+      addIfNull(nulls, JSON_PROPERTY_CAR_RENTAL, this.carRental);
+    }
+    if (isSetHealthcare) {
+      addIfNull(nulls, JSON_PROPERTY_HEALTHCARE, this.healthcare);
+    }
     if (isSetLevelTwoThree) {
       addIfNull(nulls, JSON_PROPERTY_LEVEL_TWO_THREE, this.levelTwoThree);
+    }
+    if (isSetLodging) {
+      addIfNull(nulls, JSON_PROPERTY_LODGING, this.lodging);
+    }
+    if (isSetTemporaryServices) {
+      addIfNull(nulls, JSON_PROPERTY_TEMPORARY_SERVICES, this.temporaryServices);
     }
 
     return nulls;

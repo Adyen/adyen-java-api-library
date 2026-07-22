@@ -94,7 +94,8 @@ public class ItemDetailLine {
    * codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    * codes](https://www.census.gov/naics/) * [NAPCS commodity
    * codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
-   * Must not start with a space or be all spaces. * Must not be all zeros.
+   * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData
+   * key:** &#x60;enhancedSchemeData.itemDetailLine[N].commodityCode&#x60;
    *
    * @param commodityCode The code that identifies the item in a standardized commodity coding
    *     scheme. There are different commodity coding schemes: * [UNSPSC commodity
@@ -102,7 +103,8 @@ public class ItemDetailLine {
    *     codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    *     codes](https://www.census.gov/naics/) * [NAPCS commodity
    *     codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
-   *     Must not start with a space or be all spaces. * Must not be all zeros.
+   *     Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData
+   *     key:** &#x60;enhancedSchemeData.itemDetailLine[N].commodityCode&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine commodityCode(String commodityCode) {
@@ -118,7 +120,8 @@ public class ItemDetailLine {
    * codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    * codes](https://www.census.gov/naics/) * [NAPCS commodity
    * codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
-   * Must not start with a space or be all spaces. * Must not be all zeros.
+   * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData
+   * key:** &#x60;enhancedSchemeData.itemDetailLine[N].commodityCode&#x60;
    *
    * @return commodityCode The code that identifies the item in a standardized commodity coding
    *     scheme. There are different commodity coding schemes: * [UNSPSC commodity
@@ -126,7 +129,8 @@ public class ItemDetailLine {
    *     codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    *     codes](https://www.census.gov/naics/) * [NAPCS commodity
    *     codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
-   *     Must not start with a space or be all spaces. * Must not be all zeros.
+   *     Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData
+   *     key:** &#x60;enhancedSchemeData.itemDetailLine[N].commodityCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_COMMODITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +145,8 @@ public class ItemDetailLine {
    * codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    * codes](https://www.census.gov/naics/) * [NAPCS commodity
    * codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
-   * Must not start with a space or be all spaces. * Must not be all zeros.
+   * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData
+   * key:** &#x60;enhancedSchemeData.itemDetailLine[N].commodityCode&#x60;
    *
    * @param commodityCode The code that identifies the item in a standardized commodity coding
    *     scheme. There are different commodity coding schemes: * [UNSPSC commodity
@@ -149,7 +154,8 @@ public class ItemDetailLine {
    *     codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    *     codes](https://www.census.gov/naics/) * [NAPCS commodity
    *     codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
-   *     Must not start with a space or be all spaces. * Must not be all zeros.
+   *     Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData
+   *     key:** &#x60;enhancedSchemeData.itemDetailLine[N].commodityCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_COMMODITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,14 +170,16 @@ public class ItemDetailLine {
    * consist only of common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding:
    * ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. * Must
    * not be all special characters. * Must not start with a space or be all spaces. * Must not be
-   * all zeros.
+   * all zeros. * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].description&#x60;
    *
    * @param description A description of the item, that provides details about the purchase. For
    *     Visa transactions with level 3 ESD, the description must not be the same or very similar to
    *     your merchant name, or, consist only of common words like \&quot;product\&quot;, or
    *     \&quot;service\&quot;. * Encoding: ASCII * Max length: 26 characters * Must not be a single
    *     character. * Must not be blank. * Must not be all special characters. * Must not start with
-   *     a space or be all spaces. * Must not be all zeros.
+   *     a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].description&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine description(String description) {
@@ -186,14 +194,16 @@ public class ItemDetailLine {
    * consist only of common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding:
    * ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. * Must
    * not be all special characters. * Must not start with a space or be all spaces. * Must not be
-   * all zeros.
+   * all zeros. * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].description&#x60;
    *
    * @return description A description of the item, that provides details about the purchase. For
    *     Visa transactions with level 3 ESD, the description must not be the same or very similar to
    *     your merchant name, or, consist only of common words like \&quot;product\&quot;, or
    *     \&quot;service\&quot;. * Encoding: ASCII * Max length: 26 characters * Must not be a single
    *     character. * Must not be blank. * Must not be all special characters. * Must not start with
-   *     a space or be all spaces. * Must not be all zeros.
+   *     a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].description&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,14 +217,16 @@ public class ItemDetailLine {
    * consist only of common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding:
    * ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. * Must
    * not be all special characters. * Must not start with a space or be all spaces. * Must not be
-   * all zeros.
+   * all zeros. * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].description&#x60;
    *
    * @param description A description of the item, that provides details about the purchase. For
    *     Visa transactions with level 3 ESD, the description must not be the same or very similar to
    *     your merchant name, or, consist only of common words like \&quot;product\&quot;, or
    *     \&quot;service\&quot;. * Encoding: ASCII * Max length: 26 characters * Must not be a single
    *     character. * Must not be blank. * Must not be all special characters. * Must not start with
-   *     a space or be all spaces. * Must not be all zeros.
+   *     a space or be all spaces. * Must not be all zeros. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].description&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,11 +238,13 @@ public class ItemDetailLine {
   /**
    * The discount amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].discountAmount&#x60;
    *
    * @param discountAmount The discount amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].discountAmount&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine discountAmount(Long discountAmount) {
@@ -242,11 +256,13 @@ public class ItemDetailLine {
   /**
    * The discount amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].discountAmount&#x60;
    *
    * @return discountAmount The discount amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].discountAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,11 +273,13 @@ public class ItemDetailLine {
   /**
    * The discount amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].discountAmount&#x60;
    *
    * @param discountAmount The discount amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].discountAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,11 +291,13 @@ public class ItemDetailLine {
   /**
    * The product code. Must be a unique product code associated with the item or service. This can
    * be your unique code for the item, or the manufacturer&#39;s product code. * Encoding: ASCII. *
-   * Max length: 12 characters
+   * Max length: 12 characters * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].productCode&#x60;
    *
    * @param productCode The product code. Must be a unique product code associated with the item or
    *     service. This can be your unique code for the item, or the manufacturer&#39;s product code.
-   *     * Encoding: ASCII. * Max length: 12 characters
+   *     * Encoding: ASCII. * Max length: 12 characters * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].productCode&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine productCode(String productCode) {
@@ -289,11 +309,13 @@ public class ItemDetailLine {
   /**
    * The product code. Must be a unique product code associated with the item or service. This can
    * be your unique code for the item, or the manufacturer&#39;s product code. * Encoding: ASCII. *
-   * Max length: 12 characters
+   * Max length: 12 characters * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].productCode&#x60;
    *
    * @return productCode The product code. Must be a unique product code associated with the item or
    *     service. This can be your unique code for the item, or the manufacturer&#39;s product code.
-   *     * Encoding: ASCII. * Max length: 12 characters
+   *     * Encoding: ASCII. * Max length: 12 characters * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].productCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,11 +326,13 @@ public class ItemDetailLine {
   /**
    * The product code. Must be a unique product code associated with the item or service. This can
    * be your unique code for the item, or the manufacturer&#39;s product code. * Encoding: ASCII. *
-   * Max length: 12 characters
+   * Max length: 12 characters * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].productCode&#x60;
    *
    * @param productCode The product code. Must be a unique product code associated with the item or
    *     service. This can be your unique code for the item, or the manufacturer&#39;s product code.
-   *     * Encoding: ASCII. * Max length: 12 characters
+   *     * Encoding: ASCII. * Max length: 12 characters * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].productCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,10 +343,11 @@ public class ItemDetailLine {
 
   /**
    * The number of items. Must be an integer greater than zero. * Encoding: Numeric * Max value:
-   * 9999
+   * 9999 * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].quantity&#x60;
    *
    * @param quantity The number of items. Must be an integer greater than zero. * Encoding: Numeric
-   *     * Max value: 9999
+   *     * Max value: 9999 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].quantity&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine quantity(Long quantity) {
@@ -333,10 +358,11 @@ public class ItemDetailLine {
 
   /**
    * The number of items. Must be an integer greater than zero. * Encoding: Numeric * Max value:
-   * 9999
+   * 9999 * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].quantity&#x60;
    *
    * @return quantity The number of items. Must be an integer greater than zero. * Encoding: Numeric
-   *     * Max value: 9999
+   *     * Max value: 9999 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].quantity&#x60;
    */
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,10 +372,11 @@ public class ItemDetailLine {
 
   /**
    * The number of items. Must be an integer greater than zero. * Encoding: Numeric * Max value:
-   * 9999
+   * 9999 * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].quantity&#x60;
    *
    * @param quantity The number of items. Must be an integer greater than zero. * Encoding: Numeric
-   *     * Max value: 9999
+   *     * Max value: 9999 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].quantity&#x60;
    */
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,14 +390,16 @@ public class ItemDetailLine {
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
    * USD 20.00. * Encoding: Numeric * Max value: 10000000000 See [Amount requirements for level 2/3
    * ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements)
-   * to learn more about how to calculate the line item total.
+   * to learn more about how to calculate the line item total. * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].totalAmount&#x60;
    *
    * @param totalAmount The total amount for the line item, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
    *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 See [Amount requirements for
    *     level 2/3
    *     ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements)
-   *     to learn more about how to calculate the line item total.
+   *     to learn more about how to calculate the line item total. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].totalAmount&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine totalAmount(Long totalAmount) {
@@ -384,14 +413,16 @@ public class ItemDetailLine {
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
    * USD 20.00. * Encoding: Numeric * Max value: 10000000000 See [Amount requirements for level 2/3
    * ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements)
-   * to learn more about how to calculate the line item total.
+   * to learn more about how to calculate the line item total. * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].totalAmount&#x60;
    *
    * @return totalAmount The total amount for the line item, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
    *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 See [Amount requirements for
    *     level 2/3
    *     ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements)
-   *     to learn more about how to calculate the line item total.
+   *     to learn more about how to calculate the line item total. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].totalAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,14 +435,16 @@ public class ItemDetailLine {
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
    * USD 20.00. * Encoding: Numeric * Max value: 10000000000 See [Amount requirements for level 2/3
    * ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements)
-   * to learn more about how to calculate the line item total.
+   * to learn more about how to calculate the line item total. * **additionalData key:**
+   * &#x60;enhancedSchemeData.itemDetailLine[N].totalAmount&#x60;
    *
    * @param totalAmount The total amount for the line item, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
    *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 See [Amount requirements for
    *     level 2/3
    *     ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements)
-   *     to learn more about how to calculate the line item total.
+   *     to learn more about how to calculate the line item total. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].totalAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,10 +454,12 @@ public class ItemDetailLine {
   }
 
   /**
-   * The unit of measurement for an item. * Encoding: ASCII * Max length: 3 characters
+   * The unit of measurement for an item. * Encoding: ASCII * Max length: 3 characters *
+   * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].unitOfMeasure&#x60;
    *
    * @param unitOfMeasure The unit of measurement for an item. * Encoding: ASCII * Max length: 3
-   *     characters
+   *     characters * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].unitOfMeasure&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine unitOfMeasure(String unitOfMeasure) {
@@ -434,10 +469,12 @@ public class ItemDetailLine {
   }
 
   /**
-   * The unit of measurement for an item. * Encoding: ASCII * Max length: 3 characters
+   * The unit of measurement for an item. * Encoding: ASCII * Max length: 3 characters *
+   * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].unitOfMeasure&#x60;
    *
    * @return unitOfMeasure The unit of measurement for an item. * Encoding: ASCII * Max length: 3
-   *     characters
+   *     characters * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].unitOfMeasure&#x60;
    */
   @JsonProperty(JSON_PROPERTY_UNIT_OF_MEASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -446,10 +483,12 @@ public class ItemDetailLine {
   }
 
   /**
-   * The unit of measurement for an item. * Encoding: ASCII * Max length: 3 characters
+   * The unit of measurement for an item. * Encoding: ASCII * Max length: 3 characters *
+   * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].unitOfMeasure&#x60;
    *
    * @param unitOfMeasure The unit of measurement for an item. * Encoding: ASCII * Max length: 3
-   *     characters
+   *     characters * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].unitOfMeasure&#x60;
    */
   @JsonProperty(JSON_PROPERTY_UNIT_OF_MEASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,11 +499,13 @@ public class ItemDetailLine {
 
   /**
    * The unit price, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 *
+   * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].unitPrice&#x60;
    *
    * @param unitPrice The unit price, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].unitPrice&#x60;
    * @return the current {@code ItemDetailLine} instance, allowing for method chaining
    */
   public ItemDetailLine unitPrice(Long unitPrice) {
@@ -475,11 +516,13 @@ public class ItemDetailLine {
 
   /**
    * The unit price, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 *
+   * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].unitPrice&#x60;
    *
    * @return unitPrice The unit price, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].unitPrice&#x60;
    */
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -489,11 +532,13 @@ public class ItemDetailLine {
 
   /**
    * The unit price, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 *
+   * **additionalData key:** &#x60;enhancedSchemeData.itemDetailLine[N].unitPrice&#x60;
    *
    * @param unitPrice The unit price, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.itemDetailLine[N].unitPrice&#x60;
    */
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

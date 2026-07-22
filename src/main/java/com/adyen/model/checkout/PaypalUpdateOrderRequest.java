@@ -24,10 +24,13 @@ import java.util.List;
 /** PaypalUpdateOrderRequest */
 @JsonPropertyOrder({
   PaypalUpdateOrderRequest.JSON_PROPERTY_AMOUNT,
+  PaypalUpdateOrderRequest.JSON_PROPERTY_DELIVERY_ADDRESS,
   PaypalUpdateOrderRequest.JSON_PROPERTY_DELIVERY_METHODS,
+  PaypalUpdateOrderRequest.JSON_PROPERTY_DISCOUNT_AMOUNT,
   PaypalUpdateOrderRequest.JSON_PROPERTY_PAYMENT_DATA,
   PaypalUpdateOrderRequest.JSON_PROPERTY_PSP_REFERENCE,
   PaypalUpdateOrderRequest.JSON_PROPERTY_SESSION_ID,
+  PaypalUpdateOrderRequest.JSON_PROPERTY_SHIPPING_AMOUNT,
   PaypalUpdateOrderRequest.JSON_PROPERTY_TAX_TOTAL
 })
 public class PaypalUpdateOrderRequest {
@@ -37,11 +40,23 @@ public class PaypalUpdateOrderRequest {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmount = false;
 
+  public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
+  private DeliveryAddress deliveryAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeliveryAddress = false;
+
   public static final String JSON_PROPERTY_DELIVERY_METHODS = "deliveryMethods";
   private List<DeliveryMethod> deliveryMethods;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDeliveryMethods = false;
+
+  public static final String JSON_PROPERTY_DISCOUNT_AMOUNT = "discountAmount";
+  private Amount discountAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDiscountAmount = false;
 
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
@@ -60,6 +75,12 @@ public class PaypalUpdateOrderRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSessionId = false;
+
+  public static final String JSON_PROPERTY_SHIPPING_AMOUNT = "shippingAmount";
+  private Amount shippingAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShippingAmount = false;
 
   public static final String JSON_PROPERTY_TAX_TOTAL = "taxTotal";
   private TaxTotal taxTotal;
@@ -111,6 +132,41 @@ public class PaypalUpdateOrderRequest {
   }
 
   /**
+   * deliveryAddress
+   *
+   * @param deliveryAddress
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
+  public PaypalUpdateOrderRequest deliveryAddress(DeliveryAddress deliveryAddress) {
+    this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get deliveryAddress
+   *
+   * @return deliveryAddress
+   */
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DeliveryAddress getDeliveryAddress() {
+    return deliveryAddress;
+  }
+
+  /**
+   * deliveryAddress
+   *
+   * @param deliveryAddress
+   */
+  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+    this.deliveryAddress = deliveryAddress;
+    isSetDeliveryAddress = true; // mark as set
+  }
+
+  /**
    * The list of new delivery methods and the cost of each.
    *
    * @param deliveryMethods The list of new delivery methods and the cost of each.
@@ -151,6 +207,41 @@ public class PaypalUpdateOrderRequest {
   public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
     this.deliveryMethods = deliveryMethods;
     isSetDeliveryMethods = true; // mark as set
+  }
+
+  /**
+   * discountAmount
+   *
+   * @param discountAmount
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
+  public PaypalUpdateOrderRequest discountAmount(Amount discountAmount) {
+    this.discountAmount = discountAmount;
+    isSetDiscountAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get discountAmount
+   *
+   * @return discountAmount
+   */
+  @JsonProperty(JSON_PROPERTY_DISCOUNT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Amount getDiscountAmount() {
+    return discountAmount;
+  }
+
+  /**
+   * discountAmount
+   *
+   * @param discountAmount
+   */
+  @JsonProperty(JSON_PROPERTY_DISCOUNT_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDiscountAmount(Amount discountAmount) {
+    this.discountAmount = discountAmount;
+    isSetDiscountAmount = true; // mark as set
   }
 
   /**
@@ -268,6 +359,41 @@ public class PaypalUpdateOrderRequest {
   }
 
   /**
+   * shippingAmount
+   *
+   * @param shippingAmount
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
+  public PaypalUpdateOrderRequest shippingAmount(Amount shippingAmount) {
+    this.shippingAmount = shippingAmount;
+    isSetShippingAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get shippingAmount
+   *
+   * @return shippingAmount
+   */
+  @JsonProperty(JSON_PROPERTY_SHIPPING_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Amount getShippingAmount() {
+    return shippingAmount;
+  }
+
+  /**
+   * shippingAmount
+   *
+   * @param shippingAmount
+   */
+  @JsonProperty(JSON_PROPERTY_SHIPPING_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShippingAmount(Amount shippingAmount) {
+    this.shippingAmount = shippingAmount;
+    isSetShippingAmount = true; // mark as set
+  }
+
+  /**
    * taxTotal
    *
    * @param taxTotal
@@ -334,14 +460,20 @@ public class PaypalUpdateOrderRequest {
     PaypalUpdateOrderRequest paypalUpdateOrderRequest = (PaypalUpdateOrderRequest) o;
     return Objects.equals(this.amount, paypalUpdateOrderRequest.amount)
         && Objects.equals(this.isSetAmount, paypalUpdateOrderRequest.isSetAmount)
+        && Objects.equals(this.deliveryAddress, paypalUpdateOrderRequest.deliveryAddress)
+        && Objects.equals(this.isSetDeliveryAddress, paypalUpdateOrderRequest.isSetDeliveryAddress)
         && Objects.equals(this.deliveryMethods, paypalUpdateOrderRequest.deliveryMethods)
         && Objects.equals(this.isSetDeliveryMethods, paypalUpdateOrderRequest.isSetDeliveryMethods)
+        && Objects.equals(this.discountAmount, paypalUpdateOrderRequest.discountAmount)
+        && Objects.equals(this.isSetDiscountAmount, paypalUpdateOrderRequest.isSetDiscountAmount)
         && Objects.equals(this.paymentData, paypalUpdateOrderRequest.paymentData)
         && Objects.equals(this.isSetPaymentData, paypalUpdateOrderRequest.isSetPaymentData)
         && Objects.equals(this.pspReference, paypalUpdateOrderRequest.pspReference)
         && Objects.equals(this.isSetPspReference, paypalUpdateOrderRequest.isSetPspReference)
         && Objects.equals(this.sessionId, paypalUpdateOrderRequest.sessionId)
         && Objects.equals(this.isSetSessionId, paypalUpdateOrderRequest.isSetSessionId)
+        && Objects.equals(this.shippingAmount, paypalUpdateOrderRequest.shippingAmount)
+        && Objects.equals(this.isSetShippingAmount, paypalUpdateOrderRequest.isSetShippingAmount)
         && Objects.equals(this.taxTotal, paypalUpdateOrderRequest.taxTotal)
         && Objects.equals(this.isSetTaxTotal, paypalUpdateOrderRequest.isSetTaxTotal);
   }
@@ -351,14 +483,20 @@ public class PaypalUpdateOrderRequest {
     return Objects.hash(
         amount,
         isSetAmount,
+        deliveryAddress,
+        isSetDeliveryAddress,
         deliveryMethods,
         isSetDeliveryMethods,
+        discountAmount,
+        isSetDiscountAmount,
         paymentData,
         isSetPaymentData,
         pspReference,
         isSetPspReference,
         sessionId,
         isSetSessionId,
+        shippingAmount,
+        isSetShippingAmount,
         taxTotal,
         isSetTaxTotal);
   }
@@ -368,10 +506,13 @@ public class PaypalUpdateOrderRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaypalUpdateOrderRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    deliveryMethods: ").append(toIndentedString(deliveryMethods)).append("\n");
+    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
+    sb.append("    shippingAmount: ").append(toIndentedString(shippingAmount)).append("\n");
     sb.append("    taxTotal: ").append(toIndentedString(taxTotal)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -400,8 +541,14 @@ public class PaypalUpdateOrderRequest {
     if (isSetAmount) {
       addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
     }
+    if (isSetDeliveryAddress) {
+      addIfNull(nulls, JSON_PROPERTY_DELIVERY_ADDRESS, this.deliveryAddress);
+    }
     if (isSetDeliveryMethods) {
       addIfNull(nulls, JSON_PROPERTY_DELIVERY_METHODS, this.deliveryMethods);
+    }
+    if (isSetDiscountAmount) {
+      addIfNull(nulls, JSON_PROPERTY_DISCOUNT_AMOUNT, this.discountAmount);
     }
     if (isSetPaymentData) {
       addIfNull(nulls, JSON_PROPERTY_PAYMENT_DATA, this.paymentData);
@@ -411,6 +558,9 @@ public class PaypalUpdateOrderRequest {
     }
     if (isSetSessionId) {
       addIfNull(nulls, JSON_PROPERTY_SESSION_ID, this.sessionId);
+    }
+    if (isSetShippingAmount) {
+      addIfNull(nulls, JSON_PROPERTY_SHIPPING_AMOUNT, this.shippingAmount);
     }
     if (isSetTaxTotal) {
       addIfNull(nulls, JSON_PROPERTY_TAX_TOTAL, this.taxTotal);

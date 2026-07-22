@@ -281,6 +281,32 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ApplePayDetails'", e);
       }
 
+      // deserialize AuPayDetails
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AuPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
+
+          if (typeMatch) {
+            deserialized = tree.traverse(jp.getCodec()).readValueAs(AuPayDetails.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(Level.FINER, "Input data matches schema 'AuPayDetails'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'AuPayDetails'", e);
+      }
+
       // deserialize BacsDirectDebitDetails
       try {
         boolean attemptParsing = true;
@@ -435,6 +461,32 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(Level.FINER, "Input data does not match schema 'CellulantDetails'", e);
+      }
+
+      // deserialize DBaraiDetails
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(DBaraiDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
+
+          if (typeMatch) {
+            deserialized = tree.traverse(jp.getCodec()).readValueAs(DBaraiDetails.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(Level.FINER, "Input data matches schema 'DBaraiDetails'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DBaraiDetails'", e);
       }
 
       // deserialize DirectDebitAuDetails
@@ -1653,6 +1705,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public CheckoutPaymentMethod(AuPayDetails o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public CheckoutPaymentMethod(BacsDirectDebitDetails o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1679,6 +1736,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
   }
 
   public CheckoutPaymentMethod(CellulantDetails o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public CheckoutPaymentMethod(DBaraiDetails o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1912,12 +1974,14 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     schemas.put("AncvDetails", new GenericType<AncvDetails>() {});
     schemas.put("AndroidPayDetails", new GenericType<AndroidPayDetails>() {});
     schemas.put("ApplePayDetails", new GenericType<ApplePayDetails>() {});
+    schemas.put("AuPayDetails", new GenericType<AuPayDetails>() {});
     schemas.put("BacsDirectDebitDetails", new GenericType<BacsDirectDebitDetails>() {});
     schemas.put("BillDeskDetails", new GenericType<BillDeskDetails>() {});
     schemas.put("BlikDetails", new GenericType<BlikDetails>() {});
     schemas.put("CardDetails", new GenericType<CardDetails>() {});
     schemas.put("CashAppDetails", new GenericType<CashAppDetails>() {});
     schemas.put("CellulantDetails", new GenericType<CellulantDetails>() {});
+    schemas.put("DBaraiDetails", new GenericType<DBaraiDetails>() {});
     schemas.put("DirectDebitAuDetails", new GenericType<DirectDebitAuDetails>() {});
     schemas.put("DokuDetails", new GenericType<DokuDetails>() {});
     schemas.put("DragonpayDetails", new GenericType<DragonpayDetails>() {});
@@ -1966,6 +2030,311 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     schemas.put("WeChatPayMiniProgramDetails", new GenericType<WeChatPayMiniProgramDetails>() {});
     schemas.put("ZipDetails", new GenericType<ZipDetails>() {});
     JSON.registerDescendants(CheckoutPaymentMethod.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("ach", AchDetails.class);
+    mappings.put("ach_plaid", AchDetails.class);
+    mappings.put("affirm", AffirmDetails.class);
+    mappings.put("affirm_pos", PaymentDetails.class);
+    mappings.put("afterpay_b2b", AfterpayDetails.class);
+    mappings.put("afterpay_default", AfterpayDetails.class);
+    mappings.put("afterpay_directdebit", OpenInvoiceDetails.class);
+    mappings.put("afterpaytouch", AfterpayDetails.class);
+    mappings.put("afterpaytouch_pos", AfterpayDetails.class);
+    mappings.put("alipay", PaymentDetails.class);
+    mappings.put("alipay_hk", PaymentDetails.class);
+    mappings.put("alipay_hk_wap", PaymentDetails.class);
+    mappings.put("alipay_hk_web", PaymentDetails.class);
+    mappings.put("alipay_plus", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_alipay_cn", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_alipay_hk", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_dana", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_gcash", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_kakaopay", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_kplus", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_naverpay", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_rabbitlinepay", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_tosspay", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_touchngo", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_plus_truemoney", StoredPaymentMethodDetails.class);
+    mappings.put("alipay_wap", PaymentDetails.class);
+    mappings.put("alliancedata", CardDetails.class);
+    mappings.put("alma", AlmaDetails.class);
+    mappings.put("altId", CardDetails.class);
+    mappings.put("amazonpay", AmazonPayDetails.class);
+    mappings.put("ancv", AncvDetails.class);
+    mappings.put("androidpay", AndroidPayDetails.class);
+    mappings.put("applepay", ApplePayDetails.class);
+    mappings.put("atome", PaymentDetails.class);
+    mappings.put("atome_pos", OpenInvoiceDetails.class);
+    mappings.put("aupay", AuPayDetails.class);
+    mappings.put("balanceplatform", PaymentDetails.class);
+    mappings.put("bankTransfer", PaymentDetails.class);
+    mappings.put("bankTransfer_IBAN", PaymentDetails.class);
+    mappings.put("bcmc", CardDetails.class);
+    mappings.put("bcmc_mobile", StoredPaymentMethodDetails.class);
+    mappings.put("bcmc_mobile_QR", StoredPaymentMethodDetails.class);
+    mappings.put("bcmc_mobile_app", StoredPaymentMethodDetails.class);
+    mappings.put("benefit", PaymentDetails.class);
+    mappings.put("billdesk_online", BillDeskDetails.class);
+    mappings.put("billdesk_wallet", BillDeskDetails.class);
+    mappings.put("bizum", PaymentDetails.class);
+    mappings.put("blik", BlikDetails.class);
+    mappings.put("boletobancario", PaymentDetails.class);
+    mappings.put("boletobancario_bancodobrasil", PaymentDetails.class);
+    mappings.put("boletobancario_bradesco", PaymentDetails.class);
+    mappings.put("boletobancario_hsbc", PaymentDetails.class);
+    mappings.put("boletobancario_itau", PaymentDetails.class);
+    mappings.put("boletobancario_santander", PaymentDetails.class);
+    mappings.put("card", CardDetails.class);
+    mappings.put("cashapp", CashAppDetails.class);
+    mappings.put("cashticket", PaymentDetails.class);
+    mappings.put("cellulant", CellulantDetails.class);
+    mappings.put("clearpay", AfterpayDetails.class);
+    mappings.put("dana", StoredPaymentMethodDetails.class);
+    mappings.put("dbarai", DBaraiDetails.class);
+    mappings.put("directEbanking", PaymentDetails.class);
+    mappings.put("directdebit_AU", DirectDebitAuDetails.class);
+    mappings.put("directdebit_GB", BacsDirectDebitDetails.class);
+    mappings.put("doku", DokuDetails.class);
+    mappings.put("doku_alfamart", DokuDetails.class);
+    mappings.put("doku_atm_mandiri_va", DokuDetails.class);
+    mappings.put("doku_atm_mandiri_va_lite", DokuDetails.class);
+    mappings.put("doku_bca_klikpay", DokuDetails.class);
+    mappings.put("doku_bca_va", DokuDetails.class);
+    mappings.put("doku_bni", DokuDetails.class);
+    mappings.put("doku_bni_va", DokuDetails.class);
+    mappings.put("doku_bri_va", DokuDetails.class);
+    mappings.put("doku_briepay", DokuDetails.class);
+    mappings.put("doku_card", DokuDetails.class);
+    mappings.put("doku_cimb_va", DokuDetails.class);
+    mappings.put("doku_danamon_va", DokuDetails.class);
+    mappings.put("doku_indomaret", DokuDetails.class);
+    mappings.put("doku_mandiri_clickpay", DokuDetails.class);
+    mappings.put("doku_mandiri_multipayment", DokuDetails.class);
+    mappings.put("doku_mandiri_multipayment_lite", DokuDetails.class);
+    mappings.put("doku_mandiri_va", DokuDetails.class);
+    mappings.put("doku_ovo", DokuDetails.class);
+    mappings.put("doku_paymentmethods", DokuDetails.class);
+    mappings.put("doku_permata_atm", DokuDetails.class);
+    mappings.put("doku_permata_lite_atm", DokuDetails.class);
+    mappings.put("doku_sinarmas_va", DokuDetails.class);
+    mappings.put("doku_wallet", DokuDetails.class);
+    mappings.put("dragonpay_ebanking", DragonpayDetails.class);
+    mappings.put("dragonpay_otc_banking", DragonpayDetails.class);
+    mappings.put("dragonpay_otc_non_banking", DragonpayDetails.class);
+    mappings.put("dragonpay_otc_philippines", DragonpayDetails.class);
+    mappings.put("duitnow", PaymentDetails.class);
+    mappings.put("ebanking_FI", EBankingFinlandDetails.class);
+    mappings.put("econtext", EcontextVoucherDetails.class);
+    mappings.put("econtext_atm", EcontextVoucherDetails.class);
+    mappings.put("econtext_online", EcontextVoucherDetails.class);
+    mappings.put("econtext_seven_eleven", EcontextVoucherDetails.class);
+    mappings.put("econtext_stores", EcontextVoucherDetails.class);
+    mappings.put("eft_directdebit_CA", EftDetails.class);
+    mappings.put("eps", GenericIssuerPaymentMethodDetails.class);
+    mappings.put("externalToken", ExternalTokenDetails.class);
+    mappings.put("facilypay", PaymentDetails.class);
+    mappings.put("facilypay_10x", PaymentDetails.class);
+    mappings.put("facilypay_12x", PaymentDetails.class);
+    mappings.put("facilypay_3x", PaymentDetails.class);
+    mappings.put("facilypay_4x", PaymentDetails.class);
+    mappings.put("facilypay_6x", PaymentDetails.class);
+    mappings.put("fastlane", FastlaneDetails.class);
+    mappings.put("fawry", PaymentDetails.class);
+    mappings.put("fpx_agrobank", PaymentDetails.class);
+    mappings.put("gcash", StoredPaymentMethodDetails.class);
+    mappings.put("giftcard", CardDetails.class);
+    mappings.put("googlepay", GooglePayDetails.class);
+    mappings.put("gopay_wallet", PaymentDetails.class);
+    mappings.put("grabpay_ID", StoredPaymentMethodDetails.class);
+    mappings.put("grabpay_MY", StoredPaymentMethodDetails.class);
+    mappings.put("grabpay_PH", StoredPaymentMethodDetails.class);
+    mappings.put("grabpay_SG", StoredPaymentMethodDetails.class);
+    mappings.put("grabpay_TH", StoredPaymentMethodDetails.class);
+    mappings.put("grabpay_VN", StoredPaymentMethodDetails.class);
+    mappings.put("ideal", IdealDetails.class);
+    mappings.put("ikano", PaymentDetails.class);
+    mappings.put("iris", PaymentDetails.class);
+    mappings.put("kakaopay", StoredPaymentMethodDetails.class);
+    mappings.put("karenmillen", PaymentDetails.class);
+    mappings.put("kcp_banktransfer", PaymentDetails.class);
+    mappings.put("kcp_creditcard", PaymentDetails.class);
+    mappings.put("kcp_naverpay", PaymentDetails.class);
+    mappings.put("kcp_payco", PaymentDetails.class);
+    mappings.put("klarna", KlarnaDetails.class);
+    mappings.put("klarna_account", KlarnaDetails.class);
+    mappings.put("klarna_b2b", KlarnaDetails.class);
+    mappings.put("klarna_network", KlarnaNetworkDetails.class);
+    mappings.put("klarna_paynow", KlarnaDetails.class);
+    mappings.put("klarnapayments", KlarnaDetails.class);
+    mappings.put("klarnapayments_account", KlarnaDetails.class);
+    mappings.put("klarnapayments_b2b", KlarnaDetails.class);
+    mappings.put("knet", PaymentDetails.class);
+    mappings.put("konbini", PaymentDetails.class);
+    mappings.put("mada", PaymentDetails.class);
+    mappings.put("masterpass", MasterpassDetails.class);
+    mappings.put("maybank2u_mae", PaymentDetails.class);
+    mappings.put("mbway", MbwayDetails.class);
+    mappings.put("mobilepay", MobilePayDetails.class);
+    mappings.put("molpay_affin_epg", PaymentDetails.class);
+    mappings.put("molpay_amb", PaymentDetails.class);
+    mappings.put("molpay_bangkokbank", MolPayDetails.class);
+    mappings.put("molpay_bankislam", PaymentDetails.class);
+    mappings.put("molpay_boost", PaymentDetails.class);
+    mappings.put("molpay_cimb", PaymentDetails.class);
+    mappings.put("molpay_ebanking_MY", PaymentDetails.class);
+    mappings.put("molpay_ebanking_TH", MolPayDetails.class);
+    mappings.put("molpay_ebanking_VN", PaymentDetails.class);
+    mappings.put("molpay_ebanking_direct_MY", PaymentDetails.class);
+    mappings.put("molpay_ebanking_fpx_MY", MolPayDetails.class);
+    mappings.put("molpay_fpx", PaymentDetails.class);
+    mappings.put("molpay_hlb", PaymentDetails.class);
+    mappings.put("molpay_kbank", MolPayDetails.class);
+    mappings.put("molpay_krungsribank", MolPayDetails.class);
+    mappings.put("molpay_krungthaibank", MolPayDetails.class);
+    mappings.put("molpay_maybank2u", PaymentDetails.class);
+    mappings.put("molpay_publicbank", PaymentDetails.class);
+    mappings.put("molpay_rhb", PaymentDetails.class);
+    mappings.put("molpay_siamcommercialbank", MolPayDetails.class);
+    mappings.put("momo_wallet", StoredPaymentMethodDetails.class);
+    mappings.put("momo_wallet_app", StoredPaymentMethodDetails.class);
+    mappings.put("multibanco", PaymentDetails.class);
+    mappings.put("naps", PaymentDetails.class);
+    mappings.put("networkToken", CardDetails.class);
+    mappings.put("nordea", PaymentDetails.class);
+    mappings.put("oasis", PaymentDetails.class);
+    mappings.put("omannet", PaymentDetails.class);
+    mappings.put("oney", PaymentDetails.class);
+    mappings.put("onlineBanking_CZ", GenericIssuerPaymentMethodDetails.class);
+    mappings.put("onlineBanking_PL", GenericIssuerPaymentMethodDetails.class);
+    mappings.put("onlineBanking_SK", GenericIssuerPaymentMethodDetails.class);
+    mappings.put("onlinebanking_IN", GenericIssuerPaymentMethodDetails.class);
+    mappings.put("openinvoice", OpenInvoiceDetails.class);
+    mappings.put("oxxo", StoredPaymentMethodDetails.class);
+    mappings.put("paybybank", PayByBankDetails.class);
+    mappings.put("paybybank_AIS_DD", PayByBankAISDirectDebitDetails.class);
+    mappings.put("paybybank_pix", PixPayByBankDetails.class);
+    mappings.put("paymaya_wallet", StoredPaymentMethodDetails.class);
+    mappings.put("payme", PaymentDetails.class);
+    mappings.put("payme_pos", PaymentDetails.class);
+    mappings.put("paynow", PaymentDetails.class);
+    mappings.put("paypal", PayPalDetails.class);
+    mappings.put("paypay", PayPayDetails.class);
+    mappings.put("paypo", PaymentDetails.class);
+    mappings.put("paysafecard", StoredPaymentMethodDetails.class);
+    mappings.put("paytm", PaymentDetails.class);
+    mappings.put("payto", PayToDetails.class);
+    mappings.put("payu_IN_cashcard", PaymentDetails.class);
+    mappings.put("payu_IN_nb", PaymentDetails.class);
+    mappings.put("payu_IN_upi", PayUUpiDetails.class);
+    mappings.put("paywithgoogle", PayWithGoogleDetails.class);
+    mappings.put("pix", PixDetails.class);
+    mappings.put("primeiropay_boleto", PaymentDetails.class);
+    mappings.put("promptpay", PaymentDetails.class);
+    mappings.put("pse_payulatam", PseDetails.class);
+    mappings.put("rakutenpay", RakutenPayDetails.class);
+    mappings.put("ratepay", RatepayDetails.class);
+    mappings.put("ratepay_directdebit", RatepayDetails.class);
+    mappings.put("riverty", RivertyDetails.class);
+    mappings.put("riverty_account", RivertyDetails.class);
+    mappings.put("riverty_installments", RivertyDetails.class);
+    mappings.put("samsungpay", SamsungPayDetails.class);
+    mappings.put("scalapay", PaymentDetails.class);
+    mappings.put("scalapay_3x", PaymentDetails.class);
+    mappings.put("scalapay_4x", PaymentDetails.class);
+    mappings.put("scheme", CardDetails.class);
+    mappings.put("sepadirectdebit", SepaDirectDebitDetails.class);
+    mappings.put("sepadirectdebit_amazonpay", SepaDirectDebitDetails.class);
+    mappings.put("sepadirectdebit_riverty", RivertyDetails.class);
+    mappings.put("swish", PaymentDetails.class);
+    mappings.put("touchngo", PaymentDetails.class);
+    mappings.put("truemoney", StoredPaymentMethodDetails.class);
+    mappings.put("trustly", PaymentDetails.class);
+    mappings.put("trustlyvector", PaymentDetails.class);
+    mappings.put("twint", TwintDetails.class);
+    mappings.put("twint_pos", PaymentDetails.class);
+    mappings.put("unionpay", PaymentDetails.class);
+    mappings.put("upi_collect", UpiCollectDetails.class);
+    mappings.put("upi_intent", UpiIntentDetails.class);
+    mappings.put("upi_qr", UpiQrDetails.class);
+    mappings.put("vipps", VippsDetails.class);
+    mappings.put("visacheckout", VisaCheckoutDetails.class);
+    mappings.put("wallet_IN", PaymentDetails.class);
+    mappings.put("walley", PaymentDetails.class);
+    mappings.put("walley_b2b", PaymentDetails.class);
+    mappings.put("warehouse", PaymentDetails.class);
+    mappings.put("wechatpay", WeChatPayDetails.class);
+    mappings.put("wechatpayMiniProgram", WeChatPayMiniProgramDetails.class);
+    mappings.put("wechatpayQR", PaymentDetails.class);
+    mappings.put("wechatpaySDK", PaymentDetails.class);
+    mappings.put("wechatpayWeb", PaymentDetails.class);
+    mappings.put("wechatpay_pos", WeChatPayDetails.class);
+    mappings.put("wero", PaymentDetails.class);
+    mappings.put("zip", ZipDetails.class);
+    mappings.put("zip_pos", ZipDetails.class);
+    mappings.put("AchDetails", AchDetails.class);
+    mappings.put("AffirmDetails", AffirmDetails.class);
+    mappings.put("AfterpayDetails", AfterpayDetails.class);
+    mappings.put("AlmaDetails", AlmaDetails.class);
+    mappings.put("AmazonPayDetails", AmazonPayDetails.class);
+    mappings.put("AncvDetails", AncvDetails.class);
+    mappings.put("AndroidPayDetails", AndroidPayDetails.class);
+    mappings.put("ApplePayDetails", ApplePayDetails.class);
+    mappings.put("AuPayDetails", AuPayDetails.class);
+    mappings.put("BacsDirectDebitDetails", BacsDirectDebitDetails.class);
+    mappings.put("BillDeskDetails", BillDeskDetails.class);
+    mappings.put("BlikDetails", BlikDetails.class);
+    mappings.put("CardDetails", CardDetails.class);
+    mappings.put("CashAppDetails", CashAppDetails.class);
+    mappings.put("CellulantDetails", CellulantDetails.class);
+    mappings.put("DBaraiDetails", DBaraiDetails.class);
+    mappings.put("DirectDebitAuDetails", DirectDebitAuDetails.class);
+    mappings.put("DokuDetails", DokuDetails.class);
+    mappings.put("DragonpayDetails", DragonpayDetails.class);
+    mappings.put("EBankingFinlandDetails", EBankingFinlandDetails.class);
+    mappings.put("EcontextVoucherDetails", EcontextVoucherDetails.class);
+    mappings.put("EftDetails", EftDetails.class);
+    mappings.put("ExternalTokenDetails", ExternalTokenDetails.class);
+    mappings.put("FastlaneDetails", FastlaneDetails.class);
+    mappings.put("GenericIssuerPaymentMethodDetails", GenericIssuerPaymentMethodDetails.class);
+    mappings.put("GooglePayDetails", GooglePayDetails.class);
+    mappings.put("IdealDetails", IdealDetails.class);
+    mappings.put("KlarnaDetails", KlarnaDetails.class);
+    mappings.put("KlarnaNetworkDetails", KlarnaNetworkDetails.class);
+    mappings.put("MasterpassDetails", MasterpassDetails.class);
+    mappings.put("MbwayDetails", MbwayDetails.class);
+    mappings.put("MobilePayDetails", MobilePayDetails.class);
+    mappings.put("MolPayDetails", MolPayDetails.class);
+    mappings.put("OpenInvoiceDetails", OpenInvoiceDetails.class);
+    mappings.put("PayByBankAISDirectDebitDetails", PayByBankAISDirectDebitDetails.class);
+    mappings.put("PayByBankDetails", PayByBankDetails.class);
+    mappings.put("PayPalDetails", PayPalDetails.class);
+    mappings.put("PayPayDetails", PayPayDetails.class);
+    mappings.put("PayToDetails", PayToDetails.class);
+    mappings.put("PayUUpiDetails", PayUUpiDetails.class);
+    mappings.put("PayWithGoogleDetails", PayWithGoogleDetails.class);
+    mappings.put("PaymentDetails", PaymentDetails.class);
+    mappings.put("PixDetails", PixDetails.class);
+    mappings.put("PixPayByBankDetails", PixPayByBankDetails.class);
+    mappings.put("PseDetails", PseDetails.class);
+    mappings.put("RakutenPayDetails", RakutenPayDetails.class);
+    mappings.put("RatepayDetails", RatepayDetails.class);
+    mappings.put("RivertyDetails", RivertyDetails.class);
+    mappings.put("SamsungPayDetails", SamsungPayDetails.class);
+    mappings.put("SepaDirectDebitDetails", SepaDirectDebitDetails.class);
+    mappings.put("StoredPaymentMethodDetails", StoredPaymentMethodDetails.class);
+    mappings.put("TwintDetails", TwintDetails.class);
+    mappings.put("UpiCollectDetails", UpiCollectDetails.class);
+    mappings.put("UpiIntentDetails", UpiIntentDetails.class);
+    mappings.put("UpiQrDetails", UpiQrDetails.class);
+    mappings.put("VippsDetails", VippsDetails.class);
+    mappings.put("VisaCheckoutDetails", VisaCheckoutDetails.class);
+    mappings.put("WeChatPayDetails", WeChatPayDetails.class);
+    mappings.put("WeChatPayMiniProgramDetails", WeChatPayMiniProgramDetails.class);
+    mappings.put("ZipDetails", ZipDetails.class);
+    mappings.put("CheckoutPaymentMethod", CheckoutPaymentMethod.class);
+    JSON.registerDiscriminator(CheckoutPaymentMethod.class, "type", mappings);
   }
 
   @Override
@@ -1976,18 +2345,18 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails,
-   * AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails,
-   * BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails,
-   * DirectDebitAuDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails,
-   * EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails,
-   * GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails,
-   * KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails,
-   * OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails,
-   * PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails,
-   * PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails,
-   * SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails,
-   * UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails,
-   * WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+   * AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, AuPayDetails,
+   * BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails,
+   * CellulantDetails, DBaraiDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails,
+   * EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
+   * FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
+   * KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails,
+   * MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails,
+   * PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails,
+   * PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails,
+   * RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails,
+   * TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails,
+   * VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -2034,6 +2403,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(AuPayDetails.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     if (JSON.isInstanceOf(BacsDirectDebitDetails.class, instance, new HashSet<>())) {
       super.setActualInstance(instance);
       return;
@@ -2060,6 +2434,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     if (JSON.isInstanceOf(CellulantDetails.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(DBaraiDetails.class, instance, new HashSet<>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2285,37 +2664,38 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     throw new RuntimeException(
-        "Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
+        "Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, AuPayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DBaraiDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
   }
 
   /**
    * Get the actual instance, which can be the following: AchDetails, AffirmDetails,
    * AfterpayDetails, AlmaDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails,
-   * ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails,
-   * CashAppDetails, CellulantDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails,
-   * EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
-   * FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
-   * KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails,
-   * MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails,
-   * PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails,
-   * PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails,
-   * RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails,
-   * TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails,
-   * VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+   * ApplePayDetails, AuPayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails,
+   * CardDetails, CashAppDetails, CellulantDetails, DBaraiDetails, DirectDebitAuDetails,
+   * DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails,
+   * ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails,
+   * IdealDetails, KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails,
+   * MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails,
+   * PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails,
+   * PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails,
+   * RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
+   * StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails,
+   * VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
    *
    * @return The actual instance (AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails,
-   *     AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails,
-   *     BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails,
-   *     DirectDebitAuDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails,
-   *     EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails,
-   *     GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails,
-   *     KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails,
-   *     OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails,
-   *     PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails,
-   *     PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails,
-   *     RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails,
-   *     TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails,
-   *     VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails)
+   *     AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, AuPayDetails,
+   *     BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails,
+   *     CellulantDetails, DBaraiDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails,
+   *     EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
+   *     FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
+   *     KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails,
+   *     MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails,
+   *     PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails,
+   *     PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails,
+   *     RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
+   *     StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails,
+   *     UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails,
+   *     WeChatPayMiniProgramDetails, ZipDetails)
    */
   @Override
   public Object getActualInstance() {
@@ -2411,6 +2791,17 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
   }
 
   /**
+   * Get the actual instance of `AuPayDetails`. If the actual instance is not `AuPayDetails`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AuPayDetails`
+   * @throws ClassCastException if the instance is not `AuPayDetails`
+   */
+  public AuPayDetails getAuPayDetails() throws ClassCastException {
+    return (AuPayDetails) super.getActualInstance();
+  }
+
+  /**
    * Get the actual instance of `BacsDirectDebitDetails`. If the actual instance is not
    * `BacsDirectDebitDetails`, the ClassCastException will be thrown.
    *
@@ -2474,6 +2865,17 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    */
   public CellulantDetails getCellulantDetails() throws ClassCastException {
     return (CellulantDetails) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DBaraiDetails`. If the actual instance is not `DBaraiDetails`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DBaraiDetails`
+   * @throws ClassCastException if the instance is not `DBaraiDetails`
+   */
+  public DBaraiDetails getDBaraiDetails() throws ClassCastException {
+    return (DBaraiDetails) super.getActualInstance();
   }
 
   /**

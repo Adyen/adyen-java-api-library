@@ -137,6 +137,12 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
     schemas.put("CheckoutThreeDS2Action", new GenericType<CheckoutThreeDS2Action>() {});
     JSON.registerDescendants(
         PaymentDetailsResponseAction.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("threeDS2", CheckoutThreeDS2Action.class);
+    mappings.put("CheckoutThreeDS2Action", CheckoutThreeDS2Action.class);
+    mappings.put("PaymentDetailsResponse_action", PaymentDetailsResponseAction.class);
+    JSON.registerDiscriminator(PaymentDetailsResponseAction.class, "type", mappings);
   }
 
   @Override

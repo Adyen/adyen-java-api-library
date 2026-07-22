@@ -29,6 +29,7 @@ import java.util.List;
   StoredPaymentMethod.JSON_PROPERTY_CASHTAG,
   StoredPaymentMethod.JSON_PROPERTY_EXPIRY_MONTH,
   StoredPaymentMethod.JSON_PROPERTY_EXPIRY_YEAR,
+  StoredPaymentMethod.JSON_PROPERTY_EXTERNAL_TOKEN,
   StoredPaymentMethod.JSON_PROPERTY_HOLDER_NAME,
   StoredPaymentMethod.JSON_PROPERTY_IBAN,
   StoredPaymentMethod.JSON_PROPERTY_ID,
@@ -78,6 +79,12 @@ public class StoredPaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExpiryYear = false;
+
+  public static final String JSON_PROPERTY_EXTERNAL_TOKEN = "externalToken";
+  private String externalToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExternalToken = false;
 
   public static final String JSON_PROPERTY_HOLDER_NAME = "holderName";
   private String holderName;
@@ -375,6 +382,47 @@ public class StoredPaymentMethod {
   public void setExpiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
     isSetExpiryYear = true; // mark as set
+  }
+
+  /**
+   * The token issued by an external tokenization service representing the shopper&#39;s payment
+   * method
+   *
+   * @param externalToken The token issued by an external tokenization service representing the
+   *     shopper&#39;s payment method
+   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   */
+  public StoredPaymentMethod externalToken(String externalToken) {
+    this.externalToken = externalToken;
+    isSetExternalToken = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The token issued by an external tokenization service representing the shopper&#39;s payment
+   * method
+   *
+   * @return externalToken The token issued by an external tokenization service representing the
+   *     shopper&#39;s payment method
+   */
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExternalToken() {
+    return externalToken;
+  }
+
+  /**
+   * The token issued by an external tokenization service representing the shopper&#39;s payment
+   * method
+   *
+   * @param externalToken The token issued by an external tokenization service representing the
+   *     shopper&#39;s payment method
+   */
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalToken(String externalToken) {
+    this.externalToken = externalToken;
+    isSetExternalToken = true; // mark as set
   }
 
   /**
@@ -878,6 +926,8 @@ public class StoredPaymentMethod {
         && Objects.equals(this.isSetExpiryMonth, storedPaymentMethod.isSetExpiryMonth)
         && Objects.equals(this.expiryYear, storedPaymentMethod.expiryYear)
         && Objects.equals(this.isSetExpiryYear, storedPaymentMethod.isSetExpiryYear)
+        && Objects.equals(this.externalToken, storedPaymentMethod.externalToken)
+        && Objects.equals(this.isSetExternalToken, storedPaymentMethod.isSetExternalToken)
         && Objects.equals(this.holderName, storedPaymentMethod.holderName)
         && Objects.equals(this.isSetHolderName, storedPaymentMethod.isSetHolderName)
         && Objects.equals(this.iban, storedPaymentMethod.iban)
@@ -926,6 +976,8 @@ public class StoredPaymentMethod {
         isSetExpiryMonth,
         expiryYear,
         isSetExpiryYear,
+        externalToken,
+        isSetExternalToken,
         holderName,
         isSetHolderName,
         iban,
@@ -962,6 +1014,7 @@ public class StoredPaymentMethod {
     sb.append("    cashtag: ").append(toIndentedString(cashtag)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+    sb.append("    externalToken: ").append(toIndentedString(externalToken)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -1019,6 +1072,9 @@ public class StoredPaymentMethod {
     }
     if (isSetExpiryYear) {
       addIfNull(nulls, JSON_PROPERTY_EXPIRY_YEAR, this.expiryYear);
+    }
+    if (isSetExternalToken) {
+      addIfNull(nulls, JSON_PROPERTY_EXTERNAL_TOKEN, this.externalToken);
     }
     if (isSetHolderName) {
       addIfNull(nulls, JSON_PROPERTY_HOLDER_NAME, this.holderName);

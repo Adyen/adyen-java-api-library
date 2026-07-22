@@ -44,10 +44,12 @@ public class Agency {
 
   /**
    * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1
-   * character * maxLength: 6 characters
+   * character * maxLength: 6 characters * **additionalData key:**
+   * &#x60;airline.agency_invoice_number&#x60;
    *
    * @param invoiceNumber The reference number for the invoice, issued by the agency. * Encoding:
-   *     ASCII * minLength: 1 character * maxLength: 6 characters
+   *     ASCII * minLength: 1 character * maxLength: 6 characters * **additionalData key:**
+   *     &#x60;airline.agency_invoice_number&#x60;
    * @return the current {@code Agency} instance, allowing for method chaining
    */
   public Agency invoiceNumber(String invoiceNumber) {
@@ -58,10 +60,12 @@ public class Agency {
 
   /**
    * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1
-   * character * maxLength: 6 characters
+   * character * maxLength: 6 characters * **additionalData key:**
+   * &#x60;airline.agency_invoice_number&#x60;
    *
    * @return invoiceNumber The reference number for the invoice, issued by the agency. * Encoding:
-   *     ASCII * minLength: 1 character * maxLength: 6 characters
+   *     ASCII * minLength: 1 character * maxLength: 6 characters * **additionalData key:**
+   *     &#x60;airline.agency_invoice_number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_INVOICE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,10 +75,12 @@ public class Agency {
 
   /**
    * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1
-   * character * maxLength: 6 characters
+   * character * maxLength: 6 characters * **additionalData key:**
+   * &#x60;airline.agency_invoice_number&#x60;
    *
    * @param invoiceNumber The reference number for the invoice, issued by the agency. * Encoding:
-   *     ASCII * minLength: 1 character * maxLength: 6 characters
+   *     ASCII * minLength: 1 character * maxLength: 6 characters * **additionalData key:**
+   *     &#x60;airline.agency_invoice_number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_INVOICE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,10 +91,11 @@ public class Agency {
 
   /**
    * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength:
-   * 2 characters
+   * 2 characters * **additionalData key:** &#x60;airline.agency_plan_name&#x60;
    *
    * @param planName The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2
-   *     characters * maxLength: 2 characters
+   *     characters * maxLength: 2 characters * **additionalData key:**
+   *     &#x60;airline.agency_plan_name&#x60;
    * @return the current {@code Agency} instance, allowing for method chaining
    */
   public Agency planName(String planName) {
@@ -99,10 +106,11 @@ public class Agency {
 
   /**
    * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength:
-   * 2 characters
+   * 2 characters * **additionalData key:** &#x60;airline.agency_plan_name&#x60;
    *
    * @return planName The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2
-   *     characters * maxLength: 2 characters
+   *     characters * maxLength: 2 characters * **additionalData key:**
+   *     &#x60;airline.agency_plan_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PLAN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,10 +120,11 @@ public class Agency {
 
   /**
    * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength:
-   * 2 characters
+   * 2 characters * **additionalData key:** &#x60;airline.agency_plan_name&#x60;
    *
    * @param planName The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2
-   *     characters * maxLength: 2 characters
+   *     characters * maxLength: 2 characters * **additionalData key:**
+   *     &#x60;airline.agency_plan_name&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PLAN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

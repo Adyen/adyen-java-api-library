@@ -92,11 +92,13 @@ public class LevelTwoThree {
 
   /**
    * The reference number to identify the customer and their order. * Format: ASCII * Max length: 25
-   * characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   * characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   * **additionalData key:** &#x60;enhancedSchemeData.customerReference&#x60;
    *
    * @param customerReferenceNumber The reference number to identify the customer and their order. *
    *     Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces. *
-   *     Must not be all zeros.
+   *     Must not be all zeros. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.customerReference&#x60;
    * @return the current {@code LevelTwoThree} instance, allowing for method chaining
    */
   public LevelTwoThree customerReferenceNumber(String customerReferenceNumber) {
@@ -107,11 +109,13 @@ public class LevelTwoThree {
 
   /**
    * The reference number to identify the customer and their order. * Format: ASCII * Max length: 25
-   * characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   * characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   * **additionalData key:** &#x60;enhancedSchemeData.customerReference&#x60;
    *
    * @return customerReferenceNumber The reference number to identify the customer and their order.
    *     * Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces.
-   *     * Must not be all zeros.
+   *     * Must not be all zeros. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.customerReference&#x60;
    */
   @JsonProperty(JSON_PROPERTY_CUSTOMER_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,11 +125,13 @@ public class LevelTwoThree {
 
   /**
    * The reference number to identify the customer and their order. * Format: ASCII * Max length: 25
-   * characters * Must not start with a space or be all spaces. * Must not be all zeros.
+   * characters * Must not start with a space or be all spaces. * Must not be all zeros. *
+   * **additionalData key:** &#x60;enhancedSchemeData.customerReference&#x60;
    *
    * @param customerReferenceNumber The reference number to identify the customer and their order. *
    *     Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces. *
-   *     Must not be all zeros.
+   *     Must not be all zeros. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.customerReference&#x60;
    */
   @JsonProperty(JSON_PROPERTY_CUSTOMER_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,11 +178,13 @@ public class LevelTwoThree {
   /**
    * The duty tax amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.dutyAmount&#x60;
    *
    * @param dutyAmount The duty tax amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.dutyAmount&#x60;
    * @return the current {@code LevelTwoThree} instance, allowing for method chaining
    */
   public LevelTwoThree dutyAmount(Long dutyAmount) {
@@ -188,11 +196,13 @@ public class LevelTwoThree {
   /**
    * The duty tax amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.dutyAmount&#x60;
    *
    * @return dutyAmount The duty tax amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.dutyAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DUTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,11 +213,13 @@ public class LevelTwoThree {
   /**
    * The duty tax amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.dutyAmount&#x60;
    *
    * @param dutyAmount The duty tax amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.dutyAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_DUTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,11 +231,13 @@ public class LevelTwoThree {
   /**
    * The shipping amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.freightAmount&#x60;
    *
    * @param freightAmount The shipping amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.freightAmount&#x60;
    * @return the current {@code LevelTwoThree} instance, allowing for method chaining
    */
   public LevelTwoThree freightAmount(Long freightAmount) {
@@ -235,11 +249,13 @@ public class LevelTwoThree {
   /**
    * The shipping amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.freightAmount&#x60;
    *
    * @return freightAmount The shipping amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.freightAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_FREIGHT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,11 +266,13 @@ public class LevelTwoThree {
   /**
    * The shipping amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means
-   * USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   * USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   * &#x60;enhancedSchemeData.freightAmount&#x60;
    *
    * @param freightAmount The shipping amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000
-   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+   *     means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:**
+   *     &#x60;enhancedSchemeData.freightAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_FREIGHT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,10 +326,12 @@ public class LevelTwoThree {
 
   /**
    * The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO
-   * 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:**
+   * &#x60;enhancedSchemeData.orderDate&#x60;
    *
    * @param orderDate The date of the order. * Min Length: 10 characters * Max Length: 10 characters
-   *     * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   *     * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData
+   *     key:** &#x60;enhancedSchemeData.orderDate&#x60;
    * @return the current {@code LevelTwoThree} instance, allowing for method chaining
    */
   public LevelTwoThree orderDate(LocalDate orderDate) {
@@ -322,10 +342,12 @@ public class LevelTwoThree {
 
   /**
    * The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO
-   * 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:**
+   * &#x60;enhancedSchemeData.orderDate&#x60;
    *
    * @return orderDate The date of the order. * Min Length: 10 characters * Max Length: 10
-   *     characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   *     characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd *
+   *     **additionalData key:** &#x60;enhancedSchemeData.orderDate&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,10 +357,12 @@ public class LevelTwoThree {
 
   /**
    * The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO
-   * 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:**
+   * &#x60;enhancedSchemeData.orderDate&#x60;
    *
    * @param orderDate The date of the order. * Min Length: 10 characters * Max Length: 10 characters
-   *     * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   *     * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData
+   *     key:** &#x60;enhancedSchemeData.orderDate&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,12 +374,14 @@ public class LevelTwoThree {
   /**
    * The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length:
    * 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or
-   * 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5.
+   * 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5. *
+   * **additionalData key:** &#x60;enhancedSchemeData.shipFromPostalCode&#x60;
    *
    * @param shipFromPostalCode The postal code of the address where the item is shipped from. *
    *     Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits
    *     format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For
-   *     example, M4B 1G5.
+   *     example, M4B 1G5. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.shipFromPostalCode&#x60;
    * @return the current {@code LevelTwoThree} instance, allowing for method chaining
    */
   public LevelTwoThree shipFromPostalCode(String shipFromPostalCode) {
@@ -367,12 +393,14 @@ public class LevelTwoThree {
   /**
    * The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length:
    * 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or
-   * 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5.
+   * 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5. *
+   * **additionalData key:** &#x60;enhancedSchemeData.shipFromPostalCode&#x60;
    *
    * @return shipFromPostalCode The postal code of the address where the item is shipped from. *
    *     Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits
    *     format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For
-   *     example, M4B 1G5.
+   *     example, M4B 1G5. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.shipFromPostalCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_SHIP_FROM_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,12 +411,14 @@ public class LevelTwoThree {
   /**
    * The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length:
    * 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or
-   * 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5.
+   * 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5. *
+   * **additionalData key:** &#x60;enhancedSchemeData.shipFromPostalCode&#x60;
    *
    * @param shipFromPostalCode The postal code of the address where the item is shipped from. *
    *     Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits
    *     format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For
-   *     example, M4B 1G5.
+   *     example, M4B 1G5. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.shipFromPostalCode&#x60;
    */
   @JsonProperty(JSON_PROPERTY_SHIP_FROM_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -402,13 +432,15 @@ public class LevelTwoThree {
    * amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    * in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example,
    * 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be
-   * all zeroes. * For L3 data: can be zero.
+   * all zeroes. * For L3 data: can be zero. * **additionalData key:**
+   * &#x60;enhancedSchemeData.totalTaxAmount&#x60;
    *
    * @param totalTaxAmount The amount of state or provincial [tax included in the total transaction
    *     amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    *     in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For
    *     example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data:
-   *     must not be all zeroes. * For L3 data: can be zero.
+   *     must not be all zeroes. * For L3 data: can be zero. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.totalTaxAmount&#x60;
    * @return the current {@code LevelTwoThree} instance, allowing for method chaining
    */
   public LevelTwoThree totalTaxAmount(Long totalTaxAmount) {
@@ -422,13 +454,15 @@ public class LevelTwoThree {
    * amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    * in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example,
    * 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be
-   * all zeroes. * For L3 data: can be zero.
+   * all zeroes. * For L3 data: can be zero. * **additionalData key:**
+   * &#x60;enhancedSchemeData.totalTaxAmount&#x60;
    *
    * @return totalTaxAmount The amount of state or provincial [tax included in the total transaction
    *     amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    *     in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For
    *     example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data:
-   *     must not be all zeroes. * For L3 data: can be zero.
+   *     must not be all zeroes. * For L3 data: can be zero. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.totalTaxAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -441,13 +475,15 @@ public class LevelTwoThree {
    * amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    * in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example,
    * 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be
-   * all zeroes. * For L3 data: can be zero.
+   * all zeroes. * For L3 data: can be zero. * **additionalData key:**
+   * &#x60;enhancedSchemeData.totalTaxAmount&#x60;
    *
    * @param totalTaxAmount The amount of state or provincial [tax included in the total transaction
    *     amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    *     in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For
    *     example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data:
-   *     must not be all zeroes. * For L3 data: can be zero.
+   *     must not be all zeroes. * For L3 data: can be zero. * **additionalData key:**
+   *     &#x60;enhancedSchemeData.totalTaxAmount&#x60;
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
