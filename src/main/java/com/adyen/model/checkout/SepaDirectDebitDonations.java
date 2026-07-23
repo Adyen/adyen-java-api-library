@@ -23,15 +23,15 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** StoredPaymentMethodDetails */
+/** SepaDirectDebitDonations */
 @JsonPropertyOrder({
-  StoredPaymentMethodDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  StoredPaymentMethodDetails.JSON_PROPERTY_SDK_DATA,
-  StoredPaymentMethodDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_TYPE
+  SepaDirectDebitDonations.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  SepaDirectDebitDonations.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  SepaDirectDebitDonations.JSON_PROPERTY_SDK_DATA,
+  SepaDirectDebitDonations.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  SepaDirectDebitDonations.JSON_PROPERTY_TYPE
 })
-public class StoredPaymentMethodDetails {
+public class SepaDirectDebitDonations {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
@@ -57,69 +57,9 @@ public class StoredPaymentMethodDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoredPaymentMethodId = false;
 
-  /** The payment method type. */
+  /** **sepadirectdebit** */
   public enum TypeEnum {
-    ALIPAY_PLUS(String.valueOf("alipay_plus")),
-
-    ALIPAY_PLUS_ALIPAY_CN(String.valueOf("alipay_plus_alipay_cn")),
-
-    ALIPAY_PLUS_ALIPAY_HK(String.valueOf("alipay_plus_alipay_hk")),
-
-    ALIPAY_PLUS_DANA(String.valueOf("alipay_plus_dana")),
-
-    ALIPAY_PLUS_GCASH(String.valueOf("alipay_plus_gcash")),
-
-    ALIPAY_PLUS_KAKAOPAY(String.valueOf("alipay_plus_kakaopay")),
-
-    ALIPAY_PLUS_KPLUS(String.valueOf("alipay_plus_kplus")),
-
-    ALIPAY_PLUS_NAVERPAY(String.valueOf("alipay_plus_naverpay")),
-
-    ALIPAY_PLUS_RABBITLINEPAY(String.valueOf("alipay_plus_rabbitlinepay")),
-
-    ALIPAY_PLUS_TOSSPAY(String.valueOf("alipay_plus_tosspay")),
-
-    ALIPAY_PLUS_TOUCHNGO(String.valueOf("alipay_plus_touchngo")),
-
-    ALIPAY_PLUS_TRUEMONEY(String.valueOf("alipay_plus_truemoney")),
-
-    BCMC_MOBILE(String.valueOf("bcmc_mobile")),
-
-    BCMC_MOBILE_QR(String.valueOf("bcmc_mobile_QR")),
-
-    BCMC_MOBILE_APP(String.valueOf("bcmc_mobile_app")),
-
-    MOMO_WALLET(String.valueOf("momo_wallet")),
-
-    MOMO_WALLET_APP(String.valueOf("momo_wallet_app")),
-
-    PAYMAYA_WALLET(String.valueOf("paymaya_wallet")),
-
-    GRABPAY_SG(String.valueOf("grabpay_SG")),
-
-    GRABPAY_MY(String.valueOf("grabpay_MY")),
-
-    GRABPAY_TH(String.valueOf("grabpay_TH")),
-
-    GRABPAY_ID(String.valueOf("grabpay_ID")),
-
-    GRABPAY_VN(String.valueOf("grabpay_VN")),
-
-    GRABPAY_PH(String.valueOf("grabpay_PH")),
-
-    OXXO(String.valueOf("oxxo")),
-
-    GCASH(String.valueOf("gcash")),
-
-    DANA(String.valueOf("dana")),
-
-    KAKAOPAY(String.valueOf("kakaopay")),
-
-    TRUEMONEY(String.valueOf("truemoney")),
-
-    PAYSAFECARD(String.valueOf("paysafecard")),
-
-    GOPAY_WALLET(String.valueOf("gopay_wallet"));
+    SEPADIRECTDEBIT(String.valueOf("sepadirectdebit"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -168,15 +108,15 @@ public class StoredPaymentMethodDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public StoredPaymentMethodDetails() {}
+  public SepaDirectDebitDonations() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails checkoutAttemptId(String checkoutAttemptId) {
+  public SepaDirectDebitDonations checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -211,11 +151,11 @@ public class StoredPaymentMethodDetails {
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
   @Deprecated
-  public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
+  public SepaDirectDebitDonations recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -256,9 +196,9 @@ public class StoredPaymentMethodDetails {
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails sdkData(String sdkData) {
+  public SepaDirectDebitDonations sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -294,9 +234,9 @@ public class StoredPaymentMethodDetails {
    *
    * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
    *     response when you created the token.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public SepaDirectDebitDonations storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     isSetStoredPaymentMethodId = true; // mark as set
     return this;
@@ -330,21 +270,21 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * The payment method type.
+   * **sepadirectdebit**
    *
-   * @param type The payment method type.
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @param type **sepadirectdebit**
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails type(TypeEnum type) {
+  public SepaDirectDebitDonations type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * The payment method type.
+   * **sepadirectdebit**
    *
-   * @return type The payment method type.
+   * @return type **sepadirectdebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,9 +293,9 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * The payment method type.
+   * **sepadirectdebit**
    *
-   * @param type The payment method type.
+   * @param type **sepadirectdebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -367,7 +307,7 @@ public class StoredPaymentMethodDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public StoredPaymentMethodDetails includeNullValues(boolean includeNullValues) {
+  public SepaDirectDebitDonations includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -384,7 +324,7 @@ public class StoredPaymentMethodDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this StoredPaymentMethodDetails object is equal to o. */
+  /** Return true if this SepaDirectDebitDonations object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -393,23 +333,23 @@ public class StoredPaymentMethodDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredPaymentMethodDetails storedPaymentMethodDetails = (StoredPaymentMethodDetails) o;
-    return Objects.equals(this.checkoutAttemptId, storedPaymentMethodDetails.checkoutAttemptId)
+    SepaDirectDebitDonations sepaDirectDebitDonations = (SepaDirectDebitDonations) o;
+    return Objects.equals(this.checkoutAttemptId, sepaDirectDebitDonations.checkoutAttemptId)
         && Objects.equals(
-            this.isSetCheckoutAttemptId, storedPaymentMethodDetails.isSetCheckoutAttemptId)
+            this.isSetCheckoutAttemptId, sepaDirectDebitDonations.isSetCheckoutAttemptId)
         && Objects.equals(
-            this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference)
+            this.recurringDetailReference, sepaDirectDebitDonations.recurringDetailReference)
         && Objects.equals(
             this.isSetRecurringDetailReference,
-            storedPaymentMethodDetails.isSetRecurringDetailReference)
-        && Objects.equals(this.sdkData, storedPaymentMethodDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, storedPaymentMethodDetails.isSetSdkData)
+            sepaDirectDebitDonations.isSetRecurringDetailReference)
+        && Objects.equals(this.sdkData, sepaDirectDebitDonations.sdkData)
+        && Objects.equals(this.isSetSdkData, sepaDirectDebitDonations.isSetSdkData)
         && Objects.equals(
-            this.storedPaymentMethodId, storedPaymentMethodDetails.storedPaymentMethodId)
+            this.storedPaymentMethodId, sepaDirectDebitDonations.storedPaymentMethodId)
         && Objects.equals(
-            this.isSetStoredPaymentMethodId, storedPaymentMethodDetails.isSetStoredPaymentMethodId)
-        && Objects.equals(this.type, storedPaymentMethodDetails.type)
-        && Objects.equals(this.isSetType, storedPaymentMethodDetails.isSetType);
+            this.isSetStoredPaymentMethodId, sepaDirectDebitDonations.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, sepaDirectDebitDonations.type)
+        && Objects.equals(this.isSetType, sepaDirectDebitDonations.isSetType);
   }
 
   @Override
@@ -430,7 +370,7 @@ public class StoredPaymentMethodDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredPaymentMethodDetails {\n");
+    sb.append("class SepaDirectDebitDonations {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
@@ -491,20 +431,20 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * Create an instance of StoredPaymentMethodDetails given an JSON string
+   * Create an instance of SepaDirectDebitDonations given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredPaymentMethodDetails
+   * @return An instance of SepaDirectDebitDonations
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredPaymentMethodDetails
+   *     SepaDirectDebitDonations
    */
-  public static StoredPaymentMethodDetails fromJson(String jsonString)
+  public static SepaDirectDebitDonations fromJson(String jsonString)
       throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredPaymentMethodDetails.class);
+    return JSON.getMapper().readValue(jsonString, SepaDirectDebitDonations.class);
   }
 
   /**
-   * Convert an instance of StoredPaymentMethodDetails to an JSON string
+   * Convert an instance of SepaDirectDebitDonations to an JSON string
    *
    * @return JSON string
    */
