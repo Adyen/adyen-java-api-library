@@ -1,0 +1,38 @@
+{
+    "data": {
+        "balancePlatform": "YOUR_BALANCE_PLATFORM",
+        "creationDate": "2026-04-17T10:30:00+01:00",
+        "accountId": "BA00000000000000000001",
+        "webhookTopUpConfiguration": {
+            "id": "TU4227C224555B5FTD2NT2JV4WN5",
+            "description": "Top up when balance is low - updated",
+            "status": "inactive",
+            "topUpAmount": {
+                "fixedAmount": {
+                    "currency": "EUR",
+                    "value": 15000
+                }
+            },
+            "trigger": {
+                "schedule": "monthly",
+                "threshold": {
+                    "currency": "EUR",
+                    "value": 3000
+                }
+            },
+            "counterparty": {
+                "transferInstrumentId": "SE00000000000000000001"
+            },
+            "referenceForBeneficiary": "TopUpFromSavings",
+            "mandate": {
+                "reference": "MND00000000000000000001",
+                "creationDate": "2026-04-17T10:30:00+01:00"
+            },
+            "disabledReason": "counterpartyAccountBlocked",
+            "reasonDetail": "The counterparty account is blocked."
+        }
+    },
+    "environment": "test",
+    "timestamp": "2026-04-17T14:45:00+01:00",
+    "type": "balancePlatform.balanceAccount.recurringTopUp.updated"
+}
