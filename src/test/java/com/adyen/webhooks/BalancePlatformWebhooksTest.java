@@ -28,6 +28,7 @@ import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.adyen.model.transferwebhooks.TransferWebhooksHandler;
 import com.adyen.util.HMACValidator;
 import java.security.SignatureException;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -619,6 +620,11 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(Mandate.StatusEnum.APPROVED, request.getData().getMandate().getStatus());
     assertEquals(Mandate.TypeEnum.BACS, request.getData().getMandate().getType());
 
+    // createdAt and updatedAt are now deserialized as OffsetDateTime
+    OffsetDateTime expectedDate = OffsetDateTime.parse("2025-09-04T13:40:41.581Z");
+    assertEquals(expectedDate, request.getData().getMandate().getCreatedAt());
+    assertEquals(expectedDate, request.getData().getMandate().getUpdatedAt());
+
     assertNotNull(request.getData().getMandate().getCounterparty());
     assertNotNull(request.getData().getMandate().getCounterparty().getAccountHolder());
     assertEquals(
@@ -637,5 +643,174 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals("10809699", ukLocalAccountId.getAccountNumber());
     assertEquals("405081", ukLocalAccountId.getSortCode());
     assertEquals(UKLocalMandateAccountIdentification.TypeEnum.UKLOCAL, ukLocalAccountId.getType());
+  }
+
+  @Test
+  public void testMandateNotificationWithInvalidDates() {
+    String json =
+        "{\"data\":{\"balancePlatform\":\"YOUR_BALANCE_PLATFORM\",\"mandate\":{"
+            + "\"id\":\"MNDT000000000000000000000001\",\"status\":\"approved\",\"type\":\"bacs\","
+            + "\"createdAt\":\"not-a-date\",\"updatedAt\":\"not-a-date\"}},"
+            + "\"environment\":\"test\",\"type\":\"balancePlatform.mandate.created\"}";
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    // createdAt/updatedAt are now OffsetDateTime, an invalid date fails deserialization
+    assertFalse(handler.getMandateNotificationRequest().isPresent());
+  }
+
+  @Test
+  public void testMandateNotificationWithUnknownAccountIdentificationType() {
+    String json =
+        "{\"data\":{\"balancePlatform\":\"YOUR_BALANCE_PLATFORM\",\"mandate\":{"
+            + "\"id\":\"MNDT000000000000000000000001\",\"status\":\"approved\",\"type\":\"bacs\","
+            + "\"counterparty\":{\"accountIdentification\":{\"type\":\"unknownType\"}}}},"
+            + "\"environment\":\"test\",\"type\":\"balancePlatform.mandate.created\"}";
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    // an unknown account identification discriminator type fails deserialization
+    assertFalse(handler.getMandateNotificationRequest().isPresent());
+  }
+
+  @Test
+  public void testPaymentInstrumentIbanAdditionalBankAccountIdentification() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/configuration-paymentInstrument-created.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<PaymentNotificationRequest> optionalRequest = handler.getPaymentNotificationRequest();
+    assertTrue(optionalRequest.isPresent());
+
+    PaymentNotificationRequest request = optionalRequest.get();
+    assertEquals(
+        PaymentNotificationRequest.TypeEnum.BALANCEPLATFORM_PAYMENTINSTRUMENT_CREATED,
+        request.getType());
+    assertEquals("test", request.getEnvironment());
+
+    PaymentInstrument paymentInstrument = request.getData().getPaymentInstrument();
+    assertNotNull(paymentInstrument);
+    assertEquals("PI00000000000000000001", paymentInstrument.getId());
+    assertNotNull(paymentInstrument.getAdditionalBankAccountIdentifications());
+    assertEquals(1, paymentInstrument.getAdditionalBankAccountIdentifications().size());
+
+    // the discriminator (type=iban) resolves to IbanAccountIdentification
+    IbanAccountIdentification ibanAccountIdentification =
+        paymentInstrument
+            .getAdditionalBankAccountIdentifications()
+            .get(0)
+            .getIbanAccountIdentification();
+    assertNotNull(ibanAccountIdentification);
+    assertEquals("NL11ADYB00000000", ibanAccountIdentification.getIban());
+    assertEquals(IbanAccountIdentification.TypeEnum.IBAN, ibanAccountIdentification.getType());
+  }
+
+  @Test
+  public void testPaymentInstrumentUnknownAdditionalBankAccountIdentificationType() {
+    String json =
+        "{\"data\":{\"balancePlatform\":\"YOUR_BALANCE_PLATFORM\",\"paymentInstrument\":{"
+            + "\"id\":\"PI00000000000000000001\",\"balanceAccountId\":\"BA00000000000000000001\","
+            + "\"issuingCountryCode\":\"NL\",\"status\":\"active\",\"type\":\"bankAccount\","
+            + "\"additionalBankAccountIdentifications\":[{\"type\":\"unknownType\"}]}},"
+            + "\"environment\":\"test\",\"type\":\"balancePlatform.paymentInstrument.created\"}";
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    // an unknown additional bank account identification discriminator type fails deserialization
+    assertFalse(handler.getPaymentNotificationRequest().isPresent());
+  }
+
+  @Test
+  public void testTopUpConfigurationCreatedNotificationRequest() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/balanceplatform-recurringTopUp-created.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<TopUpConfigurationEventRequest> optionalRequest =
+        handler.getTopUpConfigurationEventRequest();
+    assertTrue(optionalRequest.isPresent());
+
+    TopUpConfigurationEventRequest request = optionalRequest.get();
+    assertEquals(
+        TopUpConfigurationEventRequest.TypeEnum
+            .BALANCEPLATFORM_BALANCEACCOUNT_RECURRINGTOPUP_CREATED,
+        request.getType());
+    assertEquals("test", request.getEnvironment());
+    assertNotNull(request.getTimestamp());
+
+    TopUpWebhookData data = request.getData();
+    assertNotNull(data);
+    assertEquals("BA00000000000000000001", data.getAccountId());
+    assertEquals("YOUR_BALANCE_PLATFORM", data.getBalancePlatform());
+    assertNotNull(data.getCreationDate());
+
+    WebhookTopUpConfiguration config = data.getWebhookTopUpConfiguration();
+    assertNotNull(config);
+    assertEquals("TU4227C224555B5FTD2NT2JV4WN5", config.getId());
+    assertEquals("Top up when balance is low", config.getDescription());
+    assertEquals("TopUpFromSavings", config.getReferenceForBeneficiary());
+    assertEquals(WebhookTopUpConfiguration.StatusEnum.ACTIVE, config.getStatus());
+
+    assertNotNull(config.getCounterparty());
+    assertEquals("SE00000000000000000001", config.getCounterparty().getTransferInstrumentId());
+
+    assertNotNull(config.getMandate());
+    assertEquals("MND00000000000000000001", config.getMandate().getReference());
+    assertNotNull(config.getMandate().getCreationDate());
+
+    assertNotNull(config.getTopUpAmount());
+    assertEquals("EUR", config.getTopUpAmount().getFixedAmount().getCurrency());
+    assertEquals(Long.valueOf(10000), config.getTopUpAmount().getFixedAmount().getValue());
+
+    assertNotNull(config.getTrigger());
+    assertEquals(WebhookTopUpTrigger.ScheduleEnum.WEEKLY, config.getTrigger().getSchedule());
+    assertEquals(Long.valueOf(5000), config.getTrigger().getThreshold().getValue());
+  }
+
+  @Test
+  public void testTopUpConfigurationUpdatedNotificationRequest() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/balanceplatform-recurringTopUp-updated.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<TopUpConfigurationUpdatedEventRequest> optionalRequest =
+        handler.getTopUpConfigurationUpdatedEventRequest();
+    assertTrue(optionalRequest.isPresent());
+
+    TopUpConfigurationUpdatedEventRequest request = optionalRequest.get();
+    assertEquals(
+        TopUpConfigurationUpdatedEventRequest.TypeEnum
+            .BALANCEPLATFORM_BALANCEACCOUNT_RECURRINGTOPUP_UPDATED,
+        request.getType());
+    assertEquals("test", request.getEnvironment());
+    assertNotNull(request.getTimestamp());
+
+    TopUpUpdatedWebhookData data = request.getData();
+    assertNotNull(data);
+    assertEquals("BA00000000000000000001", data.getAccountId());
+    assertEquals("YOUR_BALANCE_PLATFORM", data.getBalancePlatform());
+
+    WebhookTopUpConfigurationUpdated config = data.getWebhookTopUpConfiguration();
+    assertNotNull(config);
+    assertEquals("Top up when balance is low - updated", config.getDescription());
+    assertEquals(WebhookTopUpConfigurationUpdated.StatusEnum.INACTIVE, config.getStatus());
+    assertEquals("counterpartyAccountBlocked", config.getDisabledReason());
+    assertEquals("The counterparty account is blocked.", config.getReasonDetail());
+    assertEquals(Long.valueOf(15000), config.getTopUpAmount().getFixedAmount().getValue());
+    assertEquals(WebhookTopUpTrigger.ScheduleEnum.MONTHLY, config.getTrigger().getSchedule());
+    assertEquals(Long.valueOf(3000), config.getTrigger().getThreshold().getValue());
+  }
+
+  @Test
+  public void testTopUpConfigurationWithUnknownTypeReturnsEmpty() {
+    String json =
+        "{\"data\":{\"balancePlatform\":\"YOUR_BALANCE_PLATFORM\"},"
+            + "\"environment\":\"test\","
+            + "\"type\":\"balancePlatform.balanceAccount.recurringTopUp.unknown\"}";
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    // an unknown event type does not match the TopUp created/updated type enums
+    assertFalse(handler.getTopUpConfigurationEventRequest().isPresent());
+    assertFalse(handler.getTopUpConfigurationUpdatedEventRequest().isPresent());
   }
 }
