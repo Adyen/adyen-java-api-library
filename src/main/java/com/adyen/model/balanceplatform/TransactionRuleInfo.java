@@ -31,6 +31,7 @@ import java.util.logging.Logger;
   TransactionRuleInfo.JSON_PROPERTY_ENTITY_KEY,
   TransactionRuleInfo.JSON_PROPERTY_INTERVAL,
   TransactionRuleInfo.JSON_PROPERTY_OUTCOME_TYPE,
+  TransactionRuleInfo.JSON_PROPERTY_OVERRIDES_RULE,
   TransactionRuleInfo.JSON_PROPERTY_PURPOSE,
   TransactionRuleInfo.JSON_PROPERTY_REFERENCE,
   TransactionRuleInfo.JSON_PROPERTY_REQUEST_TYPE,
@@ -131,6 +132,12 @@ public class TransactionRuleInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetOutcomeType = false;
+
+  public static final String JSON_PROPERTY_OVERRIDES_RULE = "overridesRule";
+  private String overridesRule;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOverridesRule = false;
 
   /**
    * Specifies the reason for creating the rule. Possible values: * **fraud**: the rule is created
@@ -328,12 +335,17 @@ public class TransactionRuleInfo {
    * the amount or number of transactions for the lifetime of a payment instrument, and then decline
    * a transaction when the specified limits are met. * **velocity**: add the amount or number of
    * transactions based on a specified time interval, and then decline a transaction when the
-   * specified limits are met.
+   * specified limits are met. * **bypass**: bypass or skip a rule for the specified
+   * &#x60;entityKey&#x60;. Transactions processed to that entity are no longer evaluated by the
+   * bypassed rule. You must provide the &#x60;id&#x60; of the rule to bypass in
+   * &#x60;overridesRule&#x60; and leave the &#x60;ruleRestrictions&#x60; object empty.
    */
   public enum TypeEnum {
     ALLOWLIST(String.valueOf("allowList")),
 
     BLOCKLIST(String.valueOf("blockList")),
+
+    BYPASS(String.valueOf("bypass")),
 
     MAXUSAGE(String.valueOf("maxUsage")),
 
@@ -692,6 +704,47 @@ public class TransactionRuleInfo {
   }
 
   /**
+   * The &#x60;id&#x60; of the transaction rule you want to override or skip for the specified
+   * &#x60;entityKey&#x60;.
+   *
+   * @param overridesRule The &#x60;id&#x60; of the transaction rule you want to override or skip
+   *     for the specified &#x60;entityKey&#x60;.
+   * @return the current {@code TransactionRuleInfo} instance, allowing for method chaining
+   */
+  public TransactionRuleInfo overridesRule(String overridesRule) {
+    this.overridesRule = overridesRule;
+    isSetOverridesRule = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The &#x60;id&#x60; of the transaction rule you want to override or skip for the specified
+   * &#x60;entityKey&#x60;.
+   *
+   * @return overridesRule The &#x60;id&#x60; of the transaction rule you want to override or skip
+   *     for the specified &#x60;entityKey&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_OVERRIDES_RULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOverridesRule() {
+    return overridesRule;
+  }
+
+  /**
+   * The &#x60;id&#x60; of the transaction rule you want to override or skip for the specified
+   * &#x60;entityKey&#x60;.
+   *
+   * @param overridesRule The &#x60;id&#x60; of the transaction rule you want to override or skip
+   *     for the specified &#x60;entityKey&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_OVERRIDES_RULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOverridesRule(String overridesRule) {
+    this.overridesRule = overridesRule;
+    isSetOverridesRule = true; // mark as set
+  }
+
+  /**
    * Specifies the reason for creating the rule. Possible values: * **fraud**: the rule is created
    * to regulate fraudulent activity. * **policy**: the rule is created to ensure that the
    * transaction adheres to your business&#39; policies. For example, if your business has policies
@@ -1018,7 +1071,10 @@ public class TransactionRuleInfo {
    * the amount or number of transactions for the lifetime of a payment instrument, and then decline
    * a transaction when the specified limits are met. * **velocity**: add the amount or number of
    * transactions based on a specified time interval, and then decline a transaction when the
-   * specified limits are met.
+   * specified limits are met. * **bypass**: bypass or skip a rule for the specified
+   * &#x60;entityKey&#x60;. Transactions processed to that entity are no longer evaluated by the
+   * bypassed rule. You must provide the &#x60;id&#x60; of the rule to bypass in
+   * &#x60;overridesRule&#x60; and leave the &#x60;ruleRestrictions&#x60; object empty.
    *
    * @param type The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types),
    *     which defines if a rule blocks transactions based on individual characteristics or
@@ -1026,7 +1082,11 @@ public class TransactionRuleInfo {
    *     conditions are met. * **maxUsage**: add the amount or number of transactions for the
    *     lifetime of a payment instrument, and then decline a transaction when the specified limits
    *     are met. * **velocity**: add the amount or number of transactions based on a specified time
-   *     interval, and then decline a transaction when the specified limits are met.
+   *     interval, and then decline a transaction when the specified limits are met. * **bypass**:
+   *     bypass or skip a rule for the specified &#x60;entityKey&#x60;. Transactions processed to
+   *     that entity are no longer evaluated by the bypassed rule. You must provide the
+   *     &#x60;id&#x60; of the rule to bypass in &#x60;overridesRule&#x60; and leave the
+   *     &#x60;ruleRestrictions&#x60; object empty.
    * @return the current {@code TransactionRuleInfo} instance, allowing for method chaining
    */
   public TransactionRuleInfo type(TypeEnum type) {
@@ -1042,7 +1102,10 @@ public class TransactionRuleInfo {
    * the amount or number of transactions for the lifetime of a payment instrument, and then decline
    * a transaction when the specified limits are met. * **velocity**: add the amount or number of
    * transactions based on a specified time interval, and then decline a transaction when the
-   * specified limits are met.
+   * specified limits are met. * **bypass**: bypass or skip a rule for the specified
+   * &#x60;entityKey&#x60;. Transactions processed to that entity are no longer evaluated by the
+   * bypassed rule. You must provide the &#x60;id&#x60; of the rule to bypass in
+   * &#x60;overridesRule&#x60; and leave the &#x60;ruleRestrictions&#x60; object empty.
    *
    * @return type The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types),
    *     which defines if a rule blocks transactions based on individual characteristics or
@@ -1050,7 +1113,11 @@ public class TransactionRuleInfo {
    *     conditions are met. * **maxUsage**: add the amount or number of transactions for the
    *     lifetime of a payment instrument, and then decline a transaction when the specified limits
    *     are met. * **velocity**: add the amount or number of transactions based on a specified time
-   *     interval, and then decline a transaction when the specified limits are met.
+   *     interval, and then decline a transaction when the specified limits are met. * **bypass**:
+   *     bypass or skip a rule for the specified &#x60;entityKey&#x60;. Transactions processed to
+   *     that entity are no longer evaluated by the bypassed rule. You must provide the
+   *     &#x60;id&#x60; of the rule to bypass in &#x60;overridesRule&#x60; and leave the
+   *     &#x60;ruleRestrictions&#x60; object empty.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1065,7 +1132,10 @@ public class TransactionRuleInfo {
    * the amount or number of transactions for the lifetime of a payment instrument, and then decline
    * a transaction when the specified limits are met. * **velocity**: add the amount or number of
    * transactions based on a specified time interval, and then decline a transaction when the
-   * specified limits are met.
+   * specified limits are met. * **bypass**: bypass or skip a rule for the specified
+   * &#x60;entityKey&#x60;. Transactions processed to that entity are no longer evaluated by the
+   * bypassed rule. You must provide the &#x60;id&#x60; of the rule to bypass in
+   * &#x60;overridesRule&#x60; and leave the &#x60;ruleRestrictions&#x60; object empty.
    *
    * @param type The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types),
    *     which defines if a rule blocks transactions based on individual characteristics or
@@ -1073,7 +1143,11 @@ public class TransactionRuleInfo {
    *     conditions are met. * **maxUsage**: add the amount or number of transactions for the
    *     lifetime of a payment instrument, and then decline a transaction when the specified limits
    *     are met. * **velocity**: add the amount or number of transactions based on a specified time
-   *     interval, and then decline a transaction when the specified limits are met.
+   *     interval, and then decline a transaction when the specified limits are met. * **bypass**:
+   *     bypass or skip a rule for the specified &#x60;entityKey&#x60;. Transactions processed to
+   *     that entity are no longer evaluated by the bypassed rule. You must provide the
+   *     &#x60;id&#x60; of the rule to bypass in &#x60;overridesRule&#x60; and leave the
+   *     &#x60;ruleRestrictions&#x60; object empty.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1124,6 +1198,8 @@ public class TransactionRuleInfo {
         && Objects.equals(this.isSetInterval, transactionRuleInfo.isSetInterval)
         && Objects.equals(this.outcomeType, transactionRuleInfo.outcomeType)
         && Objects.equals(this.isSetOutcomeType, transactionRuleInfo.isSetOutcomeType)
+        && Objects.equals(this.overridesRule, transactionRuleInfo.overridesRule)
+        && Objects.equals(this.isSetOverridesRule, transactionRuleInfo.isSetOverridesRule)
         && Objects.equals(this.purpose, transactionRuleInfo.purpose)
         && Objects.equals(this.isSetPurpose, transactionRuleInfo.isSetPurpose)
         && Objects.equals(this.reference, transactionRuleInfo.reference)
@@ -1157,6 +1233,8 @@ public class TransactionRuleInfo {
         isSetInterval,
         outcomeType,
         isSetOutcomeType,
+        overridesRule,
+        isSetOverridesRule,
         purpose,
         isSetPurpose,
         reference,
@@ -1185,6 +1263,7 @@ public class TransactionRuleInfo {
     sb.append("    entityKey: ").append(toIndentedString(entityKey)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    outcomeType: ").append(toIndentedString(outcomeType)).append("\n");
+    sb.append("    overridesRule: ").append(toIndentedString(overridesRule)).append("\n");
     sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
@@ -1234,6 +1313,9 @@ public class TransactionRuleInfo {
     }
     if (isSetOutcomeType) {
       addIfNull(nulls, JSON_PROPERTY_OUTCOME_TYPE, this.outcomeType);
+    }
+    if (isSetOverridesRule) {
+      addIfNull(nulls, JSON_PROPERTY_OVERRIDES_RULE, this.overridesRule);
     }
     if (isSetPurpose) {
       addIfNull(nulls, JSON_PROPERTY_PURPOSE, this.purpose);
