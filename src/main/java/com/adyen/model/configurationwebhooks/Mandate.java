@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
@@ -40,7 +41,7 @@ public class Mandate {
   private MandateBankAccount counterparty;
 
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
-  private Object createdAt;
+  private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -137,7 +138,7 @@ public class Mandate {
   private TypeEnum type;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
-  private Object updatedAt;
+  private OffsetDateTime updatedAt;
 
   public Mandate() {}
 
@@ -211,35 +212,35 @@ public class Mandate {
   }
 
   /**
-   * createdAt
+   * The date when the mandate was created.
    *
-   * @param createdAt
+   * @param createdAt The date when the mandate was created.
    * @return the current {@code Mandate} instance, allowing for method chaining
    */
-  public Mandate createdAt(Object createdAt) {
+  public Mandate createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Get createdAt
+   * The date when the mandate was created.
    *
-   * @return createdAt
+   * @return createdAt The date when the mandate was created.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
   /**
-   * createdAt
+   * The date when the mandate was created.
    *
-   * @param createdAt
+   * @param createdAt The date when the mandate was created.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(Object createdAt) {
+  public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -382,35 +383,35 @@ public class Mandate {
   }
 
   /**
-   * updatedAt
+   * The date when the mandate was updated.
    *
-   * @param updatedAt
+   * @param updatedAt The date when the mandate was updated.
    * @return the current {@code Mandate} instance, allowing for method chaining
    */
-  public Mandate updatedAt(Object updatedAt) {
+  public Mandate updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * Get updatedAt
+   * The date when the mandate was updated.
    *
-   * @return updatedAt
+   * @return updatedAt The date when the mandate was updated.
    */
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getUpdatedAt() {
+  public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
 
   /**
-   * updatedAt
+   * The date when the mandate was updated.
    *
-   * @param updatedAt
+   * @param updatedAt The date when the mandate was updated.
    */
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedAt(Object updatedAt) {
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
