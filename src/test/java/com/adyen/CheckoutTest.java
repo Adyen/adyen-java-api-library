@@ -30,11 +30,17 @@ import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.time.OffsetDateTime;
 import java.util.*;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.ArgumentCaptor;
 
 public class CheckoutTest extends BaseTest {
@@ -941,5 +947,142 @@ public class CheckoutTest extends BaseTest {
     assertNotNull(response.getResponse());
     assertEquals(200, (int) response.getResponse().getStatus());
     assertTrue(response.getResponse().getBody().contains("PAYMENT_METHOD_ID"));
+  }
+
+  private static Stream<Arguments> redirectPaymentMethods() {
+    return Stream.of(
+        Arguments.of(
+            new CheckoutPaymentMethod(new AuPayDetails().type(AuPayDetails.TypeEnum.AUPAY)),
+            "mocks/checkout/paymentResponseAuPay.json",
+            "881567437271705K",
+            "aupay"),
+        Arguments.of(
+            new CheckoutPaymentMethod(new DBaraiDetails().type(DBaraiDetails.TypeEnum.DBARAI)),
+            "mocks/checkout/paymentResponseDBarai.json",
+            "881567437271706L",
+            "dbarai"));
+  }
+
+  /** Should make a payment with a redirect payment method */
+  @ParameterizedTest
+  @MethodSource("redirectPaymentMethods")
+  public void testPaymentRedirectSuccess(
+      CheckoutPaymentMethod paymentMethod,
+      String mockFile,
+      String expectedPspReference,
+      String expectedPaymentMethodType)
+      throws Exception {
+    Client client = createMockClientFromFile(mockFile);
+    PaymentRequest paymentRequest =
+        new PaymentRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_REFERENCE")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
+            .paymentMethod(paymentMethod);
+
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+
+    assertEquals(expectedPspReference, paymentResponse.getPspReference());
+    assertEquals(PaymentResponse.ResultCodeEnum.REDIRECTSHOPPER, paymentResponse.getResultCode());
+    assertEquals(
+        CheckoutRedirectAction.TypeEnum.REDIRECT,
+        paymentResponse.getAction().getCheckoutRedirectAction().getType());
+    assertEquals(
+        expectedPaymentMethodType,
+        paymentResponse.getAction().getCheckoutRedirectAction().getPaymentMethodType());
+
+    verify(client.getHttpClient())
+        .request(
+            String.format("https://checkout-test.adyen.com/v%s/payments", PaymentsApi.API_VERSION),
+            paymentRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  @ParameterizedTest
+  @ValueSource(
+      strings = {
+        "{\"type\":\"notARealPaymentMethod\"}", // type matches no known schema
+        "{\"storedPaymentMethodId\":\"M5N7TQ4TG5PFWR50\"}" // no type discriminator at all
+      })
+  public void testCheckoutPaymentMethodDeserializationFailure(String json) {
+    IOException exception =
+        assertThrows(IOException.class, () -> CheckoutPaymentMethod.fromJson(json));
+    assertTrue(exception.getMessage().contains("Failed deserialization for CheckoutPaymentMethod"));
+  }
+
+  @Test
+  public void testPaymentRequestThirdPartyTokenRedundancyInfo() throws Exception {
+    PaymentRequest paymentRequest =
+        new PaymentRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_REFERENCE")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .thirdPartyTokenRedundancyInfo(
+                new ThirdPartyTokenRedundancyInfo()
+                    .requestTemplateCode("TEMPLATE_CODE")
+                    .putRequestParametersItem("key", "value"));
+
+    String json = paymentRequest.toJson();
+    assertTrue(json.contains("thirdPartyTokenRedundancyInfo"));
+
+    PaymentRequest parsed = PaymentRequest.fromJson(json);
+    assertEquals(
+        "TEMPLATE_CODE", parsed.getThirdPartyTokenRedundancyInfo().getRequestTemplateCode());
+    assertEquals(
+        "value", parsed.getThirdPartyTokenRedundancyInfo().getRequestParameters().get("key"));
+  }
+
+  @Test
+  public void testCreateSessionShopperConversionId() throws Exception {
+    CreateCheckoutSessionRequest sessionRequest =
+        new CreateCheckoutSessionRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .reference("YOUR_PAYMENT_REFERENCE")
+            .shopperConversionId("SHOPPER_CONVERSION_ID");
+
+    String json = sessionRequest.toJson();
+    assertTrue(json.contains("shopperConversionId"));
+
+    CreateCheckoutSessionRequest parsed = CreateCheckoutSessionRequest.fromJson(json);
+    assertEquals("SHOPPER_CONVERSION_ID", parsed.getShopperConversionId());
+  }
+
+  @Test
+  public void testPaypalUpdateOrderRequestSerialization() throws Exception {
+    PaypalUpdateOrderRequest request =
+        new PaypalUpdateOrderRequest()
+            .pspReference("DZ4DPSHB4WD2WN82")
+            .paymentData("po7XZ...")
+            .amount(new Amount().currency("EUR").value(12000L))
+            .deliveryMethods(
+                Arrays.asList(
+                    new DeliveryMethod()
+                        .reference("1")
+                        .description("Express Shipping")
+                        .type(DeliveryMethod.TypeEnum.SHIPPING)
+                        .amount(new Amount().currency("EUR").value(1000L))
+                        .selected(true),
+                    new DeliveryMethod()
+                        .reference("2")
+                        .description("Standard Ground")
+                        .type(DeliveryMethod.TypeEnum.SHIPPING)
+                        .amount(new Amount().currency("EUR").value(500L))
+                        .selected(false)));
+
+    String json = request.toJson();
+    PaypalUpdateOrderRequest parsed = PaypalUpdateOrderRequest.fromJson(json);
+    assertEquals("DZ4DPSHB4WD2WN82", parsed.getPspReference());
+    assertEquals("po7XZ...", parsed.getPaymentData());
+    assertEquals(12000L, parsed.getAmount().getValue().longValue());
+    assertEquals(2, parsed.getDeliveryMethods().size());
+    assertEquals("Express Shipping", parsed.getDeliveryMethods().get(0).getDescription());
+    assertEquals(true, parsed.getDeliveryMethods().get(0).getSelected());
   }
 }

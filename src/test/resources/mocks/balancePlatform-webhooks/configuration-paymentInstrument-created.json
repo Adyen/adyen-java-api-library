@@ -1,0 +1,25 @@
+{
+    "data": {
+        "balancePlatform": "YOUR_BALANCE_PLATFORM",
+        "paymentInstrument": {
+            "balanceAccountId": "BA00000000000000000001",
+            "issuingCountryCode": "NL",
+            "status": "active",
+            "type": "bankAccount",
+            "bankAccount": {
+                "type": "iban",
+                "iban": "NL11ADYB00000000"
+            },
+            "additionalBankAccountIdentifications": [
+                {
+                    "type": "iban",
+                    "iban": "NL11ADYB00000000"
+                }
+            ],
+            "id": "PI00000000000000000001"
+        }
+    },
+    "environment": "test",
+    "timestamp": "2026-03-24T09:30:12+01:00",
+    "type": "balancePlatform.paymentInstrument.created"
+}

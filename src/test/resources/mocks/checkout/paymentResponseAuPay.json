@@ -1,0 +1,10 @@
+{
+  "pspReference": "881567437271705K",
+  "resultCode": "RedirectShopper",
+  "action": {
+    "method": "GET",
+    "paymentMethodType": "aupay",
+    "type": "redirect",
+    "url": "https://checkoutshopper-test.adyen.com/checkoutshopper/checkoutPaymentRedirect?redirectData=..."
+  }
+}
