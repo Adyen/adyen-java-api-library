@@ -38,5 +38,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
-          mvn -B clean test jacoco:report sonar:sonar
+          mvn -B clean test jacoco:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           -Dsonar.projectKey=Adyen_adyen-java-api-library
