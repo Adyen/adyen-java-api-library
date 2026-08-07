@@ -93,14 +93,29 @@ public class AdyenHttpClient implements ClientInterface {
 
   private static final String CHARSET = "UTF-8";
   private Proxy proxy;
-  private PoolingHttpClientConnectionManager sharedConnectionManager;
+  private final PoolingHttpClientConnectionManager sharedConnectionManager;
   private volatile CloseableHttpClient sharedHttpClient;
   private final Object lock = new Object();
 
   public AdyenHttpClient() {
-    super();
+    this(null);
   }
 
+  /**
+   * Creates an AdyenHttpClient with a shared connection manager.
+   * <p>
+   * <b>Note:</b> When using a shared connection manager:
+   * <ul>
+   *   <li>Any custom {@link SSLContext} or {@link HostnameVerifier} configured in {@link Config}
+   *       will be ignored, as the connection manager's own socket factory registry is used.</li>
+   *   <li>Connection-level configurations (such as {@code connectTimeout} and {@code socketTimeout})
+   *       must be pre-configured on the shared connection manager, as the timeouts from {@link Config}
+   *       will only be applied at the request level (via {@link RequestConfig}).</li>
+   * </ul>
+   * </p>
+   * 
+   * @param connectionManager the shared connection manager to use
+   */
   public AdyenHttpClient(PoolingHttpClientConnectionManager connectionManager) {
     this.sharedConnectionManager = connectionManager;
   }
