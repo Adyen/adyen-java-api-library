@@ -56,7 +56,9 @@ import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
 import org.apache.hc.core5.http.HttpHost;
@@ -91,8 +93,17 @@ public class AdyenHttpClient implements ClientInterface {
 
   private static final String CHARSET = "UTF-8";
   private Proxy proxy;
+  private PoolingHttpClientConnectionManager sharedConnectionManager;
   private volatile CloseableHttpClient sharedHttpClient;
   private final Object lock = new Object();
+
+  public AdyenHttpClient() {
+    super();
+  }
+
+  public AdyenHttpClient(PoolingHttpClientConnectionManager connectionManager) {
+    this.sharedConnectionManager = connectionManager;
+  }
 
   /**
    * Returns the proxy configured for this HTTP client.
@@ -372,7 +383,12 @@ public class AdyenHttpClient implements ClientInterface {
                 config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS)
             .setDefaultKeepAlive(config.getDefaultKeepAliveMillis(), TimeUnit.MILLISECONDS)
             .build();
-    ConnectionConfig connectionConfig =
+    
+    HttpClientBuilder clientBuilder = HttpClients.custom();
+    if (sharedConnectionManager != null) {
+      clientBuilder = clientBuilder.setConnectionManager(sharedConnectionManager).setConnectionManagerShared(true);
+    } else {
+      ConnectionConfig connectionConfig =
         ConnectionConfig.custom()
             .setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS)
             // socketTimeout acts as an OS-level safety net for stalled reads;
@@ -381,12 +397,14 @@ public class AdyenHttpClient implements ClientInterface {
             // fires first.
             .setSocketTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS)
             .build();
-    return HttpClients.custom()
-        .setConnectionManager(
+      clientBuilder = clientBuilder.setConnectionManager(
             PoolingHttpClientConnectionManagerBuilder.create()
                 .setSSLSocketFactory(socketFactory)
                 .setDefaultConnectionConfig(connectionConfig)
-                .build())
+                .build());
+    }
+
+    return clientBuilder
         .setDefaultRequestConfig(defaultRequestConfig)
         .setRedirectStrategy(new AdyenCustomRedirectStrategy())
         .build();
