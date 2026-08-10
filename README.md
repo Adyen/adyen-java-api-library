@@ -81,6 +81,51 @@ You can use Maven and add this dependency to your project's POM:
 
 Alternatively, you can download the [release on GitHub](https://github.com/Adyen/adyen-java-api-library/releases).
 
+### Modular artifacts
+
+The default artifact contains every API, model, webhook, and Terminal API class. Applications that
+only use part of the library can instead depend on the `core` classifier and one or more API-family
+classifiers:
+
+| Classifier | Contents |
+|---|---|
+| `core` | Client, HTTP transport, shared request and error models, serializers, and utilities |
+| `checkout` | Checkout API and models |
+| `platforms` | Balance Platform, Balance Control, Capital, Legal Entity Management, Management, Session Authentication, and Transfers APIs and models |
+| `payments` | Bin Lookup, Data Protection, Disputes, Open Banking, Payments, Payouts, Recurring, and Stored Value APIs and models |
+| `terminal` | Terminal API, Cloud Device, Mobile, Payments App, and Terminal Fleet Management classes and models |
+| `classic-platforms` | Classic Platforms APIs and models |
+| `webhooks` | Webhook models and HMAC validation |
+| `webhook-handlers` | Convenience webhook handlers; also requires `webhooks`, `payments`, and `terminal` |
+
+Every API-family classifier requires `core`. For example, a Maven application that only uses the
+Checkout API can use:
+
+```xml
+<dependency>
+  <groupId>com.adyen</groupId>
+  <artifactId>adyen-java-api-library</artifactId>
+  <version>43.0.0</version>
+  <classifier>core</classifier>
+</dependency>
+<dependency>
+  <groupId>com.adyen</groupId>
+  <artifactId>adyen-java-api-library</artifactId>
+  <version>43.0.0</version>
+  <classifier>checkout</classifier>
+</dependency>
+```
+
+The equivalent Gradle dependencies are:
+
+```groovy
+implementation("com.adyen:adyen-java-api-library:43.0.0:core")
+implementation("com.adyen:adyen-java-api-library:43.0.0:checkout")
+```
+
+The unclassified artifact remains available and unchanged for applications that prefer a single
+dependency or need the complete library.
+
 ## Using the library
 
 ### General use with API key
