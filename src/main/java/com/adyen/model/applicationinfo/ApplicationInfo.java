@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class ApplicationInfo {
   @SerializedName("adyenLibrary")
-  private final CommonField adyenLibrary;
+  private CommonField adyenLibrary;
 
   @SerializedName("adyenPaymentSource")
   private CommonField adyenPaymentSource = null;
