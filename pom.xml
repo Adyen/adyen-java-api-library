@@ -36,14 +36,14 @@
         <!-- Dependency Versions -->
         <!-- Compile -->
         <com.fasterxml.jackson-version>2.22.1</com.fasterxml.jackson-version>
+        <com.fasterxml.jackson-annotations-version>2.22</com.fasterxml.jackson-annotations-version>
         <gson-version>2.14.0</gson-version>
         <commons-codec-version>1.22.0</commons-codec-version>
-        <gson-fire-version>1.9.0</gson-fire-version>
         <swagger-core-version>1.6.16</swagger-core-version>
         <swagger-annotations-v3-version>2.2.52</swagger-annotations-v3-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <httpclient5-version>5.6.2</httpclient5-version>
-
+        <httpcore5-version>5.4.3</httpcore5-version>
         <!-- Test -->
         <okio-version>3.17.0</okio-version>
         <hamcrest-version>3.0</hamcrest-version>
@@ -51,6 +51,7 @@
         <mockito-version>5.23.0</mockito-version>
 
         <!-- Plugin Versions -->
+        <maven-dependency-plugin-version>3.11.0</maven-dependency-plugin-version>
         <maven-compiler-plugin-version>3.15.0</maven-compiler-plugin-version>
         <maven-jar-plugin-version>3.5.1</maven-jar-plugin-version>
         <jacoco-maven-plugin-version>0.8.15</jacoco-maven-plugin-version>
@@ -273,6 +274,20 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin-version}</version>
+                <configuration>
+                    <!-- junit-jupiter-engine is discovered by the JUnit Platform via ServiceLoader
+                         at test runtime, never referenced directly in bytecode, so the analyzer's
+                         static analysis always misreports it as unused. It is still required:
+                         without it, Surefire has no Jupiter test engine to run tests with. -->
+                    <ignoredUnusedDeclaredDependencies>
+                        <ignoredUnusedDeclaredDependency>org.junit.jupiter:junit-jupiter-engine</ignoredUnusedDeclaredDependency>
+                    </ignoredUnusedDeclaredDependencies>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -281,6 +296,16 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${com.fasterxml.jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${com.fasterxml.jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${com.fasterxml.jackson-annotations-version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -298,11 +323,6 @@
             <version>${commons-codec-version}</version>
         </dependency>
         <dependency>
-            <groupId>io.gsonfire</groupId>
-            <artifactId>gson-fire</artifactId>
-            <version>${gson-fire-version}</version>
-        </dependency>
-        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-core-version}</version>
@@ -318,6 +338,11 @@
             <version>${jakarta.ws.rs-api-version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.httpcomponents.core5</groupId>
+            <artifactId>httpcore5</artifactId>
+            <version>${httpcore5-version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
             <version>${httpclient5-version}</version>
@@ -326,7 +351,7 @@
         <!-- Test -->
         <dependency>
             <groupId>com.squareup.okio</groupId>
-            <artifactId>okio</artifactId>
+            <artifactId>okio-jvm</artifactId>
             <version>${okio-version}</version>
             <scope>test</scope>
         </dependency>
@@ -338,7 +363,20 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-jupiter-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- this is technically redundant with newer surefire version, but it is worth keeping -->
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit-jupiter-version}</version>
             <scope>test</scope>
         </dependency>
