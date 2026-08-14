@@ -1,0 +1,12 @@
+# Select TEST or LIVE. Use TEST for tests that rely on Adyen test credentials or test cards.
+Adyen_Environment=TEST
+
+ADYEN_API_KEY=
+ADYEN_MERCHANT_ACCOUNT=
+
+# Required by services that use an account-specific LIVE endpoint, including Checkout.
+ADYEN_LIVE_ENDPOINT_URL_PREFIX=
+
+ADYEN_TERMINAL_DEVICE_ID=
+ADYEN_TERMINAL_DEVICE_KEY_IDENTIFIER=
+ADYEN_TERMINAL_DEVICE_PASSPHRASE=

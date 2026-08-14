@@ -436,6 +436,19 @@ These include commented code, highlighting key features and concepts, and exampl
 ## Feedback
 We value your input! Help us enhance our API Libraries and improve the integration experience by providing your feedback. Please take a moment to fill out [our feedback form](https://forms.gle/A4EERrR6CWgKWe5r9) to share your thoughts, suggestions or ideas. 
 
+## Integration testing
+
+External integration tests are opt-in and use Maven Failsafe profiles. Run the automated suite
+with:
+
+```bash
+mvn verify -Pintegration-tests -Dgpg.skip=true
+```
+
+See the [integration-test guide](src/integration-test/README.md) for local configuration,
+class-and-method selection, manual terminal tests, TEST/LIVE safety, conventions, and
+troubleshooting.
+
 ## Contributing
 We encourage you to contribute to this repository, so everyone can benefit from new features, bug fixes, and any other improvements. 
  
