@@ -16,11 +16,6 @@ on:
         type: boolean
         default: false
         description: "Publish Github release for the current version"
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
 
 permissions:
   contents: write
