@@ -34,13 +34,17 @@ public abstract class BaseIntegrationTest {
   }
 
   protected final Environment getEnvironment() {
-    String configuredEnvironment = getProperty(ENVIRONMENT_PROPERTY);
+    Environment adyenEnvironment = Environment.valueOf("TEST"); // set TEST as default
+
     try {
-      return Environment.valueOf(configuredEnvironment.trim().toUpperCase(Locale.ROOT));
-    } catch (IllegalArgumentException exception) {
-      throw new IllegalStateException(
-          "Property " + ENVIRONMENT_PROPERTY + " must be TEST or LIVE", exception);
+      // override if needed
+      String configuredEnvironment = getProperty(ENVIRONMENT_PROPERTY);
+      adyenEnvironment = Environment.valueOf(configuredEnvironment.trim().toUpperCase(Locale.ROOT));
+    } catch (IllegalStateException exception) {
+      // use default
     }
+
+    return adyenEnvironment;
   }
 
   protected final void requireTestEnvironment() {
