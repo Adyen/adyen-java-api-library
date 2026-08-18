@@ -26,6 +26,7 @@ import com.adyen.model.transferwebhooks.TransferData;
 import com.adyen.model.transferwebhooks.TransferEvent;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.adyen.model.transferwebhooks.TransferWebhooksHandler;
+import com.adyen.model.transferwebhooks.UKFpsTracingData;
 import com.adyen.util.HMACValidator;
 import java.security.SignatureException;
 import java.time.OffsetDateTime;
@@ -466,6 +467,31 @@ public class BalancePlatformWebhooksTest extends BaseTest {
             .getEventsData()
             .get(0)
             .getActualInstance());
+  }
+
+  @Test
+  public void testTransferNotificationRequestWithUkFpsTracingData() {
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/transfer-updated-with-uk-fps-tracing.json");
+
+    TransferNotificationRequest notificationRequest =
+        new TransferWebhooksHandler(json).getTransferNotificationRequest().orElseThrow();
+    TransferData transferData = notificationRequest.getData();
+
+    assertNotNull(transferData.getTracing());
+    UKFpsTracingData transferTracingData = transferData.getTracing().getUKFpsTracingData();
+    assertEquals("FPID-TEST-1234567890", transferTracingData.getFpid());
+    assertEquals(UKFpsTracingData.TypeEnum.UKFPS, transferTracingData.getType());
+
+    TransferEvent tracingEvent =
+        transferData.getEvents().stream()
+            .filter(event -> event.getType() == TransferEvent.TypeEnum.TRACING)
+            .findFirst()
+            .orElseThrow();
+    assertNotNull(tracingEvent.getTracingData());
+    UKFpsTracingData eventTracingData = tracingEvent.getTracingData().getUKFpsTracingData();
+    assertEquals("FPID-TEST-1234567890", eventTracingData.getFpid());
+    assertEquals(UKFpsTracingData.TypeEnum.UKFPS, eventTracingData.getType());
   }
 
   @Test
