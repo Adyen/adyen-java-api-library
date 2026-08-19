@@ -87,6 +87,7 @@ import java.util.logging.Logger;
   ResponseAdditionalDataCommon.JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_TRANSACTION_LINK_ID,
   ResponseAdditionalDataCommon.JSON_PROPERTY_VISA_TRANSACTION_ID,
   ResponseAdditionalDataCommon.JSON_PROPERTY_XID
 })
@@ -661,6 +662,12 @@ public class ResponseAdditionalDataCommon {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTokenizationStoredPaymentMethodId = false;
+
+  public static final String JSON_PROPERTY_TRANSACTION_LINK_ID = "transactionLinkId";
+  private String transactionLinkId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionLinkId = false;
 
   public static final String JSON_PROPERTY_VISA_TRANSACTION_ID = "visaTransactionId";
   private String visaTransactionId;
@@ -3280,6 +3287,47 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
+   * Returned in the response for Mastercard payments. This contains the Mastercard Transaction Link
+   * Identifier (TLID).
+   *
+   * @param transactionLinkId Returned in the response for Mastercard payments. This contains the
+   *     Mastercard Transaction Link Identifier (TLID).
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon transactionLinkId(String transactionLinkId) {
+    this.transactionLinkId = transactionLinkId;
+    isSetTransactionLinkId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Returned in the response for Mastercard payments. This contains the Mastercard Transaction Link
+   * Identifier (TLID).
+   *
+   * @return transactionLinkId Returned in the response for Mastercard payments. This contains the
+   *     Mastercard Transaction Link Identifier (TLID).
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTransactionLinkId() {
+    return transactionLinkId;
+  }
+
+  /**
+   * Returned in the response for Mastercard payments. This contains the Mastercard Transaction Link
+   * Identifier (TLID).
+   *
+   * @param transactionLinkId Returned in the response for Mastercard payments. This contains the
+   *     Mastercard Transaction Link Identifier (TLID).
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionLinkId(String transactionLinkId) {
+    this.transactionLinkId = transactionLinkId;
+    isSetTransactionLinkId = true; // mark as set
+  }
+
+  /**
    * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters. &gt; Contact
    * Support Team to enable this field.
    *
@@ -3610,6 +3658,9 @@ public class ResponseAdditionalDataCommon {
         && Objects.equals(
             this.isSetTokenizationStoredPaymentMethodId,
             responseAdditionalDataCommon.isSetTokenizationStoredPaymentMethodId)
+        && Objects.equals(this.transactionLinkId, responseAdditionalDataCommon.transactionLinkId)
+        && Objects.equals(
+            this.isSetTransactionLinkId, responseAdditionalDataCommon.isSetTransactionLinkId)
         && Objects.equals(this.visaTransactionId, responseAdditionalDataCommon.visaTransactionId)
         && Objects.equals(
             this.isSetVisaTransactionId, responseAdditionalDataCommon.isSetVisaTransactionId)
@@ -3744,6 +3795,8 @@ public class ResponseAdditionalDataCommon {
         isSetTokenizationStoreOperationType,
         tokenizationStoredPaymentMethodId,
         isSetTokenizationStoredPaymentMethodId,
+        transactionLinkId,
+        isSetTransactionLinkId,
         visaTransactionId,
         isSetVisaTransactionId,
         xid,
@@ -3860,6 +3913,7 @@ public class ResponseAdditionalDataCommon {
     sb.append("    tokenizationStoredPaymentMethodId: ")
         .append(toIndentedString(tokenizationStoredPaymentMethodId))
         .append("\n");
+    sb.append("    transactionLinkId: ").append(toIndentedString(transactionLinkId)).append("\n");
     sb.append("    visaTransactionId: ").append(toIndentedString(visaTransactionId)).append("\n");
     sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
     sb.append("}");
@@ -4087,6 +4141,9 @@ public class ResponseAdditionalDataCommon {
           nulls,
           JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID,
           this.tokenizationStoredPaymentMethodId);
+    }
+    if (isSetTransactionLinkId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_LINK_ID, this.transactionLinkId);
     }
     if (isSetVisaTransactionId) {
       addIfNull(nulls, JSON_PROPERTY_VISA_TRANSACTION_ID, this.visaTransactionId);
