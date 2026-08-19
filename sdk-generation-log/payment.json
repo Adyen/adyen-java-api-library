@@ -1,8 +1,8 @@
 {
   "service": "payment",
   "project": "java",
-  "generatedAt": "2026-05-14T14:22:05Z",
-  "openapiCommitSha": "cbc5406a2df1f24d50e40742f18342f7ca7f21fc",
-  "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
-  "libraryCommitSha": "5790580db2f8a931a68baba2bff9760b8aed2067"
+  "generatedAt": "2026-08-19T14:40:09Z",
+  "openapiCommitSha": "bee086f2cd666ac7cb5b5ba2813a8b5dc943c2d2",
+  "automationCommitSha": "09e65f31d70416e30f8464ec7cf29e94eda443fc",
+  "libraryCommitSha": "dfdb26c68877141b3e73243a776a6a6595478bcd"
 }
