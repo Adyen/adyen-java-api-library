@@ -13,14 +13,14 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Base class for Integration tests
+ * Base class for Cloud Device Integration tests
  *
  * <p>Define in src/test/resources the configuration for the tests
  *
  * <p>``` ADYEN_API_KEY= ADYEN_MERCHANT_ACCOUNT= ADYEN_TERMINAL_DEVICE_ID=
  * ADYEN_TERMINAL_DEVICE_KEY_IDENTIFIER= ADYEN_TERMINAL_DEVICE_PASSPHRASE= ```
  */
-public class BaseIntegrationTest {
+public class BaseCloudDeviceIntegrationTest {
 
   private static Properties properties = null;
 
@@ -52,7 +52,9 @@ public class BaseIntegrationTest {
     if (properties == null) {
       properties = new Properties();
       try (InputStream inputStream =
-          BaseIntegrationTest.class.getClassLoader().getResourceAsStream("config.properties")) {
+          BaseCloudDeviceIntegrationTest.class
+              .getClassLoader()
+              .getResourceAsStream("config.properties")) {
         if (inputStream != null) {
           properties.load(inputStream);
         }
