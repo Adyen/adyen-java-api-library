@@ -326,11 +326,13 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-core-version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations-v3-version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
