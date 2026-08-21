@@ -17,6 +17,8 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.CardDetailsRequest;
 import com.adyen.model.checkout.CardDetailsResponse;
+import com.adyen.model.checkout.CheckoutSessionPatchSessionRequest;
+import com.adyen.model.checkout.CheckoutSessionPatchSessionResponse;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.PaymentDetailsRequest;
@@ -261,5 +263,50 @@ public class PaymentsApi extends Service {
     String jsonResult =
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
     return CreateCheckoutSessionResponse.fromJson(jsonResult);
+  }
+
+  /**
+   * Update a payment session
+   *
+   * @param sessionId {@link String } (required)
+   * @param checkoutSessionPatchSessionRequest {@link CheckoutSessionPatchSessionRequest }
+   *     (required)
+   * @return {@link CheckoutSessionPatchSessionResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public CheckoutSessionPatchSessionResponse updateSession(
+      String sessionId, CheckoutSessionPatchSessionRequest checkoutSessionPatchSessionRequest)
+      throws ApiException, IOException {
+    return updateSession(sessionId, checkoutSessionPatchSessionRequest, null);
+  }
+
+  /**
+   * Update a payment session
+   *
+   * @param sessionId {@link String } (required)
+   * @param checkoutSessionPatchSessionRequest {@link CheckoutSessionPatchSessionRequest }
+   *     (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @return {@link CheckoutSessionPatchSessionResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public CheckoutSessionPatchSessionResponse updateSession(
+      String sessionId,
+      CheckoutSessionPatchSessionRequest checkoutSessionPatchSessionRequest,
+      RequestOptions requestOptions)
+      throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (sessionId == null) {
+      throw new IllegalArgumentException("Please provide the sessionId path parameter");
+    }
+    pathParams.put("sessionId", sessionId);
+
+    String requestBody = checkoutSessionPatchSessionRequest.toJson();
+    Resource resource = new Resource(this, this.baseURL + "/sessions/{sessionId}", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+    return CheckoutSessionPatchSessionResponse.fromJson(jsonResult);
   }
 }

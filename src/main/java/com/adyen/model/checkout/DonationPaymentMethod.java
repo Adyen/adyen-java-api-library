@@ -203,6 +203,32 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'PayWithGoogleDonations'", e);
       }
 
+      // deserialize SepaDirectDebitDonations
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(SepaDirectDebitDonations.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
+
+          if (typeMatch) {
+            deserialized = tree.traverse(jp.getCodec()).readValueAs(SepaDirectDebitDonations.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(Level.FINER, "Input data matches schema 'SepaDirectDebitDonations'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SepaDirectDebitDonations'", e);
+      }
+
       if (match == 1) {
         DonationPaymentMethod ret = new DonationPaymentMethod();
         ret.setActualInstance(deserialized);
@@ -254,12 +280,18 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public DonationPaymentMethod(SepaDirectDebitDonations o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("ApplePayDonations", new GenericType<ApplePayDonations>() {});
     schemas.put("CardDonations", new GenericType<CardDonations>() {});
     schemas.put("GooglePayDonations", new GenericType<GooglePayDonations>() {});
     schemas.put("IdealDonations", new GenericType<IdealDonations>() {});
     schemas.put("PayWithGoogleDonations", new GenericType<PayWithGoogleDonations>() {});
+    schemas.put("SepaDirectDebitDonations", new GenericType<SepaDirectDebitDonations>() {});
     JSON.registerDescendants(DonationPaymentMethod.class, Collections.unmodifiableMap(schemas));
     // Initialize and register the discriminator mappings.
     Map<String, Class<?>> mappings = new HashMap<>();
@@ -270,11 +302,13 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("networkToken", CardDonations.class);
     mappings.put("paywithgoogle", PayWithGoogleDonations.class);
     mappings.put("scheme", CardDonations.class);
+    mappings.put("sepadirectdebit", SepaDirectDebitDonations.class);
     mappings.put("ApplePayDonations", ApplePayDonations.class);
     mappings.put("CardDonations", CardDonations.class);
     mappings.put("GooglePayDonations", GooglePayDonations.class);
     mappings.put("IdealDonations", IdealDonations.class);
     mappings.put("PayWithGoogleDonations", PayWithGoogleDonations.class);
+    mappings.put("SepaDirectDebitDonations", SepaDirectDebitDonations.class);
     mappings.put("DonationPaymentMethod", DonationPaymentMethod.class);
     JSON.registerDiscriminator(DonationPaymentMethod.class, "type", mappings);
   }
@@ -287,7 +321,7 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: ApplePayDonations, CardDonations, GooglePayDonations,
-   * IdealDonations, PayWithGoogleDonations
+   * IdealDonations, PayWithGoogleDonations, SepaDirectDebitDonations
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -319,16 +353,21 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(SepaDirectDebitDonations.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     throw new RuntimeException(
-        "Invalid instance type. Must be ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, PayWithGoogleDonations");
+        "Invalid instance type. Must be ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, PayWithGoogleDonations, SepaDirectDebitDonations");
   }
 
   /**
    * Get the actual instance, which can be the following: ApplePayDonations, CardDonations,
-   * GooglePayDonations, IdealDonations, PayWithGoogleDonations
+   * GooglePayDonations, IdealDonations, PayWithGoogleDonations, SepaDirectDebitDonations
    *
    * @return The actual instance (ApplePayDonations, CardDonations, GooglePayDonations,
-   *     IdealDonations, PayWithGoogleDonations)
+   *     IdealDonations, PayWithGoogleDonations, SepaDirectDebitDonations)
    */
   @Override
   public Object getActualInstance() {
@@ -388,6 +427,17 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
    */
   public PayWithGoogleDonations getPayWithGoogleDonations() throws ClassCastException {
     return (PayWithGoogleDonations) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SepaDirectDebitDonations`. If the actual instance is not
+   * `SepaDirectDebitDonations`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SepaDirectDebitDonations`
+   * @throws ClassCastException if the instance is not `SepaDirectDebitDonations`
+   */
+  public SepaDirectDebitDonations getSepaDirectDebitDonations() throws ClassCastException {
+    return (SepaDirectDebitDonations) super.getActualInstance();
   }
 
   /**

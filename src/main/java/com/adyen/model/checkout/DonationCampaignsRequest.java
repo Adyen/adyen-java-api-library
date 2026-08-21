@@ -22,6 +22,7 @@ import java.util.*;
 /** DonationCampaignsRequest */
 @JsonPropertyOrder({
   DonationCampaignsRequest.JSON_PROPERTY_CURRENCY,
+  DonationCampaignsRequest.JSON_PROPERTY_LABEL,
   DonationCampaignsRequest.JSON_PROPERTY_LOCALE,
   DonationCampaignsRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   DonationCampaignsRequest.JSON_PROPERTY_STORE
@@ -32,6 +33,12 @@ public class DonationCampaignsRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCurrency = false;
+
+  public static final String JSON_PROPERTY_LABEL = "label";
+  private String label;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLabel = false;
 
   public static final String JSON_PROPERTY_LOCALE = "locale";
   private String locale;
@@ -98,6 +105,41 @@ public class DonationCampaignsRequest {
   public void setCurrency(String currency) {
     this.currency = currency;
     isSetCurrency = true; // mark as set
+  }
+
+  /**
+   * The label that is assigned to the donation campaign.
+   *
+   * @param label The label that is assigned to the donation campaign.
+   * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
+   */
+  public DonationCampaignsRequest label(String label) {
+    this.label = label;
+    isSetLabel = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The label that is assigned to the donation campaign.
+   *
+   * @return label The label that is assigned to the donation campaign.
+   */
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
+  /**
+   * The label that is assigned to the donation campaign.
+   *
+   * @param label The label that is assigned to the donation campaign.
+   */
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabel(String label) {
+    this.label = label;
+    isSetLabel = true; // mark as set
   }
 
   /**
@@ -276,6 +318,8 @@ public class DonationCampaignsRequest {
     DonationCampaignsRequest donationCampaignsRequest = (DonationCampaignsRequest) o;
     return Objects.equals(this.currency, donationCampaignsRequest.currency)
         && Objects.equals(this.isSetCurrency, donationCampaignsRequest.isSetCurrency)
+        && Objects.equals(this.label, donationCampaignsRequest.label)
+        && Objects.equals(this.isSetLabel, donationCampaignsRequest.isSetLabel)
         && Objects.equals(this.locale, donationCampaignsRequest.locale)
         && Objects.equals(this.isSetLocale, donationCampaignsRequest.isSetLocale)
         && Objects.equals(this.merchantAccount, donationCampaignsRequest.merchantAccount)
@@ -289,6 +333,8 @@ public class DonationCampaignsRequest {
     return Objects.hash(
         currency,
         isSetCurrency,
+        label,
+        isSetLabel,
         locale,
         isSetLocale,
         merchantAccount,
@@ -302,6 +348,7 @@ public class DonationCampaignsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DonationCampaignsRequest {\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
@@ -331,6 +378,9 @@ public class DonationCampaignsRequest {
 
     if (isSetCurrency) {
       addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetLabel) {
+      addIfNull(nulls, JSON_PROPERTY_LABEL, this.label);
     }
     if (isSetLocale) {
       addIfNull(nulls, JSON_PROPERTY_LOCALE, this.locale);
