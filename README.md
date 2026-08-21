@@ -3,6 +3,7 @@
 # Adyen Java API Library
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.adyen/adyen-java-api-library)](https://central.sonatype.com/artifact/com.adyen/adyen-java-api-library/)
+[![Java CI](https://github.com/Adyen/adyen-java-api-library/actions/workflows/javaci.yml/badge.svg)](https://github.com/Adyen/adyen-java-api-library/actions/workflows/javaci.yml)
 
 This is the officially supported Java library for using Adyen's APIs.
 
