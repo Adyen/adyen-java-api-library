@@ -156,8 +156,6 @@ public class PaymentDetails {
 
     OMANNET(String.valueOf("omannet")),
 
-    GOPAY_WALLET(String.valueOf("gopay_wallet")),
-
     KCP_NAVERPAY(String.valueOf("kcp_naverpay")),
 
     FAWRY(String.valueOf("fawry")),

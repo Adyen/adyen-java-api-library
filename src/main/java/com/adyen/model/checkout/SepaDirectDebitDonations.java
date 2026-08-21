@@ -23,25 +23,27 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** AffirmDetails */
+/** SepaDirectDebitDonations */
 @JsonPropertyOrder({
-  AffirmDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  AffirmDetails.JSON_PROPERTY_FINANCING_PROGRAM,
-  AffirmDetails.JSON_PROPERTY_SDK_DATA,
-  AffirmDetails.JSON_PROPERTY_TYPE
+  SepaDirectDebitDonations.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  SepaDirectDebitDonations.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  SepaDirectDebitDonations.JSON_PROPERTY_SDK_DATA,
+  SepaDirectDebitDonations.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  SepaDirectDebitDonations.JSON_PROPERTY_TYPE
 })
-public class AffirmDetails {
+public class SepaDirectDebitDonations {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
 
-  public static final String JSON_PROPERTY_FINANCING_PROGRAM = "financingProgram";
-  private String financingProgram;
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
+  @Deprecated private String recurringDetailReference;
 
   /** Mark when the attribute has been explicitly set. */
-  private boolean isSetFinancingProgram = false;
+  private boolean isSetRecurringDetailReference = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
@@ -49,9 +51,15 @@ public class AffirmDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSdkData = false;
 
-  /** **affirm** */
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
+  private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
+
+  /** **sepadirectdebit** */
   public enum TypeEnum {
-    AFFIRM(String.valueOf("affirm"));
+    SEPADIRECTDEBIT(String.valueOf("sepadirectdebit"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -100,15 +108,15 @@ public class AffirmDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public AffirmDetails() {}
+  public SepaDirectDebitDonations() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code AffirmDetails} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public AffirmDetails checkoutAttemptId(String checkoutAttemptId) {
+  public SepaDirectDebitDonations checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -138,47 +146,59 @@ public class AffirmDetails {
   }
 
   /**
-   * The Affirm financing program to apply to this transaction.
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
    *
-   * @param financingProgram The Affirm financing program to apply to this transaction.
-   * @return the current {@code AffirmDetails} instance, allowing for method chaining
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
+   *     the response when you created the token.
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  public AffirmDetails financingProgram(String financingProgram) {
-    this.financingProgram = financingProgram;
-    isSetFinancingProgram = true; // mark as set
+  @Deprecated
+  public SepaDirectDebitDonations recurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
     return this;
   }
 
   /**
-   * The Affirm financing program to apply to this transaction.
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
    *
-   * @return financingProgram The Affirm financing program to apply to this transaction.
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
+   *     the response when you created the token.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @JsonProperty(JSON_PROPERTY_FINANCING_PROGRAM)
+  @Deprecated
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFinancingProgram() {
-    return financingProgram;
+  public String getRecurringDetailReference() {
+    return recurringDetailReference;
   }
 
   /**
-   * The Affirm financing program to apply to this transaction.
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
    *
-   * @param financingProgram The Affirm financing program to apply to this transaction.
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
+   *     the response when you created the token.
+   * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
-  @JsonProperty(JSON_PROPERTY_FINANCING_PROGRAM)
+  @Deprecated
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFinancingProgram(String financingProgram) {
-    this.financingProgram = financingProgram;
-    isSetFinancingProgram = true; // mark as set
+  public void setRecurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+    isSetRecurringDetailReference = true; // mark as set
   }
 
   /**
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code AffirmDetails} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public AffirmDetails sdkData(String sdkData) {
+  public SepaDirectDebitDonations sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -209,21 +229,62 @@ public class AffirmDetails {
   }
 
   /**
-   * **affirm**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
    *
-   * @param type **affirm**
-   * @return the current {@code AffirmDetails} instance, allowing for method chaining
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
+   *     response when you created the token.
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
    */
-  public AffirmDetails type(TypeEnum type) {
+  public SepaDirectDebitDonations storedPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
+   *     response when you created the token.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStoredPaymentMethodId() {
+    return storedPaymentMethodId;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
+   *     response when you created the token.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+  }
+
+  /**
+   * **sepadirectdebit**
+   *
+   * @param type **sepadirectdebit**
+   * @return the current {@code SepaDirectDebitDonations} instance, allowing for method chaining
+   */
+  public SepaDirectDebitDonations type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * **affirm**
+   * **sepadirectdebit**
    *
-   * @return type **affirm**
+   * @return type **sepadirectdebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,9 +293,9 @@ public class AffirmDetails {
   }
 
   /**
-   * **affirm**
+   * **sepadirectdebit**
    *
-   * @param type **affirm**
+   * @param type **sepadirectdebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +307,7 @@ public class AffirmDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public AffirmDetails includeNullValues(boolean includeNullValues) {
+  public SepaDirectDebitDonations includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -263,7 +324,7 @@ public class AffirmDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this AffirmDetails object is equal to o. */
+  /** Return true if this SepaDirectDebitDonations object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -272,15 +333,23 @@ public class AffirmDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AffirmDetails affirmDetails = (AffirmDetails) o;
-    return Objects.equals(this.checkoutAttemptId, affirmDetails.checkoutAttemptId)
-        && Objects.equals(this.isSetCheckoutAttemptId, affirmDetails.isSetCheckoutAttemptId)
-        && Objects.equals(this.financingProgram, affirmDetails.financingProgram)
-        && Objects.equals(this.isSetFinancingProgram, affirmDetails.isSetFinancingProgram)
-        && Objects.equals(this.sdkData, affirmDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, affirmDetails.isSetSdkData)
-        && Objects.equals(this.type, affirmDetails.type)
-        && Objects.equals(this.isSetType, affirmDetails.isSetType);
+    SepaDirectDebitDonations sepaDirectDebitDonations = (SepaDirectDebitDonations) o;
+    return Objects.equals(this.checkoutAttemptId, sepaDirectDebitDonations.checkoutAttemptId)
+        && Objects.equals(
+            this.isSetCheckoutAttemptId, sepaDirectDebitDonations.isSetCheckoutAttemptId)
+        && Objects.equals(
+            this.recurringDetailReference, sepaDirectDebitDonations.recurringDetailReference)
+        && Objects.equals(
+            this.isSetRecurringDetailReference,
+            sepaDirectDebitDonations.isSetRecurringDetailReference)
+        && Objects.equals(this.sdkData, sepaDirectDebitDonations.sdkData)
+        && Objects.equals(this.isSetSdkData, sepaDirectDebitDonations.isSetSdkData)
+        && Objects.equals(
+            this.storedPaymentMethodId, sepaDirectDebitDonations.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, sepaDirectDebitDonations.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, sepaDirectDebitDonations.type)
+        && Objects.equals(this.isSetType, sepaDirectDebitDonations.isSetType);
   }
 
   @Override
@@ -288,10 +357,12 @@ public class AffirmDetails {
     return Objects.hash(
         checkoutAttemptId,
         isSetCheckoutAttemptId,
-        financingProgram,
-        isSetFinancingProgram,
+        recurringDetailReference,
+        isSetRecurringDetailReference,
         sdkData,
         isSetSdkData,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         type,
         isSetType);
   }
@@ -299,10 +370,15 @@ public class AffirmDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AffirmDetails {\n");
+    sb.append("class SepaDirectDebitDonations {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
-    sb.append("    financingProgram: ").append(toIndentedString(financingProgram)).append("\n");
+    sb.append("    recurringDetailReference: ")
+        .append(toIndentedString(recurringDetailReference))
+        .append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
+    sb.append("    storedPaymentMethodId: ")
+        .append(toIndentedString(storedPaymentMethodId))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -331,11 +407,14 @@ public class AffirmDetails {
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
-    if (isSetFinancingProgram) {
-      addIfNull(nulls, JSON_PROPERTY_FINANCING_PROGRAM, this.financingProgram);
+    if (isSetRecurringDetailReference) {
+      addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
     }
     if (isSetSdkData) {
       addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
@@ -352,18 +431,20 @@ public class AffirmDetails {
   }
 
   /**
-   * Create an instance of AffirmDetails given an JSON string
+   * Create an instance of SepaDirectDebitDonations given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AffirmDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AffirmDetails
+   * @return An instance of SepaDirectDebitDonations
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     SepaDirectDebitDonations
    */
-  public static AffirmDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, AffirmDetails.class);
+  public static SepaDirectDebitDonations fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SepaDirectDebitDonations.class);
   }
 
   /**
-   * Convert an instance of AffirmDetails to an JSON string
+   * Convert an instance of SepaDirectDebitDonations to an JSON string
    *
    * @return JSON string
    */
