@@ -17,7 +17,7 @@ import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.module.SimpleModule;
 
 public class JSON implements ContextResolver<ObjectMapper> {
-  private static ObjectMapper mapper;
+  private static volatile ObjectMapper mapper;
 
   public JSON() {
     JsonMapper.Builder builder = JsonMapper.builderWithJackson2Defaults();
