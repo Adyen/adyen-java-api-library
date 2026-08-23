@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** BirthData */
 @JsonPropertyOrder({BirthData.JSON_PROPERTY_DATE_OF_BIRTH})
@@ -158,9 +158,9 @@ public class BirthData {
    *
    * @param jsonString JSON string
    * @return An instance of BirthData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to BirthData
+   * @throws JacksonException if the JSON string is invalid with respect to BirthData
    */
-  public static BirthData fromJson(String jsonString) throws JsonProcessingException {
+  public static BirthData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, BirthData.class);
   }
 
@@ -169,7 +169,7 @@ public class BirthData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DirectDebitInformation */
 @JsonPropertyOrder({
@@ -325,10 +325,9 @@ public class DirectDebitInformation {
    *
    * @param jsonString JSON string
    * @return An instance of DirectDebitInformation
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DirectDebitInformation
+   * @throws JacksonException if the JSON string is invalid with respect to DirectDebitInformation
    */
-  public static DirectDebitInformation fromJson(String jsonString) throws JsonProcessingException {
+  public static DirectDebitInformation fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DirectDebitInformation.class);
   }
 
@@ -337,7 +336,7 @@ public class DirectDebitInformation {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

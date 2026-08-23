@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.*;
@@ -28,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** PaymentRequest3ds2 */
 @JsonPropertyOrder({
@@ -3096,10 +3096,9 @@ public class PaymentRequest3ds2 {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentRequest3ds2
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PaymentRequest3ds2
+   * @throws JacksonException if the JSON string is invalid with respect to PaymentRequest3ds2
    */
-  public static PaymentRequest3ds2 fromJson(String jsonString) throws JsonProcessingException {
+  public static PaymentRequest3ds2 fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentRequest3ds2.class);
   }
 
@@ -3108,7 +3107,7 @@ public class PaymentRequest3ds2 {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Content of the &#x60;InputRequest&#x60; message. It conveys the data to display and how to
@@ -212,9 +212,9 @@ public class InputRequest {
    *
    * @param jsonString JSON string
    * @return An instance of InputRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to InputRequest
+   * @throws JacksonException if the JSON string is invalid with respect to InputRequest
    */
-  public static InputRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static InputRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, InputRequest.class);
   }
 
@@ -223,7 +223,7 @@ public class InputRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** NotifyShopperResult */
 @JsonPropertyOrder({
@@ -475,10 +475,9 @@ public class NotifyShopperResult {
    *
    * @param jsonString JSON string
    * @return An instance of NotifyShopperResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     NotifyShopperResult
+   * @throws JacksonException if the JSON string is invalid with respect to NotifyShopperResult
    */
-  public static NotifyShopperResult fromJson(String jsonString) throws JsonProcessingException {
+  public static NotifyShopperResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, NotifyShopperResult.class);
   }
 
@@ -487,7 +486,7 @@ public class NotifyShopperResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

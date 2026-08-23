@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * It conveys Information related to the Login to process. Content of the Login Response message.
@@ -264,9 +264,9 @@ public class LoginResponse {
    *
    * @param jsonString JSON string
    * @return An instance of LoginResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to LoginResponse
+   * @throws JacksonException if the JSON string is invalid with respect to LoginResponse
    */
-  public static LoginResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static LoginResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, LoginResponse.class);
   }
 
@@ -275,7 +275,7 @@ public class LoginResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

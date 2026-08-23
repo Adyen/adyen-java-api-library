@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Mobile phone is used as a payment instrument for the transaction. Information related to the
@@ -428,9 +428,9 @@ public class MobileData {
    *
    * @param jsonString JSON string
    * @return An instance of MobileData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MobileData
+   * @throws JacksonException if the JSON string is invalid with respect to MobileData
    */
-  public static MobileData fromJson(String jsonString) throws JsonProcessingException {
+  public static MobileData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MobileData.class);
   }
 
@@ -439,7 +439,7 @@ public class MobileData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

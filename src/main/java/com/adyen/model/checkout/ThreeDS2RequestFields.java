@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** ThreeDS2RequestFields */
 @JsonPropertyOrder({
@@ -2578,10 +2578,9 @@ public class ThreeDS2RequestFields {
    *
    * @param jsonString JSON string
    * @return An instance of ThreeDS2RequestFields
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ThreeDS2RequestFields
+   * @throws JacksonException if the JSON string is invalid with respect to ThreeDS2RequestFields
    */
-  public static ThreeDS2RequestFields fromJson(String jsonString) throws JsonProcessingException {
+  public static ThreeDS2RequestFields fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ThreeDS2RequestFields.class);
   }
 
@@ -2590,7 +2589,7 @@ public class ThreeDS2RequestFields {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

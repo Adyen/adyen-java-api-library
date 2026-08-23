@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Point */
 @JsonPropertyOrder({Point.JSON_PROPERTY_X, Point.JSON_PROPERTY_Y})
@@ -205,9 +205,9 @@ public class Point {
    *
    * @param jsonString JSON string
    * @return An instance of Point
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Point
+   * @throws JacksonException if the JSON string is invalid with respect to Point
    */
-  public static Point fromJson(String jsonString) throws JsonProcessingException {
+  public static Point fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Point.class);
   }
 
@@ -216,7 +216,7 @@ public class Point {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

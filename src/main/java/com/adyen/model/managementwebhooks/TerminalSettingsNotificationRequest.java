@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** TerminalSettingsNotificationRequest */
 @JsonPropertyOrder({
@@ -271,11 +271,11 @@ public class TerminalSettingsNotificationRequest {
    *
    * @param jsonString JSON string
    * @return An instance of TerminalSettingsNotificationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     TerminalSettingsNotificationRequest
    */
   public static TerminalSettingsNotificationRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TerminalSettingsNotificationRequest.class);
   }
 
@@ -284,7 +284,7 @@ public class TerminalSettingsNotificationRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

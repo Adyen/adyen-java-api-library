@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Information related to the software and hardware features of the Sale Terminal. Sent in the Login
@@ -175,9 +175,9 @@ public class SaleTerminalData {
    *
    * @param jsonString JSON string
    * @return An instance of SaleTerminalData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SaleTerminalData
+   * @throws JacksonException if the JSON string is invalid with respect to SaleTerminalData
    */
-  public static SaleTerminalData fromJson(String jsonString) throws JsonProcessingException {
+  public static SaleTerminalData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SaleTerminalData.class);
   }
 
@@ -186,7 +186,7 @@ public class SaleTerminalData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

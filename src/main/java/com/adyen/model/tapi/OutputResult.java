@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * In the message response, it contains the result of the output, if required in the message
@@ -260,9 +260,9 @@ public class OutputResult {
    *
    * @param jsonString JSON string
    * @return An instance of OutputResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to OutputResult
+   * @throws JacksonException if the JSON string is invalid with respect to OutputResult
    */
-  public static OutputResult fromJson(String jsonString) throws JsonProcessingException {
+  public static OutputResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, OutputResult.class);
   }
 
@@ -271,7 +271,7 @@ public class OutputResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

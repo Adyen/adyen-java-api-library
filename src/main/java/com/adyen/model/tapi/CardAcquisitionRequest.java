@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * It conveys Information related to the payment and loyalty cards to read and analyse. This message
@@ -220,10 +220,9 @@ public class CardAcquisitionRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CardAcquisitionRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CardAcquisitionRequest
+   * @throws JacksonException if the JSON string is invalid with respect to CardAcquisitionRequest
    */
-  public static CardAcquisitionRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static CardAcquisitionRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CardAcquisitionRequest.class);
   }
 
@@ -232,7 +231,7 @@ public class CardAcquisitionRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

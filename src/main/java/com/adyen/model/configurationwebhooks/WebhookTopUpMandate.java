@@ -14,9 +14,9 @@ package com.adyen.model.configurationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** WebhookTopUpMandate */
 @JsonPropertyOrder({
@@ -148,10 +148,9 @@ public class WebhookTopUpMandate {
    *
    * @param jsonString JSON string
    * @return An instance of WebhookTopUpMandate
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     WebhookTopUpMandate
+   * @throws JacksonException if the JSON string is invalid with respect to WebhookTopUpMandate
    */
-  public static WebhookTopUpMandate fromJson(String jsonString) throws JsonProcessingException {
+  public static WebhookTopUpMandate fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, WebhookTopUpMandate.class);
   }
 
@@ -160,7 +159,7 @@ public class WebhookTopUpMandate {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

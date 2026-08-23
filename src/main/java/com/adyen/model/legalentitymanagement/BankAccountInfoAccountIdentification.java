@@ -11,19 +11,6 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
@@ -32,6 +19,18 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.deser.std.StdDeserializer;
+import tools.jackson.databind.ser.std.StdSerializer;
 
 @JsonDeserialize(
     using =
@@ -56,9 +55,11 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
 
     @Override
     public void serialize(
-        BankAccountInfoAccountIdentification value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.getActualInstance());
+        BankAccountInfoAccountIdentification value,
+        JsonGenerator jgen,
+        SerializationContext context)
+        throws JacksonException {
+      context.writeValue(jgen, value.getActualInstance());
     }
   }
 
@@ -74,12 +75,11 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
 
     @Override
     public BankAccountInfoAccountIdentification deserialize(
-        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        JsonParser jp, DeserializationContext ctxt) throws JacksonException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
-      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
       // deserialize AULocalAccountIdentification
       try {
         boolean attemptParsing = true;
@@ -93,8 +93,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(AULocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, AULocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -120,8 +119,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(CALocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, CALocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -147,8 +145,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(CZLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, CZLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -174,8 +171,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(DKLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, DKLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -201,8 +197,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(HKLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, HKLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -228,8 +223,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(HULocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, HULocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -255,8 +249,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(IbanAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, IbanAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -282,8 +275,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(NOLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, NOLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -309,8 +301,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(NZLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, NZLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -336,8 +327,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(NumberAndBicAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, NumberAndBicAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -364,8 +354,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(PLLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, PLLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -391,8 +380,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(SELocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, SELocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -418,8 +406,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(SGLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, SGLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -445,8 +432,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(UKLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, UKLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -472,8 +458,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(USLocalAccountIdentification.class);
+            deserialized = ctxt.readTreeAsValue(tree, USLocalAccountIdentification.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -491,7 +476,8 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
         ret.setActualInstance(deserialized);
         return ret;
       }
-      throw new IOException(
+      throw DatabindException.from(
+          ctxt,
           String.format(
               "Failed deserialization for BankAccountInfoAccountIdentification: %d classes match result, expected 1",
               match));
@@ -500,9 +486,8 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
     /** Handle deserialization of the 'null' value. */
     @Override
     public BankAccountInfoAccountIdentification getNullValue(DeserializationContext ctxt)
-        throws JsonMappingException {
-      throw new JsonMappingException(
-          ctxt.getParser(), "BankAccountInfoAccountIdentification cannot be null");
+        throws DatabindException {
+      throw DatabindException.from(ctxt, "BankAccountInfoAccountIdentification cannot be null");
     }
   }
 
@@ -912,7 +897,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -18,13 +18,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** SubmitRequest */
 @JsonPropertyOrder({
@@ -1014,9 +1014,9 @@ public class SubmitRequest {
    *
    * @param jsonString JSON string
    * @return An instance of SubmitRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SubmitRequest
+   * @throws JacksonException if the JSON string is invalid with respect to SubmitRequest
    */
-  public static SubmitRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static SubmitRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SubmitRequest.class);
   }
 
@@ -1025,7 +1025,7 @@ public class SubmitRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 /** Policy */
 @JsonPropertyOrder({Policy.JSON_PROPERTY_RESOURCES, Policy.JSON_PROPERTY_ROLES})
@@ -262,9 +262,9 @@ public class Policy {
    *
    * @param jsonString JSON string
    * @return An instance of Policy
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Policy
+   * @throws JacksonException if the JSON string is invalid with respect to Policy
    */
-  public static Policy fromJson(String jsonString) throws JsonProcessingException {
+  public static Policy fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Policy.class);
   }
 
@@ -273,7 +273,7 @@ public class Policy {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

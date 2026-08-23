@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /**
  * Data associated with the Sale System, with a particular value during the processing of the
@@ -787,9 +787,9 @@ public class SaleData {
    *
    * @param jsonString JSON string
    * @return An instance of SaleData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SaleData
+   * @throws JacksonException if the JSON string is invalid with respect to SaleData
    */
-  public static SaleData fromJson(String jsonString) throws JsonProcessingException {
+  public static SaleData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SaleData.class);
   }
 
@@ -798,7 +798,7 @@ public class SaleData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

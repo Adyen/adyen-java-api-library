@@ -18,13 +18,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** Lodging */
 @JsonPropertyOrder({
@@ -1046,9 +1046,9 @@ public class Lodging {
    *
    * @param jsonString JSON string
    * @return An instance of Lodging
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Lodging
+   * @throws JacksonException if the JSON string is invalid with respect to Lodging
    */
-  public static Lodging fromJson(String jsonString) throws JsonProcessingException {
+  public static Lodging fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Lodging.class);
   }
 
@@ -1057,7 +1057,7 @@ public class Lodging {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

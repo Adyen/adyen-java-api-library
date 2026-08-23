@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** AndroidPayDetails */
 @JsonPropertyOrder({
@@ -301,9 +301,9 @@ public class AndroidPayDetails {
    *
    * @param jsonString JSON string
    * @return An instance of AndroidPayDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AndroidPayDetails
+   * @throws JacksonException if the JSON string is invalid with respect to AndroidPayDetails
    */
-  public static AndroidPayDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static AndroidPayDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AndroidPayDetails.class);
   }
 
@@ -312,7 +312,7 @@ public class AndroidPayDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

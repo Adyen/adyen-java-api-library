@@ -14,8 +14,8 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Identity */
 @JsonPropertyOrder({Identity.JSON_PROPERTY_FULL_LEGAL_NAME, Identity.JSON_PROPERTY_NAME})
@@ -138,9 +138,9 @@ public class Identity {
    *
    * @param jsonString JSON string
    * @return An instance of Identity
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Identity
+   * @throws JacksonException if the JSON string is invalid with respect to Identity
    */
-  public static Identity fromJson(String jsonString) throws JsonProcessingException {
+  public static Identity fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Identity.class);
   }
 
@@ -149,7 +149,7 @@ public class Identity {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,12 +16,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** SweepConfigurationV2 */
 @JsonPropertyOrder({
@@ -1201,10 +1201,9 @@ public class SweepConfigurationV2 {
    *
    * @param jsonString JSON string
    * @return An instance of SweepConfigurationV2
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     SweepConfigurationV2
+   * @throws JacksonException if the JSON string is invalid with respect to SweepConfigurationV2
    */
-  public static SweepConfigurationV2 fromJson(String jsonString) throws JsonProcessingException {
+  public static SweepConfigurationV2 fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SweepConfigurationV2.class);
   }
 
@@ -1213,7 +1212,7 @@ public class SweepConfigurationV2 {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

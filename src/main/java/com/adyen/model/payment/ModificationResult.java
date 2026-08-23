@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** ModificationResult */
 @JsonPropertyOrder({
@@ -350,10 +350,9 @@ public class ModificationResult {
    *
    * @param jsonString JSON string
    * @return An instance of ModificationResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ModificationResult
+   * @throws JacksonException if the JSON string is invalid with respect to ModificationResult
    */
-  public static ModificationResult fromJson(String jsonString) throws JsonProcessingException {
+  public static ModificationResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ModificationResult.class);
   }
 
@@ -362,7 +361,7 @@ public class ModificationResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

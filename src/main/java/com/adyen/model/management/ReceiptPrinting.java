@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ReceiptPrinting */
 @JsonPropertyOrder({
@@ -936,9 +936,9 @@ public class ReceiptPrinting {
    *
    * @param jsonString JSON string
    * @return An instance of ReceiptPrinting
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ReceiptPrinting
+   * @throws JacksonException if the JSON string is invalid with respect to ReceiptPrinting
    */
-  public static ReceiptPrinting fromJson(String jsonString) throws JsonProcessingException {
+  public static ReceiptPrinting fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ReceiptPrinting.class);
   }
 
@@ -947,7 +947,7 @@ public class ReceiptPrinting {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -14,8 +14,8 @@ package com.adyen.model.managementwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** TerminalBoardingData */
 @JsonPropertyOrder({
@@ -219,10 +219,9 @@ public class TerminalBoardingData {
    *
    * @param jsonString JSON string
    * @return An instance of TerminalBoardingData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TerminalBoardingData
+   * @throws JacksonException if the JSON string is invalid with respect to TerminalBoardingData
    */
-  public static TerminalBoardingData fromJson(String jsonString) throws JsonProcessingException {
+  public static TerminalBoardingData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TerminalBoardingData.class);
   }
 
@@ -231,7 +230,7 @@ public class TerminalBoardingData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

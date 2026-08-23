@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** RiskData */
 @JsonPropertyOrder({
@@ -337,9 +337,9 @@ public class RiskData {
    *
    * @param jsonString JSON string
    * @return An instance of RiskData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to RiskData
+   * @throws JacksonException if the JSON string is invalid with respect to RiskData
    */
-  public static RiskData fromJson(String jsonString) throws JsonProcessingException {
+  public static RiskData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, RiskData.class);
   }
 
@@ -348,7 +348,7 @@ public class RiskData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

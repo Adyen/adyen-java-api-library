@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
+import tools.jackson.core.JacksonException;
 
 /**
  * It contains information related to the security of the message. SecurityTrailer as used by Adyen.
@@ -365,9 +365,9 @@ public class SecurityTrailer {
    *
    * @param jsonString JSON string
    * @return An instance of SecurityTrailer
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SecurityTrailer
+   * @throws JacksonException if the JSON string is invalid with respect to SecurityTrailer
    */
-  public static SecurityTrailer fromJson(String jsonString) throws JsonProcessingException {
+  public static SecurityTrailer fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SecurityTrailer.class);
   }
 
@@ -376,7 +376,7 @@ public class SecurityTrailer {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

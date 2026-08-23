@@ -14,9 +14,9 @@ package com.adyen.model.marketpaywebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** PayoutMethod */
 @JsonPropertyOrder({
@@ -240,9 +240,9 @@ public class PayoutMethod {
    *
    * @param jsonString JSON string
    * @return An instance of PayoutMethod
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PayoutMethod
+   * @throws JacksonException if the JSON string is invalid with respect to PayoutMethod
    */
-  public static PayoutMethod fromJson(String jsonString) throws JsonProcessingException {
+  public static PayoutMethod fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PayoutMethod.class);
   }
 
@@ -251,7 +251,7 @@ public class PayoutMethod {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

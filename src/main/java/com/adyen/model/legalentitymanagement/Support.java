@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Support */
 @JsonPropertyOrder({Support.JSON_PROPERTY_EMAIL, Support.JSON_PROPERTY_PHONE})
@@ -208,9 +208,9 @@ public class Support {
    *
    * @param jsonString JSON string
    * @return An instance of Support
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Support
+   * @throws JacksonException if the JSON string is invalid with respect to Support
    */
-  public static Support fromJson(String jsonString) throws JsonProcessingException {
+  public static Support fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Support.class);
   }
 
@@ -219,7 +219,7 @@ public class Support {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** Amounts */
 @JsonPropertyOrder({Amounts.JSON_PROPERTY_CURRENCY, Amounts.JSON_PROPERTY_VALUES})
@@ -227,9 +227,9 @@ public class Amounts {
    *
    * @param jsonString JSON string
    * @return An instance of Amounts
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Amounts
+   * @throws JacksonException if the JSON string is invalid with respect to Amounts
    */
-  public static Amounts fromJson(String jsonString) throws JsonProcessingException {
+  public static Amounts fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Amounts.class);
   }
 
@@ -238,7 +238,7 @@ public class Amounts {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

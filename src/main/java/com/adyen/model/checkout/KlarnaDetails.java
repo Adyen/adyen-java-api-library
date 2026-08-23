@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** KlarnaDetails */
 @JsonPropertyOrder({
@@ -695,9 +695,9 @@ public class KlarnaDetails {
    *
    * @param jsonString JSON string
    * @return An instance of KlarnaDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to KlarnaDetails
+   * @throws JacksonException if the JSON string is invalid with respect to KlarnaDetails
    */
-  public static KlarnaDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static KlarnaDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, KlarnaDetails.class);
   }
 
@@ -706,7 +706,7 @@ public class KlarnaDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

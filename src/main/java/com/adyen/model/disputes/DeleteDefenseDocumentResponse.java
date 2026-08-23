@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DeleteDefenseDocumentResponse */
 @JsonPropertyOrder({DeleteDefenseDocumentResponse.JSON_PROPERTY_DISPUTE_SERVICE_RESULT})
@@ -165,11 +165,10 @@ public class DeleteDefenseDocumentResponse {
    *
    * @param jsonString JSON string
    * @return An instance of DeleteDefenseDocumentResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     DeleteDefenseDocumentResponse
    */
-  public static DeleteDefenseDocumentResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static DeleteDefenseDocumentResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DeleteDefenseDocumentResponse.class);
   }
 
@@ -178,7 +177,7 @@ public class DeleteDefenseDocumentResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

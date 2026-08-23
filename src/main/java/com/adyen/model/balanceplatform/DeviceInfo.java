@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DeviceInfo */
 @JsonPropertyOrder({
@@ -256,9 +256,9 @@ public class DeviceInfo {
    *
    * @param jsonString JSON string
    * @return An instance of DeviceInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DeviceInfo
+   * @throws JacksonException if the JSON string is invalid with respect to DeviceInfo
    */
-  public static DeviceInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static DeviceInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DeviceInfo.class);
   }
 
@@ -267,7 +267,7 @@ public class DeviceInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

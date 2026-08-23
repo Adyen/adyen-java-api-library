@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** Summary */
 @JsonPropertyOrder({Summary.JSON_PROPERTY_LEGAL_ENTITY_ID, Summary.JSON_PROPERTY_TAX_YEARS})
@@ -215,9 +215,9 @@ public class Summary {
    *
    * @param jsonString JSON string
    * @return An instance of Summary
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Summary
+   * @throws JacksonException if the JSON string is invalid with respect to Summary
    */
-  public static Summary fromJson(String jsonString) throws JsonProcessingException {
+  public static Summary fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Summary.class);
   }
 
@@ -226,7 +226,7 @@ public class Summary {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

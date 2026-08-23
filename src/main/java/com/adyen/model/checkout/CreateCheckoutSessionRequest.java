@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.*;
@@ -28,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** CreateCheckoutSessionRequest */
 @JsonPropertyOrder({
@@ -4497,11 +4497,10 @@ public class CreateCheckoutSessionRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CreateCheckoutSessionRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CreateCheckoutSessionRequest
    */
-  public static CreateCheckoutSessionRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CreateCheckoutSessionRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CreateCheckoutSessionRequest.class);
   }
 
@@ -4510,7 +4509,7 @@ public class CreateCheckoutSessionRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

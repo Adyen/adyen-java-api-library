@@ -15,9 +15,9 @@ package com.adyen.model.marketpayfund;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** Amount */
 @JsonPropertyOrder({Amount.JSON_PROPERTY_CURRENCY, Amount.JSON_PROPERTY_VALUE})
@@ -128,9 +128,9 @@ public class Amount {
    *
    * @param jsonString JSON string
    * @return An instance of Amount
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Amount
+   * @throws JacksonException if the JSON string is invalid with respect to Amount
    */
-  public static Amount fromJson(String jsonString) throws JsonProcessingException {
+  public static Amount fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Amount.class);
   }
 
@@ -139,7 +139,7 @@ public class Amount {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

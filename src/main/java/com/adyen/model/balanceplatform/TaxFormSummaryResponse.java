@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** TaxFormSummaryResponse */
 @JsonPropertyOrder({TaxFormSummaryResponse.JSON_PROPERTY_DATA})
@@ -174,10 +174,9 @@ public class TaxFormSummaryResponse {
    *
    * @param jsonString JSON string
    * @return An instance of TaxFormSummaryResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TaxFormSummaryResponse
+   * @throws JacksonException if the JSON string is invalid with respect to TaxFormSummaryResponse
    */
-  public static TaxFormSummaryResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static TaxFormSummaryResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TaxFormSummaryResponse.class);
   }
 
@@ -186,7 +185,7 @@ public class TaxFormSummaryResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

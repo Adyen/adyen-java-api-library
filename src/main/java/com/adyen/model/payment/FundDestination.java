@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** FundDestination */
 @JsonPropertyOrder({
@@ -711,9 +711,9 @@ public class FundDestination {
    *
    * @param jsonString JSON string
    * @return An instance of FundDestination
-   * @throws JsonProcessingException if the JSON string is invalid with respect to FundDestination
+   * @throws JacksonException if the JSON string is invalid with respect to FundDestination
    */
-  public static FundDestination fromJson(String jsonString) throws JsonProcessingException {
+  public static FundDestination fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, FundDestination.class);
   }
 
@@ -722,7 +722,7 @@ public class FundDestination {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

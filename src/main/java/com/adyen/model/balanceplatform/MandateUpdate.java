@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** MandateUpdate */
 @JsonPropertyOrder({MandateUpdate.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID})
@@ -163,9 +163,9 @@ public class MandateUpdate {
    *
    * @param jsonString JSON string
    * @return An instance of MandateUpdate
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MandateUpdate
+   * @throws JacksonException if the JSON string is invalid with respect to MandateUpdate
    */
-  public static MandateUpdate fromJson(String jsonString) throws JsonProcessingException {
+  public static MandateUpdate fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MandateUpdate.class);
   }
 
@@ -174,7 +174,7 @@ public class MandateUpdate {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

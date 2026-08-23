@@ -11,19 +11,6 @@
 
 package com.adyen.model.management;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
@@ -32,6 +19,18 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.deser.std.StdDeserializer;
+import tools.jackson.databind.ser.std.StdSerializer;
 
 @JsonDeserialize(
     using =
@@ -60,9 +59,9 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     public void serialize(
         ScheduleTerminalActionsRequestActionDetails value,
         JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.getActualInstance());
+        SerializationContext context)
+        throws JacksonException {
+      context.writeValue(jgen, value.getActualInstance());
     }
   }
 
@@ -78,12 +77,11 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
 
     @Override
     public ScheduleTerminalActionsRequestActionDetails deserialize(
-        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        JsonParser jp, DeserializationContext ctxt) throws JacksonException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
-      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
       // deserialize ForceRebootDetails
       try {
         boolean attemptParsing = true;
@@ -97,7 +95,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(ForceRebootDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, ForceRebootDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -123,7 +121,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(InstallAndroidAppDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, InstallAndroidAppDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -149,8 +147,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(InstallAndroidCertificateDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, InstallAndroidCertificateDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -177,7 +174,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(ReleaseUpdateDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, ReleaseUpdateDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -203,8 +200,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(UninstallAndroidAppDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, UninstallAndroidAppDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -230,8 +226,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(UninstallAndroidCertificateDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, UninstallAndroidCertificateDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -253,7 +248,8 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         ret.setActualInstance(deserialized);
         return ret;
       }
-      throw new IOException(
+      throw DatabindException.from(
+          ctxt,
           String.format(
               "Failed deserialization for ScheduleTerminalActionsRequestActionDetails: %d classes match result, expected 1",
               match));
@@ -262,9 +258,9 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
     /** Handle deserialization of the 'null' value. */
     @Override
     public ScheduleTerminalActionsRequestActionDetails getNullValue(DeserializationContext ctxt)
-        throws JsonMappingException {
-      throw new JsonMappingException(
-          ctxt.getParser(), "ScheduleTerminalActionsRequestActionDetails cannot be null");
+        throws DatabindException {
+      throw DatabindException.from(
+          ctxt, "ScheduleTerminalActionsRequestActionDetails cannot be null");
     }
   }
 
@@ -488,7 +484,7 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

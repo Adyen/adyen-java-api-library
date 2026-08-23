@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PaymentCompletionDetails */
 @JsonPropertyOrder({
@@ -1167,11 +1167,9 @@ public class PaymentCompletionDetails {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentCompletionDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PaymentCompletionDetails
+   * @throws JacksonException if the JSON string is invalid with respect to PaymentCompletionDetails
    */
-  public static PaymentCompletionDetails fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static PaymentCompletionDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentCompletionDetails.class);
   }
 
@@ -1180,7 +1178,7 @@ public class PaymentCompletionDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

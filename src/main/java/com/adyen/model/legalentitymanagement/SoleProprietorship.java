@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** SoleProprietorship */
 @JsonPropertyOrder({
@@ -865,10 +865,9 @@ public class SoleProprietorship {
    *
    * @param jsonString JSON string
    * @return An instance of SoleProprietorship
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     SoleProprietorship
+   * @throws JacksonException if the JSON string is invalid with respect to SoleProprietorship
    */
-  public static SoleProprietorship fromJson(String jsonString) throws JsonProcessingException {
+  public static SoleProprietorship fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SoleProprietorship.class);
   }
 
@@ -877,7 +876,7 @@ public class SoleProprietorship {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

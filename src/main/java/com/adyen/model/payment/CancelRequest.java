@@ -16,12 +16,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** CancelRequest */
 @JsonPropertyOrder({
@@ -684,9 +684,9 @@ public class CancelRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CancelRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CancelRequest
+   * @throws JacksonException if the JSON string is invalid with respect to CancelRequest
    */
-  public static CancelRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static CancelRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CancelRequest.class);
   }
 
@@ -695,7 +695,7 @@ public class CancelRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

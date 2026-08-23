@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** FraudResult */
 @JsonPropertyOrder({FraudResult.JSON_PROPERTY_ACCOUNT_SCORE, FraudResult.JSON_PROPERTY_RESULTS})
@@ -215,9 +215,9 @@ public class FraudResult {
    *
    * @param jsonString JSON string
    * @return An instance of FraudResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to FraudResult
+   * @throws JacksonException if the JSON string is invalid with respect to FraudResult
    */
-  public static FraudResult fromJson(String jsonString) throws JsonProcessingException {
+  public static FraudResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, FraudResult.class);
   }
 
@@ -226,7 +226,7 @@ public class FraudResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

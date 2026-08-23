@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DefenseReasonsRequest */
 @JsonPropertyOrder({
@@ -221,10 +221,9 @@ public class DefenseReasonsRequest {
    *
    * @param jsonString JSON string
    * @return An instance of DefenseReasonsRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DefenseReasonsRequest
+   * @throws JacksonException if the JSON string is invalid with respect to DefenseReasonsRequest
    */
-  public static DefenseReasonsRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static DefenseReasonsRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DefenseReasonsRequest.class);
   }
 
@@ -233,7 +232,7 @@ public class DefenseReasonsRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

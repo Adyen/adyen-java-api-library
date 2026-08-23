@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** AccelResponseInfo */
 @JsonPropertyOrder({
@@ -297,9 +297,9 @@ public class AccelResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of AccelResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AccelResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to AccelResponseInfo
    */
-  public static AccelResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static AccelResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AccelResponseInfo.class);
   }
 
@@ -308,7 +308,7 @@ public class AccelResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

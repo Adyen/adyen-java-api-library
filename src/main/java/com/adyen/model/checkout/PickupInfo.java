@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PickupInfo */
 @JsonPropertyOrder({
@@ -358,9 +358,9 @@ public class PickupInfo {
    *
    * @param jsonString JSON string
    * @return An instance of PickupInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PickupInfo
+   * @throws JacksonException if the JSON string is invalid with respect to PickupInfo
    */
-  public static PickupInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static PickupInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PickupInfo.class);
   }
 
@@ -369,7 +369,7 @@ public class PickupInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

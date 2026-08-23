@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** SplitConfigurationRule */
 @JsonPropertyOrder({
@@ -760,10 +760,9 @@ public class SplitConfigurationRule {
    *
    * @param jsonString JSON string
    * @return An instance of SplitConfigurationRule
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     SplitConfigurationRule
+   * @throws JacksonException if the JSON string is invalid with respect to SplitConfigurationRule
    */
-  public static SplitConfigurationRule fromJson(String jsonString) throws JsonProcessingException {
+  public static SplitConfigurationRule fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SplitConfigurationRule.class);
   }
 
@@ -772,7 +771,7 @@ public class SplitConfigurationRule {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

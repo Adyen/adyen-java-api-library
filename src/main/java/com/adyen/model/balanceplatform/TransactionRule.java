@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** TransactionRule */
 @JsonPropertyOrder({
@@ -1325,9 +1325,9 @@ public class TransactionRule {
    *
    * @param jsonString JSON string
    * @return An instance of TransactionRule
-   * @throws JsonProcessingException if the JSON string is invalid with respect to TransactionRule
+   * @throws JacksonException if the JSON string is invalid with respect to TransactionRule
    */
-  public static TransactionRule fromJson(String jsonString) throws JsonProcessingException {
+  public static TransactionRule fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TransactionRule.class);
   }
 
@@ -1336,7 +1336,7 @@ public class TransactionRule {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -14,9 +14,9 @@ package com.adyen.model.reportwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ReportNotificationData */
 @JsonPropertyOrder({
@@ -429,10 +429,9 @@ public class ReportNotificationData {
    *
    * @param jsonString JSON string
    * @return An instance of ReportNotificationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ReportNotificationData
+   * @throws JacksonException if the JSON string is invalid with respect to ReportNotificationData
    */
-  public static ReportNotificationData fromJson(String jsonString) throws JsonProcessingException {
+  public static ReportNotificationData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ReportNotificationData.class);
   }
 
@@ -441,7 +440,7 @@ public class ReportNotificationData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

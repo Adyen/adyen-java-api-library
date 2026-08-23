@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** UKFpsTracingData */
 @JsonPropertyOrder({UKFpsTracingData.JSON_PROPERTY_FPID, UKFpsTracingData.JSON_PROPERTY_TYPE})
@@ -254,9 +254,9 @@ public class UKFpsTracingData {
    *
    * @param jsonString JSON string
    * @return An instance of UKFpsTracingData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to UKFpsTracingData
+   * @throws JacksonException if the JSON string is invalid with respect to UKFpsTracingData
    */
-  public static UKFpsTracingData fromJson(String jsonString) throws JsonProcessingException {
+  public static UKFpsTracingData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, UKFpsTracingData.class);
   }
 
@@ -265,7 +265,7 @@ public class UKFpsTracingData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

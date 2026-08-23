@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DynamicOfferRepayment */
 @JsonPropertyOrder({DynamicOfferRepayment.JSON_PROPERTY_TERM})
@@ -158,10 +158,9 @@ public class DynamicOfferRepayment {
    *
    * @param jsonString JSON string
    * @return An instance of DynamicOfferRepayment
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DynamicOfferRepayment
+   * @throws JacksonException if the JSON string is invalid with respect to DynamicOfferRepayment
    */
-  public static DynamicOfferRepayment fromJson(String jsonString) throws JsonProcessingException {
+  public static DynamicOfferRepayment fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DynamicOfferRepayment.class);
   }
 
@@ -170,7 +169,7 @@ public class DynamicOfferRepayment {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

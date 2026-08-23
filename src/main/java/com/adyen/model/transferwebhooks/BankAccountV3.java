@@ -14,8 +14,8 @@ package com.adyen.model.transferwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** BankAccountV3 */
 @JsonPropertyOrder({
@@ -191,9 +191,9 @@ public class BankAccountV3 {
    *
    * @param jsonString JSON string
    * @return An instance of BankAccountV3
-   * @throws JsonProcessingException if the JSON string is invalid with respect to BankAccountV3
+   * @throws JacksonException if the JSON string is invalid with respect to BankAccountV3
    */
-  public static BankAccountV3 fromJson(String jsonString) throws JsonProcessingException {
+  public static BankAccountV3 fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, BankAccountV3.class);
   }
 
@@ -202,7 +202,7 @@ public class BankAccountV3 {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

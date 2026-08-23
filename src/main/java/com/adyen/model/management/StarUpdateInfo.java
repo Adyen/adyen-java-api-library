@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** StarUpdateInfo */
 @JsonPropertyOrder({StarUpdateInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -161,9 +161,9 @@ public class StarUpdateInfo {
    *
    * @param jsonString JSON string
    * @return An instance of StarUpdateInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StarUpdateInfo
+   * @throws JacksonException if the JSON string is invalid with respect to StarUpdateInfo
    */
-  public static StarUpdateInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static StarUpdateInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StarUpdateInfo.class);
   }
 
@@ -172,7 +172,7 @@ public class StarUpdateInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

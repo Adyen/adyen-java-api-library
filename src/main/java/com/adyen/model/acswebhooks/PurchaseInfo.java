@@ -14,8 +14,8 @@ package com.adyen.model.acswebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PurchaseInfo */
 @JsonPropertyOrder({
@@ -180,9 +180,9 @@ public class PurchaseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of PurchaseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PurchaseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to PurchaseInfo
    */
-  public static PurchaseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static PurchaseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PurchaseInfo.class);
   }
 
@@ -191,7 +191,7 @@ public class PurchaseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

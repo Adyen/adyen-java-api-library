@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** StoredValueVoidResponse */
 @JsonPropertyOrder({
@@ -480,10 +480,9 @@ public class StoredValueVoidResponse {
    *
    * @param jsonString JSON string
    * @return An instance of StoredValueVoidResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueVoidResponse
+   * @throws JacksonException if the JSON string is invalid with respect to StoredValueVoidResponse
    */
-  public static StoredValueVoidResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static StoredValueVoidResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StoredValueVoidResponse.class);
   }
 
@@ -492,7 +491,7 @@ public class StoredValueVoidResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

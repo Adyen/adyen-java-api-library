@@ -18,18 +18,18 @@ import com.adyen.model.tapi.Response;
 import com.adyen.model.tapi.Result;
 import com.adyen.model.tapi.SaleData;
 import com.adyen.model.tapi.TransactionIDType;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import org.junit.jupiter.api.Test;
+import tools.jackson.core.JacksonException;
 
 /** Test model serialization (toJson) and deserialization (fromJson) */
 public class ModelTest {
 
   @Test
-  public void testFromJsonLegalEntity() throws JsonProcessingException {
+  public void testFromJsonLegalEntity() throws JacksonException {
     String json =
         "{\n"
             + "  \"id\": \"LE3227C223222B5BPCMFXD2XG\",\n"
@@ -68,7 +68,7 @@ public class ModelTest {
   }
 
   @Test
-  public void testFromJsonLegalEntityWithInvalidEnum() throws JsonProcessingException {
+  public void testFromJsonLegalEntityWithInvalidEnum() throws JacksonException {
     String json =
         "{\n"
             + "  \"id\": \"LE3227C223222B5BPCMFXD2XG\",\n"
@@ -102,7 +102,7 @@ public class ModelTest {
   }
 
   @Test
-  public void testToJsonLegalEntity() throws JsonProcessingException {
+  public void testToJsonLegalEntity() throws JacksonException {
     LegalEntity legalEntity =
         new LegalEntity()
             .reference("YOUR_REFERENCE_12345")
@@ -127,7 +127,7 @@ public class ModelTest {
   }
 
   @Test
-  public void testFromJsonCreateCheckoutSessionResponse() throws JsonProcessingException {
+  public void testFromJsonCreateCheckoutSessionResponse() throws JacksonException {
     String json =
         "{\n"
             + "  \"amount\": {\n"
@@ -207,7 +207,7 @@ public class ModelTest {
   }
 
   @Test
-  public void testTapiTimestampDeserialization() throws JsonProcessingException {
+  public void testTapiTimestampDeserialization() throws JacksonException {
     String json =
         "{"
             + "\"Response\":{\"Result\":\"Success\"},"
@@ -245,7 +245,7 @@ public class ModelTest {
   }
 
   @Test
-  public void testTapiTimestampSerialization() throws JsonProcessingException {
+  public void testTapiTimestampSerialization() throws JacksonException {
     OffsetDateTime timestamp =
         OffsetDateTime.of(2024, 1, 15, 10, 30, 0, 0, ZoneOffset.of("+01:00"));
 
@@ -264,7 +264,7 @@ public class ModelTest {
   }
 
   @Test
-  public void testTapiPaymentResponseWithUnknownAttribute() throws JsonProcessingException {
+  public void testTapiPaymentResponseWithUnknownAttribute() throws JacksonException {
     String json =
         "{"
             + "\"Response\":{\"Result\":\"Success\"},"
@@ -287,7 +287,7 @@ public class ModelTest {
 
   // test unknown enum value for tapi model
   @Test
-  public void testFromJsonTapiResponseWithInvalidEnum() throws JsonProcessingException {
+  public void testFromJsonTapiResponseWithInvalidEnum() throws JacksonException {
     String json =
         "{\n"
             + "  \"Result\": \"UNKNOWN_RESULT\",\n"
@@ -303,7 +303,7 @@ public class ModelTest {
 
   // test null values are not serialized
   @Test
-  public void testToJsonTerminalSettingsSurchargeNotSet() throws JsonProcessingException {
+  public void testToJsonTerminalSettingsSurchargeNotSet() throws JacksonException {
     TerminalSettings terminalSettings = new TerminalSettings();
     terminalSettings.setConnectivity(
         new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
@@ -314,7 +314,7 @@ public class ModelTest {
   // test values set as null are not serialized when includeNullValues is false
   @Test
   public void testToJsonTerminalSettingsSurchargeSetToNullWithoutEnablingIncludeNullValues()
-      throws JsonProcessingException {
+      throws JacksonException {
     TerminalSettings terminalSettings = new TerminalSettings();
     terminalSettings
         .connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
@@ -325,7 +325,7 @@ public class ModelTest {
 
   // test values set as null (using setters) are serialized
   @Test
-  public void testToJsonTerminalSettingsSurchargeSetToNull() throws JsonProcessingException {
+  public void testToJsonTerminalSettingsSurchargeSetToNull() throws JacksonException {
     TerminalSettings terminalSettings = new TerminalSettings();
     terminalSettings.includeNullValues(true);
     terminalSettings.setConnectivity(
@@ -337,7 +337,7 @@ public class ModelTest {
 
   // test values set as null (using build methods) are serialized
   @Test
-  public void testToJsonTerminalSettingsSurchargeChainToNull() throws JsonProcessingException {
+  public void testToJsonTerminalSettingsSurchargeChainToNull() throws JacksonException {
     TerminalSettings terminalSettings = new TerminalSettings();
     terminalSettings
         .includeNullValues(true)
@@ -350,7 +350,7 @@ public class ModelTest {
   // test values, that are not explicitly SET as null, are not serialized (even when
   // includeNullValues is true)
   @Test
-  public void testToJsonFlagTrueButFieldNotSet() throws JsonProcessingException {
+  public void testToJsonFlagTrueButFieldNotSet() throws JacksonException {
     TerminalSettings terminalSettings = new TerminalSettings();
     // must consider null values that are explicitly set
     terminalSettings.includeNullValues(true);

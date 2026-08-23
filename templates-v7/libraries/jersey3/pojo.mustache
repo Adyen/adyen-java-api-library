@@ -497,9 +497,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
    *
    * @param jsonString JSON string
    * @return An instance of {{classname}}
-   * @throws JsonProcessingException if the JSON string is invalid with respect to {{classname}}
+   * @throws JacksonException if the JSON string is invalid with respect to {{classname}}
    */
-  public static {{{classname}}} fromJson(String jsonString) throws JsonProcessingException {
+  public static {{{classname}}} fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, {{{classname}}}.class);
   }
 /**
@@ -507,7 +507,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   *
   * @return JSON string
   */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

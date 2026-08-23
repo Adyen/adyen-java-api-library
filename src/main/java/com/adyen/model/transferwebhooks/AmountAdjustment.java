@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** AmountAdjustment */
 @JsonPropertyOrder({
@@ -240,9 +240,9 @@ public class AmountAdjustment {
    *
    * @param jsonString JSON string
    * @return An instance of AmountAdjustment
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AmountAdjustment
+   * @throws JacksonException if the JSON string is invalid with respect to AmountAdjustment
    */
-  public static AmountAdjustment fromJson(String jsonString) throws JsonProcessingException {
+  public static AmountAdjustment fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AmountAdjustment.class);
   }
 
@@ -251,7 +251,7 @@ public class AmountAdjustment {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -14,8 +14,8 @@ package com.adyen.model.reportwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** BalancePlatformNotificationResponse */
 @JsonPropertyOrder({BalancePlatformNotificationResponse.JSON_PROPERTY_NOTIFICATION_RESPONSE})
@@ -111,11 +111,11 @@ public class BalancePlatformNotificationResponse {
    *
    * @param jsonString JSON string
    * @return An instance of BalancePlatformNotificationResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     BalancePlatformNotificationResponse
    */
   public static BalancePlatformNotificationResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, BalancePlatformNotificationResponse.class);
   }
 
@@ -124,7 +124,7 @@ public class BalancePlatformNotificationResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

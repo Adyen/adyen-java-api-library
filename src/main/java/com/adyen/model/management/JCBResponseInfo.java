@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** JCBResponseInfo */
 @JsonPropertyOrder({
@@ -319,9 +319,9 @@ public class JCBResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of JCBResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to JCBResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to JCBResponseInfo
    */
-  public static JCBResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static JCBResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, JCBResponseInfo.class);
   }
 
@@ -330,7 +330,7 @@ public class JCBResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

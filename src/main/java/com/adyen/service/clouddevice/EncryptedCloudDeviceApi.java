@@ -29,10 +29,10 @@ import com.adyen.security.clouddevice.NexoSecurityException;
 import com.adyen.security.clouddevice.NexoSecurityManager;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.databind.JsonNode;
 
 /** Service of the Cloud Device API with encrypted payloads */
 public class EncryptedCloudDeviceApi extends Service {

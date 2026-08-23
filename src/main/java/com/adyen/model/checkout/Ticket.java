@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Ticket */
 @JsonPropertyOrder({
@@ -294,9 +294,9 @@ public class Ticket {
    *
    * @param jsonString JSON string
    * @return An instance of Ticket
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Ticket
+   * @throws JacksonException if the JSON string is invalid with respect to Ticket
    */
-  public static Ticket fromJson(String jsonString) throws JsonProcessingException {
+  public static Ticket fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Ticket.class);
   }
 
@@ -305,7 +305,7 @@ public class Ticket {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

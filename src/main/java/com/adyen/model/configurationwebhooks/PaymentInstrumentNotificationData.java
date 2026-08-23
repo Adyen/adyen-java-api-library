@@ -14,8 +14,8 @@ package com.adyen.model.configurationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PaymentInstrumentNotificationData */
 @JsonPropertyOrder({
@@ -145,11 +145,11 @@ public class PaymentInstrumentNotificationData {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentInstrumentNotificationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     PaymentInstrumentNotificationData
    */
   public static PaymentInstrumentNotificationData fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentInstrumentNotificationData.class);
   }
 
@@ -158,7 +158,7 @@ public class PaymentInstrumentNotificationData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

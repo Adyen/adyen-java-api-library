@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** DragonpayDetails */
 @JsonPropertyOrder({
@@ -418,9 +418,9 @@ public class DragonpayDetails {
    *
    * @param jsonString JSON string
    * @return An instance of DragonpayDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DragonpayDetails
+   * @throws JacksonException if the JSON string is invalid with respect to DragonpayDetails
    */
-  public static DragonpayDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static DragonpayDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DragonpayDetails.class);
   }
 
@@ -429,7 +429,7 @@ public class DragonpayDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

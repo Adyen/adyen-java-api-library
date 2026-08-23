@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** TimeOfDay */
 @JsonPropertyOrder({TimeOfDay.JSON_PROPERTY_END_TIME, TimeOfDay.JSON_PROPERTY_START_TIME})
@@ -217,9 +217,9 @@ public class TimeOfDay {
    *
    * @param jsonString JSON string
    * @return An instance of TimeOfDay
-   * @throws JsonProcessingException if the JSON string is invalid with respect to TimeOfDay
+   * @throws JacksonException if the JSON string is invalid with respect to TimeOfDay
    */
-  public static TimeOfDay fromJson(String jsonString) throws JsonProcessingException {
+  public static TimeOfDay fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TimeOfDay.class);
   }
 
@@ -228,7 +228,7 @@ public class TimeOfDay {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

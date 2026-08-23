@@ -25,8 +25,8 @@ import com.adyen.model.clouddevice.security.SecurityTrailer;
 import com.adyen.model.tapi.JSON;
 import com.adyen.model.tapi.MessageHeader;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 public class SaleToPOISecuredMessage {
   @JsonProperty("MessageHeader")
@@ -67,10 +67,9 @@ public class SaleToPOISecuredMessage {
    *
    * @param jsonString JSON string
    * @return An instance of SaleToPOISecuredMessage
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     SaleToPOISecuredMessage
+   * @throws JacksonException if the JSON string is invalid with respect to SaleToPOISecuredMessage
    */
-  public static SaleToPOISecuredMessage fromJson(String jsonString) throws JsonProcessingException {
+  public static SaleToPOISecuredMessage fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SaleToPOISecuredMessage.class);
   }
 
@@ -79,7 +78,7 @@ public class SaleToPOISecuredMessage {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 

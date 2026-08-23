@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** ZipDetails */
 @JsonPropertyOrder({
@@ -488,9 +488,9 @@ public class ZipDetails {
    *
    * @param jsonString JSON string
    * @return An instance of ZipDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ZipDetails
+   * @throws JacksonException if the JSON string is invalid with respect to ZipDetails
    */
-  public static ZipDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static ZipDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ZipDetails.class);
   }
 
@@ -499,7 +499,7 @@ public class ZipDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

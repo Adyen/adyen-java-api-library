@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** CheckoutOutgoingForwardRequest */
 @JsonPropertyOrder({
@@ -494,11 +494,10 @@ public class CheckoutOutgoingForwardRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CheckoutOutgoingForwardRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CheckoutOutgoingForwardRequest
    */
-  public static CheckoutOutgoingForwardRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CheckoutOutgoingForwardRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CheckoutOutgoingForwardRequest.class);
   }
 
@@ -507,7 +506,7 @@ public class CheckoutOutgoingForwardRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /**
  * It conveys the services that will be enabled for the POI Terminal without the request of the Sale
@@ -335,10 +335,9 @@ public class EnableServiceRequest {
    *
    * @param jsonString JSON string
    * @return An instance of EnableServiceRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     EnableServiceRequest
+   * @throws JacksonException if the JSON string is invalid with respect to EnableServiceRequest
    */
-  public static EnableServiceRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static EnableServiceRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, EnableServiceRequest.class);
   }
 
@@ -347,7 +346,7 @@ public class EnableServiceRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

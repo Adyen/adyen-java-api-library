@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** PaymentInstrumentGroup */
 @JsonPropertyOrder({
@@ -434,10 +434,9 @@ public class PaymentInstrumentGroup {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentInstrumentGroup
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PaymentInstrumentGroup
+   * @throws JacksonException if the JSON string is invalid with respect to PaymentInstrumentGroup
    */
-  public static PaymentInstrumentGroup fromJson(String jsonString) throws JsonProcessingException {
+  public static PaymentInstrumentGroup fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentInstrumentGroup.class);
   }
 
@@ -446,7 +445,7 @@ public class PaymentInstrumentGroup {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

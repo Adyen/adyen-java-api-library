@@ -23,8 +23,8 @@ package com.adyen.model.clouddevice;
 import com.adyen.model.tapi.JSON;
 import com.adyen.model.tapi.SaleToPOIRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /**
  * Response of the /async endpoint. When successful the `results` contains `ok` In case of failure
@@ -81,11 +81,10 @@ public class CloudDeviceApiAsyncResponse {
    *
    * @param jsonString JSON string
    * @return An instance of CloudDeviceApiAsyncResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CloudDeviceApiAsyncResponse
    */
-  public static CloudDeviceApiAsyncResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CloudDeviceApiAsyncResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CloudDeviceApiAsyncResponse.class);
   }
 
@@ -94,7 +93,7 @@ public class CloudDeviceApiAsyncResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 

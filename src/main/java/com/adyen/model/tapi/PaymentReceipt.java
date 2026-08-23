@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Customer or Merchant payment receipt. If the payment receipts are printed by the Sale system and
@@ -323,9 +323,9 @@ public class PaymentReceipt {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentReceipt
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentReceipt
+   * @throws JacksonException if the JSON string is invalid with respect to PaymentReceipt
    */
-  public static PaymentReceipt fromJson(String jsonString) throws JsonProcessingException {
+  public static PaymentReceipt fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentReceipt.class);
   }
 
@@ -334,7 +334,7 @@ public class PaymentReceipt {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

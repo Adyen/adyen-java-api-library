@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AccountHolderResource */
 @JsonPropertyOrder({AccountHolderResource.JSON_PROPERTY_ACCOUNT_HOLDER_ID})
@@ -192,10 +192,9 @@ public class AccountHolderResource extends Resource {
    *
    * @param jsonString JSON string
    * @return An instance of AccountHolderResource
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     AccountHolderResource
+   * @throws JacksonException if the JSON string is invalid with respect to AccountHolderResource
    */
-  public static AccountHolderResource fromJson(String jsonString) throws JsonProcessingException {
+  public static AccountHolderResource fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AccountHolderResource.class);
   }
 
@@ -204,7 +203,7 @@ public class AccountHolderResource extends Resource {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

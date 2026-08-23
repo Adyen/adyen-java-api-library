@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** It conveys the result of the Custom Admin. Content of the Custom Admin Response message. */
 @JsonPropertyOrder({AdminResponse.JSON_PROPERTY_RESPONSE})
@@ -158,9 +158,9 @@ public class AdminResponse {
    *
    * @param jsonString JSON string
    * @return An instance of AdminResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AdminResponse
+   * @throws JacksonException if the JSON string is invalid with respect to AdminResponse
    */
-  public static AdminResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static AdminResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AdminResponse.class);
   }
 
@@ -169,7 +169,7 @@ public class AdminResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

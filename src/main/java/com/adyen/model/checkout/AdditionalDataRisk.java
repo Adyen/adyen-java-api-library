@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AdditionalDataRisk */
 @JsonPropertyOrder({
@@ -1461,10 +1461,9 @@ public class AdditionalDataRisk {
    *
    * @param jsonString JSON string
    * @return An instance of AdditionalDataRisk
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     AdditionalDataRisk
+   * @throws JacksonException if the JSON string is invalid with respect to AdditionalDataRisk
    */
-  public static AdditionalDataRisk fromJson(String jsonString) throws JsonProcessingException {
+  public static AdditionalDataRisk fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AdditionalDataRisk.class);
   }
 
@@ -1473,7 +1472,7 @@ public class AdditionalDataRisk {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

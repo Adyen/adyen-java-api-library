@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** HKLocalAccountIdentification */
 @JsonPropertyOrder({
@@ -229,11 +229,10 @@ public class HKLocalAccountIdentification {
    *
    * @param jsonString JSON string
    * @return An instance of HKLocalAccountIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     HKLocalAccountIdentification
    */
-  public static HKLocalAccountIdentification fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static HKLocalAccountIdentification fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, HKLocalAccountIdentification.class);
   }
 
@@ -242,7 +241,7 @@ public class HKLocalAccountIdentification {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** IdentificationData */
 @JsonPropertyOrder({
@@ -576,10 +576,9 @@ public class IdentificationData {
    *
    * @param jsonString JSON string
    * @return An instance of IdentificationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     IdentificationData
+   * @throws JacksonException if the JSON string is invalid with respect to IdentificationData
    */
-  public static IdentificationData fromJson(String jsonString) throws JsonProcessingException {
+  public static IdentificationData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, IdentificationData.class);
   }
 
@@ -588,7 +587,7 @@ public class IdentificationData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

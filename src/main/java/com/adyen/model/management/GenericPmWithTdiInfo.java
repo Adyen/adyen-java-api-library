@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** GenericPmWithTdiInfo */
 @JsonPropertyOrder({GenericPmWithTdiInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -162,10 +162,9 @@ public class GenericPmWithTdiInfo {
    *
    * @param jsonString JSON string
    * @return An instance of GenericPmWithTdiInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     GenericPmWithTdiInfo
+   * @throws JacksonException if the JSON string is invalid with respect to GenericPmWithTdiInfo
    */
-  public static GenericPmWithTdiInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static GenericPmWithTdiInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, GenericPmWithTdiInfo.class);
   }
 
@@ -174,7 +173,7 @@ public class GenericPmWithTdiInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

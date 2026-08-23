@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** WeChatPayMiniProgramDetails */
 @JsonPropertyOrder({
@@ -535,11 +535,10 @@ public class WeChatPayMiniProgramDetails {
    *
    * @param jsonString JSON string
    * @return An instance of WeChatPayMiniProgramDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     WeChatPayMiniProgramDetails
    */
-  public static WeChatPayMiniProgramDetails fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static WeChatPayMiniProgramDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, WeChatPayMiniProgramDetails.class);
   }
 
@@ -548,7 +547,7 @@ public class WeChatPayMiniProgramDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

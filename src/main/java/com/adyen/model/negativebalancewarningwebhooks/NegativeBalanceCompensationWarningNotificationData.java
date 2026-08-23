@@ -14,9 +14,9 @@ package com.adyen.model.negativebalancewarningwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** NegativeBalanceCompensationWarningNotificationData */
 @JsonPropertyOrder({
@@ -433,11 +433,11 @@ public class NegativeBalanceCompensationWarningNotificationData {
    *
    * @param jsonString JSON string
    * @return An instance of NegativeBalanceCompensationWarningNotificationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     NegativeBalanceCompensationWarningNotificationData
    */
   public static NegativeBalanceCompensationWarningNotificationData fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper()
         .readValue(jsonString, NegativeBalanceCompensationWarningNotificationData.class);
   }
@@ -447,7 +447,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

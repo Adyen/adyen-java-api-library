@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AdditionalDataOpi */
 @JsonPropertyOrder({AdditionalDataOpi.JSON_PROPERTY_OPI_INCLUDE_TRANS_TOKEN})
@@ -182,9 +182,9 @@ public class AdditionalDataOpi {
    *
    * @param jsonString JSON string
    * @return An instance of AdditionalDataOpi
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AdditionalDataOpi
+   * @throws JacksonException if the JSON string is invalid with respect to AdditionalDataOpi
    */
-  public static AdditionalDataOpi fromJson(String jsonString) throws JsonProcessingException {
+  public static AdditionalDataOpi fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AdditionalDataOpi.class);
   }
 
@@ -193,7 +193,7 @@ public class AdditionalDataOpi {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /**
  * It conveys Information related to the Reconciliation transaction processed by the POI System.
@@ -339,10 +339,9 @@ public class ReconciliationResponse {
    *
    * @param jsonString JSON string
    * @return An instance of ReconciliationResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ReconciliationResponse
+   * @throws JacksonException if the JSON string is invalid with respect to ReconciliationResponse
    */
-  public static ReconciliationResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static ReconciliationResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ReconciliationResponse.class);
   }
 
@@ -351,7 +350,7 @@ public class ReconciliationResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

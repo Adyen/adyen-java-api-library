@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
+import tools.jackson.core.JacksonException;
 
 /** DSPublicKeyDetail */
 @JsonPropertyOrder({
@@ -387,9 +387,9 @@ public class DSPublicKeyDetail {
    *
    * @param jsonString JSON string
    * @return An instance of DSPublicKeyDetail
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DSPublicKeyDetail
+   * @throws JacksonException if the JSON string is invalid with respect to DSPublicKeyDetail
    */
-  public static DSPublicKeyDetail fromJson(String jsonString) throws JsonProcessingException {
+  public static DSPublicKeyDetail fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DSPublicKeyDetail.class);
   }
 
@@ -398,7 +398,7 @@ public class DSPublicKeyDetail {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /**
  * Definition: Content of the Input Update message. : It conveys update of the display of an Input
@@ -476,9 +476,9 @@ public class InputUpdate {
    *
    * @param jsonString JSON string
    * @return An instance of InputUpdate
-   * @throws JsonProcessingException if the JSON string is invalid with respect to InputUpdate
+   * @throws JacksonException if the JSON string is invalid with respect to InputUpdate
    */
-  public static InputUpdate fromJson(String jsonString) throws JsonProcessingException {
+  public static InputUpdate fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, InputUpdate.class);
   }
 
@@ -487,7 +487,7 @@ public class InputUpdate {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

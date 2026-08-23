@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** SGLocalAccountIdentification */
 @JsonPropertyOrder({
@@ -279,11 +279,10 @@ public class SGLocalAccountIdentification extends BankAccountIdentification {
    *
    * @param jsonString JSON string
    * @return An instance of SGLocalAccountIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     SGLocalAccountIdentification
    */
-  public static SGLocalAccountIdentification fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static SGLocalAccountIdentification fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SGLocalAccountIdentification.class);
   }
 
@@ -292,7 +291,7 @@ public class SGLocalAccountIdentification extends BankAccountIdentification {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -14,8 +14,8 @@ package com.adyen.model.configurationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** WebhookAmount */
 @JsonPropertyOrder({WebhookAmount.JSON_PROPERTY_CURRENCY, WebhookAmount.JSON_PROPERTY_VALUE})
@@ -147,9 +147,9 @@ public class WebhookAmount {
    *
    * @param jsonString JSON string
    * @return An instance of WebhookAmount
-   * @throws JsonProcessingException if the JSON string is invalid with respect to WebhookAmount
+   * @throws JacksonException if the JSON string is invalid with respect to WebhookAmount
    */
-  public static WebhookAmount fromJson(String jsonString) throws JsonProcessingException {
+  public static WebhookAmount fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, WebhookAmount.class);
   }
 
@@ -158,7 +158,7 @@ public class WebhookAmount {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -24,7 +24,7 @@
     </developers>
     <properties>
         <!-- Project Settings -->
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <sonar.organization>adyen</sonar.organization>
@@ -35,8 +35,9 @@
 
         <!-- Dependency Versions -->
         <!-- Compile -->
-        <com.fasterxml.jackson-version>2.22.1</com.fasterxml.jackson-version>
-        <com.fasterxml.jackson-annotations-version>2.22</com.fasterxml.jackson-annotations-version>
+        <tools.jackson-version>3.1.5</tools.jackson-version>
+        <!-- Jackson 3 intentionally continues to use the Jackson 2 annotations artifact/package. -->
+        <com.fasterxml.jackson-annotations-version>2.21</com.fasterxml.jackson-annotations-version>
         <gson-version>2.14.0</gson-version>
         <commons-codec-version>1.22.1</commons-codec-version>
         <swagger-core-version>1.6.16</swagger-core-version>
@@ -246,15 +247,24 @@
                 <version>${maven-enforcer-version}</version>
                 <executions>
                     <execution>
-                        <id>enforce-jakarta-compliance</id>
+                        <id>enforce-runtime-baseline</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
                         <configuration>
                             <rules>
+                                <requireJavaVersion>
+                                    <version>[17,)</version>
+                                </requireJavaVersion>
                                 <bannedDependencies>
                                     <excludes>
                                         <exclude>javax.xml.bind:jaxb-api</exclude>
+                                        <exclude>com.fasterxml.jackson.core:jackson-core</exclude>
+                                        <exclude>com.fasterxml.jackson.core:jackson-databind</exclude>
+                                        <exclude>com.fasterxml.jackson.datatype:*</exclude>
+                                        <exclude>com.fasterxml.jackson.dataformat:*</exclude>
+                                        <exclude>com.fasterxml.jackson.module:*</exclude>
+                                        <exclude>com.fasterxml.jackson.jaxrs:*</exclude>
 
                                         <!-- Not used but keeping exclusions for Jakarta EE 9+ compatibility -->
                                         <exclude>javax.servlet:servlet-api</exclude>
@@ -265,7 +275,7 @@
                                         <exclude>javax.inject:javax.inject</exclude>
                                     </excludes>
                                     <message>
-                                        STOP! A legacy javax.* dependency was detected
+                                        STOP! An unsupported legacy dependency was detected
                                     </message>
                                 </bannedDependencies>
                             </rules>
@@ -293,24 +303,19 @@
     <dependencies>
         <!-- Compile -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${com.fasterxml.jackson-version}</version>
+            <version>${tools.jackson-version}</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>${com.fasterxml.jackson-version}</version>
+            <version>${tools.jackson-version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${com.fasterxml.jackson-annotations-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${com.fasterxml.jackson-version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>

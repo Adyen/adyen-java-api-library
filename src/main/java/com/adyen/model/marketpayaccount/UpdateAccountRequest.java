@@ -17,11 +17,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** UpdateAccountRequest */
 @JsonPropertyOrder({
@@ -344,10 +344,9 @@ public class UpdateAccountRequest {
    *
    * @param jsonString JSON string
    * @return An instance of UpdateAccountRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     UpdateAccountRequest
+   * @throws JacksonException if the JSON string is invalid with respect to UpdateAccountRequest
    */
-  public static UpdateAccountRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static UpdateAccountRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, UpdateAccountRequest.class);
   }
 
@@ -356,7 +355,7 @@ public class UpdateAccountRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** GirocardResponseInfo */
 @JsonPropertyOrder({GirocardResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -162,10 +162,9 @@ public class GirocardResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of GirocardResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     GirocardResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to GirocardResponseInfo
    */
-  public static GirocardResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static GirocardResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, GirocardResponseInfo.class);
   }
 
@@ -174,7 +173,7 @@ public class GirocardResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

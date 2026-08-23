@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AdditionalDataLevel23 */
 @JsonPropertyOrder({
@@ -1465,10 +1465,9 @@ public class AdditionalDataLevel23 {
    *
    * @param jsonString JSON string
    * @return An instance of AdditionalDataLevel23
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     AdditionalDataLevel23
+   * @throws JacksonException if the JSON string is invalid with respect to AdditionalDataLevel23
    */
-  public static AdditionalDataLevel23 fromJson(String jsonString) throws JsonProcessingException {
+  public static AdditionalDataLevel23 fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AdditionalDataLevel23.class);
   }
 
@@ -1477,7 +1476,7 @@ public class AdditionalDataLevel23 {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

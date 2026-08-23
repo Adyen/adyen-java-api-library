@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** VisaResponseInfo */
 @JsonPropertyOrder({VisaResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -162,9 +162,9 @@ public class VisaResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of VisaResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to VisaResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to VisaResponseInfo
    */
-  public static VisaResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static VisaResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, VisaResponseInfo.class);
   }
 
@@ -173,7 +173,7 @@ public class VisaResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

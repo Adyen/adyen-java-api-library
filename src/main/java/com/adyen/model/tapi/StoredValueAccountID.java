@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /**
  * Identification of the stored value account or the stored value card and the associated product
@@ -573,10 +573,9 @@ public class StoredValueAccountID {
    *
    * @param jsonString JSON string
    * @return An instance of StoredValueAccountID
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoredValueAccountID
+   * @throws JacksonException if the JSON string is invalid with respect to StoredValueAccountID
    */
-  public static StoredValueAccountID fromJson(String jsonString) throws JsonProcessingException {
+  public static StoredValueAccountID fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StoredValueAccountID.class);
   }
 
@@ -585,7 +584,7 @@ public class StoredValueAccountID {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

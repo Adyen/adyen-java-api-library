@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** StringMatch */
 @JsonPropertyOrder({StringMatch.JSON_PROPERTY_OPERATION, StringMatch.JSON_PROPERTY_VALUE})
@@ -263,9 +263,9 @@ public class StringMatch {
    *
    * @param jsonString JSON string
    * @return An instance of StringMatch
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StringMatch
+   * @throws JacksonException if the JSON string is invalid with respect to StringMatch
    */
-  public static StringMatch fromJson(String jsonString) throws JsonProcessingException {
+  public static StringMatch fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StringMatch.class);
   }
 
@@ -274,7 +274,7 @@ public class StringMatch {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

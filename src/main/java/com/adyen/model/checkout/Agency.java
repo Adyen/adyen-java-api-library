@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Agency */
 @JsonPropertyOrder({Agency.JSON_PROPERTY_INVOICE_NUMBER, Agency.JSON_PROPERTY_PLAN_NAME})
@@ -226,9 +226,9 @@ public class Agency {
    *
    * @param jsonString JSON string
    * @return An instance of Agency
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Agency
+   * @throws JacksonException if the JSON string is invalid with respect to Agency
    */
-  public static Agency fromJson(String jsonString) throws JsonProcessingException {
+  public static Agency fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Agency.class);
   }
 
@@ -237,7 +237,7 @@ public class Agency {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

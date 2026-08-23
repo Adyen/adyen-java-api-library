@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** LegalEntityResource */
 @JsonPropertyOrder({LegalEntityResource.JSON_PROPERTY_LEGAL_ENTITY_ID})
@@ -207,10 +207,9 @@ public class LegalEntityResource extends Resource {
    *
    * @param jsonString JSON string
    * @return An instance of LegalEntityResource
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     LegalEntityResource
+   * @throws JacksonException if the JSON string is invalid with respect to LegalEntityResource
    */
-  public static LegalEntityResource fromJson(String jsonString) throws JsonProcessingException {
+  public static LegalEntityResource fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, LegalEntityResource.class);
   }
 
@@ -219,7 +218,7 @@ public class LegalEntityResource extends Resource {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

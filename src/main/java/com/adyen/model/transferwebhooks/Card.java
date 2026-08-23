@@ -14,8 +14,8 @@ package com.adyen.model.transferwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Card */
 @JsonPropertyOrder({Card.JSON_PROPERTY_CARD_HOLDER, Card.JSON_PROPERTY_CARD_IDENTIFICATION})
@@ -138,9 +138,9 @@ public class Card {
    *
    * @param jsonString JSON string
    * @return An instance of Card
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Card
+   * @throws JacksonException if the JSON string is invalid with respect to Card
    */
-  public static Card fromJson(String jsonString) throws JsonProcessingException {
+  public static Card fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Card.class);
   }
 
@@ -149,7 +149,7 @@ public class Card {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

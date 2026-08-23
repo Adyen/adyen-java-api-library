@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.math.BigDecimal;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Totals of the payment transaction during the reconciliation period. */
 @JsonPropertyOrder({
@@ -263,9 +263,9 @@ public class PaymentTotals {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentTotals
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaymentTotals
+   * @throws JacksonException if the JSON string is invalid with respect to PaymentTotals
    */
-  public static PaymentTotals fromJson(String jsonString) throws JsonProcessingException {
+  public static PaymentTotals fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentTotals.class);
   }
 
@@ -274,7 +274,7 @@ public class PaymentTotals {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** UpiCollectDetails */
 @JsonPropertyOrder({
@@ -609,9 +609,9 @@ public class UpiCollectDetails {
    *
    * @param jsonString JSON string
    * @return An instance of UpiCollectDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to UpiCollectDetails
+   * @throws JacksonException if the JSON string is invalid with respect to UpiCollectDetails
    */
-  public static UpiCollectDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static UpiCollectDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, UpiCollectDetails.class);
   }
 
@@ -620,7 +620,7 @@ public class UpiCollectDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

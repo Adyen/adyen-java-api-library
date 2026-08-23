@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** MbwayDetails */
 @JsonPropertyOrder({
@@ -394,9 +394,9 @@ public class MbwayDetails {
    *
    * @param jsonString JSON string
    * @return An instance of MbwayDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MbwayDetails
+   * @throws JacksonException if the JSON string is invalid with respect to MbwayDetails
    */
-  public static MbwayDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static MbwayDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MbwayDetails.class);
   }
 
@@ -405,7 +405,7 @@ public class MbwayDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

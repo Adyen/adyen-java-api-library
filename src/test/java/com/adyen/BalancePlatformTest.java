@@ -12,13 +12,13 @@ import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.*;
 import com.adyen.service.balanceplatform.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
+import tools.jackson.core.JacksonException;
 
 public class BalancePlatformTest extends BaseTest {
 
@@ -311,7 +311,7 @@ public class BalancePlatformTest extends BaseTest {
   }
 
   @Test
-  public void cronSweepScheduleToJsonTest() throws JsonProcessingException {
+  public void cronSweepScheduleToJsonTest() throws JacksonException {
     SweepConfigurationV2 request = new SweepConfigurationV2();
     request.setType(SweepConfigurationV2.TypeEnum.PULL);
     SweepSchedule cron = new SweepSchedule();
@@ -327,7 +327,7 @@ public class BalancePlatformTest extends BaseTest {
   }
 
   @Test
-  public void sweepScheduleToJsonTest() throws JsonProcessingException {
+  public void sweepScheduleToJsonTest() throws JacksonException {
     SweepConfigurationV2 request = new SweepConfigurationV2();
     request.setType(SweepConfigurationV2.TypeEnum.PUSH);
     SweepSchedule schedule = new SweepSchedule();

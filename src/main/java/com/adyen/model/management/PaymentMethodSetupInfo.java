@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** PaymentMethodSetupInfo */
 @JsonPropertyOrder({
@@ -3236,10 +3236,9 @@ public class PaymentMethodSetupInfo {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentMethodSetupInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PaymentMethodSetupInfo
+   * @throws JacksonException if the JSON string is invalid with respect to PaymentMethodSetupInfo
    */
-  public static PaymentMethodSetupInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static PaymentMethodSetupInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentMethodSetupInfo.class);
   }
 
@@ -3248,7 +3247,7 @@ public class PaymentMethodSetupInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

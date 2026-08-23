@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** StoreDetailResponse */
 @JsonPropertyOrder({
@@ -336,10 +336,9 @@ public class StoreDetailResponse {
    *
    * @param jsonString JSON string
    * @return An instance of StoreDetailResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoreDetailResponse
+   * @throws JacksonException if the JSON string is invalid with respect to StoreDetailResponse
    */
-  public static StoreDetailResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static StoreDetailResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StoreDetailResponse.class);
   }
 
@@ -348,7 +347,7 @@ public class StoreDetailResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

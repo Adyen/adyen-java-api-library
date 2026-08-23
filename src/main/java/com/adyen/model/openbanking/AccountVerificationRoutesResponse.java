@@ -14,10 +14,10 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** AccountVerificationRoutesResponse */
 @JsonPropertyOrder({AccountVerificationRoutesResponse.JSON_PROPERTY_ROUTES})
@@ -118,11 +118,11 @@ public class AccountVerificationRoutesResponse {
    *
    * @param jsonString JSON string
    * @return An instance of AccountVerificationRoutesResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     AccountVerificationRoutesResponse
    */
   public static AccountVerificationRoutesResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AccountVerificationRoutesResponse.class);
   }
 
@@ -131,7 +131,7 @@ public class AccountVerificationRoutesResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

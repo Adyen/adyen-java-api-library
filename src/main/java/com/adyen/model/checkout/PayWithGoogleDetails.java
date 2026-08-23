@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** PayWithGoogleDetails */
 @JsonPropertyOrder({
@@ -653,10 +653,9 @@ public class PayWithGoogleDetails {
    *
    * @param jsonString JSON string
    * @return An instance of PayWithGoogleDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PayWithGoogleDetails
+   * @throws JacksonException if the JSON string is invalid with respect to PayWithGoogleDetails
    */
-  public static PayWithGoogleDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static PayWithGoogleDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PayWithGoogleDetails.class);
   }
 
@@ -665,7 +664,7 @@ public class PayWithGoogleDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -11,13 +11,13 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.tapi.*;
-import com.fasterxml.jackson.databind.JsonNode;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.JsonNode;
 
 public class CloudDeviceApiTest extends BaseTest {
 

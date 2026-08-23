@@ -14,8 +14,8 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** RIXAccountIdentifier */
 @JsonPropertyOrder({
@@ -141,10 +141,9 @@ public class RIXAccountIdentifier {
    *
    * @param jsonString JSON string
    * @return An instance of RIXAccountIdentifier
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     RIXAccountIdentifier
+   * @throws JacksonException if the JSON string is invalid with respect to RIXAccountIdentifier
    */
-  public static RIXAccountIdentifier fromJson(String jsonString) throws JsonProcessingException {
+  public static RIXAccountIdentifier fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, RIXAccountIdentifier.class);
   }
 
@@ -153,7 +152,7 @@ public class RIXAccountIdentifier {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

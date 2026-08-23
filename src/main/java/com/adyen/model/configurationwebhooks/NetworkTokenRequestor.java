@@ -14,8 +14,8 @@ package com.adyen.model.configurationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** NetworkTokenRequestor */
 @JsonPropertyOrder({
@@ -141,10 +141,9 @@ public class NetworkTokenRequestor {
    *
    * @param jsonString JSON string
    * @return An instance of NetworkTokenRequestor
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     NetworkTokenRequestor
+   * @throws JacksonException if the JSON string is invalid with respect to NetworkTokenRequestor
    */
-  public static NetworkTokenRequestor fromJson(String jsonString) throws JsonProcessingException {
+  public static NetworkTokenRequestor fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, NetworkTokenRequestor.class);
   }
 
@@ -153,7 +152,7 @@ public class NetworkTokenRequestor {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

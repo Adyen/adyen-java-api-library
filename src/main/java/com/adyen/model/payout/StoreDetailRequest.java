@@ -18,13 +18,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** StoreDetailRequest */
 @JsonPropertyOrder({
@@ -1007,10 +1007,9 @@ public class StoreDetailRequest {
    *
    * @param jsonString JSON string
    * @return An instance of StoreDetailRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     StoreDetailRequest
+   * @throws JacksonException if the JSON string is invalid with respect to StoreDetailRequest
    */
-  public static StoreDetailRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static StoreDetailRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StoreDetailRequest.class);
   }
 
@@ -1019,7 +1018,7 @@ public class StoreDetailRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

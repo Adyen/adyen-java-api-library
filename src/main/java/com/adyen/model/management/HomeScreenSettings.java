@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** HomeScreenSettings */
 @JsonPropertyOrder({
@@ -262,10 +262,9 @@ public class HomeScreenSettings {
    *
    * @param jsonString JSON string
    * @return An instance of HomeScreenSettings
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     HomeScreenSettings
+   * @throws JacksonException if the JSON string is invalid with respect to HomeScreenSettings
    */
-  public static HomeScreenSettings fromJson(String jsonString) throws JsonProcessingException {
+  public static HomeScreenSettings fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, HomeScreenSettings.class);
   }
 
@@ -274,7 +273,7 @@ public class HomeScreenSettings {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

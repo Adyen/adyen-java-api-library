@@ -18,11 +18,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** EstimationTrackingData */
 @JsonPropertyOrder({
@@ -265,10 +265,9 @@ public class EstimationTrackingData {
    *
    * @param jsonString JSON string
    * @return An instance of EstimationTrackingData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     EstimationTrackingData
+   * @throws JacksonException if the JSON string is invalid with respect to EstimationTrackingData
    */
-  public static EstimationTrackingData fromJson(String jsonString) throws JsonProcessingException {
+  public static EstimationTrackingData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, EstimationTrackingData.class);
   }
 
@@ -277,7 +276,7 @@ public class EstimationTrackingData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

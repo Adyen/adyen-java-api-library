@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** InteracCardResponseInfo */
 @JsonPropertyOrder({InteracCardResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -163,10 +163,9 @@ public class InteracCardResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of InteracCardResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     InteracCardResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to InteracCardResponseInfo
    */
-  public static InteracCardResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static InteracCardResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, InteracCardResponseInfo.class);
   }
 
@@ -175,7 +174,7 @@ public class InteracCardResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

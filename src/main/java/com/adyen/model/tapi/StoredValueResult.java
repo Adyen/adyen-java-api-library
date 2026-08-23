@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.math.BigDecimal;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * For each stored value card loaded or reloaded, in the StoredValue response message. Result of
@@ -477,9 +477,9 @@ public class StoredValueResult {
    *
    * @param jsonString JSON string
    * @return An instance of StoredValueResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StoredValueResult
+   * @throws JacksonException if the JSON string is invalid with respect to StoredValueResult
    */
-  public static StoredValueResult fromJson(String jsonString) throws JsonProcessingException {
+  public static StoredValueResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StoredValueResult.class);
   }
 
@@ -488,7 +488,7 @@ public class StoredValueResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** TransactionRuleInterval */
 @JsonPropertyOrder({
@@ -633,10 +633,9 @@ public class TransactionRuleInterval {
    *
    * @param jsonString JSON string
    * @return An instance of TransactionRuleInterval
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TransactionRuleInterval
+   * @throws JacksonException if the JSON string is invalid with respect to TransactionRuleInterval
    */
-  public static TransactionRuleInterval fromJson(String jsonString) throws JsonProcessingException {
+  public static TransactionRuleInterval fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TransactionRuleInterval.class);
   }
 
@@ -645,7 +644,7 @@ public class TransactionRuleInterval {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -14,8 +14,8 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** InvalidField */
 @JsonPropertyOrder({
@@ -180,9 +180,9 @@ public class InvalidField {
    *
    * @param jsonString JSON string
    * @return An instance of InvalidField
-   * @throws JsonProcessingException if the JSON string is invalid with respect to InvalidField
+   * @throws JacksonException if the JSON string is invalid with respect to InvalidField
    */
-  public static InvalidField fromJson(String jsonString) throws JsonProcessingException {
+  public static InvalidField fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, InvalidField.class);
   }
 
@@ -191,7 +191,7 @@ public class InvalidField {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

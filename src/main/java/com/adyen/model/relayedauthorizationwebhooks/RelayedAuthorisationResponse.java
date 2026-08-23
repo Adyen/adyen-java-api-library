@@ -14,10 +14,10 @@ package com.adyen.model.relayedauthorizationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** RelayedAuthorisationResponse */
 @JsonPropertyOrder({
@@ -200,11 +200,10 @@ public class RelayedAuthorisationResponse {
    *
    * @param jsonString JSON string
    * @return An instance of RelayedAuthorisationResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     RelayedAuthorisationResponse
    */
-  public static RelayedAuthorisationResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static RelayedAuthorisationResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, RelayedAuthorisationResponse.class);
   }
 
@@ -213,7 +212,7 @@ public class RelayedAuthorisationResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

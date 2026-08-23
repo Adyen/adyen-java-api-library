@@ -15,9 +15,9 @@ package com.adyen.model.marketpayhop;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** ShowPages */
 @JsonPropertyOrder({
@@ -378,9 +378,9 @@ public class ShowPages {
    *
    * @param jsonString JSON string
    * @return An instance of ShowPages
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ShowPages
+   * @throws JacksonException if the JSON string is invalid with respect to ShowPages
    */
-  public static ShowPages fromJson(String jsonString) throws JsonProcessingException {
+  public static ShowPages fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ShowPages.class);
   }
 
@@ -389,7 +389,7 @@ public class ShowPages {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

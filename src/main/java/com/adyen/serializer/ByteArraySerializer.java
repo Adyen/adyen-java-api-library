@@ -1,9 +1,9 @@
 package com.adyen.serializer;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ser.std.StdSerializer;
 
 public class ByteArraySerializer extends StdSerializer<byte[]> {
   public ByteArraySerializer() {
@@ -12,8 +12,8 @@ public class ByteArraySerializer extends StdSerializer<byte[]> {
 
   @Override
   public void serialize(
-      byte[] bytes, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
-      throws IOException {
+      byte[] bytes, JsonGenerator jsonGenerator, SerializationContext serializationContext)
+      throws JacksonException {
     String yourReadableString = new String(bytes);
     jsonGenerator.writeString(yourReadableString);
   }

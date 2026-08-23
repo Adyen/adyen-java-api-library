@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** PaginatedBalanceAccountsResponse */
 @JsonPropertyOrder({
@@ -279,11 +279,11 @@ public class PaginatedBalanceAccountsResponse {
    *
    * @param jsonString JSON string
    * @return An instance of PaginatedBalanceAccountsResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     PaginatedBalanceAccountsResponse
    */
   public static PaginatedBalanceAccountsResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaginatedBalanceAccountsResponse.class);
   }
 
@@ -292,7 +292,7 @@ public class PaginatedBalanceAccountsResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

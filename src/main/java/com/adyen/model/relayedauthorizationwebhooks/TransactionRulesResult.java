@@ -14,10 +14,10 @@ package com.adyen.model.relayedauthorizationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** TransactionRulesResult */
 @JsonPropertyOrder({
@@ -245,10 +245,9 @@ public class TransactionRulesResult {
    *
    * @param jsonString JSON string
    * @return An instance of TransactionRulesResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TransactionRulesResult
+   * @throws JacksonException if the JSON string is invalid with respect to TransactionRulesResult
    */
-  public static TransactionRulesResult fromJson(String jsonString) throws JsonProcessingException {
+  public static TransactionRulesResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TransactionRulesResult.class);
   }
 
@@ -257,7 +256,7 @@ public class TransactionRulesResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -24,8 +24,8 @@ import com.adyen.model.tapi.JSON;
 import com.adyen.model.tapi.SaleToPOIRequest;
 import com.adyen.model.tapi.SaleToPOIResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** CloudDeviceApiResponse */
 public class CloudDeviceApiResponse {
@@ -76,10 +76,9 @@ public class CloudDeviceApiResponse {
    *
    * @param jsonString JSON string
    * @return An instance of CloudDeviceApiResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CloudDeviceApiResponse
+   * @throws JacksonException if the JSON string is invalid with respect to CloudDeviceApiResponse
    */
-  public static CloudDeviceApiResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static CloudDeviceApiResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CloudDeviceApiResponse.class);
   }
 
@@ -88,7 +87,7 @@ public class CloudDeviceApiResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 

@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** BankIdentification */
 @JsonPropertyOrder({
@@ -326,10 +326,9 @@ public class BankIdentification {
    *
    * @param jsonString JSON string
    * @return An instance of BankIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     BankIdentification
+   * @throws JacksonException if the JSON string is invalid with respect to BankIdentification
    */
-  public static BankIdentification fromJson(String jsonString) throws JsonProcessingException {
+  public static BankIdentification fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, BankIdentification.class);
   }
 
@@ -338,7 +337,7 @@ public class BankIdentification {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

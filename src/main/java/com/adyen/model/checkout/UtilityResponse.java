@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** UtilityResponse */
 @JsonPropertyOrder({UtilityResponse.JSON_PROPERTY_ORIGIN_KEYS})
@@ -174,9 +174,9 @@ public class UtilityResponse {
    *
    * @param jsonString JSON string
    * @return An instance of UtilityResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to UtilityResponse
+   * @throws JacksonException if the JSON string is invalid with respect to UtilityResponse
    */
-  public static UtilityResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static UtilityResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, UtilityResponse.class);
   }
 
@@ -185,7 +185,7 @@ public class UtilityResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

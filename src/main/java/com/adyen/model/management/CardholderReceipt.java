@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** CardholderReceipt */
 @JsonPropertyOrder({CardholderReceipt.JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT})
@@ -186,9 +186,9 @@ public class CardholderReceipt {
    *
    * @param jsonString JSON string
    * @return An instance of CardholderReceipt
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CardholderReceipt
+   * @throws JacksonException if the JSON string is invalid with respect to CardholderReceipt
    */
-  public static CardholderReceipt fromJson(String jsonString) throws JsonProcessingException {
+  public static CardholderReceipt fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CardholderReceipt.class);
   }
 
@@ -197,7 +197,7 @@ public class CardholderReceipt {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

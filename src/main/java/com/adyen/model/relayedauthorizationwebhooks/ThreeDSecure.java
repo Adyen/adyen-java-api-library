@@ -14,8 +14,8 @@ package com.adyen.model.relayedauthorizationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ThreeDSecure */
 @JsonPropertyOrder({
@@ -222,9 +222,9 @@ public class ThreeDSecure {
    *
    * @param jsonString JSON string
    * @return An instance of ThreeDSecure
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDSecure
+   * @throws JacksonException if the JSON string is invalid with respect to ThreeDSecure
    */
-  public static ThreeDSecure fromJson(String jsonString) throws JsonProcessingException {
+  public static ThreeDSecure fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ThreeDSecure.class);
   }
 
@@ -233,7 +233,7 @@ public class ThreeDSecure {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

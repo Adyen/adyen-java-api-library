@@ -14,8 +14,8 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Route */
 @JsonPropertyOrder({Route.JSON_PROPERTY_LINK, Route.JSON_PROPERTY_PROVIDER})
@@ -143,9 +143,9 @@ public class Route {
    *
    * @param jsonString JSON string
    * @return An instance of Route
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Route
+   * @throws JacksonException if the JSON string is invalid with respect to Route
    */
-  public static Route fromJson(String jsonString) throws JsonProcessingException {
+  public static Route fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Route.class);
   }
 
@@ -154,7 +154,7 @@ public class Route {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -14,8 +14,8 @@ package com.adyen.model.configurationwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AccountHolderNotificationData */
 @JsonPropertyOrder({
@@ -143,11 +143,10 @@ public class AccountHolderNotificationData {
    *
    * @param jsonString JSON string
    * @return An instance of AccountHolderNotificationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     AccountHolderNotificationData
    */
-  public static AccountHolderNotificationData fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static AccountHolderNotificationData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AccountHolderNotificationData.class);
   }
 
@@ -156,7 +155,7 @@ public class AccountHolderNotificationData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

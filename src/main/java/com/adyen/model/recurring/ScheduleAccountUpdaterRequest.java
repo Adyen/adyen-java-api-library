@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import tools.jackson.core.JacksonException;
 
 /** ScheduleAccountUpdaterRequest */
 @JsonPropertyOrder({
@@ -455,11 +455,10 @@ public class ScheduleAccountUpdaterRequest {
    *
    * @param jsonString JSON string
    * @return An instance of ScheduleAccountUpdaterRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     ScheduleAccountUpdaterRequest
    */
-  public static ScheduleAccountUpdaterRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static ScheduleAccountUpdaterRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ScheduleAccountUpdaterRequest.class);
   }
 
@@ -468,7 +467,7 @@ public class ScheduleAccountUpdaterRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

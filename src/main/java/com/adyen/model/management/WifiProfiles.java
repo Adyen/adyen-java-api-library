@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** WifiProfiles */
 @JsonPropertyOrder({WifiProfiles.JSON_PROPERTY_PROFILES, WifiProfiles.JSON_PROPERTY_SETTINGS})
@@ -215,9 +215,9 @@ public class WifiProfiles {
    *
    * @param jsonString JSON string
    * @return An instance of WifiProfiles
-   * @throws JsonProcessingException if the JSON string is invalid with respect to WifiProfiles
+   * @throws JacksonException if the JSON string is invalid with respect to WifiProfiles
    */
-  public static WifiProfiles fromJson(String jsonString) throws JsonProcessingException {
+  public static WifiProfiles fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, WifiProfiles.class);
   }
 
@@ -226,7 +226,7 @@ public class WifiProfiles {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

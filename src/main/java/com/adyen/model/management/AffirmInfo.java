@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AffirmInfo */
 @JsonPropertyOrder({AffirmInfo.JSON_PROPERTY_PRICE_PLAN, AffirmInfo.JSON_PROPERTY_SUPPORT_EMAIL})
@@ -211,9 +211,9 @@ public class AffirmInfo {
    *
    * @param jsonString JSON string
    * @return An instance of AffirmInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AffirmInfo
+   * @throws JacksonException if the JSON string is invalid with respect to AffirmInfo
    */
-  public static AffirmInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static AffirmInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AffirmInfo.class);
   }
 
@@ -222,7 +222,7 @@ public class AffirmInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

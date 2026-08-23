@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** CancelOrderRequest */
 @JsonPropertyOrder({
@@ -208,10 +208,9 @@ public class CancelOrderRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CancelOrderRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CancelOrderRequest
+   * @throws JacksonException if the JSON string is invalid with respect to CancelOrderRequest
    */
-  public static CancelOrderRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static CancelOrderRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CancelOrderRequest.class);
   }
 
@@ -220,7 +219,7 @@ public class CancelOrderRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

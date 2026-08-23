@@ -14,9 +14,9 @@ package com.adyen.model.marketpaywebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** AccountHolderVerificationNotificationContent */
 @JsonPropertyOrder({
@@ -293,11 +293,11 @@ public class AccountHolderVerificationNotificationContent {
    *
    * @param jsonString JSON string
    * @return An instance of AccountHolderVerificationNotificationContent
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     AccountHolderVerificationNotificationContent
    */
   public static AccountHolderVerificationNotificationContent fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper()
         .readValue(jsonString, AccountHolderVerificationNotificationContent.class);
   }
@@ -307,7 +307,7 @@ public class AccountHolderVerificationNotificationContent {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

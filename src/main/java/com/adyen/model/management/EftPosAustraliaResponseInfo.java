@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** EftPosAustraliaResponseInfo */
 @JsonPropertyOrder({EftPosAustraliaResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -164,11 +164,10 @@ public class EftPosAustraliaResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of EftPosAustraliaResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     EftPosAustraliaResponseInfo
    */
-  public static EftPosAustraliaResponseInfo fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static EftPosAustraliaResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, EftPosAustraliaResponseInfo.class);
   }
 
@@ -177,7 +176,7 @@ public class EftPosAustraliaResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

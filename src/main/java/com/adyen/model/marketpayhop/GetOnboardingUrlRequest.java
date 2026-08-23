@@ -15,9 +15,9 @@ package com.adyen.model.marketpayhop;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** GetOnboardingUrlRequest */
 @JsonPropertyOrder({
@@ -325,10 +325,9 @@ public class GetOnboardingUrlRequest {
    *
    * @param jsonString JSON string
    * @return An instance of GetOnboardingUrlRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     GetOnboardingUrlRequest
+   * @throws JacksonException if the JSON string is invalid with respect to GetOnboardingUrlRequest
    */
-  public static GetOnboardingUrlRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static GetOnboardingUrlRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, GetOnboardingUrlRequest.class);
   }
 
@@ -337,7 +336,7 @@ public class GetOnboardingUrlRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

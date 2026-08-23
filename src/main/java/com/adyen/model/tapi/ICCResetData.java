@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
+import tools.jackson.core.JacksonException;
 
 /** ICCResetData */
 @JsonPropertyOrder({
@@ -213,9 +213,9 @@ public class ICCResetData {
    *
    * @param jsonString JSON string
    * @return An instance of ICCResetData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ICCResetData
+   * @throws JacksonException if the JSON string is invalid with respect to ICCResetData
    */
-  public static ICCResetData fromJson(String jsonString) throws JsonProcessingException {
+  public static ICCResetData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ICCResetData.class);
   }
 
@@ -224,7 +224,7 @@ public class ICCResetData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

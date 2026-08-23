@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ModelLocalTime */
 @JsonPropertyOrder({
@@ -306,9 +306,9 @@ public class ModelLocalTime {
    *
    * @param jsonString JSON string
    * @return An instance of ModelLocalTime
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ModelLocalTime
+   * @throws JacksonException if the JSON string is invalid with respect to ModelLocalTime
    */
-  public static ModelLocalTime fromJson(String jsonString) throws JsonProcessingException {
+  public static ModelLocalTime fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ModelLocalTime.class);
   }
 
@@ -317,7 +317,7 @@ public class ModelLocalTime {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** FraudCheckResultWrapper */
 @JsonPropertyOrder({FraudCheckResultWrapper.JSON_PROPERTY_FRAUD_CHECK_RESULT})
@@ -159,10 +159,9 @@ public class FraudCheckResultWrapper {
    *
    * @param jsonString JSON string
    * @return An instance of FraudCheckResultWrapper
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     FraudCheckResultWrapper
+   * @throws JacksonException if the JSON string is invalid with respect to FraudCheckResultWrapper
    */
-  public static FraudCheckResultWrapper fromJson(String jsonString) throws JsonProcessingException {
+  public static FraudCheckResultWrapper fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, FraudCheckResultWrapper.class);
   }
 
@@ -171,7 +170,7 @@ public class FraudCheckResultWrapper {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

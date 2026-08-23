@@ -19,8 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ShopperIdPaymentMethod */
 @JsonPropertyOrder({ShopperIdPaymentMethod.JSON_PROPERTY_TYPE})
@@ -185,10 +185,9 @@ public class ShopperIdPaymentMethod {
    *
    * @param jsonString JSON string
    * @return An instance of ShopperIdPaymentMethod
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ShopperIdPaymentMethod
+   * @throws JacksonException if the JSON string is invalid with respect to ShopperIdPaymentMethod
    */
-  public static ShopperIdPaymentMethod fromJson(String jsonString) throws JsonProcessingException {
+  public static ShopperIdPaymentMethod fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ShopperIdPaymentMethod.class);
   }
 
@@ -197,7 +196,7 @@ public class ShopperIdPaymentMethod {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

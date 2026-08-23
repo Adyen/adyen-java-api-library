@@ -14,8 +14,8 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ACHAccountIdentifier */
 @JsonPropertyOrder({
@@ -150,10 +150,9 @@ public class ACHAccountIdentifier {
    *
    * @param jsonString JSON string
    * @return An instance of ACHAccountIdentifier
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ACHAccountIdentifier
+   * @throws JacksonException if the JSON string is invalid with respect to ACHAccountIdentifier
    */
-  public static ACHAccountIdentifier fromJson(String jsonString) throws JsonProcessingException {
+  public static ACHAccountIdentifier fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ACHAccountIdentifier.class);
   }
 
@@ -162,7 +161,7 @@ public class ACHAccountIdentifier {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

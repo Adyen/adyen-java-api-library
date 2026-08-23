@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** GrantOfferFee */
 @JsonPropertyOrder({
@@ -214,9 +214,9 @@ public class GrantOfferFee {
    *
    * @param jsonString JSON string
    * @return An instance of GrantOfferFee
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantOfferFee
+   * @throws JacksonException if the JSON string is invalid with respect to GrantOfferFee
    */
-  public static GrantOfferFee fromJson(String jsonString) throws JsonProcessingException {
+  public static GrantOfferFee fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, GrantOfferFee.class);
   }
 
@@ -225,7 +225,7 @@ public class GrantOfferFee {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

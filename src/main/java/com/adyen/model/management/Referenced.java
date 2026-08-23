@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Referenced */
 @JsonPropertyOrder({Referenced.JSON_PROPERTY_ENABLE_STANDALONE_REFUNDS})
@@ -164,9 +164,9 @@ public class Referenced {
    *
    * @param jsonString JSON string
    * @return An instance of Referenced
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Referenced
+   * @throws JacksonException if the JSON string is invalid with respect to Referenced
    */
-  public static Referenced fromJson(String jsonString) throws JsonProcessingException {
+  public static Referenced fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Referenced.class);
   }
 
@@ -175,7 +175,7 @@ public class Referenced {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

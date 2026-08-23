@@ -15,9 +15,9 @@ package com.adyen.model.marketpayaccount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** ViasAddress */
 @JsonPropertyOrder({
@@ -257,9 +257,9 @@ public class ViasAddress {
    *
    * @param jsonString JSON string
    * @return An instance of ViasAddress
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ViasAddress
+   * @throws JacksonException if the JSON string is invalid with respect to ViasAddress
    */
-  public static ViasAddress fromJson(String jsonString) throws JsonProcessingException {
+  public static ViasAddress fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ViasAddress.class);
   }
 
@@ -268,7 +268,7 @@ public class ViasAddress {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

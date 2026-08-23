@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Logo */
 @JsonPropertyOrder({Logo.JSON_PROPERTY_DATA})
@@ -160,9 +160,9 @@ public class Logo {
    *
    * @param jsonString JSON string
    * @return An instance of Logo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Logo
+   * @throws JacksonException if the JSON string is invalid with respect to Logo
    */
-  public static Logo fromJson(String jsonString) throws JsonProcessingException {
+  public static Logo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Logo.class);
   }
 
@@ -171,7 +171,7 @@ public class Logo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

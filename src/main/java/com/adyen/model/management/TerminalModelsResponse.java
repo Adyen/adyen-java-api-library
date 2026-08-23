@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** TerminalModelsResponse */
 @JsonPropertyOrder({TerminalModelsResponse.JSON_PROPERTY_DATA})
@@ -168,10 +168,9 @@ public class TerminalModelsResponse {
    *
    * @param jsonString JSON string
    * @return An instance of TerminalModelsResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TerminalModelsResponse
+   * @throws JacksonException if the JSON string is invalid with respect to TerminalModelsResponse
    */
-  public static TerminalModelsResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static TerminalModelsResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TerminalModelsResponse.class);
   }
 
@@ -180,7 +179,7 @@ public class TerminalModelsResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

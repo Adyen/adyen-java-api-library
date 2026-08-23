@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** SplitConfigurationList */
 @JsonPropertyOrder({SplitConfigurationList.JSON_PROPERTY_DATA})
@@ -168,10 +168,9 @@ public class SplitConfigurationList {
    *
    * @param jsonString JSON string
    * @return An instance of SplitConfigurationList
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     SplitConfigurationList
+   * @throws JacksonException if the JSON string is invalid with respect to SplitConfigurationList
    */
-  public static SplitConfigurationList fromJson(String jsonString) throws JsonProcessingException {
+  public static SplitConfigurationList fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SplitConfigurationList.class);
   }
 
@@ -180,7 +179,7 @@ public class SplitConfigurationList {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

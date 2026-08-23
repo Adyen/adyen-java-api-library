@@ -15,9 +15,9 @@ package com.adyen.model.marketpayconfiguration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** CreateNotificationConfigurationRequest */
 @JsonPropertyOrder({CreateNotificationConfigurationRequest.JSON_PROPERTY_CONFIGURATION_DETAILS})
@@ -97,11 +97,11 @@ public class CreateNotificationConfigurationRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CreateNotificationConfigurationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CreateNotificationConfigurationRequest
    */
   public static CreateNotificationConfigurationRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CreateNotificationConfigurationRequest.class);
   }
 
@@ -110,7 +110,7 @@ public class CreateNotificationConfigurationRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

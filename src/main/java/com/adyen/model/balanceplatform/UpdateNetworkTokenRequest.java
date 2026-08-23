@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** UpdateNetworkTokenRequest */
 @JsonPropertyOrder({UpdateNetworkTokenRequest.JSON_PROPERTY_STATUS})
@@ -214,11 +214,10 @@ public class UpdateNetworkTokenRequest {
    *
    * @param jsonString JSON string
    * @return An instance of UpdateNetworkTokenRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     UpdateNetworkTokenRequest
    */
-  public static UpdateNetworkTokenRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static UpdateNetworkTokenRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, UpdateNetworkTokenRequest.class);
   }
 
@@ -227,7 +226,7 @@ public class UpdateNetworkTokenRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

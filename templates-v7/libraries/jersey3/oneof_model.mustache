@@ -7,20 +7,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.deser.std.StdDeserializer;
+import tools.jackson.databind.ser.std.StdSerializer;
 
 {{>additionalModelTypeAnnotations}}{{>xmlAnnotation}}
 @JsonDeserialize(using = {{classname}}.{{classname}}Deserializer.class)
@@ -38,8 +37,8 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
         }
 
         @Override
-        public void serialize({{classname}} value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-            jgen.writeObject(value.getActualInstance());
+        public void serialize({{classname}} value, JsonGenerator jgen, SerializationContext context) throws JacksonException {
+            context.writeValue(jgen, value.getActualInstance());
         }
     }
 
@@ -53,18 +52,18 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
         }
 
         @Override
-        public {{classname}} deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        public {{classname}} deserialize(JsonParser jp, DeserializationContext ctxt) throws JacksonException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
             {{#useOneOfDiscriminatorLookup}}
             {{#discriminator}}
             {{classname}} new{{classname}} = new {{classname}}();
-            Map<String, Object> result2 = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Map<String, Object>>() {});
+            Map<String, Object> result2 = ctxt.readTreeAsValue(tree, new TypeReference<Map<String, Object>>() {});
             String discriminatorValue = (String)result2.get("{{{propertyBaseName}}}");
             switch (discriminatorValue) {
             {{#mappedModels}}
                 case "{{{mappingName}}}":
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs({{{modelName}}}.class);
+                    deserialized = ctxt.readTreeAsValue(tree, {{{modelName}}}.class);
                     new{{classname}}.setActualInstance(deserialized);
                     return new{{classname}};
             {{/mappedModels}}
@@ -76,7 +75,6 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
             {{/useOneOfDiscriminatorLookup}}
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
-            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             {{#composedSchemas}}
             {{#oneOf}}
             // deserialize {{{dataType}}}{{#isNullable}} (nullable){{/isNullable}}
@@ -87,34 +85,34 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 attemptParsing = typeCoercion; //respect type coercion setting
                 if (!attemptParsing) {
                     {{#isString}}
-                    attemptParsing |= (token == JsonToken.VALUE_STRING);
+                    attemptParsing |= tree.isString();
                     {{/isString}}
                     {{#isInteger}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_INT);
+                    attemptParsing |= tree.isIntegralNumber();
                     {{/isInteger}}
                     {{#isLong}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_INT);
+                    attemptParsing |= tree.isIntegralNumber();
                     {{/isLong}}
                     {{#isShort}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_INT);
+                    attemptParsing |= tree.isIntegralNumber();
                     {{/isShort}}
                     {{#isFloat}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_FLOAT);
+                    attemptParsing |= tree.isFloatingPointNumber();
                     {{/isFloat}}
                     {{#isDouble}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_FLOAT);
+                    attemptParsing |= tree.isFloatingPointNumber();
                     {{/isDouble}}
                     {{#isNumber}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_FLOAT);
+                    attemptParsing |= tree.isFloatingPointNumber();
                     {{/isNumber}}
                     {{#isDecimal}}
-                    attemptParsing |= (token == JsonToken.VALUE_NUMBER_FLOAT);
+                    attemptParsing |= tree.isFloatingPointNumber();
                     {{/isDecimal}}
                     {{#isBoolean}}
-                    attemptParsing |= (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE);
+                    attemptParsing |= tree.isBoolean();
                     {{/isBoolean}}
                     {{#isNullable}}
-                    attemptParsing |= (token == JsonToken.VALUE_NULL);
+                    attemptParsing |= tree.isNull();
                     {{/isNullable}}
                 }
                 {{/isPrimitiveType}}
@@ -128,10 +126,10 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     if(typeMatch) {
                         {{#isMap}}
                         final TypeReference<{{{dataType}}}> ref = new TypeReference<{{{dataType}}}>(){};
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs(ref);
+                        deserialized = ctxt.readTreeAsValue(tree, ref);
                         {{/isMap}}
                         {{^isMap}}
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs({{{dataType}}}.class);
+                        deserialized = ctxt.readTreeAsValue(tree, {{{dataType}}}.class);
                         {{/isMap}}
                         // TODO: there is no validation against JSON schema constraints
                         // (min, max, enum, pattern...), this does not perform a strict JSON
@@ -142,9 +140,9 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 }
                 {{/isArray}}
                 {{#isArray}}
-                if (token == JsonToken.START_ARRAY) {
+                if (tree.isArray()) {
                     final TypeReference<{{{dataType}}}> ref = new TypeReference<{{{dataType}}}>(){};
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ref);
+                    deserialized = ctxt.readTreeAsValue(tree, ref);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -164,19 +162,19 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 ret.setActualInstance(deserialized);
                 return ret;
             }
-            throw new IOException(String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1", match));
+            throw DatabindException.from(ctxt, String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1", match));
         }
 
         /**
          * Handle deserialization of the 'null' value.
          */
         @Override
-        public {{classname}} getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+        public {{classname}} getNullValue(DeserializationContext ctxt) throws DatabindException {
         {{#isNullable}}
             return null;
         {{/isNullable}}
         {{^isNullable}}
-            throw new JsonMappingException(ctxt.getParser(), "{{classname}} cannot be null");
+            throw DatabindException.from(ctxt, "{{classname}} cannot be null");
         {{/isNullable}}
         }
     }
@@ -311,7 +309,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     *
     * @return JSON string
     */
-    public String toJson() throws JsonProcessingException {
+    public String toJson() throws JacksonException {
         return JSON.getMapper().writeValueAsString(this);
     }
 

@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PaymentInstrumentResource */
 @JsonPropertyOrder({PaymentInstrumentResource.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID})
@@ -183,11 +183,10 @@ public class PaymentInstrumentResource extends Resource {
    *
    * @param jsonString JSON string
    * @return An instance of PaymentInstrumentResource
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     PaymentInstrumentResource
    */
-  public static PaymentInstrumentResource fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static PaymentInstrumentResource fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaymentInstrumentResource.class);
   }
 
@@ -196,7 +195,7 @@ public class PaymentInstrumentResource extends Resource {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

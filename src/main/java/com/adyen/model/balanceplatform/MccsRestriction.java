@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** MccsRestriction */
 @JsonPropertyOrder({MccsRestriction.JSON_PROPERTY_OPERATION, MccsRestriction.JSON_PROPERTY_VALUE})
@@ -215,9 +215,9 @@ public class MccsRestriction {
    *
    * @param jsonString JSON string
    * @return An instance of MccsRestriction
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MccsRestriction
+   * @throws JacksonException if the JSON string is invalid with respect to MccsRestriction
    */
-  public static MccsRestriction fromJson(String jsonString) throws JsonProcessingException {
+  public static MccsRestriction fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MccsRestriction.class);
   }
 
@@ -226,7 +226,7 @@ public class MccsRestriction {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

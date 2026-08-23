@@ -29,8 +29,6 @@ import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
-import com.fasterxml.jackson.databind.JsonNode;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.time.OffsetDateTime;
 import java.util.*;
@@ -42,6 +40,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.ArgumentCaptor;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.JsonNode;
 
 public class CheckoutTest extends BaseTest {
 
@@ -720,8 +720,7 @@ public class CheckoutTest extends BaseTest {
             isNull());
 
     // Comparing JSON
-    final com.fasterxml.jackson.databind.ObjectMapper mapper =
-        new com.fasterxml.jackson.databind.ObjectMapper();
+    final tools.jackson.databind.ObjectMapper mapper = new tools.jackson.databind.ObjectMapper();
     final JsonNode expected = mapper.readTree(EXPECTED_REQUEST_PAYLOAD);
     final JsonNode actual = mapper.readTree(captor.getValue());
     assertEquals(expected, actual);
@@ -1011,8 +1010,8 @@ public class CheckoutTest extends BaseTest {
         "{\"storedPaymentMethodId\":\"M5N7TQ4TG5PFWR50\"}" // no type discriminator at all
       })
   public void testCheckoutPaymentMethodDeserializationFailure(String json) {
-    IOException exception =
-        assertThrows(IOException.class, () -> CheckoutPaymentMethod.fromJson(json));
+    DatabindException exception =
+        assertThrows(DatabindException.class, () -> CheckoutPaymentMethod.fromJson(json));
     assertTrue(exception.getMessage().contains("Failed deserialization for CheckoutPaymentMethod"));
   }
 

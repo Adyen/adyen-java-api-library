@@ -17,10 +17,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** BusinessLineInfoUpdate */
 @JsonPropertyOrder({
@@ -448,10 +448,9 @@ public class BusinessLineInfoUpdate {
    *
    * @param jsonString JSON string
    * @return An instance of BusinessLineInfoUpdate
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     BusinessLineInfoUpdate
+   * @throws JacksonException if the JSON string is invalid with respect to BusinessLineInfoUpdate
    */
-  public static BusinessLineInfoUpdate fromJson(String jsonString) throws JsonProcessingException {
+  public static BusinessLineInfoUpdate fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, BusinessLineInfoUpdate.class);
   }
 
@@ -460,7 +459,7 @@ public class BusinessLineInfoUpdate {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** FinishScaDeviceRegistrationResponse */
 @JsonPropertyOrder({FinishScaDeviceRegistrationResponse.JSON_PROPERTY_SCA_DEVICE})
@@ -160,11 +160,11 @@ public class FinishScaDeviceRegistrationResponse {
    *
    * @param jsonString JSON string
    * @return An instance of FinishScaDeviceRegistrationResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     FinishScaDeviceRegistrationResponse
    */
   public static FinishScaDeviceRegistrationResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, FinishScaDeviceRegistrationResponse.class);
   }
 
@@ -173,7 +173,7 @@ public class FinishScaDeviceRegistrationResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DonationCampaign */
 @JsonPropertyOrder({
@@ -671,9 +671,9 @@ public class DonationCampaign {
    *
    * @param jsonString JSON string
    * @return An instance of DonationCampaign
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DonationCampaign
+   * @throws JacksonException if the JSON string is invalid with respect to DonationCampaign
    */
-  public static DonationCampaign fromJson(String jsonString) throws JsonProcessingException {
+  public static DonationCampaign fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DonationCampaign.class);
   }
 
@@ -682,7 +682,7 @@ public class DonationCampaign {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

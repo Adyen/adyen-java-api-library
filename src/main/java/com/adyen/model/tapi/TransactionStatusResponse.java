@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Content of the TransactionStatus Response message. It conveys Information related to the status
@@ -272,11 +272,10 @@ public class TransactionStatusResponse {
    *
    * @param jsonString JSON string
    * @return An instance of TransactionStatusResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     TransactionStatusResponse
    */
-  public static TransactionStatusResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static TransactionStatusResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TransactionStatusResponse.class);
   }
 
@@ -285,7 +284,7 @@ public class TransactionStatusResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

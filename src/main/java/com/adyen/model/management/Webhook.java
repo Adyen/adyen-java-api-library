@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** Webhook */
 @JsonPropertyOrder({
@@ -1601,9 +1601,9 @@ public class Webhook {
    *
    * @param jsonString JSON string
    * @return An instance of Webhook
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Webhook
+   * @throws JacksonException if the JSON string is invalid with respect to Webhook
    */
-  public static Webhook fromJson(String jsonString) throws JsonProcessingException {
+  public static Webhook fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Webhook.class);
   }
 
@@ -1612,7 +1612,7 @@ public class Webhook {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

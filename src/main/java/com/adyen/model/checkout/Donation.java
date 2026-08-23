@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** Donation */
 @JsonPropertyOrder({
@@ -445,9 +445,9 @@ public class Donation {
    *
    * @param jsonString JSON string
    * @return An instance of Donation
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Donation
+   * @throws JacksonException if the JSON string is invalid with respect to Donation
    */
-  public static Donation fromJson(String jsonString) throws JsonProcessingException {
+  public static Donation fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Donation.class);
   }
 
@@ -456,7 +456,7 @@ public class Donation {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

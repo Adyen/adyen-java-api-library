@@ -14,9 +14,9 @@ package com.adyen.model.transferwebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** ExecutionDate */
 @JsonPropertyOrder({ExecutionDate.JSON_PROPERTY_DATE, ExecutionDate.JSON_PROPERTY_TIMEZONE})
@@ -169,9 +169,9 @@ public class ExecutionDate {
    *
    * @param jsonString JSON string
    * @return An instance of ExecutionDate
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ExecutionDate
+   * @throws JacksonException if the JSON string is invalid with respect to ExecutionDate
    */
-  public static ExecutionDate fromJson(String jsonString) throws JsonProcessingException {
+  public static ExecutionDate fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ExecutionDate.class);
   }
 
@@ -180,7 +180,7 @@ public class ExecutionDate {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

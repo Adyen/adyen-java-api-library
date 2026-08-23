@@ -15,9 +15,9 @@ package com.adyen.model.marketpayfund;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** AccountHolderBalanceRequest */
 @JsonPropertyOrder({AccountHolderBalanceRequest.JSON_PROPERTY_ACCOUNT_HOLDER_CODE})
@@ -94,11 +94,10 @@ public class AccountHolderBalanceRequest {
    *
    * @param jsonString JSON string
    * @return An instance of AccountHolderBalanceRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     AccountHolderBalanceRequest
    */
-  public static AccountHolderBalanceRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static AccountHolderBalanceRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AccountHolderBalanceRequest.class);
   }
 
@@ -107,7 +106,7 @@ public class AccountHolderBalanceRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

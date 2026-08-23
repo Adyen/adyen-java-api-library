@@ -15,12 +15,12 @@ package com.adyen.model.marketpayaccount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** MigrationData */
 @JsonPropertyOrder({
@@ -312,9 +312,9 @@ public class MigrationData {
    *
    * @param jsonString JSON string
    * @return An instance of MigrationData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MigrationData
+   * @throws JacksonException if the JSON string is invalid with respect to MigrationData
    */
-  public static MigrationData fromJson(String jsonString) throws JsonProcessingException {
+  public static MigrationData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MigrationData.class);
   }
 
@@ -323,7 +323,7 @@ public class MigrationData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.math.BigDecimal;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * It conveys Information related to the reversal of a previous payment or a loyalty transaction.
@@ -325,9 +325,9 @@ public class ReversalRequest {
    *
    * @param jsonString JSON string
    * @return An instance of ReversalRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ReversalRequest
+   * @throws JacksonException if the JSON string is invalid with respect to ReversalRequest
    */
-  public static ReversalRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static ReversalRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ReversalRequest.class);
   }
 
@@ -336,7 +336,7 @@ public class ReversalRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

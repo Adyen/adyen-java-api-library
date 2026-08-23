@@ -14,9 +14,9 @@ package com.adyen.model.marketpaywebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** LocalDate */
 @JsonPropertyOrder({LocalDate.JSON_PROPERTY_MONTH, LocalDate.JSON_PROPERTY_YEAR})
@@ -118,9 +118,9 @@ public class LocalDate {
    *
    * @param jsonString JSON string
    * @return An instance of LocalDate
-   * @throws JsonProcessingException if the JSON string is invalid with respect to LocalDate
+   * @throws JacksonException if the JSON string is invalid with respect to LocalDate
    */
-  public static LocalDate fromJson(String jsonString) throws JsonProcessingException {
+  public static LocalDate fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, LocalDate.class);
   }
 
@@ -129,7 +129,7 @@ public class LocalDate {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

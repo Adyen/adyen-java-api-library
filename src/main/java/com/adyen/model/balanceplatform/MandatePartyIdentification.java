@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** MandatePartyIdentification */
 @JsonPropertyOrder({MandatePartyIdentification.JSON_PROPERTY_FULL_NAME})
@@ -164,11 +164,10 @@ public class MandatePartyIdentification {
    *
    * @param jsonString JSON string
    * @return An instance of MandatePartyIdentification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     MandatePartyIdentification
    */
-  public static MandatePartyIdentification fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static MandatePartyIdentification fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MandatePartyIdentification.class);
   }
 
@@ -177,7 +176,7 @@ public class MandatePartyIdentification {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** NotificationUrl */
 @JsonPropertyOrder({
@@ -226,9 +226,9 @@ public class NotificationUrl {
    *
    * @param jsonString JSON string
    * @return An instance of NotificationUrl
-   * @throws JsonProcessingException if the JSON string is invalid with respect to NotificationUrl
+   * @throws JacksonException if the JSON string is invalid with respect to NotificationUrl
    */
-  public static NotificationUrl fromJson(String jsonString) throws JsonProcessingException {
+  public static NotificationUrl fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, NotificationUrl.class);
   }
 
@@ -237,7 +237,7 @@ public class NotificationUrl {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

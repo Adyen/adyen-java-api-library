@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** CheckoutBankTransferAction */
 @JsonPropertyOrder({
@@ -906,11 +906,10 @@ public class CheckoutBankTransferAction {
    *
    * @param jsonString JSON string
    * @return An instance of CheckoutBankTransferAction
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CheckoutBankTransferAction
    */
-  public static CheckoutBankTransferAction fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CheckoutBankTransferAction fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CheckoutBankTransferAction.class);
   }
 
@@ -919,7 +918,7 @@ public class CheckoutBankTransferAction {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

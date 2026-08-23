@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.math.BigDecimal;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Data related to the result of a processed loyalty transaction. In the Message Response, the
@@ -272,9 +272,9 @@ public class LoyaltyResult {
    *
    * @param jsonString JSON string
    * @return An instance of LoyaltyResult
-   * @throws JsonProcessingException if the JSON string is invalid with respect to LoyaltyResult
+   * @throws JacksonException if the JSON string is invalid with respect to LoyaltyResult
    */
-  public static LoyaltyResult fromJson(String jsonString) throws JsonProcessingException {
+  public static LoyaltyResult fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, LoyaltyResult.class);
   }
 
@@ -283,7 +283,7 @@ public class LoyaltyResult {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

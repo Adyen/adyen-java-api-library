@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Moto */
 @JsonPropertyOrder({Moto.JSON_PROPERTY_ENABLE_MOTO, Moto.JSON_PROPERTY_MAX_AMOUNT})
@@ -223,9 +223,9 @@ public class Moto {
    *
    * @param jsonString JSON string
    * @return An instance of Moto
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Moto
+   * @throws JacksonException if the JSON string is invalid with respect to Moto
    */
-  public static Moto fromJson(String jsonString) throws JsonProcessingException {
+  public static Moto fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Moto.class);
   }
 
@@ -234,7 +234,7 @@ public class Moto {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

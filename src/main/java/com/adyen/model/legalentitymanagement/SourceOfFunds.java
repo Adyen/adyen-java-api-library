@@ -18,13 +18,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** SourceOfFunds */
 @JsonPropertyOrder({
@@ -996,9 +996,9 @@ public class SourceOfFunds {
    *
    * @param jsonString JSON string
    * @return An instance of SourceOfFunds
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SourceOfFunds
+   * @throws JacksonException if the JSON string is invalid with respect to SourceOfFunds
    */
-  public static SourceOfFunds fromJson(String jsonString) throws JsonProcessingException {
+  public static SourceOfFunds fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SourceOfFunds.class);
   }
 
@@ -1007,7 +1007,7 @@ public class SourceOfFunds {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

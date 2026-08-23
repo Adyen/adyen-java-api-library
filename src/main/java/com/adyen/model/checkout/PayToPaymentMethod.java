@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PayToPaymentMethod */
 @JsonPropertyOrder({PayToPaymentMethod.JSON_PROPERTY_SHOPPER_REFERENCE})
@@ -180,10 +180,9 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
    *
    * @param jsonString JSON string
    * @return An instance of PayToPaymentMethod
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PayToPaymentMethod
+   * @throws JacksonException if the JSON string is invalid with respect to PayToPaymentMethod
    */
-  public static PayToPaymentMethod fromJson(String jsonString) throws JsonProcessingException {
+  public static PayToPaymentMethod fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PayToPaymentMethod.class);
   }
 
@@ -192,7 +191,7 @@ public class PayToPaymentMethod extends ShopperIdPaymentMethod {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

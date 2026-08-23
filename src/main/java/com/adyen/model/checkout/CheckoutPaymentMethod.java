@@ -11,19 +11,6 @@
 
 package com.adyen.model.checkout;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
@@ -32,6 +19,18 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.deser.std.StdDeserializer;
+import tools.jackson.databind.ser.std.StdSerializer;
 
 @JsonDeserialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodDeserializer.class)
 @JsonSerialize(using = CheckoutPaymentMethod.CheckoutPaymentMethodSerializer.class)
@@ -49,9 +48,9 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
 
     @Override
     public void serialize(
-        CheckoutPaymentMethod value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.getActualInstance());
+        CheckoutPaymentMethod value, JsonGenerator jgen, SerializationContext provider)
+        throws JacksonException {
+      provider.writeValue(jgen, value.getActualInstance());
     }
   }
 
@@ -67,12 +66,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
 
     @Override
     public CheckoutPaymentMethod deserialize(JsonParser jp, DeserializationContext ctxt)
-        throws IOException, JsonProcessingException {
+        throws JacksonException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
-      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
       // deserialize AchDetails
       try {
         boolean attemptParsing = true;
@@ -86,7 +84,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AchDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AchDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -112,7 +110,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AffirmDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AffirmDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -138,7 +136,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AfterpayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AfterpayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -164,7 +162,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AlmaDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AlmaDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -190,7 +188,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AmazonPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AmazonPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -216,7 +214,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AncvDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AncvDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -242,7 +240,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AndroidPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AndroidPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -268,7 +266,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(ApplePayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, ApplePayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -294,7 +292,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(AuPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, AuPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -320,7 +318,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(BacsDirectDebitDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, BacsDirectDebitDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -346,7 +344,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(BillDeskDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, BillDeskDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -372,7 +370,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(BlikDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, BlikDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -398,7 +396,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(CardDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, CardDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -424,7 +422,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(CashAppDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, CashAppDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -450,7 +448,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(CellulantDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, CellulantDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -476,7 +474,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(DBaraiDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, DBaraiDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -502,7 +500,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(DirectDebitAuDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, DirectDebitAuDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -528,7 +526,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(DokuDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, DokuDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -554,7 +552,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(DragonpayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, DragonpayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -580,7 +578,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(EBankingFinlandDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, EBankingFinlandDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -606,7 +604,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(EcontextVoucherDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, EcontextVoucherDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -632,7 +630,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(EftDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, EftDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -658,7 +656,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(ExternalTokenDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, ExternalTokenDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -684,7 +682,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(FastlaneDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, FastlaneDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -710,8 +708,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(GenericIssuerPaymentMethodDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, GenericIssuerPaymentMethodDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -738,7 +735,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(GooglePayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, GooglePayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -764,7 +761,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(IdealDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, IdealDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -790,7 +787,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(KlarnaDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, KlarnaDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -816,7 +813,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(KlarnaNetworkDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, KlarnaNetworkDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -842,7 +839,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(MasterpassDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, MasterpassDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -868,7 +865,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(MbwayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, MbwayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -894,7 +891,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(MobilePayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, MobilePayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -920,7 +917,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(MolPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, MolPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -946,7 +943,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(OpenInvoiceDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, OpenInvoiceDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -972,8 +969,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(PayByBankAISDirectDebitDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayByBankAISDirectDebitDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1000,7 +996,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PayByBankDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayByBankDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1026,7 +1022,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PayPalDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayPalDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1052,7 +1048,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PayPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1078,7 +1074,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PayToDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayToDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1104,7 +1100,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PayUUpiDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayUUpiDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1130,7 +1126,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PayWithGoogleDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PayWithGoogleDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1156,7 +1152,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PaymentDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PaymentDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1182,7 +1178,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PixDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PixDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1208,7 +1204,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PixPayByBankDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PixPayByBankDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1234,7 +1230,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(PseDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, PseDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1260,7 +1256,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(RakutenPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, RakutenPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1286,7 +1282,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(RatepayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, RatepayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1312,7 +1308,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(RivertyDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, RivertyDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1338,7 +1334,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(SamsungPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, SamsungPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1364,7 +1360,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(SepaDirectDebitDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, SepaDirectDebitDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1390,8 +1386,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(StoredPaymentMethodDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, StoredPaymentMethodDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1417,7 +1412,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(TwintDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, TwintDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1443,7 +1438,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(UpiCollectDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, UpiCollectDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1469,7 +1464,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(UpiIntentDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, UpiIntentDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1495,7 +1490,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(UpiQrDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, UpiQrDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1521,7 +1516,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(VippsDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, VippsDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1547,7 +1542,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(VisaCheckoutDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, VisaCheckoutDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1573,7 +1568,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(WeChatPayDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, WeChatPayDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1599,8 +1594,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized =
-                tree.traverse(jp.getCodec()).readValueAs(WeChatPayMiniProgramDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, WeChatPayMiniProgramDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1626,7 +1620,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(ZipDetails.class);
+            deserialized = ctxt.readTreeAsValue(tree, ZipDetails.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -1644,7 +1638,8 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         ret.setActualInstance(deserialized);
         return ret;
       }
-      throw new IOException(
+      throw DatabindException.from(
+          ctxt,
           String.format(
               "Failed deserialization for CheckoutPaymentMethod: %d classes match result, expected 1",
               match));
@@ -1653,8 +1648,8 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     /** Handle deserialization of the 'null' value. */
     @Override
     public CheckoutPaymentMethod getNullValue(DeserializationContext ctxt)
-        throws JsonMappingException {
-      throw new JsonMappingException(ctxt.getParser(), "CheckoutPaymentMethod cannot be null");
+        throws DatabindException {
+      throw DatabindException.from(ctxt, "CheckoutPaymentMethod cannot be null");
     }
   }
 
@@ -3380,7 +3375,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

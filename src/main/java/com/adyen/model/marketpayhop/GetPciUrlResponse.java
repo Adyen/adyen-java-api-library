@@ -15,11 +15,11 @@ package com.adyen.model.marketpayhop;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** GetPciUrlResponse */
 @JsonPropertyOrder({
@@ -195,9 +195,9 @@ public class GetPciUrlResponse {
    *
    * @param jsonString JSON string
    * @return An instance of GetPciUrlResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GetPciUrlResponse
+   * @throws JacksonException if the JSON string is invalid with respect to GetPciUrlResponse
    */
-  public static GetPciUrlResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static GetPciUrlResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, GetPciUrlResponse.class);
   }
 
@@ -206,7 +206,7 @@ public class GetPciUrlResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

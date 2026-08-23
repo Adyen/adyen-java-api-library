@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
+import tools.jackson.core.JacksonException;
 
 /**
  * It contains the APDU request to send to the chip of the card, and a possible invitation message
@@ -433,10 +433,9 @@ public class CardReaderAPDURequest {
    *
    * @param jsonString JSON string
    * @return An instance of CardReaderAPDURequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CardReaderAPDURequest
+   * @throws JacksonException if the JSON string is invalid with respect to CardReaderAPDURequest
    */
-  public static CardReaderAPDURequest fromJson(String jsonString) throws JsonProcessingException {
+  public static CardReaderAPDURequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CardReaderAPDURequest.class);
   }
 
@@ -445,7 +444,7 @@ public class CardReaderAPDURequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

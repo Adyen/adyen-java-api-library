@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** DBaraiDetails */
 @JsonPropertyOrder({
@@ -430,9 +430,9 @@ public class DBaraiDetails {
    *
    * @param jsonString JSON string
    * @return An instance of DBaraiDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DBaraiDetails
+   * @throws JacksonException if the JSON string is invalid with respect to DBaraiDetails
    */
-  public static DBaraiDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static DBaraiDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DBaraiDetails.class);
   }
 
@@ -441,7 +441,7 @@ public class DBaraiDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

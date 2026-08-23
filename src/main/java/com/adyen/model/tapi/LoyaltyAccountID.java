@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /**
  * Identification of a Loyalty account. In the Payment Request message, it allows to identify the
@@ -392,9 +392,9 @@ public class LoyaltyAccountID {
    *
    * @param jsonString JSON string
    * @return An instance of LoyaltyAccountID
-   * @throws JsonProcessingException if the JSON string is invalid with respect to LoyaltyAccountID
+   * @throws JacksonException if the JSON string is invalid with respect to LoyaltyAccountID
    */
-  public static LoyaltyAccountID fromJson(String jsonString) throws JsonProcessingException {
+  public static LoyaltyAccountID fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, LoyaltyAccountID.class);
   }
 
@@ -403,7 +403,7 @@ public class LoyaltyAccountID {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

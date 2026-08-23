@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** PaginationLinks */
 @JsonPropertyOrder({
@@ -353,9 +353,9 @@ public class PaginationLinks {
    *
    * @param jsonString JSON string
    * @return An instance of PaginationLinks
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PaginationLinks
+   * @throws JacksonException if the JSON string is invalid with respect to PaginationLinks
    */
-  public static PaginationLinks fromJson(String jsonString) throws JsonProcessingException {
+  public static PaginationLinks fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, PaginationLinks.class);
   }
 
@@ -364,7 +364,7 @@ public class PaginationLinks {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

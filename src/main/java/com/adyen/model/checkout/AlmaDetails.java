@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** AlmaDetails */
 @JsonPropertyOrder({
@@ -397,9 +397,9 @@ public class AlmaDetails {
    *
    * @param jsonString JSON string
    * @return An instance of AlmaDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AlmaDetails
+   * @throws JacksonException if the JSON string is invalid with respect to AlmaDetails
    */
-  public static AlmaDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static AlmaDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AlmaDetails.class);
   }
 
@@ -408,7 +408,7 @@ public class AlmaDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

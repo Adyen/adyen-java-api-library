@@ -17,10 +17,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /** ModelConfiguration */
 @JsonPropertyOrder({
@@ -402,10 +402,9 @@ public class ModelConfiguration {
    *
    * @param jsonString JSON string
    * @return An instance of ModelConfiguration
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ModelConfiguration
+   * @throws JacksonException if the JSON string is invalid with respect to ModelConfiguration
    */
-  public static ModelConfiguration fromJson(String jsonString) throws JsonProcessingException {
+  public static ModelConfiguration fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ModelConfiguration.class);
   }
 
@@ -414,7 +413,7 @@ public class ModelConfiguration {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

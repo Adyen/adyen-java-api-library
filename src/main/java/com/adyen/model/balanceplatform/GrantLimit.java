@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** GrantLimit */
 @JsonPropertyOrder({GrantLimit.JSON_PROPERTY_AMOUNT})
@@ -158,9 +158,9 @@ public class GrantLimit {
    *
    * @param jsonString JSON string
    * @return An instance of GrantLimit
-   * @throws JsonProcessingException if the JSON string is invalid with respect to GrantLimit
+   * @throws JacksonException if the JSON string is invalid with respect to GrantLimit
    */
-  public static GrantLimit fromJson(String jsonString) throws JsonProcessingException {
+  public static GrantLimit fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, GrantLimit.class);
   }
 
@@ -169,7 +169,7 @@ public class GrantLimit {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

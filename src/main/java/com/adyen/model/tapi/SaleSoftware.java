@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Information related to the software of the Sale System which manages the NEXO Sale to POI
@@ -318,9 +318,9 @@ public class SaleSoftware {
    *
    * @param jsonString JSON string
    * @return An instance of SaleSoftware
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SaleSoftware
+   * @throws JacksonException if the JSON string is invalid with respect to SaleSoftware
    */
-  public static SaleSoftware fromJson(String jsonString) throws JsonProcessingException {
+  public static SaleSoftware fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SaleSoftware.class);
   }
 
@@ -329,7 +329,7 @@ public class SaleSoftware {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

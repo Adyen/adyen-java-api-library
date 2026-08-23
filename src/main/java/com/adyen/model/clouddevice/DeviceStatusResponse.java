@@ -22,8 +22,8 @@ package com.adyen.model.clouddevice;
 
 import com.adyen.model.tapi.JSON;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** DeviceStatusResponse */
 public class DeviceStatusResponse {
@@ -54,9 +54,9 @@ public class DeviceStatusResponse {
    *
    * @param jsonString JSON string
    * @return An instance of DeviceStatus
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DeviceStatus
+   * @throws JacksonException if the JSON string is invalid with respect to DeviceStatus
    */
-  public static DeviceStatusResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static DeviceStatusResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DeviceStatusResponse.class);
   }
 
@@ -65,7 +65,7 @@ public class DeviceStatusResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 

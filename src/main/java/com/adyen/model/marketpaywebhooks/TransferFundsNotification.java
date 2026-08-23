@@ -14,10 +14,10 @@ package com.adyen.model.marketpaywebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** TransferFundsNotification */
 @JsonPropertyOrder({
@@ -277,11 +277,10 @@ public class TransferFundsNotification {
    *
    * @param jsonString JSON string
    * @return An instance of TransferFundsNotification
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     TransferFundsNotification
    */
-  public static TransferFundsNotification fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static TransferFundsNotification fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TransferFundsNotification.class);
   }
 
@@ -290,7 +289,7 @@ public class TransferFundsNotification {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

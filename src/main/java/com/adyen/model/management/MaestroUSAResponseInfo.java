@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** MaestroUSAResponseInfo */
 @JsonPropertyOrder({MaestroUSAResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -163,10 +163,9 @@ public class MaestroUSAResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of MaestroUSAResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     MaestroUSAResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to MaestroUSAResponseInfo
    */
-  public static MaestroUSAResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static MaestroUSAResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MaestroUSAResponseInfo.class);
   }
 
@@ -175,7 +174,7 @@ public class MaestroUSAResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

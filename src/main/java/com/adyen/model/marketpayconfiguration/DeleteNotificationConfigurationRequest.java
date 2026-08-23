@@ -15,11 +15,11 @@ package com.adyen.model.marketpayconfiguration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** DeleteNotificationConfigurationRequest */
 @JsonPropertyOrder({DeleteNotificationConfigurationRequest.JSON_PROPERTY_NOTIFICATION_IDS})
@@ -103,11 +103,11 @@ public class DeleteNotificationConfigurationRequest {
    *
    * @param jsonString JSON string
    * @return An instance of DeleteNotificationConfigurationRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     DeleteNotificationConfigurationRequest
    */
   public static DeleteNotificationConfigurationRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+      throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DeleteNotificationConfigurationRequest.class);
   }
 
@@ -116,7 +116,7 @@ public class DeleteNotificationConfigurationRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

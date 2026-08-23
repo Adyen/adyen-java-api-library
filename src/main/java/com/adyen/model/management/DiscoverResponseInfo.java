@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** DiscoverResponseInfo */
 @JsonPropertyOrder({DiscoverResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -162,10 +162,9 @@ public class DiscoverResponseInfo {
    *
    * @param jsonString JSON string
    * @return An instance of DiscoverResponseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     DiscoverResponseInfo
+   * @throws JacksonException if the JSON string is invalid with respect to DiscoverResponseInfo
    */
-  public static DiscoverResponseInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static DiscoverResponseInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DiscoverResponseInfo.class);
   }
 
@@ -174,7 +173,7 @@ public class DiscoverResponseInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

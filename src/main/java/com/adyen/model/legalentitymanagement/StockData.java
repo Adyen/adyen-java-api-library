@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** StockData */
 @JsonPropertyOrder({
@@ -277,9 +277,9 @@ public class StockData {
    *
    * @param jsonString JSON string
    * @return An instance of StockData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StockData
+   * @throws JacksonException if the JSON string is invalid with respect to StockData
    */
-  public static StockData fromJson(String jsonString) throws JsonProcessingException {
+  public static StockData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, StockData.class);
   }
 
@@ -288,7 +288,7 @@ public class StockData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -18,12 +18,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** CalculatePciStatusRequest */
 @JsonPropertyOrder({CalculatePciStatusRequest.JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS})
@@ -249,11 +249,10 @@ public class CalculatePciStatusRequest {
    *
    * @param jsonString JSON string
    * @return An instance of CalculatePciStatusRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CalculatePciStatusRequest
    */
-  public static CalculatePciStatusRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CalculatePciStatusRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CalculatePciStatusRequest.class);
   }
 
@@ -262,7 +261,7 @@ public class CalculatePciStatusRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

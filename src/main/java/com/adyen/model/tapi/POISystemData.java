@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** POISystemData */
 @JsonPropertyOrder({
@@ -261,9 +261,9 @@ public class POISystemData {
    *
    * @param jsonString JSON string
    * @return An instance of POISystemData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to POISystemData
+   * @throws JacksonException if the JSON string is invalid with respect to POISystemData
    */
-  public static POISystemData fromJson(String jsonString) throws JsonProcessingException {
+  public static POISystemData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, POISystemData.class);
   }
 
@@ -272,7 +272,7 @@ public class POISystemData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

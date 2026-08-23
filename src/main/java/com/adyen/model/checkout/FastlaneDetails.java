@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** FastlaneDetails */
 @JsonPropertyOrder({
@@ -481,9 +481,9 @@ public class FastlaneDetails {
    *
    * @param jsonString JSON string
    * @return An instance of FastlaneDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to FastlaneDetails
+   * @throws JacksonException if the JSON string is invalid with respect to FastlaneDetails
    */
-  public static FastlaneDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static FastlaneDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, FastlaneDetails.class);
   }
 
@@ -492,7 +492,7 @@ public class FastlaneDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

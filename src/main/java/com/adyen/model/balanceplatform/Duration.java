@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** Duration */
 @JsonPropertyOrder({Duration.JSON_PROPERTY_UNIT, Duration.JSON_PROPERTY_VALUE})
@@ -274,9 +274,9 @@ public class Duration {
    *
    * @param jsonString JSON string
    * @return An instance of Duration
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Duration
+   * @throws JacksonException if the JSON string is invalid with respect to Duration
    */
-  public static Duration fromJson(String jsonString) throws JsonProcessingException {
+  public static Duration fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Duration.class);
   }
 
@@ -285,7 +285,7 @@ public class Duration {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

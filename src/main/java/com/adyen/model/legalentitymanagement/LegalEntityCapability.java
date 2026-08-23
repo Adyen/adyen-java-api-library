@@ -18,11 +18,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** LegalEntityCapability */
 @JsonPropertyOrder({
@@ -515,10 +515,9 @@ public class LegalEntityCapability {
    *
    * @param jsonString JSON string
    * @return An instance of LegalEntityCapability
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     LegalEntityCapability
+   * @throws JacksonException if the JSON string is invalid with respect to LegalEntityCapability
    */
-  public static LegalEntityCapability fromJson(String jsonString) throws JsonProcessingException {
+  public static LegalEntityCapability fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, LegalEntityCapability.class);
   }
 
@@ -527,7 +526,7 @@ public class LegalEntityCapability {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

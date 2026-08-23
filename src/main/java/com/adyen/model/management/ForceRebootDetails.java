@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** ForceRebootDetails */
 @JsonPropertyOrder({ForceRebootDetails.JSON_PROPERTY_TYPE})
@@ -210,10 +210,9 @@ public class ForceRebootDetails {
    *
    * @param jsonString JSON string
    * @return An instance of ForceRebootDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     ForceRebootDetails
+   * @throws JacksonException if the JSON string is invalid with respect to ForceRebootDetails
    */
-  public static ForceRebootDetails fromJson(String jsonString) throws JsonProcessingException {
+  public static ForceRebootDetails fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ForceRebootDetails.class);
   }
 
@@ -222,7 +221,7 @@ public class ForceRebootDetails {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

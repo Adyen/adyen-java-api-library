@@ -18,11 +18,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** NetworkToken */
 @JsonPropertyOrder({
@@ -644,9 +644,9 @@ public class NetworkToken {
    *
    * @param jsonString JSON string
    * @return An instance of NetworkToken
-   * @throws JsonProcessingException if the JSON string is invalid with respect to NetworkToken
+   * @throws JacksonException if the JSON string is invalid with respect to NetworkToken
    */
-  public static NetworkToken fromJson(String jsonString) throws JsonProcessingException {
+  public static NetworkToken fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, NetworkToken.class);
   }
 
@@ -655,7 +655,7 @@ public class NetworkToken {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

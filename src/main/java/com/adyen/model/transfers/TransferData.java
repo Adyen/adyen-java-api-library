@@ -18,13 +18,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** TransferData */
 @JsonPropertyOrder({
@@ -2536,9 +2536,9 @@ public class TransferData {
    *
    * @param jsonString JSON string
    * @return An instance of TransferData
-   * @throws JsonProcessingException if the JSON string is invalid with respect to TransferData
+   * @throws JacksonException if the JSON string is invalid with respect to TransferData
    */
-  public static TransferData fromJson(String jsonString) throws JsonProcessingException {
+  public static TransferData fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TransferData.class);
   }
 
@@ -2547,7 +2547,7 @@ public class TransferData {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

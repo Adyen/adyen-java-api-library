@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AdditionalDataCarRental */
 @JsonPropertyOrder({
@@ -1595,10 +1595,9 @@ public class AdditionalDataCarRental {
    *
    * @param jsonString JSON string
    * @return An instance of AdditionalDataCarRental
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     AdditionalDataCarRental
+   * @throws JacksonException if the JSON string is invalid with respect to AdditionalDataCarRental
    */
-  public static AdditionalDataCarRental fromJson(String jsonString) throws JsonProcessingException {
+  public static AdditionalDataCarRental fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AdditionalDataCarRental.class);
   }
 
@@ -1607,7 +1606,7 @@ public class AdditionalDataCarRental {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

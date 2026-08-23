@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import tools.jackson.core.JacksonException;
 
 /**
  * It conveys Information related to the target POI for which the diagnosis is requested. Content of
@@ -279,9 +279,9 @@ public class DiagnosisRequest {
    *
    * @param jsonString JSON string
    * @return An instance of DiagnosisRequest
-   * @throws JsonProcessingException if the JSON string is invalid with respect to DiagnosisRequest
+   * @throws JacksonException if the JSON string is invalid with respect to DiagnosisRequest
    */
-  public static DiagnosisRequest fromJson(String jsonString) throws JsonProcessingException {
+  public static DiagnosisRequest fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, DiagnosisRequest.class);
   }
 
@@ -290,7 +290,7 @@ public class DiagnosisRequest {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

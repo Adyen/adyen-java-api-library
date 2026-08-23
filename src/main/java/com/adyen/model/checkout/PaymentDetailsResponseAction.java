@@ -11,19 +11,6 @@
 
 package com.adyen.model.checkout;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
@@ -32,6 +19,18 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.deser.std.StdDeserializer;
+import tools.jackson.databind.ser.std.StdSerializer;
 
 @JsonDeserialize(
     using = PaymentDetailsResponseAction.PaymentDetailsResponseActionDeserializer.class)
@@ -51,9 +50,9 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
 
     @Override
     public void serialize(
-        PaymentDetailsResponseAction value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.getActualInstance());
+        PaymentDetailsResponseAction value, JsonGenerator jgen, SerializationContext provider)
+        throws JacksonException {
+      provider.writeValue(jgen, value.getActualInstance());
     }
   }
 
@@ -69,12 +68,11 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
 
     @Override
     public PaymentDetailsResponseAction deserialize(JsonParser jp, DeserializationContext ctxt)
-        throws IOException, JsonProcessingException {
+        throws JacksonException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
-      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
       // deserialize CheckoutThreeDS2Action
       try {
         boolean attemptParsing = true;
@@ -88,7 +86,7 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
           }
 
           if (typeMatch) {
-            deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutThreeDS2Action.class);
+            deserialized = ctxt.readTreeAsValue(tree, CheckoutThreeDS2Action.class);
             // TODO: there is no validation against JSON schema constraints
             // (min, max, enum, pattern...), this does not perform a strict JSON
             // validation, which means the 'match' count may be higher than it should be.
@@ -106,7 +104,8 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
         ret.setActualInstance(deserialized);
         return ret;
       }
-      throw new IOException(
+      throw DatabindException.from(
+          ctxt,
           String.format(
               "Failed deserialization for PaymentDetailsResponseAction: %d classes match result, expected 1",
               match));
@@ -115,9 +114,8 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
     /** Handle deserialization of the 'null' value. */
     @Override
     public PaymentDetailsResponseAction getNullValue(DeserializationContext ctxt)
-        throws JsonMappingException {
-      throw new JsonMappingException(
-          ctxt.getParser(), "PaymentDetailsResponseAction cannot be null");
+        throws DatabindException {
+      throw DatabindException.from(ctxt, "PaymentDetailsResponseAction cannot be null");
     }
   }
 
@@ -204,7 +202,7 @@ public class PaymentDetailsResponseAction extends AbstractOpenApiSchema {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

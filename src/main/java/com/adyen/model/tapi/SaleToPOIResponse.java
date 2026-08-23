@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * The SaleToPOIResponse message pair is a container for the response message content. It contains a
@@ -1089,9 +1089,9 @@ public class SaleToPOIResponse {
    *
    * @param jsonString JSON string
    * @return An instance of SaleToPOIResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to SaleToPOIResponse
+   * @throws JacksonException if the JSON string is invalid with respect to SaleToPOIResponse
    */
-  public static SaleToPOIResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static SaleToPOIResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, SaleToPOIResponse.class);
   }
 
@@ -1100,7 +1100,7 @@ public class SaleToPOIResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

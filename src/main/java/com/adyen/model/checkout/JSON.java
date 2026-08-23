@@ -3,9 +3,6 @@ package com.adyen.model.checkout;
 import com.adyen.serializer.ByteArrayDeserializer;
 import com.adyen.serializer.ByteArraySerializer;
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.ext.ContextResolver;
 import java.text.DateFormat;
@@ -13,26 +10,34 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import tools.jackson.databind.*;
+import tools.jackson.databind.cfg.DateTimeFeature;
+import tools.jackson.databind.cfg.EnumFeature;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.module.SimpleModule;
 
 public class JSON implements ContextResolver<ObjectMapper> {
   private static ObjectMapper mapper;
 
   private JSON() {
-    mapper = new ObjectMapper();
-    mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-    mapper.configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, true);
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, true);
-    mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-    mapper.disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE);
-    mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
-    mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
-    mapper.registerModule(new JavaTimeModule());
+    JsonMapper.Builder builder = JsonMapper.builderWithJackson2Defaults();
+    builder.changeDefaultPropertyInclusion(
+        ignored ->
+            JsonInclude.Value.construct(
+                JsonInclude.Include.NON_NULL, JsonInclude.Include.USE_DEFAULTS));
+    builder.configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, true);
+    builder.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    builder.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, true);
+    builder.disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS);
+    builder.disable(DateTimeFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE);
+    builder.enable(EnumFeature.WRITE_ENUMS_USING_TO_STRING);
+    builder.enable(EnumFeature.READ_ENUMS_USING_TO_STRING);
     // Custom ByteSerializer
     SimpleModule simpleModule = new SimpleModule();
     simpleModule.addSerializer(byte[].class, new ByteArraySerializer());
     simpleModule.addDeserializer(byte[].class, new ByteArrayDeserializer());
-    mapper.registerModule(simpleModule);
+    builder.addModule(simpleModule);
+    mapper = builder.build();
   }
 
   /**
@@ -41,7 +46,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
    * @param dateFormat Date format
    */
   public void setDateFormat(DateFormat dateFormat) {
-    mapper.setDateFormat(dateFormat);
+    mapper = mapper.rebuild().defaultDateFormat(dateFormat).build();
   }
 
   @Override

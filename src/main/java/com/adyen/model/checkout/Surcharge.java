@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Surcharge */
 @JsonPropertyOrder({Surcharge.JSON_PROPERTY_VALUE})
@@ -191,9 +191,9 @@ public class Surcharge {
    *
    * @param jsonString JSON string
    * @return An instance of Surcharge
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Surcharge
+   * @throws JacksonException if the JSON string is invalid with respect to Surcharge
    */
-  public static Surcharge fromJson(String jsonString) throws JsonProcessingException {
+  public static Surcharge fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Surcharge.class);
   }
 
@@ -202,7 +202,7 @@ public class Surcharge {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

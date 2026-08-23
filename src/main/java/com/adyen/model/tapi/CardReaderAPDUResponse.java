@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
+import tools.jackson.core.JacksonException;
 
 /**
  * Content of the Card Reader APDU Response message. It contains the result of the requested
@@ -266,10 +266,9 @@ public class CardReaderAPDUResponse {
    *
    * @param jsonString JSON string
    * @return An instance of CardReaderAPDUResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CardReaderAPDUResponse
+   * @throws JacksonException if the JSON string is invalid with respect to CardReaderAPDUResponse
    */
-  public static CardReaderAPDUResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static CardReaderAPDUResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CardReaderAPDUResponse.class);
   }
 
@@ -278,7 +277,7 @@ public class CardReaderAPDUResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

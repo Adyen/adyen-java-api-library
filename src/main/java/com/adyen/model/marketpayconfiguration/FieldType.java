@@ -17,9 +17,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import tools.jackson.core.JacksonException;
 
 /** FieldType */
 @JsonPropertyOrder({
@@ -512,9 +512,9 @@ public class FieldType {
    *
    * @param jsonString JSON string
    * @return An instance of FieldType
-   * @throws JsonProcessingException if the JSON string is invalid with respect to FieldType
+   * @throws JacksonException if the JSON string is invalid with respect to FieldType
    */
-  public static FieldType fromJson(String jsonString) throws JsonProcessingException {
+  public static FieldType fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, FieldType.class);
   }
 
@@ -523,7 +523,7 @@ public class FieldType {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

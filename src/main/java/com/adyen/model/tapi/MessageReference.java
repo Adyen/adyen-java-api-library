@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Identification of a previous POI transaction. To abort a transaction in progress or to request
@@ -378,9 +378,9 @@ public class MessageReference {
    *
    * @param jsonString JSON string
    * @return An instance of MessageReference
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MessageReference
+   * @throws JacksonException if the JSON string is invalid with respect to MessageReference
    */
-  public static MessageReference fromJson(String jsonString) throws JsonProcessingException {
+  public static MessageReference fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MessageReference.class);
   }
 
@@ -389,7 +389,7 @@ public class MessageReference {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

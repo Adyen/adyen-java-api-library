@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** NyceUpdateInfo */
 @JsonPropertyOrder({NyceUpdateInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION})
@@ -161,9 +161,9 @@ public class NyceUpdateInfo {
    *
    * @param jsonString JSON string
    * @return An instance of NyceUpdateInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to NyceUpdateInfo
+   * @throws JacksonException if the JSON string is invalid with respect to NyceUpdateInfo
    */
-  public static NyceUpdateInfo fromJson(String jsonString) throws JsonProcessingException {
+  public static NyceUpdateInfo fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, NyceUpdateInfo.class);
   }
 
@@ -172,7 +172,7 @@ public class NyceUpdateInfo {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

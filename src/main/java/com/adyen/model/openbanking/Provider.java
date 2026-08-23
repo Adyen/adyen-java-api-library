@@ -14,8 +14,8 @@ package com.adyen.model.openbanking;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** Provider */
 @JsonPropertyOrder({Provider.JSON_PROPERTY_LOGO_U_R_L, Provider.JSON_PROPERTY_NAME})
@@ -147,9 +147,9 @@ public class Provider {
    *
    * @param jsonString JSON string
    * @return An instance of Provider
-   * @throws JsonProcessingException if the JSON string is invalid with respect to Provider
+   * @throws JacksonException if the JSON string is invalid with respect to Provider
    */
-  public static Provider fromJson(String jsonString) throws JsonProcessingException {
+  public static Provider fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, Provider.class);
   }
 
@@ -158,7 +158,7 @@ public class Provider {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

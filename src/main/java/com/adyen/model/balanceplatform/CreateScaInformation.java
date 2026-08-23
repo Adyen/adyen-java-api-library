@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** CreateScaInformation */
 @JsonPropertyOrder({
@@ -226,10 +226,9 @@ public class CreateScaInformation {
    *
    * @param jsonString JSON string
    * @return An instance of CreateScaInformation
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     CreateScaInformation
+   * @throws JacksonException if the JSON string is invalid with respect to CreateScaInformation
    */
-  public static CreateScaInformation fromJson(String jsonString) throws JsonProcessingException {
+  public static CreateScaInformation fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CreateScaInformation.class);
   }
 
@@ -238,7 +237,7 @@ public class CreateScaInformation {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

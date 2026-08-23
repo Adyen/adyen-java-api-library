@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Message header of the Sale to POI protocol message. It conveys Information related to the Sale to
@@ -524,9 +524,9 @@ public class MessageHeader {
    *
    * @param jsonString JSON string
    * @return An instance of MessageHeader
-   * @throws JsonProcessingException if the JSON string is invalid with respect to MessageHeader
+   * @throws JacksonException if the JSON string is invalid with respect to MessageHeader
    */
-  public static MessageHeader fromJson(String jsonString) throws JsonProcessingException {
+  public static MessageHeader fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, MessageHeader.class);
   }
 
@@ -535,7 +535,7 @@ public class MessageHeader {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

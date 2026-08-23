@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.math.BigDecimal;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** AmountsResp */
 @JsonPropertyOrder({
@@ -424,9 +424,9 @@ public class AmountsResp {
    *
    * @param jsonString JSON string
    * @return An instance of AmountsResp
-   * @throws JsonProcessingException if the JSON string is invalid with respect to AmountsResp
+   * @throws JacksonException if the JSON string is invalid with respect to AmountsResp
    */
-  public static AmountsResp fromJson(String jsonString) throws JsonProcessingException {
+  public static AmountsResp fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, AmountsResp.class);
   }
 
@@ -435,7 +435,7 @@ public class AmountsResp {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** The response payload of the Adyen Terminal API. */
 @JsonPropertyOrder({TerminalAPIResponse.JSON_PROPERTY_SALE_TO_P_O_I_RESPONSE})
@@ -158,10 +158,9 @@ public class TerminalAPIResponse {
    *
    * @param jsonString JSON string
    * @return An instance of TerminalAPIResponse
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     TerminalAPIResponse
+   * @throws JacksonException if the JSON string is invalid with respect to TerminalAPIResponse
    */
-  public static TerminalAPIResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static TerminalAPIResponse fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, TerminalAPIResponse.class);
   }
 
@@ -170,7 +169,7 @@ public class TerminalAPIResponse {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

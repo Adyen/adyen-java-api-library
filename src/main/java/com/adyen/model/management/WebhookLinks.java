@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /** WebhookLinks */
 @JsonPropertyOrder({
@@ -362,9 +362,9 @@ public class WebhookLinks {
    *
    * @param jsonString JSON string
    * @return An instance of WebhookLinks
-   * @throws JsonProcessingException if the JSON string is invalid with respect to WebhookLinks
+   * @throws JacksonException if the JSON string is invalid with respect to WebhookLinks
    */
-  public static WebhookLinks fromJson(String jsonString) throws JsonProcessingException {
+  public static WebhookLinks fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, WebhookLinks.class);
   }
 
@@ -373,7 +373,7 @@ public class WebhookLinks {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

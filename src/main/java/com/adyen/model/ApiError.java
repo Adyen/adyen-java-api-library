@@ -21,9 +21,9 @@ package com.adyen.model;
 
 import com.adyen.model.checkout.JSON;
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
+import tools.jackson.core.JacksonException;
 
 /**
  * Class that defines the API error model returned when an error (401. 403, 422, etc..) is returned
@@ -339,9 +339,9 @@ public class ApiError {
    *
    * @param jsonString JSON string
    * @return An instance of ServiceError
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ServiceError
+   * @throws JacksonException if the JSON string is invalid with respect to ServiceError
    */
-  public static ApiError fromJson(String jsonString) throws JsonProcessingException {
+  public static ApiError fromJson(String jsonString) throws JacksonException {
     if (jsonString == null) {
       return null;
     }
@@ -353,7 +353,7 @@ public class ApiError {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

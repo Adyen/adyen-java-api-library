@@ -18,10 +18,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** ThreeDS2Result */
 @JsonPropertyOrder({
@@ -1074,9 +1074,9 @@ public class ThreeDS2Result {
    *
    * @param jsonString JSON string
    * @return An instance of ThreeDS2Result
-   * @throws JsonProcessingException if the JSON string is invalid with respect to ThreeDS2Result
+   * @throws JacksonException if the JSON string is invalid with respect to ThreeDS2Result
    */
-  public static ThreeDS2Result fromJson(String jsonString) throws JsonProcessingException {
+  public static ThreeDS2Result fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, ThreeDS2Result.class);
   }
 
@@ -1085,7 +1085,7 @@ public class ThreeDS2Result {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }

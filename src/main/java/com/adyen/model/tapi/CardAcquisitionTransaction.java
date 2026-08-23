@@ -18,13 +18,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import tools.jackson.core.JacksonException;
 
 /** CardAcquisitionTransaction */
 @JsonPropertyOrder({
@@ -704,11 +704,10 @@ public class CardAcquisitionTransaction {
    *
    * @param jsonString JSON string
    * @return An instance of CardAcquisitionTransaction
-   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   * @throws JacksonException if the JSON string is invalid with respect to
    *     CardAcquisitionTransaction
    */
-  public static CardAcquisitionTransaction fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CardAcquisitionTransaction fromJson(String jsonString) throws JacksonException {
     return JSON.getMapper().readValue(jsonString, CardAcquisitionTransaction.class);
   }
 
@@ -717,7 +716,7 @@ public class CardAcquisitionTransaction {
    *
    * @return JSON string
    */
-  public String toJson() throws JsonProcessingException {
+  public String toJson() throws JacksonException {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
