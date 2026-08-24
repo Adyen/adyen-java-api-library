@@ -277,6 +277,33 @@ public class ClientTest extends BaseTest {
   }
 
   @Test
+  public void testBinaryRequestPreservesMultipartContentType() throws Exception {
+    AdyenHttpClient client = new AdyenHttpClient();
+    HashMap<String, String> additionalHeaders = new HashMap<>();
+    additionalHeaders.put("content-type", "application/json");
+    additionalHeaders.put("Content-Length", "1");
+    additionalHeaders.put("X-Custom-Header", "custom-value");
+
+    HttpUriRequestBase request =
+        client.createRequest(
+            "https://checkout-test.adyen.com/v68/documents",
+            new BinaryRequestBody(
+                "multipart body".getBytes(), "multipart/form-data; boundary=example-boundary"),
+            new Config(),
+            true,
+            new RequestOptions().additionalServiceHeaders(additionalHeaders),
+            ApiConstants.HttpMethod.POST,
+            Map.of());
+
+    Header contentType = request.getFirstHeader("Content-Type");
+    assertNotNull(contentType);
+    assertEquals("multipart/form-data; boundary=example-boundary", contentType.getValue());
+    assertEquals(1, request.getHeaders("Content-Type").length);
+    assertNull(request.getFirstHeader("Content-Length"));
+    assertEquals("custom-value", request.getFirstHeader("X-Custom-Header").getValue());
+  }
+
+  @Test
   public void testGetHttpClientReturnsSameInstance() {
     Client client = new Client("apiKey", Environment.TEST);
     ClientInterface first = client.getHttpClient();

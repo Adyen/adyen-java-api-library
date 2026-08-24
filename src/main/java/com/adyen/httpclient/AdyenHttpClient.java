@@ -60,6 +60,7 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
 import org.apache.hc.core5.http.HttpHost;
+import org.apache.hc.core5.http.io.entity.ByteArrayEntity;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.net.URIBuilder;
 import org.apache.hc.core5.ssl.SSLContexts;
@@ -212,6 +213,30 @@ public class AdyenHttpClient implements ClientInterface {
     return response.getBody();
   }
 
+  @Override
+  public String requestBinary(
+      String endpoint,
+      BinaryRequestBody requestBody,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws IOException, HTTPClientException {
+    CloseableHttpClient httpclient = getOrCreateHttpClient(config);
+    HttpUriRequestBase httpRequest =
+        createRequest(
+            endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
+
+    AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
+
+    if (response.getStatus() < 200 || response.getStatus() >= 300) {
+      throw new HTTPClientException(
+          response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
+    }
+    return response.getBody();
+  }
+
   /**
    * Builds an {@link HttpUriRequestBase} with the appropriate HTTP method, headers, authentication,
    * and per-request timeout configuration from {@link Config}.
@@ -256,15 +281,56 @@ public class AdyenHttpClient implements ClientInterface {
     httpRequest.setConfig(builder.build());
 
     setAuthentication(httpRequest, isApiKeyRequired, config);
-    setHeaders(config, requestOptions, httpRequest);
+    setHeaders(config, requestOptions, httpRequest, null);
+
+    return httpRequest;
+  }
+
+  HttpUriRequestBase createRequest(
+      String endpoint,
+      BinaryRequestBody requestBody,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws HTTPClientException {
+    HttpUriRequestBase httpRequest =
+        createHttpRequestBase(createUri(endpoint, params), requestBody.getData(), httpMethod);
+
+    RequestConfig.Builder builder = RequestConfig.custom();
+    builder.setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS);
+    builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
+    builder.setDefaultKeepAlive(config.getDefaultKeepAliveMillis(), TimeUnit.MILLISECONDS);
+    builder.setConnectionRequestTimeout(
+        config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS);
+
+    if (config.getProtocolUpgradeEnabled() != null) {
+      builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
+    }
+    if (proxy != null && proxy.address() instanceof InetSocketAddress) {
+      InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
+      builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));
+    }
+    httpRequest.setConfig(builder.build());
+
+    setAuthentication(httpRequest, isApiKeyRequired, config);
+    setHeaders(config, requestOptions, httpRequest, requestBody.getContentType());
 
     return httpRequest;
   }
 
   private void setHeaders(
-      Config config, RequestOptions requestOptions, HttpUriRequestBase httpUriRequest) {
+      Config config,
+      RequestOptions requestOptions,
+      HttpUriRequestBase httpUriRequest,
+      String requestContentType) {
 
-    setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
+    String contentType =
+        requestContentType != null
+            ? requestContentType
+            : getAdditionalHeader(requestOptions, CONTENT_TYPE, APPLICATION_JSON_TYPE);
+    setContentType(httpUriRequest, contentType);
     httpUriRequest.addHeader(ACCEPT_CHARSET, CHARSET);
 
     String applicationName = config.getApplicationName();
@@ -292,9 +358,30 @@ public class AdyenHttpClient implements ClientInterface {
       }
 
       if (requestOptions.getAdditionalServiceHeaders() != null) {
-        requestOptions.getAdditionalServiceHeaders().forEach(httpUriRequest::addHeader);
+        requestOptions
+            .getAdditionalServiceHeaders()
+            .forEach(
+                (name, value) -> {
+                  if (!name.equalsIgnoreCase(CONTENT_TYPE)
+                      && (requestContentType == null || !name.equalsIgnoreCase("Content-Length"))) {
+                    httpUriRequest.addHeader(name, value);
+                  }
+                });
       }
     }
+  }
+
+  private String getAdditionalHeader(
+      RequestOptions requestOptions, String name, String defaultValue) {
+    if (requestOptions != null && requestOptions.getAdditionalServiceHeaders() != null) {
+      for (Map.Entry<String, String> header :
+          requestOptions.getAdditionalServiceHeaders().entrySet()) {
+        if (header.getKey().equalsIgnoreCase(name)) {
+          return header.getValue();
+        }
+      }
+    }
+    return defaultValue;
   }
 
   private HttpUriRequestBase createHttpRequestBase(
@@ -315,6 +402,27 @@ public class AdyenHttpClient implements ClientInterface {
         return new HttpDelete(endpoint);
       default:
         // Default to POST if httpMethod is not provided
+        HttpPost httpPost = new HttpPost(endpoint);
+        httpPost.setEntity(requestEntity);
+        return httpPost;
+    }
+  }
+
+  private HttpUriRequestBase createHttpRequestBase(
+      URI endpoint, byte[] requestBody, ApiConstants.HttpMethod httpMethod) {
+    ByteArrayEntity requestEntity =
+        requestBody == null ? null : new ByteArrayEntity(requestBody, null);
+
+    switch (httpMethod) {
+      case GET:
+        return new HttpGet(endpoint);
+      case PATCH:
+        HttpPatch httpPatch = new HttpPatch(endpoint);
+        httpPatch.setEntity(requestEntity);
+        return httpPatch;
+      case DELETE:
+        return new HttpDelete(endpoint);
+      default:
         HttpPost httpPost = new HttpPost(endpoint);
         httpPost.setEntity(requestEntity);
         return httpPost;
@@ -406,7 +514,7 @@ public class AdyenHttpClient implements ClientInterface {
 
   /** Sets the Content-Type header on the request. */
   private void setContentType(HttpUriRequest httpUriRequest, String contentType) {
-    httpUriRequest.addHeader(CONTENT_TYPE, contentType);
+    httpUriRequest.setHeader(CONTENT_TYPE, contentType);
   }
 
   /** Sets the X-API-Key header on the request. */

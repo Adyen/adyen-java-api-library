@@ -1,2 +1,2 @@
-{{! Path and body are required, followed by optional query string and request options }}
-{{#pathParams}}{{{dataType}}} {{paramName}}, {{/pathParams}}{{#queryParams}}{{{dataType}}} {{paramName}}, {{/queryParams}}{{#bodyParams}}{{{dataType}}} {{paramName}}, {{/bodyParams}}RequestOptions requestOptions
+{{! Path and body are required, followed by form and query string parameters, then request options }}
+{{#pathParams}}{{{dataType}}} {{paramName}}, {{/pathParams}}{{#queryParams}}{{{dataType}}} {{paramName}}, {{/queryParams}}{{#bodyParams}}{{{dataType}}} {{paramName}}, {{/bodyParams}}{{#formParams}}{{#isFile}}{{#isArray}}java.util.List<com.adyen.httpclient.HttpFile>{{/isArray}}{{^isArray}}com.adyen.httpclient.HttpFile{{/isArray}}{{/isFile}}{{^isFile}}{{{dataType}}}{{/isFile}} {{paramName}}, {{/formParams}}RequestOptions requestOptions

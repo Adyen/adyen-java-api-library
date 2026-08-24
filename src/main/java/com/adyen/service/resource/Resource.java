@@ -25,6 +25,7 @@ import static com.adyen.constants.ApiConstants.HttpMethod.POST;
 import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.httpclient.BinaryRequestBody;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.ApiError;
@@ -138,6 +139,55 @@ public class Resource {
       } catch (Exception ignore) {
         // Response body could not be parsed (e.g. not JSON), raw response body available in
         // ApiException#responseBody
+        apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
+        apiException.setResponseBody(e.getResponseBody());
+      }
+    }
+    throw apiException;
+  }
+
+  /**
+   * Sends a binary request body.
+   *
+   * @param body request body
+   * @param contentType request content type
+   * @param requestOptions request options
+   * @param httpMethod HTTP method
+   * @param pathParams path parameters
+   * @param queryString query string parameters
+   * @return response body
+   * @throws ApiException when an API error is returned
+   * @throws IOException when an unexpected error occurs
+   */
+  public String request(
+      byte[] body,
+      String contentType,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> pathParams,
+      Map<String, String> queryString)
+      throws ApiException, IOException {
+    ClientInterface clientInterface = service.getClient().getHttpClient();
+    Config config = service.getClient().getConfig();
+    ApiException apiException;
+    try {
+      return clientInterface.requestBinary(
+          resolve(pathParams),
+          new BinaryRequestBody(body, contentType),
+          config,
+          service.isApiKeyRequired(),
+          requestOptions,
+          httpMethod,
+          queryString);
+    } catch (HTTPClientException e) {
+      try {
+        ApiError apiError = ApiError.fromJson(e.getResponseBody());
+        String message = apiError.getMessage() + " ErrorCode: " + apiError.getErrorCode();
+
+        apiException = new ApiException(message, e.getCode(), e.getResponseHeaders());
+        apiException.setResponseBody(e.getResponseBody());
+        apiException.setError(apiError);
+      } catch (Exception ignore) {
         apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
         apiException.setResponseBody(e.getResponseBody());
       }

@@ -136,4 +136,32 @@ public interface ClientInterface extends Closeable {
       ApiConstants.HttpMethod httpMethod,
       Map<String, String> params)
       throws IOException, HTTPClientException;
+
+  /**
+   * Sends a binary HTTP request. Custom HTTP client implementations must override this method to
+   * support multipart API operations.
+   *
+   * @param endpoint the full URL of the API endpoint
+   * @param requestBody the binary request body and its content type
+   * @param config the client configuration
+   * @param isApiKeyRequired whether API key authentication is mandatory
+   * @param requestOptions additional request options (idempotency key, custom headers)
+   * @param httpMethod the HTTP method
+   * @param params query string parameters appended to the URL
+   * @return the response body
+   * @throws IOException if a network error occurs
+   * @throws HTTPClientException if the server returns a non-2xx status code
+   */
+  default String requestBinary(
+      String endpoint,
+      BinaryRequestBody requestBody,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws IOException, HTTPClientException {
+    throw new UnsupportedOperationException(
+        "The configured HTTP client does not support binary request bodies");
+  }
 }

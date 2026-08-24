@@ -7,6 +7,9 @@
 {{#bodyParams}}
     * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} {{description}} (required)
 {{/bodyParams}}
+{{#formParams}}
+    * @param {{paramName}} {{#isFile}}{@link com.adyen.httpclient.HttpFile }{{/isFile}}{{^isFile}}{{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}}{{/isFile}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional){{/required}}
+{{/formParams}}
 {{#queryParams}}
     * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} Query: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
 {{/queryParams}}

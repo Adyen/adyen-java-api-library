@@ -9,8 +9,14 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
+{{#hasFormParams}}
+import com.adyen.httpclient.RequestForm;
+{{/hasFormParams}}
 
 import java.io.IOException;
+{{#hasFormParams}}
+import java.util.Arrays;
+{{/hasFormParams}}
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -78,14 +84,37 @@ public class {{classname}} extends Service {
         {{/queryParams}}
 
         {{/hasQueryParams}}
+        {{#formParams}}
+        {{#required}}
+        if ({{paramName}} == null) {
+            throw new IllegalArgumentException("Please provide the {{paramName}} form parameter");
+        }
+        {{/required}}
+        {{/formParams}}
         String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
+        {{#hasFormParams}}
+        RequestForm form = RequestForm.create(Arrays.asList({{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}}));
+        {{#formParams}}
+        if ({{paramName}} != null) {
+        {{#isArray}}
+            for (Object element : {{paramName}}) {
+                form.add("{{baseName}}", {{#isFile}}(com.adyen.httpclient.HttpFile) element{{/isFile}}{{^isFile}}String.valueOf(element){{/isFile}});
+            }
+        {{/isArray}}
+        {{^isArray}}
+            form.add("{{baseName}}", {{#isFile}}{{paramName}}{{/isFile}}{{^isFile}}String.valueOf({{paramName}}){{/isFile}});
+        {{/isArray}}
+        }
+        {{/formParams}}
+        byte[] formRequestBody = form.getRequestBody();
+        {{/hasFormParams}}
         Resource resource = new Resource(this, this.baseURL + "{{{path}}}", null);
         {{#returnType}}
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        String jsonResult = {{#hasFormParams}}resource.request(formRequestBody, form.getContentType(), requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}, {{#hasQueryParams}}queryParams{{/hasQueryParams}}{{^hasQueryParams}}null{{/hasQueryParams}}){{/hasFormParams}}{{^hasFormParams}}resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}}){{/hasFormParams}};
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
         {{/returnType}}
         {{^returnType}}
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        {{#hasFormParams}}resource.request(formRequestBody, form.getContentType(), requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}, {{#hasQueryParams}}queryParams{{/hasQueryParams}}{{^hasQueryParams}}null{{/hasQueryParams}});{{/hasFormParams}}{{^hasFormParams}}resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});{{/hasFormParams}}
         {{/returnType}}
     }
 {{/operation}}
