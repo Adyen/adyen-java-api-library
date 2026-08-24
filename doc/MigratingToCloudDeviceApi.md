@@ -130,6 +130,17 @@ Several enum classes are named differently in the Cloud device API to match the 
 
 **Note**: enums that already end with `Type` in the spec (for example, `MessageType`, `TokenRequestedType`, `AccountType`) are **not** renamed.
 
+#### Enum value differences
+
+Some enum values were renamed, added, or removed. Update references to these values when migrating:
+
+| Enum | Changes in the Cloud device API |
+|------|---------------------------------|
+| `CharacterStyle` | `Underlined` is renamed to `UNDERLINE`. |
+| `MessageCategory` | `Batch`, `CardReaderAPDU`, `CardReaderInit`, `CardReaderPowerOff`, `PIN`, `Sound`, and `Transmit` are removed. `NONE` is added. |
+| `EventToNotify` | `NetworkConnected` and `NetworkDisconnected` are removed. `USE_ANOTHER_CARD_FOR_PREAUTH` is added. |
+| `TrackFormat` | `JisI` and `JisIi` are removed. |
+
 #### Model classes
 
 Some classes are also renamed to adopt the name of the model in the OpenAPI specification.
@@ -137,6 +148,25 @@ Some classes are also renamed to adopt the name of the model in the OpenAPI spec
 | Terminal (Cloud) API (nexo)      | Cloud device API (tapi)   |
 |--------------------------------|---------------------------|
 | `TransactionIdentification`   | `TransactionIDType`       |
+| `CheckTypeCodeType`           | `TypeCode`                |
+| `SignaturePoint`              | `Point`                   |
+| `CardholderPIN`               | `CardHolderPIN`           |
+| `StoredValueAccountId`        | `StoredValueAccountID`    |
+| `LoyaltyAccountId`            | `LoyaltyAccountID`        |
+| `InstalmentType`              | `Instalment`              |
+
+For example, `PaymentResult.getInstalment()` now returns an `Instalment`.
+
+#### Property renames
+
+Some properties have also been renamed:
+
+| Class | Terminal (Cloud) API (nexo) | Cloud device API (tapi) |
+|-------|-----------------------------|-------------------------|
+| `ICCResetData` | `AtrValue` | `ATRValue` |
+| `SoundContent` | `Value` | `Text` |
+| `TrackData` | `Value` | `TrackValue` |
+| `StoredValueAccountID` | `Value` | `StoredValueID` |
 
 #### Setter/getter naming
 
@@ -202,6 +232,10 @@ instalment.setFirstPaymentDate(LocalDate.of(2025, 1, 15));
 - `BigInteger` fields are `Integer` in the Cloud device API
 - In `CurrencyConversion`: the `rate` and `markup` fields are `String` instead of `BigDecimal`
 - In `POIData`: `poIReconciliationID` is `Integer` instead of `String`
+
+#### `SaleToAcquirerData`: object -> `String`
+
+In the Terminal (Cloud) API, `SaleData.saleToAcquirerData` is a `SaleToAcquirerData` object. In the Cloud device API, it is a `String`. Update integrations that build `applicationInfo` or `merchantApplication` through the `SaleToAcquirerData` object.
 
 #### Boolean helper methods
 
