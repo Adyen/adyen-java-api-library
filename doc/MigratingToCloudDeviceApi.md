@@ -132,14 +132,32 @@ Several enum classes are named differently in the Cloud device API to match the 
 
 #### Enum value differences
 
-Some enum values were renamed, added, or removed. Update references to these values when migrating:
+Some Java enum constants were renamed, added, or removed. Update references to these constants when migrating:
 
 | Enum | Changes in the Cloud device API |
 |------|---------------------------------|
-| `CharacterStyle` | `Underlined` is renamed to `UNDERLINE`. |
-| `MessageCategory` | `Batch`, `CardReaderAPDU`, `CardReaderInit`, `CardReaderPowerOff`, `PIN`, `Sound`, and `Transmit` are removed. `NONE` is added. |
-| `EventToNotify` | `NetworkConnected` and `NetworkDisconnected` are removed. `USE_ANOTHER_CARD_FOR_PREAUTH` is added. |
-| `TrackFormat` | `JisI` and `JisIi` are removed. |
+| `CharacterStyleType` -> `CharacterStyle` | `UNDERLINED` (`"Underlined"`) is renamed to `UNDERLINE` (`"Underline"`). |
+| `MessageCategoryType` -> `MessageCategory` | `BATCH`, `CARD_READER_APDU`, `CARD_READER_INIT`, `CARD_READER_POWER_OFF`, `PIN`, `SOUND`, and `TRANSMIT` are removed. `NONE` is added. |
+| `EventToNotifyType` -> `EventToNotify` | `NETWORK_CONNECTED` and `NETWORK_DISCONNECTED` are removed. `USE_ANOTHER_CARD_FOR_PREAUTH` is added. |
+| `IdentificationType` | `ISO_TRACK_2` is renamed to `ISO_TRACK2`. Its serialized value, `"ISOTrack2"`, is unchanged. |
+| `PINFormatType` -> `PINFormat` | `ISO_0`, `ISO_1`, `ISO_2`, and `ISO_3` are renamed to `ISO0`, `ISO1`, `ISO2`, and `ISO3`. Their serialized values are unchanged. |
+| `ReversalReasonType` -> `ReversalReason` | `UNABLE_2_COMPL` is renamed to `UNABLE2_COMPL`. Its serialized value, `"Unable2Compl"`, is unchanged. |
+| `AuthenticationMethodType` -> `PaymentResult.AuthenticationMethodEnum` | `ONLINE_PIN` (`"OnlinePIN"`) is added. |
+
+#### Other enum class changes
+
+`CheckTypeCodeType` is renamed to `TypeCode`.
+
+Some standalone Terminal (Cloud) API enums are replaced by enums nested in the models that use them:
+
+| Terminal (Cloud) API (nexo) | Cloud device API (tapi) |
+|-----------------------------|-------------------------|
+| `EntryModeType` | `CardData.EntryModeEnum`, `LoyaltyAccountID.EntryModeEnum`, `StoredValueAccountID.EntryModeEnum` |
+| `ForceEntryModeType` | `CardAcquisitionTransaction.ForceEntryModeEnum`, `TransactionConditions.ForceEntryModeEnum` |
+| `CustomerOrderReqType` | `LoginRequest.CustomerOrderReqEnum`, `SaleData.CustomerOrderReqEnum` |
+| `TotalDetailsType` | `GetTotalsRequest.TotalDetailsEnum` |
+| `AuthenticationMethodType` | `PaymentResult.AuthenticationMethodEnum` |
+| `ServicesEnabledType` | `EnableServiceRequest.ServicesEnabledEnum` |
 
 #### Model classes
 
@@ -148,25 +166,8 @@ Some classes are also renamed to adopt the name of the model in the OpenAPI spec
 | Terminal (Cloud) API (nexo)      | Cloud device API (tapi)   |
 |--------------------------------|---------------------------|
 | `TransactionIdentification`   | `TransactionIDType`       |
-| `CheckTypeCodeType`           | `TypeCode`                |
 | `SignaturePoint`              | `Point`                   |
 | `CardholderPIN`               | `CardHolderPIN`           |
-| `StoredValueAccountId`        | `StoredValueAccountID`    |
-| `LoyaltyAccountId`            | `LoyaltyAccountID`        |
-| `InstalmentType`              | `Instalment`              |
-
-For example, `PaymentResult.getInstalment()` now returns an `Instalment`.
-
-#### Property renames
-
-Some properties have also been renamed:
-
-| Class | Terminal (Cloud) API (nexo) | Cloud device API (tapi) |
-|-------|-----------------------------|-------------------------|
-| `ICCResetData` | `AtrValue` | `ATRValue` |
-| `SoundContent` | `Value` | `Text` |
-| `TrackData` | `Value` | `TrackValue` |
-| `StoredValueAccountID` | `Value` | `StoredValueID` |
 
 #### Setter/getter naming
 
@@ -179,6 +180,8 @@ Some attribute accessors differ due to the way the code generator handles certai
 | `POIData`  | `getPOIReconciliationID()`  | `getPoIReconciliationID()`  |
 | `POIData`  | `setPOIReconciliationID()`  | `setPoIReconciliationID()`  |
 | `CardData` | `getMaskedPAN()`            | `getMaskedPan()`            |
+| `ICCResetData` | `getATRValue()`         | `getAtRValue()`             |
+| `ICCResetData` | `setATRValue()`         | `setAtRValue()`             |
 
 ### Type changes
 
@@ -232,6 +235,10 @@ instalment.setFirstPaymentDate(LocalDate.of(2025, 1, 15));
 - `BigInteger` fields are `Integer` in the Cloud device API
 - In `CurrencyConversion`: the `rate` and `markup` fields are `String` instead of `BigDecimal`
 - In `POIData`: `poIReconciliationID` is `Integer` instead of `String`
+
+#### `CurrencyConversion.convertedAmount`: `Amount` -> `ConvertedAmount`
+
+The `CurrencyConversion.convertedAmount` field uses the `ConvertedAmount` model in the Cloud device API instead of `Amount`.
 
 #### `SaleToAcquirerData`: object -> `String`
 
