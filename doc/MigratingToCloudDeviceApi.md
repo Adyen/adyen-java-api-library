@@ -242,7 +242,11 @@ The `CurrencyConversion.convertedAmount` field uses the `ConvertedAmount` model 
 
 #### `SaleToAcquirerData`: object -> `String`
 
-In the Terminal (Cloud) API, `SaleData.saleToAcquirerData` is a `SaleToAcquirerData` object. In the Cloud device API, it is a `String`. Update integrations that build `applicationInfo` or `merchantApplication` through the `SaleToAcquirerData` object.
+In the Terminal (Cloud) API, `SaleData.saleToAcquirerData` is a `SaleToAcquirerData` object. In the Cloud device API, it is a `String` containing Base64-encoded JSON. Use the existing `SaleToAcquirerData.toBase64()` helper to serialize and encode the object before setting it:
+
+```java
+saleData.setSaleToAcquirerData(saleToAcquirerData.toBase64());
+```
 
 #### Boolean helper methods
 
