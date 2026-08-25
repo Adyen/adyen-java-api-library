@@ -7,6 +7,9 @@
 {{#bodyParams}}
     * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} {{description}} (required)
 {{/bodyParams}}
+{{#formParams}}
+    * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional){{/required}}
+{{/formParams}}
 {{#queryParams}}
     * @param {{paramName}} {{#isContainer}}{@code {{{dataType}}} }{{/isContainer}}{{^isContainer}}{@link {{dataType}} }{{/isContainer}} Query: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
 {{/queryParams}}
