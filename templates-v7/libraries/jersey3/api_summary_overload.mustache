@@ -7,6 +7,9 @@
     {{#bodyParams}}
     * @param {{paramName}} {@link {{dataType}} } {{description}} (required)
     {{/bodyParams}}
+    {{#formParams}}{{#required}}
+    * @param {{paramName}} {@link {{dataType}} } {{description}} (required)
+    {{/required}}{{/formParams}}
     {{#queryParams}}{{#required}}
     * @param {{paramName}} {@link {{dataType}} } Query: {{description}} (required)
     {{/required}}{{/queryParams}}

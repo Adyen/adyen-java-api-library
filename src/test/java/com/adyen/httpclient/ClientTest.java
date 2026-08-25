@@ -9,7 +9,12 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 import javax.net.ssl.SSLContext;
@@ -18,7 +23,9 @@ import org.apache.hc.client5.http.config.Configurable;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.core5.http.Header;
+import org.apache.hc.core5.http.HttpEntity;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -245,6 +252,7 @@ public class ClientTest extends BaseTest {
   public void testRequestWithHttpHeaders() throws Exception {
     AdyenHttpClient client = new AdyenHttpClient();
     HashMap<String, String> additionalHeaders = new HashMap<>();
+    additionalHeaders.put("Content-Type", "application/vnd.adyen+json");
     additionalHeaders.put("X-Custom-Header", "custom-value");
 
     RequestOptions requestOptions =
@@ -271,9 +279,121 @@ public class ClientTest extends BaseTest {
     assertNotNull(customHeader);
     assertEquals("custom-value", customHeader.getValue());
 
+    Header[] contentTypeHeaders = request.getHeaders("Content-Type");
+    assertEquals(1, contentTypeHeaders.length);
+    assertEquals("application/vnd.adyen+json", contentTypeHeaders[0].getValue());
+
     Header wwwAuthenticate = request.getFirstHeader("WWW-Authenticate");
     assertNotNull(wwwAuthenticate);
     assertEquals("www-authenticate-header", wwwAuthenticate.getValue());
+  }
+
+  @Test
+  public void testMultipartRequestContainsFormFieldsAndBoundary(@TempDir Path temporaryDirectory)
+      throws Exception {
+    Path file = temporaryDirectory.resolve("QRMJC25GDZRKDM92.pdf");
+    byte[] fileContents = "PDF contents".getBytes(StandardCharsets.UTF_8);
+    Files.write(file, fileContents);
+
+    Map<String, Object> formParams = new LinkedHashMap<>();
+    formParams.put("context", "paCbInvoice");
+    formParams.put("file", file.toFile());
+    formParams.put("merchantAccount", "YourMerchantAccount");
+
+    HashMap<String, String> additionalHeaders = new HashMap<>();
+    additionalHeaders.put("Content-Type", "application/json");
+    additionalHeaders.put("X-Custom-Header", "custom-value");
+    RequestOptions requestOptions =
+        new RequestOptions().additionalServiceHeaders(additionalHeaders);
+
+    AdyenHttpClient client = new AdyenHttpClient();
+    HttpUriRequestBase request =
+        client.createMultipartRequest(
+            "https://document-collector-test.adyen.com/v1/crossBorderInvoices",
+            formParams,
+            new Config().apiKey("test-api-key"),
+            true,
+            requestOptions,
+            ApiConstants.HttpMethod.POST,
+            Map.of());
+
+    Header[] contentTypeHeaders = request.getHeaders("Content-Type");
+    assertEquals(1, contentTypeHeaders.length);
+    assertTrue(
+        contentTypeHeaders[0].getValue().startsWith("multipart/form-data; boundary="),
+        contentTypeHeaders[0]::getValue);
+    assertEquals("custom-value", request.getFirstHeader("X-Custom-Header").getValue());
+    assertEquals("test-api-key", request.getFirstHeader("x-api-key").getValue());
+
+    HttpEntity entity = request.getEntity();
+    assertNotNull(entity);
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    entity.writeTo(output);
+    String body = output.toString(StandardCharsets.UTF_8);
+    assertTrue(body.contains("name=\"context\""));
+    assertTrue(body.contains("paCbInvoice"));
+    assertTrue(body.contains("name=\"file\""));
+    assertTrue(body.contains("filename=\"QRMJC25GDZRKDM92.pdf\""));
+    assertTrue(body.contains("name=\"merchantAccount\""));
+    assertTrue(body.contains("YourMerchantAccount"));
+    assertTrue(body.contains(new String(fileContents, StandardCharsets.UTF_8)));
+  }
+
+  @Test
+  public void testDefaultMultipartMethodSupportsLegacyClients() throws Exception {
+    ClientInterface legacyClient =
+        new ClientInterface() {
+          @Override
+          public String request(String endpoint, String requestBody, Config config) {
+            return "response";
+          }
+
+          @Override
+          public String request(
+              String endpoint, String requestBody, Config config, boolean isApiKeyRequired) {
+            return "response";
+          }
+
+          @Override
+          public String request(
+              String endpoint,
+              String requestBody,
+              Config config,
+              boolean isApiKeyRequired,
+              RequestOptions requestOptions) {
+            return "response";
+          }
+
+          @Override
+          public String request(
+              String endpoint,
+              String requestBody,
+              Config config,
+              boolean isApiKeyRequired,
+              RequestOptions requestOptions,
+              ApiConstants.HttpMethod httpMethod) {
+            return "response";
+          }
+
+          @Override
+          public String request(
+              String endpoint,
+              String requestBody,
+              Config config,
+              boolean isApiKeyRequired,
+              RequestOptions requestOptions,
+              ApiConstants.HttpMethod httpMethod,
+              Map<String, String> params) {
+            return "response";
+          }
+        };
+
+    assertEquals("response", legacyClient.request("", "", new Config()));
+    assertThrows(
+        UnsupportedOperationException.class,
+        () ->
+            legacyClient.requestMultipart(
+                "", Map.of(), new Config(), false, null, ApiConstants.HttpMethod.POST, null));
   }
 
   @Test

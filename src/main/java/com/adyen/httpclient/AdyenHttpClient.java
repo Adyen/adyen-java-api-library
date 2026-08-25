@@ -36,12 +36,15 @@ import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
+import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.net.ssl.HostnameVerifier;
@@ -55,10 +58,13 @@ import org.apache.hc.client5.http.classic.methods.HttpUriRequest;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.net.URIBuilder;
@@ -201,10 +207,36 @@ public class AdyenHttpClient implements ClientInterface {
     HttpUriRequestBase httpRequest =
         createRequest(
             endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
+    return executeRequest(httpclient, httpRequest);
+  }
 
-    // Execute request with a custom response handler
+  @Override
+  public String requestMultipart(
+      String endpoint,
+      Map<String, Object> formParams,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws IOException, HTTPClientException {
+    CloseableHttpClient httpclient = getOrCreateHttpClient(config);
+    HttpEntity multipartEntity = createMultipartEntity(formParams);
+    HttpUriRequestBase httpRequest =
+        createRequest(
+            endpoint,
+            new RequestBody(multipartEntity, multipartEntity.getContentType()),
+            config,
+            isApiKeyRequired,
+            requestOptions,
+            httpMethod,
+            params);
+    return executeRequest(httpclient, httpRequest);
+  }
+
+  private String executeRequest(CloseableHttpClient httpclient, HttpUriRequestBase httpRequest)
+      throws IOException, HTTPClientException {
     AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
-
     if (response.getStatus() < 200 || response.getStatus() >= 300) {
       throw new HTTPClientException(
           response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
@@ -235,8 +267,51 @@ public class AdyenHttpClient implements ClientInterface {
       ApiConstants.HttpMethod httpMethod,
       Map<String, String> params)
       throws HTTPClientException {
+    HttpEntity requestEntity =
+        requestBody == null || requestBody.isEmpty()
+            ? null
+            : new StringEntity(requestBody, Charset.forName(CHARSET));
+    return createRequest(
+        endpoint,
+        new RequestBody(requestEntity, APPLICATION_JSON_TYPE),
+        config,
+        isApiKeyRequired,
+        requestOptions,
+        httpMethod,
+        params);
+  }
+
+  HttpUriRequestBase createMultipartRequest(
+      String endpoint,
+      Map<String, Object> formParams,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws HTTPClientException, IOException {
+    HttpEntity multipartEntity = createMultipartEntity(formParams);
+    return createRequest(
+        endpoint,
+        new RequestBody(multipartEntity, multipartEntity.getContentType()),
+        config,
+        isApiKeyRequired,
+        requestOptions,
+        httpMethod,
+        params);
+  }
+
+  private HttpUriRequestBase createRequest(
+      String endpoint,
+      RequestBody requestBody,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws HTTPClientException {
     HttpUriRequestBase httpRequest =
-        createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
+        createHttpRequestBase(createUri(endpoint, params), requestBody.entity, httpMethod);
 
     RequestConfig.Builder builder = RequestConfig.custom();
 
@@ -256,15 +331,19 @@ public class AdyenHttpClient implements ClientInterface {
     httpRequest.setConfig(builder.build());
 
     setAuthentication(httpRequest, isApiKeyRequired, config);
-    setHeaders(config, requestOptions, httpRequest);
+    setHeaders(config, requestOptions, httpRequest, requestBody.contentType);
 
     return httpRequest;
   }
 
   private void setHeaders(
-      Config config, RequestOptions requestOptions, HttpUriRequestBase httpUriRequest) {
+      Config config,
+      RequestOptions requestOptions,
+      HttpUriRequestBase httpUriRequest,
+      String contentType) {
 
-    setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
+    setContentType(httpUriRequest, contentType);
+    boolean isMultipart = contentType != null && contentType.startsWith("multipart/");
     httpUriRequest.addHeader(ACCEPT_CHARSET, CHARSET);
 
     String applicationName = config.getApplicationName();
@@ -292,18 +371,24 @@ public class AdyenHttpClient implements ClientInterface {
       }
 
       if (requestOptions.getAdditionalServiceHeaders() != null) {
-        requestOptions.getAdditionalServiceHeaders().forEach(httpUriRequest::addHeader);
+        requestOptions
+            .getAdditionalServiceHeaders()
+            .forEach(
+                (name, value) -> {
+                  if (CONTENT_TYPE.equalsIgnoreCase(name)) {
+                    if (!isMultipart) {
+                      httpUriRequest.setHeader(name, value);
+                    }
+                  } else {
+                    httpUriRequest.addHeader(name, value);
+                  }
+                });
       }
     }
   }
 
   private HttpUriRequestBase createHttpRequestBase(
-      URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
-    StringEntity requestEntity = null;
-    if (requestBody != null && !requestBody.isEmpty()) {
-      requestEntity = new StringEntity(requestBody, Charset.forName(CHARSET));
-    }
-
+      URI endpoint, HttpEntity requestEntity, ApiConstants.HttpMethod httpMethod) {
     switch (httpMethod) {
       case GET:
         return new HttpGet(endpoint);
@@ -318,6 +403,49 @@ public class AdyenHttpClient implements ClientInterface {
         HttpPost httpPost = new HttpPost(endpoint);
         httpPost.setEntity(requestEntity);
         return httpPost;
+    }
+  }
+
+  HttpEntity createMultipartEntity(Map<String, Object> formParams) throws IOException {
+    MultipartEntityBuilder builder =
+        MultipartEntityBuilder.create()
+            .setContentType(ContentType.create("multipart/form-data"))
+            .setCharset(StandardCharsets.UTF_8);
+    for (Map.Entry<String, Object> entry : formParams.entrySet()) {
+      addMultipartPart(builder, entry.getKey(), entry.getValue());
+    }
+    return builder.build();
+  }
+
+  private void addMultipartPart(MultipartEntityBuilder builder, String name, Object value)
+      throws IOException {
+    if (value == null) {
+      return;
+    }
+    if (value instanceof Iterable<?>) {
+      for (Object element : (Iterable<?>) value) {
+        addMultipartPart(builder, name, element);
+      }
+      return;
+    }
+    if (value instanceof File) {
+      File file = (File) value;
+      String mimeType = Files.probeContentType(file.toPath());
+      ContentType contentType =
+          mimeType == null ? ContentType.APPLICATION_OCTET_STREAM : ContentType.create(mimeType);
+      builder.addBinaryBody(name, file, contentType, file.getName());
+      return;
+    }
+    builder.addTextBody(name, String.valueOf(value), ContentType.create("text/plain", CHARSET));
+  }
+
+  private static final class RequestBody {
+    private final HttpEntity entity;
+    private final String contentType;
+
+    private RequestBody(HttpEntity entity, String contentType) {
+      this.entity = entity;
+      this.contentType = contentType;
     }
   }
 
@@ -406,7 +534,7 @@ public class AdyenHttpClient implements ClientInterface {
 
   /** Sets the Content-Type header on the request. */
   private void setContentType(HttpUriRequest httpUriRequest, String contentType) {
-    httpUriRequest.addHeader(CONTENT_TYPE, contentType);
+    httpUriRequest.setHeader(CONTENT_TYPE, contentType);
   }
 
   /** Sets the X-API-Key header on the request. */
