@@ -88,6 +88,9 @@ public class BaseTest {
       when(adyenHttpClient.request(
               anyString(), any(), any(Config.class), anyBoolean(), isNotNull(), any(), any()))
           .thenReturn(response);
+      when(adyenHttpClient.requestMultipart(
+              anyString(), anyMap(), any(Config.class), anyBoolean(), any(), any(), any()))
+          .thenReturn(response);
 
     } catch (IOException | HTTPClientException e) {
       e.printStackTrace();
