@@ -1,8 +1,8 @@
 {
   "service": "documentcollector",
   "project": "java",
-  "generatedAt": "2026-08-25T14:57:26Z",
-  "openapiCommitSha": "bee086f2cd666ac7cb5b5ba2813a8b5dc943c2d2",
+  "generatedAt": "2026-08-27T13:59:13Z",
+  "openapiCommitSha": "4265e8ffe6cc4c35fe6804d5a395598621d3da53",
   "automationCommitSha": "2f180b958babc6bbd6f0b6b73d7e4c6feefe256e",
-  "libraryCommitSha": "b652e70837e8c545db46ca83a1f6a8d58d241850"
+  "libraryCommitSha": "db3374f9ef7e3af43c3781af2d0ca31fc6b120d2"
 }

@@ -1,5 +1,5 @@
 /*
- * Cross-border Invoices API
+ * Document Collector API
  *
  * The version of the OpenAPI document: 1
  *
@@ -16,7 +16,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** The document context indicating the type of document being uploaded */
+/**
+ * The document context indicating the type of document being uploaded. Possible values:
+ * **paCbInvoice**.
+ */
 public enum DocumentContext {
   PACBINVOICE("paCbInvoice");
 

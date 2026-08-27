@@ -1,5 +1,5 @@
 /*
- * Cross-border Invoices API
+ * Document Collector API
  *
  * The version of the OpenAPI document: 1
  *
@@ -59,7 +59,7 @@ public class DocumentsApi extends Service {
    * @param context {@link DocumentContext } (required)
    * @param _file {@link File } The PDF file to upload. Filename must be {pspReference}.pdf
    *     (required)
-   * @param merchantAccount {@link String } The merchant account that the document belongs to
+   * @param merchantAccount {@link String } The merchant account that the document belongs to.
    *     (required)
    * @return {@link DocumentUploadResponse }
    * @throws ApiException if fails to make API call
@@ -76,7 +76,7 @@ public class DocumentsApi extends Service {
    * @param context {@link DocumentContext } (required)
    * @param _file {@link File } The PDF file to upload. Filename must be {pspReference}.pdf
    *     (required)
-   * @param merchantAccount {@link String } The merchant account that the document belongs to
+   * @param merchantAccount {@link String } The merchant account that the document belongs to.
    *     (required)
    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
