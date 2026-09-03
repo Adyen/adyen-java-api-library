@@ -1,6 +1,6 @@
 package com.adyen.service.clouddevice;
 
-import com.adyen.BaseIntegrationTest;
+import com.adyen.BaseCloudDeviceIntegrationTest;
 import com.adyen.model.clouddevice.*;
 import com.adyen.model.tapi.*;
 import com.adyen.security.clouddevice.EncryptionCredentialDetails;
@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
  *   <li>Disable the test again
  * </ul>
  */
-public class CloudDeviceApiTerminalIT extends BaseIntegrationTest {
+public class CloudDeviceApiTerminalIT extends BaseCloudDeviceIntegrationTest {
 
   @Disabled("Enable when you want to test with the Terminal")
   @Test
