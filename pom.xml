@@ -42,7 +42,7 @@
         <swagger-core-version>1.6.16</swagger-core-version>
         <swagger-annotations-v3-version>2.2.52</swagger-annotations-v3-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
-        <httpclient5-version>5.6.3</httpclient5-version>
+        <httpclient5-version>5.6.4</httpclient5-version>
         <httpcore5-version>5.4.3</httpcore5-version>
         <!-- Test -->
         <okio-version>3.18.1</okio-version>
