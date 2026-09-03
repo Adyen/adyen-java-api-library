@@ -1,5 +1,5 @@
 /*
- * Cross-border Invoices API
+ * Document Collector API
  *
  * The version of the OpenAPI document: 1
  *

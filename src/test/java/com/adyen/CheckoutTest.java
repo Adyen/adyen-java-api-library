@@ -296,6 +296,77 @@ public class CheckoutTest extends BaseTest {
         createCheckoutSessionResponse.getStorePaymentMethodMode());
   }
 
+  @Test
+  public void testUpdateSessionSuccessCall() throws Exception {
+    Client client = createMockClientFromResponse("{\"sessionData\":\"updated-session-data\"}");
+    CheckoutSessionPatchSessionRequest sessionRequest =
+        new CheckoutSessionPatchSessionRequest()
+            .amount(new SessionAmountUpdate().currency("EUR").value(750L))
+            .payable(true)
+            .sessionData("original-session-data");
+
+    PaymentsApi checkout = new PaymentsApi(client);
+    CheckoutSessionPatchSessionResponse response =
+        checkout.updateSession("CS1453E3730C313478", sessionRequest);
+
+    assertEquals("updated-session-data", response.getSessionData());
+    verify(client.getHttpClient())
+        .request(
+            String.format(
+                "https://checkout-test.adyen.com/v%s/sessions/CS1453E3730C313478",
+                PaymentsApi.API_VERSION),
+            sessionRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.PATCH,
+            null);
+  }
+
+  @Test
+  public void testNewCheckoutModelFieldsSerialization() throws Exception {
+    AffirmDetails affirmDetails =
+        new AffirmDetails().type(AffirmDetails.TypeEnum.AFFIRM).financingProgram("PAY_IN_4");
+    DonationCampaignsRequest donationCampaignsRequest =
+        new DonationCampaignsRequest().currency("EUR").label("Round up for charity");
+
+    assertEquals("PAY_IN_4", AffirmDetails.fromJson(affirmDetails.toJson()).getFinancingProgram());
+    assertEquals(
+        "Round up for charity",
+        DonationCampaignsRequest.fromJson(donationCampaignsRequest.toJson()).getLabel());
+  }
+
+  @Test
+  public void testDonationPaymentMethodWithSepaDirectDebit() throws Exception {
+    DonationPaymentMethod paymentMethod =
+        new DonationPaymentMethod(
+            new SepaDirectDebitDonations()
+                .type(SepaDirectDebitDonations.TypeEnum.SEPADIRECTDEBIT)
+                .storedPaymentMethodId("M5N7TQ4TG5PFWR50"));
+
+    DonationPaymentMethod parsed = DonationPaymentMethod.fromJson(paymentMethod.toJson());
+
+    assertEquals(
+        SepaDirectDebitDonations.TypeEnum.SEPADIRECTDEBIT,
+        parsed.getSepaDirectDebitDonations().getType());
+    assertEquals(
+        "M5N7TQ4TG5PFWR50", parsed.getSepaDirectDebitDonations().getStoredPaymentMethodId());
+  }
+
+  @Test
+  public void testGopayWalletUsesStoredPaymentMethodDetails() throws Exception {
+    CheckoutPaymentMethod paymentMethod =
+        new CheckoutPaymentMethod(
+            new StoredPaymentMethodDetails()
+                .type(StoredPaymentMethodDetails.TypeEnum.GOPAY_WALLET));
+
+    CheckoutPaymentMethod parsed = CheckoutPaymentMethod.fromJson(paymentMethod.toJson());
+
+    assertEquals(
+        StoredPaymentMethodDetails.TypeEnum.GOPAY_WALLET,
+        parsed.getStoredPaymentMethodDetails().getType());
+  }
+
   /** Should make orders call */
   @Test
   public void testCreateOrderSuccessCall() throws Exception {
