@@ -1,6 +1,9 @@
 package com.adyen.httpclient;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 
 import com.adyen.BaseTest;
 import com.adyen.Client;
@@ -22,6 +25,7 @@ import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.client5.http.config.Configurable;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.core5.http.Header;
 import org.apache.hc.core5.http.HttpEntity;
 import org.junit.jupiter.api.Test;
@@ -182,6 +186,39 @@ public class ClientTest extends BaseTest {
           config.getConnectionRequestTimeoutMillis(),
           defaultConfig.getConnectionRequestTimeout().toMilliseconds());
     }
+  }
+
+  @Test
+  public void testInjectedConnectionManagerAppliesDefaultRequestConfig() throws Exception {
+    PoolingHttpClientConnectionManager connectionManager =
+        mock(PoolingHttpClientConnectionManager.class);
+    Config config = new Config();
+    config.setReadTimeoutMillis(15000);
+    config.setConnectionRequestTimeoutMillis(30000);
+    config.setDefaultKeepAliveMillis(40000);
+
+    try (AdyenHttpClient adyenHttpClient = new AdyenHttpClient(connectionManager);
+      CloseableHttpClient httpClient = adyenHttpClient.createCloseableHttpClient(config)) {
+      assertInstanceOf(Configurable.class, httpClient);
+      RequestConfig defaultConfig = ((Configurable) httpClient).getConfig();
+      assertNotNull(defaultConfig);
+      assertEquals(15000, defaultConfig.getResponseTimeout().toMilliseconds());
+      assertEquals(30000, defaultConfig.getConnectionRequestTimeout().toMilliseconds());
+    }
+  }
+
+  @Test
+  public void testClosingHttpClientDoesNotCloseInjectedConnectionManager() throws Exception {
+    PoolingHttpClientConnectionManager connectionManager =
+        mock(PoolingHttpClientConnectionManager.class);
+
+    try (AdyenHttpClient adyenHttpClient = new AdyenHttpClient(connectionManager);
+        CloseableHttpClient httpClient = adyenHttpClient.createCloseableHttpClient(new Config())) {
+      assertNotNull(httpClient);
+      adyenHttpClient.close();
+    }
+
+    verify(connectionManager, never()).close();
   }
 
   @Test
