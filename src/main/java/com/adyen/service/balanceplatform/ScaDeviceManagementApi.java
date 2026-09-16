@@ -90,6 +90,38 @@ public class ScaDeviceManagementApi extends Service {
   }
 
   /**
+   * Delete an SCA device
+   *
+   * @param deviceId {@link String } The unique identifier of the SCA device to delete. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteScaDevice(String deviceId) throws ApiException, IOException {
+    deleteScaDevice(deviceId, null);
+  }
+
+  /**
+   * Delete an SCA device
+   *
+   * @param deviceId {@link String } The unique identifier of the SCA device to delete. (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteScaDevice(String deviceId, RequestOptions requestOptions)
+      throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (deviceId == null) {
+      throw new IllegalArgumentException("Please provide the deviceId path parameter");
+    }
+    pathParams.put("deviceId", deviceId);
+
+    String requestBody = null;
+    Resource resource = new Resource(this, this.baseURL + "/scaDevices/{deviceId}", null);
+    resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams);
+  }
+
+  /**
    * Finish registration process for a SCA device
    *
    * @param deviceId {@link String } The unique identifier of the SCA device that you are
