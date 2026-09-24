@@ -62,7 +62,8 @@
         <maven-checkstyle-plugin-version>3.6.0</maven-checkstyle-plugin-version>
         <maven-bundle-plugin-version>5.1.9</maven-bundle-plugin-version>
         <spotless-maven-plugin-version>3.9.0</spotless-maven-plugin-version>
-        <maven-surefire-plugin-version>3.5.6</maven-surefire-plugin-version>
+        <maven-test-plugins-version>3.5.6</maven-test-plugins-version>
+        <build-helper-maven-plugin-version>3.6.1</build-helper-maven-plugin-version>
         <google-java-format-version>1.34.1</google-java-format-version>
         <maven-enforcer-version>3.6.3</maven-enforcer-version>
     </properties>
@@ -72,6 +73,48 @@
         <url>git@github.com:Adyen/adyen-java-api-library.git</url>
     </scm>
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin-version}</version>
+                    <executions>
+                        <execution>
+                            <id>add-integration-test-sources</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>add-test-source</goal>
+                                <goal>add-test-resource</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>src/integration-test/java</source>
+                                </sources>
+                                <resources>
+                                    <resource>
+                                        <directory>src/integration-test/resources</directory>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-test-plugins-version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>integration-test</goal>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -222,6 +265,7 @@
                         <includes>
                             <include>src/main/java/**/*.java</include>
                             <include>src/test/java/**/*.java</include>
+                            <include>src/integration-test/java/**/*.java</include>
                         </includes>
                         <googleJavaFormat>
                             <version>${google-java-format-version}</version>
@@ -238,7 +282,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin-version}</version>
+                <version>${maven-test-plugins-version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -290,6 +334,45 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>integration-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <groups>external</groups>
+                            <excludedGroups>manual</excludedGroups>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>manual-integration-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <groups>manual</groups>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <dependencies>
         <!-- Compile -->
         <dependency>
