@@ -2041,6 +2041,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("afterpay_directdebit", OpenInvoiceDetails.class);
     mappings.put("afterpaytouch", AfterpayDetails.class);
     mappings.put("afterpaytouch_pos", AfterpayDetails.class);
+    mappings.put("afterpaytouch_US", AfterpayDetails.class);
     mappings.put("alipay", PaymentDetails.class);
     mappings.put("alipay_hk", PaymentDetails.class);
     mappings.put("alipay_hk_wap", PaymentDetails.class);
