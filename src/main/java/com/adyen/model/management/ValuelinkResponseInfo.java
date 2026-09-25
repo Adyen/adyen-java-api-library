@@ -25,12 +25,18 @@ import java.util.logging.Logger;
 
 /** ValuelinkResponseInfo */
 @JsonPropertyOrder({
+  ValuelinkResponseInfo.JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER,
   ValuelinkResponseInfo.JSON_PROPERTY_AUTHORISATION_MID,
   ValuelinkResponseInfo.JSON_PROPERTY_PIN_SUPPORT,
-  ValuelinkResponseInfo.JSON_PROPERTY_SUBMITTER_ID,
   ValuelinkResponseInfo.JSON_PROPERTY_TERMINAL_ID
 })
 public class ValuelinkResponseInfo {
+  public static final String JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER = "alternateMerchantNumber";
+  private String alternateMerchantNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlternateMerchantNumber = false;
+
   public static final String JSON_PROPERTY_AUTHORISATION_MID = "authorisationMid";
   private String authorisationMid;
 
@@ -84,12 +90,6 @@ public class ValuelinkResponseInfo {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPinSupport = false;
 
-  public static final String JSON_PROPERTY_SUBMITTER_ID = "submitterId";
-  private String submitterId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetSubmitterId = false;
-
   public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
   private String terminalId;
 
@@ -103,6 +103,41 @@ public class ValuelinkResponseInfo {
   @JsonIgnore private boolean includeNullValues = false;
 
   public ValuelinkResponseInfo() {}
+
+  /**
+   * Alternate Merchant Number
+   *
+   * @param alternateMerchantNumber Alternate Merchant Number
+   * @return the current {@code ValuelinkResponseInfo} instance, allowing for method chaining
+   */
+  public ValuelinkResponseInfo alternateMerchantNumber(String alternateMerchantNumber) {
+    this.alternateMerchantNumber = alternateMerchantNumber;
+    isSetAlternateMerchantNumber = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Alternate Merchant Number
+   *
+   * @return alternateMerchantNumber Alternate Merchant Number
+   */
+  @JsonProperty(JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAlternateMerchantNumber() {
+    return alternateMerchantNumber;
+  }
+
+  /**
+   * Alternate Merchant Number
+   *
+   * @param alternateMerchantNumber Alternate Merchant Number
+   */
+  @JsonProperty(JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlternateMerchantNumber(String alternateMerchantNumber) {
+    this.alternateMerchantNumber = alternateMerchantNumber;
+    isSetAlternateMerchantNumber = true; // mark as set
+  }
 
   /**
    * Authorisation Mid
@@ -175,41 +210,6 @@ public class ValuelinkResponseInfo {
   }
 
   /**
-   * Submitter ID
-   *
-   * @param submitterId Submitter ID
-   * @return the current {@code ValuelinkResponseInfo} instance, allowing for method chaining
-   */
-  public ValuelinkResponseInfo submitterId(String submitterId) {
-    this.submitterId = submitterId;
-    isSetSubmitterId = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Submitter ID
-   *
-   * @return submitterId Submitter ID
-   */
-  @JsonProperty(JSON_PROPERTY_SUBMITTER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubmitterId() {
-    return submitterId;
-  }
-
-  /**
-   * Submitter ID
-   *
-   * @param submitterId Submitter ID
-   */
-  @JsonProperty(JSON_PROPERTY_SUBMITTER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubmitterId(String submitterId) {
-    this.submitterId = submitterId;
-    isSetSubmitterId = true; // mark as set
-  }
-
-  /**
    * Terminal ID
    *
    * @param terminalId Terminal ID
@@ -274,12 +274,14 @@ public class ValuelinkResponseInfo {
       return false;
     }
     ValuelinkResponseInfo valuelinkResponseInfo = (ValuelinkResponseInfo) o;
-    return Objects.equals(this.authorisationMid, valuelinkResponseInfo.authorisationMid)
+    return Objects.equals(
+            this.alternateMerchantNumber, valuelinkResponseInfo.alternateMerchantNumber)
+        && Objects.equals(
+            this.isSetAlternateMerchantNumber, valuelinkResponseInfo.isSetAlternateMerchantNumber)
+        && Objects.equals(this.authorisationMid, valuelinkResponseInfo.authorisationMid)
         && Objects.equals(this.isSetAuthorisationMid, valuelinkResponseInfo.isSetAuthorisationMid)
         && Objects.equals(this.pinSupport, valuelinkResponseInfo.pinSupport)
         && Objects.equals(this.isSetPinSupport, valuelinkResponseInfo.isSetPinSupport)
-        && Objects.equals(this.submitterId, valuelinkResponseInfo.submitterId)
-        && Objects.equals(this.isSetSubmitterId, valuelinkResponseInfo.isSetSubmitterId)
         && Objects.equals(this.terminalId, valuelinkResponseInfo.terminalId)
         && Objects.equals(this.isSetTerminalId, valuelinkResponseInfo.isSetTerminalId);
   }
@@ -287,12 +289,12 @@ public class ValuelinkResponseInfo {
   @Override
   public int hashCode() {
     return Objects.hash(
+        alternateMerchantNumber,
+        isSetAlternateMerchantNumber,
         authorisationMid,
         isSetAuthorisationMid,
         pinSupport,
         isSetPinSupport,
-        submitterId,
-        isSetSubmitterId,
         terminalId,
         isSetTerminalId);
   }
@@ -301,9 +303,11 @@ public class ValuelinkResponseInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValuelinkResponseInfo {\n");
+    sb.append("    alternateMerchantNumber: ")
+        .append(toIndentedString(alternateMerchantNumber))
+        .append("\n");
     sb.append("    authorisationMid: ").append(toIndentedString(authorisationMid)).append("\n");
     sb.append("    pinSupport: ").append(toIndentedString(pinSupport)).append("\n");
-    sb.append("    submitterId: ").append(toIndentedString(submitterId)).append("\n");
     sb.append("    terminalId: ").append(toIndentedString(terminalId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -329,14 +333,14 @@ public class ValuelinkResponseInfo {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAlternateMerchantNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER, this.alternateMerchantNumber);
+    }
     if (isSetAuthorisationMid) {
       addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_MID, this.authorisationMid);
     }
     if (isSetPinSupport) {
       addIfNull(nulls, JSON_PROPERTY_PIN_SUPPORT, this.pinSupport);
-    }
-    if (isSetSubmitterId) {
-      addIfNull(nulls, JSON_PROPERTY_SUBMITTER_ID, this.submitterId);
     }
     if (isSetTerminalId) {
       addIfNull(nulls, JSON_PROPERTY_TERMINAL_ID, this.terminalId);

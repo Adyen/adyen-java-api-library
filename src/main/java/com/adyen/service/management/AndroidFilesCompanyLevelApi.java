@@ -307,7 +307,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
   }
 
   /**
-   * Upload Android Certificate
+   * Upload Android certificate
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @return {@link UploadAndroidCertificateResponse }
@@ -319,7 +319,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
   }
 
   /**
-   * Upload Android Certificate
+   * Upload Android certificate
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
