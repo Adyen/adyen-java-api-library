@@ -428,9 +428,15 @@ public class MidServiceNotificationData {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData type(String type) {
@@ -441,9 +447,15 @@ public class MidServiceNotificationData {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @return type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -454,9 +466,15 @@ public class MidServiceNotificationData {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
