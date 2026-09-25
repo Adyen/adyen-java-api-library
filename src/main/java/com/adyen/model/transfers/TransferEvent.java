@@ -463,6 +463,8 @@ public class TransferEvent {
 
     RETURNED(String.valueOf("returned")),
 
+    REVERSALRECEIVED(String.valueOf("reversalReceived")),
+
     REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),

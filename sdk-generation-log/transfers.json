@@ -1,8 +1,8 @@
 {
   "service": "transfers",
   "project": "java",
-  "generatedAt": "2026-07-21T09:54:33Z",
-  "openapiCommitSha": "c2ff0637d25d1c34aa1b19113e1b4e5eaa289960",
-  "automationCommitSha": "0c108bd8050cf480d2710b78b770afdfbdd89397",
-  "libraryCommitSha": "f551ee17270c3a4bd05b2fb69754e184592e1ce9"
+  "generatedAt": "2026-09-25T11:06:00Z",
+  "openapiCommitSha": "e96f4b3de219e3d82330dfd5864e621ffec3f86f",
+  "automationCommitSha": "db93bc35548c7c9d6aff97d76a513634967fd304",
+  "libraryCommitSha": "5aa3601faf1a8fa305e799eec0e3cda27f8d83a0"
 }
