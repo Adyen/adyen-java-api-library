@@ -110,6 +110,8 @@ public class PaymentMethodResponse {
 
     AMEX(String.valueOf("amex")),
 
+    ANCV(String.valueOf("ancv")),
+
     APPLEPAY(String.valueOf("applepay")),
 
     AVANCARD(String.valueOf("avancard")),
@@ -175,6 +177,8 @@ public class PaymentMethodResponse {
     DISCOVER(String.valueOf("discover")),
 
     EBANKING_FI(String.valueOf("ebanking_FI")),
+
+    EBT(String.valueOf("ebt")),
 
     EFT_DIRECTDEBIT_CA(String.valueOf("eft_directdebit_CA")),
 
@@ -354,7 +358,9 @@ public class PaymentMethodResponse {
 
     WECHATPAY(String.valueOf("wechatpay")),
 
-    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
+    WECHATPAY_POS(String.valueOf("wechatpay_pos")),
+
+    WERO(String.valueOf("wero"));
 
     private static final Logger LOG = Logger.getLogger(TypesWithErrorsEnum.class.getName());
 
