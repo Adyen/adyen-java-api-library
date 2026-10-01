@@ -425,6 +425,8 @@ public class TransferEvent {
 
     RETURNED(String.valueOf("returned")),
 
+    REVERSALRECEIVED(String.valueOf("reversalReceived")),
+
     REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),
@@ -480,7 +482,7 @@ public class TransferEvent {
   public static final String JSON_PROPERTY_TRANSACTION_ID = "transactionId";
   private String transactionId;
 
-  /** The type of the transfer event. Possible values: **accounting**, **tracking**. */
+  /** The type of the transfer event. Possible values: **accounting**, **tracing**, **tracking**. */
   public enum TypeEnum {
     ACCOUNTING(String.valueOf("accounting")),
 
@@ -1103,9 +1105,10 @@ public class TransferEvent {
   }
 
   /**
-   * The type of the transfer event. Possible values: **accounting**, **tracking**.
+   * The type of the transfer event. Possible values: **accounting**, **tracing**, **tracking**.
    *
-   * @param type The type of the transfer event. Possible values: **accounting**, **tracking**.
+   * @param type The type of the transfer event. Possible values: **accounting**, **tracing**,
+   *     **tracking**.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent type(TypeEnum type) {
@@ -1114,9 +1117,10 @@ public class TransferEvent {
   }
 
   /**
-   * The type of the transfer event. Possible values: **accounting**, **tracking**.
+   * The type of the transfer event. Possible values: **accounting**, **tracing**, **tracking**.
    *
-   * @return type The type of the transfer event. Possible values: **accounting**, **tracking**.
+   * @return type The type of the transfer event. Possible values: **accounting**, **tracing**,
+   *     **tracking**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1125,9 +1129,10 @@ public class TransferEvent {
   }
 
   /**
-   * The type of the transfer event. Possible values: **accounting**, **tracking**.
+   * The type of the transfer event. Possible values: **accounting**, **tracing**, **tracking**.
    *
-   * @param type The type of the transfer event. Possible values: **accounting**, **tracking**.
+   * @param type The type of the transfer event. Possible values: **accounting**, **tracing**,
+   *     **tracking**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
