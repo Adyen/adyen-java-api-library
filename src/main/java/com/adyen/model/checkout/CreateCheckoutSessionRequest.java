@@ -62,6 +62,7 @@ import java.util.logging.Logger;
   CreateCheckoutSessionRequest.JSON_PROPERTY_METADATA,
   CreateCheckoutSessionRequest.JSON_PROPERTY_MODE,
   CreateCheckoutSessionRequest.JSON_PROPERTY_MPI_DATA,
+  CreateCheckoutSessionRequest.JSON_PROPERTY_PAYABLE,
   CreateCheckoutSessionRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
   CreateCheckoutSessionRequest.JSON_PROPERTY_RECURRING_EXPIRY,
   CreateCheckoutSessionRequest.JSON_PROPERTY_RECURRING_FREQUENCY,
@@ -373,6 +374,12 @@ public class CreateCheckoutSessionRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMpiData = false;
+
+  public static final String JSON_PROPERTY_PAYABLE = "payable";
+  private Boolean payable;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayable = false;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
@@ -2167,6 +2174,68 @@ public class CreateCheckoutSessionRequest {
   }
 
   /**
+   * Indicates if the session is payable. If the payment amount is final, set this to **true** to
+   * indicate that the session is payable, so that the shopper can proceed to submit the payment.
+   * When you set this to **true**, you can no longer update the session. If you set this to
+   * **false**, you must make another request to update the session and set this to **true** before
+   * the shopper can submit the payment. If not specified, this defaults to **true**.
+   *
+   * @param payable Indicates if the session is payable. If the payment amount is final, set this to
+   *     **true** to indicate that the session is payable, so that the shopper can proceed to submit
+   *     the payment. When you set this to **true**, you can no longer update the session. If you
+   *     set this to **false**, you must make another request to update the session and set this to
+   *     **true** before the shopper can submit the payment. If not specified, this defaults to
+   *     **true**.
+   * @return the current {@code CreateCheckoutSessionRequest} instance, allowing for method chaining
+   */
+  public CreateCheckoutSessionRequest payable(Boolean payable) {
+    this.payable = payable;
+    isSetPayable = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates if the session is payable. If the payment amount is final, set this to **true** to
+   * indicate that the session is payable, so that the shopper can proceed to submit the payment.
+   * When you set this to **true**, you can no longer update the session. If you set this to
+   * **false**, you must make another request to update the session and set this to **true** before
+   * the shopper can submit the payment. If not specified, this defaults to **true**.
+   *
+   * @return payable Indicates if the session is payable. If the payment amount is final, set this
+   *     to **true** to indicate that the session is payable, so that the shopper can proceed to
+   *     submit the payment. When you set this to **true**, you can no longer update the session. If
+   *     you set this to **false**, you must make another request to update the session and set this
+   *     to **true** before the shopper can submit the payment. If not specified, this defaults to
+   *     **true**.
+   */
+  @JsonProperty(JSON_PROPERTY_PAYABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPayable() {
+    return payable;
+  }
+
+  /**
+   * Indicates if the session is payable. If the payment amount is final, set this to **true** to
+   * indicate that the session is payable, so that the shopper can proceed to submit the payment.
+   * When you set this to **true**, you can no longer update the session. If you set this to
+   * **false**, you must make another request to update the session and set this to **true** before
+   * the shopper can submit the payment. If not specified, this defaults to **true**.
+   *
+   * @param payable Indicates if the session is payable. If the payment amount is final, set this to
+   *     **true** to indicate that the session is payable, so that the shopper can proceed to submit
+   *     the payment. When you set this to **true**, you can no longer update the session. If you
+   *     set this to **false**, you must make another request to update the session and set this to
+   *     **true** before the shopper can submit the payment. If not specified, this defaults to
+   *     **true**.
+   */
+  @JsonProperty(JSON_PROPERTY_PAYABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPayable(Boolean payable) {
+    this.payable = payable;
+    isSetPayable = true; // mark as set
+  }
+
+  /**
    * platformChargebackLogic
    *
    * @param platformChargebackLogic
@@ -3916,6 +3985,8 @@ public class CreateCheckoutSessionRequest {
         && Objects.equals(this.isSetMode, createCheckoutSessionRequest.isSetMode)
         && Objects.equals(this.mpiData, createCheckoutSessionRequest.mpiData)
         && Objects.equals(this.isSetMpiData, createCheckoutSessionRequest.isSetMpiData)
+        && Objects.equals(this.payable, createCheckoutSessionRequest.payable)
+        && Objects.equals(this.isSetPayable, createCheckoutSessionRequest.isSetPayable)
         && Objects.equals(
             this.platformChargebackLogic, createCheckoutSessionRequest.platformChargebackLogic)
         && Objects.equals(
@@ -4095,6 +4166,8 @@ public class CreateCheckoutSessionRequest {
         isSetMode,
         mpiData,
         isSetMpiData,
+        payable,
+        isSetPayable,
         platformChargebackLogic,
         isSetPlatformChargebackLogic,
         recurringExpiry,
@@ -4202,6 +4275,7 @@ public class CreateCheckoutSessionRequest {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+    sb.append("    payable: ").append(toIndentedString(payable)).append("\n");
     sb.append("    platformChargebackLogic: ")
         .append(toIndentedString(platformChargebackLogic))
         .append("\n");
@@ -4378,6 +4452,9 @@ public class CreateCheckoutSessionRequest {
     }
     if (isSetMpiData) {
       addIfNull(nulls, JSON_PROPERTY_MPI_DATA, this.mpiData);
+    }
+    if (isSetPayable) {
+      addIfNull(nulls, JSON_PROPERTY_PAYABLE, this.payable);
     }
     if (isSetPlatformChargebackLogic) {
       addIfNull(nulls, JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC, this.platformChargebackLogic);
