@@ -1,0 +1,8 @@
+{
+  "service": "foreignexchange",
+  "project": "java",
+  "generatedAt": "2026-10-01T14:41:47Z",
+  "openapiCommitSha": "45520ee6246d7e3d8074c3c5c5e991e65c2c02d6",
+  "automationCommitSha": "5d96c9a6b53a7052671a48c3ab6eb109bec1550b",
+  "libraryCommitSha": "ad3c0a0f796e12607d199b890f9bd5b6fa05804e"
+}
