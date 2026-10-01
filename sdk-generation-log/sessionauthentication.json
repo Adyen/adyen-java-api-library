@@ -1,8 +1,8 @@
 {
   "service": "sessionauthentication",
   "project": "java",
-  "generatedAt": "2026-05-15T15:49:41Z",
-  "openapiCommitSha": "cbc5406a2df1f24d50e40742f18342f7ca7f21fc",
-  "automationCommitSha": "6f06b47d0661f0891defe6b85461d2c367fbd284",
-  "libraryCommitSha": "f27536f45bc7fbe2708a5e1ce4a42013033adbf9"
+  "generatedAt": "2026-10-01T13:22:59Z",
+  "openapiCommitSha": "45520ee6246d7e3d8074c3c5c5e991e65c2c02d6",
+  "automationCommitSha": "db93bc35548c7c9d6aff97d76a513634967fd304",
+  "libraryCommitSha": "5aa3601faf1a8fa305e799eec0e3cda27f8d83a0"
 }
