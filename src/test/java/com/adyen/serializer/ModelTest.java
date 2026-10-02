@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.adyen.model.checkout.AfterpayDetails;
 import com.adyen.model.checkout.CardDetails;
 import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
@@ -19,6 +20,7 @@ import com.adyen.model.tapi.Result;
 import com.adyen.model.tapi.SaleData;
 import com.adyen.model.tapi.TransactionIDType;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.IOException;
 import java.time.Month;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -369,5 +371,35 @@ public class ModelTest {
   @Test
   public void testTapiEnumFromValueNull() {
     assertNull(Result.fromValue(null));
+  }
+
+  @Test
+  public void testCardDetailsFundingSourceEnumSupportsDefferedDebit() {
+    // Adyen POS terminals can return additionalData.fundingSource = "DEFFERED_DEBIT",
+    // which was previously missing from this enum (issue #1878).
+    assertEquals(
+        CardDetails.FundingSourceEnum.DEFFERED_DEBIT,
+        CardDetails.FundingSourceEnum.fromValue("DEFFERED_DEBIT"));
+  }
+
+  @Test
+  public void testAfterpayDetailsTypeEnumSupportsAfterpaytouchUS() {
+    // The /paymentMethods endpoint can return type "afterpaytouch_US" for
+    // Afterpay/Cash App Afterpay in the US, which was previously missing (issue #1953).
+    assertEquals(
+        AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US,
+        AfterpayDetails.TypeEnum.fromValue("afterpaytouch_US"));
+  }
+
+  @Test
+  public void testCheckoutPaymentMethodDeserializesAfterpaytouchUS() throws IOException {
+    String json = "{\"type\": \"afterpaytouch_US\"}";
+
+    CheckoutPaymentMethod paymentMethod = CheckoutPaymentMethod.fromJson(json);
+
+    assertTrue(paymentMethod.getActualInstance() instanceof AfterpayDetails);
+    assertEquals(
+        AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US,
+        ((AfterpayDetails) paymentMethod.getActualInstance()).getType());
   }
 }
