@@ -987,6 +987,33 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'PayByBankAISDirectDebitDetails'", e);
       }
 
+      // deserialize PayByBankCADirectDebitDetails
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayByBankCADirectDebitDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
+
+          if (typeMatch) {
+            deserialized =
+                tree.traverse(jp.getCodec()).readValueAs(PayByBankCADirectDebitDetails.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(Level.FINER, "Input data matches schema 'PayByBankCADirectDebitDetails'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'PayByBankCADirectDebitDetails'", e);
+      }
+
       // deserialize PayByBankDetails
       try {
         boolean attemptParsing = true;
@@ -1840,6 +1867,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public CheckoutPaymentMethod(PayByBankCADirectDebitDetails o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public CheckoutPaymentMethod(PayByBankDetails o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -2004,6 +2036,8 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     schemas.put("OpenInvoiceDetails", new GenericType<OpenInvoiceDetails>() {});
     schemas.put(
         "PayByBankAISDirectDebitDetails", new GenericType<PayByBankAISDirectDebitDetails>() {});
+    schemas.put(
+        "PayByBankCADirectDebitDetails", new GenericType<PayByBankCADirectDebitDetails>() {});
     schemas.put("PayByBankDetails", new GenericType<PayByBankDetails>() {});
     schemas.put("PayPalDetails", new GenericType<PayPalDetails>() {});
     schemas.put("PayPayDetails", new GenericType<PayPayDetails>() {});
@@ -2214,6 +2248,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("oxxo", StoredPaymentMethodDetails.class);
     mappings.put("paybybank", PayByBankDetails.class);
     mappings.put("paybybank_AIS_DD", PayByBankAISDirectDebitDetails.class);
+    mappings.put("paybybank_ca", PayByBankCADirectDebitDetails.class);
     mappings.put("paybybank_pix", PixPayByBankDetails.class);
     mappings.put("paymaya_wallet", StoredPaymentMethodDetails.class);
     mappings.put("payme", PaymentDetails.class);
@@ -2240,6 +2275,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("riverty_account", RivertyDetails.class);
     mappings.put("riverty_installments", RivertyDetails.class);
     mappings.put("samsungpay", SamsungPayDetails.class);
+    mappings.put("satispay", PaymentDetails.class);
     mappings.put("scalapay", PaymentDetails.class);
     mappings.put("scalapay_3x", PaymentDetails.class);
     mappings.put("scalapay_4x", PaymentDetails.class);
@@ -2308,6 +2344,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("MolPayDetails", MolPayDetails.class);
     mappings.put("OpenInvoiceDetails", OpenInvoiceDetails.class);
     mappings.put("PayByBankAISDirectDebitDetails", PayByBankAISDirectDebitDetails.class);
+    mappings.put("PayByBankCADirectDebitDetails", PayByBankCADirectDebitDetails.class);
     mappings.put("PayByBankDetails", PayByBankDetails.class);
     mappings.put("PayPalDetails", PayPalDetails.class);
     mappings.put("PayPayDetails", PayPayDetails.class);
@@ -2351,12 +2388,13 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    * EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
    * FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
    * KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails,
-   * MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails,
-   * PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails,
-   * PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails,
-   * RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails,
-   * TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails,
-   * VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+   * MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails,
+   * PayByBankCADirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails,
+   * PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails,
+   * PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails,
+   * SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails,
+   * UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails,
+   * WeChatPayMiniProgramDetails, ZipDetails
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -2538,6 +2576,11 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(PayByBankCADirectDebitDetails.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     if (JSON.isInstanceOf(PayByBankDetails.class, instance, new HashSet<>())) {
       super.setActualInstance(instance);
       return;
@@ -2664,7 +2707,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     throw new RuntimeException(
-        "Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, AuPayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DBaraiDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
+        "Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, AuPayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DBaraiDetails, DirectDebitAuDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankCADirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
   }
 
   /**
@@ -2676,11 +2719,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    * ExternalTokenDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails,
    * IdealDetails, KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails,
    * MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails,
-   * PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails,
-   * PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails,
-   * RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
-   * StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, UpiQrDetails,
-   * VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+   * PayByBankCADirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails,
+   * PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PixPayByBankDetails,
+   * PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails,
+   * SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails,
+   * UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails,
+   * WeChatPayMiniProgramDetails, ZipDetails
    *
    * @return The actual instance (AchDetails, AffirmDetails, AfterpayDetails, AlmaDetails,
    *     AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, AuPayDetails,
@@ -2689,13 +2733,13 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
    *     EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, ExternalTokenDetails,
    *     FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails,
    *     KlarnaDetails, KlarnaNetworkDetails, MasterpassDetails, MbwayDetails, MobilePayDetails,
-   *     MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails,
-   *     PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails,
-   *     PaymentDetails, PixDetails, PixPayByBankDetails, PseDetails, RakutenPayDetails,
-   *     RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails,
-   *     StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails,
-   *     UpiQrDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails,
-   *     WeChatPayMiniProgramDetails, ZipDetails)
+   *     MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails,
+   *     PayByBankCADirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails,
+   *     PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails,
+   *     PixPayByBankDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails,
+   *     SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails,
+   *     UpiCollectDetails, UpiIntentDetails, UpiQrDetails, VippsDetails, VisaCheckoutDetails,
+   *     WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails)
    */
   @Override
   public Object getActualInstance() {
@@ -3087,6 +3131,18 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
   public PayByBankAISDirectDebitDetails getPayByBankAISDirectDebitDetails()
       throws ClassCastException {
     return (PayByBankAISDirectDebitDetails) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `PayByBankCADirectDebitDetails`. If the actual instance is not
+   * `PayByBankCADirectDebitDetails`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `PayByBankCADirectDebitDetails`
+   * @throws ClassCastException if the instance is not `PayByBankCADirectDebitDetails`
+   */
+  public PayByBankCADirectDebitDetails getPayByBankCADirectDebitDetails()
+      throws ClassCastException {
+    return (PayByBankCADirectDebitDetails) super.getActualInstance();
   }
 
   /**

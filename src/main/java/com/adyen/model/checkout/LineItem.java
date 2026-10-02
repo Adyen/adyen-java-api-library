@@ -37,6 +37,7 @@ import java.util.*;
   LineItem.JSON_PROPERTY_RETURN_SHIPPING_COMPANY,
   LineItem.JSON_PROPERTY_RETURN_TRACKING_NUMBER,
   LineItem.JSON_PROPERTY_RETURN_TRACKING_URI,
+  LineItem.JSON_PROPERTY_RISK_CATEGORY,
   LineItem.JSON_PROPERTY_SHIPPING_COMPANY,
   LineItem.JSON_PROPERTY_SHIPPING_METHOD,
   LineItem.JSON_PROPERTY_SIZE,
@@ -143,6 +144,12 @@ public class LineItem {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetReturnTrackingUri = false;
+
+  public static final String JSON_PROPERTY_RISK_CATEGORY = "riskCategory";
+  private String riskCategory;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRiskCategory = false;
 
   public static final String JSON_PROPERTY_SHIPPING_COMPANY = "shippingCompany";
   private String shippingCompany;
@@ -782,6 +789,47 @@ public class LineItem {
   }
 
   /**
+   * An optional, free-text category for the item to be used in the risk evaluation. When provided,
+   * Protect uses this value to evaluate custom risk rules.
+   *
+   * @param riskCategory An optional, free-text category for the item to be used in the risk
+   *     evaluation. When provided, Protect uses this value to evaluate custom risk rules.
+   * @return the current {@code LineItem} instance, allowing for method chaining
+   */
+  public LineItem riskCategory(String riskCategory) {
+    this.riskCategory = riskCategory;
+    isSetRiskCategory = true; // mark as set
+    return this;
+  }
+
+  /**
+   * An optional, free-text category for the item to be used in the risk evaluation. When provided,
+   * Protect uses this value to evaluate custom risk rules.
+   *
+   * @return riskCategory An optional, free-text category for the item to be used in the risk
+   *     evaluation. When provided, Protect uses this value to evaluate custom risk rules.
+   */
+  @JsonProperty(JSON_PROPERTY_RISK_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRiskCategory() {
+    return riskCategory;
+  }
+
+  /**
+   * An optional, free-text category for the item to be used in the risk evaluation. When provided,
+   * Protect uses this value to evaluate custom risk rules.
+   *
+   * @param riskCategory An optional, free-text category for the item to be used in the risk
+   *     evaluation. When provided, Protect uses this value to evaluate custom risk rules.
+   */
+  @JsonProperty(JSON_PROPERTY_RISK_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRiskCategory(String riskCategory) {
+    this.riskCategory = riskCategory;
+    isSetRiskCategory = true; // mark as set
+  }
+
+  /**
    * Shipping company handling the delivery of the item.
    *
    * @param shippingCompany Shipping company handling the delivery of the item.
@@ -1176,6 +1224,8 @@ public class LineItem {
         && Objects.equals(this.isSetReturnTrackingNumber, lineItem.isSetReturnTrackingNumber)
         && Objects.equals(this.returnTrackingUri, lineItem.returnTrackingUri)
         && Objects.equals(this.isSetReturnTrackingUri, lineItem.isSetReturnTrackingUri)
+        && Objects.equals(this.riskCategory, lineItem.riskCategory)
+        && Objects.equals(this.isSetRiskCategory, lineItem.isSetRiskCategory)
         && Objects.equals(this.shippingCompany, lineItem.shippingCompany)
         && Objects.equals(this.isSetShippingCompany, lineItem.isSetShippingCompany)
         && Objects.equals(this.shippingMethod, lineItem.shippingMethod)
@@ -1231,6 +1281,8 @@ public class LineItem {
         isSetReturnTrackingNumber,
         returnTrackingUri,
         isSetReturnTrackingUri,
+        riskCategory,
+        isSetRiskCategory,
         shippingCompany,
         isSetShippingCompany,
         shippingMethod,
@@ -1277,6 +1329,7 @@ public class LineItem {
         .append(toIndentedString(returnTrackingNumber))
         .append("\n");
     sb.append("    returnTrackingUri: ").append(toIndentedString(returnTrackingUri)).append("\n");
+    sb.append("    riskCategory: ").append(toIndentedString(riskCategory)).append("\n");
     sb.append("    shippingCompany: ").append(toIndentedString(shippingCompany)).append("\n");
     sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -1357,6 +1410,9 @@ public class LineItem {
     }
     if (isSetReturnTrackingUri) {
       addIfNull(nulls, JSON_PROPERTY_RETURN_TRACKING_URI, this.returnTrackingUri);
+    }
+    if (isSetRiskCategory) {
+      addIfNull(nulls, JSON_PROPERTY_RISK_CATEGORY, this.riskCategory);
     }
     if (isSetShippingCompany) {
       addIfNull(nulls, JSON_PROPERTY_SHIPPING_COMPANY, this.shippingCompany);

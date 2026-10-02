@@ -76,9 +76,9 @@ public class CheckoutForwardRequestOptions {
   public CheckoutForwardRequestOptions() {}
 
   /**
-   * Whether to check for a card account update (true) or not (false)
+   * Set to **true** to check if the account tied to the card has been updated.
    *
-   * @param accountUpdate Whether to check for a card account update (true) or not (false)
+   * @param accountUpdate Set to **true** to check if the account tied to the card has been updated.
    * @return the current {@code CheckoutForwardRequestOptions} instance, allowing for method
    *     chaining
    */
@@ -89,9 +89,10 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Whether to check for a card account update (true) or not (false)
+   * Set to **true** to check if the account tied to the card has been updated.
    *
-   * @return accountUpdate Whether to check for a card account update (true) or not (false)
+   * @return accountUpdate Set to **true** to check if the account tied to the card has been
+   *     updated.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_UPDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,9 +101,9 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Whether to check for a card account update (true) or not (false)
+   * Set to **true** to check if the account tied to the card has been updated.
    *
-   * @param accountUpdate Whether to check for a card account update (true) or not (false)
+   * @param accountUpdate Set to **true** to check if the account tied to the card has been updated.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_UPDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,11 +197,13 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
-   * networkTxReference in the incoming 3rd party response
+   * Only include when &#x60;tokenize&#x60; is set to **true**.&lt;br&gt;&lt;br&gt;A list of
+   * addresses to possible location(s) of the &#x60;networkTxReference&#x60; that will be returned
+   * in the third party response.
    *
-   * @param networkTxReferencePaths Set in tokenize:true case when forwarding PAN. Addresses to the
-   *     possible location(s) of networkTxReference in the incoming 3rd party response
+   * @param networkTxReferencePaths Only include when &#x60;tokenize&#x60; is set to
+   *     **true**.&lt;br&gt;&lt;br&gt;A list of addresses to possible location(s) of the
+   *     &#x60;networkTxReference&#x60; that will be returned in the third party response.
    * @return the current {@code CheckoutForwardRequestOptions} instance, allowing for method
    *     chaining
    */
@@ -221,11 +224,13 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
-   * networkTxReference in the incoming 3rd party response
+   * Only include when &#x60;tokenize&#x60; is set to **true**.&lt;br&gt;&lt;br&gt;A list of
+   * addresses to possible location(s) of the &#x60;networkTxReference&#x60; that will be returned
+   * in the third party response.
    *
-   * @return networkTxReferencePaths Set in tokenize:true case when forwarding PAN. Addresses to the
-   *     possible location(s) of networkTxReference in the incoming 3rd party response
+   * @return networkTxReferencePaths Only include when &#x60;tokenize&#x60; is set to
+   *     **true**.&lt;br&gt;&lt;br&gt;A list of addresses to possible location(s) of the
+   *     &#x60;networkTxReference&#x60; that will be returned in the third party response.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,11 +239,13 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
-   * networkTxReference in the incoming 3rd party response
+   * Only include when &#x60;tokenize&#x60; is set to **true**.&lt;br&gt;&lt;br&gt;A list of
+   * addresses to possible location(s) of the &#x60;networkTxReference&#x60; that will be returned
+   * in the third party response.
    *
-   * @param networkTxReferencePaths Set in tokenize:true case when forwarding PAN. Addresses to the
-   *     possible location(s) of networkTxReference in the incoming 3rd party response
+   * @param networkTxReferencePaths Only include when &#x60;tokenize&#x60; is set to
+   *     **true**.&lt;br&gt;&lt;br&gt;A list of addresses to possible location(s) of the
+   *     &#x60;networkTxReference&#x60; that will be returned in the third party response.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE_PATHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,11 +255,11 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set to **true**, the payment details are
-   * [tokenized](https://docs.adyen.com/online-payments/tokenization).
+   * Set to **true** to [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment
+   * details.
    *
-   * @param tokenize Set to **true**, the payment details are
-   *     [tokenized](https://docs.adyen.com/online-payments/tokenization).
+   * @param tokenize Set to **true** to
+   *     [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment details.
    * @return the current {@code CheckoutForwardRequestOptions} instance, allowing for method
    *     chaining
    */
@@ -263,11 +270,11 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set to **true**, the payment details are
-   * [tokenized](https://docs.adyen.com/online-payments/tokenization).
+   * Set to **true** to [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment
+   * details.
    *
-   * @return tokenize Set to **true**, the payment details are
-   *     [tokenized](https://docs.adyen.com/online-payments/tokenization).
+   * @return tokenize Set to **true** to
+   *     [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment details.
    */
   @JsonProperty(JSON_PROPERTY_TOKENIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,11 +283,11 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set to **true**, the payment details are
-   * [tokenized](https://docs.adyen.com/online-payments/tokenization).
+   * Set to **true** to [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment
+   * details.
    *
-   * @param tokenize Set to **true**, the payment details are
-   *     [tokenized](https://docs.adyen.com/online-payments/tokenization).
+   * @param tokenize Set to **true** to
+   *     [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment details.
    */
   @JsonProperty(JSON_PROPERTY_TOKENIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,11 +297,13 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
-   * transactionLinkId in the incoming 3rd party response
+   * Only include when &#x60;tokenize&#x60; is set to **true**.&lt;br&gt;&lt;br&gt;A list of
+   * addresses to possible location(s) of the &#x60;transactionLinkId&#x60; that will be returned in
+   * the third party response.
    *
-   * @param transactionLinkIdPaths Set in tokenize:true case when forwarding PAN. Addresses to the
-   *     possible location(s) of transactionLinkId in the incoming 3rd party response
+   * @param transactionLinkIdPaths Only include when &#x60;tokenize&#x60; is set to
+   *     **true**.&lt;br&gt;&lt;br&gt;A list of addresses to possible location(s) of the
+   *     &#x60;transactionLinkId&#x60; that will be returned in the third party response.
    * @return the current {@code CheckoutForwardRequestOptions} instance, allowing for method
    *     chaining
    */
@@ -314,11 +323,13 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
-   * transactionLinkId in the incoming 3rd party response
+   * Only include when &#x60;tokenize&#x60; is set to **true**.&lt;br&gt;&lt;br&gt;A list of
+   * addresses to possible location(s) of the &#x60;transactionLinkId&#x60; that will be returned in
+   * the third party response.
    *
-   * @return transactionLinkIdPaths Set in tokenize:true case when forwarding PAN. Addresses to the
-   *     possible location(s) of transactionLinkId in the incoming 3rd party response
+   * @return transactionLinkIdPaths Only include when &#x60;tokenize&#x60; is set to
+   *     **true**.&lt;br&gt;&lt;br&gt;A list of addresses to possible location(s) of the
+   *     &#x60;transactionLinkId&#x60; that will be returned in the third party response.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,11 +338,13 @@ public class CheckoutForwardRequestOptions {
   }
 
   /**
-   * Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of
-   * transactionLinkId in the incoming 3rd party response
+   * Only include when &#x60;tokenize&#x60; is set to **true**.&lt;br&gt;&lt;br&gt;A list of
+   * addresses to possible location(s) of the &#x60;transactionLinkId&#x60; that will be returned in
+   * the third party response.
    *
-   * @param transactionLinkIdPaths Set in tokenize:true case when forwarding PAN. Addresses to the
-   *     possible location(s) of transactionLinkId in the incoming 3rd party response
+   * @param transactionLinkIdPaths Only include when &#x60;tokenize&#x60; is set to
+   *     **true**.&lt;br&gt;&lt;br&gt;A list of addresses to possible location(s) of the
+   *     &#x60;transactionLinkId&#x60; that will be returned in the third party response.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID_PATHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

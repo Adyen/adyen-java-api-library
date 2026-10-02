@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 /** StoredPaymentMethodRequest */
 @JsonPropertyOrder({
   StoredPaymentMethodRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  StoredPaymentMethodRequest.JSON_PROPERTY_OPI,
   StoredPaymentMethodRequest.JSON_PROPERTY_PAYMENT_METHOD,
   StoredPaymentMethodRequest.JSON_PROPERTY_RECURRING_PROCESSING_MODEL,
   StoredPaymentMethodRequest.JSON_PROPERTY_SHOPPER_EMAIL,
@@ -38,6 +39,12 @@ public class StoredPaymentMethodRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantAccount = false;
+
+  public static final String JSON_PROPERTY_OPI = "opi";
+  private OpiRequest opi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpi = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private PaymentMethodToStore paymentMethod;
@@ -167,6 +174,41 @@ public class StoredPaymentMethodRequest {
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     isSetMerchantAccount = true; // mark as set
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   * @return the current {@code StoredPaymentMethodRequest} instance, allowing for method chaining
+   */
+  public StoredPaymentMethodRequest opi(OpiRequest opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get opi
+   *
+   * @return opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OpiRequest getOpi() {
+    return opi;
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOpi(OpiRequest opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
   }
 
   /**
@@ -435,6 +477,8 @@ public class StoredPaymentMethodRequest {
     return Objects.equals(this.merchantAccount, storedPaymentMethodRequest.merchantAccount)
         && Objects.equals(
             this.isSetMerchantAccount, storedPaymentMethodRequest.isSetMerchantAccount)
+        && Objects.equals(this.opi, storedPaymentMethodRequest.opi)
+        && Objects.equals(this.isSetOpi, storedPaymentMethodRequest.isSetOpi)
         && Objects.equals(this.paymentMethod, storedPaymentMethodRequest.paymentMethod)
         && Objects.equals(this.isSetPaymentMethod, storedPaymentMethodRequest.isSetPaymentMethod)
         && Objects.equals(
@@ -456,6 +500,8 @@ public class StoredPaymentMethodRequest {
     return Objects.hash(
         merchantAccount,
         isSetMerchantAccount,
+        opi,
+        isSetOpi,
         paymentMethod,
         isSetPaymentMethod,
         recurringProcessingModel,
@@ -473,6 +519,7 @@ public class StoredPaymentMethodRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoredPaymentMethodRequest {\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    recurringProcessingModel: ")
         .append(toIndentedString(recurringProcessingModel))
@@ -506,6 +553,9 @@ public class StoredPaymentMethodRequest {
 
     if (isSetMerchantAccount) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetOpi) {
+      addIfNull(nulls, JSON_PROPERTY_OPI, this.opi);
     }
     if (isSetPaymentMethod) {
       addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);

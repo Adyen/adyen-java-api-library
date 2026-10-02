@@ -21,17 +21,31 @@ import java.util.*;
 
 /** CheckoutForwardResponse */
 @JsonPropertyOrder({
+  CheckoutForwardResponse.JSON_PROPERTY_ACCOUNT_UPDATE,
   CheckoutForwardResponse.JSON_PROPERTY_MERCHANT_REFERENCE,
+  CheckoutForwardResponse.JSON_PROPERTY_NETWORK_TOKEN,
   CheckoutForwardResponse.JSON_PROPERTY_PSP_REFERENCE,
   CheckoutForwardResponse.JSON_PROPERTY_RESPONSE,
   CheckoutForwardResponse.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
 })
 public class CheckoutForwardResponse {
+  public static final String JSON_PROPERTY_ACCOUNT_UPDATE = "accountUpdate";
+  private CheckoutForwardAccountUpdateResult accountUpdate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountUpdate = false;
+
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantReference = false;
+
+  public static final String JSON_PROPERTY_NETWORK_TOKEN = "networkToken";
+  private CheckoutForwardNetworkTokenResult networkToken;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkToken = false;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -58,6 +72,41 @@ public class CheckoutForwardResponse {
   @JsonIgnore private boolean includeNullValues = false;
 
   public CheckoutForwardResponse() {}
+
+  /**
+   * accountUpdate
+   *
+   * @param accountUpdate
+   * @return the current {@code CheckoutForwardResponse} instance, allowing for method chaining
+   */
+  public CheckoutForwardResponse accountUpdate(CheckoutForwardAccountUpdateResult accountUpdate) {
+    this.accountUpdate = accountUpdate;
+    isSetAccountUpdate = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get accountUpdate
+   *
+   * @return accountUpdate
+   */
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_UPDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CheckoutForwardAccountUpdateResult getAccountUpdate() {
+    return accountUpdate;
+  }
+
+  /**
+   * accountUpdate
+   *
+   * @param accountUpdate
+   */
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_UPDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccountUpdate(CheckoutForwardAccountUpdateResult accountUpdate) {
+    this.accountUpdate = accountUpdate;
+    isSetAccountUpdate = true; // mark as set
+  }
 
   /**
    * Merchant defined payment reference.
@@ -92,6 +141,41 @@ public class CheckoutForwardResponse {
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
     isSetMerchantReference = true; // mark as set
+  }
+
+  /**
+   * networkToken
+   *
+   * @param networkToken
+   * @return the current {@code CheckoutForwardResponse} instance, allowing for method chaining
+   */
+  public CheckoutForwardResponse networkToken(CheckoutForwardNetworkTokenResult networkToken) {
+    this.networkToken = networkToken;
+    isSetNetworkToken = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get networkToken
+   *
+   * @return networkToken
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CheckoutForwardNetworkTokenResult getNetworkToken() {
+    return networkToken;
+  }
+
+  /**
+   * networkToken
+   *
+   * @param networkToken
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkToken(CheckoutForwardNetworkTokenResult networkToken) {
+    this.networkToken = networkToken;
+    isSetNetworkToken = true; // mark as set
   }
 
   /**
@@ -238,9 +322,13 @@ public class CheckoutForwardResponse {
       return false;
     }
     CheckoutForwardResponse checkoutForwardResponse = (CheckoutForwardResponse) o;
-    return Objects.equals(this.merchantReference, checkoutForwardResponse.merchantReference)
+    return Objects.equals(this.accountUpdate, checkoutForwardResponse.accountUpdate)
+        && Objects.equals(this.isSetAccountUpdate, checkoutForwardResponse.isSetAccountUpdate)
+        && Objects.equals(this.merchantReference, checkoutForwardResponse.merchantReference)
         && Objects.equals(
             this.isSetMerchantReference, checkoutForwardResponse.isSetMerchantReference)
+        && Objects.equals(this.networkToken, checkoutForwardResponse.networkToken)
+        && Objects.equals(this.isSetNetworkToken, checkoutForwardResponse.isSetNetworkToken)
         && Objects.equals(this.pspReference, checkoutForwardResponse.pspReference)
         && Objects.equals(this.isSetPspReference, checkoutForwardResponse.isSetPspReference)
         && Objects.equals(this.response, checkoutForwardResponse.response)
@@ -253,8 +341,12 @@ public class CheckoutForwardResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        accountUpdate,
+        isSetAccountUpdate,
         merchantReference,
         isSetMerchantReference,
+        networkToken,
+        isSetNetworkToken,
         pspReference,
         isSetPspReference,
         response,
@@ -267,7 +359,9 @@ public class CheckoutForwardResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckoutForwardResponse {\n");
+    sb.append("    accountUpdate: ").append(toIndentedString(accountUpdate)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    networkToken: ").append(toIndentedString(networkToken)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    storedPaymentMethodId: ")
@@ -297,8 +391,14 @@ public class CheckoutForwardResponse {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAccountUpdate) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_UPDATE, this.accountUpdate);
+    }
     if (isSetMerchantReference) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetNetworkToken) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TOKEN, this.networkToken);
     }
     if (isSetPspReference) {
       addIfNull(nulls, JSON_PROPERTY_PSP_REFERENCE, this.pspReference);
