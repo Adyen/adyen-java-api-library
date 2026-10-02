@@ -78,9 +78,7 @@ final class IntegrationTestConfiguration {
         () -> IntegrationTestConfiguration.class.getResourceAsStream(CONFIGURATION_RESOURCE));
   }
 
-  /**
-   * Loads the configuration from an environment variable, fallback to local file
-   */
+  /** Loads the configuration from an environment variable, fallback to local file */
   static IntegrationTestConfiguration load(
       String environmentValue, Supplier<InputStream> configurationResource) {
     if (environmentValue != null && !environmentValue.isBlank()) {
