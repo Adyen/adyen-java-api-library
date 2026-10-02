@@ -41,11 +41,16 @@ These instructions apply to files under `src/integration-test`.
 
 ## Configuration
 
-- Add typed accessors to `BaseIntegrationTest` instead of reading configuration directly in tests.
-- Configuration lookup precedence is Java system property, environment variable, then
-  `src/integration-test/resources/config.properties`.
-- Use environment variables or the ignored properties file for secrets. Command-line system
-  properties can be exposed through shell history or process listings.
+- Configuration is a single JSON document with typed fields, loaded by
+  `IntegrationTestConfiguration` from the `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment
+  variable or, when that variable is absent or blank, from the ignored
+  `src/integration-test/resources/test-config.json`.
+- To add a setting, add the field to `test-config.example.json` and
+  `IntegrationTestConfiguration`, then expose it through a typed accessor on `BaseIntegrationTest`.
+  Never read configuration directly in tests.
+- Every field must be a non-blank JSON string and is validated at startup. Failures list field
+  names only, never values.
+- Keep secrets in the environment variable or the ignored JSON file, never in tracked files.
 
 ## Assertions and Comments
 
@@ -64,6 +69,12 @@ Validate generated tests without contacting Adyen:
 mvn spotless:apply
 mvn -Pintegration-tests -DskipTests test-compile
 mvn spotless:check checkstyle:check -DskipTests
+```
+
+The configuration tests are offline and safe to execute:
+
+```bash
+mvn -Pintegration-tests test -Dtest=IntegrationTestConfigurationTest
 ```
 
 Use the opt-in execution commands from `src/integration-test/README.md` only when external execution
