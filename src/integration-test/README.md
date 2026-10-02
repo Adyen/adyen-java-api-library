@@ -87,7 +87,7 @@ require a person, terminal, or dedicated infrastructure.
 Integration tests read a single JSON document with typed fields. Two sources are supported, in
 this order:
 
-1. The `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable containing the raw JSON
+1. The `ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable containing the raw JSON
 2. The ignored local file `src/integration-test/resources/test-config.json`
 
 Java system properties are not consulted. Start from
@@ -124,7 +124,7 @@ test job:
 
 ```yaml
 env:
-  API_LIBRARIES_INTEGRATION_TEST_CONFIG: ${{ secrets.API_LIBRARIES_INTEGRATION_TEST_CONFIG }}
+  ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG: ${{ secrets.ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG }}
 ```
 
 All integration-test clients currently use the Adyen TEST environment. `BaseIntegrationTest`
@@ -250,11 +250,11 @@ Add the concrete model, service, and exception imports required by the API under
 
 The run fails before any test executes and lists the offending JSON field names. Complete the
 fields in `src/integration-test/resources/test-config.json`, or provide the whole document through
-the `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable.
+the `ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable.
 
 ### No configuration source is available
 
-Set the `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable to the JSON document, or
+Set the `ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable to the JSON document, or
 copy `test-config.example.json` to `src/integration-test/resources/test-config.json` and complete
 its values.
 

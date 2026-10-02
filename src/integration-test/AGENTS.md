@@ -42,7 +42,7 @@ These instructions apply to files under `src/integration-test`.
 ## Configuration
 
 - Configuration is a single JSON document with typed fields, loaded by
-  `IntegrationTestConfiguration` from the `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment
+  `IntegrationTestConfiguration` from the `ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment
   variable or, when that variable is absent or blank, from the ignored
   `src/integration-test/resources/test-config.json`.
 - To add a setting, add the field to `test-config.example.json` and
