@@ -1,8 +1,8 @@
 {
   "service": "transferwebhooks",
   "project": "java",
-  "generatedAt": "2026-07-16T07:19:10Z",
-  "openapiCommitSha": "8ca5e35a2df8646fbed1793daeba735ebfcb821b",
-  "automationCommitSha": "a7fa5d57782b5065affe714e9d9caaf5009a1e24",
-  "libraryCommitSha": "503dcc66e435ded29884875f6a5bda4590cecb95"
+  "generatedAt": "2026-10-01T14:41:53Z",
+  "openapiCommitSha": "45520ee6246d7e3d8074c3c5c5e991e65c2c02d6",
+  "automationCommitSha": "5d96c9a6b53a7052671a48c3ab6eb109bec1550b",
+  "libraryCommitSha": "ad3c0a0f796e12607d199b890f9bd5b6fa05804e"
 }
