@@ -8,15 +8,16 @@ discovers classes ending in `IT`, and opt-in profiles keep external calls out of
 From the repository root:
 
 ```bash
-cp src/integration-test/resources/config.properties.example \
-  src/integration-test/resources/config.properties
+cp src/integration-test/resources/test-config.example.json \
+  src/integration-test/resources/test-config.json
 
 mvn -Pintegration-tests test-compile \
   failsafe:integration-test failsafe:verify
 ```
 
-The first command creates the ignored local configuration. Complete the values needed by the tests
-you plan to run. The Maven command compiles all test sources but executes only integration tests.
+The first command creates the ignored local configuration. Complete every JSON value before
+running the tests. The Maven command compiles all test sources but executes only integration
+tests.
 
 ## Test profiles
 
@@ -81,36 +82,50 @@ mvn -Pmanual-integration-tests test-compile \
 There are currently no manual integration tests. This profile is reserved for future tests that
 require a person, terminal, or dedicated infrastructure.
 
-## Local configuration
+## Configuration
 
-The ignored local file is:
+Integration tests read a single JSON document with typed fields. Two sources are supported, in
+this order:
 
-```text
-src/integration-test/resources/config.properties
-```
+1. The `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable containing the raw JSON
+2. The ignored local file `src/integration-test/resources/test-config.json`
 
-Start from
-[`config.properties.example`](resources/config.properties.example). Environment variables take
-precedence over values in the properties file. Java system properties take precedence over both.
+Java system properties are not consulted. Start from
+[`test-config.example.json`](resources/test-config.example.json), copy it to `test-config.json`,
+and complete every value.
 
-Configuration lookup order:
+Every field is required and validated once at startup. A field that is missing, blank, or not a
+JSON string fails the run before any test executes and lists the offending field names. Values are
+never included in error messages. Unknown fields are ignored, so the document can grow without
+breaking the run.
 
-1. Java system property, for example `-DAPI_LIBRARIES_ADYEN_LEM_API_KEY=...`
-2. Environment variable
-3. `src/integration-test/resources/config.properties`
+The JSON fields are:
 
-Use environment variables or the ignored properties file for API keys. Command-line values may be
-visible in shell history or process listings.
-
-The current typed configuration properties are:
-
-| Property | Used by |
+| Field | Used by |
 |---|---|
-| `API_LIBRARIES_ADYEN_API_KEY` | Checkout tests |
-| `API_LIBRARIES_ADYEN_MERCHANT_ACCOUNT` | Checkout tests |
-| `API_LIBRARIES_ADYEN_LEM_API_KEY` | Legal Entity Management tests |
-| `API_LIBRARIES_ADYEN_BCL_API_KEY` | Balance Platform tests |
-| `API_LIBRARIES_ADYEN_BALANCE_PLATFORM_ID` | Balance Platform tests |
+| `company` | Company account, reserved for future tests |
+| `merchantAccount` | Checkout tests |
+| `balancePlatform` | Balance Platform tests |
+| `apiKey` | Checkout tests |
+| `lemApiKey` | Legal Entity Management tests |
+| `bclApiKey` | Balance Platform tests |
+| `givingCampaignId` | Giving campaigns, reserved for future tests |
+| `legalEntityId` | Legal Entity Management, reserved for future tests |
+| `businessLineId` | Legal Entity Management, reserved for future tests |
+| `documentId` | Legal Entity Management, reserved for future tests |
+| `accountHolderId` | Balance Platform, reserved for future tests |
+| `balanceAccountId` | Balance Platform, reserved for future tests |
+
+Keep API keys in the environment variable or the ignored JSON file. Do not put credentials in
+command-line arguments, tracked files, or logs.
+
+On GitHub Actions, store the same JSON document once as a repository secret and expose it to the
+test job:
+
+```yaml
+env:
+  API_LIBRARIES_INTEGRATION_TEST_CONFIG: ${{ secrets.API_LIBRARIES_INTEGRATION_TEST_CONFIG }}
+```
 
 All integration-test clients currently use the Adyen TEST environment. `BaseIntegrationTest`
 caches one client per credential during a test and closes all clients after each test.
@@ -139,6 +154,12 @@ mvn -Pintegration-tests -DskipTests test-compile
 mvn spotless:check checkstyle:check -DskipTests
 ```
 
+The configuration tests are offline and safe to execute:
+
+```bash
+mvn -Pintegration-tests test -Dtest=IntegrationTestConfigurationTest
+```
+
 `-DskipTests` is required for offline validation. Do not run an integration-test profile without it
 unless the external API calls are intentional.
 
@@ -156,11 +177,13 @@ src/integration-test/
 ├── README.md
 ├── java/com/adyen/
 │   ├── BaseIntegrationTest.java
+│   ├── IntegrationTestConfiguration.java
+│   ├── IntegrationTestConfigurationTest.java
 │   ├── IntegrationTestTags.java
 │   └── service/<service>/*IT.java
 └── resources/
-    ├── config.properties.example
-    └── config.properties
+    ├── test-config.example.json
+    └── test-config.json
 ```
 
 Packages mirror production packages under `src/main/java`.
@@ -223,11 +246,17 @@ Add the concrete model, service, and exception imports required by the API under
 - Confirm automated tests use the `external` tag and manual tests use the `manual` tag.
 - Use `-Dit.test`, not `-Dtest`.
 
-### A required property is not defined
+### A required configuration field is missing or invalid
 
-Confirm `src/integration-test/resources/config.properties` exists and contains the local values
-required by the selected test. Java system properties override environment variables, which
-override the file.
+The run fails before any test executes and lists the offending JSON field names. Complete the
+fields in `src/integration-test/resources/test-config.json`, or provide the whole document through
+the `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable.
+
+### No configuration source is available
+
+Set the `API_LIBRARIES_INTEGRATION_TEST_CONFIG` environment variable to the JSON document, or
+copy `test-config.example.json` to `src/integration-test/resources/test-config.json` and complete
+its values.
 
 ### Checkout returns HTTP 403 with error code `010`
 
