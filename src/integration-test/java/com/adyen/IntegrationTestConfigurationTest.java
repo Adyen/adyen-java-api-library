@@ -147,7 +147,7 @@ class IntegrationTestConfigurationTest {
             IllegalStateException.class, () -> IntegrationTestConfiguration.load(null, () -> null));
 
     assertTrue(
-        exception.getMessage().contains("API_LIBRARIES_INTEGRATION_TEST_CONFIG"),
+        exception.getMessage().contains("ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG"),
         exception.getMessage());
     assertTrue(exception.getMessage().contains("test-config.json"), exception.getMessage());
   }
