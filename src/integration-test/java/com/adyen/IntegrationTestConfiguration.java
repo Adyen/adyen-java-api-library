@@ -21,14 +21,15 @@ import java.util.function.Supplier;
 /**
  * Typed integration-test configuration read from a single JSON document.
  *
- * <p>The document is taken from the API_LIBRARIES_INTEGRATION_TEST_CONFIG environment variable or,
- * when that variable is absent or blank, from the /test-config.json classpath resource. Every field
- * is required and validated while loading; unknown fields are ignored so the document can grow over
- * time.
+ * <p>The document is taken from the ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG environment
+ * variable or, when that variable is absent or blank, from the /test-config.json classpath
+ * resource. Every field is required and validated while loading; unknown fields are ignored so the
+ * document can grow over time.
  */
 final class IntegrationTestConfiguration {
 
-  private static final String ENVIRONMENT_VARIABLE_NAME = "API_LIBRARIES_INTEGRATION_TEST_CONFIG";
+  private static final String ENVIRONMENT_VARIABLE_NAME =
+      "ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG";
   private static final String CONFIGURATION_RESOURCE = "/test-config.json";
   private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
 
