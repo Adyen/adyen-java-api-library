@@ -607,6 +607,8 @@ public class Transfer {
 
     RETURNED(String.valueOf("returned")),
 
+    REVERSALRECEIVED(String.valueOf("reversalReceived")),
+
     REVERSED(String.valueOf("reversed")),
 
     SECONDCHARGEBACK(String.valueOf("secondChargeback")),
@@ -735,7 +737,11 @@ public class Transfer {
 
     BALANCEROLLOVER(String.valueOf("balanceRollover")),
 
-    BALANCEMIGRATION(String.valueOf("balanceMigration"));
+    BALANCEMIGRATION(String.valueOf("balanceMigration")),
+
+    FXSELL(String.valueOf("fxSell")),
+
+    FXBUY(String.valueOf("fxBuy"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 

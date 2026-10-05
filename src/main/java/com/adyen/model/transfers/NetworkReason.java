@@ -44,7 +44,8 @@ public class NetworkReason {
 
   /**
    * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **iso8583ResponseCode**
+   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
+   * **iso8583ResponseCode**
    */
   public enum NamespaceEnum {
     ISO8583RESPONSECODE(String.valueOf("iso8583ResponseCode")),
@@ -53,7 +54,9 @@ public class NetworkReason {
 
     UKFPSRETURNREASONCODE(String.valueOf("ukFpsReturnReasonCode")),
 
-    USACHRETURNREASONCODE(String.valueOf("usAchReturnReasonCode"));
+    USACHRETURNREASONCODE(String.valueOf("usAchReturnReasonCode")),
+
+    USACHCORRECTIONREASONCODE(String.valueOf("usAchCorrectionReasonCode"));
 
     private static final Logger LOG = Logger.getLogger(NamespaceEnum.class.getName());
 
@@ -176,11 +179,12 @@ public class NetworkReason {
 
   /**
    * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **iso8583ResponseCode**
+   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
+   * **iso8583ResponseCode**
    *
    * @param namespace The namespace that corresponds to the reason code. Possible values: *
    *     **ukFpsRejectionCode** * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** *
-   *     **iso8583ResponseCode**
+   *     **usAchCorrectionReasonCode** * **iso8583ResponseCode**
    * @return the current {@code NetworkReason} instance, allowing for method chaining
    */
   public NetworkReason namespace(NamespaceEnum namespace) {
@@ -191,11 +195,12 @@ public class NetworkReason {
 
   /**
    * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **iso8583ResponseCode**
+   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
+   * **iso8583ResponseCode**
    *
    * @return namespace The namespace that corresponds to the reason code. Possible values: *
    *     **ukFpsRejectionCode** * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** *
-   *     **iso8583ResponseCode**
+   *     **usAchCorrectionReasonCode** * **iso8583ResponseCode**
    */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,11 +210,12 @@ public class NetworkReason {
 
   /**
    * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **iso8583ResponseCode**
+   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
+   * **iso8583ResponseCode**
    *
    * @param namespace The namespace that corresponds to the reason code. Possible values: *
    *     **ukFpsRejectionCode** * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** *
-   *     **iso8583ResponseCode**
+   *     **usAchCorrectionReasonCode** * **iso8583ResponseCode**
    */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
