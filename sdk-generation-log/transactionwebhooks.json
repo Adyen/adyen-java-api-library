@@ -1,8 +1,8 @@
 {
   "service": "transactionwebhooks",
   "project": "java",
-  "generatedAt": "2026-07-16T07:19:06Z",
-  "openapiCommitSha": "8ca5e35a2df8646fbed1793daeba735ebfcb821b",
-  "automationCommitSha": "a7fa5d57782b5065affe714e9d9caaf5009a1e24",
-  "libraryCommitSha": "503dcc66e435ded29884875f6a5bda4590cecb95"
+  "generatedAt": "2026-10-05T12:35:53Z",
+  "openapiCommitSha": "45520ee6246d7e3d8074c3c5c5e991e65c2c02d6",
+  "automationCommitSha": "2d1a85539058e71d0384b6613831f7c7476ebb68",
+  "libraryCommitSha": "cd9aa06b2371aa410f4a62e2d39b47d31d31585e"
 }
