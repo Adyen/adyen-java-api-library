@@ -552,6 +552,11 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(Long.valueOf(1000), event.getMutations().get(0).getReceived());
   }
 
+  /**
+   * Verifies that a transfer.updated webhook carrying an issued card reversal is fully
+   * deserialized: the transfer status, the card category data (including the network variant), the
+   * network reason of the reversal, and the reversal event with its modification.
+   */
   @Test
   public void testTransferNotificationRequestWithReversalAndIssuedCardData() {
     String json =
@@ -585,11 +590,13 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(Modification.StatusEnum.REVERSED, reversalEvent.getModification().getStatus());
   }
 
+  /**
+   * Verifies the wire-value mapping of transfer webhook enums and their forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
   @Test
   public void testTransferWebhooksEnumDeserialization() {
-    // Enum values deserialize from their wire value; unknown values return null
-    // so that payloads with values added by Adyen after this library's release
-    // do not break deserialization.
     assertNull(IssuedCard.NetworkVariantEnum.fromValue("some_future_network"));
     assertEquals("maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
     assertEquals(
