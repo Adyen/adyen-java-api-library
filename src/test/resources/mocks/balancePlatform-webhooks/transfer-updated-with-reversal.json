@@ -1,0 +1,84 @@
+{
+  "data": {
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "creationDate": "2025-06-02T13:46:27+02:00",
+    "id": "01234",
+    "accountHolder": {
+      "description": "The Account Holder",
+      "id": "AH1234567890"
+    },
+    "amount": {
+      "currency": "USD",
+      "value": 22700
+    },
+    "balanceAccount": {
+      "description": "The Liable Balance Account",
+      "id": "BA1234567890"
+    },
+    "category": "issuedCard",
+    "categoryData": {
+      "type": "issuedCard",
+      "authorisationType": "pos",
+      "networkVariant": "maestro_us",
+      "panEntryMode": "chip",
+      "processingType": "pos"
+    },
+    "description": "Card authorisation reversal",
+    "direction": "outgoing",
+    "reason": "approved",
+    "reference": "mock-transfer-reference",
+    "status": "reversalReceived",
+    "type": "bankTransfer",
+    "networkReason": {
+      "namespace": "usAchCorrectionReasonCode",
+      "code": "C01",
+      "description": "Incorrect DFI account number"
+    },
+    "balances": [
+      {
+        "currency": "USD",
+        "received": 0,
+        "reserved": 22700
+      }
+    ],
+    "eventId": "EV1234567890",
+    "events": [
+      {
+        "bookingDate": "2025-06-02T13:46:27+02:00",
+        "id": "EV1234567890",
+        "mutations": [
+          {
+            "currency": "USD",
+            "received": 22700
+          }
+        ],
+        "status": "received",
+        "type": "accounting"
+      },
+      {
+        "bookingDate": "2025-06-03T09:12:00+02:00",
+        "id": "EV1234567890-2",
+        "modification": {
+          "id": "MOD1234567890",
+          "reference": "mock-modification-reference",
+          "status": "reversed",
+          "type": "reversal",
+          "direction": "incoming"
+        },
+        "mutations": [
+          {
+            "currency": "USD",
+            "received": -22700,
+            "reserved": 22700
+          }
+        ],
+        "status": "reversalReceived",
+        "type": "accounting"
+      }
+    ],
+    "sequenceNumber": 3
+  },
+  "environment": "test",
+  "timestamp": "2025-06-03T07:12:01.635Z",
+  "type": "balancePlatform.transfer.updated"
+}

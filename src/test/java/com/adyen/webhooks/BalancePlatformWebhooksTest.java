@@ -21,6 +21,9 @@ import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
 import com.adyen.model.transferwebhooks.BalanceMutation;
 import com.adyen.model.transferwebhooks.InterchangeData;
+import com.adyen.model.transferwebhooks.IssuedCard;
+import com.adyen.model.transferwebhooks.Modification;
+import com.adyen.model.transferwebhooks.NetworkReason;
 import com.adyen.model.transferwebhooks.PlatformPayment;
 import com.adyen.model.transferwebhooks.TransferData;
 import com.adyen.model.transferwebhooks.TransferEvent;
@@ -547,6 +550,64 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertNotNull(event.getMutations());
     assertEquals(1, event.getMutations().size());
     assertEquals(Long.valueOf(1000), event.getMutations().get(0).getReceived());
+  }
+
+  @Test
+  public void testTransferNotificationRequestWithReversalAndIssuedCardData() {
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/transfer-updated-with-reversal.json");
+
+    TransferNotificationRequest notificationRequest =
+        new TransferWebhooksHandler(json).getTransferNotificationRequest().orElseThrow();
+    assertEquals(
+        TransferNotificationRequest.TypeEnum.BALANCEPLATFORM_TRANSFER_UPDATED,
+        notificationRequest.getType());
+    TransferData transferData = notificationRequest.getData();
+
+    assertEquals(TransferData.StatusEnum.REVERSALRECEIVED, transferData.getStatus());
+    assertEquals(TransferData.CategoryEnum.ISSUEDCARD, transferData.getCategory());
+
+    assertNotNull(transferData.getNetworkReason());
+    assertEquals(
+        NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
+        transferData.getNetworkReason().getNamespace());
+    assertEquals("C01", transferData.getNetworkReason().getCode());
+
+    IssuedCard issuedCard = transferData.getCategoryData().getIssuedCard();
+    assertEquals(IssuedCard.NetworkVariantEnum.MAESTRO_US, issuedCard.getNetworkVariant());
+
+    TransferEvent reversalEvent =
+        transferData.getEvents().stream()
+            .filter(event -> event.getStatus() == TransferEvent.StatusEnum.REVERSALRECEIVED)
+            .findFirst()
+            .orElseThrow();
+    assertNotNull(reversalEvent.getModification());
+    assertEquals(Modification.StatusEnum.REVERSED, reversalEvent.getModification().getStatus());
+  }
+
+  @Test
+  public void testTransferWebhooksEnumDeserialization() {
+    // Enum values deserialize from their wire value; unknown values return null
+    // so that payloads with values added by Adyen after this library's release
+    // do not break deserialization.
+    assertNull(IssuedCard.NetworkVariantEnum.fromValue("some_future_network"));
+    assertEquals("maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
+    assertEquals(
+        IssuedCard.NetworkVariantEnum.VISA, IssuedCard.NetworkVariantEnum.fromValue("visa"));
+    assertEquals(
+        NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
+        NetworkReason.NamespaceEnum.fromValue("usAchCorrectionReasonCode"));
+    assertEquals(
+        TransferData.StatusEnum.REVERSALRECEIVED,
+        TransferData.StatusEnum.fromValue("reversalReceived"));
+    assertEquals(
+        TransferData.TypeEnum.BALANCEMIGRATION,
+        TransferData.TypeEnum.fromValue("balanceMigration"));
+    assertEquals(TransferData.TypeEnum.FXSELL, TransferData.TypeEnum.fromValue("fxSell"));
+    assertEquals(TransferData.TypeEnum.FXBUY, TransferData.TypeEnum.fromValue("fxBuy"));
+    assertEquals(
+        TransferEvent.StatusEnum.REVERSALRECEIVED,
+        TransferEvent.StatusEnum.fromValue("reversalReceived"));
   }
 
   @Test
