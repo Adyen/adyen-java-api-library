@@ -170,7 +170,8 @@ public class TransfersTest extends BaseTest {
         TransferData.StatusEnum.REVERSALRECEIVED,
         TransferData.StatusEnum.fromValue("reversalReceived"));
     assertEquals(
-        TransferData.TypeEnum.BALANCEMIGRATION, TransferData.TypeEnum.fromValue("balanceMigration"));
+        TransferData.TypeEnum.BALANCEMIGRATION,
+        TransferData.TypeEnum.fromValue("balanceMigration"));
     assertEquals(TransferData.TypeEnum.FXSELL, TransferData.TypeEnum.fromValue("fxSell"));
     assertEquals(TransferData.TypeEnum.FXBUY, TransferData.TypeEnum.fromValue("fxBuy"));
     assertEquals(
