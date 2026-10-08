@@ -12,21 +12,80 @@
 package com.adyen.model.management;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** UpdateSplitConfigurationRuleRequest */
 @JsonPropertyOrder({
+  UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_CARD_USAGE_TYPE,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_CURRENCY,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_FUNDING_SOURCE,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_PAYMENT_METHOD,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_SHOPPER_INTERACTION
 })
 public class UpdateSplitConfigurationRuleRequest {
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   */
+  public enum CardUsageTypeEnum {
+    COMMERCIAL(String.valueOf("commercial")),
+
+    CONSUMER(String.valueOf("consumer")),
+
+    ANY(String.valueOf("ANY"));
+
+    private static final Logger LOG = Logger.getLogger(CardUsageTypeEnum.class.getName());
+
+    private String value;
+
+    CardUsageTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CardUsageTypeEnum fromValue(String value) {
+      for (CardUsageTypeEnum b : CardUsageTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "CardUsageTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CardUsageTypeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_CARD_USAGE_TYPE = "cardUsageType";
+  private CardUsageTypeEnum cardUsageType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardUsageType = false;
+
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
@@ -58,6 +117,63 @@ public class UpdateSplitConfigurationRuleRequest {
   @JsonIgnore private boolean includeNullValues = false;
 
   public UpdateSplitConfigurationRuleRequest() {}
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   *
+   * @param cardUsageType The card usage type condition that determines whether the split logic
+   *     applies to commercial cards, consumer cards, or all cards. * **ANY** (default): The split
+   *     logic applies to all cards, regardless of its usage type. * **commercial**: The split logic
+   *     applies to commercial cards only. * **consumer**: The split logic applies to consumer cards
+   *     only.
+   * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method
+   *     chaining
+   */
+  public UpdateSplitConfigurationRuleRequest cardUsageType(CardUsageTypeEnum cardUsageType) {
+    this.cardUsageType = cardUsageType;
+    isSetCardUsageType = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   *
+   * @return cardUsageType The card usage type condition that determines whether the split logic
+   *     applies to commercial cards, consumer cards, or all cards. * **ANY** (default): The split
+   *     logic applies to all cards, regardless of its usage type. * **commercial**: The split logic
+   *     applies to commercial cards only. * **consumer**: The split logic applies to consumer cards
+   *     only.
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_USAGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CardUsageTypeEnum getCardUsageType() {
+    return cardUsageType;
+  }
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   *
+   * @param cardUsageType The card usage type condition that determines whether the split logic
+   *     applies to commercial cards, consumer cards, or all cards. * **ANY** (default): The split
+   *     logic applies to all cards, regardless of its usage type. * **commercial**: The split logic
+   *     applies to commercial cards only. * **consumer**: The split logic applies to consumer cards
+   *     only.
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_USAGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardUsageType(CardUsageTypeEnum cardUsageType) {
+    this.cardUsageType = cardUsageType;
+    isSetCardUsageType = true; // mark as set
+  }
 
   /**
    * The currency condition that defines whether the split logic applies. Its value must be a
@@ -303,7 +419,10 @@ public class UpdateSplitConfigurationRuleRequest {
     }
     UpdateSplitConfigurationRuleRequest updateSplitConfigurationRuleRequest =
         (UpdateSplitConfigurationRuleRequest) o;
-    return Objects.equals(this.currency, updateSplitConfigurationRuleRequest.currency)
+    return Objects.equals(this.cardUsageType, updateSplitConfigurationRuleRequest.cardUsageType)
+        && Objects.equals(
+            this.isSetCardUsageType, updateSplitConfigurationRuleRequest.isSetCardUsageType)
+        && Objects.equals(this.currency, updateSplitConfigurationRuleRequest.currency)
         && Objects.equals(this.isSetCurrency, updateSplitConfigurationRuleRequest.isSetCurrency)
         && Objects.equals(this.fundingSource, updateSplitConfigurationRuleRequest.fundingSource)
         && Objects.equals(
@@ -321,6 +440,8 @@ public class UpdateSplitConfigurationRuleRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
+        cardUsageType,
+        isSetCardUsageType,
         currency,
         isSetCurrency,
         fundingSource,
@@ -335,6 +456,7 @@ public class UpdateSplitConfigurationRuleRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSplitConfigurationRuleRequest {\n");
+    sb.append("    cardUsageType: ").append(toIndentedString(cardUsageType)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
@@ -363,6 +485,9 @@ public class UpdateSplitConfigurationRuleRequest {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetCardUsageType) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_USAGE_TYPE, this.cardUsageType);
+    }
     if (isSetCurrency) {
       addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
     }

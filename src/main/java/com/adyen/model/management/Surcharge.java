@@ -42,7 +42,8 @@ public class Surcharge {
   private boolean isSetConfigurations = false;
 
   public static final String JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD = "disclosureOnPresentCard";
-  private Boolean disclosureOnPresentCard;
+  /* deprecated since Management API v1 */
+  @Deprecated private Boolean disclosureOnPresentCard;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDisclosureOnPresentCard = false;
@@ -152,7 +153,9 @@ public class Surcharge {
    * @param disclosureOnPresentCard Show the maximum surcharge rate to the shopper on the present
    *     card screen before they tap.
    * @return the current {@code Surcharge} instance, allowing for method chaining
+   * @deprecated since Management API v1
    */
+  @Deprecated
   public Surcharge disclosureOnPresentCard(Boolean disclosureOnPresentCard) {
     this.disclosureOnPresentCard = disclosureOnPresentCard;
     isSetDisclosureOnPresentCard = true; // mark as set
@@ -164,7 +167,9 @@ public class Surcharge {
    *
    * @return disclosureOnPresentCard Show the maximum surcharge rate to the shopper on the present
    *     card screen before they tap.
+   * @deprecated since Management API v1
    */
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisclosureOnPresentCard() {
@@ -176,7 +181,9 @@ public class Surcharge {
    *
    * @param disclosureOnPresentCard Show the maximum surcharge rate to the shopper on the present
    *     card screen before they tap.
+   * @deprecated since Management API v1
    */
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DISCLOSURE_ON_PRESENT_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisclosureOnPresentCard(Boolean disclosureOnPresentCard) {
