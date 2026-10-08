@@ -290,9 +290,10 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     String json =
         getFileContents("mocks/notification/balancePlatform-transaction-created-issued-card.json");
     TransactionWebhooksHandler webhookHandler = new TransactionWebhooksHandler(json);
-    Assertions.assertTrue(webhookHandler.getTransactionNotificationRequestV4().isPresent());
-    TransactionNotificationRequestV4 request =
-        webhookHandler.getTransactionNotificationRequestV4().get();
+    Optional<TransactionNotificationRequestV4> requestOptional =
+        webhookHandler.getTransactionNotificationRequestV4();
+    Assertions.assertTrue(requestOptional.isPresent());
+    TransactionNotificationRequestV4 request = requestOptional.get();
     Assertions.assertEquals("EVJN00000000000000000000000004USD", request.getData().getId());
 
     IssuedCard issuedCard = request.getData().getTransfer().getCategoryData().getIssuedCard();
@@ -303,14 +304,13 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   /**
-   * Verifies the wire-value mapping of the card network variant enum and its forward
-   * compatibility: known values deserialize to the matching enum constant, while values not yet
-   * known to this library deserialize to null instead of throwing an exception.
+   * Verifies the wire-value mapping of the card network variant enum and its forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
    */
   @Test
   public void testIssuedCardNetworkVariantDeserialization() {
-    Assertions.assertEquals(
-        "maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
+    Assertions.assertEquals("maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
     Assertions.assertEquals(
         IssuedCard.NetworkVariantEnum.VISA, IssuedCard.NetworkVariantEnum.fromValue("visa"));
     Assertions.assertNull(IssuedCard.NetworkVariantEnum.fromValue("some_future_network"));
