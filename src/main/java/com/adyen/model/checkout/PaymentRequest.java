@@ -69,6 +69,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_MERCHANT_RISK_INDICATOR,
   PaymentRequest.JSON_PROPERTY_METADATA,
   PaymentRequest.JSON_PROPERTY_MPI_DATA,
+  PaymentRequest.JSON_PROPERTY_OPI,
   PaymentRequest.JSON_PROPERTY_ORDER,
   PaymentRequest.JSON_PROPERTY_ORDER_REFERENCE,
   PaymentRequest.JSON_PROPERTY_ORIGIN,
@@ -476,6 +477,12 @@ public class PaymentRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMpiData = false;
+
+  public static final String JSON_PROPERTY_OPI = "opi";
+  private OpiRequest opi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpi = false;
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private EncryptedOrderData order;
@@ -2265,7 +2272,7 @@ public class PaymentRequest {
 
   /**
    * You can use this reference to link multiple transactions to one another (for example, to track
-   * order authorization rate).For each billing cycle, this reference should be unique. After the
+   * order authorization rate). For each billing cycle, this reference should be unique. After the
    * first authorized payment attempt, do not reuse the reference. If you use this parameter,
    * include it in all of the payment requests that you make. We strongly recommend that you: *
    * Always include this parameter, so that you can benefit from linking payment requests to one
@@ -2277,7 +2284,7 @@ public class PaymentRequest {
    * [&#x60;retry.skipRetry&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/sessions#request-additionalData-AdditionalDataRetry-retry-skipRetry)
    *
    * @param merchantOrderReference You can use this reference to link multiple transactions to one
-   *     another (for example, to track order authorization rate).For each billing cycle, this
+   *     another (for example, to track order authorization rate). For each billing cycle, this
    *     reference should be unique. After the first authorized payment attempt, do not reuse the
    *     reference. If you use this parameter, include it in all of the payment requests that you
    *     make. We strongly recommend that you: * Always include this parameter, so that you can
@@ -2297,7 +2304,7 @@ public class PaymentRequest {
 
   /**
    * You can use this reference to link multiple transactions to one another (for example, to track
-   * order authorization rate).For each billing cycle, this reference should be unique. After the
+   * order authorization rate). For each billing cycle, this reference should be unique. After the
    * first authorized payment attempt, do not reuse the reference. If you use this parameter,
    * include it in all of the payment requests that you make. We strongly recommend that you: *
    * Always include this parameter, so that you can benefit from linking payment requests to one
@@ -2309,7 +2316,7 @@ public class PaymentRequest {
    * [&#x60;retry.skipRetry&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/sessions#request-additionalData-AdditionalDataRetry-retry-skipRetry)
    *
    * @return merchantOrderReference You can use this reference to link multiple transactions to one
-   *     another (for example, to track order authorization rate).For each billing cycle, this
+   *     another (for example, to track order authorization rate). For each billing cycle, this
    *     reference should be unique. After the first authorized payment attempt, do not reuse the
    *     reference. If you use this parameter, include it in all of the payment requests that you
    *     make. We strongly recommend that you: * Always include this parameter, so that you can
@@ -2328,7 +2335,7 @@ public class PaymentRequest {
 
   /**
    * You can use this reference to link multiple transactions to one another (for example, to track
-   * order authorization rate).For each billing cycle, this reference should be unique. After the
+   * order authorization rate). For each billing cycle, this reference should be unique. After the
    * first authorized payment attempt, do not reuse the reference. If you use this parameter,
    * include it in all of the payment requests that you make. We strongly recommend that you: *
    * Always include this parameter, so that you can benefit from linking payment requests to one
@@ -2340,7 +2347,7 @@ public class PaymentRequest {
    * [&#x60;retry.skipRetry&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/sessions#request-additionalData-AdditionalDataRetry-retry-skipRetry)
    *
    * @param merchantOrderReference You can use this reference to link multiple transactions to one
-   *     another (for example, to track order authorization rate).For each billing cycle, this
+   *     another (for example, to track order authorization rate). For each billing cycle, this
    *     reference should be unique. After the first authorized payment attempt, do not reuse the
    *     reference. If you use this parameter, include it in all of the payment requests that you
    *     make. We strongly recommend that you: * Always include this parameter, so that you can
@@ -2487,6 +2494,41 @@ public class PaymentRequest {
   public void setMpiData(ThreeDSecureData mpiData) {
     this.mpiData = mpiData;
     isSetMpiData = true; // mark as set
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest opi(OpiRequest opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get opi
+   *
+   * @return opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OpiRequest getOpi() {
+    return opi;
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOpi(OpiRequest opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
   }
 
   /**
@@ -2965,12 +3007,12 @@ public class PaymentRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with
    * you about the payment status. To provide multiple references for one transaction, separate the
-   * reference values with the hyphen (&#x60;-&#x60;) character.We strongly recommend that you use a
-   * unique value for each transaction. Maximum length: 80 characters.
+   * reference values with the hyphen (&#x60;-&#x60;) character. We strongly recommend that you use
+   * a unique value for each transaction. Maximum length: 80 characters.
    *
    * @param reference The reference to uniquely identify a payment. This reference is used in all
    *     communication with you about the payment status. To provide multiple references for one
-   *     transaction, separate the reference values with the hyphen (&#x60;-&#x60;) character.We
+   *     transaction, separate the reference values with the hyphen (&#x60;-&#x60;) character. We
    *     strongly recommend that you use a unique value for each transaction. Maximum length: 80
    *     characters.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
@@ -2984,12 +3026,12 @@ public class PaymentRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with
    * you about the payment status. To provide multiple references for one transaction, separate the
-   * reference values with the hyphen (&#x60;-&#x60;) character.We strongly recommend that you use a
-   * unique value for each transaction. Maximum length: 80 characters.
+   * reference values with the hyphen (&#x60;-&#x60;) character. We strongly recommend that you use
+   * a unique value for each transaction. Maximum length: 80 characters.
    *
    * @return reference The reference to uniquely identify a payment. This reference is used in all
    *     communication with you about the payment status. To provide multiple references for one
-   *     transaction, separate the reference values with the hyphen (&#x60;-&#x60;) character.We
+   *     transaction, separate the reference values with the hyphen (&#x60;-&#x60;) character. We
    *     strongly recommend that you use a unique value for each transaction. Maximum length: 80
    *     characters.
    */
@@ -3002,12 +3044,12 @@ public class PaymentRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with
    * you about the payment status. To provide multiple references for one transaction, separate the
-   * reference values with the hyphen (&#x60;-&#x60;) character.We strongly recommend that you use a
-   * unique value for each transaction. Maximum length: 80 characters.
+   * reference values with the hyphen (&#x60;-&#x60;) character. We strongly recommend that you use
+   * a unique value for each transaction. Maximum length: 80 characters.
    *
    * @param reference The reference to uniquely identify a payment. This reference is used in all
    *     communication with you about the payment status. To provide multiple references for one
-   *     transaction, separate the reference values with the hyphen (&#x60;-&#x60;) character.We
+   *     transaction, separate the reference values with the hyphen (&#x60;-&#x60;) character. We
    *     strongly recommend that you use a unique value for each transaction. Maximum length: 80
    *     characters.
    */
@@ -4354,6 +4396,8 @@ public class PaymentRequest {
         && Objects.equals(this.isSetMetadata, paymentRequest.isSetMetadata)
         && Objects.equals(this.mpiData, paymentRequest.mpiData)
         && Objects.equals(this.isSetMpiData, paymentRequest.isSetMpiData)
+        && Objects.equals(this.opi, paymentRequest.opi)
+        && Objects.equals(this.isSetOpi, paymentRequest.isSetOpi)
         && Objects.equals(this.order, paymentRequest.order)
         && Objects.equals(this.isSetOrder, paymentRequest.isSetOrder)
         && Objects.equals(this.orderReference, paymentRequest.orderReference)
@@ -4515,6 +4559,8 @@ public class PaymentRequest {
         isSetMetadata,
         mpiData,
         isSetMpiData,
+        opi,
+        isSetOpi,
         order,
         isSetOrder,
         orderReference,
@@ -4636,6 +4682,7 @@ public class PaymentRequest {
         .append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+    sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
@@ -4829,6 +4876,9 @@ public class PaymentRequest {
     }
     if (isSetMpiData) {
       addIfNull(nulls, JSON_PROPERTY_MPI_DATA, this.mpiData);
+    }
+    if (isSetOpi) {
+      addIfNull(nulls, JSON_PROPERTY_OPI, this.opi);
     }
     if (isSetOrder) {
       addIfNull(nulls, JSON_PROPERTY_ORDER, this.order);

@@ -33,6 +33,7 @@ import java.util.logging.Logger;
   PaymentDetailsResponse.JSON_PROPERTY_DONATION_TOKEN,
   PaymentDetailsResponse.JSON_PROPERTY_FRAUD_RESULT,
   PaymentDetailsResponse.JSON_PROPERTY_MERCHANT_REFERENCE,
+  PaymentDetailsResponse.JSON_PROPERTY_OPI,
   PaymentDetailsResponse.JSON_PROPERTY_ORDER,
   PaymentDetailsResponse.JSON_PROPERTY_PAYMENT_METHOD,
   PaymentDetailsResponse.JSON_PROPERTY_PAYMENT_VALIDATIONS,
@@ -81,6 +82,12 @@ public class PaymentDetailsResponse {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantReference = false;
+
+  public static final String JSON_PROPERTY_OPI = "opi";
+  private OpiResponse opi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpi = false;
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private CheckoutOrderResponse order;
@@ -474,6 +481,41 @@ public class PaymentDetailsResponse {
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
     isSetMerchantReference = true; // mark as set
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
+   */
+  public PaymentDetailsResponse opi(OpiResponse opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get opi
+   *
+   * @return opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OpiResponse getOpi() {
+    return opi;
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOpi(OpiResponse opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
   }
 
   /**
@@ -1111,6 +1153,8 @@ public class PaymentDetailsResponse {
         && Objects.equals(this.merchantReference, paymentDetailsResponse.merchantReference)
         && Objects.equals(
             this.isSetMerchantReference, paymentDetailsResponse.isSetMerchantReference)
+        && Objects.equals(this.opi, paymentDetailsResponse.opi)
+        && Objects.equals(this.isSetOpi, paymentDetailsResponse.isSetOpi)
         && Objects.equals(this.order, paymentDetailsResponse.order)
         && Objects.equals(this.isSetOrder, paymentDetailsResponse.isSetOrder)
         && Objects.equals(this.paymentMethod, paymentDetailsResponse.paymentMethod)
@@ -1154,6 +1198,8 @@ public class PaymentDetailsResponse {
         isSetFraudResult,
         merchantReference,
         isSetMerchantReference,
+        opi,
+        isSetOpi,
         order,
         isSetOrder,
         paymentMethod,
@@ -1188,6 +1234,7 @@ public class PaymentDetailsResponse {
     sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
     sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    paymentValidations: ").append(toIndentedString(paymentValidations)).append("\n");
@@ -1242,6 +1289,9 @@ public class PaymentDetailsResponse {
     }
     if (isSetMerchantReference) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetOpi) {
+      addIfNull(nulls, JSON_PROPERTY_OPI, this.opi);
     }
     if (isSetOrder) {
       addIfNull(nulls, JSON_PROPERTY_ORDER, this.order);

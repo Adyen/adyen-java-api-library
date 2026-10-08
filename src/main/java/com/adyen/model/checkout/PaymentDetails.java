@@ -118,6 +118,8 @@ public class PaymentDetails {
 
     PAYPO(String.valueOf("paypo")),
 
+    SATISPAY(String.valueOf("satispay")),
+
     SCALAPAY(String.valueOf("scalapay")),
 
     SCALAPAY_3X(String.valueOf("scalapay_3x")),

@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   KlarnaNetworkDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_DATA,
+  KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID,
   KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN,
   KlarnaNetworkDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   KlarnaNetworkDetails.JSON_PROPERTY_SDK_DATA,
@@ -45,6 +46,13 @@ public class KlarnaNetworkDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetKlarnaNetworkData = false;
+
+  public static final String JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID =
+      "klarnaNetworkPaymentAccountId";
+  private String klarnaNetworkPaymentAccountId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetKlarnaNetworkPaymentAccountId = false;
 
   public static final String JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN =
       "klarnaNetworkSessionToken";
@@ -199,6 +207,47 @@ public class KlarnaNetworkDetails {
   public void setKlarnaNetworkData(String klarnaNetworkData) {
     this.klarnaNetworkData = klarnaNetworkData;
     isSetKlarnaNetworkData = true; // mark as set
+  }
+
+  /**
+   * The Klarna Network Payment Account identifier to use for the transaction. Required when
+   * &#x60;klarnaNetworkSessionToken&#x60; is provided.
+   *
+   * @param klarnaNetworkPaymentAccountId The Klarna Network Payment Account identifier to use for
+   *     the transaction. Required when &#x60;klarnaNetworkSessionToken&#x60; is provided.
+   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   */
+  public KlarnaNetworkDetails klarnaNetworkPaymentAccountId(String klarnaNetworkPaymentAccountId) {
+    this.klarnaNetworkPaymentAccountId = klarnaNetworkPaymentAccountId;
+    isSetKlarnaNetworkPaymentAccountId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The Klarna Network Payment Account identifier to use for the transaction. Required when
+   * &#x60;klarnaNetworkSessionToken&#x60; is provided.
+   *
+   * @return klarnaNetworkPaymentAccountId The Klarna Network Payment Account identifier to use for
+   *     the transaction. Required when &#x60;klarnaNetworkSessionToken&#x60; is provided.
+   */
+  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getKlarnaNetworkPaymentAccountId() {
+    return klarnaNetworkPaymentAccountId;
+  }
+
+  /**
+   * The Klarna Network Payment Account identifier to use for the transaction. Required when
+   * &#x60;klarnaNetworkSessionToken&#x60; is provided.
+   *
+   * @param klarnaNetworkPaymentAccountId The Klarna Network Payment Account identifier to use for
+   *     the transaction. Required when &#x60;klarnaNetworkSessionToken&#x60; is provided.
+   */
+  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKlarnaNetworkPaymentAccountId(String klarnaNetworkPaymentAccountId) {
+    this.klarnaNetworkPaymentAccountId = klarnaNetworkPaymentAccountId;
+    isSetKlarnaNetworkPaymentAccountId = true; // mark as set
   }
 
   /**
@@ -433,6 +482,11 @@ public class KlarnaNetworkDetails {
         && Objects.equals(this.klarnaNetworkData, klarnaNetworkDetails.klarnaNetworkData)
         && Objects.equals(this.isSetKlarnaNetworkData, klarnaNetworkDetails.isSetKlarnaNetworkData)
         && Objects.equals(
+            this.klarnaNetworkPaymentAccountId, klarnaNetworkDetails.klarnaNetworkPaymentAccountId)
+        && Objects.equals(
+            this.isSetKlarnaNetworkPaymentAccountId,
+            klarnaNetworkDetails.isSetKlarnaNetworkPaymentAccountId)
+        && Objects.equals(
             this.klarnaNetworkSessionToken, klarnaNetworkDetails.klarnaNetworkSessionToken)
         && Objects.equals(
             this.isSetKlarnaNetworkSessionToken,
@@ -457,6 +511,8 @@ public class KlarnaNetworkDetails {
         isSetCheckoutAttemptId,
         klarnaNetworkData,
         isSetKlarnaNetworkData,
+        klarnaNetworkPaymentAccountId,
+        isSetKlarnaNetworkPaymentAccountId,
         klarnaNetworkSessionToken,
         isSetKlarnaNetworkSessionToken,
         recurringDetailReference,
@@ -475,6 +531,9 @@ public class KlarnaNetworkDetails {
     sb.append("class KlarnaNetworkDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    klarnaNetworkData: ").append(toIndentedString(klarnaNetworkData)).append("\n");
+    sb.append("    klarnaNetworkPaymentAccountId: ")
+        .append(toIndentedString(klarnaNetworkPaymentAccountId))
+        .append("\n");
     sb.append("    klarnaNetworkSessionToken: ")
         .append(toIndentedString(klarnaNetworkSessionToken))
         .append("\n");
@@ -515,6 +574,12 @@ public class KlarnaNetworkDetails {
     }
     if (isSetKlarnaNetworkData) {
       addIfNull(nulls, JSON_PROPERTY_KLARNA_NETWORK_DATA, this.klarnaNetworkData);
+    }
+    if (isSetKlarnaNetworkPaymentAccountId) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID,
+          this.klarnaNetworkPaymentAccountId);
     }
     if (isSetKlarnaNetworkSessionToken) {
       addIfNull(nulls, JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN, this.klarnaNetworkSessionToken);
