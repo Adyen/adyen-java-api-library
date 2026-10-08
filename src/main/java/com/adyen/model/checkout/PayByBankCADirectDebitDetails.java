@@ -23,43 +23,20 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** KlarnaNetworkDetails */
+/** PayByBankCADirectDebitDetails */
 @JsonPropertyOrder({
-  KlarnaNetworkDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_DATA,
-  KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID,
-  KlarnaNetworkDetails.JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN,
-  KlarnaNetworkDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  KlarnaNetworkDetails.JSON_PROPERTY_SDK_DATA,
-  KlarnaNetworkDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  KlarnaNetworkDetails.JSON_PROPERTY_TYPE
+  PayByBankCADirectDebitDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  PayByBankCADirectDebitDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  PayByBankCADirectDebitDetails.JSON_PROPERTY_SDK_DATA,
+  PayByBankCADirectDebitDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  PayByBankCADirectDebitDetails.JSON_PROPERTY_TYPE
 })
-public class KlarnaNetworkDetails {
+public class PayByBankCADirectDebitDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
-
-  public static final String JSON_PROPERTY_KLARNA_NETWORK_DATA = "klarnaNetworkData";
-  private String klarnaNetworkData;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetKlarnaNetworkData = false;
-
-  public static final String JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID =
-      "klarnaNetworkPaymentAccountId";
-  private String klarnaNetworkPaymentAccountId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetKlarnaNetworkPaymentAccountId = false;
-
-  public static final String JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN =
-      "klarnaNetworkSessionToken";
-  private String klarnaNetworkSessionToken;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetKlarnaNetworkSessionToken = false;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   /* deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead. */
@@ -80,9 +57,9 @@ public class KlarnaNetworkDetails {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoredPaymentMethodId = false;
 
-  /** **klarna_network** */
+  /** The type of payment method */
   public enum TypeEnum {
-    KLARNA_NETWORK(String.valueOf("klarna_network"));
+    PAYBYBANK_CA(String.valueOf("paybybank_ca"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -131,15 +108,16 @@ public class KlarnaNetworkDetails {
    */
   @JsonIgnore private boolean includeNullValues = false;
 
-  public KlarnaNetworkDetails() {}
+  public PayByBankCADirectDebitDetails() {}
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   * @return the current {@code PayByBankCADirectDebitDetails} instance, allowing for method
+   *     chaining
    */
-  public KlarnaNetworkDetails checkoutAttemptId(String checkoutAttemptId) {
+  public PayByBankCADirectDebitDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
     return this;
@@ -169,136 +147,17 @@ public class KlarnaNetworkDetails {
   }
 
   /**
-   * A string containing a structured JSON object. This is a passthrough field used to enable custom
-   * features or data exchange with Klarna.
-   *
-   * @param klarnaNetworkData A string containing a structured JSON object. This is a passthrough
-   *     field used to enable custom features or data exchange with Klarna.
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
-   */
-  public KlarnaNetworkDetails klarnaNetworkData(String klarnaNetworkData) {
-    this.klarnaNetworkData = klarnaNetworkData;
-    isSetKlarnaNetworkData = true; // mark as set
-    return this;
-  }
-
-  /**
-   * A string containing a structured JSON object. This is a passthrough field used to enable custom
-   * features or data exchange with Klarna.
-   *
-   * @return klarnaNetworkData A string containing a structured JSON object. This is a passthrough
-   *     field used to enable custom features or data exchange with Klarna.
-   */
-  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKlarnaNetworkData() {
-    return klarnaNetworkData;
-  }
-
-  /**
-   * A string containing a structured JSON object. This is a passthrough field used to enable custom
-   * features or data exchange with Klarna.
-   *
-   * @param klarnaNetworkData A string containing a structured JSON object. This is a passthrough
-   *     field used to enable custom features or data exchange with Klarna.
-   */
-  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKlarnaNetworkData(String klarnaNetworkData) {
-    this.klarnaNetworkData = klarnaNetworkData;
-    isSetKlarnaNetworkData = true; // mark as set
-  }
-
-  /**
-   * The Klarna Network Payment Account identifier to use for the transaction. Required when
-   * &#x60;klarnaNetworkSessionToken&#x60; is provided.
-   *
-   * @param klarnaNetworkPaymentAccountId The Klarna Network Payment Account identifier to use for
-   *     the transaction. Required when &#x60;klarnaNetworkSessionToken&#x60; is provided.
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
-   */
-  public KlarnaNetworkDetails klarnaNetworkPaymentAccountId(String klarnaNetworkPaymentAccountId) {
-    this.klarnaNetworkPaymentAccountId = klarnaNetworkPaymentAccountId;
-    isSetKlarnaNetworkPaymentAccountId = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The Klarna Network Payment Account identifier to use for the transaction. Required when
-   * &#x60;klarnaNetworkSessionToken&#x60; is provided.
-   *
-   * @return klarnaNetworkPaymentAccountId The Klarna Network Payment Account identifier to use for
-   *     the transaction. Required when &#x60;klarnaNetworkSessionToken&#x60; is provided.
-   */
-  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKlarnaNetworkPaymentAccountId() {
-    return klarnaNetworkPaymentAccountId;
-  }
-
-  /**
-   * The Klarna Network Payment Account identifier to use for the transaction. Required when
-   * &#x60;klarnaNetworkSessionToken&#x60; is provided.
-   *
-   * @param klarnaNetworkPaymentAccountId The Klarna Network Payment Account identifier to use for
-   *     the transaction. Required when &#x60;klarnaNetworkSessionToken&#x60; is provided.
-   */
-  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKlarnaNetworkPaymentAccountId(String klarnaNetworkPaymentAccountId) {
-    this.klarnaNetworkPaymentAccountId = klarnaNetworkPaymentAccountId;
-    isSetKlarnaNetworkPaymentAccountId = true; // mark as set
-  }
-
-  /**
-   * The token obtained from the Klarna SDK during an Express Checkout flow.
-   *
-   * @param klarnaNetworkSessionToken The token obtained from the Klarna SDK during an Express
-   *     Checkout flow.
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
-   */
-  public KlarnaNetworkDetails klarnaNetworkSessionToken(String klarnaNetworkSessionToken) {
-    this.klarnaNetworkSessionToken = klarnaNetworkSessionToken;
-    isSetKlarnaNetworkSessionToken = true; // mark as set
-    return this;
-  }
-
-  /**
-   * The token obtained from the Klarna SDK during an Express Checkout flow.
-   *
-   * @return klarnaNetworkSessionToken The token obtained from the Klarna SDK during an Express
-   *     Checkout flow.
-   */
-  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKlarnaNetworkSessionToken() {
-    return klarnaNetworkSessionToken;
-  }
-
-  /**
-   * The token obtained from the Klarna SDK during an Express Checkout flow.
-   *
-   * @param klarnaNetworkSessionToken The token obtained from the Klarna SDK during an Express
-   *     Checkout flow.
-   */
-  @JsonProperty(JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKlarnaNetworkSessionToken(String klarnaNetworkSessionToken) {
-    this.klarnaNetworkSessionToken = klarnaNetworkSessionToken;
-    isSetKlarnaNetworkSessionToken = true; // mark as set
-  }
-
-  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   * @return the current {@code PayByBankCADirectDebitDetails} instance, allowing for method
+   *     chaining
    * @deprecated since Adyen Checkout API v49 Use `storedPaymentMethodId` instead.
    */
   @Deprecated
-  public KlarnaNetworkDetails recurringDetailReference(String recurringDetailReference) {
+  public PayByBankCADirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     isSetRecurringDetailReference = true; // mark as set
     return this;
@@ -339,9 +198,10 @@ public class KlarnaNetworkDetails {
    * Base64-encoded JSON object containing SDK related parameters required by the SDK
    *
    * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   * @return the current {@code PayByBankCADirectDebitDetails} instance, allowing for method
+   *     chaining
    */
-  public KlarnaNetworkDetails sdkData(String sdkData) {
+  public PayByBankCADirectDebitDetails sdkData(String sdkData) {
     this.sdkData = sdkData;
     isSetSdkData = true; // mark as set
     return this;
@@ -377,9 +237,10 @@ public class KlarnaNetworkDetails {
    *
    * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
    *     response when you created the token.
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   * @return the current {@code PayByBankCADirectDebitDetails} instance, allowing for method
+   *     chaining
    */
-  public KlarnaNetworkDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public PayByBankCADirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     isSetStoredPaymentMethodId = true; // mark as set
     return this;
@@ -413,21 +274,22 @@ public class KlarnaNetworkDetails {
   }
 
   /**
-   * **klarna_network**
+   * The type of payment method
    *
-   * @param type **klarna_network**
-   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   * @param type The type of payment method
+   * @return the current {@code PayByBankCADirectDebitDetails} instance, allowing for method
+   *     chaining
    */
-  public KlarnaNetworkDetails type(TypeEnum type) {
+  public PayByBankCADirectDebitDetails type(TypeEnum type) {
     this.type = type;
     isSetType = true; // mark as set
     return this;
   }
 
   /**
-   * **klarna_network**
+   * The type of payment method
    *
-   * @return type **klarna_network**
+   * @return type The type of payment method
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -436,9 +298,9 @@ public class KlarnaNetworkDetails {
   }
 
   /**
-   * **klarna_network**
+   * The type of payment method
    *
-   * @param type **klarna_network**
+   * @param type The type of payment method
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +312,7 @@ public class KlarnaNetworkDetails {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public KlarnaNetworkDetails includeNullValues(boolean includeNullValues) {
+  public PayByBankCADirectDebitDetails includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
     return this;
   }
@@ -467,7 +329,7 @@ public class KlarnaNetworkDetails {
     this.includeNullValues = includeNullValues;
   }
 
-  /** Return true if this KlarnaNetworkDetails object is equal to o. */
+  /** Return true if this PayByBankCADirectDebitDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -476,32 +338,24 @@ public class KlarnaNetworkDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KlarnaNetworkDetails klarnaNetworkDetails = (KlarnaNetworkDetails) o;
-    return Objects.equals(this.checkoutAttemptId, klarnaNetworkDetails.checkoutAttemptId)
-        && Objects.equals(this.isSetCheckoutAttemptId, klarnaNetworkDetails.isSetCheckoutAttemptId)
-        && Objects.equals(this.klarnaNetworkData, klarnaNetworkDetails.klarnaNetworkData)
-        && Objects.equals(this.isSetKlarnaNetworkData, klarnaNetworkDetails.isSetKlarnaNetworkData)
+    PayByBankCADirectDebitDetails payByBankCADirectDebitDetails = (PayByBankCADirectDebitDetails) o;
+    return Objects.equals(this.checkoutAttemptId, payByBankCADirectDebitDetails.checkoutAttemptId)
         && Objects.equals(
-            this.klarnaNetworkPaymentAccountId, klarnaNetworkDetails.klarnaNetworkPaymentAccountId)
+            this.isSetCheckoutAttemptId, payByBankCADirectDebitDetails.isSetCheckoutAttemptId)
         && Objects.equals(
-            this.isSetKlarnaNetworkPaymentAccountId,
-            klarnaNetworkDetails.isSetKlarnaNetworkPaymentAccountId)
+            this.recurringDetailReference, payByBankCADirectDebitDetails.recurringDetailReference)
         && Objects.equals(
-            this.klarnaNetworkSessionToken, klarnaNetworkDetails.klarnaNetworkSessionToken)
+            this.isSetRecurringDetailReference,
+            payByBankCADirectDebitDetails.isSetRecurringDetailReference)
+        && Objects.equals(this.sdkData, payByBankCADirectDebitDetails.sdkData)
+        && Objects.equals(this.isSetSdkData, payByBankCADirectDebitDetails.isSetSdkData)
         && Objects.equals(
-            this.isSetKlarnaNetworkSessionToken,
-            klarnaNetworkDetails.isSetKlarnaNetworkSessionToken)
+            this.storedPaymentMethodId, payByBankCADirectDebitDetails.storedPaymentMethodId)
         && Objects.equals(
-            this.recurringDetailReference, klarnaNetworkDetails.recurringDetailReference)
-        && Objects.equals(
-            this.isSetRecurringDetailReference, klarnaNetworkDetails.isSetRecurringDetailReference)
-        && Objects.equals(this.sdkData, klarnaNetworkDetails.sdkData)
-        && Objects.equals(this.isSetSdkData, klarnaNetworkDetails.isSetSdkData)
-        && Objects.equals(this.storedPaymentMethodId, klarnaNetworkDetails.storedPaymentMethodId)
-        && Objects.equals(
-            this.isSetStoredPaymentMethodId, klarnaNetworkDetails.isSetStoredPaymentMethodId)
-        && Objects.equals(this.type, klarnaNetworkDetails.type)
-        && Objects.equals(this.isSetType, klarnaNetworkDetails.isSetType);
+            this.isSetStoredPaymentMethodId,
+            payByBankCADirectDebitDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.type, payByBankCADirectDebitDetails.type)
+        && Objects.equals(this.isSetType, payByBankCADirectDebitDetails.isSetType);
   }
 
   @Override
@@ -509,12 +363,6 @@ public class KlarnaNetworkDetails {
     return Objects.hash(
         checkoutAttemptId,
         isSetCheckoutAttemptId,
-        klarnaNetworkData,
-        isSetKlarnaNetworkData,
-        klarnaNetworkPaymentAccountId,
-        isSetKlarnaNetworkPaymentAccountId,
-        klarnaNetworkSessionToken,
-        isSetKlarnaNetworkSessionToken,
         recurringDetailReference,
         isSetRecurringDetailReference,
         sdkData,
@@ -528,15 +376,8 @@ public class KlarnaNetworkDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KlarnaNetworkDetails {\n");
+    sb.append("class PayByBankCADirectDebitDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
-    sb.append("    klarnaNetworkData: ").append(toIndentedString(klarnaNetworkData)).append("\n");
-    sb.append("    klarnaNetworkPaymentAccountId: ")
-        .append(toIndentedString(klarnaNetworkPaymentAccountId))
-        .append("\n");
-    sb.append("    klarnaNetworkSessionToken: ")
-        .append(toIndentedString(klarnaNetworkSessionToken))
-        .append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
@@ -572,18 +413,6 @@ public class KlarnaNetworkDetails {
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
     }
-    if (isSetKlarnaNetworkData) {
-      addIfNull(nulls, JSON_PROPERTY_KLARNA_NETWORK_DATA, this.klarnaNetworkData);
-    }
-    if (isSetKlarnaNetworkPaymentAccountId) {
-      addIfNull(
-          nulls,
-          JSON_PROPERTY_KLARNA_NETWORK_PAYMENT_ACCOUNT_ID,
-          this.klarnaNetworkPaymentAccountId);
-    }
-    if (isSetKlarnaNetworkSessionToken) {
-      addIfNull(nulls, JSON_PROPERTY_KLARNA_NETWORK_SESSION_TOKEN, this.klarnaNetworkSessionToken);
-    }
     if (isSetRecurringDetailReference) {
       addIfNull(nulls, JSON_PROPERTY_RECURRING_DETAIL_REFERENCE, this.recurringDetailReference);
     }
@@ -608,19 +437,20 @@ public class KlarnaNetworkDetails {
   }
 
   /**
-   * Create an instance of KlarnaNetworkDetails given an JSON string
+   * Create an instance of PayByBankCADirectDebitDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of KlarnaNetworkDetails
+   * @return An instance of PayByBankCADirectDebitDetails
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     KlarnaNetworkDetails
+   *     PayByBankCADirectDebitDetails
    */
-  public static KlarnaNetworkDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, KlarnaNetworkDetails.class);
+  public static PayByBankCADirectDebitDetails fromJson(String jsonString)
+      throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PayByBankCADirectDebitDetails.class);
   }
 
   /**
-   * Convert an instance of KlarnaNetworkDetails to an JSON string
+   * Convert an instance of PayByBankCADirectDebitDetails to an JSON string
    *
    * @return JSON string
    */

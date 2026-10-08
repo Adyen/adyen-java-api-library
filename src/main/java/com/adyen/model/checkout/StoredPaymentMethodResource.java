@@ -43,6 +43,7 @@ import java.util.List;
   StoredPaymentMethodResource.JSON_PROPERTY_MANDATE,
   StoredPaymentMethodResource.JSON_PROPERTY_NAME,
   StoredPaymentMethodResource.JSON_PROPERTY_NETWORK_TX_REFERENCE,
+  StoredPaymentMethodResource.JSON_PROPERTY_OPI,
   StoredPaymentMethodResource.JSON_PROPERTY_OWNER_NAME,
   StoredPaymentMethodResource.JSON_PROPERTY_SHOPPER_EMAIL,
   StoredPaymentMethodResource.JSON_PROPERTY_SHOPPER_REFERENCE,
@@ -163,6 +164,12 @@ public class StoredPaymentMethodResource {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetNetworkTxReference = false;
+
+  public static final String JSON_PROPERTY_OPI = "opi";
+  private OpiResponse opi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpi = false;
 
   public static final String JSON_PROPERTY_OWNER_NAME = "ownerName";
   private String ownerName;
@@ -908,6 +915,41 @@ public class StoredPaymentMethodResource {
   }
 
   /**
+   * opi
+   *
+   * @param opi
+   * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
+   */
+  public StoredPaymentMethodResource opi(OpiResponse opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get opi
+   *
+   * @return opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OpiResponse getOpi() {
+    return opi;
+  }
+
+  /**
+   * opi
+   *
+   * @param opi
+   */
+  @JsonProperty(JSON_PROPERTY_OPI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOpi(OpiResponse opi) {
+    this.opi = opi;
+    isSetOpi = true; // mark as set
+  }
+
+  /**
    * The name of the bank account holder.
    *
    * @param ownerName The name of the bank account holder.
@@ -1228,6 +1270,8 @@ public class StoredPaymentMethodResource {
         && Objects.equals(this.networkTxReference, storedPaymentMethodResource.networkTxReference)
         && Objects.equals(
             this.isSetNetworkTxReference, storedPaymentMethodResource.isSetNetworkTxReference)
+        && Objects.equals(this.opi, storedPaymentMethodResource.opi)
+        && Objects.equals(this.isSetOpi, storedPaymentMethodResource.isSetOpi)
         && Objects.equals(this.ownerName, storedPaymentMethodResource.ownerName)
         && Objects.equals(this.isSetOwnerName, storedPaymentMethodResource.isSetOwnerName)
         && Objects.equals(this.shopperEmail, storedPaymentMethodResource.shopperEmail)
@@ -1286,6 +1330,8 @@ public class StoredPaymentMethodResource {
         isSetName,
         networkTxReference,
         isSetNetworkTxReference,
+        opi,
+        isSetOpi,
         ownerName,
         isSetOwnerName,
         shopperEmail,
@@ -1325,6 +1371,7 @@ public class StoredPaymentMethodResource {
     sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
+    sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
@@ -1412,6 +1459,9 @@ public class StoredPaymentMethodResource {
     }
     if (isSetNetworkTxReference) {
       addIfNull(nulls, JSON_PROPERTY_NETWORK_TX_REFERENCE, this.networkTxReference);
+    }
+    if (isSetOpi) {
+      addIfNull(nulls, JSON_PROPERTY_OPI, this.opi);
     }
     if (isSetOwnerName) {
       addIfNull(nulls, JSON_PROPERTY_OWNER_NAME, this.ownerName);
