@@ -17,6 +17,7 @@ import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceWarningWebh
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
 import com.adyen.model.transactionwebhooks.BankCategoryData;
+import com.adyen.model.transactionwebhooks.IssuedCard;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
 import com.adyen.model.transferwebhooks.BalanceMutation;
@@ -278,6 +279,41 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     Assertions.assertNotNull(bankCategoryData);
     Assertions.assertEquals(BankCategoryData.TypeEnum.BANK, bankCategoryData.getType());
     Assertions.assertEquals(BankCategoryData.PriorityEnum.REGULAR, bankCategoryData.getPriority());
+  }
+
+  /**
+   * Verifies that a transaction.created webhook for an issued card is fully deserialized: the card
+   * category data, including the network variant of the payment network used for the transaction.
+   */
+  @Test
+  public void testTransactionWebhookIssuedCardCategoryDataParsing() {
+    String json =
+        getFileContents("mocks/notification/balancePlatform-transaction-created-issued-card.json");
+    TransactionWebhooksHandler webhookHandler = new TransactionWebhooksHandler(json);
+    Optional<TransactionNotificationRequestV4> requestOptional =
+        webhookHandler.getTransactionNotificationRequestV4();
+    Assertions.assertTrue(requestOptional.isPresent());
+    TransactionNotificationRequestV4 request = requestOptional.get();
+    Assertions.assertEquals("EVJN00000000000000000000000004USD", request.getData().getId());
+
+    IssuedCard issuedCard = request.getData().getTransfer().getCategoryData().getIssuedCard();
+    Assertions.assertNotNull(issuedCard);
+    Assertions.assertEquals(IssuedCard.TypeEnum.ISSUEDCARD, issuedCard.getType());
+    Assertions.assertEquals(
+        IssuedCard.NetworkVariantEnum.MAESTRO_US, issuedCard.getNetworkVariant());
+  }
+
+  /**
+   * Verifies the wire-value mapping of the card network variant enum and its forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void testIssuedCardNetworkVariantDeserialization() {
+    Assertions.assertEquals("maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
+    Assertions.assertEquals(
+        IssuedCard.NetworkVariantEnum.VISA, IssuedCard.NetworkVariantEnum.fromValue("visa"));
+    Assertions.assertNull(IssuedCard.NetworkVariantEnum.fromValue("some_future_network"));
   }
 
   @Test
