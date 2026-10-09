@@ -119,7 +119,7 @@ public class AdyenHttpClient implements ClientInterface {
    *       will only be applied at the request level (via {@link RequestConfig}).</li>
    * </ul>
    * </p>
-   * 
+   *
    * @param connectionManager the shared connection manager to use
    */
   public AdyenHttpClient(PoolingHttpClientConnectionManager connectionManager) {
@@ -526,7 +526,7 @@ public class AdyenHttpClient implements ClientInterface {
                 config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS)
             .setDefaultKeepAlive(config.getDefaultKeepAliveMillis(), TimeUnit.MILLISECONDS)
             .build();
-    
+
     HttpClientBuilder clientBuilder = HttpClients.custom();
     if (sharedConnectionManager != null) {
       clientBuilder = clientBuilder.setConnectionManager(sharedConnectionManager).setConnectionManagerShared(true);
