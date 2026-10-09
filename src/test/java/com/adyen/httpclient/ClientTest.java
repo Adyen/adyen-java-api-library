@@ -1,6 +1,9 @@
 package com.adyen.httpclient;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 
 import com.adyen.BaseTest;
 import com.adyen.Client;
@@ -10,6 +13,8 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,6 +27,7 @@ import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.client5.http.config.Configurable;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.core5.http.Header;
 import org.apache.hc.core5.http.HttpEntity;
 import org.junit.jupiter.api.Test;
@@ -29,6 +35,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.platform.commons.util.ReflectionUtils;
 import org.mockito.Mock;
 
 public class ClientTest extends BaseTest {
@@ -182,6 +189,76 @@ public class ClientTest extends BaseTest {
           config.getConnectionRequestTimeoutMillis(),
           defaultConfig.getConnectionRequestTimeout().toMilliseconds());
     }
+  }
+
+  @Test
+  public void testInjectedConnectionManagerAppliesDefaultRequestConfig() throws Exception {
+    PoolingHttpClientConnectionManager connectionManager =
+        mock(PoolingHttpClientConnectionManager.class);
+    Config config = new Config();
+    config.setReadTimeoutMillis(15000);
+    config.setConnectionRequestTimeoutMillis(30000);
+    config.setDefaultKeepAliveMillis(40000);
+
+    try (AdyenHttpClient adyenHttpClient = new AdyenHttpClient(connectionManager);
+      CloseableHttpClient httpClient = adyenHttpClient.createCloseableHttpClient(config)) {
+      assertInstanceOf(Configurable.class, httpClient);
+      RequestConfig defaultConfig = ((Configurable) httpClient).getConfig();
+      assertNotNull(defaultConfig);
+      assertEquals(15000, defaultConfig.getResponseTimeout().toMilliseconds());
+      assertEquals(30000, defaultConfig.getConnectionRequestTimeout().toMilliseconds());
+    }
+  }
+
+  @Test
+  public void testInjectedConnectionManagerPreservesPoolLimits() throws Exception {
+    PoolingHttpClientConnectionManager connectionManager =
+        new PoolingHttpClientConnectionManager();
+    connectionManager.setMaxTotal(50);
+    connectionManager.setDefaultMaxPerRoute(20);
+
+    try (AdyenHttpClient adyenHttpClient = new AdyenHttpClient(connectionManager);
+        CloseableHttpClient httpClient =
+            adyenHttpClient.createCloseableHttpClient(new Config())) {
+      assertNotNull(httpClient);
+      assertEquals(50, connectionManager.getMaxTotal());
+      assertEquals(20, connectionManager.getDefaultMaxPerRoute());
+    } finally {
+      connectionManager.close();
+    }
+  }
+
+  @Test
+  public void testClosingHttpClientDoesNotCloseInjectedConnectionManager() throws Exception {
+    PoolingHttpClientConnectionManager connectionManager =
+        mock(PoolingHttpClientConnectionManager.class);
+
+    try (AdyenHttpClient adyenHttpClient = new AdyenHttpClient(connectionManager);
+        CloseableHttpClient httpClient = adyenHttpClient.createCloseableHttpClient(new Config())) {
+      assertNotNull(httpClient);
+      adyenHttpClient.close();
+    }
+
+    verify(connectionManager, never()).close();
+  }
+
+  @Test
+  public void testClosingAdyenHttpClientClosesDefaultConnectionManager() throws Exception {
+      PoolingHttpClientConnectionManager connManager;
+      try (AdyenHttpClient adyenHttpClient = new AdyenHttpClient()) {
+
+        // invoke getOrCreateHttpClient
+        Method method = AdyenHttpClient.class.getDeclaredMethod("getOrCreateHttpClient", Config.class);
+        CloseableHttpClient httpClient = (CloseableHttpClient) ReflectionUtils.invokeMethod(method, adyenHttpClient, new Config());
+
+        // extract connection 
+        Field connManagerField = httpClient.getClass().getDeclaredField("connManager");
+
+        connManager = (PoolingHttpClientConnectionManager) ReflectionUtils.tryToReadFieldValue(connManagerField, httpClient).get();
+    }
+
+    assertNotNull(connManager);
+    assertEquals(true, connManager.isClosed());
   }
 
   @Test
