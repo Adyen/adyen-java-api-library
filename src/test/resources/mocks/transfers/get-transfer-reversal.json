@@ -1,0 +1,81 @@
+{
+  "balancePlatform": "YOUR_BALANCE_PLATFORM",
+  "creationDate": "2021-05-03T15:20:06+02:00",
+  "id": "1W1UG35QQEBJLHZ8",
+  "accountHolder": {
+    "description": "S. Eller - Staff 123",
+    "id": "AH32272223222B5CZW6QZ2V34"
+  },
+  "amount": {
+    "currency": "USD",
+    "value": 5400
+  },
+  "balanceAccount": {
+    "description": "My Balance Account",
+    "id": "BA3227C223222B5B9SCR82TMV"
+  },
+  "category": "issuedCard",
+  "categoryData": {
+    "type": "issuedCard",
+    "authorisationType": "pos",
+    "networkVariant": "maestro_us",
+    "panEntryMode": "chip",
+    "processingType": "pos"
+  },
+  "description": "Card authorisation reversal",
+  "direction": "outgoing",
+  "reason": "approved",
+  "reference": "312M2060T6S4UOIF",
+  "status": "reversalReceived",
+  "networkReason": {
+    "code": "C01",
+    "description": "Incorrect DFI account number",
+    "namespace": "usAchCorrectionReasonCode"
+  },
+  "balances": [
+    {
+      "balance": 0,
+      "currency": "USD",
+      "received": 0,
+      "reserved": 0
+    }
+  ],
+  "events": [
+    {
+      "bookingDate": "2021-05-03T14:53:39+01:00",
+      "id": "EVJN4233Q22322375JQ72V55G92ZXF",
+      "mutations": [
+        {
+          "currency": "USD",
+          "received": -5400
+        }
+      ],
+      "status": "received",
+      "type": "accounting",
+      "valueDate": "2021-05-03T14:53:39+01:00"
+    },
+    {
+      "bookingDate": "2021-05-04T09:12:00+01:00",
+      "id": "EVJN4233Q22322375JQ72V55GB4TPV",
+      "modification": {
+        "id": "MOD1234567890",
+        "reference": "mock-modification-reference",
+        "status": "reversalReceived",
+        "type": "reversal",
+        "direction": "incoming"
+      },
+      "mutations": [
+        {
+          "currency": "USD",
+          "received": 5400,
+          "reserved": -5400
+        }
+      ],
+      "status": "reversalReceived",
+      "type": "accounting",
+      "valueDate": "2021-05-04T09:12:00+01:00"
+    }
+  ],
+  "sequenceNumber": 3,
+  "type": "cardTransfer"
+}
