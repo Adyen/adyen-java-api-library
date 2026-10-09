@@ -4,3 +4,5 @@
 .DS_Store
 .vscode
 src/test/resources/config.properties
+src/integration-test/resources/config.properties
+src/integration-test/resources/test-config.json

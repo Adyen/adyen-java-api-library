@@ -21,11 +21,15 @@ import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
 import com.adyen.model.transferwebhooks.BalanceMutation;
 import com.adyen.model.transferwebhooks.InterchangeData;
+import com.adyen.model.transferwebhooks.IssuedCard;
+import com.adyen.model.transferwebhooks.Modification;
+import com.adyen.model.transferwebhooks.NetworkReason;
 import com.adyen.model.transferwebhooks.PlatformPayment;
 import com.adyen.model.transferwebhooks.TransferData;
 import com.adyen.model.transferwebhooks.TransferEvent;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
 import com.adyen.model.transferwebhooks.TransferWebhooksHandler;
+import com.adyen.model.transferwebhooks.UKFpsTracingData;
 import com.adyen.util.HMACValidator;
 import java.security.SignatureException;
 import java.time.OffsetDateTime;
@@ -469,6 +473,31 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
+  public void testTransferNotificationRequestWithUkFpsTracingData() {
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/transfer-updated-with-uk-fps-tracing.json");
+
+    TransferNotificationRequest notificationRequest =
+        new TransferWebhooksHandler(json).getTransferNotificationRequest().orElseThrow();
+    TransferData transferData = notificationRequest.getData();
+
+    assertNotNull(transferData.getTracing());
+    UKFpsTracingData transferTracingData = transferData.getTracing().getUKFpsTracingData();
+    assertEquals("FPID-TEST-1234567890", transferTracingData.getFpid());
+    assertEquals(UKFpsTracingData.TypeEnum.UKFPS, transferTracingData.getType());
+
+    TransferEvent tracingEvent =
+        transferData.getEvents().stream()
+            .filter(event -> event.getType() == TransferEvent.TypeEnum.TRACING)
+            .findFirst()
+            .orElseThrow();
+    assertNotNull(tracingEvent.getTracingData());
+    UKFpsTracingData eventTracingData = tracingEvent.getTracingData().getUKFpsTracingData();
+    assertEquals("FPID-TEST-1234567890", eventTracingData.getFpid());
+    assertEquals(UKFpsTracingData.TypeEnum.UKFPS, eventTracingData.getType());
+  }
+
+  @Test
   public void testTransferCreatedNotificationRequest() {
     String json = getFileContents("mocks/balancePlatform-webhooks/transfer-created.json");
 
@@ -521,6 +550,71 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertNotNull(event.getMutations());
     assertEquals(1, event.getMutations().size());
     assertEquals(Long.valueOf(1000), event.getMutations().get(0).getReceived());
+  }
+
+  /**
+   * Verifies that a transfer.updated webhook carrying an issued card reversal is fully
+   * deserialized: the transfer status, the card category data (including the network variant), the
+   * network reason of the reversal, and the reversal event with its modification.
+   */
+  @Test
+  public void testTransferNotificationRequestWithReversalAndIssuedCardData() {
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/transfer-updated-with-reversal.json");
+
+    TransferNotificationRequest notificationRequest =
+        new TransferWebhooksHandler(json).getTransferNotificationRequest().orElseThrow();
+    assertEquals(
+        TransferNotificationRequest.TypeEnum.BALANCEPLATFORM_TRANSFER_UPDATED,
+        notificationRequest.getType());
+    TransferData transferData = notificationRequest.getData();
+
+    assertEquals(TransferData.StatusEnum.REVERSALRECEIVED, transferData.getStatus());
+    assertEquals(TransferData.CategoryEnum.ISSUEDCARD, transferData.getCategory());
+
+    assertNotNull(transferData.getNetworkReason());
+    assertEquals(
+        NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
+        transferData.getNetworkReason().getNamespace());
+    assertEquals("C01", transferData.getNetworkReason().getCode());
+
+    IssuedCard issuedCard = transferData.getCategoryData().getIssuedCard();
+    assertEquals(IssuedCard.NetworkVariantEnum.MAESTRO_US, issuedCard.getNetworkVariant());
+
+    TransferEvent reversalEvent =
+        transferData.getEvents().stream()
+            .filter(event -> event.getStatus() == TransferEvent.StatusEnum.REVERSALRECEIVED)
+            .findFirst()
+            .orElseThrow();
+    assertNotNull(reversalEvent.getModification());
+    assertEquals(Modification.StatusEnum.REVERSED, reversalEvent.getModification().getStatus());
+  }
+
+  /**
+   * Verifies the wire-value mapping of transfer webhook enums and their forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void testTransferWebhooksEnumDeserialization() {
+    assertNull(IssuedCard.NetworkVariantEnum.fromValue("some_future_network"));
+    assertEquals("maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
+    assertEquals(
+        IssuedCard.NetworkVariantEnum.VISA, IssuedCard.NetworkVariantEnum.fromValue("visa"));
+    assertEquals(
+        NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
+        NetworkReason.NamespaceEnum.fromValue("usAchCorrectionReasonCode"));
+    assertEquals(
+        TransferData.StatusEnum.REVERSALRECEIVED,
+        TransferData.StatusEnum.fromValue("reversalReceived"));
+    assertEquals(
+        TransferData.TypeEnum.BALANCEMIGRATION,
+        TransferData.TypeEnum.fromValue("balanceMigration"));
+    assertEquals(TransferData.TypeEnum.FXSELL, TransferData.TypeEnum.fromValue("fxSell"));
+    assertEquals(TransferData.TypeEnum.FXBUY, TransferData.TypeEnum.fromValue("fxBuy"));
+    assertEquals(
+        TransferEvent.StatusEnum.REVERSALRECEIVED,
+        TransferEvent.StatusEnum.fromValue("reversalReceived"));
   }
 
   @Test

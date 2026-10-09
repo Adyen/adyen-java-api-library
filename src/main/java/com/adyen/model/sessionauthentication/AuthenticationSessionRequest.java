@@ -54,11 +54,14 @@ public class AuthenticationSessionRequest {
 
   /**
    * The URL where the component will appear. In your live environment, you must protect the URL
-   * with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
+   * with an SSL certificate and ensure that it starts with &#x60;https://&#x60;. Required for
+   * creating a session for Platform Experience and Onboarding components. Omitting this parameter
+   * results in an unusable session token.
    *
    * @param allowOrigin The URL where the component will appear. In your live environment, you must
    *     protect the URL with an SSL certificate and ensure that it starts with
-   *     &#x60;https://&#x60;.
+   *     &#x60;https://&#x60;. Required for creating a session for Platform Experience and
+   *     Onboarding components. Omitting this parameter results in an unusable session token.
    * @return the current {@code AuthenticationSessionRequest} instance, allowing for method chaining
    */
   public AuthenticationSessionRequest allowOrigin(String allowOrigin) {
@@ -69,11 +72,14 @@ public class AuthenticationSessionRequest {
 
   /**
    * The URL where the component will appear. In your live environment, you must protect the URL
-   * with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
+   * with an SSL certificate and ensure that it starts with &#x60;https://&#x60;. Required for
+   * creating a session for Platform Experience and Onboarding components. Omitting this parameter
+   * results in an unusable session token.
    *
    * @return allowOrigin The URL where the component will appear. In your live environment, you must
    *     protect the URL with an SSL certificate and ensure that it starts with
-   *     &#x60;https://&#x60;.
+   *     &#x60;https://&#x60;. Required for creating a session for Platform Experience and
+   *     Onboarding components. Omitting this parameter results in an unusable session token.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,11 +89,14 @@ public class AuthenticationSessionRequest {
 
   /**
    * The URL where the component will appear. In your live environment, you must protect the URL
-   * with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
+   * with an SSL certificate and ensure that it starts with &#x60;https://&#x60;. Required for
+   * creating a session for Platform Experience and Onboarding components. Omitting this parameter
+   * results in an unusable session token.
    *
    * @param allowOrigin The URL where the component will appear. In your live environment, you must
    *     protect the URL with an SSL certificate and ensure that it starts with
-   *     &#x60;https://&#x60;.
+   *     &#x60;https://&#x60;. Required for creating a session for Platform Experience and
+   *     Onboarding components. Omitting this parameter results in an unusable session token.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

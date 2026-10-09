@@ -37,6 +37,7 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
@@ -92,6 +93,23 @@ public class ResourceTest extends BaseTest {
             null,
             ApiConstants.HttpMethod.GET,
             queryString);
+  }
+
+  @Test
+  public void testMultipartRequest() throws Exception {
+    Map<String, Object> formParams = new LinkedHashMap<>();
+    formParams.put("file", "document");
+    Resource resource = new Resource(serviceMock, "/documents/{documentId}", null);
+    Map<String, String> pathParams = Collections.singletonMap("documentId", "123");
+
+    when(clientInterfaceMock.requestMultipart(
+            "/documents/123", formParams, null, false, null, ApiConstants.HttpMethod.POST, null))
+        .thenReturn("response");
+
+    assertEquals(
+        "response",
+        resource.requestMultipart(
+            formParams, null, ApiConstants.HttpMethod.POST, pathParams, null));
   }
 
   @Test

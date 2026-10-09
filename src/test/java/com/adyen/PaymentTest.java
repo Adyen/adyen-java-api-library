@@ -509,6 +509,21 @@ public class PaymentTest extends BaseTest {
   }
 
   @Test
+  public void TestTransactionLinkId() throws Exception {
+    String transactionLinkId = "MC-TLID-123456789";
+    AdditionalDataCommon requestAdditionalData =
+        new AdditionalDataCommon().transactionLinkId(transactionLinkId);
+
+    assertEquals("{\"transactionLinkId\":\"MC-TLID-123456789\"}", requestAdditionalData.toJson());
+
+    ResponseAdditionalDataCommon responseAdditionalData =
+        ResponseAdditionalDataCommon.fromJson(
+            "{\"transactionLinkId\":\"" + transactionLinkId + "\"}");
+
+    assertEquals(transactionLinkId, responseAdditionalData.getTransactionLinkId());
+  }
+
+  @Test
   public void TestByteArrayToJSONString() throws Exception {
     Client client = createMockClientFromFile("mocks/authorise-success.json");
     PaymentsApi payment = new PaymentsApi(client);

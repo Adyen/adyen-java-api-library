@@ -45,7 +45,8 @@ import java.util.logging.Logger;
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_STATE,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_STREET,
-  AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_TAX_ID
+  AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_TAX_ID,
+  AdditionalDataCommon.JSON_PROPERTY_TRANSACTION_LINK_ID
 })
 public class AdditionalDataCommon {
   public static final String JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE =
@@ -223,6 +224,12 @@ public class AdditionalDataCommon {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSubMerchantTaxId = false;
+
+  public static final String JSON_PROPERTY_TRANSACTION_LINK_ID = "transactionLinkId";
+  private String transactionLinkId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransactionLinkId = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -1396,6 +1403,86 @@ public class AdditionalDataCommon {
   }
 
   /**
+   * Allows you to link the transaction to the original or previous one in a
+   * subscription/card-on-file chain For Mastercard payments. This field is required for token-based
+   * transactions where Adyen does not tokenize the card. Transaction identifier from Mastercard.
+   * Submit the original transaction ID of the contract in your payment request if you are not
+   * tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for
+   * subsequent charges. Make sure you are sending &#x60;shopperInteraction&#x60; **ContAuth** and
+   * &#x60;recurringProcessingModel&#x60; **Subscription** or **UnscheduledCardOnFile** to ensure
+   * that the transaction is classified as MIT.
+   *
+   * @param transactionLinkId Allows you to link the transaction to the original or previous one in
+   *     a subscription/card-on-file chain For Mastercard payments. This field is required for
+   *     token-based transactions where Adyen does not tokenize the card. Transaction identifier
+   *     from Mastercard. Submit the original transaction ID of the contract in your payment request
+   *     if you are not tokenizing card details with Adyen and are making a merchant-initiated
+   *     transaction (MIT) for subsequent charges. Make sure you are sending
+   *     &#x60;shopperInteraction&#x60; **ContAuth** and &#x60;recurringProcessingModel&#x60;
+   *     **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified
+   *     as MIT.
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon transactionLinkId(String transactionLinkId) {
+    this.transactionLinkId = transactionLinkId;
+    isSetTransactionLinkId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Allows you to link the transaction to the original or previous one in a
+   * subscription/card-on-file chain For Mastercard payments. This field is required for token-based
+   * transactions where Adyen does not tokenize the card. Transaction identifier from Mastercard.
+   * Submit the original transaction ID of the contract in your payment request if you are not
+   * tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for
+   * subsequent charges. Make sure you are sending &#x60;shopperInteraction&#x60; **ContAuth** and
+   * &#x60;recurringProcessingModel&#x60; **Subscription** or **UnscheduledCardOnFile** to ensure
+   * that the transaction is classified as MIT.
+   *
+   * @return transactionLinkId Allows you to link the transaction to the original or previous one in
+   *     a subscription/card-on-file chain For Mastercard payments. This field is required for
+   *     token-based transactions where Adyen does not tokenize the card. Transaction identifier
+   *     from Mastercard. Submit the original transaction ID of the contract in your payment request
+   *     if you are not tokenizing card details with Adyen and are making a merchant-initiated
+   *     transaction (MIT) for subsequent charges. Make sure you are sending
+   *     &#x60;shopperInteraction&#x60; **ContAuth** and &#x60;recurringProcessingModel&#x60;
+   *     **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified
+   *     as MIT.
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTransactionLinkId() {
+    return transactionLinkId;
+  }
+
+  /**
+   * Allows you to link the transaction to the original or previous one in a
+   * subscription/card-on-file chain For Mastercard payments. This field is required for token-based
+   * transactions where Adyen does not tokenize the card. Transaction identifier from Mastercard.
+   * Submit the original transaction ID of the contract in your payment request if you are not
+   * tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for
+   * subsequent charges. Make sure you are sending &#x60;shopperInteraction&#x60; **ContAuth** and
+   * &#x60;recurringProcessingModel&#x60; **Subscription** or **UnscheduledCardOnFile** to ensure
+   * that the transaction is classified as MIT.
+   *
+   * @param transactionLinkId Allows you to link the transaction to the original or previous one in
+   *     a subscription/card-on-file chain For Mastercard payments. This field is required for
+   *     token-based transactions where Adyen does not tokenize the card. Transaction identifier
+   *     from Mastercard. Submit the original transaction ID of the contract in your payment request
+   *     if you are not tokenizing card details with Adyen and are making a merchant-initiated
+   *     transaction (MIT) for subsequent charges. Make sure you are sending
+   *     &#x60;shopperInteraction&#x60; **ContAuth** and &#x60;recurringProcessingModel&#x60;
+   *     **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified
+   *     as MIT.
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionLinkId(String transactionLinkId) {
+    this.transactionLinkId = transactionLinkId;
+    isSetTransactionLinkId = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public AdditionalDataCommon includeNullValues(boolean includeNullValues) {
@@ -1478,7 +1565,9 @@ public class AdditionalDataCommon {
         && Objects.equals(this.subMerchantStreet, additionalDataCommon.subMerchantStreet)
         && Objects.equals(this.isSetSubMerchantStreet, additionalDataCommon.isSetSubMerchantStreet)
         && Objects.equals(this.subMerchantTaxId, additionalDataCommon.subMerchantTaxId)
-        && Objects.equals(this.isSetSubMerchantTaxId, additionalDataCommon.isSetSubMerchantTaxId);
+        && Objects.equals(this.isSetSubMerchantTaxId, additionalDataCommon.isSetSubMerchantTaxId)
+        && Objects.equals(this.transactionLinkId, additionalDataCommon.transactionLinkId)
+        && Objects.equals(this.isSetTransactionLinkId, additionalDataCommon.isSetTransactionLinkId);
   }
 
   @Override
@@ -1525,7 +1614,9 @@ public class AdditionalDataCommon {
         subMerchantStreet,
         isSetSubMerchantStreet,
         subMerchantTaxId,
-        isSetSubMerchantTaxId);
+        isSetSubMerchantTaxId,
+        transactionLinkId,
+        isSetTransactionLinkId);
   }
 
   @Override
@@ -1561,6 +1652,7 @@ public class AdditionalDataCommon {
     sb.append("    subMerchantState: ").append(toIndentedString(subMerchantState)).append("\n");
     sb.append("    subMerchantStreet: ").append(toIndentedString(subMerchantStreet)).append("\n");
     sb.append("    subMerchantTaxId: ").append(toIndentedString(subMerchantTaxId)).append("\n");
+    sb.append("    transactionLinkId: ").append(toIndentedString(transactionLinkId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1653,6 +1745,9 @@ public class AdditionalDataCommon {
     }
     if (isSetSubMerchantTaxId) {
       addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_TAX_ID, this.subMerchantTaxId);
+    }
+    if (isSetTransactionLinkId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSACTION_LINK_ID, this.transactionLinkId);
     }
 
     return nulls;

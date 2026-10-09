@@ -136,4 +136,36 @@ public interface ClientInterface extends Closeable {
       ApiConstants.HttpMethod httpMethod,
       Map<String, String> params)
       throws IOException, HTTPClientException;
+
+  /**
+   * Sends a multipart/form-data request with the specified method, authentication, request options,
+   * and query string parameters.
+   *
+   * <p>The default implementation preserves binary compatibility for custom HTTP client
+   * implementations that do not support multipart requests.
+   *
+   * @param endpoint the full URL of the API endpoint
+   * @param formParams multipart form fields, including files and text values
+   * @param config the client configuration
+   * @param isApiKeyRequired whether API key authentication is mandatory
+   * @param requestOptions additional request options (idempotency key, custom headers)
+   * @param httpMethod the HTTP method (POST or PATCH)
+   * @param params query string parameters appended to the URL
+   * @return the JSON response body
+   * @throws IOException if a network error occurs
+   * @throws HTTPClientException if the server returns a non-2xx status code
+   */
+  default String requestMultipart(
+      String endpoint,
+      Map<String, Object> formParams,
+      Config config,
+      boolean isApiKeyRequired,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> params)
+      throws IOException, HTTPClientException {
+    throw new UnsupportedOperationException(
+        "Multipart requests are not supported by this HTTP client. "
+            + "Custom ClientInterface implementations must override requestMultipart().");
+  }
 }

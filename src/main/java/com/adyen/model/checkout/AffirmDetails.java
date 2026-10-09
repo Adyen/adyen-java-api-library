@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 /** AffirmDetails */
 @JsonPropertyOrder({
   AffirmDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  AffirmDetails.JSON_PROPERTY_FINANCING_PROGRAM,
   AffirmDetails.JSON_PROPERTY_SDK_DATA,
   AffirmDetails.JSON_PROPERTY_TYPE
 })
@@ -35,6 +36,12 @@ public class AffirmDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCheckoutAttemptId = false;
+
+  public static final String JSON_PROPERTY_FINANCING_PROGRAM = "financingProgram";
+  private String financingProgram;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFinancingProgram = false;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
   private String sdkData;
@@ -128,6 +135,41 @@ public class AffirmDetails {
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     isSetCheckoutAttemptId = true; // mark as set
+  }
+
+  /**
+   * The Affirm financing program to apply to this transaction.
+   *
+   * @param financingProgram The Affirm financing program to apply to this transaction.
+   * @return the current {@code AffirmDetails} instance, allowing for method chaining
+   */
+  public AffirmDetails financingProgram(String financingProgram) {
+    this.financingProgram = financingProgram;
+    isSetFinancingProgram = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The Affirm financing program to apply to this transaction.
+   *
+   * @return financingProgram The Affirm financing program to apply to this transaction.
+   */
+  @JsonProperty(JSON_PROPERTY_FINANCING_PROGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFinancingProgram() {
+    return financingProgram;
+  }
+
+  /**
+   * The Affirm financing program to apply to this transaction.
+   *
+   * @param financingProgram The Affirm financing program to apply to this transaction.
+   */
+  @JsonProperty(JSON_PROPERTY_FINANCING_PROGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinancingProgram(String financingProgram) {
+    this.financingProgram = financingProgram;
+    isSetFinancingProgram = true; // mark as set
   }
 
   /**
@@ -233,6 +275,8 @@ public class AffirmDetails {
     AffirmDetails affirmDetails = (AffirmDetails) o;
     return Objects.equals(this.checkoutAttemptId, affirmDetails.checkoutAttemptId)
         && Objects.equals(this.isSetCheckoutAttemptId, affirmDetails.isSetCheckoutAttemptId)
+        && Objects.equals(this.financingProgram, affirmDetails.financingProgram)
+        && Objects.equals(this.isSetFinancingProgram, affirmDetails.isSetFinancingProgram)
         && Objects.equals(this.sdkData, affirmDetails.sdkData)
         && Objects.equals(this.isSetSdkData, affirmDetails.isSetSdkData)
         && Objects.equals(this.type, affirmDetails.type)
@@ -242,7 +286,14 @@ public class AffirmDetails {
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, isSetCheckoutAttemptId, sdkData, isSetSdkData, type, isSetType);
+        checkoutAttemptId,
+        isSetCheckoutAttemptId,
+        financingProgram,
+        isSetFinancingProgram,
+        sdkData,
+        isSetSdkData,
+        type,
+        isSetType);
   }
 
   @Override
@@ -250,6 +301,7 @@ public class AffirmDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class AffirmDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    financingProgram: ").append(toIndentedString(financingProgram)).append("\n");
     sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -278,6 +330,9 @@ public class AffirmDetails {
 
     if (isSetCheckoutAttemptId) {
       addIfNull(nulls, JSON_PROPERTY_CHECKOUT_ATTEMPT_ID, this.checkoutAttemptId);
+    }
+    if (isSetFinancingProgram) {
+      addIfNull(nulls, JSON_PROPERTY_FINANCING_PROGRAM, this.financingProgram);
     }
     if (isSetSdkData) {
       addIfNull(nulls, JSON_PROPERTY_SDK_DATA, this.sdkData);

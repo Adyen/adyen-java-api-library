@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 /** IssuedCard */
 @JsonPropertyOrder({
   IssuedCard.JSON_PROPERTY_AUTHORISATION_TYPE,
+  IssuedCard.JSON_PROPERTY_NETWORK_VARIANT,
   IssuedCard.JSON_PROPERTY_PAN_ENTRY_MODE,
   IssuedCard.JSON_PROPERTY_PROCESSING_TYPE,
   IssuedCard.JSON_PROPERTY_RELAYED_AUTHORISATION_DATA,
@@ -43,6 +44,60 @@ public class IssuedCard {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAuthorisationType = false;
+
+  /**
+   * The card variant associated with the payment network used to route or process the transaction.
+   * For single-network cards, this matches the &#x60;brandVariant&#x60;. For US dual-network cards
+   * routed over an alternate network, this value reflects the specific tier or sub-type under that
+   * processing network.
+   */
+  public enum NetworkVariantEnum {
+    MAESTRO_US(String.valueOf("maestro_us")),
+
+    MASTERCARD(String.valueOf("mastercard")),
+
+    VISA(String.valueOf("visa"));
+
+    private static final Logger LOG = Logger.getLogger(NetworkVariantEnum.class.getName());
+
+    private String value;
+
+    NetworkVariantEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static NetworkVariantEnum fromValue(String value) {
+      for (NetworkVariantEnum b : NetworkVariantEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "NetworkVariantEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(NetworkVariantEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_NETWORK_VARIANT = "networkVariant";
+  private NetworkVariantEnum networkVariant;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkVariant = false;
 
   /**
    * Indicates the method used for entering the PAN to initiate a transaction. Possible values:
@@ -290,6 +345,59 @@ public class IssuedCard {
   public void setAuthorisationType(String authorisationType) {
     this.authorisationType = authorisationType;
     isSetAuthorisationType = true; // mark as set
+  }
+
+  /**
+   * The card variant associated with the payment network used to route or process the transaction.
+   * For single-network cards, this matches the &#x60;brandVariant&#x60;. For US dual-network cards
+   * routed over an alternate network, this value reflects the specific tier or sub-type under that
+   * processing network.
+   *
+   * @param networkVariant The card variant associated with the payment network used to route or
+   *     process the transaction. For single-network cards, this matches the
+   *     &#x60;brandVariant&#x60;. For US dual-network cards routed over an alternate network, this
+   *     value reflects the specific tier or sub-type under that processing network.
+   * @return the current {@code IssuedCard} instance, allowing for method chaining
+   */
+  public IssuedCard networkVariant(NetworkVariantEnum networkVariant) {
+    this.networkVariant = networkVariant;
+    isSetNetworkVariant = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The card variant associated with the payment network used to route or process the transaction.
+   * For single-network cards, this matches the &#x60;brandVariant&#x60;. For US dual-network cards
+   * routed over an alternate network, this value reflects the specific tier or sub-type under that
+   * processing network.
+   *
+   * @return networkVariant The card variant associated with the payment network used to route or
+   *     process the transaction. For single-network cards, this matches the
+   *     &#x60;brandVariant&#x60;. For US dual-network cards routed over an alternate network, this
+   *     value reflects the specific tier or sub-type under that processing network.
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NetworkVariantEnum getNetworkVariant() {
+    return networkVariant;
+  }
+
+  /**
+   * The card variant associated with the payment network used to route or process the transaction.
+   * For single-network cards, this matches the &#x60;brandVariant&#x60;. For US dual-network cards
+   * routed over an alternate network, this value reflects the specific tier or sub-type under that
+   * processing network.
+   *
+   * @param networkVariant The card variant associated with the payment network used to route or
+   *     process the transaction. For single-network cards, this matches the
+   *     &#x60;brandVariant&#x60;. For US dual-network cards routed over an alternate network, this
+   *     value reflects the specific tier or sub-type under that processing network.
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_VARIANT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkVariant(NetworkVariantEnum networkVariant) {
+    this.networkVariant = networkVariant;
+    isSetNetworkVariant = true; // mark as set
   }
 
   /**
@@ -669,6 +777,8 @@ public class IssuedCard {
     IssuedCard issuedCard = (IssuedCard) o;
     return Objects.equals(this.authorisationType, issuedCard.authorisationType)
         && Objects.equals(this.isSetAuthorisationType, issuedCard.isSetAuthorisationType)
+        && Objects.equals(this.networkVariant, issuedCard.networkVariant)
+        && Objects.equals(this.isSetNetworkVariant, issuedCard.isSetNetworkVariant)
         && Objects.equals(this.panEntryMode, issuedCard.panEntryMode)
         && Objects.equals(this.isSetPanEntryMode, issuedCard.isSetPanEntryMode)
         && Objects.equals(this.processingType, issuedCard.processingType)
@@ -694,6 +804,8 @@ public class IssuedCard {
     return Objects.hash(
         authorisationType,
         isSetAuthorisationType,
+        networkVariant,
+        isSetNetworkVariant,
         panEntryMode,
         isSetPanEntryMode,
         processingType,
@@ -717,6 +829,7 @@ public class IssuedCard {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuedCard {\n");
     sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
+    sb.append("    networkVariant: ").append(toIndentedString(networkVariant)).append("\n");
     sb.append("    panEntryMode: ").append(toIndentedString(panEntryMode)).append("\n");
     sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
     sb.append("    relayedAuthorisationData: ")
@@ -755,6 +868,9 @@ public class IssuedCard {
 
     if (isSetAuthorisationType) {
       addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_TYPE, this.authorisationType);
+    }
+    if (isSetNetworkVariant) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_VARIANT, this.networkVariant);
     }
     if (isSetPanEntryMode) {
       addIfNull(nulls, JSON_PROPERTY_PAN_ENTRY_MODE, this.panEntryMode);

@@ -38,6 +38,8 @@ jobs:
         run: mvn -B checkstyle:check --no-transfer-progress
       - name: Check Java Formatting
         run: mvn spotless:check --no-transfer-progress
+      - name: Check Dependencies
+        run: mvn dependency:analyze -DfailOnWarning=true --no-transfer-progress
 
   java-test:
     name: Build and Test

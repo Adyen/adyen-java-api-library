@@ -117,7 +117,9 @@ public class StoredPaymentMethodDetails {
 
     TRUEMONEY(String.valueOf("truemoney")),
 
-    PAYSAFECARD(String.valueOf("paysafecard"));
+    PAYSAFECARD(String.valueOf("paysafecard")),
+
+    GOPAY_WALLET(String.valueOf("gopay_wallet"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 

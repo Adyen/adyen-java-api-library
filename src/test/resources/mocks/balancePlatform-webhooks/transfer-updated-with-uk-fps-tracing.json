@@ -1,0 +1,146 @@
+{
+  "data": {
+    "id": "MOCK_TRANSFER_0001",
+    "type": "bankTransfer",
+    "creationDate": "2026-08-17T15:19:44+02:00",
+    "createdAt": "2026-08-17T15:19:34+02:00",
+    "amount": {
+      "value": 7954,
+      "currency": "GBP"
+    },
+    "events": [
+      {
+        "id": "MOCK_EVENT_RECEIVED",
+        "status": "received",
+        "bookingDate": "2026-08-17T15:19:34+02:00",
+        "type": "accounting",
+        "mutations": [
+          {
+            "currency": "GBP",
+            "received": -7954
+          }
+        ]
+      },
+      {
+        "id": "MOCK_EVENT_AUTHORISED",
+        "status": "authorised",
+        "bookingDate": "2026-08-17T15:19:34+02:00",
+        "type": "accounting",
+        "mutations": [
+          {
+            "reserved": -7954,
+            "currency": "GBP",
+            "received": 7954
+          }
+        ]
+      },
+      {
+        "id": "MOCK_EVENT_BOOKED",
+        "status": "booked",
+        "transactionId": "MOCK_TRANSACTION_0001",
+        "bookingDate": "2026-08-17T15:19:34+02:00",
+        "valueDate": "2026-08-17T15:19:33+02:00",
+        "type": "accounting",
+        "mutations": [
+          {
+            "reserved": 7954,
+            "balance": -7954,
+            "currency": "GBP",
+            "received": 0
+          }
+        ]
+      },
+      {
+        "id": "MOCK_EVENT_TRACKING",
+        "type": "tracking",
+        "updateDate": "2026-08-17T15:19:36+02:00",
+        "estimatedArrivalTime": "2026-08-17T16:20:34+02:00",
+        "trackingData": {
+          "type": "estimation",
+          "estimatedArrivalTime": "2026-08-17T16:20:34+02:00"
+        }
+      },
+      {
+        "id": "MOCK_EVENT_TRACING",
+        "type": "tracing",
+        "updateDate": "2026-08-17T15:19:44+02:00",
+        "tracingData": {
+          "fpid": "FPID-TEST-1234567890",
+          "type": "ukFps"
+        }
+      }
+    ],
+    "reason": "approved",
+    "status": "booked",
+    "tracing": {
+      "fpid": "FPID-TEST-1234567890",
+      "type": "ukFps"
+    },
+    "tracking": {
+      "type": "estimation",
+      "estimatedArrivalTime": "2026-08-17T16:20:34+02:00"
+    },
+    "direction": "outgoing",
+    "balancePlatform": "MOCK_BALANCE_PLATFORM",
+    "balanceAccountId": "MOCK_BALANCE_ACCOUNT",
+    "paymentInstrumentId": "MOCK_PAYMENT_INSTRUMENT",
+    "balanceAccount": {
+      "id": "MOCK_BALANCE_ACCOUNT",
+      "reference": "mock-balance-account",
+      "description": "Mock balance account"
+    },
+    "accountHolder": {
+      "id": "MOCK_ACCOUNT_HOLDER",
+      "description": "Mock account holder"
+    },
+    "paymentInstrument": {
+      "id": "MOCK_PAYMENT_INSTRUMENT"
+    },
+    "category": "bank",
+    "categoryData": {
+      "type": "bank",
+      "priority": "fast"
+    },
+    "reference": "mock-transfer-reference",
+    "referenceForBeneficiary": "mock-beneficiary-reference",
+    "description": "Mock GBP bank transfer",
+    "updatedAt": "2026-08-17T15:19:44+02:00",
+    "sequenceNumber": 5,
+    "balances": [
+      {
+        "reserved": 0,
+        "balance": -7954,
+        "currency": "GBP",
+        "received": 0
+      }
+    ],
+    "transactionId": "MOCK_TRANSACTION_0001",
+    "transactionRulesResult": {
+      "allRulesPassed": true,
+      "score": 0
+    },
+    "counterparty": {
+      "bankAccount": {
+        "accountIdentification": {
+          "type": "ukLocal",
+          "accountNumber": "00000000",
+          "sortCode": "000000"
+        },
+        "accountHolder": {
+          "type": "individual",
+          "fullName": "Mock Recipient",
+          "address": {
+            "line1": "1 Mock Street",
+            "city": "Test City",
+            "postalCode": "TE1 1ST",
+            "country": "GB"
+          },
+          "reference": "mock-recipient-reference"
+        }
+      }
+    }
+  },
+  "type": "balancePlatform.transfer.updated",
+  "timestamp": "2026-08-17T13:19:45.707Z",
+  "environment": "test"
+}

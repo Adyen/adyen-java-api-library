@@ -2146,7 +2146,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("gcash", StoredPaymentMethodDetails.class);
     mappings.put("giftcard", CardDetails.class);
     mappings.put("googlepay", GooglePayDetails.class);
-    mappings.put("gopay_wallet", PaymentDetails.class);
+    mappings.put("gopay_wallet", StoredPaymentMethodDetails.class);
     mappings.put("grabpay_ID", StoredPaymentMethodDetails.class);
     mappings.put("grabpay_MY", StoredPaymentMethodDetails.class);
     mappings.put("grabpay_PH", StoredPaymentMethodDetails.class);

@@ -115,16 +115,55 @@ public class Resource {
       throws ApiException, IOException {
     ClientInterface clientInterface = service.getClient().getHttpClient();
     Config config = service.getClient().getConfig();
+    return executeRequest(
+        () ->
+            clientInterface.request(
+                resolve(pathParams),
+                json,
+                config,
+                service.isApiKeyRequired(),
+                requestOptions,
+                httpMethod,
+                queryString));
+  }
+
+  /**
+   * Sends a multipart/form-data request with optional path and query string parameters.
+   *
+   * @param formParams multipart form fields
+   * @param requestOptions additional request options
+   * @param httpMethod HTTP method
+   * @param pathParams parameters used to resolve path placeholders
+   * @param queryString query string parameters
+   * @return JSON response
+   * @throws ApiException when an API error is returned
+   * @throws IOException when an unexpected error occurs
+   */
+  public String requestMultipart(
+      Map<String, Object> formParams,
+      RequestOptions requestOptions,
+      ApiConstants.HttpMethod httpMethod,
+      Map<String, String> pathParams,
+      Map<String, String> queryString)
+      throws ApiException, IOException {
+    ClientInterface clientInterface = service.getClient().getHttpClient();
+    Config config = service.getClient().getConfig();
+    return executeRequest(
+        () ->
+            clientInterface.requestMultipart(
+                resolve(pathParams),
+                formParams,
+                config,
+                service.isApiKeyRequired(),
+                requestOptions,
+                httpMethod,
+                queryString));
+  }
+
+  private String executeRequest(RequestCall requestCall) throws ApiException, IOException {
     ApiException apiException;
     try {
-      return clientInterface.request(
-          resolve(pathParams),
-          json,
-          config,
-          service.isApiKeyRequired(),
-          requestOptions,
-          httpMethod,
-          queryString);
+      return requestCall.execute();
     } catch (HTTPClientException e) {
       try {
         // build ApiException
@@ -143,6 +182,11 @@ public class Resource {
       }
     }
     throw apiException;
+  }
+
+  @FunctionalInterface
+  private interface RequestCall {
+    String execute() throws IOException, HTTPClientException;
   }
 
   private String resolve(Map<String, String> params) {

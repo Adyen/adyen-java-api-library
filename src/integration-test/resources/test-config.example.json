@@ -1,0 +1,14 @@
+{
+  "company": "YOUR_COMPANY_ACCOUNT",
+  "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+  "balancePlatform": "YOUR_BALANCE_PLATFORM",
+  "apiKey": "YOUR_PSP_API_KEY",
+  "lemApiKey": "YOUR_LEM_API_KEY",
+  "bclApiKey": "YOUR_BCL_API_KEY",
+  "givingCampaignId": "YOUR_GIVING_CAMPAIGN_ID",
+  "legalEntityId": "YOUR_LEGAL_ENTITY_ID",
+  "businessLineId": "YOUR_BUSINESS_LINE_ID",
+  "documentId": "YOUR_DOCUMENT_ID",
+  "accountHolderId": "YOUR_ACCOUNT_HOLDER_ID",
+  "balanceAccountId": "YOUR_BALANCE_ACCOUNT_ID"
+}

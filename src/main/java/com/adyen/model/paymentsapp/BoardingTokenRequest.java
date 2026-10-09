@@ -20,13 +20,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** BoardingTokenRequest */
-@JsonPropertyOrder({BoardingTokenRequest.JSON_PROPERTY_BOARDING_REQUEST_TOKEN})
+@JsonPropertyOrder({
+  BoardingTokenRequest.JSON_PROPERTY_BOARDING_REQUEST_TOKEN,
+  BoardingTokenRequest.JSON_PROPERTY_SUB_MERCHANT_DATA
+})
 public class BoardingTokenRequest {
   public static final String JSON_PROPERTY_BOARDING_REQUEST_TOKEN = "boardingRequestToken";
   private String boardingRequestToken;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBoardingRequestToken = false;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
+  private SubMerchantData subMerchantData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubMerchantData = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -72,6 +81,41 @@ public class BoardingTokenRequest {
   }
 
   /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   * @return the current {@code BoardingTokenRequest} instance, allowing for method chaining
+   */
+  public BoardingTokenRequest subMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+    isSetSubMerchantData = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get subMerchantData
+   *
+   * @return subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SubMerchantData getSubMerchantData() {
+    return subMerchantData;
+  }
+
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+    isSetSubMerchantData = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public BoardingTokenRequest includeNullValues(boolean includeNullValues) {
@@ -103,12 +147,15 @@ public class BoardingTokenRequest {
     BoardingTokenRequest boardingTokenRequest = (BoardingTokenRequest) o;
     return Objects.equals(this.boardingRequestToken, boardingTokenRequest.boardingRequestToken)
         && Objects.equals(
-            this.isSetBoardingRequestToken, boardingTokenRequest.isSetBoardingRequestToken);
+            this.isSetBoardingRequestToken, boardingTokenRequest.isSetBoardingRequestToken)
+        && Objects.equals(this.subMerchantData, boardingTokenRequest.subMerchantData)
+        && Objects.equals(this.isSetSubMerchantData, boardingTokenRequest.isSetSubMerchantData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(boardingRequestToken, isSetBoardingRequestToken);
+    return Objects.hash(
+        boardingRequestToken, isSetBoardingRequestToken, subMerchantData, isSetSubMerchantData);
   }
 
   @Override
@@ -118,6 +165,7 @@ public class BoardingTokenRequest {
     sb.append("    boardingRequestToken: ")
         .append(toIndentedString(boardingRequestToken))
         .append("\n");
+    sb.append("    subMerchantData: ").append(toIndentedString(subMerchantData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,6 +192,9 @@ public class BoardingTokenRequest {
 
     if (isSetBoardingRequestToken) {
       addIfNull(nulls, JSON_PROPERTY_BOARDING_REQUEST_TOKEN, this.boardingRequestToken);
+    }
+    if (isSetSubMerchantData) {
+      addIfNull(nulls, JSON_PROPERTY_SUB_MERCHANT_DATA, this.subMerchantData);
     }
 
     return nulls;

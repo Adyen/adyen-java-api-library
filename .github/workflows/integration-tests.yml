@@ -1,0 +1,50 @@
+name: Integration Tests
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: integration-tests
+  cancel-in-progress: false
+
+jobs:
+  integration-tests:
+    name: Run Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: integration-tests
+
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+      - name: Set up JDK 21
+        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Cache Maven packages
+        uses: actions/cache@b7e8d49f17405cc70c1c120101943203c98d3a4b
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
+      - name: Run integration tests
+        env:
+          ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG: ${{ secrets.ADYEN_API_LIBRARIES_INTEGRATION_TEST_CONFIG }}
+        run: >
+          mvn -B -Pintegration-tests --no-transfer-progress
+          test-compile failsafe:integration-test failsafe:verify
+      - name: Upload Failsafe reports
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: failsafe-reports
+          path: target/failsafe-reports/
+          if-no-files-found: ignore
+          retention-days: 7

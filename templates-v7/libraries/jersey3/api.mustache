@@ -12,6 +12,7 @@ import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.List;
 
@@ -78,14 +79,32 @@ public class {{classname}} extends Service {
         {{/queryParams}}
 
         {{/hasQueryParams}}
-        String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
+        {{#hasFormParams}}
+        //Add form params
+        Map<String, Object> formParams = new LinkedHashMap<>();
+        {{#formParams}}
+        {{#required}}
+        if ({{{paramName}}} == null) {
+            throw new IllegalArgumentException("Please provide the {{{paramName}}} form parameter");
+        }
+        formParams.put("{{baseName}}", {{{paramName}}});
+        {{/required}}
+        {{^required}}
+        if ({{{paramName}}} != null) {
+            formParams.put("{{baseName}}", {{{paramName}}});
+        }
+        {{/required}}
+        {{/formParams}}
+
+        {{/hasFormParams}}
+        {{^hasFormParams}}String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};{{/hasFormParams}}
         Resource resource = new Resource(this, this.baseURL + "{{{path}}}", null);
         {{#returnType}}
-        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        String jsonResult = {{#hasFormParams}}resource.requestMultipart(formParams, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}}{{^hasQueryParams}}, null{{/hasQueryParams}}){{/hasFormParams}}{{^hasFormParams}}resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}}){{/hasFormParams}};
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
         {{/returnType}}
         {{^returnType}}
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        {{#hasFormParams}}resource.requestMultipart(formParams, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}}{{^hasQueryParams}}, null{{/hasQueryParams}});{{/hasFormParams}}{{^hasFormParams}}resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});{{/hasFormParams}}
         {{/returnType}}
     }
 {{/operation}}
