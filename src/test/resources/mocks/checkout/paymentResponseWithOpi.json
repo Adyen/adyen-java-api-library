@@ -1,0 +1,8 @@
+{
+  "resultCode": "Authorised",
+  "pspReference": "8815658961765250",
+  "opi": {
+    "issuerId": "ISSUER_ID",
+    "transToken": "TRANS_TOKEN"
+  }
+}

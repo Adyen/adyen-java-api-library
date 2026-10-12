@@ -1,4 +1,10 @@
 {
+  "accountUpdate": {
+    "result": "CardChanged"
+  },
+  "networkToken": {
+    "swapped": true
+  },
   "pspReference": "8815658961765250",
   "response": {
     "body": "{\"data\": {\"tokenizeCreditCard\": {\"paymentMethod\": {\"id\": \"PAYMENT_METHOD_ID\"}}}}",
