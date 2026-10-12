@@ -294,6 +294,7 @@ public class CheckoutTest extends BaseTest {
     assertEquals(
         CreateCheckoutSessionResponse.StorePaymentMethodModeEnum.ASKFORCONSENT,
         createCheckoutSessionResponse.getStorePaymentMethodMode());
+    assertTrue(createCheckoutSessionResponse.getPayable());
   }
 
   @Test
@@ -973,6 +974,12 @@ public class CheckoutTest extends BaseTest {
     assertNotNull(response.getResponse());
     assertEquals(200, (int) response.getResponse().getStatus());
     assertTrue(response.getResponse().getBody().contains("PAYMENT_METHOD_ID"));
+    assertNotNull(response.getAccountUpdate());
+    assertEquals(
+        CheckoutForwardAccountUpdateResult.ResultEnum.CARDCHANGED,
+        response.getAccountUpdate().getResult());
+    assertNotNull(response.getNetworkToken());
+    assertTrue(response.getNetworkToken().getSwapped());
   }
 
   @Test
@@ -1155,5 +1162,136 @@ public class CheckoutTest extends BaseTest {
     assertEquals(2, parsed.getDeliveryMethods().size());
     assertEquals("Express Shipping", parsed.getDeliveryMethods().get(0).getDescription());
     assertEquals(true, parsed.getDeliveryMethods().get(0).getSelected());
+  }
+
+  @Test
+  public void testPayByBankCADirectDebitDetails() throws Exception {
+    CheckoutPaymentMethod paymentMethod =
+        new CheckoutPaymentMethod(
+            new PayByBankCADirectDebitDetails()
+                .type(PayByBankCADirectDebitDetails.TypeEnum.PAYBYBANK_CA)
+                .checkoutAttemptId("1")
+                .storedPaymentMethodId("M5N7TQ4TG5PFWR50"));
+
+    CheckoutPaymentMethod parsed = CheckoutPaymentMethod.fromJson(paymentMethod.toJson());
+
+    assertEquals(
+        PayByBankCADirectDebitDetails.TypeEnum.PAYBYBANK_CA,
+        parsed.getPayByBankCADirectDebitDetails().getType());
+    assertEquals("1", parsed.getPayByBankCADirectDebitDetails().getCheckoutAttemptId());
+    assertEquals(
+        "M5N7TQ4TG5PFWR50", parsed.getPayByBankCADirectDebitDetails().getStoredPaymentMethodId());
+  }
+
+  @Test
+  public void testPayByBankCADeserialization() throws Exception {
+    CheckoutPaymentMethod parsed =
+        CheckoutPaymentMethod.fromJson(
+            getFileContents("mocks/checkout/payByBankCADirectDebitDetails.json"));
+
+    assertEquals(
+        PayByBankCADirectDebitDetails.TypeEnum.PAYBYBANK_CA,
+        parsed.getPayByBankCADirectDebitDetails().getType());
+    assertEquals("1", parsed.getPayByBankCADirectDebitDetails().getCheckoutAttemptId());
+    assertEquals(
+        "M5N7TQ4TG5PFWR50", parsed.getPayByBankCADirectDebitDetails().getStoredPaymentMethodId());
+  }
+
+  @Test
+  public void testOpiRequestResponseSerialization() throws Exception {
+    PaymentRequest paymentRequest =
+        new PaymentRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_REFERENCE")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .opi(new OpiRequest().includeIssuerId(true).includeTransToken(true));
+
+    String json = paymentRequest.toJson();
+    assertTrue(json.contains("opi"));
+
+    PaymentRequest parsed = PaymentRequest.fromJson(json);
+    assertTrue(parsed.getOpi().getIncludeIssuerId());
+    assertTrue(parsed.getOpi().getIncludeTransToken());
+
+    OpiResponse opiResponse = new OpiResponse().issuerId("ISSUER_ID").transToken("TRANS_TOKEN");
+    OpiResponse parsedOpiResponse = OpiResponse.fromJson(opiResponse.toJson());
+    assertEquals("ISSUER_ID", parsedOpiResponse.getIssuerId());
+    assertEquals("TRANS_TOKEN", parsedOpiResponse.getTransToken());
+
+    StoredPaymentMethodRequest storedPaymentMethodRequest =
+        new StoredPaymentMethodRequest().opi(new OpiRequest().includeTransToken(true));
+    assertTrue(
+        StoredPaymentMethodRequest.fromJson(storedPaymentMethodRequest.toJson())
+            .getOpi()
+            .getIncludeTransToken());
+  }
+
+  @Test
+  public void testPaymentResponseWithOpi() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentResponseWithOpi.json");
+
+    PaymentRequest paymentRequest =
+        new PaymentRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_REFERENCE")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .opi(new OpiRequest().includeIssuerId(true));
+
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+
+    assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED, paymentResponse.getResultCode());
+    assertEquals("ISSUER_ID", paymentResponse.getOpi().getIssuerId());
+    assertEquals("TRANS_TOKEN", paymentResponse.getOpi().getTransToken());
+  }
+
+  @Test
+  public void testCreateSessionWithPayable() throws Exception {
+    CreateCheckoutSessionRequest sessionRequest =
+        new CreateCheckoutSessionRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .reference("YOUR_PAYMENT_REFERENCE")
+            .payable(true);
+
+    String json = sessionRequest.toJson();
+    assertTrue(json.contains("payable"));
+
+    CreateCheckoutSessionRequest parsed = CreateCheckoutSessionRequest.fromJson(json);
+    assertTrue(parsed.getPayable());
+  }
+
+  @Test
+  public void testKlarnaNetworkDetailsKlarnaNetworkPaymentAccountId() throws Exception {
+    KlarnaNetworkDetails klarnaNetworkDetails =
+        new KlarnaNetworkDetails()
+            .type(KlarnaNetworkDetails.TypeEnum.KLARNA_NETWORK)
+            .klarnaNetworkSessionToken("SESSION_TOKEN")
+            .klarnaNetworkPaymentAccountId("KLARNA_NETWORK_PAYMENT_ACCOUNT_ID");
+
+    KlarnaNetworkDetails parsed = KlarnaNetworkDetails.fromJson(klarnaNetworkDetails.toJson());
+
+    assertEquals("SESSION_TOKEN", parsed.getKlarnaNetworkSessionToken());
+    assertEquals("KLARNA_NETWORK_PAYMENT_ACCOUNT_ID", parsed.getKlarnaNetworkPaymentAccountId());
+  }
+
+  @Test
+  public void testLineItemRiskCategory() throws Exception {
+    LineItem lineItem =
+        new LineItem().quantity(1L).amountIncludingTax(1000L).riskCategory("electronics");
+
+    LineItem parsed = LineItem.fromJson(lineItem.toJson());
+
+    assertEquals(1L, parsed.getQuantity().longValue());
+    assertEquals("electronics", parsed.getRiskCategory());
+  }
+
+  @Test
+  public void testSatispayPaymentDetailsType() throws Exception {
+    assertEquals(PaymentDetails.TypeEnum.SATISPAY, PaymentDetails.TypeEnum.fromValue("satispay"));
+
+    PaymentDetails paymentDetails = new PaymentDetails().type(PaymentDetails.TypeEnum.SATISPAY);
+    PaymentDetails parsed = PaymentDetails.fromJson(paymentDetails.toJson());
+    assertEquals(PaymentDetails.TypeEnum.SATISPAY, parsed.getType());
   }
 }
