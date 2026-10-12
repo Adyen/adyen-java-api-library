@@ -12,5 +12,6 @@
 "returnUrl": "https://your-company.com/checkout?shopperOrder=12xy..",
 "sessionData": "Ab02b4c0!BFHSPFBQTEwM0NBNTM3RfCf5",
   "mode": "embedded",
+  "payable": true,
   "storePaymentMethodMode": "askForConsent"
 }
