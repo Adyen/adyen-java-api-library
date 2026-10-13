@@ -22,6 +22,7 @@ import com.adyen.model.checkout.CardDetailsResponse;
 import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
+import com.adyen.model.checkout.OpiRequest;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
 import com.adyen.model.checkout.PaymentRequest;
@@ -156,5 +157,67 @@ public class PaymentsApiIT extends BaseIntegrationTest {
     // Assert
     assertNotNull(response.getPaymentMethods(), "The response must contain payment methods");
     assertFalse(response.getPaymentMethods().isEmpty(), "The payment methods must not be empty");
+  }
+
+  // Scenario: Create a session that is immediately payable
+  @Test
+  public void shouldCreatePayableSessionWhenPayableIsSet() throws ApiException, IOException {
+    // Arrange
+    String reference = "session-payable-it-" + UUID.randomUUID();
+    RequestOptions requestOptions =
+        new RequestOptions().idempotencyKey(UUID.randomUUID().toString());
+    CreateCheckoutSessionRequest request =
+        new CreateCheckoutSessionRequest()
+            .merchantAccount(getMerchantAccount())
+            .amount(new Amount().value(100L).currency("EUR"))
+            .returnUrl(RETURN_URL)
+            .reference(reference)
+            .countryCode("NL")
+            .payable(true);
+    PaymentsApi paymentsApi = new PaymentsApi(getClient());
+
+    // Act
+    CreateCheckoutSessionResponse response = paymentsApi.sessions(request, requestOptions);
+
+    // Assert
+    assertNotNull(response.getId(), "The payment session must have an ID");
+    assertEquals(
+        Boolean.TRUE,
+        response.getPayable(),
+        "A session created with payable=true must report the session as payable");
+  }
+
+  // Scenario: Make a card payment with Online Payment Insights request options
+  @Test
+  public void shouldAuthoriseCardPaymentWhenOpiRequestOptionsAreSet()
+      throws ApiException, IOException {
+    // Arrange
+    String reference = "payment-opi-it-" + UUID.randomUUID();
+    CardDetails cardDetails =
+        new CardDetails()
+            .type(CardDetails.TypeEnum.SCHEME)
+            .encryptedCardNumber("test_4111111111111111")
+            .encryptedExpiryMonth("test_03")
+            .encryptedExpiryYear("test_2030")
+            .encryptedSecurityCode("test_737");
+    PaymentRequest request =
+        new PaymentRequest()
+            .amount(new Amount().currency("USD").value(1000L))
+            .reference(reference)
+            .paymentMethod(new CheckoutPaymentMethod(cardDetails))
+            .returnUrl(RETURN_URL)
+            .merchantAccount(getMerchantAccount())
+            .opi(new OpiRequest().includeIssuerId(true));
+    PaymentsApi paymentsApi = new PaymentsApi(getClient());
+
+    // Act
+    PaymentResponse response = paymentsApi.payments(request);
+
+    // Assert
+    assertNotNull(response.getPspReference(), "The payment must have a PSP reference");
+    assertEquals(
+        PaymentResponse.ResultCodeEnum.AUTHORISED,
+        response.getResultCode(),
+        "A payment with OPI request options must still be authorised");
   }
 }

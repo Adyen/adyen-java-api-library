@@ -136,11 +136,12 @@ caches one client per credential during a test and closes all clients after each
 
 | Test | Behavior |
 |---|---|
-| `PaymentsApiIT` | Card payments, sessions, card brands, and available payment methods |
+| `PaymentsApiIT` | Card payments, sessions (including the payable flag), OPI request options, card brands, and available payment methods |
 | `OrdersApiIT` | Creates a Checkout order |
 | `PaymentLinksApiIT` | Creates a Checkout payment link |
 | `DonationsApiIT` | Retrieves donation campaigns |
 | `ModificationsApiIT` | Authorises and captures a payment |
+| `RecurringApiIT` | Tokenizes, lists, and deletes stored payment methods |
 | `LegalEntitiesApiIT` | Creates an individual legal entity |
 | `PlatformApiIT` | Retrieves a balance platform |
 
