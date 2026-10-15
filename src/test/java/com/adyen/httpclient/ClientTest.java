@@ -36,6 +36,23 @@ public class ClientTest extends BaseTest {
   @Mock private SSLContext clientCertificateAuthSSLContext;
 
   @Test
+  public void shouldUseTestTerminalEndpointWhenConfigEnvironmentIsMissing() {
+    Client client = new Client(new Config());
+
+    assertEquals(
+        Client.TERMINAL_API_ENDPOINT_TEST, client.getConfig().getTerminalApiCloudEndpoint());
+  }
+
+  @Test
+  public void shouldReturnTestEndpointWhenEnvironmentIsNull() {
+    Client client = new Client();
+
+    assertEquals(
+        Client.TERMINAL_API_ENDPOINT_TEST,
+        client.retrieveCloudEndpoint(null, null));
+  }
+
+  @Test
   public void testConfigTestClient() {
     Config config = new Config();
     config.setEnvironment(Environment.TEST);
