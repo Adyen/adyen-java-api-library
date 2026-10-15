@@ -20,7 +20,7 @@
  */
 package com.adyen.util;
 
-import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -46,14 +46,17 @@ public final class DateUtil {
     }
 
     SimpleDateFormat fmt = new SimpleDateFormat(format, Locale.ENGLISH);
+    fmt.setLenient(false);
     fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-    try {
-      return fmt.parse(dateString);
-    } catch (ParseException ignored) {
+    ParsePosition position = new ParsePosition(0);
+    Date parsedDate = fmt.parse(dateString, position);
+
+    if (parsedDate == null || position.getIndex() != dateString.length()) {
+      return null;
     }
 
-    return null;
+    return parsedDate;
   }
 
   /**
