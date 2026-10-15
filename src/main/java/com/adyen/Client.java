@@ -129,12 +129,12 @@ public class Client implements Closeable {
    */
   public String retrieveCloudEndpoint(Region region, Environment environment) {
     // Check the environment for TEST and get the endpoint
-    if (environment.equals(Environment.TEST)) {
+    if (Environment.TEST.equals(environment)) {
       return Client.TERMINAL_API_ENDPOINT_TEST;
     }
 
     // For LIVE environment, lookup the endpoint using the map
-    if (environment.equals(Environment.LIVE)) {
+    if (Environment.LIVE.equals(environment)) {
       if (region == null) {
         return Region.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
       }
