@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "THEM_001ABC",
+      "name": "BrandDark",
+      "mode": "dark"
+    },
+    {
+      "id": "THEM_002DEF",
+      "name": "BrandLight",
+      "mode": "light"
+    }
+  ],
+  "hasNextPage": false
+}

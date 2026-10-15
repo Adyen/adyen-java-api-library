@@ -1,0 +1,7 @@
+{
+  "id": "CERT4224Z223223261HZ5V4MTMZG34",
+  "serialNumber": "6f2a1b3c4d5e6f708192a3b4c5d6e7f8",
+  "subjectDN": "CN=api-mtls-client,O=Adyen N.V.,C=NL",
+  "leaf": "AQIDBA==",
+  "caChain": ["BQYHCA==", "CQoLDA=="]
+}

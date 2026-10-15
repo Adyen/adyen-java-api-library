@@ -1,0 +1,17 @@
+{
+  "id": "THEM_001ABC",
+  "name": "MyBrandTheme",
+  "mode": "dark",
+  "assets": [
+    {
+      "type": "homeScreen",
+      "model": "AMS1",
+      "url": "https://cdn.adyen.com/external/TestCompany/themeAssets/abc123.png?token=****************"
+    },
+    {
+      "type": "logo",
+      "model": "All",
+      "url": "https://cdn.adyen.com/external/default/themeAssets/defaultAdyenLogo.svg?token=****************"
+    }
+  ]
+}
