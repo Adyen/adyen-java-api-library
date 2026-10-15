@@ -24,6 +24,6 @@ public class DateUtilTest {
 
   @Test
   public void shouldReturnNullForMonthOutsideValidRange() {
-    assertNull(DateUtil.parseYmdDate("13/2026"));
+    assertNull(DateUtil.parseMYDate("13/2026"));
   }
 }
