@@ -36,6 +36,7 @@ import java.util.logging.Logger;
   Trust.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
   Trust.JSON_PROPERTY_REGISTERED_ADDRESS,
   Trust.JSON_PROPERTY_REGISTRATION_NUMBER,
+  Trust.JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR,
   Trust.JSON_PROPERTY_TAX_INFORMATION,
   Trust.JSON_PROPERTY_TYPE,
   Trust.JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO,
@@ -96,6 +97,13 @@ public class Trust {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRegistrationNumber = false;
+
+  public static final String JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR =
+      "residentialAddressIndicator";
+  private Boolean residentialAddressIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResidentialAddressIndicator = false;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
   private List<TaxInformation> taxInformation;
@@ -456,9 +464,21 @@ public class Trust {
   }
 
   /**
-   * The legal name.
+   * The legal name. Must be at least 3 characters. Only the following special characters are
+   * allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**, **(**, **)**,
+   * **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param name The legal name.
+   * @param name The legal name. Must be at least 3 characters. Only the following special
+   *     characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   *     **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   *     scripts are allowed. The field cannot contain emojis, only one repeated character (unless
+   *     two characters long), only symbols, only numbers, only spaces, or **fictitious names** such
+   *     as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust name(String name) {
@@ -468,9 +488,21 @@ public class Trust {
   }
 
   /**
-   * The legal name.
+   * The legal name. Must be at least 3 characters. Only the following special characters are
+   * allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**, **(**, **)**,
+   * **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return name The legal name.
+   * @return name The legal name. Must be at least 3 characters. Only the following special
+   *     characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   *     **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   *     scripts are allowed. The field cannot contain emojis, only one repeated character (unless
+   *     two characters long), only symbols, only numbers, only spaces, or **fictitious names** such
+   *     as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -479,9 +511,21 @@ public class Trust {
   }
 
   /**
-   * The legal name.
+   * The legal name. Must be at least 3 characters. Only the following special characters are
+   * allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**, **(**, **)**,
+   * **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param name The legal name.
+   * @param name The legal name. Must be at least 3 characters. Only the following special
+   *     characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   *     **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   *     scripts are allowed. The field cannot contain emojis, only one repeated character (unless
+   *     two characters long), only symbols, only numbers, only spaces, or **fictitious names** such
+   *     as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -593,6 +637,53 @@ public class Trust {
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
     isSetRegistrationNumber = true; // mark as set
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @param residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place of
+   *     residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   * @return the current {@code Trust} instance, allowing for method chaining
+   */
+  public Trust residentialAddressIndicator(Boolean residentialAddressIndicator) {
+    this.residentialAddressIndicator = residentialAddressIndicator;
+    isSetResidentialAddressIndicator = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @return residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place
+   *     of residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   */
+  @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResidentialAddressIndicator() {
+    return residentialAddressIndicator;
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @param residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place of
+   *     residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   */
+  @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResidentialAddressIndicator(Boolean residentialAddressIndicator) {
+    this.residentialAddressIndicator = residentialAddressIndicator;
+    isSetResidentialAddressIndicator = true; // mark as set
   }
 
   /**
@@ -858,6 +949,9 @@ public class Trust {
         && Objects.equals(this.isSetRegisteredAddress, trust.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, trust.registrationNumber)
         && Objects.equals(this.isSetRegistrationNumber, trust.isSetRegistrationNumber)
+        && Objects.equals(this.residentialAddressIndicator, trust.residentialAddressIndicator)
+        && Objects.equals(
+            this.isSetResidentialAddressIndicator, trust.isSetResidentialAddressIndicator)
         && Objects.equals(this.taxInformation, trust.taxInformation)
         && Objects.equals(this.isSetTaxInformation, trust.isSetTaxInformation)
         && Objects.equals(this.type, trust.type)
@@ -891,6 +985,8 @@ public class Trust {
         isSetRegisteredAddress,
         registrationNumber,
         isSetRegistrationNumber,
+        residentialAddressIndicator,
+        isSetResidentialAddressIndicator,
         taxInformation,
         isSetTaxInformation,
         type,
@@ -924,6 +1020,9 @@ public class Trust {
         .append("\n");
     sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    residentialAddressIndicator: ")
+        .append(toIndentedString(residentialAddressIndicator))
+        .append("\n");
     sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    undefinedBeneficiaryInfo: ")
@@ -981,6 +1080,10 @@ public class Trust {
     }
     if (isSetRegistrationNumber) {
       addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER, this.registrationNumber);
+    }
+    if (isSetResidentialAddressIndicator) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR, this.residentialAddressIndicator);
     }
     if (isSetTaxInformation) {
       addIfNull(nulls, JSON_PROPERTY_TAX_INFORMATION, this.taxInformation);

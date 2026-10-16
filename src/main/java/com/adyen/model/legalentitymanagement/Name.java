@@ -53,9 +53,23 @@ public class Name {
   public Name() {}
 
   /**
-   * The individual&#39;s first name. Must not be blank.
+   * The individual&#39;s first name. Must not be blank. The combined length of
+   * &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. For example, a
+   * &#x60;firstName&#x60; of N and &#x60;lastName&#x60; of Ha is accepted. Only the following
+   * special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param firstName The individual&#39;s first name. Must not be blank.
+   * @param firstName The individual&#39;s first name. Must not be blank. The combined length of
+   *     &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. For example,
+   *     a &#x60;firstName&#x60; of N and &#x60;lastName&#x60; of Ha is accepted. Only the following
+   *     special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts
+   *     are allowed. The field cannot contain emojis, only one repeated character (unless two
+   *     characters long), only symbols, only numbers, only spaces, or **fictitious names** such as
+   *     **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name firstName(String firstName) {
@@ -65,9 +79,23 @@ public class Name {
   }
 
   /**
-   * The individual&#39;s first name. Must not be blank.
+   * The individual&#39;s first name. Must not be blank. The combined length of
+   * &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. For example, a
+   * &#x60;firstName&#x60; of N and &#x60;lastName&#x60; of Ha is accepted. Only the following
+   * special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return firstName The individual&#39;s first name. Must not be blank.
+   * @return firstName The individual&#39;s first name. Must not be blank. The combined length of
+   *     &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. For example,
+   *     a &#x60;firstName&#x60; of N and &#x60;lastName&#x60; of Ha is accepted. Only the following
+   *     special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts
+   *     are allowed. The field cannot contain emojis, only one repeated character (unless two
+   *     characters long), only symbols, only numbers, only spaces, or **fictitious names** such as
+   *     **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,9 +104,23 @@ public class Name {
   }
 
   /**
-   * The individual&#39;s first name. Must not be blank.
+   * The individual&#39;s first name. Must not be blank. The combined length of
+   * &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. For example, a
+   * &#x60;firstName&#x60; of N and &#x60;lastName&#x60; of Ha is accepted. Only the following
+   * special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param firstName The individual&#39;s first name. Must not be blank.
+   * @param firstName The individual&#39;s first name. Must not be blank. The combined length of
+   *     &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. For example,
+   *     a &#x60;firstName&#x60; of N and &#x60;lastName&#x60; of Ha is accepted. Only the following
+   *     special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts
+   *     are allowed. The field cannot contain emojis, only one repeated character (unless two
+   *     characters long), only symbols, only numbers, only spaces, or **fictitious names** such as
+   *     **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,9 +130,17 @@ public class Name {
   }
 
   /**
-   * The infix in the individual&#39;s name, if any.
+   * The infix in the individual&#39;s name, if any. Only the following special characters are
+   * allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are allowed. The field
+   * cannot contain emojis, only symbols, only numbers, or only spaces. For more information, see
+   * [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param infix The infix in the individual&#39;s name, if any.
+   * @param infix The infix in the individual&#39;s name, if any. Only the following special
+   *     characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are
+   *     allowed. The field cannot contain emojis, only symbols, only numbers, or only spaces. For
+   *     more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name infix(String infix) {
@@ -100,9 +150,17 @@ public class Name {
   }
 
   /**
-   * The infix in the individual&#39;s name, if any.
+   * The infix in the individual&#39;s name, if any. Only the following special characters are
+   * allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are allowed. The field
+   * cannot contain emojis, only symbols, only numbers, or only spaces. For more information, see
+   * [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return infix The infix in the individual&#39;s name, if any.
+   * @return infix The infix in the individual&#39;s name, if any. Only the following special
+   *     characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are
+   *     allowed. The field cannot contain emojis, only symbols, only numbers, or only spaces. For
+   *     more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,9 +169,17 @@ public class Name {
   }
 
   /**
-   * The infix in the individual&#39;s name, if any.
+   * The infix in the individual&#39;s name, if any. Only the following special characters are
+   * allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are allowed. The field
+   * cannot contain emojis, only symbols, only numbers, or only spaces. For more information, see
+   * [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param infix The infix in the individual&#39;s name, if any.
+   * @param infix The infix in the individual&#39;s name, if any. Only the following special
+   *     characters are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are
+   *     allowed. The field cannot contain emojis, only symbols, only numbers, or only spaces. For
+   *     more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,9 +189,21 @@ public class Name {
   }
 
   /**
-   * The individual&#39;s last name. Must not be blank.
+   * The individual&#39;s last name. Must not be blank. The combined length of &#x60;firstName&#x60;
+   * and &#x60;lastName&#x60; must be at least 3 characters. Only the following special characters
+   * are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are allowed. The field
+   * cannot contain emojis, only one repeated character (unless two characters long), only symbols,
+   * only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**. For more
+   * information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param lastName The individual&#39;s last name. Must not be blank.
+   * @param lastName The individual&#39;s last name. Must not be blank. The combined length of
+   *     &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. Only the
+   *     following special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and
+   *     non-Latin scripts are allowed. The field cannot contain emojis, only one repeated character
+   *     (unless two characters long), only symbols, only numbers, only spaces, or **fictitious
+   *     names** such as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name lastName(String lastName) {
@@ -135,9 +213,21 @@ public class Name {
   }
 
   /**
-   * The individual&#39;s last name. Must not be blank.
+   * The individual&#39;s last name. Must not be blank. The combined length of &#x60;firstName&#x60;
+   * and &#x60;lastName&#x60; must be at least 3 characters. Only the following special characters
+   * are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are allowed. The field
+   * cannot contain emojis, only one repeated character (unless two characters long), only symbols,
+   * only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**. For more
+   * information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return lastName The individual&#39;s last name. Must not be blank.
+   * @return lastName The individual&#39;s last name. Must not be blank. The combined length of
+   *     &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. Only the
+   *     following special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and
+   *     non-Latin scripts are allowed. The field cannot contain emojis, only one repeated character
+   *     (unless two characters long), only symbols, only numbers, only spaces, or **fictitious
+   *     names** such as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,9 +236,21 @@ public class Name {
   }
 
   /**
-   * The individual&#39;s last name. Must not be blank.
+   * The individual&#39;s last name. Must not be blank. The combined length of &#x60;firstName&#x60;
+   * and &#x60;lastName&#x60; must be at least 3 characters. Only the following special characters
+   * are allowed: **-**, **—**, **.**, **_/_**. Accents and non-Latin scripts are allowed. The field
+   * cannot contain emojis, only one repeated character (unless two characters long), only symbols,
+   * only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**. For more
+   * information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param lastName The individual&#39;s last name. Must not be blank.
+   * @param lastName The individual&#39;s last name. Must not be blank. The combined length of
+   *     &#x60;firstName&#x60; and &#x60;lastName&#x60; must be at least 3 characters. Only the
+   *     following special characters are allowed: **-**, **—**, **.**, **_/_**. Accents and
+   *     non-Latin scripts are allowed. The field cannot contain emojis, only one repeated character
+   *     (unless two characters long), only symbols, only numbers, only spaces, or **fictitious
+   *     names** such as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -46,6 +46,7 @@ import java.util.logging.Logger;
   Organization.JSON_PROPERTY_REGISTERED_ADDRESS,
   Organization.JSON_PROPERTY_REGISTRATION_NUMBER,
   Organization.JSON_PROPERTY_REGISTRATION_NUMBER_ABSENT,
+  Organization.JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR,
   Organization.JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING,
   Organization.JSON_PROPERTY_STOCK_DATA,
   Organization.JSON_PROPERTY_SUPPORT,
@@ -245,6 +246,13 @@ public class Organization {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRegistrationNumberAbsent = false;
+
+  public static final String JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR =
+      "residentialAddressIndicator";
+  private Boolean residentialAddressIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResidentialAddressIndicator = false;
 
   /**
    * The status of any current or past legal action taken against the legal entity. Possible values:
@@ -995,9 +1003,22 @@ public class Organization {
   }
 
   /**
-   * The organization&#39;s legal name.
+   * The organization&#39;s legal name. Must be at least 3 characters. Only the following special
+   * characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   * **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   * scripts are allowed. The field cannot contain emojis, only one repeated character (unless two
+   * characters long), only symbols, only numbers, only spaces, or **fictitious names** such as
+   * **John Doe** or **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param legalName The organization&#39;s legal name.
+   * @param legalName The organization&#39;s legal name. Must be at least 3 characters. Only the
+   *     following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**,
+   *     **&amp;**, **?**, **@**, **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**,
+   *     **_/_**. Accents and non-Latin scripts are allowed. The field cannot contain emojis, only
+   *     one repeated character (unless two characters long), only symbols, only numbers, only
+   *     spaces, or **fictitious names** such as **John Doe** or **N/A**. For more information, see
+   *     [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization legalName(String legalName) {
@@ -1007,9 +1028,22 @@ public class Organization {
   }
 
   /**
-   * The organization&#39;s legal name.
+   * The organization&#39;s legal name. Must be at least 3 characters. Only the following special
+   * characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   * **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   * scripts are allowed. The field cannot contain emojis, only one repeated character (unless two
+   * characters long), only symbols, only numbers, only spaces, or **fictitious names** such as
+   * **John Doe** or **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return legalName The organization&#39;s legal name.
+   * @return legalName The organization&#39;s legal name. Must be at least 3 characters. Only the
+   *     following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**,
+   *     **&amp;**, **?**, **@**, **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**,
+   *     **_/_**. Accents and non-Latin scripts are allowed. The field cannot contain emojis, only
+   *     one repeated character (unless two characters long), only symbols, only numbers, only
+   *     spaces, or **fictitious names** such as **John Doe** or **N/A**. For more information, see
+   *     [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1018,9 +1052,22 @@ public class Organization {
   }
 
   /**
-   * The organization&#39;s legal name.
+   * The organization&#39;s legal name. Must be at least 3 characters. Only the following special
+   * characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   * **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   * scripts are allowed. The field cannot contain emojis, only one repeated character (unless two
+   * characters long), only symbols, only numbers, only spaces, or **fictitious names** such as
+   * **John Doe** or **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param legalName The organization&#39;s legal name.
+   * @param legalName The organization&#39;s legal name. Must be at least 3 characters. Only the
+   *     following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**,
+   *     **&amp;**, **?**, **@**, **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**,
+   *     **_/_**. Accents and non-Latin scripts are allowed. The field cannot contain emojis, only
+   *     one repeated character (unless two characters long), only symbols, only numbers, only
+   *     spaces, or **fictitious names** such as **John Doe** or **N/A**. For more information, see
+   *     [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1214,6 +1261,53 @@ public class Organization {
   public void setRegistrationNumberAbsent(Boolean registrationNumberAbsent) {
     this.registrationNumberAbsent = registrationNumberAbsent;
     isSetRegistrationNumberAbsent = true; // mark as set
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @param residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place of
+   *     residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization residentialAddressIndicator(Boolean residentialAddressIndicator) {
+    this.residentialAddressIndicator = residentialAddressIndicator;
+    isSetResidentialAddressIndicator = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @return residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place
+   *     of residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   */
+  @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResidentialAddressIndicator() {
+    return residentialAddressIndicator;
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @param residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place of
+   *     residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   */
+  @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResidentialAddressIndicator(Boolean residentialAddressIndicator) {
+    this.residentialAddressIndicator = residentialAddressIndicator;
+    isSetResidentialAddressIndicator = true; // mark as set
   }
 
   /**
@@ -1654,6 +1748,10 @@ public class Organization {
         && Objects.equals(this.registrationNumberAbsent, organization.registrationNumberAbsent)
         && Objects.equals(
             this.isSetRegistrationNumberAbsent, organization.isSetRegistrationNumberAbsent)
+        && Objects.equals(
+            this.residentialAddressIndicator, organization.residentialAddressIndicator)
+        && Objects.equals(
+            this.isSetResidentialAddressIndicator, organization.isSetResidentialAddressIndicator)
         && Objects.equals(this.statusOfLegalProceeding, organization.statusOfLegalProceeding)
         && Objects.equals(
             this.isSetStatusOfLegalProceeding, organization.isSetStatusOfLegalProceeding)
@@ -1717,6 +1815,8 @@ public class Organization {
         isSetRegistrationNumber,
         registrationNumberAbsent,
         isSetRegistrationNumberAbsent,
+        residentialAddressIndicator,
+        isSetResidentialAddressIndicator,
         statusOfLegalProceeding,
         isSetStatusOfLegalProceeding,
         stockData,
@@ -1777,6 +1877,9 @@ public class Organization {
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    registrationNumberAbsent: ")
         .append(toIndentedString(registrationNumberAbsent))
+        .append("\n");
+    sb.append("    residentialAddressIndicator: ")
+        .append(toIndentedString(residentialAddressIndicator))
         .append("\n");
     sb.append("    statusOfLegalProceeding: ")
         .append(toIndentedString(statusOfLegalProceeding))
@@ -1875,6 +1978,10 @@ public class Organization {
     }
     if (isSetRegistrationNumberAbsent) {
       addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER_ABSENT, this.registrationNumberAbsent);
+    }
+    if (isSetResidentialAddressIndicator) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR, this.residentialAddressIndicator);
     }
     if (isSetStatusOfLegalProceeding) {
       addIfNull(nulls, JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING, this.statusOfLegalProceeding);
