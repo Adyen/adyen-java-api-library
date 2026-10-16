@@ -608,6 +608,41 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
     schemas.put("USLocalAccountIdentification", new GenericType<USLocalAccountIdentification>() {});
     JSON.registerDescendants(
         BankAccountInfoAccountIdentification.class, Collections.unmodifiableMap(schemas));
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("auLocal", AULocalAccountIdentification.class);
+    mappings.put("caLocal", CALocalAccountIdentification.class);
+    mappings.put("czLocal", CZLocalAccountIdentification.class);
+    mappings.put("dkLocal", DKLocalAccountIdentification.class);
+    mappings.put("hkLocal", HKLocalAccountIdentification.class);
+    mappings.put("huLocal", HULocalAccountIdentification.class);
+    mappings.put("iban", IbanAccountIdentification.class);
+    mappings.put("noLocal", NOLocalAccountIdentification.class);
+    mappings.put("numberAndBic", NumberAndBicAccountIdentification.class);
+    mappings.put("nzLocal", NZLocalAccountIdentification.class);
+    mappings.put("plLocal", PLLocalAccountIdentification.class);
+    mappings.put("seLocal", SELocalAccountIdentification.class);
+    mappings.put("sgLocal", SGLocalAccountIdentification.class);
+    mappings.put("ukLocal", UKLocalAccountIdentification.class);
+    mappings.put("usLocal", USLocalAccountIdentification.class);
+    mappings.put("AULocalAccountIdentification", AULocalAccountIdentification.class);
+    mappings.put("CALocalAccountIdentification", CALocalAccountIdentification.class);
+    mappings.put("CZLocalAccountIdentification", CZLocalAccountIdentification.class);
+    mappings.put("DKLocalAccountIdentification", DKLocalAccountIdentification.class);
+    mappings.put("HKLocalAccountIdentification", HKLocalAccountIdentification.class);
+    mappings.put("HULocalAccountIdentification", HULocalAccountIdentification.class);
+    mappings.put("IbanAccountIdentification", IbanAccountIdentification.class);
+    mappings.put("NOLocalAccountIdentification", NOLocalAccountIdentification.class);
+    mappings.put("NZLocalAccountIdentification", NZLocalAccountIdentification.class);
+    mappings.put("NumberAndBicAccountIdentification", NumberAndBicAccountIdentification.class);
+    mappings.put("PLLocalAccountIdentification", PLLocalAccountIdentification.class);
+    mappings.put("SELocalAccountIdentification", SELocalAccountIdentification.class);
+    mappings.put("SGLocalAccountIdentification", SGLocalAccountIdentification.class);
+    mappings.put("UKLocalAccountIdentification", UKLocalAccountIdentification.class);
+    mappings.put("USLocalAccountIdentification", USLocalAccountIdentification.class);
+    mappings.put(
+        "BankAccountInfo_accountIdentification", BankAccountInfoAccountIdentification.class);
+    JSON.registerDiscriminator(BankAccountInfoAccountIdentification.class, "type", mappings);
   }
 
   @Override

@@ -34,6 +34,8 @@ public class CalculateTermsOfServiceStatusResponse {
 
     ADYENCAPITAL(String.valueOf("adyenCapital")),
 
+    ADYENCAPITALCASHADVANCE(String.valueOf("adyenCapitalCashAdvance")),
+
     ADYENCARD(String.valueOf("adyenCard")),
 
     ADYENCHARGECARD(String.valueOf("adyenChargeCard")),
@@ -47,6 +49,8 @@ public class CalculateTermsOfServiceStatusResponse {
     ADYENISSUING(String.valueOf("adyenIssuing")),
 
     ADYENPCCR(String.valueOf("adyenPccr")),
+
+    DIRECTDEBIT(String.valueOf("directDebit")),
 
     KYCONINVITE(String.valueOf("kycOnInvite"));
 

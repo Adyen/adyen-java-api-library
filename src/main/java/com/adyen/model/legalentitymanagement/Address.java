@@ -75,10 +75,18 @@ public class Address {
 
   /**
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided. If you specify the
-   * city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+   * city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;. The city name must be
+   * at least 3 characters. If the city name contains only repeated characters, the minimum length
+   * is two characters. For example, Aa is accepted, but Aaaa is not. For more information, see
+   * [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
    * @param city The name of the city. Required if &#x60;stateOrProvince&#x60; is provided. If you
-   *     specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+   *     specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;. The
+   *     city name must be at least 3 characters. If the city name contains only repeated
+   *     characters, the minimum length is two characters. For example, Aa is accepted, but Aaaa is
+   *     not. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address city(String city) {
@@ -89,10 +97,18 @@ public class Address {
 
   /**
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided. If you specify the
-   * city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+   * city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;. The city name must be
+   * at least 3 characters. If the city name contains only repeated characters, the minimum length
+   * is two characters. For example, Aa is accepted, but Aaaa is not. For more information, see
+   * [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
    * @return city The name of the city. Required if &#x60;stateOrProvince&#x60; is provided. If you
-   *     specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+   *     specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;. The
+   *     city name must be at least 3 characters. If the city name contains only repeated
+   *     characters, the minimum length is two characters. For example, Aa is accepted, but Aaaa is
+   *     not. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,10 +118,18 @@ public class Address {
 
   /**
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided. If you specify the
-   * city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+   * city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;. The city name must be
+   * at least 3 characters. If the city name contains only repeated characters, the minimum length
+   * is two characters. For example, Aa is accepted, but Aaaa is not. For more information, see
+   * [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
    * @param city The name of the city. Required if &#x60;stateOrProvince&#x60; is provided. If you
-   *     specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
+   *     specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;. The
+   *     city name must be at least 3 characters. If the city name contains only repeated
+   *     characters, the minimum length is two characters. For example, Aa is accepted, but Aaaa is
+   *     not. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,11 +274,15 @@ public class Address {
   }
 
   /**
-   * The name of the street, and the house or building number. Required if
-   * &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * The name of the street, and the house or building number. Must be at least 3 characters.
+   * Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided. For more
+   * information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param street The name of the street, and the house or building number. Required if
-   *     &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * @param street The name of the street, and the house or building number. Must be at least 3
+   *     characters. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   *     For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address street(String street) {
@@ -264,11 +292,15 @@ public class Address {
   }
 
   /**
-   * The name of the street, and the house or building number. Required if
-   * &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * The name of the street, and the house or building number. Must be at least 3 characters.
+   * Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided. For more
+   * information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return street The name of the street, and the house or building number. Required if
-   *     &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * @return street The name of the street, and the house or building number. Must be at least 3
+   *     characters. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   *     For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,11 +309,15 @@ public class Address {
   }
 
   /**
-   * The name of the street, and the house or building number. Required if
-   * &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * The name of the street, and the house or building number. Must be at least 3 characters.
+   * Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided. For more
+   * information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param street The name of the street, and the house or building number. Required if
-   *     &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * @param street The name of the street, and the house or building number. Must be at least 3
+   *     characters. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   *     For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

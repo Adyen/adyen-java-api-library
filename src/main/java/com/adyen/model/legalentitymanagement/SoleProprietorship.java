@@ -36,6 +36,7 @@ import java.util.logging.Logger;
   SoleProprietorship.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
   SoleProprietorship.JSON_PROPERTY_REGISTERED_ADDRESS,
   SoleProprietorship.JSON_PROPERTY_REGISTRATION_NUMBER,
+  SoleProprietorship.JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR,
   SoleProprietorship.JSON_PROPERTY_TAX_ABSENT,
   SoleProprietorship.JSON_PROPERTY_TAX_INFORMATION,
   SoleProprietorship.JSON_PROPERTY_VAT_ABSENCE_REASON,
@@ -95,6 +96,13 @@ public class SoleProprietorship {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRegistrationNumber = false;
+
+  public static final String JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR =
+      "residentialAddressIndicator";
+  private Boolean residentialAddressIndicator;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetResidentialAddressIndicator = false;
 
   public static final String JSON_PROPERTY_TAX_ABSENT = "taxAbsent";
   private Boolean taxAbsent;
@@ -374,9 +382,21 @@ public class SoleProprietorship {
   }
 
   /**
-   * The legal name.
+   * The legal name. Must be at least 3 characters. Only the following special characters are
+   * allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**, **(**, **)**,
+   * **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param name The legal name.
+   * @param name The legal name. Must be at least 3 characters. Only the following special
+   *     characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   *     **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   *     scripts are allowed. The field cannot contain emojis, only one repeated character (unless
+   *     two characters long), only symbols, only numbers, only spaces, or **fictitious names** such
+   *     as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship name(String name) {
@@ -386,9 +406,21 @@ public class SoleProprietorship {
   }
 
   /**
-   * The legal name.
+   * The legal name. Must be at least 3 characters. Only the following special characters are
+   * allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**, **(**, **)**,
+   * **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @return name The legal name.
+   * @return name The legal name. Must be at least 3 characters. Only the following special
+   *     characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   *     **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   *     scripts are allowed. The field cannot contain emojis, only one repeated character (unless
+   *     two characters long), only symbols, only numbers, only spaces, or **fictitious names** such
+   *     as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,9 +429,21 @@ public class SoleProprietorship {
   }
 
   /**
-   * The legal name.
+   * The legal name. Must be at least 3 characters. Only the following special characters are
+   * allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**, **(**, **)**,
+   * **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are
+   * allowed. The field cannot contain emojis, only one repeated character (unless two characters
+   * long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or
+   * **N/A**. For more information, see [validations on
+   * fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    *
-   * @param name The legal name.
+   * @param name The legal name. Must be at least 3 characters. Only the following special
+   *     characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&amp;**, **?**, **@**,
+   *     **(**, **)**, **\&quot;**, **&#39;**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin
+   *     scripts are allowed. The field cannot contain emojis, only one repeated character (unless
+   *     two characters long), only symbols, only numbers, only spaces, or **fictitious names** such
+   *     as **John Doe** or **N/A**. For more information, see [validations on
+   *     fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -511,6 +555,53 @@ public class SoleProprietorship {
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
     isSetRegistrationNumber = true; // mark as set
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @param residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place of
+   *     residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   * @return the current {@code SoleProprietorship} instance, allowing for method chaining
+   */
+  public SoleProprietorship residentialAddressIndicator(Boolean residentialAddressIndicator) {
+    this.residentialAddressIndicator = residentialAddressIndicator;
+    isSetResidentialAddressIndicator = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @return residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place
+   *     of residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   */
+  @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResidentialAddressIndicator() {
+    return residentialAddressIndicator;
+  }
+
+  /**
+   * Indicates if the &#x60;registeredAddress&#x60; is a place of residence, instead of a business
+   * address. Set to **true** if the address is a place of residence. The default value is
+   * **false**.
+   *
+   * @param residentialAddressIndicator Indicates if the &#x60;registeredAddress&#x60; is a place of
+   *     residence, instead of a business address. Set to **true** if the address is a place of
+   *     residence. The default value is **false**.
+   */
+  @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResidentialAddressIndicator(Boolean residentialAddressIndicator) {
+    this.residentialAddressIndicator = residentialAddressIndicator;
+    isSetResidentialAddressIndicator = true; // mark as set
   }
 
   /**
@@ -720,6 +811,11 @@ public class SoleProprietorship {
         && Objects.equals(this.isSetRegisteredAddress, soleProprietorship.isSetRegisteredAddress)
         && Objects.equals(this.registrationNumber, soleProprietorship.registrationNumber)
         && Objects.equals(this.isSetRegistrationNumber, soleProprietorship.isSetRegistrationNumber)
+        && Objects.equals(
+            this.residentialAddressIndicator, soleProprietorship.residentialAddressIndicator)
+        && Objects.equals(
+            this.isSetResidentialAddressIndicator,
+            soleProprietorship.isSetResidentialAddressIndicator)
         && Objects.equals(this.taxAbsent, soleProprietorship.taxAbsent)
         && Objects.equals(this.isSetTaxAbsent, soleProprietorship.isSetTaxAbsent)
         && Objects.equals(this.taxInformation, soleProprietorship.taxInformation)
@@ -751,6 +847,8 @@ public class SoleProprietorship {
         isSetRegisteredAddress,
         registrationNumber,
         isSetRegistrationNumber,
+        residentialAddressIndicator,
+        isSetResidentialAddressIndicator,
         taxAbsent,
         isSetTaxAbsent,
         taxInformation,
@@ -782,6 +880,9 @@ public class SoleProprietorship {
         .append("\n");
     sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    residentialAddressIndicator: ")
+        .append(toIndentedString(residentialAddressIndicator))
+        .append("\n");
     sb.append("    taxAbsent: ").append(toIndentedString(taxAbsent)).append("\n");
     sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
     sb.append("    vatAbsenceReason: ").append(toIndentedString(vatAbsenceReason)).append("\n");
@@ -836,6 +937,10 @@ public class SoleProprietorship {
     }
     if (isSetRegistrationNumber) {
       addIfNull(nulls, JSON_PROPERTY_REGISTRATION_NUMBER, this.registrationNumber);
+    }
+    if (isSetResidentialAddressIndicator) {
+      addIfNull(
+          nulls, JSON_PROPERTY_RESIDENTIAL_ADDRESS_INDICATOR, this.residentialAddressIndicator);
     }
     if (isSetTaxAbsent) {
       addIfNull(nulls, JSON_PROPERTY_TAX_ABSENT, this.taxAbsent);
