@@ -20,8 +20,32 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** AlipayPlusInfo */
-@JsonPropertyOrder({AlipayPlusInfo.JSON_PROPERTY_SETTLEMENT_CURRENCY_CODE})
+@JsonPropertyOrder({
+  AlipayPlusInfo.JSON_PROPERTY_BRANCH_NAME,
+  AlipayPlusInfo.JSON_PROPERTY_MERCHANT_MOBILE_APP_NAME,
+  AlipayPlusInfo.JSON_PROPERTY_PRODUCT_SERVICE_DESCRIPTION,
+  AlipayPlusInfo.JSON_PROPERTY_SETTLEMENT_CURRENCY_CODE
+})
 public class AlipayPlusInfo {
+  public static final String JSON_PROPERTY_BRANCH_NAME = "branchName";
+  private String branchName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBranchName = false;
+
+  public static final String JSON_PROPERTY_MERCHANT_MOBILE_APP_NAME = "merchantMobileAppName";
+  private String merchantMobileAppName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantMobileAppName = false;
+
+  public static final String JSON_PROPERTY_PRODUCT_SERVICE_DESCRIPTION =
+      "productServiceDescription";
+  private String productServiceDescription;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetProductServiceDescription = false;
+
   public static final String JSON_PROPERTY_SETTLEMENT_CURRENCY_CODE = "settlementCurrencyCode";
   private String settlementCurrencyCode;
 
@@ -35,6 +59,114 @@ public class AlipayPlusInfo {
   @JsonIgnore private boolean includeNullValues = false;
 
   public AlipayPlusInfo() {}
+
+  /**
+   * The name of the company branch. Required for TrueMoney.
+   *
+   * @param branchName The name of the company branch. Required for TrueMoney.
+   * @return the current {@code AlipayPlusInfo} instance, allowing for method chaining
+   */
+  public AlipayPlusInfo branchName(String branchName) {
+    this.branchName = branchName;
+    isSetBranchName = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The name of the company branch. Required for TrueMoney.
+   *
+   * @return branchName The name of the company branch. Required for TrueMoney.
+   */
+  @JsonProperty(JSON_PROPERTY_BRANCH_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBranchName() {
+    return branchName;
+  }
+
+  /**
+   * The name of the company branch. Required for TrueMoney.
+   *
+   * @param branchName The name of the company branch. Required for TrueMoney.
+   */
+  @JsonProperty(JSON_PROPERTY_BRANCH_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBranchName(String branchName) {
+    this.branchName = branchName;
+    isSetBranchName = true; // mark as set
+  }
+
+  /**
+   * The name of your mobile app. Required for TrueMoney.
+   *
+   * @param merchantMobileAppName The name of your mobile app. Required for TrueMoney.
+   * @return the current {@code AlipayPlusInfo} instance, allowing for method chaining
+   */
+  public AlipayPlusInfo merchantMobileAppName(String merchantMobileAppName) {
+    this.merchantMobileAppName = merchantMobileAppName;
+    isSetMerchantMobileAppName = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The name of your mobile app. Required for TrueMoney.
+   *
+   * @return merchantMobileAppName The name of your mobile app. Required for TrueMoney.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_MOBILE_APP_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantMobileAppName() {
+    return merchantMobileAppName;
+  }
+
+  /**
+   * The name of your mobile app. Required for TrueMoney.
+   *
+   * @param merchantMobileAppName The name of your mobile app. Required for TrueMoney.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_MOBILE_APP_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantMobileAppName(String merchantMobileAppName) {
+    this.merchantMobileAppName = merchantMobileAppName;
+    isSetMerchantMobileAppName = true; // mark as set
+  }
+
+  /**
+   * The description of the product or service. Required for TrueMoney.
+   *
+   * @param productServiceDescription The description of the product or service. Required for
+   *     TrueMoney.
+   * @return the current {@code AlipayPlusInfo} instance, allowing for method chaining
+   */
+  public AlipayPlusInfo productServiceDescription(String productServiceDescription) {
+    this.productServiceDescription = productServiceDescription;
+    isSetProductServiceDescription = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The description of the product or service. Required for TrueMoney.
+   *
+   * @return productServiceDescription The description of the product or service. Required for
+   *     TrueMoney.
+   */
+  @JsonProperty(JSON_PROPERTY_PRODUCT_SERVICE_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProductServiceDescription() {
+    return productServiceDescription;
+  }
+
+  /**
+   * The description of the product or service. Required for TrueMoney.
+   *
+   * @param productServiceDescription The description of the product or service. Required for
+   *     TrueMoney.
+   */
+  @JsonProperty(JSON_PROPERTY_PRODUCT_SERVICE_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProductServiceDescription(String productServiceDescription) {
+    this.productServiceDescription = productServiceDescription;
+    isSetProductServiceDescription = true; // mark as set
+  }
 
   /**
    * The currency used for settlement. Defaults to USD.
@@ -101,20 +233,43 @@ public class AlipayPlusInfo {
       return false;
     }
     AlipayPlusInfo alipayPlusInfo = (AlipayPlusInfo) o;
-    return Objects.equals(this.settlementCurrencyCode, alipayPlusInfo.settlementCurrencyCode)
+    return Objects.equals(this.branchName, alipayPlusInfo.branchName)
+        && Objects.equals(this.isSetBranchName, alipayPlusInfo.isSetBranchName)
+        && Objects.equals(this.merchantMobileAppName, alipayPlusInfo.merchantMobileAppName)
+        && Objects.equals(
+            this.isSetMerchantMobileAppName, alipayPlusInfo.isSetMerchantMobileAppName)
+        && Objects.equals(this.productServiceDescription, alipayPlusInfo.productServiceDescription)
+        && Objects.equals(
+            this.isSetProductServiceDescription, alipayPlusInfo.isSetProductServiceDescription)
+        && Objects.equals(this.settlementCurrencyCode, alipayPlusInfo.settlementCurrencyCode)
         && Objects.equals(
             this.isSetSettlementCurrencyCode, alipayPlusInfo.isSetSettlementCurrencyCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settlementCurrencyCode, isSetSettlementCurrencyCode);
+    return Objects.hash(
+        branchName,
+        isSetBranchName,
+        merchantMobileAppName,
+        isSetMerchantMobileAppName,
+        productServiceDescription,
+        isSetProductServiceDescription,
+        settlementCurrencyCode,
+        isSetSettlementCurrencyCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AlipayPlusInfo {\n");
+    sb.append("    branchName: ").append(toIndentedString(branchName)).append("\n");
+    sb.append("    merchantMobileAppName: ")
+        .append(toIndentedString(merchantMobileAppName))
+        .append("\n");
+    sb.append("    productServiceDescription: ")
+        .append(toIndentedString(productServiceDescription))
+        .append("\n");
     sb.append("    settlementCurrencyCode: ")
         .append(toIndentedString(settlementCurrencyCode))
         .append("\n");
@@ -142,6 +297,15 @@ public class AlipayPlusInfo {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetBranchName) {
+      addIfNull(nulls, JSON_PROPERTY_BRANCH_NAME, this.branchName);
+    }
+    if (isSetMerchantMobileAppName) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_MOBILE_APP_NAME, this.merchantMobileAppName);
+    }
+    if (isSetProductServiceDescription) {
+      addIfNull(nulls, JSON_PROPERTY_PRODUCT_SERVICE_DESCRIPTION, this.productServiceDescription);
+    }
     if (isSetSettlementCurrencyCode) {
       addIfNull(nulls, JSON_PROPERTY_SETTLEMENT_CURRENCY_CODE, this.settlementCurrencyCode);
     }
