@@ -45,13 +45,16 @@ public class GetTermsOfServiceDocumentRequest {
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
-   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** * **adyenCard** *
-   * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenCapitalCashAdvance** *
+   * **adyenAccount** * **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** *
+   * **kycOnInvite** * **directDebit**
    */
   public enum TypeEnum {
     ADYENACCOUNT(String.valueOf("adyenAccount")),
 
     ADYENCAPITAL(String.valueOf("adyenCapital")),
+
+    ADYENCAPITALCASHADVANCE(String.valueOf("adyenCapitalCashAdvance")),
 
     ADYENCARD(String.valueOf("adyenCard")),
 
@@ -66,6 +69,8 @@ public class GetTermsOfServiceDocumentRequest {
     ADYENISSUING(String.valueOf("adyenIssuing")),
 
     ADYENPCCR(String.valueOf("adyenPccr")),
+
+    DIRECTDEBIT(String.valueOf("directDebit")),
 
     KYCONINVITE(String.valueOf("kycOnInvite"));
 
@@ -211,12 +216,14 @@ public class GetTermsOfServiceDocumentRequest {
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
-   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** * **adyenCard** *
-   * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenCapitalCashAdvance** *
+   * **adyenAccount** * **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** *
+   * **kycOnInvite** * **directDebit**
    *
    * @param type The type of Terms of Service. Possible values: * **adyenForPlatformsManage** *
-   *     **adyenIssuing** * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** *
-   *     **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   *     **adyenIssuing** * **adyenForPlatformsAdvanced** * **adyenCapital** *
+   *     **adyenCapitalCashAdvance** * **adyenAccount** * **adyenCard** * **adyenFranchisee** *
+   *     **adyenPccr** * **adyenChargeCard** * **kycOnInvite** * **directDebit**
    * @return the current {@code GetTermsOfServiceDocumentRequest} instance, allowing for method
    *     chaining
    */
@@ -228,12 +235,14 @@ public class GetTermsOfServiceDocumentRequest {
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
-   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** * **adyenCard** *
-   * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenCapitalCashAdvance** *
+   * **adyenAccount** * **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** *
+   * **kycOnInvite** * **directDebit**
    *
    * @return type The type of Terms of Service. Possible values: * **adyenForPlatformsManage** *
-   *     **adyenIssuing** * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** *
-   *     **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   *     **adyenIssuing** * **adyenForPlatformsAdvanced** * **adyenCapital** *
+   *     **adyenCapitalCashAdvance** * **adyenAccount** * **adyenCard** * **adyenFranchisee** *
+   *     **adyenPccr** * **adyenChargeCard** * **kycOnInvite** * **directDebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,12 +252,14 @@ public class GetTermsOfServiceDocumentRequest {
 
   /**
    * The type of Terms of Service. Possible values: * **adyenForPlatformsManage** * **adyenIssuing**
-   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** * **adyenCard** *
-   * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   * * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenCapitalCashAdvance** *
+   * **adyenAccount** * **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** *
+   * **kycOnInvite** * **directDebit**
    *
    * @param type The type of Terms of Service. Possible values: * **adyenForPlatformsManage** *
-   *     **adyenIssuing** * **adyenForPlatformsAdvanced** * **adyenCapital** * **adyenAccount** *
-   *     **adyenCard** * **adyenFranchisee** * **adyenPccr** * **adyenChargeCard** * **kycOnInvite**
+   *     **adyenIssuing** * **adyenForPlatformsAdvanced** * **adyenCapital** *
+   *     **adyenCapitalCashAdvance** * **adyenAccount** * **adyenCard** * **adyenFranchisee** *
+   *     **adyenPccr** * **adyenChargeCard** * **kycOnInvite** * **directDebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
