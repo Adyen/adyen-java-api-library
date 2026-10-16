@@ -41,6 +41,7 @@ import java.util.List;
   TerminalSettings.JSON_PROPERTY_RECEIPT_OPTIONS,
   TerminalSettings.JSON_PROPERTY_RECEIPT_PRINTING,
   TerminalSettings.JSON_PROPERTY_REFUNDS,
+  TerminalSettings.JSON_PROPERTY_SHOW_CALCULATED_PERCENTAGE_TIPPING_AMOUNT,
   TerminalSettings.JSON_PROPERTY_SIGNATURE,
   TerminalSettings.JSON_PROPERTY_STANDALONE,
   TerminalSettings.JSON_PROPERTY_STORE_AND_FORWARD,
@@ -158,6 +159,13 @@ public class TerminalSettings {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRefunds = false;
+
+  public static final String JSON_PROPERTY_SHOW_CALCULATED_PERCENTAGE_TIPPING_AMOUNT =
+      "showCalculatedPercentageTippingAmount";
+  private Boolean showCalculatedPercentageTippingAmount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShowCalculatedPercentageTippingAmount = false;
 
   public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private Signature signature;
@@ -863,6 +871,52 @@ public class TerminalSettings {
   }
 
   /**
+   * Show the tipping amount calculated from the percentage next to each tipping percentage option
+   * on the terminal screen, for example &#x60;10 % | 10 EUR&#x60; for a 100 EUR payment.
+   *
+   * @param showCalculatedPercentageTippingAmount Show the tipping amount calculated from the
+   *     percentage next to each tipping percentage option on the terminal screen, for example
+   *     &#x60;10 % | 10 EUR&#x60; for a 100 EUR payment.
+   * @return the current {@code TerminalSettings} instance, allowing for method chaining
+   */
+  public TerminalSettings showCalculatedPercentageTippingAmount(
+      Boolean showCalculatedPercentageTippingAmount) {
+    this.showCalculatedPercentageTippingAmount = showCalculatedPercentageTippingAmount;
+    isSetShowCalculatedPercentageTippingAmount = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Show the tipping amount calculated from the percentage next to each tipping percentage option
+   * on the terminal screen, for example &#x60;10 % | 10 EUR&#x60; for a 100 EUR payment.
+   *
+   * @return showCalculatedPercentageTippingAmount Show the tipping amount calculated from the
+   *     percentage next to each tipping percentage option on the terminal screen, for example
+   *     &#x60;10 % | 10 EUR&#x60; for a 100 EUR payment.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOW_CALCULATED_PERCENTAGE_TIPPING_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowCalculatedPercentageTippingAmount() {
+    return showCalculatedPercentageTippingAmount;
+  }
+
+  /**
+   * Show the tipping amount calculated from the percentage next to each tipping percentage option
+   * on the terminal screen, for example &#x60;10 % | 10 EUR&#x60; for a 100 EUR payment.
+   *
+   * @param showCalculatedPercentageTippingAmount Show the tipping amount calculated from the
+   *     percentage next to each tipping percentage option on the terminal screen, for example
+   *     &#x60;10 % | 10 EUR&#x60; for a 100 EUR payment.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOW_CALCULATED_PERCENTAGE_TIPPING_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShowCalculatedPercentageTippingAmount(
+      Boolean showCalculatedPercentageTippingAmount) {
+    this.showCalculatedPercentageTippingAmount = showCalculatedPercentageTippingAmount;
+    isSetShowCalculatedPercentageTippingAmount = true; // mark as set
+  }
+
+  /**
    * signature
    *
    * @param signature
@@ -1208,6 +1262,12 @@ public class TerminalSettings {
         && Objects.equals(this.isSetReceiptPrinting, terminalSettings.isSetReceiptPrinting)
         && Objects.equals(this.refunds, terminalSettings.refunds)
         && Objects.equals(this.isSetRefunds, terminalSettings.isSetRefunds)
+        && Objects.equals(
+            this.showCalculatedPercentageTippingAmount,
+            terminalSettings.showCalculatedPercentageTippingAmount)
+        && Objects.equals(
+            this.isSetShowCalculatedPercentageTippingAmount,
+            terminalSettings.isSetShowCalculatedPercentageTippingAmount)
         && Objects.equals(this.signature, terminalSettings.signature)
         && Objects.equals(this.isSetSignature, terminalSettings.isSetSignature)
         && Objects.equals(this.standalone, terminalSettings.standalone)
@@ -1266,6 +1326,8 @@ public class TerminalSettings {
         isSetReceiptPrinting,
         refunds,
         isSetRefunds,
+        showCalculatedPercentageTippingAmount,
+        isSetShowCalculatedPercentageTippingAmount,
         signature,
         isSetSignature,
         standalone,
@@ -1306,6 +1368,9 @@ public class TerminalSettings {
     sb.append("    receiptOptions: ").append(toIndentedString(receiptOptions)).append("\n");
     sb.append("    receiptPrinting: ").append(toIndentedString(receiptPrinting)).append("\n");
     sb.append("    refunds: ").append(toIndentedString(refunds)).append("\n");
+    sb.append("    showCalculatedPercentageTippingAmount: ")
+        .append(toIndentedString(showCalculatedPercentageTippingAmount))
+        .append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    standalone: ").append(toIndentedString(standalone)).append("\n");
     sb.append("    storeAndForward: ").append(toIndentedString(storeAndForward)).append("\n");
@@ -1393,6 +1458,12 @@ public class TerminalSettings {
     }
     if (isSetRefunds) {
       addIfNull(nulls, JSON_PROPERTY_REFUNDS, this.refunds);
+    }
+    if (isSetShowCalculatedPercentageTippingAmount) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_SHOW_CALCULATED_PERCENTAGE_TIPPING_AMOUNT,
+          this.showCalculatedPercentageTippingAmount);
     }
     if (isSetSignature) {
       addIfNull(nulls, JSON_PROPERTY_SIGNATURE, this.signature);

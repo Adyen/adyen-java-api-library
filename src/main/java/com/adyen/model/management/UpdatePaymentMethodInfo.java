@@ -35,6 +35,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_DINERS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_DISCOVER,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_EBT,
   UpdatePaymentMethodInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   UpdatePaymentMethodInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   UpdatePaymentMethodInfo.JSON_PROPERTY_ENABLED,
@@ -126,6 +127,12 @@ public class UpdatePaymentMethodInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiscover = false;
+
+  public static final String JSON_PROPERTY_EBT = "ebt";
+  private EbtUpdateInfo ebt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEbt = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
   private GenericPmWithTdiUpdateInfo eftDirectdebitCA;
@@ -698,6 +705,41 @@ public class UpdatePaymentMethodInfo {
   public void setDiscover(GenericPmWithTdiUpdateInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo ebt(EbtUpdateInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ebt
+   *
+   * @return ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EbtUpdateInfo getEbt() {
+    return ebt;
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEbt(EbtUpdateInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
   }
 
   /**
@@ -1405,6 +1447,8 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.isSetDiners, updatePaymentMethodInfo.isSetDiners)
         && Objects.equals(this.discover, updatePaymentMethodInfo.discover)
         && Objects.equals(this.isSetDiscover, updatePaymentMethodInfo.isSetDiscover)
+        && Objects.equals(this.ebt, updatePaymentMethodInfo.ebt)
+        && Objects.equals(this.isSetEbt, updatePaymentMethodInfo.isSetEbt)
         && Objects.equals(this.eftDirectdebitCA, updatePaymentMethodInfo.eftDirectdebitCA)
         && Objects.equals(this.isSetEftDirectdebitCA, updatePaymentMethodInfo.isSetEftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, updatePaymentMethodInfo.eftposAustralia)
@@ -1470,6 +1514,8 @@ public class UpdatePaymentMethodInfo {
         isSetDiners,
         discover,
         isSetDiscover,
+        ebt,
+        isSetEbt,
         eftDirectdebitCA,
         isSetEftDirectdebitCA,
         eftposAustralia,
@@ -1524,6 +1570,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    ebt: ").append(toIndentedString(ebt)).append("\n");
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
@@ -1601,6 +1648,9 @@ public class UpdatePaymentMethodInfo {
     }
     if (isSetDiscover) {
       addIfNull(nulls, JSON_PROPERTY_DISCOVER, this.discover);
+    }
+    if (isSetEbt) {
+      addIfNull(nulls, JSON_PROPERTY_EBT, this.ebt);
     }
     if (isSetEftDirectdebitCA) {
       addIfNull(nulls, JSON_PROPERTY_EFT_DIRECTDEBIT_C_A, this.eftDirectdebitCA);
