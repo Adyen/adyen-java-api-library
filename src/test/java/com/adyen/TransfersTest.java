@@ -118,6 +118,72 @@ public class TransfersTest extends BaseTest {
     assertEquals(UKFpsTracingData.TypeEnum.UKFPS, eventTracing.getType());
   }
 
+  /**
+   * Verifies that a transfer response for an issued card reversal is fully deserialized: the
+   * transfer status, the card category data (including the network variant), the network reason of
+   * the reversal, and the reversal event with its modification.
+   */
+  @Test
+  public void getTransferReversalTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/transfers/get-transfer-reversal.json");
+
+    TransfersApi transfers = new TransfersApi(client);
+    TransferData response = transfers.getTransfer("1W1UG35QQEBJLHZ8");
+
+    assertEquals(TransferData.StatusEnum.REVERSALRECEIVED, response.getStatus());
+    assertEquals(TransferData.CategoryEnum.ISSUEDCARD, response.getCategory());
+
+    assertNotNull(response.getNetworkReason());
+    assertEquals(
+        NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
+        response.getNetworkReason().getNamespace());
+    assertEquals("C01", response.getNetworkReason().getCode());
+
+    IssuedCard issuedCard = response.getCategoryData().getIssuedCard();
+    assertEquals(IssuedCard.NetworkVariantEnum.MAESTRO_US, issuedCard.getNetworkVariant());
+
+    TransferEvent reversalEvent =
+        response.getEvents().stream()
+            .filter(event -> event.getStatus() == TransferEvent.StatusEnum.REVERSALRECEIVED)
+            .findFirst()
+            .orElseThrow();
+    assertNotNull(reversalEvent.getModification());
+    assertEquals(
+        Modification.StatusEnum.REVERSALRECEIVED, reversalEvent.getModification().getStatus());
+  }
+
+  /**
+   * Verifies the wire-value mapping of transfers enums and their forward compatibility: known
+   * values deserialize to the matching enum constant, while values not yet known to this library
+   * deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void transfersEnumDeserializationTest() {
+    assertNull(IssuedCard.NetworkVariantEnum.fromValue("some_future_network"));
+    assertEquals("maestro_us", IssuedCard.NetworkVariantEnum.MAESTRO_US.getValue());
+    assertEquals(
+        IssuedCard.NetworkVariantEnum.VISA, IssuedCard.NetworkVariantEnum.fromValue("visa"));
+    assertEquals(
+        NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
+        NetworkReason.NamespaceEnum.fromValue("usAchCorrectionReasonCode"));
+    assertEquals(
+        TransferData.StatusEnum.REVERSALRECEIVED,
+        TransferData.StatusEnum.fromValue("reversalReceived"));
+    assertEquals(
+        TransferData.TypeEnum.BALANCEMIGRATION,
+        TransferData.TypeEnum.fromValue("balanceMigration"));
+    assertEquals(TransferData.TypeEnum.FXSELL, TransferData.TypeEnum.fromValue("fxSell"));
+    assertEquals(TransferData.TypeEnum.FXBUY, TransferData.TypeEnum.fromValue("fxBuy"));
+    assertEquals(
+        Transfer.StatusEnum.REVERSALRECEIVED, Transfer.StatusEnum.fromValue("reversalReceived"));
+    assertEquals(
+        TransferEvent.StatusEnum.REVERSALRECEIVED,
+        TransferEvent.StatusEnum.fromValue("reversalReceived"));
+    assertEquals(
+        Modification.StatusEnum.REVERSALRECEIVED,
+        Modification.StatusEnum.fromValue("reversalReceived"));
+  }
+
   @Test
   public void transferTest() throws Exception {
     Client client =
