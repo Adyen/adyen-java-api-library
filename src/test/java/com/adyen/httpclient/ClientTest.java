@@ -47,9 +47,7 @@ public class ClientTest extends BaseTest {
   public void shouldReturnTestEndpointWhenEnvironmentIsNull() {
     Client client = new Client();
 
-    assertEquals(
-        Client.TERMINAL_API_ENDPOINT_TEST,
-        client.retrieveCloudEndpoint(null, null));
+    assertEquals(Client.TERMINAL_API_ENDPOINT_TEST, client.retrieveCloudEndpoint(null, null));
   }
 
   @Test
