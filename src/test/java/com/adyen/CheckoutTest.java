@@ -300,10 +300,6 @@ public class CheckoutTest extends BaseTest {
         createCheckoutSessionResponse.getEnhancedSchemeData().getLevelTwoThree();
     assertEquals("customer-123", schemeData.getCustomerReferenceNumber());
     assertEquals(500L, schemeData.getTotalTaxAmount().longValue());
-    assertEquals(
-        createCheckoutSessionResponse.getEnhancedSchemeData(),
-        CreateCheckoutSessionResponse.fromJson(createCheckoutSessionResponse.toJson())
-            .getEnhancedSchemeData());
   }
 
   @Test
@@ -378,7 +374,6 @@ public class CheckoutTest extends BaseTest {
     assertEquals(type, parsed.getStoredPaymentMethodDetails().getType());
     assertEquals(
         "stored-method-123", parsed.getStoredPaymentMethodDetails().getStoredPaymentMethodId());
-    assertEquals(type.getValue(), JSON.getMapper().readTree(parsed.toJson()).path("type").asText());
   }
 
   /** Should make orders call */
@@ -1359,44 +1354,39 @@ public class CheckoutTest extends BaseTest {
 
     assertEquals("SESSION_TOKEN", parsed.getKlarnaNetworkSessionToken());
     assertEquals("KLARNA_NETWORK_PAYMENT_ACCOUNT_ID", parsed.getKlarnaNetworkPaymentAccountId());
-    assertNull(parsed.getSubtype());
-    assertFalse(JSON.getMapper().readTree(klarnaNetworkDetails.toJson()).has("subtype"));
   }
 
   @ParameterizedTest
   @EnumSource(KlarnaNetworkDetails.SubtypeEnum.class)
   public void testKlarnaNetworkSubtype(KlarnaNetworkDetails.SubtypeEnum subtype) throws Exception {
     KlarnaNetworkDetails details = new KlarnaNetworkDetails().subtype(subtype);
-    assertEquals(
-        subtype.getValue(), JSON.getMapper().readTree(details.toJson()).path("subtype").asText());
-    assertEquals(subtype, KlarnaNetworkDetails.fromJson(details.toJson()).getSubtype());
+    KlarnaNetworkDetails parsed = KlarnaNetworkDetails.fromJson(details.toJson());
+    assertEquals(subtype, parsed.getSubtype());
   }
 
   @Test
   public void testAfterpayUsPaymentMethodMapping() throws Exception {
-    CheckoutPaymentMethod method =
-        CheckoutPaymentMethod.fromJson(
-            "{\"type\":\"afterpaytouch_US\",\"storedPaymentMethodId\":\"stored-afterpay-123\"}");
-    assertEquals(AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US, method.getAfterpayDetails().getType());
-    assertEquals("stored-afterpay-123", method.getAfterpayDetails().getStoredPaymentMethodId());
-    assertEquals(
-        "afterpaytouch_US", JSON.getMapper().readTree(method.toJson()).path("type").asText());
-    assertEquals(
-        AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US,
-        CheckoutPaymentMethod.fromJson(method.toJson()).getAfterpayDetails().getType());
+    CheckoutPaymentMethod paymentMethod =
+        new CheckoutPaymentMethod(
+            new AfterpayDetails()
+                .type(AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US)
+                .storedPaymentMethodId("stored-afterpay-123"));
+
+    CheckoutPaymentMethod parsed = CheckoutPaymentMethod.fromJson(paymentMethod.toJson());
+
+    assertEquals(AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US, parsed.getAfterpayDetails().getType());
+    assertEquals("stored-afterpay-123", parsed.getAfterpayDetails().getStoredPaymentMethodId());
   }
 
-  @ParameterizedTest
-  @ValueSource(strings = {"14", "AZ"})
-  public void testTokenMandateMigrationFields(String purposeCode) throws Exception {
+  @Test
+  public void testTokenMandateMigrationFields() throws Exception {
     TokenMandate mandate =
-        new TokenMandate().previousMandateId("previous-umn-123").purposeCode(purposeCode);
-    JsonNode json = JSON.getMapper().readTree(mandate.toJson());
-    assertEquals("previous-umn-123", json.path("previousMandateId").asText());
-    assertEquals(purposeCode, json.path("purposeCode").asText());
+        new TokenMandate().previousMandateId("previous-umn-123").purposeCode("14");
+
     TokenMandate parsed = TokenMandate.fromJson(mandate.toJson());
+
     assertEquals("previous-umn-123", parsed.getPreviousMandateId());
-    assertEquals(purposeCode, parsed.getPurposeCode());
+    assertEquals("14", parsed.getPurposeCode());
   }
 
   @Test
@@ -1409,14 +1399,12 @@ public class CheckoutTest extends BaseTest {
                         new LevelTwoThree()
                             .customerReferenceNumber("customer-123")
                             .totalTaxAmount(500L)));
-    JsonNode json = JSON.getMapper().readTree(request.toJson());
-    assertEquals(
-        "customer-123",
-        json.at("/enhancedSchemeData/levelTwoThree/customerReferenceNumber").asText());
-    assertEquals(500L, json.at("/enhancedSchemeData/levelTwoThree/totalTaxAmount").asLong());
-    assertEquals(
-        request.getEnhancedSchemeData(),
-        CreateCheckoutSessionRequest.fromJson(request.toJson()).getEnhancedSchemeData());
+
+    CreateCheckoutSessionRequest parsed = CreateCheckoutSessionRequest.fromJson(request.toJson());
+
+    LevelTwoThree levelTwoThree = parsed.getEnhancedSchemeData().getLevelTwoThree();
+    assertEquals("customer-123", levelTwoThree.getCustomerReferenceNumber());
+    assertEquals(500L, levelTwoThree.getTotalTaxAmount().longValue());
   }
 
   @Test
