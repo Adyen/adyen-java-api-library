@@ -2074,6 +2074,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("afterpay_default", AfterpayDetails.class);
     mappings.put("afterpay_directdebit", OpenInvoiceDetails.class);
     mappings.put("afterpaytouch", AfterpayDetails.class);
+    mappings.put("afterpaytouch_US", AfterpayDetails.class);
     mappings.put("afterpaytouch_pos", AfterpayDetails.class);
     mappings.put("alipay", PaymentDetails.class);
     mappings.put("alipay_hk", PaymentDetails.class);
@@ -2271,6 +2272,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     mappings.put("rakutenpay", RakutenPayDetails.class);
     mappings.put("ratepay", RatepayDetails.class);
     mappings.put("ratepay_directdebit", RatepayDetails.class);
+    mappings.put("revolutpay", StoredPaymentMethodDetails.class);
     mappings.put("riverty", RivertyDetails.class);
     mappings.put("riverty_account", RivertyDetails.class);
     mappings.put("riverty_installments", RivertyDetails.class);

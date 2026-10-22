@@ -37,7 +37,9 @@ import java.util.logging.Logger;
   TokenMandate.JSON_PROPERTY_MANDATE_ID,
   TokenMandate.JSON_PROPERTY_MASKED_ACCOUNT_ID,
   TokenMandate.JSON_PROPERTY_MIN_AMOUNT,
+  TokenMandate.JSON_PROPERTY_PREVIOUS_MANDATE_ID,
   TokenMandate.JSON_PROPERTY_PROVIDER_ID,
+  TokenMandate.JSON_PROPERTY_PURPOSE_CODE,
   TokenMandate.JSON_PROPERTY_RECURRING_AMOUNT,
   TokenMandate.JSON_PROPERTY_RECURRING_STATEMENT,
   TokenMandate.JSON_PROPERTY_REMARKS,
@@ -267,11 +269,23 @@ public class TokenMandate {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMinAmount = false;
 
+  public static final String JSON_PROPERTY_PREVIOUS_MANDATE_ID = "previousMandateId";
+  private String previousMandateId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPreviousMandateId = false;
+
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
   private String providerId;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProviderId = false;
+
+  public static final String JSON_PROPERTY_PURPOSE_CODE = "purposeCode";
+  private String purposeCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPurposeCode = false;
 
   public static final String JSON_PROPERTY_RECURRING_AMOUNT = "recurringAmount";
   private String recurringAmount;
@@ -851,6 +865,59 @@ public class TokenMandate {
   }
 
   /**
+   * The previous value of the &#x60;mandateId&#x60;, if the scheme has replaced it. For UPI
+   * mandates, the &#x60;mandateId&#x60; is the Unique Mandate Number (UMN), which the scheme
+   * replaces when the mandate moves to another payment provider. In that case, this field holds the
+   * UMN the mandate was registered with before the move.
+   *
+   * @param previousMandateId The previous value of the &#x60;mandateId&#x60;, if the scheme has
+   *     replaced it. For UPI mandates, the &#x60;mandateId&#x60; is the Unique Mandate Number
+   *     (UMN), which the scheme replaces when the mandate moves to another payment provider. In
+   *     that case, this field holds the UMN the mandate was registered with before the move.
+   * @return the current {@code TokenMandate} instance, allowing for method chaining
+   */
+  public TokenMandate previousMandateId(String previousMandateId) {
+    this.previousMandateId = previousMandateId;
+    isSetPreviousMandateId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The previous value of the &#x60;mandateId&#x60;, if the scheme has replaced it. For UPI
+   * mandates, the &#x60;mandateId&#x60; is the Unique Mandate Number (UMN), which the scheme
+   * replaces when the mandate moves to another payment provider. In that case, this field holds the
+   * UMN the mandate was registered with before the move.
+   *
+   * @return previousMandateId The previous value of the &#x60;mandateId&#x60;, if the scheme has
+   *     replaced it. For UPI mandates, the &#x60;mandateId&#x60; is the Unique Mandate Number
+   *     (UMN), which the scheme replaces when the mandate moves to another payment provider. In
+   *     that case, this field holds the UMN the mandate was registered with before the move.
+   */
+  @JsonProperty(JSON_PROPERTY_PREVIOUS_MANDATE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPreviousMandateId() {
+    return previousMandateId;
+  }
+
+  /**
+   * The previous value of the &#x60;mandateId&#x60;, if the scheme has replaced it. For UPI
+   * mandates, the &#x60;mandateId&#x60; is the Unique Mandate Number (UMN), which the scheme
+   * replaces when the mandate moves to another payment provider. In that case, this field holds the
+   * UMN the mandate was registered with before the move.
+   *
+   * @param previousMandateId The previous value of the &#x60;mandateId&#x60;, if the scheme has
+   *     replaced it. For UPI mandates, the &#x60;mandateId&#x60; is the Unique Mandate Number
+   *     (UMN), which the scheme replaces when the mandate moves to another payment provider. In
+   *     that case, this field holds the UMN the mandate was registered with before the move.
+   */
+  @JsonProperty(JSON_PROPERTY_PREVIOUS_MANDATE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPreviousMandateId(String previousMandateId) {
+    this.previousMandateId = previousMandateId;
+    isSetPreviousMandateId = true; // mark as set
+  }
+
+  /**
    * The provider-specific identifier for this mandate.
    *
    * @param providerId The provider-specific identifier for this mandate.
@@ -883,6 +950,53 @@ public class TokenMandate {
   public void setProviderId(String providerId) {
     this.providerId = providerId;
     isSetProviderId = true; // mark as set
+  }
+
+  /**
+   * The purpose code the mandate is registered with at the scheme. Possible values for UPI
+   * mandates: * **14**: The mandate can only be debited by the payment provider that registered it.
+   * * **AZ**: The mandate can be debited by any payment provider.
+   *
+   * @param purposeCode The purpose code the mandate is registered with at the scheme. Possible
+   *     values for UPI mandates: * **14**: The mandate can only be debited by the payment provider
+   *     that registered it. * **AZ**: The mandate can be debited by any payment provider.
+   * @return the current {@code TokenMandate} instance, allowing for method chaining
+   */
+  public TokenMandate purposeCode(String purposeCode) {
+    this.purposeCode = purposeCode;
+    isSetPurposeCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The purpose code the mandate is registered with at the scheme. Possible values for UPI
+   * mandates: * **14**: The mandate can only be debited by the payment provider that registered it.
+   * * **AZ**: The mandate can be debited by any payment provider.
+   *
+   * @return purposeCode The purpose code the mandate is registered with at the scheme. Possible
+   *     values for UPI mandates: * **14**: The mandate can only be debited by the payment provider
+   *     that registered it. * **AZ**: The mandate can be debited by any payment provider.
+   */
+  @JsonProperty(JSON_PROPERTY_PURPOSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPurposeCode() {
+    return purposeCode;
+  }
+
+  /**
+   * The purpose code the mandate is registered with at the scheme. Possible values for UPI
+   * mandates: * **14**: The mandate can only be debited by the payment provider that registered it.
+   * * **AZ**: The mandate can be debited by any payment provider.
+   *
+   * @param purposeCode The purpose code the mandate is registered with at the scheme. Possible
+   *     values for UPI mandates: * **14**: The mandate can only be debited by the payment provider
+   *     that registered it. * **AZ**: The mandate can be debited by any payment provider.
+   */
+  @JsonProperty(JSON_PROPERTY_PURPOSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPurposeCode(String purposeCode) {
+    this.purposeCode = purposeCode;
+    isSetPurposeCode = true; // mark as set
   }
 
   /**
@@ -1208,8 +1322,12 @@ public class TokenMandate {
         && Objects.equals(this.isSetMaskedAccountId, tokenMandate.isSetMaskedAccountId)
         && Objects.equals(this.minAmount, tokenMandate.minAmount)
         && Objects.equals(this.isSetMinAmount, tokenMandate.isSetMinAmount)
+        && Objects.equals(this.previousMandateId, tokenMandate.previousMandateId)
+        && Objects.equals(this.isSetPreviousMandateId, tokenMandate.isSetPreviousMandateId)
         && Objects.equals(this.providerId, tokenMandate.providerId)
         && Objects.equals(this.isSetProviderId, tokenMandate.isSetProviderId)
+        && Objects.equals(this.purposeCode, tokenMandate.purposeCode)
+        && Objects.equals(this.isSetPurposeCode, tokenMandate.isSetPurposeCode)
         && Objects.equals(this.recurringAmount, tokenMandate.recurringAmount)
         && Objects.equals(this.isSetRecurringAmount, tokenMandate.isSetRecurringAmount)
         && Objects.equals(this.recurringStatement, tokenMandate.recurringStatement)
@@ -1253,8 +1371,12 @@ public class TokenMandate {
         isSetMaskedAccountId,
         minAmount,
         isSetMinAmount,
+        previousMandateId,
+        isSetPreviousMandateId,
         providerId,
         isSetProviderId,
+        purposeCode,
+        isSetPurposeCode,
         recurringAmount,
         isSetRecurringAmount,
         recurringStatement,
@@ -1289,7 +1411,9 @@ public class TokenMandate {
     sb.append("    mandateId: ").append(toIndentedString(mandateId)).append("\n");
     sb.append("    maskedAccountId: ").append(toIndentedString(maskedAccountId)).append("\n");
     sb.append("    minAmount: ").append(toIndentedString(minAmount)).append("\n");
+    sb.append("    previousMandateId: ").append(toIndentedString(previousMandateId)).append("\n");
     sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
+    sb.append("    purposeCode: ").append(toIndentedString(purposeCode)).append("\n");
     sb.append("    recurringAmount: ").append(toIndentedString(recurringAmount)).append("\n");
     sb.append("    recurringStatement: ").append(toIndentedString(recurringStatement)).append("\n");
     sb.append("    remarks: ").append(toIndentedString(remarks)).append("\n");
@@ -1357,8 +1481,14 @@ public class TokenMandate {
     if (isSetMinAmount) {
       addIfNull(nulls, JSON_PROPERTY_MIN_AMOUNT, this.minAmount);
     }
+    if (isSetPreviousMandateId) {
+      addIfNull(nulls, JSON_PROPERTY_PREVIOUS_MANDATE_ID, this.previousMandateId);
+    }
     if (isSetProviderId) {
       addIfNull(nulls, JSON_PROPERTY_PROVIDER_ID, this.providerId);
+    }
+    if (isSetPurposeCode) {
+      addIfNull(nulls, JSON_PROPERTY_PURPOSE_CODE, this.purposeCode);
     }
     if (isSetRecurringAmount) {
       addIfNull(nulls, JSON_PROPERTY_RECURRING_AMOUNT, this.recurringAmount);

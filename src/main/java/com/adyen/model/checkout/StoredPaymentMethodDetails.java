@@ -93,6 +93,8 @@ public class StoredPaymentMethodDetails {
 
     MOMO_WALLET_APP(String.valueOf("momo_wallet_app")),
 
+    REVOLUTPAY(String.valueOf("revolutpay")),
+
     PAYMAYA_WALLET(String.valueOf("paymaya_wallet")),
 
     GRABPAY_SG(String.valueOf("grabpay_SG")),

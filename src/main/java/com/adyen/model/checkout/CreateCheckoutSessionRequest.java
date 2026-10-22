@@ -50,6 +50,7 @@ import java.util.logging.Logger;
   CreateCheckoutSessionRequest.JSON_PROPERTY_ENABLE_ONE_CLICK,
   CreateCheckoutSessionRequest.JSON_PROPERTY_ENABLE_PAY_OUT,
   CreateCheckoutSessionRequest.JSON_PROPERTY_ENABLE_RECURRING,
+  CreateCheckoutSessionRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   CreateCheckoutSessionRequest.JSON_PROPERTY_EXPIRES_AT,
   CreateCheckoutSessionRequest.JSON_PROPERTY_FUND_ORIGIN,
   CreateCheckoutSessionRequest.JSON_PROPERTY_FUND_RECIPIENT,
@@ -258,6 +259,12 @@ public class CreateCheckoutSessionRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEnableRecurring = false;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnhancedSchemeData = false;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
@@ -1600,6 +1607,41 @@ public class CreateCheckoutSessionRequest {
   public void setEnableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
     isSetEnableRecurring = true; // mark as set
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   * @return the current {@code CreateCheckoutSessionRequest} instance, allowing for method chaining
+   */
+  public CreateCheckoutSessionRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   *
+   * @return enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    isSetEnhancedSchemeData = true; // mark as set
   }
 
   /**
@@ -3956,6 +3998,9 @@ public class CreateCheckoutSessionRequest {
         && Objects.equals(this.enableRecurring, createCheckoutSessionRequest.enableRecurring)
         && Objects.equals(
             this.isSetEnableRecurring, createCheckoutSessionRequest.isSetEnableRecurring)
+        && Objects.equals(this.enhancedSchemeData, createCheckoutSessionRequest.enhancedSchemeData)
+        && Objects.equals(
+            this.isSetEnhancedSchemeData, createCheckoutSessionRequest.isSetEnhancedSchemeData)
         && Objects.equals(this.expiresAt, createCheckoutSessionRequest.expiresAt)
         && Objects.equals(this.isSetExpiresAt, createCheckoutSessionRequest.isSetExpiresAt)
         && Objects.equals(this.fundOrigin, createCheckoutSessionRequest.fundOrigin)
@@ -4142,6 +4187,8 @@ public class CreateCheckoutSessionRequest {
         isSetEnablePayOut,
         enableRecurring,
         isSetEnableRecurring,
+        enhancedSchemeData,
+        isSetEnhancedSchemeData,
         expiresAt,
         isSetExpiresAt,
         fundOrigin,
@@ -4261,6 +4308,7 @@ public class CreateCheckoutSessionRequest {
     sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
     sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
     sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    fundOrigin: ").append(toIndentedString(fundOrigin)).append("\n");
     sb.append("    fundRecipient: ").append(toIndentedString(fundRecipient)).append("\n");
@@ -4416,6 +4464,9 @@ public class CreateCheckoutSessionRequest {
     }
     if (isSetEnableRecurring) {
       addIfNull(nulls, JSON_PROPERTY_ENABLE_RECURRING, this.enableRecurring);
+    }
+    if (isSetEnhancedSchemeData) {
+      addIfNull(nulls, JSON_PROPERTY_ENHANCED_SCHEME_DATA, this.enhancedSchemeData);
     }
     if (isSetExpiresAt) {
       addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
