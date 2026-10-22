@@ -311,6 +311,29 @@ public class ConfigurationWebhooksHandler {
   }
 
   /**
+   * Attempts to deserialize the webhook payload into a SweepExecutionNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<SweepExecutionNotificationRequest> getSweepExecutionNotificationRequest() {
+
+    var optionalSweepExecutionNotificationRequest =
+        getOptionalField(SweepExecutionNotificationRequest.class);
+
+    if (optionalSweepExecutionNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : SweepExecutionNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalSweepExecutionNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalSweepExecutionNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
    * Attempts to deserialize the webhook payload into a TopUpConfigurationEventRequest
    *
    * @return an Optional containing the deserialized object, or empty if deserialization fails
