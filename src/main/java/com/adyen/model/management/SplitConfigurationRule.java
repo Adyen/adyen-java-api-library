@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 /** SplitConfigurationRule */
 @JsonPropertyOrder({
   SplitConfigurationRule.JSON_PROPERTY_CARD_REGION,
+  SplitConfigurationRule.JSON_PROPERTY_CARD_USAGE_TYPE,
   SplitConfigurationRule.JSON_PROPERTY_CURRENCY,
   SplitConfigurationRule.JSON_PROPERTY_FUNDING_SOURCE,
   SplitConfigurationRule.JSON_PROPERTY_PAYMENT_METHOD,
@@ -37,11 +38,10 @@ public class SplitConfigurationRule {
   /**
    * The card region condition that determines whether the [split
    * logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   * applies to the transaction. &gt; This condition is in pilot phase, and not yet available for
-   * all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   * transaction is processed are registered in the same country. * **international**: The card
-   * issuer and the store where the transaction is processed are registered in different countries
-   * or regions. Includes all **interRegional** and **intraRegional** transactions. *
+   * applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   * where the transaction is processed are registered in the same country. * **international**: The
+   * card issuer and the store where the transaction is processed are registered in different
+   * countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
@@ -102,6 +102,60 @@ public class SplitConfigurationRule {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardRegion = false;
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   */
+  public enum CardUsageTypeEnum {
+    COMMERCIAL(String.valueOf("commercial")),
+
+    CONSUMER(String.valueOf("consumer")),
+
+    ANY(String.valueOf("ANY"));
+
+    private static final Logger LOG = Logger.getLogger(CardUsageTypeEnum.class.getName());
+
+    private String value;
+
+    CardUsageTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CardUsageTypeEnum fromValue(String value) {
+      for (CardUsageTypeEnum b : CardUsageTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "CardUsageTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CardUsageTypeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_CARD_USAGE_TYPE = "cardUsageType";
+  private CardUsageTypeEnum cardUsageType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardUsageType = false;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
@@ -263,11 +317,10 @@ public class SplitConfigurationRule {
   /**
    * The card region condition that determines whether the [split
    * logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   * applies to the transaction. &gt; This condition is in pilot phase, and not yet available for
-   * all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   * transaction is processed are registered in the same country. * **international**: The card
-   * issuer and the store where the transaction is processed are registered in different countries
-   * or regions. Includes all **interRegional** and **intraRegional** transactions. *
+   * applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   * where the transaction is processed are registered in the same country. * **international**: The
+   * card issuer and the store where the transaction is processed are registered in different
+   * countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
@@ -277,17 +330,17 @@ public class SplitConfigurationRule {
    *
    * @param cardRegion The card region condition that determines whether the [split
    *     logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   *     applies to the transaction. &gt; This condition is in pilot phase, and not yet available
-   *     for all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   *     transaction is processed are registered in the same country. * **international**: The card
-   *     issuer and the store where the transaction is processed are registered in different
-   *     countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
-   *     **interRegional**: The card issuer and the store where the transaction is processed are
-   *     registered in different regions. * **intraRegional**: The card issuer and the store where
-   *     the transaction is processed are registered in different countries, but in the same region.
-   *     * **intraEEA**: The card issuer and the store where the transaction is processed are
-   *     registered in different countries, but in the European Economic Area (EEA). * **ANY**:
-   *     Applies to all transactions, regardless of the processing and issuing country/region.
+   *     applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   *     where the transaction is processed are registered in the same country. * **international**:
+   *     The card issuer and the store where the transaction is processed are registered in
+   *     different countries or regions. Includes all **interRegional** and **intraRegional**
+   *     transactions. * **interRegional**: The card issuer and the store where the transaction is
+   *     processed are registered in different regions. * **intraRegional**: The card issuer and the
+   *     store where the transaction is processed are registered in different countries, but in the
+   *     same region. * **intraEEA**: The card issuer and the store where the transaction is
+   *     processed are registered in different countries, but in the European Economic Area (EEA). *
+   *     **ANY**: Applies to all transactions, regardless of the processing and issuing
+   *     country/region.
    * @return the current {@code SplitConfigurationRule} instance, allowing for method chaining
    */
   public SplitConfigurationRule cardRegion(CardRegionEnum cardRegion) {
@@ -299,11 +352,10 @@ public class SplitConfigurationRule {
   /**
    * The card region condition that determines whether the [split
    * logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   * applies to the transaction. &gt; This condition is in pilot phase, and not yet available for
-   * all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   * transaction is processed are registered in the same country. * **international**: The card
-   * issuer and the store where the transaction is processed are registered in different countries
-   * or regions. Includes all **interRegional** and **intraRegional** transactions. *
+   * applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   * where the transaction is processed are registered in the same country. * **international**: The
+   * card issuer and the store where the transaction is processed are registered in different
+   * countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
@@ -313,17 +365,17 @@ public class SplitConfigurationRule {
    *
    * @return cardRegion The card region condition that determines whether the [split
    *     logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   *     applies to the transaction. &gt; This condition is in pilot phase, and not yet available
-   *     for all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   *     transaction is processed are registered in the same country. * **international**: The card
-   *     issuer and the store where the transaction is processed are registered in different
-   *     countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
-   *     **interRegional**: The card issuer and the store where the transaction is processed are
-   *     registered in different regions. * **intraRegional**: The card issuer and the store where
-   *     the transaction is processed are registered in different countries, but in the same region.
-   *     * **intraEEA**: The card issuer and the store where the transaction is processed are
-   *     registered in different countries, but in the European Economic Area (EEA). * **ANY**:
-   *     Applies to all transactions, regardless of the processing and issuing country/region.
+   *     applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   *     where the transaction is processed are registered in the same country. * **international**:
+   *     The card issuer and the store where the transaction is processed are registered in
+   *     different countries or regions. Includes all **interRegional** and **intraRegional**
+   *     transactions. * **interRegional**: The card issuer and the store where the transaction is
+   *     processed are registered in different regions. * **intraRegional**: The card issuer and the
+   *     store where the transaction is processed are registered in different countries, but in the
+   *     same region. * **intraEEA**: The card issuer and the store where the transaction is
+   *     processed are registered in different countries, but in the European Economic Area (EEA). *
+   *     **ANY**: Applies to all transactions, regardless of the processing and issuing
+   *     country/region.
    */
   @JsonProperty(JSON_PROPERTY_CARD_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,11 +386,10 @@ public class SplitConfigurationRule {
   /**
    * The card region condition that determines whether the [split
    * logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   * applies to the transaction. &gt; This condition is in pilot phase, and not yet available for
-   * all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   * transaction is processed are registered in the same country. * **international**: The card
-   * issuer and the store where the transaction is processed are registered in different countries
-   * or regions. Includes all **interRegional** and **intraRegional** transactions. *
+   * applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   * where the transaction is processed are registered in the same country. * **international**: The
+   * card issuer and the store where the transaction is processed are registered in different
+   * countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
    * **interRegional**: The card issuer and the store where the transaction is processed are
    * registered in different regions. * **intraRegional**: The card issuer and the store where the
    * transaction is processed are registered in different countries, but in the same region. *
@@ -348,23 +399,79 @@ public class SplitConfigurationRule {
    *
    * @param cardRegion The card region condition that determines whether the [split
    *     logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic)
-   *     applies to the transaction. &gt; This condition is in pilot phase, and not yet available
-   *     for all platforms. Possible values: * **domestic**: The card issuer and the store where the
-   *     transaction is processed are registered in the same country. * **international**: The card
-   *     issuer and the store where the transaction is processed are registered in different
-   *     countries or regions. Includes all **interRegional** and **intraRegional** transactions. *
-   *     **interRegional**: The card issuer and the store where the transaction is processed are
-   *     registered in different regions. * **intraRegional**: The card issuer and the store where
-   *     the transaction is processed are registered in different countries, but in the same region.
-   *     * **intraEEA**: The card issuer and the store where the transaction is processed are
-   *     registered in different countries, but in the European Economic Area (EEA). * **ANY**:
-   *     Applies to all transactions, regardless of the processing and issuing country/region.
+   *     applies to the transaction. Possible values: * **domestic**: The card issuer and the store
+   *     where the transaction is processed are registered in the same country. * **international**:
+   *     The card issuer and the store where the transaction is processed are registered in
+   *     different countries or regions. Includes all **interRegional** and **intraRegional**
+   *     transactions. * **interRegional**: The card issuer and the store where the transaction is
+   *     processed are registered in different regions. * **intraRegional**: The card issuer and the
+   *     store where the transaction is processed are registered in different countries, but in the
+   *     same region. * **intraEEA**: The card issuer and the store where the transaction is
+   *     processed are registered in different countries, but in the European Economic Area (EEA). *
+   *     **ANY**: Applies to all transactions, regardless of the processing and issuing
+   *     country/region.
    */
   @JsonProperty(JSON_PROPERTY_CARD_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardRegion(CardRegionEnum cardRegion) {
     this.cardRegion = cardRegion;
     isSetCardRegion = true; // mark as set
+  }
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   *
+   * @param cardUsageType The card usage type condition that determines whether the split logic
+   *     applies to commercial cards, consumer cards, or all cards. * **ANY** (default): The split
+   *     logic applies to all cards, regardless of its usage type. * **commercial**: The split logic
+   *     applies to commercial cards only. * **consumer**: The split logic applies to consumer cards
+   *     only.
+   * @return the current {@code SplitConfigurationRule} instance, allowing for method chaining
+   */
+  public SplitConfigurationRule cardUsageType(CardUsageTypeEnum cardUsageType) {
+    this.cardUsageType = cardUsageType;
+    isSetCardUsageType = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   *
+   * @return cardUsageType The card usage type condition that determines whether the split logic
+   *     applies to commercial cards, consumer cards, or all cards. * **ANY** (default): The split
+   *     logic applies to all cards, regardless of its usage type. * **commercial**: The split logic
+   *     applies to commercial cards only. * **consumer**: The split logic applies to consumer cards
+   *     only.
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_USAGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CardUsageTypeEnum getCardUsageType() {
+    return cardUsageType;
+  }
+
+  /**
+   * The card usage type condition that determines whether the split logic applies to commercial
+   * cards, consumer cards, or all cards. * **ANY** (default): The split logic applies to all cards,
+   * regardless of its usage type. * **commercial**: The split logic applies to commercial cards
+   * only. * **consumer**: The split logic applies to consumer cards only.
+   *
+   * @param cardUsageType The card usage type condition that determines whether the split logic
+   *     applies to commercial cards, consumer cards, or all cards. * **ANY** (default): The split
+   *     logic applies to all cards, regardless of its usage type. * **commercial**: The split logic
+   *     applies to commercial cards only. * **consumer**: The split logic applies to consumer cards
+   *     only.
+   */
+  @JsonProperty(JSON_PROPERTY_CARD_USAGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardUsageType(CardUsageTypeEnum cardUsageType) {
+    this.cardUsageType = cardUsageType;
+    isSetCardUsageType = true; // mark as set
   }
 
   /**
@@ -654,6 +761,8 @@ public class SplitConfigurationRule {
     SplitConfigurationRule splitConfigurationRule = (SplitConfigurationRule) o;
     return Objects.equals(this.cardRegion, splitConfigurationRule.cardRegion)
         && Objects.equals(this.isSetCardRegion, splitConfigurationRule.isSetCardRegion)
+        && Objects.equals(this.cardUsageType, splitConfigurationRule.cardUsageType)
+        && Objects.equals(this.isSetCardUsageType, splitConfigurationRule.isSetCardUsageType)
         && Objects.equals(this.currency, splitConfigurationRule.currency)
         && Objects.equals(this.isSetCurrency, splitConfigurationRule.isSetCurrency)
         && Objects.equals(this.fundingSource, splitConfigurationRule.fundingSource)
@@ -674,6 +783,8 @@ public class SplitConfigurationRule {
     return Objects.hash(
         cardRegion,
         isSetCardRegion,
+        cardUsageType,
+        isSetCardUsageType,
         currency,
         isSetCurrency,
         fundingSource,
@@ -693,6 +804,7 @@ public class SplitConfigurationRule {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitConfigurationRule {\n");
     sb.append("    cardRegion: ").append(toIndentedString(cardRegion)).append("\n");
+    sb.append("    cardUsageType: ").append(toIndentedString(cardUsageType)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
@@ -725,6 +837,9 @@ public class SplitConfigurationRule {
 
     if (isSetCardRegion) {
       addIfNull(nulls, JSON_PROPERTY_CARD_REGION, this.cardRegion);
+    }
+    if (isSetCardUsageType) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_USAGE_TYPE, this.cardUsageType);
     }
     if (isSetCurrency) {
       addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
