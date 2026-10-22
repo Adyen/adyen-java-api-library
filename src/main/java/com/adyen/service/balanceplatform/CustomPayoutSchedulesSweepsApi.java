@@ -17,6 +17,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.BalanceSweepConfigurationsResponse;
 import com.adyen.model.balanceplatform.CreateSweepConfigurationV2;
+import com.adyen.model.balanceplatform.PayoutSweepExecutions;
 import com.adyen.model.balanceplatform.SweepConfigurationV2;
 import com.adyen.model.balanceplatform.UpdateSweepConfigurationV2;
 import com.adyen.service.exception.ApiException;
@@ -244,6 +245,83 @@ public class CustomPayoutSchedulesSweepsApi extends Service {
     String jsonResult =
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
     return SweepConfigurationV2.fromJson(jsonResult);
+  }
+
+  /**
+   * View executions of a custom payout schedule
+   *
+   * @param balanceAccountId {@link String } The unique identifier of the balance account.
+   *     (required)
+   * @param sweepId {@link String } The unique identifier of the sweep configuration. (required)
+   * @return {@link PayoutSweepExecutions }
+   * @throws ApiException if fails to make API call
+   */
+  public PayoutSweepExecutions getSweepExecutions(String balanceAccountId, String sweepId)
+      throws ApiException, IOException {
+    return getSweepExecutions(balanceAccountId, sweepId, null, null, null, null);
+  }
+
+  /**
+   * View executions of a custom payout schedule
+   *
+   * @param balanceAccountId {@link String } The unique identifier of the balance account.
+   *     (required)
+   * @param sweepId {@link String } The unique identifier of the sweep configuration. (required)
+   * @param results {@link String } Query: Contains a comma-separated list of sweep execution
+   *     results. If included, the response returns only sweep executions with the specified
+   *     results. Possible results: - **succeeded**: The sweep payout was completed successfully. -
+   *     **failed**: The sweep payout was not completed due to an error. - **skipped**: The sweep
+   *     payout was not triggered as expected. (optional)
+   * @param limit {@link Integer } Query: The number of items returned per page. By default, the
+   *     response returns 10 items per page. (optional, default to 10)
+   * @param cursor {@link String } Query: The cursor from the &#x60;next&#x60; or
+   *     &#x60;previous&#x60; pagination link in the previous response. (optional)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @return {@link PayoutSweepExecutions }
+   * @throws ApiException if fails to make API call
+   */
+  public PayoutSweepExecutions getSweepExecutions(
+      String balanceAccountId,
+      String sweepId,
+      String results,
+      Integer limit,
+      String cursor,
+      RequestOptions requestOptions)
+      throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (balanceAccountId == null) {
+      throw new IllegalArgumentException("Please provide the balanceAccountId path parameter");
+    }
+    pathParams.put("balanceAccountId", balanceAccountId);
+    if (sweepId == null) {
+      throw new IllegalArgumentException("Please provide the sweepId path parameter");
+    }
+    pathParams.put("sweepId", sweepId);
+
+    // Add query params
+    Map<String, String> queryParams = new HashMap<>();
+    if (results != null) {
+      queryParams.put("results", results);
+    }
+    if (limit != null) {
+      queryParams.put("limit", limit.toString());
+    }
+    if (cursor != null) {
+      queryParams.put("cursor", cursor);
+    }
+
+    String requestBody = null;
+    Resource resource =
+        new Resource(
+            this,
+            this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}/executions",
+            null);
+    String jsonResult =
+        resource.request(
+            requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+    return PayoutSweepExecutions.fromJson(jsonResult);
   }
 
   /**
