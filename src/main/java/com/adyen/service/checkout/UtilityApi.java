@@ -17,12 +17,16 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.ApplePaySessionRequest;
 import com.adyen.model.checkout.ApplePaySessionResponse;
+import com.adyen.model.checkout.CalculateTaxRequest;
+import com.adyen.model.checkout.CalculateTaxResponse;
 import com.adyen.model.checkout.PaypalUpdateOrderRequest;
 import com.adyen.model.checkout.PaypalUpdateOrderResponse;
 import com.adyen.model.checkout.UtilityRequest;
 import com.adyen.model.checkout.UtilityResponse;
 import com.adyen.model.checkout.ValidateShopperIdRequest;
 import com.adyen.model.checkout.ValidateShopperIdResponse;
+import com.adyen.model.checkout.VerifyShopperTaxIdentificationRequest;
+import com.adyen.model.checkout.VerifyShopperTaxIdentificationResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 import java.io.IOException;
@@ -54,6 +58,37 @@ public class UtilityApi extends Service {
   public UtilityApi(Client client, String baseURL) {
     super(client);
     this.baseURL = baseURL;
+  }
+
+  /**
+   * Calculate the tax for a transaction.
+   *
+   * @param calculateTaxRequest {@link CalculateTaxRequest } (required)
+   * @return {@link CalculateTaxResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public CalculateTaxResponse calculateTax(CalculateTaxRequest calculateTaxRequest)
+      throws ApiException, IOException {
+    return calculateTax(calculateTaxRequest, null);
+  }
+
+  /**
+   * Calculate the tax for a transaction.
+   *
+   * @param calculateTaxRequest {@link CalculateTaxRequest } (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @return {@link CalculateTaxResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public CalculateTaxResponse calculateTax(
+      CalculateTaxRequest calculateTaxRequest, RequestOptions requestOptions)
+      throws ApiException, IOException {
+    String requestBody = calculateTaxRequest.toJson();
+    Resource resource = new Resource(this, this.baseURL + "/calculateTax", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+    return CalculateTaxResponse.fromJson(jsonResult);
   }
 
   /**
@@ -181,5 +216,40 @@ public class UtilityApi extends Service {
     String jsonResult =
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
     return ValidateShopperIdResponse.fromJson(jsonResult);
+  }
+
+  /**
+   * Verify the shopper&#39;s tax identification.
+   *
+   * @param verifyShopperTaxIdentificationRequest {@link VerifyShopperTaxIdentificationRequest }
+   *     (required)
+   * @return {@link VerifyShopperTaxIdentificationResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public VerifyShopperTaxIdentificationResponse verifyShopperTaxIdentification(
+      VerifyShopperTaxIdentificationRequest verifyShopperTaxIdentificationRequest)
+      throws ApiException, IOException {
+    return verifyShopperTaxIdentification(verifyShopperTaxIdentificationRequest, null);
+  }
+
+  /**
+   * Verify the shopper&#39;s tax identification.
+   *
+   * @param verifyShopperTaxIdentificationRequest {@link VerifyShopperTaxIdentificationRequest }
+   *     (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @return {@link VerifyShopperTaxIdentificationResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public VerifyShopperTaxIdentificationResponse verifyShopperTaxIdentification(
+      VerifyShopperTaxIdentificationRequest verifyShopperTaxIdentificationRequest,
+      RequestOptions requestOptions)
+      throws ApiException, IOException {
+    String requestBody = verifyShopperTaxIdentificationRequest.toJson();
+    Resource resource = new Resource(this, this.baseURL + "/verifyShopperTaxIdentification", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+    return VerifyShopperTaxIdentificationResponse.fromJson(jsonResult);
   }
 }

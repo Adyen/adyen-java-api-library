@@ -32,6 +32,7 @@ import java.util.logging.Logger;
   KlarnaNetworkDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   KlarnaNetworkDetails.JSON_PROPERTY_SDK_DATA,
   KlarnaNetworkDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  KlarnaNetworkDetails.JSON_PROPERTY_SUBTYPE,
   KlarnaNetworkDetails.JSON_PROPERTY_TYPE
 })
 public class KlarnaNetworkDetails {
@@ -79,6 +80,53 @@ public class KlarnaNetworkDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStoredPaymentMethodId = false;
+
+  /** The type of flow to initiate. Defaults to redirect when omitted. */
+  public enum SubtypeEnum {
+    REDIRECT(String.valueOf("redirect")),
+
+    SDK(String.valueOf("sdk"));
+
+    private static final Logger LOG = Logger.getLogger(SubtypeEnum.class.getName());
+
+    private String value;
+
+    SubtypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SubtypeEnum fromValue(String value) {
+      for (SubtypeEnum b : SubtypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "SubtypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SubtypeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_SUBTYPE = "subtype";
+  private SubtypeEnum subtype;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSubtype = false;
 
   /** **klarna_network** */
   public enum TypeEnum {
@@ -413,6 +461,41 @@ public class KlarnaNetworkDetails {
   }
 
   /**
+   * The type of flow to initiate. Defaults to redirect when omitted.
+   *
+   * @param subtype The type of flow to initiate. Defaults to redirect when omitted.
+   * @return the current {@code KlarnaNetworkDetails} instance, allowing for method chaining
+   */
+  public KlarnaNetworkDetails subtype(SubtypeEnum subtype) {
+    this.subtype = subtype;
+    isSetSubtype = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The type of flow to initiate. Defaults to redirect when omitted.
+   *
+   * @return subtype The type of flow to initiate. Defaults to redirect when omitted.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SubtypeEnum getSubtype() {
+    return subtype;
+  }
+
+  /**
+   * The type of flow to initiate. Defaults to redirect when omitted.
+   *
+   * @param subtype The type of flow to initiate. Defaults to redirect when omitted.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubtype(SubtypeEnum subtype) {
+    this.subtype = subtype;
+    isSetSubtype = true; // mark as set
+  }
+
+  /**
    * **klarna_network**
    *
    * @param type **klarna_network**
@@ -500,6 +583,8 @@ public class KlarnaNetworkDetails {
         && Objects.equals(this.storedPaymentMethodId, klarnaNetworkDetails.storedPaymentMethodId)
         && Objects.equals(
             this.isSetStoredPaymentMethodId, klarnaNetworkDetails.isSetStoredPaymentMethodId)
+        && Objects.equals(this.subtype, klarnaNetworkDetails.subtype)
+        && Objects.equals(this.isSetSubtype, klarnaNetworkDetails.isSetSubtype)
         && Objects.equals(this.type, klarnaNetworkDetails.type)
         && Objects.equals(this.isSetType, klarnaNetworkDetails.isSetType);
   }
@@ -521,6 +606,8 @@ public class KlarnaNetworkDetails {
         isSetSdkData,
         storedPaymentMethodId,
         isSetStoredPaymentMethodId,
+        subtype,
+        isSetSubtype,
         type,
         isSetType);
   }
@@ -544,6 +631,7 @@ public class KlarnaNetworkDetails {
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -592,6 +680,9 @@ public class KlarnaNetworkDetails {
     }
     if (isSetStoredPaymentMethodId) {
       addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
+    }
+    if (isSetSubtype) {
+      addIfNull(nulls, JSON_PROPERTY_SUBTYPE, this.subtype);
     }
     if (isSetType) {
       addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);

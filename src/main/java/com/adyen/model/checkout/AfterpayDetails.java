@@ -84,6 +84,8 @@ public class AfterpayDetails {
 
     AFTERPAYTOUCH(String.valueOf("afterpaytouch")),
 
+    AFTERPAYTOUCH_US(String.valueOf("afterpaytouch_US")),
+
     AFTERPAY_B2B(String.valueOf("afterpay_b2b")),
 
     CLEARPAY(String.valueOf("clearpay"));
