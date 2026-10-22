@@ -4,6 +4,12 @@
   "value": 100
   },
 "countryCode": "NL",
+"enhancedSchemeData": {
+  "levelTwoThree": {
+    "customerReferenceNumber": "customer-123",
+    "totalTaxAmount": 500
+  }
+},
 "expiresAt": "2022-10-11T16:54:37+02:00",
 "id": "CS1453E3730C313478",
 "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
