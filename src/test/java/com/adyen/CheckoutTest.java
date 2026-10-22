@@ -39,6 +39,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.ArgumentCaptor;
@@ -295,6 +296,14 @@ public class CheckoutTest extends BaseTest {
         CreateCheckoutSessionResponse.StorePaymentMethodModeEnum.ASKFORCONSENT,
         createCheckoutSessionResponse.getStorePaymentMethodMode());
     assertTrue(createCheckoutSessionResponse.getPayable());
+    LevelTwoThree schemeData =
+        createCheckoutSessionResponse.getEnhancedSchemeData().getLevelTwoThree();
+    assertEquals("customer-123", schemeData.getCustomerReferenceNumber());
+    assertEquals(500L, schemeData.getTotalTaxAmount().longValue());
+    assertEquals(
+        createCheckoutSessionResponse.getEnhancedSchemeData(),
+        CreateCheckoutSessionResponse.fromJson(createCheckoutSessionResponse.toJson())
+            .getEnhancedSchemeData());
   }
 
   @Test
@@ -354,18 +363,22 @@ public class CheckoutTest extends BaseTest {
         "M5N7TQ4TG5PFWR50", parsed.getSepaDirectDebitDonations().getStoredPaymentMethodId());
   }
 
-  @Test
-  public void testGopayWalletUsesStoredPaymentMethodDetails() throws Exception {
+  @ParameterizedTest
+  @EnumSource(
+      value = StoredPaymentMethodDetails.TypeEnum.class,
+      names = {"GOPAY_WALLET", "REVOLUTPAY"})
+  public void testStoredPaymentMethodDetailsMapping(StoredPaymentMethodDetails.TypeEnum type)
+      throws Exception {
     CheckoutPaymentMethod paymentMethod =
         new CheckoutPaymentMethod(
-            new StoredPaymentMethodDetails()
-                .type(StoredPaymentMethodDetails.TypeEnum.GOPAY_WALLET));
+            new StoredPaymentMethodDetails().type(type).storedPaymentMethodId("stored-method-123"));
 
     CheckoutPaymentMethod parsed = CheckoutPaymentMethod.fromJson(paymentMethod.toJson());
 
+    assertEquals(type, parsed.getStoredPaymentMethodDetails().getType());
     assertEquals(
-        StoredPaymentMethodDetails.TypeEnum.GOPAY_WALLET,
-        parsed.getStoredPaymentMethodDetails().getType());
+        "stored-method-123", parsed.getStoredPaymentMethodDetails().getStoredPaymentMethodId());
+    assertEquals(type.getValue(), JSON.getMapper().readTree(parsed.toJson()).path("type").asText());
   }
 
   /** Should make orders call */
@@ -417,6 +430,79 @@ public class CheckoutTest extends BaseTest {
     ApplePaySessionResponse applePaySessionResponse =
         checkout.getApplePaySession(createApplePaySessionRequest);
     assertEquals("eyJ2Z", applePaySessionResponse.getData());
+  }
+
+  /** Should make calculateTax call */
+  @Test
+  public void testCalculateTaxSuccessCall() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/calculateTaxResponse.json");
+    CalculateTaxRequest calculateTaxRequest =
+        new CalculateTaxRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .taxableAmount(new TaxableAmount().currency("INR").value(10000L))
+            .taxCalculationContext(
+                new TaxCalculationContext()
+                    .calculationType(CalculationType.LRS_TCS)
+                    .taxCountryCode("IN")
+                    .lrs(
+                        new LrsContext()
+                            .remittancePurpose(RemittancePurpose.EDUCATION)
+                            .sublimitStatus(SublimitStatus.NOT_EXCEEDED)));
+
+    UtilityApi checkout = new UtilityApi(client);
+    CalculateTaxResponse response = checkout.calculateTax(calculateTaxRequest);
+
+    assertEquals("tax-calculation-reference", response.getTaxCalculationReference());
+    assertEquals("test-tax-calculation-token", response.getTaxCalculationToken());
+    assertEquals(500L, response.getTaxCalculation().getTotalTaxAmount().getValue().longValue());
+
+    verify(client.getHttpClient())
+        .request(
+            String.format(
+                "https://checkout-test.adyen.com/v%s/calculateTax", UtilityApi.API_VERSION),
+            calculateTaxRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  /** Should make verifyShopperTaxIdentification call */
+  @Test
+  public void testVerifyShopperTaxIdentificationSuccessCall() throws Exception {
+    Client client =
+        createMockClientFromFile("mocks/checkout/verifyShopperTaxIdentificationResponse.json");
+    VerifyShopperTaxIdentificationRequest verifyRequest =
+        new VerifyShopperTaxIdentificationRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .shopperReference("shopper-123")
+            .shopperTaxIdentification(
+                new ShopperTaxIdentification()
+                    .taxCountryCode("IN")
+                    .taxIdentificationNumber("ABCDE1234F")
+                    .taxIdentificationType(TaxIdentificationType.PAN));
+
+    UtilityApi checkout = new UtilityApi(client);
+    VerifyShopperTaxIdentificationResponse response =
+        checkout.verifyShopperTaxIdentification(verifyRequest);
+
+    assertEquals(Result.VALID, response.getResult());
+    assertEquals("tax-verification-reference", response.getTaxVerificationReference());
+    assertEquals(
+        "test-tax-verification-token", response.getVerifiedShopperTaxIdentificationToken());
+
+    verify(client.getHttpClient())
+        .request(
+            String.format(
+                "https://checkout-test.adyen.com/v%s/verifyShopperTaxIdentification",
+                UtilityApi.API_VERSION),
+            verifyRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
   }
 
   /** Should make donations call */
@@ -1273,6 +1359,64 @@ public class CheckoutTest extends BaseTest {
 
     assertEquals("SESSION_TOKEN", parsed.getKlarnaNetworkSessionToken());
     assertEquals("KLARNA_NETWORK_PAYMENT_ACCOUNT_ID", parsed.getKlarnaNetworkPaymentAccountId());
+    assertNull(parsed.getSubtype());
+    assertFalse(JSON.getMapper().readTree(klarnaNetworkDetails.toJson()).has("subtype"));
+  }
+
+  @ParameterizedTest
+  @EnumSource(KlarnaNetworkDetails.SubtypeEnum.class)
+  public void testKlarnaNetworkSubtype(KlarnaNetworkDetails.SubtypeEnum subtype) throws Exception {
+    KlarnaNetworkDetails details = new KlarnaNetworkDetails().subtype(subtype);
+    assertEquals(
+        subtype.getValue(), JSON.getMapper().readTree(details.toJson()).path("subtype").asText());
+    assertEquals(subtype, KlarnaNetworkDetails.fromJson(details.toJson()).getSubtype());
+  }
+
+  @Test
+  public void testAfterpayUsPaymentMethodMapping() throws Exception {
+    CheckoutPaymentMethod method =
+        CheckoutPaymentMethod.fromJson(
+            "{\"type\":\"afterpaytouch_US\",\"storedPaymentMethodId\":\"stored-afterpay-123\"}");
+    assertEquals(AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US, method.getAfterpayDetails().getType());
+    assertEquals("stored-afterpay-123", method.getAfterpayDetails().getStoredPaymentMethodId());
+    assertEquals(
+        "afterpaytouch_US", JSON.getMapper().readTree(method.toJson()).path("type").asText());
+    assertEquals(
+        AfterpayDetails.TypeEnum.AFTERPAYTOUCH_US,
+        CheckoutPaymentMethod.fromJson(method.toJson()).getAfterpayDetails().getType());
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {"14", "AZ"})
+  public void testTokenMandateMigrationFields(String purposeCode) throws Exception {
+    TokenMandate mandate =
+        new TokenMandate().previousMandateId("previous-umn-123").purposeCode(purposeCode);
+    JsonNode json = JSON.getMapper().readTree(mandate.toJson());
+    assertEquals("previous-umn-123", json.path("previousMandateId").asText());
+    assertEquals(purposeCode, json.path("purposeCode").asText());
+    TokenMandate parsed = TokenMandate.fromJson(mandate.toJson());
+    assertEquals("previous-umn-123", parsed.getPreviousMandateId());
+    assertEquals(purposeCode, parsed.getPurposeCode());
+  }
+
+  @Test
+  public void testSessionEnhancedSchemeDataSerialization() throws Exception {
+    CreateCheckoutSessionRequest request =
+        new CreateCheckoutSessionRequest()
+            .enhancedSchemeData(
+                new EnhancedSchemeData()
+                    .levelTwoThree(
+                        new LevelTwoThree()
+                            .customerReferenceNumber("customer-123")
+                            .totalTaxAmount(500L)));
+    JsonNode json = JSON.getMapper().readTree(request.toJson());
+    assertEquals(
+        "customer-123",
+        json.at("/enhancedSchemeData/levelTwoThree/customerReferenceNumber").asText());
+    assertEquals(500L, json.at("/enhancedSchemeData/levelTwoThree/totalTaxAmount").asLong());
+    assertEquals(
+        request.getEnhancedSchemeData(),
+        CreateCheckoutSessionRequest.fromJson(request.toJson()).getEnhancedSchemeData());
   }
 
   @Test
