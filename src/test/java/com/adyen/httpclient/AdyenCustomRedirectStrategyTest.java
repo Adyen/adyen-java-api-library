@@ -61,7 +61,6 @@ public class AdyenCustomRedirectStrategyTest {
 
   @Test
   public void testGetLocationURI308AdyenDomain() throws HttpException {
-    when(response.getCode()).thenReturn(308);
     when(response.getFirstHeader("Location")).thenReturn(locationHeader);
     when(locationHeader.getValue()).thenReturn("https://api.adyen.com");
 
@@ -71,7 +70,6 @@ public class AdyenCustomRedirectStrategyTest {
 
   @Test
   public void testGetLocationURI308AdyenPaymentsDomain() throws HttpException {
-    when(response.getCode()).thenReturn(308);
     when(response.getFirstHeader("Location")).thenReturn(locationHeader);
     when(locationHeader.getValue()).thenReturn("https://api.adyenpayments.com");
 
@@ -80,8 +78,56 @@ public class AdyenCustomRedirectStrategyTest {
   }
 
   @Test
-  public void testGetLocationURI308InvadidDomainThrowsException() {
+  public void testGetLocationURI307InvalidDomainThrowsException() throws HttpException {
+    when(response.getCode()).thenReturn(307);
+    when(response.containsHeader("Location")).thenReturn(true);
+    when(response.getFirstHeader("Location")).thenReturn(locationHeader);
+    String location = "https://attacker.example/payments";
+    when(locationHeader.getValue()).thenReturn(location);
+
+    assertTrue(redirectStrategy.isRedirected(request, response, context));
+
+    try {
+      redirectStrategy.getLocationURI(request, response, context);
+      fail("Expected HttpException was not thrown");
+    } catch (HttpException e) {
+      assertEquals("Redirect location is invalid: " + location, e.getMessage());
+    }
+  }
+
+  @Test
+  public void testGetLocationURI307AdyenDomain() throws HttpException {
+    when(response.getCode()).thenReturn(307);
+    when(response.containsHeader("Location")).thenReturn(true);
+    when(response.getFirstHeader("Location")).thenReturn(locationHeader);
+    when(locationHeader.getValue()).thenReturn("https://api.adyen.com/payments");
+
+    assertTrue(redirectStrategy.isRedirected(request, response, context));
+
+    URI uri = redirectStrategy.getLocationURI(request, response, context);
+    assertEquals("https://api.adyen.com/payments", uri.toString());
+  }
+
+  @Test
+  public void testGetLocationURI308HttpAdyenDomainThrowsException() throws HttpException {
     when(response.getCode()).thenReturn(308);
+    when(response.containsHeader("Location")).thenReturn(true);
+    when(response.getFirstHeader("Location")).thenReturn(locationHeader);
+    String location = "http://api.adyen.com/payments";
+    when(locationHeader.getValue()).thenReturn(location);
+
+    assertTrue(redirectStrategy.isRedirected(request, response, context));
+
+    try {
+      redirectStrategy.getLocationURI(request, response, context);
+      fail("Expected HttpException was not thrown");
+    } catch (HttpException e) {
+      assertEquals("Redirect location is invalid: " + location, e.getMessage());
+    }
+  }
+
+  @Test
+  public void testGetLocationURI308InvadidDomainThrowsException() {
     when(response.getFirstHeader("Location")).thenReturn(locationHeader);
     String location = "https://test.example.com/";
     when(locationHeader.getValue()).thenReturn(location);
