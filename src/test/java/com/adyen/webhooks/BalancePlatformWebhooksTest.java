@@ -10,6 +10,7 @@ import com.adyen.model.balancewebhooks.BalanceAccountBalanceNotificationRequest;
 import com.adyen.model.balancewebhooks.BalanceWebhooksHandler;
 import com.adyen.model.balancewebhooks.ReleasedBlockedBalanceNotificationRequest;
 import com.adyen.model.configurationwebhooks.*;
+import com.adyen.model.disputewebhooks.DisputeEventNotification;
 import com.adyen.model.disputewebhooks.DisputeNotificationRequest;
 import com.adyen.model.disputewebhooks.DisputeWebhooksHandler;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
@@ -654,6 +655,35 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     DisputeWebhooksHandler handler = new DisputeWebhooksHandler(payload);
     Optional<DisputeNotificationRequest> result = handler.getDisputeNotificationRequest();
     assertFalse(result.isPresent());
+  }
+
+  /**
+   * Verifies the wire-value mapping of the dispute webhook type enum and its forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void testDisputeWebhooksEnumDeserialization() {
+    assertNull(DisputeEventNotification.TypeEnum.fromValue("some_future_dispute_type"));
+    assertEquals("notAsDescribed", DisputeEventNotification.TypeEnum.NOTASDESCRIBED.getValue());
+    assertEquals(
+        DisputeEventNotification.TypeEnum.FRAUD,
+        DisputeEventNotification.TypeEnum.fromValue("fraud"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.NOTDELIVERED,
+        DisputeEventNotification.TypeEnum.fromValue("notDelivered"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.DUPLICATE,
+        DisputeEventNotification.TypeEnum.fromValue("duplicate"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.NOTASDESCRIBED,
+        DisputeEventNotification.TypeEnum.fromValue("notAsDescribed"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.CANCELLED,
+        DisputeEventNotification.TypeEnum.fromValue("cancelled"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.OTHER,
+        DisputeEventNotification.TypeEnum.fromValue("other"));
   }
 
   @Test
