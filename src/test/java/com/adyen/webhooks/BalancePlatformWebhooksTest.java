@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.adyen.BaseTest;
 import com.adyen.model.acswebhooks.AcsWebhooksHandler;
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
+import com.adyen.model.acswebhooks.ChallengeInfo;
 import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
 import com.adyen.model.balancewebhooks.BalanceAccountBalanceNotificationRequest;
 import com.adyen.model.balancewebhooks.BalanceWebhooksHandler;
@@ -253,6 +254,30 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(
         "6a4c1709-a42e-4c7f-96c7-1043adacfc97",
         authenticationNotificationRequest.getData().getAuthentication().getAcsTransId());
+  }
+
+  /**
+   * Verifies the wire-value mapping of the ACS challenge flow enum and its forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void testAcsWebhooksFlowEnumDeserialization() {
+    assertNull(ChallengeInfo.FlowEnum.fromValue("some_future_flow"));
+    assertEquals("OTP_PHONE_FL", ChallengeInfo.FlowEnum.OTP_PHONE_FL.getValue());
+    assertEquals(
+        ChallengeInfo.FlowEnum.PWD_OTP_PHONE_FL,
+        ChallengeInfo.FlowEnum.fromValue("PWD_OTP_PHONE_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.PWD_OTP_EMAIL_FL,
+        ChallengeInfo.FlowEnum.fromValue("PWD_OTP_EMAIL_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.OOB_TRIGGER_FL, ChallengeInfo.FlowEnum.fromValue("OOB_TRIGGER_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.OTP_PHONE_FL, ChallengeInfo.FlowEnum.fromValue("OTP_PHONE_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.PASSKEY_TRIGGER_FL,
+        ChallengeInfo.FlowEnum.fromValue("PASSKEY_TRIGGER_FL"));
   }
 
   @Test
