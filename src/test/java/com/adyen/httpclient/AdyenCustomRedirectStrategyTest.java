@@ -38,11 +38,11 @@ public class AdyenCustomRedirectStrategyTest {
   }
 
   @Test
-  public void testIsVerifyLocationAllowsBareDomainsAndTrailingDots() {
-    assertTrue(redirectStrategy.isVerifyLocation("https://adyen.com/redirect"));
-    assertTrue(redirectStrategy.isVerifyLocation("https://adyenpayments.com/redirect"));
-    assertTrue(redirectStrategy.isVerifyLocation("https://api.adyen.com./redirect"));
-    assertTrue(redirectStrategy.isVerifyLocation("https://api.adyenpayments.com./redirect"));
+  public void testIsVerifyLocationRejectsBareDomainsAndTrailingDots() {
+    assertFalse(redirectStrategy.isVerifyLocation("https://adyen.com/redirect"));
+    assertFalse(redirectStrategy.isVerifyLocation("https://adyenpayments.com/redirect"));
+    assertFalse(redirectStrategy.isVerifyLocation("https://api.adyen.com./redirect"));
+    assertFalse(redirectStrategy.isVerifyLocation("https://api.adyenpayments.com./redirect"));
   }
 
   @Test
