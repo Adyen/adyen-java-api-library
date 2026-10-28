@@ -58,7 +58,6 @@ public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
       return false;
     }
     String lowerCaseHost = host.toLowerCase(Locale.ROOT);
-    return lowerCaseHost.endsWith(".adyen.com")
-        || lowerCaseHost.endsWith(".adyenpayments.com");
+    return lowerCaseHost.endsWith(".adyen.com") || lowerCaseHost.endsWith(".adyenpayments.com");
   }
 }
