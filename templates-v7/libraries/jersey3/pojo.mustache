@@ -102,6 +102,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{{discriminatorName}}} = this.getClass().getSimpleName();{{/discriminator}}{{/gson}}
   }{{#vendorExtensions.x-has-readonly-properties}}{{^withXml}}{{#jackson}}
 
+  /**
+  * This constructor is for internal JSON deserialization of read-only properties only.
+  *
+  * @deprecated Use {@link #{{classname}}()} and the fluent builder methods to construct this model.
+  */
+  @Deprecated
   @JsonCreator
   public {{classname}}(
   {{#readOnlyVars}}
