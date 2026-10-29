@@ -22,6 +22,7 @@
 package com.adyen.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -186,7 +187,20 @@ public class HMACValidatorTest extends BaseTest {
         assertThrows(
             IllegalArgumentException.class,
             () -> new HMACValidator().calculateHMAC("TestPayload", "BadKey"));
-    assertEquals("Invalid Hex HMAC key: BadKey", exception.getMessage());
+    assertEquals(
+        "Invalid Hex HMAC key: it must be a hexadecimal string with an even number of characters",
+        exception.getMessage());
+  }
+
+  @Test
+  public void testCalculateHMACInvalidKeyIsNotInMessage() {
+    // A key with quotes left around it fails the hex check; the secret must not reach the logs.
+    String quotedKey = "\"" + HMAC_KEY + "\"";
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> new HMACValidator().calculateHMAC("TestPayload", quotedKey));
+    assertFalse(exception.getMessage().contains(HMAC_KEY));
   }
 
   @Test
