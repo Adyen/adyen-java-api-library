@@ -962,4 +962,52 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertFalse(handler.getTopUpConfigurationEventRequest().isPresent());
     assertFalse(handler.getTopUpConfigurationUpdatedEventRequest().isPresent());
   }
+
+  @Test
+  public void testSweepExecutionNotificationRequest() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/balanceplatform-sweepExecution-failed.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<SweepExecutionNotificationRequest> optionalRequest =
+        handler.getSweepExecutionNotificationRequest();
+    assertTrue(optionalRequest.isPresent());
+
+    SweepExecutionNotificationRequest request = optionalRequest.get();
+    assertEquals(
+        SweepExecutionNotificationRequest.TypeEnum
+            .BALANCEPLATFORM_BALANCEACCOUNTSWEEPEXECUTION_FAILED,
+        request.getType());
+    assertEquals("test", request.getEnvironment());
+    assertNotNull(request.getTimestamp());
+
+    SweepExecutionNotificationData data = request.getData();
+    assertNotNull(data);
+    assertEquals("SE00000000000000000001", data.getId());
+    assertEquals("BA00000000000000000001", data.getBalanceAccountId());
+    assertEquals("SWP00000000000000000001", data.getBalanceAccountSweepId());
+    assertEquals("YOUR_BALANCE_PLATFORM", data.getBalancePlatform());
+    assertEquals(SweepExecutionNotificationData.ResultEnum.FAILED, data.getResult());
+    assertNotNull(data.getTriggeredAt());
+
+    SweepResultDetails resultDetails = data.getResultDetails();
+    assertNotNull(resultDetails);
+    assertEquals("Insufficient funds", resultDetails.getReason());
+    assertEquals("INSUFFICIENT_FUNDS", resultDetails.getReasonCode());
+    assertTrue(resultDetails.getSweepConfigurationDisabled());
+    assertEquals("TR00000000000000000001", resultDetails.getTransferId());
+  }
+
+  @Test
+  public void testSweepExecutionNotificationWithUnknownTypeReturnsEmpty() {
+    String json =
+        "{\"data\":{\"balancePlatform\":\"YOUR_BALANCE_PLATFORM\"},"
+            + "\"environment\":\"test\","
+            + "\"type\":\"balancePlatform.balanceAccountSweepExecution.unknown\"}";
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    // an unknown event type does not match the SweepExecution type enum
+    assertFalse(handler.getSweepExecutionNotificationRequest().isPresent());
+  }
 }
