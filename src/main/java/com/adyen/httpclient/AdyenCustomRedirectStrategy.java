@@ -1,13 +1,14 @@
 package com.adyen.httpclient;
 
 import java.net.URI;
+import java.util.Locale;
 import org.apache.hc.client5.http.impl.DefaultRedirectStrategy;
 import org.apache.hc.core5.http.HttpException;
 import org.apache.hc.core5.http.HttpRequest;
 import org.apache.hc.core5.http.HttpResponse;
 import org.apache.hc.core5.http.protocol.HttpContext;
 
-/** Implements a custom redirect strategy when the API returns 308 */
+/** Implements a custom redirect strategy that only follows secure Adyen API redirects. */
 public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
 
   /**
@@ -24,19 +25,15 @@ public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
       throws HttpException {
     URI uri = super.getLocationURI(request, response, context);
 
-    int statusCode = response.getCode();
-    if (statusCode == 308) {
-      // validate 308 redirect
-      if (!isVerifyLocation(uri.toString())) {
-        throw new HttpException("Redirect location is invalid: " + uri);
-      }
+    if (!isVerifyLocation(uri)) {
+      throw new HttpException("Redirect location is invalid: " + uri);
     }
 
     return uri;
   }
 
   /**
-   * True when location header is valid
+   * True when location header targets an HTTPS Adyen API domain.
    *
    * @param location Value of the location header
    * @return true if valid
@@ -46,15 +43,21 @@ public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
       return false;
     }
     try {
-      URI uri = new URI(location);
-      String host = uri.getHost();
-      if (host == null) {
-        return false;
-      }
-      String lowerCaseHost = host.toLowerCase();
-      return lowerCaseHost.endsWith(".adyen.com") || lowerCaseHost.endsWith(".adyenpayments.com");
+      return isVerifyLocation(new URI(location));
     } catch (java.net.URISyntaxException e) {
       return false;
     }
+  }
+
+  private boolean isVerifyLocation(URI uri) {
+    if (!"https".equalsIgnoreCase(uri.getScheme())) {
+      return false;
+    }
+    String host = uri.getHost();
+    if (host == null) {
+      return false;
+    }
+    String lowerCaseHost = host.toLowerCase(Locale.ROOT);
+    return lowerCaseHost.endsWith(".adyen.com") || lowerCaseHost.endsWith(".adyenpayments.com");
   }
 }
