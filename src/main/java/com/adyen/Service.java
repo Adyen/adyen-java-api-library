@@ -99,31 +99,31 @@ public class Service {
     }
 
     if (url.contains("pal-")) {
-      validateLiveEndpointUrlPrefix(config);
+      String liveEndpointUrlPrefix = getValidatedLiveEndpointUrlPrefix(config);
       url =
           url.replace(
               "https://pal-test.adyen.com/pal/servlet/",
               "https://"
-                  + config.getLiveEndpointUrlPrefix()
+                  + liveEndpointUrlPrefix
                   + "-pal-live.adyenpayments.com/pal/servlet/");
     }
 
     if (url.contains("checkout-")) {
-      validateLiveEndpointUrlPrefix(config);
+      String liveEndpointUrlPrefix = getValidatedLiveEndpointUrlPrefix(config);
       if (url.contains("/possdk/")) {
         // Custom handling of POS Mobile API url
         url =
             url.replace(
                 "https://checkout-test.adyen.com/",
                 "https://"
-                    + config.getLiveEndpointUrlPrefix()
+                    + liveEndpointUrlPrefix
                     + "-checkout-live.adyenpayments.com/");
       } else {
         url =
             url.replace(
                 "https://checkout-test.adyen.com/",
                 "https://"
-                    + config.getLiveEndpointUrlPrefix()
+                    + liveEndpointUrlPrefix
                     + "-checkout-live.adyenpayments.com/checkout/");
       }
     }
@@ -145,7 +145,7 @@ public class Service {
     return url.replaceFirst("-test", "-live");
   }
 
-  private void validateLiveEndpointUrlPrefix(Config config) {
+  private String getValidatedLiveEndpointUrlPrefix(Config config) {
     String liveEndpointUrlPrefix = config.getLiveEndpointUrlPrefix();
     if (liveEndpointUrlPrefix == null) {
       throw new IllegalArgumentException("please provide a live url prefix in the client");
@@ -153,5 +153,6 @@ public class Service {
     if (!LIVE_ENDPOINT_URL_PREFIX_PATTERN.matcher(liveEndpointUrlPrefix).matches()) {
       throw new IllegalArgumentException("live url prefix must contain only letters, digits, and hyphens");
     }
+    return liveEndpointUrlPrefix;
   }
 }
