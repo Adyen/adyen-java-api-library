@@ -1,43 +1,133 @@
-name: Automated Release Preparation
+name: Automated Release
 
-# This workflow runs automatically when a pull request is merged into the main branch.
-# It prepares the next release by creating or updating a "Release PR" with the new version and changelog.
-# The final release publication, which triggers the 'publish.yml' workflow, happens when that "Release PR" is merged.
+# Releasing takes two steps:
+#   1. Merging a feature PR into main runs `bump-on-pr-merge`, which opens or
+#      refreshes the "Release vX.Y.Z" PR. The action turns on auto-merge when
+#      it creates that PR, so it merges once the required checks and reviews
+#      pass. Merging it only bumps the version.
+#   2. After the Release PR is merged, a maintainer runs this workflow from
+#      the Actions tab. The `publish` job creates the vX.Y.Z tag and GitHub
+#      release, then starts publish.yml on that tag to deploy it to Maven
+#      Central.
+#
+# Run `publish` right after merging the Release PR. The tag points at the
+# current head of main, so anything merged in between ships in this release.
+# Until the tag exists, merging feature PRs doesn't open a new Release PR.
 on:
+  pull_request:
+    types: [closed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       pre-release:
         required: false
         type: boolean
         default: false
-        description: "This release will be labeled as non-production ready"
-      github-release:
-        required: false
-        type: boolean
-        default: false
-        description: "Publish Github release for the current version"
-
+        description: "Mark the next release as a pre-release"
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
-  release:
-    # 1. Allow manual dispatch
-    # 2. OR (If it's a PR, it must be merged AND from the same repository)
+  # Release PR merges must stay excluded: the action publishes a GitHub
+  # release for any merged PR labeled `release`, whatever `github-release`
+  # is set to.
+  bump-on-pr-merge:
     if: |
-      github.event_name == 'workflow_dispatch' || 
-      (github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository)
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      !contains(github.event.pull_request.labels.*.name, 'release') &&
+      !startsWith(github.event.pull_request.head.ref, 'promote/')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
-      - name: Prepare the next main release
+      - name: Refresh the Release vX.Y.Z PR
         uses: Adyen/release-automation-action@3e5694d5b365f344a62436e84049511ef318ecf5
         with:
           token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
           develop-branch: main
           version-files: pom.xml src/main/java/com/adyen/Client.java README.md
           release-title: Adyen Java API Library
-          pre-release: ${{ inputs.pre-release || false }}
-          github-release: ${{ inputs.github-release || false }}
+          github-release: false
           separator: .pre.beta
+
+  publish:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Check out main after the Release PR merge
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Resolve target version from VERSION file
+        id: resolve-version
+        run: |
+          set -euo pipefail
+          version="$(cat VERSION)"
+          if ! printf '%s' "$version" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+(\.[A-Za-z0-9_.-]+)?$'; then
+            echo "::error::VERSION file does not contain a semver value: $version" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+      - name: Create tag and GitHub Release (idempotent)
+        uses: actions/github-script@v7
+        env:
+          # Avoid hyphen-to-underscore mismatches between GitHub Actions
+          # input names and JS env access.
+          RELEASES_PRE_RELEASE: ${{ inputs.pre-release || 'false' }}
+          RELEASES_VERSION: ${{ steps.resolve-version.outputs.version }}
+          RELEASES_TAG: ${{ steps.resolve-version.outputs.tag }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const version = process.env.RELEASES_VERSION || '';
+            const tagName = process.env.RELEASES_TAG || '';
+            const isStable = /^[0-9]+\.[0-9]+\.[0-9]+$/.test(version);
+            const preRelease =
+              String(process.env.RELEASES_PRE_RELEASE) === 'true' || !isStable;
+
+            core.info('Publishing ' + tagName + ' (prerelease=' + preRelease + ')');
+
+            // Idempotent: if a release already exists for this tag, succeed
+            // without modifying it. Re-running this workflow then converges.
+            try {
+              const existing = await github.rest.repos.getReleaseByTag({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag: tagName,
+              });
+              core.info('Release ' + tagName + ' already exists at ' +
+                (existing.data.html_url || '<no url>') + '; leaving as-is.');
+              core.setOutput('release_url', existing.data.html_url || '');
+              return;
+            } catch (e) {
+              if (e.status !== 404) {
+                throw e;
+              }
+            }
+
+            const release = await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: tagName,
+              target_commitish: 'main',
+              name: 'Adyen Java API Library ' + tagName,
+              generate_release_notes: true,
+              prerelease: preRelease,
+            });
+            core.setOutput('release_url', release.data.html_url);
+            core.info('Created ' + tagName + ' at ' + release.data.html_url);
+
+            // A release created with GITHUB_TOKEN doesn't fire publish.yml's
+            // `release` trigger, but a workflow_dispatch sent with it does.
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'publish.yml',
+              ref: tagName,
+            });
+            core.info('Started publish.yml on ' + tagName);
