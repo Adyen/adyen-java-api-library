@@ -102,6 +102,38 @@ public class ServiceTest extends BaseTest {
     assertEquals("please provide a live url prefix in the client", e.getMessage());
   }
 
+  static Stream<String> unsafeLiveEndpointUrlPrefixes() {
+    return Stream.of(
+        "",
+        "evil.example/?x=#",
+        "evil.example?redirect=true",
+        "evil.example#fragment",
+        "evil.example/path",
+        "evil@example.com",
+        "evil.example:443",
+        "evil%2Fexample",
+        "prefix with space",
+        "prefix\nnext-line");
+  }
+
+  @ParameterizedTest
+  @MethodSource("unsafeLiveEndpointUrlPrefixes")
+  public void rejectsUnsafeLiveEndpointUrlPrefixes(String prefix) {
+    config.setLiveEndpointUrlPrefix(prefix);
+
+    assertAll(
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> service.createBaseURL("https://checkout-test.adyen.com/v68/payments")),
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
+                () ->
+                    service.createBaseURL(
+                        "https://pal-test.adyen.com/pal/servlet/v68/initiate")));
+  }
+
   @Test
   public void testLiveCheckoutPosSdkUrlWithPrefix() {
     config.setLiveEndpointUrlPrefix("123456789-company");
