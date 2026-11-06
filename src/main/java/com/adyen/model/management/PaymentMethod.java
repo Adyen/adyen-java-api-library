@@ -33,6 +33,7 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_ALIPAY_PLUS,
   PaymentMethod.JSON_PROPERTY_ALLOWED,
   PaymentMethod.JSON_PROPERTY_AMEX,
+  PaymentMethod.JSON_PROPERTY_ANCV,
   PaymentMethod.JSON_PROPERTY_APPLE_PAY,
   PaymentMethod.JSON_PROPERTY_ASSOCIATED_PAYMENT_METHODS,
   PaymentMethod.JSON_PROPERTY_BCMC,
@@ -46,6 +47,7 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   PaymentMethod.JSON_PROPERTY_DINERS,
   PaymentMethod.JSON_PROPERTY_DISCOVER,
+  PaymentMethod.JSON_PROPERTY_EBT,
   PaymentMethod.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethod.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethod.JSON_PROPERTY_ENABLED,
@@ -61,6 +63,8 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_MAESTRO_USA,
   PaymentMethod.JSON_PROPERTY_MC,
   PaymentMethod.JSON_PROPERTY_MEAL_VOUCHER_F_R,
+  PaymentMethod.JSON_PROPERTY_MERCHANT_CATEGORY_CODE,
+  PaymentMethod.JSON_PROPERTY_MID,
   PaymentMethod.JSON_PROPERTY_NYCE,
   PaymentMethod.JSON_PROPERTY_PAYBYBANK_PLAID,
   PaymentMethod.JSON_PROPERTY_PAYME,
@@ -122,6 +126,12 @@ public class PaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmex = false;
+
+  public static final String JSON_PROPERTY_ANCV = "ancv";
+  private AncvResponseInfo ancv;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAncv = false;
 
   public static final String JSON_PROPERTY_APPLE_PAY = "applePay";
   private ApplePayResponseInfo applePay;
@@ -200,6 +210,12 @@ public class PaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiscover = false;
+
+  public static final String JSON_PROPERTY_EBT = "ebt";
+  private EbtResponseInfo ebt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEbt = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
   private EFTDirectDebitCAResponseInfo eftDirectdebitCA;
@@ -290,6 +306,18 @@ public class PaymentMethod {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMealVoucherFR = false;
+
+  public static final String JSON_PROPERTY_MERCHANT_CATEGORY_CODE = "merchantCategoryCode";
+  private String merchantCategoryCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantCategoryCode = false;
+
+  public static final String JSON_PROPERTY_MID = "mid";
+  private String mid;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMid = false;
 
   public static final String JSON_PROPERTY_NYCE = "nyce";
   private NyceResponseInfo nyce;
@@ -704,6 +732,41 @@ public class PaymentMethod {
   public void setAmex(AmexResponseInfo amex) {
     this.amex = amex;
     isSetAmex = true; // mark as set
+  }
+
+  /**
+   * ancv
+   *
+   * @param ancv
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod ancv(AncvResponseInfo ancv) {
+    this.ancv = ancv;
+    isSetAncv = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ancv
+   *
+   * @return ancv
+   */
+  @JsonProperty(JSON_PROPERTY_ANCV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AncvResponseInfo getAncv() {
+    return ancv;
+  }
+
+  /**
+   * ancv
+   *
+   * @param ancv
+   */
+  @JsonProperty(JSON_PROPERTY_ANCV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAncv(AncvResponseInfo ancv) {
+    this.ancv = ancv;
+    isSetAncv = true; // mark as set
   }
 
   /**
@@ -1217,6 +1280,41 @@ public class PaymentMethod {
   public void setDiscover(DiscoverResponseInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod ebt(EbtResponseInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ebt
+   *
+   * @return ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EbtResponseInfo getEbt() {
+    return ebt;
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEbt(EbtResponseInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
   }
 
   /**
@@ -1745,6 +1843,79 @@ public class PaymentMethod {
   public void setMealVoucherFR(MealVoucherFRResponseInfo mealVoucherFR) {
     this.mealVoucherFR = mealVoucherFR;
     isSetMealVoucherFR = true; // mark as set
+  }
+
+  /**
+   * The Merchant Category Code (MCC) associated with the payment method.
+   *
+   * @param merchantCategoryCode The Merchant Category Code (MCC) associated with the payment
+   *     method.
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod merchantCategoryCode(String merchantCategoryCode) {
+    this.merchantCategoryCode = merchantCategoryCode;
+    isSetMerchantCategoryCode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The Merchant Category Code (MCC) associated with the payment method.
+   *
+   * @return merchantCategoryCode The Merchant Category Code (MCC) associated with the payment
+   *     method.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CATEGORY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantCategoryCode() {
+    return merchantCategoryCode;
+  }
+
+  /**
+   * The Merchant Category Code (MCC) associated with the payment method.
+   *
+   * @param merchantCategoryCode The Merchant Category Code (MCC) associated with the payment
+   *     method.
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_CATEGORY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantCategoryCode(String merchantCategoryCode) {
+    this.merchantCategoryCode = merchantCategoryCode;
+    isSetMerchantCategoryCode = true; // mark as set
+  }
+
+  /**
+   * The Merchant Identifier (MID) associated with the payment method.
+   *
+   * @param mid The Merchant Identifier (MID) associated with the payment method.
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod mid(String mid) {
+    this.mid = mid;
+    isSetMid = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The Merchant Identifier (MID) associated with the payment method.
+   *
+   * @return mid The Merchant Identifier (MID) associated with the payment method.
+   */
+  @JsonProperty(JSON_PROPERTY_MID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMid() {
+    return mid;
+  }
+
+  /**
+   * The Merchant Identifier (MID) associated with the payment method.
+   *
+   * @param mid The Merchant Identifier (MID) associated with the payment method.
+   */
+  @JsonProperty(JSON_PROPERTY_MID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMid(String mid) {
+    this.mid = mid;
+    isSetMid = true; // mark as set
   }
 
   /**
@@ -2356,9 +2527,15 @@ public class PaymentMethod {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod type(String type) {
@@ -2370,9 +2547,15 @@ public class PaymentMethod {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object.
    *
    * @return type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2383,9 +2566,15 @@ public class PaymentMethod {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2649,6 +2838,8 @@ public class PaymentMethod {
         && Objects.equals(this.isSetAllowed, paymentMethod.isSetAllowed)
         && Objects.equals(this.amex, paymentMethod.amex)
         && Objects.equals(this.isSetAmex, paymentMethod.isSetAmex)
+        && Objects.equals(this.ancv, paymentMethod.ancv)
+        && Objects.equals(this.isSetAncv, paymentMethod.isSetAncv)
         && Objects.equals(this.applePay, paymentMethod.applePay)
         && Objects.equals(this.isSetApplePay, paymentMethod.isSetApplePay)
         && Objects.equals(this.associatedPaymentMethods, paymentMethod.associatedPaymentMethods)
@@ -2676,6 +2867,8 @@ public class PaymentMethod {
         && Objects.equals(this.isSetDiners, paymentMethod.isSetDiners)
         && Objects.equals(this.discover, paymentMethod.discover)
         && Objects.equals(this.isSetDiscover, paymentMethod.isSetDiscover)
+        && Objects.equals(this.ebt, paymentMethod.ebt)
+        && Objects.equals(this.isSetEbt, paymentMethod.isSetEbt)
         && Objects.equals(this.eftDirectdebitCA, paymentMethod.eftDirectdebitCA)
         && Objects.equals(this.isSetEftDirectdebitCA, paymentMethod.isSetEftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, paymentMethod.eftposAustralia)
@@ -2706,6 +2899,10 @@ public class PaymentMethod {
         && Objects.equals(this.isSetMc, paymentMethod.isSetMc)
         && Objects.equals(this.mealVoucherFR, paymentMethod.mealVoucherFR)
         && Objects.equals(this.isSetMealVoucherFR, paymentMethod.isSetMealVoucherFR)
+        && Objects.equals(this.merchantCategoryCode, paymentMethod.merchantCategoryCode)
+        && Objects.equals(this.isSetMerchantCategoryCode, paymentMethod.isSetMerchantCategoryCode)
+        && Objects.equals(this.mid, paymentMethod.mid)
+        && Objects.equals(this.isSetMid, paymentMethod.isSetMid)
         && Objects.equals(this.nyce, paymentMethod.nyce)
         && Objects.equals(this.isSetNyce, paymentMethod.isSetNyce)
         && Objects.equals(this.paybybankPlaid, paymentMethod.paybybankPlaid)
@@ -2771,6 +2968,8 @@ public class PaymentMethod {
         isSetAllowed,
         amex,
         isSetAmex,
+        ancv,
+        isSetAncv,
         applePay,
         isSetApplePay,
         associatedPaymentMethods,
@@ -2797,6 +2996,8 @@ public class PaymentMethod {
         isSetDiners,
         discover,
         isSetDiscover,
+        ebt,
+        isSetEbt,
         eftDirectdebitCA,
         isSetEftDirectdebitCA,
         eftposAustralia,
@@ -2827,6 +3028,10 @@ public class PaymentMethod {
         isSetMc,
         mealVoucherFR,
         isSetMealVoucherFR,
+        merchantCategoryCode,
+        isSetMerchantCategoryCode,
+        mid,
+        isSetMid,
         nyce,
         isSetNyce,
         paybybankPlaid,
@@ -2887,6 +3092,7 @@ public class PaymentMethod {
     sb.append("    alipayPlus: ").append(toIndentedString(alipayPlus)).append("\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
+    sb.append("    ancv: ").append(toIndentedString(ancv)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    associatedPaymentMethods: ")
         .append(toIndentedString(associatedPaymentMethods))
@@ -2902,6 +3108,7 @@ public class PaymentMethod {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    ebt: ").append(toIndentedString(ebt)).append("\n");
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
@@ -2917,6 +3124,10 @@ public class PaymentMethod {
     sb.append("    maestroUsa: ").append(toIndentedString(maestroUsa)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
+    sb.append("    merchantCategoryCode: ")
+        .append(toIndentedString(merchantCategoryCode))
+        .append("\n");
+    sb.append("    mid: ").append(toIndentedString(mid)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
     sb.append("    payme: ").append(toIndentedString(payme)).append("\n");
@@ -2983,6 +3194,9 @@ public class PaymentMethod {
     if (isSetAmex) {
       addIfNull(nulls, JSON_PROPERTY_AMEX, this.amex);
     }
+    if (isSetAncv) {
+      addIfNull(nulls, JSON_PROPERTY_ANCV, this.ancv);
+    }
     if (isSetApplePay) {
       addIfNull(nulls, JSON_PROPERTY_APPLE_PAY, this.applePay);
     }
@@ -3021,6 +3235,9 @@ public class PaymentMethod {
     }
     if (isSetDiscover) {
       addIfNull(nulls, JSON_PROPERTY_DISCOVER, this.discover);
+    }
+    if (isSetEbt) {
+      addIfNull(nulls, JSON_PROPERTY_EBT, this.ebt);
     }
     if (isSetEftDirectdebitCA) {
       addIfNull(nulls, JSON_PROPERTY_EFT_DIRECTDEBIT_C_A, this.eftDirectdebitCA);
@@ -3066,6 +3283,12 @@ public class PaymentMethod {
     }
     if (isSetMealVoucherFR) {
       addIfNull(nulls, JSON_PROPERTY_MEAL_VOUCHER_F_R, this.mealVoucherFR);
+    }
+    if (isSetMerchantCategoryCode) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_CATEGORY_CODE, this.merchantCategoryCode);
+    }
+    if (isSetMid) {
+      addIfNull(nulls, JSON_PROPERTY_MID, this.mid);
     }
     if (isSetNyce) {
       addIfNull(nulls, JSON_PROPERTY_NYCE, this.nyce);
