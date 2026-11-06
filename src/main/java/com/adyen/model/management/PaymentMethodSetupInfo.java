@@ -32,6 +32,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_AFTERPAY_TOUCH,
   PaymentMethodSetupInfo.JSON_PROPERTY_ALIPAY_PLUS,
   PaymentMethodSetupInfo.JSON_PROPERTY_AMEX,
+  PaymentMethodSetupInfo.JSON_PROPERTY_ANCV,
   PaymentMethodSetupInfo.JSON_PROPERTY_APPLE_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_BCMC,
   PaymentMethodSetupInfo.JSON_PROPERTY_BUSINESS_LINE_ID,
@@ -44,6 +45,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   PaymentMethodSetupInfo.JSON_PROPERTY_DINERS,
   PaymentMethodSetupInfo.JSON_PROPERTY_DISCOVER,
+  PaymentMethodSetupInfo.JSON_PROPERTY_EBT,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethodSetupInfo.JSON_PROPERTY_GIROCARD,
@@ -111,6 +113,12 @@ public class PaymentMethodSetupInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmex = false;
+
+  public static final String JSON_PROPERTY_ANCV = "ancv";
+  private AncvInfo ancv;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAncv = false;
 
   public static final String JSON_PROPERTY_APPLE_PAY = "applePay";
   private ApplePayInfo applePay;
@@ -183,6 +191,12 @@ public class PaymentMethodSetupInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiscover = false;
+
+  public static final String JSON_PROPERTY_EBT = "ebt";
+  private EbtInfo ebt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEbt = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
   private GenericPmWithTdiInfo eftDirectdebitCA;
@@ -417,6 +431,9 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    */
   public enum TypeEnum {
     ABRAPETITE(String.valueOf("abrapetite")),
@@ -468,6 +485,8 @@ public class PaymentMethodSetupInfo {
     ALIPAY_WAP(String.valueOf("alipay_wap")),
 
     AMEX(String.valueOf("amex")),
+
+    ANCV(String.valueOf("ancv")),
 
     APPLEPAY(String.valueOf("applepay")),
 
@@ -534,6 +553,8 @@ public class PaymentMethodSetupInfo {
     DISCOVER(String.valueOf("discover")),
 
     EBANKING_FI(String.valueOf("ebanking_FI")),
+
+    EBT(String.valueOf("ebt")),
 
     EFT_DIRECTDEBIT_CA(String.valueOf("eft_directdebit_CA")),
 
@@ -713,7 +734,9 @@ public class PaymentMethodSetupInfo {
 
     WECHATPAY(String.valueOf("wechatpay")),
 
-    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
+    WECHATPAY_POS(String.valueOf("wechatpay_pos")),
+
+    WERO(String.valueOf("wero"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -967,6 +990,41 @@ public class PaymentMethodSetupInfo {
   public void setAmex(AmexInfo amex) {
     this.amex = amex;
     isSetAmex = true; // mark as set
+  }
+
+  /**
+   * ancv
+   *
+   * @param ancv
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo ancv(AncvInfo ancv) {
+    this.ancv = ancv;
+    isSetAncv = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ancv
+   *
+   * @return ancv
+   */
+  @JsonProperty(JSON_PROPERTY_ANCV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AncvInfo getAncv() {
+    return ancv;
+  }
+
+  /**
+   * ancv
+   *
+   * @param ancv
+   */
+  @JsonProperty(JSON_PROPERTY_ANCV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAncv(AncvInfo ancv) {
+    this.ancv = ancv;
+    isSetAncv = true; // mark as set
   }
 
   /**
@@ -1432,6 +1490,41 @@ public class PaymentMethodSetupInfo {
   public void setDiscover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo ebt(EbtInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ebt
+   *
+   * @return ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EbtInfo getEbt() {
+    return ebt;
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEbt(EbtInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
   }
 
   /**
@@ -2516,9 +2609,15 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
    */
   public PaymentMethodSetupInfo type(TypeEnum type) {
@@ -2530,9 +2629,15 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @return type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2543,9 +2648,15 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2769,6 +2880,8 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.isSetAlipayPlus, paymentMethodSetupInfo.isSetAlipayPlus)
         && Objects.equals(this.amex, paymentMethodSetupInfo.amex)
         && Objects.equals(this.isSetAmex, paymentMethodSetupInfo.isSetAmex)
+        && Objects.equals(this.ancv, paymentMethodSetupInfo.ancv)
+        && Objects.equals(this.isSetAncv, paymentMethodSetupInfo.isSetAncv)
         && Objects.equals(this.applePay, paymentMethodSetupInfo.applePay)
         && Objects.equals(this.isSetApplePay, paymentMethodSetupInfo.isSetApplePay)
         && Objects.equals(this.bcmc, paymentMethodSetupInfo.bcmc)
@@ -2794,6 +2907,8 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.isSetDiners, paymentMethodSetupInfo.isSetDiners)
         && Objects.equals(this.discover, paymentMethodSetupInfo.discover)
         && Objects.equals(this.isSetDiscover, paymentMethodSetupInfo.isSetDiscover)
+        && Objects.equals(this.ebt, paymentMethodSetupInfo.ebt)
+        && Objects.equals(this.isSetEbt, paymentMethodSetupInfo.isSetEbt)
         && Objects.equals(this.eftDirectdebitCA, paymentMethodSetupInfo.eftDirectdebitCA)
         && Objects.equals(this.isSetEftDirectdebitCA, paymentMethodSetupInfo.isSetEftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, paymentMethodSetupInfo.eftposAustralia)
@@ -2882,6 +2997,8 @@ public class PaymentMethodSetupInfo {
         isSetAlipayPlus,
         amex,
         isSetAmex,
+        ancv,
+        isSetAncv,
         applePay,
         isSetApplePay,
         bcmc,
@@ -2906,6 +3023,8 @@ public class PaymentMethodSetupInfo {
         isSetDiners,
         discover,
         isSetDiscover,
+        ebt,
+        isSetEbt,
         eftDirectdebitCA,
         isSetEftDirectdebitCA,
         eftposAustralia,
@@ -2989,6 +3108,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
     sb.append("    alipayPlus: ").append(toIndentedString(alipayPlus)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
+    sb.append("    ancv: ").append(toIndentedString(ancv)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
     sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");
@@ -3001,6 +3121,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    ebt: ").append(toIndentedString(ebt)).append("\n");
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
@@ -3076,6 +3197,9 @@ public class PaymentMethodSetupInfo {
     if (isSetAmex) {
       addIfNull(nulls, JSON_PROPERTY_AMEX, this.amex);
     }
+    if (isSetAncv) {
+      addIfNull(nulls, JSON_PROPERTY_ANCV, this.ancv);
+    }
     if (isSetApplePay) {
       addIfNull(nulls, JSON_PROPERTY_APPLE_PAY, this.applePay);
     }
@@ -3111,6 +3235,9 @@ public class PaymentMethodSetupInfo {
     }
     if (isSetDiscover) {
       addIfNull(nulls, JSON_PROPERTY_DISCOVER, this.discover);
+    }
+    if (isSetEbt) {
+      addIfNull(nulls, JSON_PROPERTY_EBT, this.ebt);
     }
     if (isSetEftDirectdebitCA) {
       addIfNull(nulls, JSON_PROPERTY_EFT_DIRECTDEBIT_C_A, this.eftDirectdebitCA);
