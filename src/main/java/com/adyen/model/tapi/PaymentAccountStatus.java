@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /** PaymentAccountStatus */
@@ -35,7 +34,7 @@ public class PaymentAccountStatus {
   private boolean isSetPaymentInstrumentData = false;
 
   public static final String JSON_PROPERTY_CURRENT_BALANCE = "CurrentBalance";
-  private BigDecimal currentBalance;
+  private Double currentBalance;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCurrentBalance = false;
@@ -101,7 +100,7 @@ public class PaymentAccountStatus {
    * @param currentBalance Balance of an account after processing of the transaction.
    * @return the current {@code PaymentAccountStatus} instance, allowing for method chaining
    */
-  public PaymentAccountStatus currentBalance(BigDecimal currentBalance) {
+  public PaymentAccountStatus currentBalance(Double currentBalance) {
     this.currentBalance = currentBalance;
     isSetCurrentBalance = true; // mark as set
     return this;
@@ -115,7 +114,7 @@ public class PaymentAccountStatus {
    */
   @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getCurrentBalance() {
+  public Double getCurrentBalance() {
     return currentBalance;
   }
 
@@ -126,7 +125,7 @@ public class PaymentAccountStatus {
    */
   @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrentBalance(BigDecimal currentBalance) {
+  public void setCurrentBalance(Double currentBalance) {
     this.currentBalance = currentBalance;
     isSetCurrentBalance = true; // mark as set
   }
