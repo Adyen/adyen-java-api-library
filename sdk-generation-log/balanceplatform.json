@@ -1,8 +1,8 @@
 {
   "service": "balanceplatform",
   "project": "java",
-  "generatedAt": "2026-07-21T12:28:58Z",
-  "openapiCommitSha": "c2ff0637d25d1c34aa1b19113e1b4e5eaa289960",
-  "automationCommitSha": "0c108bd8050cf480d2710b78b770afdfbdd89397",
-  "libraryCommitSha": "5ff17f11a78b035f0dd862e1157bec9e026adcf1"
+  "generatedAt": "2026-11-06T10:34:45Z",
+  "openapiCommitSha": "e7986c7dad1253fed107c4e7b90716497165b86d",
+  "automationCommitSha": "ae7e57613c3a29391a4adb4ff02e9ddda4611b16",
+  "libraryCommitSha": "d3bffab4710911babb99a812e2b50c843c40f556"
 }

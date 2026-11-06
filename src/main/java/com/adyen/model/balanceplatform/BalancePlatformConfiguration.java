@@ -155,7 +155,7 @@ public class BalancePlatformConfiguration {
   private boolean isSetUserSettlementDelay = false;
 
   public static final String JSON_PROPERTY_USER_SETTLEMENT_TIME = "userSettlementTime";
-  private ModelLocalTime userSettlementTime;
+  private String userSettlementTime;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetUserSettlementTime = false;
@@ -929,36 +929,42 @@ public class BalancePlatformConfiguration {
   }
 
   /**
-   * userSettlementTime
+   * The time when the payout funds are settled in your user&#39;s transfer instrument. For example,
+   * 11:30:00.
    *
-   * @param userSettlementTime
+   * @param userSettlementTime The time when the payout funds are settled in your user&#39;s
+   *     transfer instrument. For example, 11:30:00.
    * @return the current {@code BalancePlatformConfiguration} instance, allowing for method chaining
    */
-  public BalancePlatformConfiguration userSettlementTime(ModelLocalTime userSettlementTime) {
+  public BalancePlatformConfiguration userSettlementTime(String userSettlementTime) {
     this.userSettlementTime = userSettlementTime;
     isSetUserSettlementTime = true; // mark as set
     return this;
   }
 
   /**
-   * Get userSettlementTime
+   * The time when the payout funds are settled in your user&#39;s transfer instrument. For example,
+   * 11:30:00.
    *
-   * @return userSettlementTime
+   * @return userSettlementTime The time when the payout funds are settled in your user&#39;s
+   *     transfer instrument. For example, 11:30:00.
    */
   @JsonProperty(JSON_PROPERTY_USER_SETTLEMENT_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ModelLocalTime getUserSettlementTime() {
+  public String getUserSettlementTime() {
     return userSettlementTime;
   }
 
   /**
-   * userSettlementTime
+   * The time when the payout funds are settled in your user&#39;s transfer instrument. For example,
+   * 11:30:00.
    *
-   * @param userSettlementTime
+   * @param userSettlementTime The time when the payout funds are settled in your user&#39;s
+   *     transfer instrument. For example, 11:30:00.
    */
   @JsonProperty(JSON_PROPERTY_USER_SETTLEMENT_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUserSettlementTime(ModelLocalTime userSettlementTime) {
+  public void setUserSettlementTime(String userSettlementTime) {
     this.userSettlementTime = userSettlementTime;
     isSetUserSettlementTime = true; // mark as set
   }
