@@ -95,7 +95,8 @@ public class TransferData {
   /**
    * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
    * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   * or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
+   * or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   * transfer related to a capital grant, such as a disbursement or a repayment. - **interest**: A
    * transfer that settles accrued [interest](https://docs.adyen.com/business-accounts/earn-returns)
    * on a business account. - **internal**: A transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
@@ -107,6 +108,8 @@ public class TransferData {
     BANK(String.valueOf("bank")),
 
     CARD(String.valueOf("card")),
+
+    GRANTS(String.valueOf("grants")),
 
     INTEREST(String.valueOf("interest")),
 
@@ -1068,7 +1071,8 @@ public class TransferData {
   /**
    * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
    * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   * or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
+   * or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   * transfer related to a capital grant, such as a disbursement or a repayment. - **interest**: A
    * transfer that settles accrued [interest](https://docs.adyen.com/business-accounts/earn-returns)
    * on a business account. - **internal**: A transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
@@ -1079,8 +1083,9 @@ public class TransferData {
    * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
    *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   *     or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
-   *     transfer that settles accrued
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   *     transfer related to a capital grant, such as a disbursement or a repayment. - **interest**:
+   *     A transfer that settles accrued
    *     [interest](https://docs.adyen.com/business-accounts/earn-returns) on a business account. -
    *     **internal**: A transfer between [balance
    *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
@@ -1098,7 +1103,8 @@ public class TransferData {
   /**
    * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
    * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   * or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
+   * or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   * transfer related to a capital grant, such as a disbursement or a repayment. - **interest**: A
    * transfer that settles accrued [interest](https://docs.adyen.com/business-accounts/earn-returns)
    * on a business account. - **internal**: A transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
@@ -1109,8 +1115,9 @@ public class TransferData {
    * @return category The category of the transfer. Possible values: - **bank**: A transfer
    *     involving a [transfer
    *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   *     or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
-   *     transfer that settles accrued
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   *     transfer related to a capital grant, such as a disbursement or a repayment. - **interest**:
+   *     A transfer that settles accrued
    *     [interest](https://docs.adyen.com/business-accounts/earn-returns) on a business account. -
    *     **internal**: A transfer between [balance
    *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
@@ -1127,7 +1134,8 @@ public class TransferData {
   /**
    * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
    * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   * or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
+   * or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   * transfer related to a capital grant, such as a disbursement or a repayment. - **interest**: A
    * transfer that settles accrued [interest](https://docs.adyen.com/business-accounts/earn-returns)
    * on a business account. - **internal**: A transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
@@ -1138,8 +1146,9 @@ public class TransferData {
    * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
    *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
-   *     or a bank account. - **card**: A transfer involving a third-party card. - **interest**: A
-   *     transfer that settles accrued
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **grants**: A
+   *     transfer related to a capital grant, such as a disbursement or a repayment. - **interest**:
+   *     A transfer that settles accrued
    *     [interest](https://docs.adyen.com/business-accounts/earn-returns) on a business account. -
    *     **internal**: A transfer between [balance
    *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
