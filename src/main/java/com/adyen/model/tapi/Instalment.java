@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -78,19 +77,19 @@ public class Instalment {
   private boolean isSetTotalNbOfPayments = false;
 
   public static final String JSON_PROPERTY_CUMULATIVE_AMOUNT = "CumulativeAmount";
-  private BigDecimal cumulativeAmount;
+  private Double cumulativeAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCumulativeAmount = false;
 
   public static final String JSON_PROPERTY_FIRST_AMOUNT = "FirstAmount";
-  private BigDecimal firstAmount;
+  private Double firstAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetFirstAmount = false;
 
   public static final String JSON_PROPERTY_CHARGES = "Charges";
-  private BigDecimal charges;
+  private Double charges;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCharges = false;
@@ -368,7 +367,7 @@ public class Instalment {
    *     instalments.
    * @return the current {@code Instalment} instance, allowing for method chaining
    */
-  public Instalment cumulativeAmount(BigDecimal cumulativeAmount) {
+  public Instalment cumulativeAmount(Double cumulativeAmount) {
     this.cumulativeAmount = cumulativeAmount;
     isSetCumulativeAmount = true; // mark as set
     return this;
@@ -383,7 +382,7 @@ public class Instalment {
    */
   @JsonProperty(JSON_PROPERTY_CUMULATIVE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getCumulativeAmount() {
+  public Double getCumulativeAmount() {
     return cumulativeAmount;
   }
 
@@ -395,7 +394,7 @@ public class Instalment {
    */
   @JsonProperty(JSON_PROPERTY_CUMULATIVE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCumulativeAmount(BigDecimal cumulativeAmount) {
+  public void setCumulativeAmount(Double cumulativeAmount) {
     this.cumulativeAmount = cumulativeAmount;
     isSetCumulativeAmount = true; // mark as set
   }
@@ -406,7 +405,7 @@ public class Instalment {
    * @param firstAmount First amount of the payment instalments.
    * @return the current {@code Instalment} instance, allowing for method chaining
    */
-  public Instalment firstAmount(BigDecimal firstAmount) {
+  public Instalment firstAmount(Double firstAmount) {
     this.firstAmount = firstAmount;
     isSetFirstAmount = true; // mark as set
     return this;
@@ -419,7 +418,7 @@ public class Instalment {
    */
   @JsonProperty(JSON_PROPERTY_FIRST_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getFirstAmount() {
+  public Double getFirstAmount() {
     return firstAmount;
   }
 
@@ -430,7 +429,7 @@ public class Instalment {
    */
   @JsonProperty(JSON_PROPERTY_FIRST_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstAmount(BigDecimal firstAmount) {
+  public void setFirstAmount(Double firstAmount) {
     this.firstAmount = firstAmount;
     isSetFirstAmount = true; // mark as set
   }
@@ -441,7 +440,7 @@ public class Instalment {
    * @param charges Charges related to a transaction. Charge related to the payment instalments.
    * @return the current {@code Instalment} instance, allowing for method chaining
    */
-  public Instalment charges(BigDecimal charges) {
+  public Instalment charges(Double charges) {
     this.charges = charges;
     isSetCharges = true; // mark as set
     return this;
@@ -455,7 +454,7 @@ public class Instalment {
    */
   @JsonProperty(JSON_PROPERTY_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getCharges() {
+  public Double getCharges() {
     return charges;
   }
 
@@ -466,7 +465,7 @@ public class Instalment {
    */
   @JsonProperty(JSON_PROPERTY_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCharges(BigDecimal charges) {
+  public void setCharges(Double charges) {
     this.charges = charges;
     isSetCharges = true; // mark as set
   }

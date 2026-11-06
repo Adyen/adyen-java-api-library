@@ -86,7 +86,7 @@ public class PaymentResult {
   private boolean isSetCapturedSignature = false;
 
   public static final String JSON_PROPERTY_PROTECTED_SIGNATURE = "ProtectedSignature";
-  private String protectedSignature;
+  private byte[] protectedSignature;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProtectedSignature = false;
@@ -474,7 +474,7 @@ public class PaymentResult {
    *     ProtectedSignature for a JSON encoding.
    * @return the current {@code PaymentResult} instance, allowing for method chaining
    */
-  public PaymentResult protectedSignature(String protectedSignature) {
+  public PaymentResult protectedSignature(byte[] protectedSignature) {
     this.protectedSignature = protectedSignature;
     isSetProtectedSignature = true; // mark as set
     return this;
@@ -496,7 +496,7 @@ public class PaymentResult {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProtectedSignature() {
+  public byte[] getProtectedSignature() {
     return protectedSignature;
   }
 
@@ -516,7 +516,7 @@ public class PaymentResult {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProtectedSignature(String protectedSignature) {
+  public void setProtectedSignature(byte[] protectedSignature) {
     this.protectedSignature = protectedSignature;
     isSetProtectedSignature = true; // mark as set
   }
@@ -797,7 +797,7 @@ public class PaymentResult {
         && Objects.equals(this.isSetMerchantOverrideFlag, paymentResult.isSetMerchantOverrideFlag)
         && Objects.equals(this.capturedSignature, paymentResult.capturedSignature)
         && Objects.equals(this.isSetCapturedSignature, paymentResult.isSetCapturedSignature)
-        && Objects.equals(this.protectedSignature, paymentResult.protectedSignature)
+        && Arrays.equals(this.protectedSignature, paymentResult.protectedSignature)
         && Objects.equals(this.isSetProtectedSignature, paymentResult.isSetProtectedSignature)
         && Objects.equals(this.customerLanguage, paymentResult.customerLanguage)
         && Objects.equals(this.isSetCustomerLanguage, paymentResult.isSetCustomerLanguage)
@@ -828,7 +828,7 @@ public class PaymentResult {
         isSetMerchantOverrideFlag,
         capturedSignature,
         isSetCapturedSignature,
-        protectedSignature,
+        Arrays.hashCode(protectedSignature),
         isSetProtectedSignature,
         customerLanguage,
         isSetCustomerLanguage,

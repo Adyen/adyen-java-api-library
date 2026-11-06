@@ -1,8 +1,8 @@
 {
   "service": "tapi",
   "project": "java",
-  "generatedAt": "2026-07-07T09:21:01Z",
-  "openapiCommitSha": "751b9cf57e10be73983157a912fc9aeb95920192",
-  "automationCommitSha": "5f1d5ab9643886ef722a2626e23afef8db5d52a6",
-  "libraryCommitSha": "b1ea0e573d73e2a641ebab068063cf01792f279a"
+  "generatedAt": "2026-11-06T10:35:06Z",
+  "openapiCommitSha": "e7986c7dad1253fed107c4e7b90716497165b86d",
+  "automationCommitSha": "ae7e57613c3a29391a4adb4ff02e9ddda4611b16",
+  "libraryCommitSha": "d3bffab4710911babb99a812e2b50c843c40f556"
 }

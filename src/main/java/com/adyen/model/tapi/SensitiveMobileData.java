@@ -27,19 +27,19 @@ import java.util.*;
 })
 public class SensitiveMobileData {
   public static final String JSON_PROPERTY_M_S_I_S_D_N = "MSISDN";
-  private Integer MSISDN;
+  private String MSISDN;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMSISDN = false;
 
   public static final String JSON_PROPERTY_I_M_S_I = "IMSI";
-  private Integer IMSI;
+  private String IMSI;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIMSI = false;
 
   public static final String JSON_PROPERTY_I_M_E_I = "IMEI";
-  private Integer IMEI;
+  private String IMEI;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetIMEI = false;
@@ -60,7 +60,7 @@ public class SensitiveMobileData {
    *     the SIM card). Country, National Destination Code, and Subscriber Number.
    * @return the current {@code SensitiveMobileData} instance, allowing for method chaining
    */
-  public SensitiveMobileData MSISDN(Integer MSISDN) {
+  public SensitiveMobileData MSISDN(String MSISDN) {
     this.MSISDN = MSISDN;
     isSetMSISDN = true; // mark as set
     return this;
@@ -75,7 +75,7 @@ public class SensitiveMobileData {
    */
   @JsonProperty(JSON_PROPERTY_M_S_I_S_D_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getMSISDN() {
+  public String getMSISDN() {
     return MSISDN;
   }
 
@@ -88,7 +88,7 @@ public class SensitiveMobileData {
    */
   @JsonProperty(JSON_PROPERTY_M_S_I_S_D_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMSISDN(Integer MSISDN) {
+  public void setMSISDN(String MSISDN) {
     this.MSISDN = MSISDN;
     isSetMSISDN = true; // mark as set
   }
@@ -103,7 +103,7 @@ public class SensitiveMobileData {
    *     the Mobile Identification Number (MSIN)
    * @return the current {@code SensitiveMobileData} instance, allowing for method chaining
    */
-  public SensitiveMobileData IMSI(Integer IMSI) {
+  public SensitiveMobileData IMSI(String IMSI) {
     this.IMSI = IMSI;
     isSetIMSI = true; // mark as set
     return this;
@@ -120,7 +120,7 @@ public class SensitiveMobileData {
    */
   @JsonProperty(JSON_PROPERTY_I_M_S_I)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getIMSI() {
+  public String getIMSI() {
     return IMSI;
   }
 
@@ -135,7 +135,7 @@ public class SensitiveMobileData {
    */
   @JsonProperty(JSON_PROPERTY_I_M_S_I)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIMSI(Integer IMSI) {
+  public void setIMSI(String IMSI) {
     this.IMSI = IMSI;
     isSetIMSI = true; // mark as set
   }
@@ -147,7 +147,7 @@ public class SensitiveMobileData {
    *     phone device.
    * @return the current {@code SensitiveMobileData} instance, allowing for method chaining
    */
-  public SensitiveMobileData IMEI(Integer IMEI) {
+  public SensitiveMobileData IMEI(String IMEI) {
     this.IMEI = IMEI;
     isSetIMEI = true; // mark as set
     return this;
@@ -161,7 +161,7 @@ public class SensitiveMobileData {
    */
   @JsonProperty(JSON_PROPERTY_I_M_E_I)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getIMEI() {
+  public String getIMEI() {
     return IMEI;
   }
 
@@ -173,7 +173,7 @@ public class SensitiveMobileData {
    */
   @JsonProperty(JSON_PROPERTY_I_M_E_I)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIMEI(Integer IMEI) {
+  public void setIMEI(String IMEI) {
     this.IMEI = IMEI;
     isSetIMEI = true; // mark as set
   }
