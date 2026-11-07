@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.net.ssl.SSLContext;
 
 public class Client implements Closeable {
-  private ClientInterface httpClient;
+  private volatile ClientInterface httpClient;
   private Config config;
   public static final String LIB_NAME = "adyen-java-api-library";
   public static final String LIB_VERSION = "43.1.0";
@@ -158,11 +158,17 @@ public class Client implements Closeable {
         + "]";
   }
 
-  public synchronized ClientInterface getHttpClient() {
-    if (this.httpClient == null) {
-      this.httpClient = createHttpClient();
+  public ClientInterface getHttpClient() {
+    ClientInterface result = this.httpClient;
+    if (result == null) {
+      synchronized (this) {
+        result = this.httpClient;
+        if (result == null) {
+          this.httpClient = result = createHttpClient();
+        }
+      }
     }
-    return this.httpClient;
+    return result;
   }
 
   ClientInterface createHttpClient() {
