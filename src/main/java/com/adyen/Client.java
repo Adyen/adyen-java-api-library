@@ -158,19 +158,23 @@ public class Client implements Closeable {
         + "]";
   }
 
-  public ClientInterface getHttpClient() {
+  public synchronized ClientInterface getHttpClient() {
     if (this.httpClient == null) {
-      this.httpClient = new AdyenHttpClient();
+      this.httpClient = createHttpClient();
     }
     return this.httpClient;
   }
 
-  public void setHttpClient(ClientInterface httpClient) {
+  ClientInterface createHttpClient() {
+    return new AdyenHttpClient();
+  }
+
+  public synchronized void setHttpClient(ClientInterface httpClient) {
     this.httpClient = httpClient;
   }
 
   @Override
-  public void close() throws IOException {
+  public synchronized void close() throws IOException {
     if (this.httpClient != null) {
       this.httpClient.close();
     }
