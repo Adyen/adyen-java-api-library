@@ -5,11 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.adyen.BaseTest;
 import com.adyen.model.acswebhooks.AcsWebhooksHandler;
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
+import com.adyen.model.acswebhooks.ChallengeInfo;
 import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
 import com.adyen.model.balancewebhooks.BalanceAccountBalanceNotificationRequest;
 import com.adyen.model.balancewebhooks.BalanceWebhooksHandler;
 import com.adyen.model.balancewebhooks.ReleasedBlockedBalanceNotificationRequest;
 import com.adyen.model.configurationwebhooks.*;
+import com.adyen.model.disputewebhooks.DisputeEventNotification;
 import com.adyen.model.disputewebhooks.DisputeNotificationRequest;
 import com.adyen.model.disputewebhooks.DisputeWebhooksHandler;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
@@ -253,6 +255,30 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(
         "6a4c1709-a42e-4c7f-96c7-1043adacfc97",
         authenticationNotificationRequest.getData().getAuthentication().getAcsTransId());
+  }
+
+  /**
+   * Verifies the wire-value mapping of the ACS challenge flow enum and its forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void testAcsWebhooksFlowEnumDeserialization() {
+    assertNull(ChallengeInfo.FlowEnum.fromValue("some_future_flow"));
+    assertEquals("OTP_PHONE_FL", ChallengeInfo.FlowEnum.OTP_PHONE_FL.getValue());
+    assertEquals(
+        ChallengeInfo.FlowEnum.PWD_OTP_PHONE_FL,
+        ChallengeInfo.FlowEnum.fromValue("PWD_OTP_PHONE_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.PWD_OTP_EMAIL_FL,
+        ChallengeInfo.FlowEnum.fromValue("PWD_OTP_EMAIL_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.OOB_TRIGGER_FL, ChallengeInfo.FlowEnum.fromValue("OOB_TRIGGER_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.OTP_PHONE_FL, ChallengeInfo.FlowEnum.fromValue("OTP_PHONE_FL"));
+    assertEquals(
+        ChallengeInfo.FlowEnum.PASSKEY_TRIGGER_FL,
+        ChallengeInfo.FlowEnum.fromValue("PASSKEY_TRIGGER_FL"));
   }
 
   @Test
@@ -605,11 +631,15 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
         NetworkReason.NamespaceEnum.fromValue("usAchCorrectionReasonCode"));
     assertEquals(
+        TransferData.CategoryEnum.INTEREST, TransferData.CategoryEnum.fromValue("interest"));
+    assertEquals(
         TransferData.StatusEnum.REVERSALRECEIVED,
         TransferData.StatusEnum.fromValue("reversalReceived"));
     assertEquals(
         TransferData.TypeEnum.BALANCEMIGRATION,
         TransferData.TypeEnum.fromValue("balanceMigration"));
+    assertEquals(
+        TransferData.TypeEnum.INTERESTPAYOUT, TransferData.TypeEnum.fromValue("interestPayout"));
     assertEquals(TransferData.TypeEnum.FXSELL, TransferData.TypeEnum.fromValue("fxSell"));
     assertEquals(TransferData.TypeEnum.FXBUY, TransferData.TypeEnum.fromValue("fxBuy"));
     assertEquals(
@@ -654,6 +684,35 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     DisputeWebhooksHandler handler = new DisputeWebhooksHandler(payload);
     Optional<DisputeNotificationRequest> result = handler.getDisputeNotificationRequest();
     assertFalse(result.isPresent());
+  }
+
+  /**
+   * Verifies the wire-value mapping of the dispute webhook type enum and its forward compatibility:
+   * known values deserialize to the matching enum constant, while values not yet known to this
+   * library deserialize to null instead of throwing an exception.
+   */
+  @Test
+  public void testDisputeWebhooksEnumDeserialization() {
+    assertNull(DisputeEventNotification.TypeEnum.fromValue("some_future_dispute_type"));
+    assertEquals("notAsDescribed", DisputeEventNotification.TypeEnum.NOTASDESCRIBED.getValue());
+    assertEquals(
+        DisputeEventNotification.TypeEnum.FRAUD,
+        DisputeEventNotification.TypeEnum.fromValue("fraud"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.NOTDELIVERED,
+        DisputeEventNotification.TypeEnum.fromValue("notDelivered"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.DUPLICATE,
+        DisputeEventNotification.TypeEnum.fromValue("duplicate"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.NOTASDESCRIBED,
+        DisputeEventNotification.TypeEnum.fromValue("notAsDescribed"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.CANCELLED,
+        DisputeEventNotification.TypeEnum.fromValue("cancelled"));
+    assertEquals(
+        DisputeEventNotification.TypeEnum.OTHER,
+        DisputeEventNotification.TypeEnum.fromValue("other"));
   }
 
   @Test
@@ -906,5 +965,53 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     // an unknown event type does not match the TopUp created/updated type enums
     assertFalse(handler.getTopUpConfigurationEventRequest().isPresent());
     assertFalse(handler.getTopUpConfigurationUpdatedEventRequest().isPresent());
+  }
+
+  @Test
+  public void testSweepExecutionNotificationRequest() {
+    String json =
+        getFileContents(
+            "mocks/balancePlatform-webhooks/balanceplatform-sweepExecution-failed.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<SweepExecutionNotificationRequest> optionalRequest =
+        handler.getSweepExecutionNotificationRequest();
+    assertTrue(optionalRequest.isPresent());
+
+    SweepExecutionNotificationRequest request = optionalRequest.get();
+    assertEquals(
+        SweepExecutionNotificationRequest.TypeEnum
+            .BALANCEPLATFORM_BALANCEACCOUNTSWEEPEXECUTION_FAILED,
+        request.getType());
+    assertEquals("test", request.getEnvironment());
+    assertNotNull(request.getTimestamp());
+
+    SweepExecutionNotificationData data = request.getData();
+    assertNotNull(data);
+    assertEquals("SE00000000000000000001", data.getId());
+    assertEquals("BA00000000000000000001", data.getBalanceAccountId());
+    assertEquals("SWP00000000000000000001", data.getBalanceAccountSweepId());
+    assertEquals("YOUR_BALANCE_PLATFORM", data.getBalancePlatform());
+    assertEquals(SweepExecutionNotificationData.ResultEnum.FAILED, data.getResult());
+    assertNotNull(data.getTriggeredAt());
+
+    SweepResultDetails resultDetails = data.getResultDetails();
+    assertNotNull(resultDetails);
+    assertEquals("Insufficient funds", resultDetails.getReason());
+    assertEquals("INSUFFICIENT_FUNDS", resultDetails.getReasonCode());
+    assertTrue(resultDetails.getSweepConfigurationDisabled());
+    assertEquals("TR00000000000000000001", resultDetails.getTransferId());
+  }
+
+  @Test
+  public void testSweepExecutionNotificationWithUnknownTypeReturnsEmpty() {
+    String json =
+        "{\"data\":{\"balancePlatform\":\"YOUR_BALANCE_PLATFORM\"},"
+            + "\"environment\":\"test\","
+            + "\"type\":\"balancePlatform.balanceAccountSweepExecution.unknown\"}";
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    // an unknown event type does not match the SweepExecution type enum
+    assertFalse(handler.getSweepExecutionNotificationRequest().isPresent());
   }
 }

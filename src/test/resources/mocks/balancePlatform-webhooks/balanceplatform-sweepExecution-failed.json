@@ -1,0 +1,19 @@
+{
+  "data": {
+    "balanceAccountId": "BA00000000000000000001",
+    "balanceAccountSweepId": "SWP00000000000000000001",
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "id": "SE00000000000000000001",
+    "result": "failed",
+    "resultDetails": {
+      "reason": "Insufficient funds",
+      "reasonCode": "INSUFFICIENT_FUNDS",
+      "sweepConfigurationDisabled": true,
+      "transferId": "TR00000000000000000001"
+    },
+    "triggeredAt": "2026-10-28T10:15:30+01:00"
+  },
+  "environment": "test",
+  "timestamp": "2026-10-28T10:15:31+01:00",
+  "type": "balancePlatform.balanceAccountSweepExecution.failed"
+}

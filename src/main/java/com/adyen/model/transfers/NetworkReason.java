@@ -43,9 +43,12 @@ public class NetworkReason {
   private boolean isSetDescription = false;
 
   /**
-   * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
-   * **iso8583ResponseCode**
+   * The category of codes that &#x60;code&#x60; belongs to. The &#x60;namespace&#x60; identifies
+   * the payment network and the type of reason Possible values: * **ukFpsRejectionCode** : Reason
+   * code for a rejected Faster Payments transfer. * **ukFpsReturnReasonCode** : Reason code for a
+   * returned Faster Payments transfer. * **usAchReturnReasonCode** : Reason code for a returned ACH
+   * transfer. * **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   * **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    */
   public enum NamespaceEnum {
     ISO8583RESPONSECODE(String.valueOf("iso8583ResponseCode")),
@@ -54,9 +57,9 @@ public class NetworkReason {
 
     UKFPSRETURNREASONCODE(String.valueOf("ukFpsReturnReasonCode")),
 
-    USACHRETURNREASONCODE(String.valueOf("usAchReturnReasonCode")),
+    USACHCORRECTIONREASONCODE(String.valueOf("usAchCorrectionReasonCode")),
 
-    USACHCORRECTIONREASONCODE(String.valueOf("usAchCorrectionReasonCode"));
+    USACHRETURNREASONCODE(String.valueOf("usAchReturnReasonCode"));
 
     private static final Logger LOG = Logger.getLogger(NamespaceEnum.class.getName());
 
@@ -108,9 +111,10 @@ public class NetworkReason {
   public NetworkReason() {}
 
   /**
-   * The reason code provided by the network.
+   * The network-specific reason code. Use &#x60;namespace&#x60; to identify the code set.
    *
-   * @param code The reason code provided by the network.
+   * @param code The network-specific reason code. Use &#x60;namespace&#x60; to identify the code
+   *     set.
    * @return the current {@code NetworkReason} instance, allowing for method chaining
    */
   public NetworkReason code(String code) {
@@ -120,9 +124,10 @@ public class NetworkReason {
   }
 
   /**
-   * The reason code provided by the network.
+   * The network-specific reason code. Use &#x60;namespace&#x60; to identify the code set.
    *
-   * @return code The reason code provided by the network.
+   * @return code The network-specific reason code. Use &#x60;namespace&#x60; to identify the code
+   *     set.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,9 +136,10 @@ public class NetworkReason {
   }
 
   /**
-   * The reason code provided by the network.
+   * The network-specific reason code. Use &#x60;namespace&#x60; to identify the code set.
    *
-   * @param code The reason code provided by the network.
+   * @param code The network-specific reason code. Use &#x60;namespace&#x60; to identify the code
+   *     set.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,9 +149,9 @@ public class NetworkReason {
   }
 
   /**
-   * The description of the reason code.
+   * A human-readable description of the reason code.
    *
-   * @param description The description of the reason code.
+   * @param description A human-readable description of the reason code.
    * @return the current {@code NetworkReason} instance, allowing for method chaining
    */
   public NetworkReason description(String description) {
@@ -155,9 +161,9 @@ public class NetworkReason {
   }
 
   /**
-   * The description of the reason code.
+   * A human-readable description of the reason code.
    *
-   * @return description The description of the reason code.
+   * @return description A human-readable description of the reason code.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,9 +172,9 @@ public class NetworkReason {
   }
 
   /**
-   * The description of the reason code.
+   * A human-readable description of the reason code.
    *
-   * @param description The description of the reason code.
+   * @param description A human-readable description of the reason code.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,13 +184,20 @@ public class NetworkReason {
   }
 
   /**
-   * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
-   * **iso8583ResponseCode**
+   * The category of codes that &#x60;code&#x60; belongs to. The &#x60;namespace&#x60; identifies
+   * the payment network and the type of reason Possible values: * **ukFpsRejectionCode** : Reason
+   * code for a rejected Faster Payments transfer. * **ukFpsReturnReasonCode** : Reason code for a
+   * returned Faster Payments transfer. * **usAchReturnReasonCode** : Reason code for a returned ACH
+   * transfer. * **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   * **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    *
-   * @param namespace The namespace that corresponds to the reason code. Possible values: *
-   *     **ukFpsRejectionCode** * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** *
-   *     **usAchCorrectionReasonCode** * **iso8583ResponseCode**
+   * @param namespace The category of codes that &#x60;code&#x60; belongs to. The
+   *     &#x60;namespace&#x60; identifies the payment network and the type of reason Possible
+   *     values: * **ukFpsRejectionCode** : Reason code for a rejected Faster Payments transfer. *
+   *     **ukFpsReturnReasonCode** : Reason code for a returned Faster Payments transfer. *
+   *     **usAchReturnReasonCode** : Reason code for a returned ACH transfer. *
+   *     **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   *     **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    * @return the current {@code NetworkReason} instance, allowing for method chaining
    */
   public NetworkReason namespace(NamespaceEnum namespace) {
@@ -194,13 +207,20 @@ public class NetworkReason {
   }
 
   /**
-   * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
-   * **iso8583ResponseCode**
+   * The category of codes that &#x60;code&#x60; belongs to. The &#x60;namespace&#x60; identifies
+   * the payment network and the type of reason Possible values: * **ukFpsRejectionCode** : Reason
+   * code for a rejected Faster Payments transfer. * **ukFpsReturnReasonCode** : Reason code for a
+   * returned Faster Payments transfer. * **usAchReturnReasonCode** : Reason code for a returned ACH
+   * transfer. * **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   * **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    *
-   * @return namespace The namespace that corresponds to the reason code. Possible values: *
-   *     **ukFpsRejectionCode** * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** *
-   *     **usAchCorrectionReasonCode** * **iso8583ResponseCode**
+   * @return namespace The category of codes that &#x60;code&#x60; belongs to. The
+   *     &#x60;namespace&#x60; identifies the payment network and the type of reason Possible
+   *     values: * **ukFpsRejectionCode** : Reason code for a rejected Faster Payments transfer. *
+   *     **ukFpsReturnReasonCode** : Reason code for a returned Faster Payments transfer. *
+   *     **usAchReturnReasonCode** : Reason code for a returned ACH transfer. *
+   *     **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   *     **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,13 +229,20 @@ public class NetworkReason {
   }
 
   /**
-   * The namespace that corresponds to the reason code. Possible values: * **ukFpsRejectionCode** *
-   * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** * **usAchCorrectionReasonCode** *
-   * **iso8583ResponseCode**
+   * The category of codes that &#x60;code&#x60; belongs to. The &#x60;namespace&#x60; identifies
+   * the payment network and the type of reason Possible values: * **ukFpsRejectionCode** : Reason
+   * code for a rejected Faster Payments transfer. * **ukFpsReturnReasonCode** : Reason code for a
+   * returned Faster Payments transfer. * **usAchReturnReasonCode** : Reason code for a returned ACH
+   * transfer. * **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   * **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    *
-   * @param namespace The namespace that corresponds to the reason code. Possible values: *
-   *     **ukFpsRejectionCode** * **ukFpsReturnReasonCode** * **usAchReturnReasonCode** *
-   *     **usAchCorrectionReasonCode** * **iso8583ResponseCode**
+   * @param namespace The category of codes that &#x60;code&#x60; belongs to. The
+   *     &#x60;namespace&#x60; identifies the payment network and the type of reason Possible
+   *     values: * **ukFpsRejectionCode** : Reason code for a rejected Faster Payments transfer. *
+   *     **ukFpsReturnReasonCode** : Reason code for a returned Faster Payments transfer. *
+   *     **usAchReturnReasonCode** : Reason code for a returned ACH transfer. *
+   *     **usAchCorrectionReasonCode** : Reason code for an ACH Notification of Change. *
+   *     **iso8583ResponseCode** : ISO 8583 response code for a card transfer.
    */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -45,6 +45,7 @@ public class NotificationRequestItem {
   public static final String EVENT_CODE_REFUND_WITH_DATA = "REFUND_WITH_DATA";
   public static final String EVENT_CODE_REFUNDED_REVERSED = "REFUNDED_REVERSED";
   public static final String EVENT_CODE_REPORT_AVAILABLE = "REPORT_AVAILABLE";
+  public static final String EVENT_CODE_REVERSAL = "REVERSAL";
   public static final String EVENT_CODE_TECHNICAL_CANCEL = "TECHNICAL_CANCEL";
   public static final String EVENT_CODE_VOID_PENDING_REFUND = "VOID_PENDING_REFUND";
 
