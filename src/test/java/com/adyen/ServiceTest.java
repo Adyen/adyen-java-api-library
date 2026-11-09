@@ -104,7 +104,6 @@ public class ServiceTest extends BaseTest {
 
   static Stream<String> unsafeLiveEndpointUrlPrefixes() {
     return Stream.of(
-        "",
         "0123456789abcdef-Company_Name",
         "-0123456789abcdef-Company",
         "---",
@@ -135,8 +134,24 @@ public class ServiceTest extends BaseTest {
         () ->
             assertThrows(
                 IllegalArgumentException.class,
+                () -> service.createBaseURL("https://checkout-test.adyen.com/possdk/v68/sessions")),
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
                 () ->
                     service.createBaseURL("https://pal-test.adyen.com/pal/servlet/v68/initiate")));
+  }
+
+  @Test
+  public void testLiveCheckoutUrlWithEmptyPrefix() {
+    config.setLiveEndpointUrlPrefix("");
+
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> service.createBaseURL("https://checkout-test.adyen.com/v68/payments"));
+
+    assertEquals("please provide a live url prefix in the client", exception.getMessage());
   }
 
   @Test
