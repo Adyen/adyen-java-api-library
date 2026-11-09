@@ -103,9 +103,7 @@ public class Service {
       url =
           url.replace(
               "https://pal-test.adyen.com/pal/servlet/",
-              "https://"
-                  + liveEndpointUrlPrefix
-                  + "-pal-live.adyenpayments.com/pal/servlet/");
+              "https://" + liveEndpointUrlPrefix + "-pal-live.adyenpayments.com/pal/servlet/");
     }
 
     if (url.contains("checkout-")) {
@@ -115,16 +113,12 @@ public class Service {
         url =
             url.replace(
                 "https://checkout-test.adyen.com/",
-                "https://"
-                    + liveEndpointUrlPrefix
-                    + "-checkout-live.adyenpayments.com/");
+                "https://" + liveEndpointUrlPrefix + "-checkout-live.adyenpayments.com/");
       } else {
         url =
             url.replace(
                 "https://checkout-test.adyen.com/",
-                "https://"
-                    + liveEndpointUrlPrefix
-                    + "-checkout-live.adyenpayments.com/checkout/");
+                "https://" + liveEndpointUrlPrefix + "-checkout-live.adyenpayments.com/checkout/");
       }
     }
 
@@ -151,7 +145,8 @@ public class Service {
       throw new IllegalArgumentException("please provide a live url prefix in the client");
     }
     if (!LIVE_ENDPOINT_URL_PREFIX_PATTERN.matcher(liveEndpointUrlPrefix).matches()) {
-      throw new IllegalArgumentException("live url prefix must contain only letters, digits, and hyphens");
+      throw new IllegalArgumentException(
+          "live url prefix must contain only letters, digits, and hyphens");
     }
     return liveEndpointUrlPrefix;
   }
