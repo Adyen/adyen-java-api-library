@@ -105,6 +105,12 @@ public class ServiceTest extends BaseTest {
   static Stream<String> unsafeLiveEndpointUrlPrefixes() {
     return Stream.of(
         "",
+        "0123456789abcdef-Company_Name",
+        "-0123456789abcdef-Company",
+        "---",
+        "0123456789abcdef-Company--Name",
+        "0123456789abcdef--Company",
+        "0123456789abcdef-Company-",
         "evil.example/?x=#",
         "evil.example?redirect=true",
         "evil.example#fragment",
@@ -130,8 +136,7 @@ public class ServiceTest extends BaseTest {
             assertThrows(
                 IllegalArgumentException.class,
                 () ->
-                    service.createBaseURL(
-                        "https://pal-test.adyen.com/pal/servlet/v68/initiate")));
+                    service.createBaseURL("https://pal-test.adyen.com/pal/servlet/v68/initiate")));
   }
 
   @Test
