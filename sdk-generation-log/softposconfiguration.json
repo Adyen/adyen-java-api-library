@@ -1,0 +1,8 @@
+{
+  "service": "softposconfiguration",
+  "project": "java",
+  "generatedAt": "2026-11-09T15:34:20Z",
+  "openapiCommitSha": "d449f090b9a4842b63b562cd057fe12dfbf4bcad",
+  "automationCommitSha": "ae7e57613c3a29391a4adb4ff02e9ddda4611b16",
+  "libraryCommitSha": "a0311148dd88e802816e5e63c9cea41df2276cd3"
+}
