@@ -141,7 +141,7 @@ public class Service {
 
   private String getValidatedLiveEndpointUrlPrefix(Config config) {
     String liveEndpointUrlPrefix = config.getLiveEndpointUrlPrefix();
-    if (liveEndpointUrlPrefix == null) {
+    if (liveEndpointUrlPrefix == null || liveEndpointUrlPrefix.isEmpty()) {
       throw new IllegalArgumentException("please provide a live url prefix in the client");
     }
     if (!LIVE_ENDPOINT_URL_PREFIX_PATTERN.matcher(liveEndpointUrlPrefix).matches()) {
