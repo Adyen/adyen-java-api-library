@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /** Tests for {@link Service#createBaseURL(String)}. */
 public class ServiceTest extends BaseTest {
@@ -102,6 +103,21 @@ public class ServiceTest extends BaseTest {
     assertEquals("please provide a live url prefix in the client", e.getMessage());
   }
 
+  @ParameterizedTest
+  @ValueSource(
+      strings = {
+        "https://checkout-test.adyen.com/v68/payments",
+        "https://pal-test.adyen.com/pal/servlet/v68/initiate",
+        "https://checkout-test.adyen.com/possdk/v68/sessions"
+      })
+  public void testLiveUrlWithEmptyPrefix(String url) {
+    config.setLiveEndpointUrlPrefix("");
+
+    IllegalArgumentException e =
+        assertThrows(IllegalArgumentException.class, () -> service.createBaseURL(url));
+    assertEquals("please provide a live url prefix in the client", e.getMessage());
+  }
+
   static Stream<String> unsafeLiveEndpointUrlPrefixes() {
     return Stream.of(
         "",
@@ -135,8 +151,12 @@ public class ServiceTest extends BaseTest {
         () ->
             assertThrows(
                 IllegalArgumentException.class,
+                () -> service.createBaseURL("https://pal-test.adyen.com/pal/servlet/v68/initiate")),
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
                 () ->
-                    service.createBaseURL("https://pal-test.adyen.com/pal/servlet/v68/initiate")));
+                    service.createBaseURL("https://checkout-test.adyen.com/possdk/v68/sessions")));
   }
 
   @Test
