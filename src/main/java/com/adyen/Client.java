@@ -164,15 +164,12 @@ public class Client implements Closeable {
       synchronized (this) {
         result = this.httpClient;
         if (result == null) {
-          this.httpClient = result = createHttpClient();
+          result = new AdyenHttpClient();
+          this.httpClient = result;
         }
       }
     }
     return result;
-  }
-
-  ClientInterface createHttpClient() {
-    return new AdyenHttpClient();
   }
 
   public synchronized void setHttpClient(ClientInterface httpClient) {

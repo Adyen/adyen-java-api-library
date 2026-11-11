@@ -2,10 +2,10 @@ package com.adyen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mockConstruction;
 
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.AdyenHttpClient;
-import com.adyen.httpclient.ClientInterface;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -15,15 +15,19 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedConstruction;
 
 public class ClientConcurrencyTest {
 
   @Test
   public void testConcurrentFirstAccessCreatesOneHttpClient() throws Exception {
     int numberOfThreads = 16;
-    BlockingCreationClient client = new BlockingCreationClient(numberOfThreads);
+    Client client = new Client("apiKey", Environment.TEST);
     CountDownLatch ready = new CountDownLatch(numberOfThreads);
     CountDownLatch start = new CountDownLatch(1);
+    CountDownLatch constructionStarted = new CountDownLatch(numberOfThreads);
+    CountDownLatch allowConstruction = new CountDownLatch(1);
+    AtomicInteger creationCount = new AtomicInteger();
     ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
 
     try {
@@ -32,68 +36,45 @@ public class ClientConcurrencyTest {
         results.add(
             executor.submit(
                 () -> {
-                  ready.countDown();
-                  try {
-                    assertTrue(start.await(5, TimeUnit.SECONDS));
-                  } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    throw new AssertionError(e);
+                  try (MockedConstruction<AdyenHttpClient> ignored = mockConstruction(
+                      AdyenHttpClient.class,
+                      (mock, context) -> {
+                        creationCount.incrementAndGet();
+                        constructionStarted.countDown();
+                        try {
+                          assertTrue(allowConstruction.await(5, TimeUnit.SECONDS));
+                        } catch (InterruptedException e) {
+                          Thread.currentThread().interrupt();
+                          throw new AssertionError(e);
+                        }
+                      })) {
+                    ready.countDown();
+                    try {
+                      assertTrue(start.await(5, TimeUnit.SECONDS));
+                    } catch (InterruptedException e) {
+                      Thread.currentThread().interrupt();
+                      throw new AssertionError(e);
+                    }
+                    client.getHttpClient();
                   }
-                  client.getHttpClient();
                 }));
       }
 
       assertTrue(ready.await(5, TimeUnit.SECONDS));
       start.countDown();
-      client.waitForConcurrentCreationWindow();
-      client.allowCreation();
+      constructionStarted.await(1, TimeUnit.SECONDS);
+      allowConstruction.countDown();
 
       for (Future<?> result : results) {
         result.get(5, TimeUnit.SECONDS);
       }
 
-      assertEquals(1, client.getCreationCount());
+      assertEquals(1, creationCount.get());
     } finally {
       start.countDown();
-      client.allowCreation();
+      allowConstruction.countDown();
       executor.shutdownNow();
       client.close();
-    }
-  }
-
-  private static class BlockingCreationClient extends Client {
-    private final CountDownLatch creationAttempts;
-    private final CountDownLatch allowCreation = new CountDownLatch(1);
-    private final AtomicInteger creationCount = new AtomicInteger();
-
-    BlockingCreationClient(int numberOfThreads) {
-      super("apiKey", Environment.TEST);
-      creationAttempts = new CountDownLatch(numberOfThreads);
-    }
-
-    @Override
-    ClientInterface createHttpClient() {
-      creationCount.incrementAndGet();
-      creationAttempts.countDown();
-      try {
-        allowCreation.await();
-      } catch (InterruptedException e) {
-        Thread.currentThread().interrupt();
-        throw new AssertionError(e);
-      }
-      return new AdyenHttpClient();
-    }
-
-    void waitForConcurrentCreationWindow() throws InterruptedException {
-      creationAttempts.await(1, TimeUnit.SECONDS);
-    }
-
-    void allowCreation() {
-      allowCreation.countDown();
-    }
-
-    int getCreationCount() {
-      return creationCount.get();
     }
   }
 }
