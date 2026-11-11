@@ -78,11 +78,12 @@ public class SoftPosConfigurationTest extends BaseTest {
             .store(null)
             .subMerchantData(null);
     CertificateLoadingResponse response =
-        new CertificateLoadingResponse().id("test-session-id");
-    response.setInstallationId(null);
-    response.setMerchantAccount(null);
-    response.setSdkData(null);
-    response.setStore(null);
+        new CertificateLoadingResponse()
+            .id("test-session-id")
+            .installationId(null)
+            .merchantAccount(null)
+            .sdkData(null)
+            .store(null);
 
     assertJsonEquals("{\"merchantAccount\":\"YOUR_MERCHANT_ACCOUNT\"}", request.toJson());
     assertJsonEquals("{\"id\":\"test-session-id\"}", response.toJson());
@@ -98,11 +99,13 @@ public class SoftPosConfigurationTest extends BaseTest {
             .subMerchantData(null)
             .includeNullValues(true);
     CertificateLoadingResponse response =
-        new CertificateLoadingResponse().id("test-session-id").includeNullValues(true);
-    response.setInstallationId(null);
-    response.setMerchantAccount(null);
-    response.setSdkData(null);
-    response.setStore(null);
+        new CertificateLoadingResponse()
+            .id("test-session-id")
+            .includeNullValues(true)
+            .installationId(null)
+            .merchantAccount(null)
+            .sdkData(null)
+            .store(null);
 
     assertJsonEquals(
         "{\"merchantAccount\":\"YOUR_MERCHANT_ACCOUNT\","
@@ -120,8 +123,7 @@ public class SoftPosConfigurationTest extends BaseTest {
     CertificateLoadingRequest request =
         new CertificateLoadingRequest().subMerchantData(subMerchantData).includeNullValues(true);
 
-    assertJsonEquals(
-        "{\"subMerchantData\":{\"id\":\"test-sub-merchant-id\"}}", request.toJson());
+    assertJsonEquals("{\"subMerchantData\":{\"id\":\"test-sub-merchant-id\"}}", request.toJson());
 
     subMerchantData.includeNullValues(true);
 
@@ -130,10 +132,11 @@ public class SoftPosConfigurationTest extends BaseTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {
-    "{}",
-    "{\"merchantAccount\":null,\"setupToken\":null,\"store\":null,\"subMerchantData\":null}"
-  })
+  @ValueSource(
+      strings = {
+        "{}",
+        "{\"merchantAccount\":null,\"setupToken\":null,\"store\":null,\"subMerchantData\":null}"
+      })
   void testRequestDeserializationWithMissingOrNullFields(String json)
       throws JsonProcessingException {
     CertificateLoadingRequest request = CertificateLoadingRequest.fromJson(json);
@@ -146,10 +149,11 @@ public class SoftPosConfigurationTest extends BaseTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {
-    "{}",
-    "{\"id\":null,\"installationId\":null,\"merchantAccount\":null,\"sdkData\":null,\"store\":null}"
-  })
+  @ValueSource(
+      strings = {
+        "{}",
+        "{\"id\":null,\"installationId\":null,\"merchantAccount\":null,\"sdkData\":null,\"store\":null}"
+      })
   void testResponseDeserializationWithMissingOrNullFields(String json)
       throws JsonProcessingException {
     CertificateLoadingResponse response = CertificateLoadingResponse.fromJson(json);
