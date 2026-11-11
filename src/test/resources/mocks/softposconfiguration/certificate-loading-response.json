@@ -1,0 +1,7 @@
+{
+  "id": "test-session-id",
+  "installationId": "test-installation-id",
+  "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+  "sdkData": "test-sdk-data",
+  "store": "YOUR_STORE"
+}
