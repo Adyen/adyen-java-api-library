@@ -224,6 +224,25 @@ public class ServiceTest extends BaseTest {
     assertEquals(expectedUrl, actualUrl);
   }
 
+  @ParameterizedTest
+  @MethodSource("deviceApiRegionToLiveUrl")
+  public void testDeviceApiTestUrlPerRegion(Region region, String ignoredLiveUrl) {
+    config.setEnvironment(Environment.TEST);
+    config.setTerminalApiRegion(region);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+
+    assertEquals(testUrl, service.createBaseURL(testUrl));
+  }
+
+  @Test
+  public void testNonRegionalApiIgnoresRegion() {
+    config.setTerminalApiRegion(Region.US);
+
+    assertEquals(
+        "https://balanceplatform-api-live.adyen.com/bcl/v2",
+        service.createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2"));
+  }
+
   static Stream<Arguments> softPosConfigurationRegionToLiveUrl() {
     return Stream.of(
         Arguments.of(null, "https://softposconfig-live.adyen.com/softposconfig/v3"),

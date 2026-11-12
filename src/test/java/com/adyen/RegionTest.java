@@ -7,8 +7,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class RegionTest {
+  @ParameterizedTest
+  @CsvSource({
+    "EU, https://terminal-api-live.adyen.com",
+    "AU, https://terminal-api-live-au.adyen.com",
+    "US, https://terminal-api-live-us.adyen.com",
+    "APSE, https://terminal-api-live-apse.adyen.com",
+    "NEA, https://terminal-api-live-nea.adyen.com"
+  })
+  public void testRegionalLiveUrl(Region region, String expectedUrl) {
+    assertEquals(expectedUrl, Region.regionalLiveUrl("terminal-api", region));
+  }
+
+  @Test
+  public void testRegionalLiveUrlDefaultsToEu() {
+    assertEquals(
+        "https://terminal-api-live.adyen.com", Region.regionalLiveUrl("terminal-api", null));
+    assertEquals("https://device-api-live.adyen.com", Region.regionalLiveUrl("device-api", null));
+    assertEquals(
+        "https://softposconfig-live.adyen.com", Region.regionalLiveUrl("softposconfig", null));
+  }
+
   @Test
   public void testValidRegions() {
     List<Region> VALID_REGIONS = List.of(Region.values());
