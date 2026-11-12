@@ -23,7 +23,6 @@ package com.adyen;
 import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
@@ -136,11 +135,7 @@ public class Service {
     for (String apiHostName : REGIONAL_API_HOST_NAMES) {
       String testHostUrl = "https://" + apiHostName + "-test.adyen.com";
       if (url.contains(testHostUrl)) {
-        String regionSuffix =
-            region == null || region == Region.EU
-                ? ""
-                : "-" + region.name().toLowerCase(Locale.ROOT);
-        String regionalLiveHost = "https://" + apiHostName + "-live" + regionSuffix + ".adyen.com";
+        String regionalLiveHost = Region.regionalLiveUrl(apiHostName, region);
         liveUrl = url.replace(testHostUrl, regionalLiveHost);
         break;
       }
