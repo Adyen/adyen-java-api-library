@@ -35,14 +35,19 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
@@ -93,6 +98,58 @@ public class ResourceTest extends BaseTest {
             null,
             ApiConstants.HttpMethod.GET,
             queryString);
+  }
+
+  static Stream<Arguments> pathParameterValues() {
+    return Stream.of(
+        Arguments.of("user-123", "user-123"),
+        Arguments.of("../apiCredentials/credential-2", "%2E%2E%2FapiCredentials%2Fcredential-2"),
+        Arguments.of("/leading/slash", "%2Fleading%2Fslash"),
+        Arguments.of("user?admin=true", "user%3Fadmin%3Dtrue"),
+        Arguments.of("user#fragment", "user%23fragment"),
+        Arguments.of("user%2Fname", "user%252Fname"),
+        Arguments.of("user name", "user%20name"),
+        Arguments.of("user+name", "user%2Bname"),
+        Arguments.of("user@domain", "user%40domain"),
+        Arguments.of("user:admin", "user%3Aadmin"),
+        Arguments.of(".", "%2E"),
+        Arguments.of("..", "%2E%2E"),
+        Arguments.of("café", "caf%C3%A9"));
+  }
+
+  @ParameterizedTest
+  @MethodSource("pathParameterValues")
+  public void testRequestEncodesPathParameterAsSingleSegment(
+      String userId, String expectedEncodedUserId) throws Exception {
+    Map<String, String> pathParams = new HashMap<>();
+    pathParams.put("companyId", "adyen");
+    pathParams.put("userId", userId);
+    Resource resource = new Resource(serviceMock, "/companies/{companyId}/users/{userId}", null);
+
+    resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, null);
+
+    verify(clientInterfaceMock)
+        .request(
+            "/companies/adyen/users/" + expectedEncodedUserId,
+            null,
+            null,
+            false,
+            null,
+            ApiConstants.HttpMethod.GET,
+            null);
+  }
+
+  @Test
+  public void testEncodedSlashDoesNotChangeThePathRoute() {
+    URI rawPath =
+        URI.create("/companies/adyen/users/../apiCredentials/credential-2").normalize();
+    URI encodedPath =
+        URI.create("/companies/adyen/users/%2E%2E%2FapiCredentials%2Fcredential-2").normalize();
+
+    assertEquals("/companies/adyen/apiCredentials/credential-2", rawPath.getRawPath());
+    assertEquals(
+        "/companies/adyen/users/%2E%2E%2FapiCredentials%2Fcredential-2",
+        encodedPath.getRawPath());
   }
 
   @Test
