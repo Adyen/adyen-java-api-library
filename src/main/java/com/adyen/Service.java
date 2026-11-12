@@ -126,21 +126,18 @@ public class Service {
       }
     }
 
-    String regionalLiveUrl = findRegionalLiveUrl(url, config.getTerminalApiRegion());
-    return regionalLiveUrl != null ? regionalLiveUrl : url.replaceFirst("-test", "-live");
+    return getRegionalLiveUrl(url, config.getTerminalApiRegion());
   }
 
-  private static String findRegionalLiveUrl(String url, Region region) {
-    String liveUrl = null;
+  private static String getRegionalLiveUrl(String url, Region region) {
     for (String apiHostName : REGIONAL_API_HOST_NAMES) {
       String testHostUrl = "https://" + apiHostName + "-test.adyen.com";
       if (url.contains(testHostUrl)) {
         String regionalLiveHost = Region.regionalLiveUrl(apiHostName, region);
-        liveUrl = url.replace(testHostUrl, regionalLiveHost);
-        break;
+        return url.replace(testHostUrl, regionalLiveHost);
       }
     }
-    return liveUrl;
+    return url.replaceFirst("-test", "-live");
   }
 
   private String getValidatedLiveEndpointUrlPrefix(Config config) {
