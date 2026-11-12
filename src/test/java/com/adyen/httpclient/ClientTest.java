@@ -102,7 +102,8 @@ public class ClientTest extends BaseTest {
         Arguments.of(Region.EU, Environment.TEST, "https://terminal-api-test.adyen.com"),
         Arguments.of(Region.AU, Environment.TEST, "https://terminal-api-test.adyen.com"),
         Arguments.of(Region.US, Environment.TEST, "https://terminal-api-test.adyen.com"),
-        Arguments.of(Region.APSE, Environment.TEST, "https://terminal-api-test.adyen.com"));
+        Arguments.of(Region.APSE, Environment.TEST, "https://terminal-api-test.adyen.com"),
+        Arguments.of(Region.NEA, Environment.TEST, "https://terminal-api-test.adyen.com"));
   }
 
   @ParameterizedTest
@@ -122,7 +123,8 @@ public class ClientTest extends BaseTest {
         Arguments.of(Region.EU, Environment.LIVE, "https://terminal-api-live.adyen.com"),
         Arguments.of(Region.AU, Environment.LIVE, "https://terminal-api-live-au.adyen.com"),
         Arguments.of(Region.US, Environment.LIVE, "https://terminal-api-live-us.adyen.com"),
-        Arguments.of(Region.APSE, Environment.LIVE, "https://terminal-api-live-apse.adyen.com"));
+        Arguments.of(Region.APSE, Environment.LIVE, "https://terminal-api-live-apse.adyen.com"),
+        Arguments.of(Region.NEA, Environment.LIVE, "https://terminal-api-live-nea.adyen.com"));
   }
 
   @ParameterizedTest

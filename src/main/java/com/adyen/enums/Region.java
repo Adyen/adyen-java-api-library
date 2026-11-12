@@ -15,7 +15,10 @@ public enum Region {
   US,
 
   /** Asia-Pacific, South East region */
-  APSE;
+  APSE,
+
+  /** North East Asia region */
+  NEA;
 
   /** Maps regions to their respective Terminal API endpoints. */
   public static final Map<Region, String> TERMINAL_API_ENDPOINTS_MAPPING;
@@ -26,6 +29,7 @@ public enum Region {
             Region.EU, Client.TERMINAL_API_ENDPOINT_LIVE,
             Region.AU, Client.TERMINAL_API_ENDPOINT_AU,
             Region.US, Client.TERMINAL_API_ENDPOINT_US,
-            Region.APSE, Client.TERMINAL_API_ENDPOINT_APSE);
+            Region.APSE, Client.TERMINAL_API_ENDPOINT_APSE,
+            Region.NEA, Client.TERMINAL_API_ENDPOINT_NEA);
   }
 }
