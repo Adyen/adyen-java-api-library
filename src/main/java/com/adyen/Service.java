@@ -22,6 +22,8 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
+import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
@@ -31,6 +33,9 @@ import java.util.regex.Pattern;
 public class Service {
   private static final Pattern LIVE_ENDPOINT_URL_PREFIX_PATTERN =
       Pattern.compile("[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*");
+
+  private static final List<String> REGIONAL_API_HOST_NAMES =
+      List.of("device-api", "softposconfig");
 
   private boolean isApiKeyRequired = false;
   private Client client;
@@ -122,21 +127,25 @@ public class Service {
       }
     }
 
-    if (url.contains("device-api-")) {
-      if (config.getTerminalApiRegion() == null
-          || config.getTerminalApiRegion().equals(Region.EU)) {
-        url = url.replace("https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
-      } else {
-        url =
-            url.replace(
-                "https://device-api-test.adyen.com",
-                String.format(
-                    "https://device-api-live-%s.adyen.com",
-                    config.getTerminalApiRegion().name().toLowerCase()));
+    String regionalLiveUrl = findRegionalLiveUrl(url, config.getTerminalApiRegion());
+    return regionalLiveUrl != null ? regionalLiveUrl : url.replaceFirst("-test", "-live");
+  }
+
+  private static String findRegionalLiveUrl(String url, Region region) {
+    String liveUrl = null;
+    for (String apiHostName : REGIONAL_API_HOST_NAMES) {
+      String testHostUrl = "https://" + apiHostName + "-test.adyen.com";
+      if (url.contains(testHostUrl)) {
+        String regionSuffix =
+            region == null || region == Region.EU
+                ? ""
+                : "-" + region.name().toLowerCase(Locale.ROOT);
+        String regionalLiveHost = "https://" + apiHostName + "-live" + regionSuffix + ".adyen.com";
+        liveUrl = url.replace(testHostUrl, regionalLiveHost);
+        break;
       }
     }
-
-    return url.replaceFirst("-test", "-live");
+    return liveUrl;
   }
 
   private String getValidatedLiveEndpointUrlPrefix(Config config) {

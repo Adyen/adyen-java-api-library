@@ -19,6 +19,7 @@ public class Client implements Closeable {
   public static final String TERMINAL_API_ENDPOINT_AU = "https://terminal-api-live-au.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_APSE =
       "https://terminal-api-live-apse.adyen.com";
+  public static final String TERMINAL_API_ENDPOINT_NEA = "https://terminal-api-live-nea.adyen.com";
 
   /** Create Client instance (empty config) */
   public Client() {

@@ -20,7 +20,7 @@ public class RegionTest {
             .collect(Collectors.toList());
 
     // Define the expected list of valid regions
-    List<String> expected = List.of("eu", "au", "us", "apse");
+    List<String> expected = List.of("eu", "au", "us", "apse", "nea");
 
     // Assert that the VALID_REGIONS in Region matches the expected list
     assertEquals(expected, actual);
@@ -46,7 +46,8 @@ public class RegionTest {
             "eu", "https://terminal-api-live.adyen.com",
             "au", "https://terminal-api-live-au.adyen.com",
             "us", "https://terminal-api-live-us.adyen.com",
-            "apse", "https://terminal-api-live-apse.adyen.com");
+            "apse", "https://terminal-api-live-apse.adyen.com",
+            "nea", "https://terminal-api-live-nea.adyen.com");
 
     // Assert that the TERMINAL_API_ENDPOINTS_MAPPING in Region matches the expected map
     assertEquals(expected, actual);
