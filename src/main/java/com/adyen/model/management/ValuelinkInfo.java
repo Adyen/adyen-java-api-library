@@ -25,12 +25,18 @@ import java.util.logging.Logger;
 
 /** ValuelinkInfo */
 @JsonPropertyOrder({
+  ValuelinkInfo.JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER,
   ValuelinkInfo.JSON_PROPERTY_AUTHORISATION_MID,
   ValuelinkInfo.JSON_PROPERTY_PIN_SUPPORT,
-  ValuelinkInfo.JSON_PROPERTY_SUBMITTER_ID,
   ValuelinkInfo.JSON_PROPERTY_TERMINAL_ID
 })
 public class ValuelinkInfo {
+  public static final String JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER = "alternateMerchantNumber";
+  private String alternateMerchantNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAlternateMerchantNumber = false;
+
   public static final String JSON_PROPERTY_AUTHORISATION_MID = "authorisationMid";
   private String authorisationMid;
 
@@ -84,12 +90,6 @@ public class ValuelinkInfo {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPinSupport = false;
 
-  public static final String JSON_PROPERTY_SUBMITTER_ID = "submitterId";
-  private String submitterId;
-
-  /** Mark when the attribute has been explicitly set. */
-  private boolean isSetSubmitterId = false;
-
   public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
   private String terminalId;
 
@@ -103,6 +103,41 @@ public class ValuelinkInfo {
   @JsonIgnore private boolean includeNullValues = false;
 
   public ValuelinkInfo() {}
+
+  /**
+   * Alternate Merchant Number
+   *
+   * @param alternateMerchantNumber Alternate Merchant Number
+   * @return the current {@code ValuelinkInfo} instance, allowing for method chaining
+   */
+  public ValuelinkInfo alternateMerchantNumber(String alternateMerchantNumber) {
+    this.alternateMerchantNumber = alternateMerchantNumber;
+    isSetAlternateMerchantNumber = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Alternate Merchant Number
+   *
+   * @return alternateMerchantNumber Alternate Merchant Number
+   */
+  @JsonProperty(JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAlternateMerchantNumber() {
+    return alternateMerchantNumber;
+  }
+
+  /**
+   * Alternate Merchant Number
+   *
+   * @param alternateMerchantNumber Alternate Merchant Number
+   */
+  @JsonProperty(JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlternateMerchantNumber(String alternateMerchantNumber) {
+    this.alternateMerchantNumber = alternateMerchantNumber;
+    isSetAlternateMerchantNumber = true; // mark as set
+  }
 
   /**
    * Authorisation Mid
@@ -175,41 +210,6 @@ public class ValuelinkInfo {
   }
 
   /**
-   * Submitter ID
-   *
-   * @param submitterId Submitter ID
-   * @return the current {@code ValuelinkInfo} instance, allowing for method chaining
-   */
-  public ValuelinkInfo submitterId(String submitterId) {
-    this.submitterId = submitterId;
-    isSetSubmitterId = true; // mark as set
-    return this;
-  }
-
-  /**
-   * Submitter ID
-   *
-   * @return submitterId Submitter ID
-   */
-  @JsonProperty(JSON_PROPERTY_SUBMITTER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubmitterId() {
-    return submitterId;
-  }
-
-  /**
-   * Submitter ID
-   *
-   * @param submitterId Submitter ID
-   */
-  @JsonProperty(JSON_PROPERTY_SUBMITTER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubmitterId(String submitterId) {
-    this.submitterId = submitterId;
-    isSetSubmitterId = true; // mark as set
-  }
-
-  /**
    * Terminal ID
    *
    * @param terminalId Terminal ID
@@ -274,12 +274,13 @@ public class ValuelinkInfo {
       return false;
     }
     ValuelinkInfo valuelinkInfo = (ValuelinkInfo) o;
-    return Objects.equals(this.authorisationMid, valuelinkInfo.authorisationMid)
+    return Objects.equals(this.alternateMerchantNumber, valuelinkInfo.alternateMerchantNumber)
+        && Objects.equals(
+            this.isSetAlternateMerchantNumber, valuelinkInfo.isSetAlternateMerchantNumber)
+        && Objects.equals(this.authorisationMid, valuelinkInfo.authorisationMid)
         && Objects.equals(this.isSetAuthorisationMid, valuelinkInfo.isSetAuthorisationMid)
         && Objects.equals(this.pinSupport, valuelinkInfo.pinSupport)
         && Objects.equals(this.isSetPinSupport, valuelinkInfo.isSetPinSupport)
-        && Objects.equals(this.submitterId, valuelinkInfo.submitterId)
-        && Objects.equals(this.isSetSubmitterId, valuelinkInfo.isSetSubmitterId)
         && Objects.equals(this.terminalId, valuelinkInfo.terminalId)
         && Objects.equals(this.isSetTerminalId, valuelinkInfo.isSetTerminalId);
   }
@@ -287,12 +288,12 @@ public class ValuelinkInfo {
   @Override
   public int hashCode() {
     return Objects.hash(
+        alternateMerchantNumber,
+        isSetAlternateMerchantNumber,
         authorisationMid,
         isSetAuthorisationMid,
         pinSupport,
         isSetPinSupport,
-        submitterId,
-        isSetSubmitterId,
         terminalId,
         isSetTerminalId);
   }
@@ -301,9 +302,11 @@ public class ValuelinkInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValuelinkInfo {\n");
+    sb.append("    alternateMerchantNumber: ")
+        .append(toIndentedString(alternateMerchantNumber))
+        .append("\n");
     sb.append("    authorisationMid: ").append(toIndentedString(authorisationMid)).append("\n");
     sb.append("    pinSupport: ").append(toIndentedString(pinSupport)).append("\n");
-    sb.append("    submitterId: ").append(toIndentedString(submitterId)).append("\n");
     sb.append("    terminalId: ").append(toIndentedString(terminalId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -329,14 +332,14 @@ public class ValuelinkInfo {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetAlternateMerchantNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ALTERNATE_MERCHANT_NUMBER, this.alternateMerchantNumber);
+    }
     if (isSetAuthorisationMid) {
       addIfNull(nulls, JSON_PROPERTY_AUTHORISATION_MID, this.authorisationMid);
     }
     if (isSetPinSupport) {
       addIfNull(nulls, JSON_PROPERTY_PIN_SUPPORT, this.pinSupport);
-    }
-    if (isSetSubmitterId) {
-      addIfNull(nulls, JSON_PROPERTY_SUBMITTER_ID, this.submitterId);
     }
     if (isSetTerminalId) {
       addIfNull(nulls, JSON_PROPERTY_TERMINAL_ID, this.terminalId);

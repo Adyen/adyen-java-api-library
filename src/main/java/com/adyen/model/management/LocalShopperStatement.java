@@ -84,9 +84,30 @@ public class LocalShopperStatement {
   }
 
   /**
-   * The text of the local shopper statement in the specified character set.
+   * The localized shopper statement in the specified character set. * For &#x60;ja-Hani&#x60; the
+   * allowed characters are: Full-width kanji including letters, numbers, and symbols. * For
+   * &#x60;ja-Kana&#x60; the allowed characters are: * &#x60;Half-width katakana&#x60; * Letters:
+   * &#x60;a-z&#x60;, &#x60;A-Z&#x60; * Numbers: &#x60;0-9&#x60; * Symbols: &#x60;!&#x60;,
+   * &#x60;\&quot;&#x60;, &#x60;#&#x60;, &#x60;$&#x60;, &#x60;%&#x60;, &#x60;&amp;&#x60;,
+   * &#x60;&#39;&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;*&#x60;, &#x60;+&#x60;, &#x60;,&#x60;,
+   * &#x60;-&#x60;, &#x60;.&#x60;, &#x60;/&#x60;, &#x60;:&#x60;, &#x60;;&#x60;, &#x60;&lt;&#x60;,
+   * &#x60;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;?&#x60;, &#x60;@&#x60;, &#x60;[&#x60;,
+   * &#x60;\\&#x60;, &#x60;]&#x60;, &#x60;^&#x60;, &#x60;_&#x60;, &#x60;&#x60; &#x60; &#x60;&#x60;,
+   * &#x60;{&#x60;, &#x60;|&#x60;, &#x60;}&#x60;, &#x60;~&#x60;, &#x60;｡&#x60;, &#x60;｢&#x60;,
+   * &#x60;｣&#x60;, &#x60;､&#x60;, &#x60;･&#x60;, &#x60;ｰ&#x60;
    *
-   * @param value The text of the local shopper statement in the specified character set.
+   * @param value The localized shopper statement in the specified character set. * For
+   *     &#x60;ja-Hani&#x60; the allowed characters are: Full-width kanji including letters,
+   *     numbers, and symbols. * For &#x60;ja-Kana&#x60; the allowed characters are: *
+   *     &#x60;Half-width katakana&#x60; * Letters: &#x60;a-z&#x60;, &#x60;A-Z&#x60; * Numbers:
+   *     &#x60;0-9&#x60; * Symbols: &#x60;!&#x60;, &#x60;\&quot;&#x60;, &#x60;#&#x60;,
+   *     &#x60;$&#x60;, &#x60;%&#x60;, &#x60;&amp;&#x60;, &#x60;&#39;&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;*&#x60;, &#x60;+&#x60;, &#x60;,&#x60;, &#x60;-&#x60;, &#x60;.&#x60;,
+   *     &#x60;/&#x60;, &#x60;:&#x60;, &#x60;;&#x60;, &#x60;&lt;&#x60;, &#x60;&#x3D;&#x60;,
+   *     &#x60;&gt;&#x60;, &#x60;?&#x60;, &#x60;@&#x60;, &#x60;[&#x60;, &#x60;\\&#x60;,
+   *     &#x60;]&#x60;, &#x60;^&#x60;, &#x60;_&#x60;, &#x60;&#x60; &#x60; &#x60;&#x60;,
+   *     &#x60;{&#x60;, &#x60;|&#x60;, &#x60;}&#x60;, &#x60;~&#x60;, &#x60;｡&#x60;, &#x60;｢&#x60;,
+   *     &#x60;｣&#x60;, &#x60;､&#x60;, &#x60;･&#x60;, &#x60;ｰ&#x60;
    * @return the current {@code LocalShopperStatement} instance, allowing for method chaining
    */
   public LocalShopperStatement value(String value) {
@@ -96,9 +117,30 @@ public class LocalShopperStatement {
   }
 
   /**
-   * The text of the local shopper statement in the specified character set.
+   * The localized shopper statement in the specified character set. * For &#x60;ja-Hani&#x60; the
+   * allowed characters are: Full-width kanji including letters, numbers, and symbols. * For
+   * &#x60;ja-Kana&#x60; the allowed characters are: * &#x60;Half-width katakana&#x60; * Letters:
+   * &#x60;a-z&#x60;, &#x60;A-Z&#x60; * Numbers: &#x60;0-9&#x60; * Symbols: &#x60;!&#x60;,
+   * &#x60;\&quot;&#x60;, &#x60;#&#x60;, &#x60;$&#x60;, &#x60;%&#x60;, &#x60;&amp;&#x60;,
+   * &#x60;&#39;&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;*&#x60;, &#x60;+&#x60;, &#x60;,&#x60;,
+   * &#x60;-&#x60;, &#x60;.&#x60;, &#x60;/&#x60;, &#x60;:&#x60;, &#x60;;&#x60;, &#x60;&lt;&#x60;,
+   * &#x60;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;?&#x60;, &#x60;@&#x60;, &#x60;[&#x60;,
+   * &#x60;\\&#x60;, &#x60;]&#x60;, &#x60;^&#x60;, &#x60;_&#x60;, &#x60;&#x60; &#x60; &#x60;&#x60;,
+   * &#x60;{&#x60;, &#x60;|&#x60;, &#x60;}&#x60;, &#x60;~&#x60;, &#x60;｡&#x60;, &#x60;｢&#x60;,
+   * &#x60;｣&#x60;, &#x60;､&#x60;, &#x60;･&#x60;, &#x60;ｰ&#x60;
    *
-   * @return value The text of the local shopper statement in the specified character set.
+   * @return value The localized shopper statement in the specified character set. * For
+   *     &#x60;ja-Hani&#x60; the allowed characters are: Full-width kanji including letters,
+   *     numbers, and symbols. * For &#x60;ja-Kana&#x60; the allowed characters are: *
+   *     &#x60;Half-width katakana&#x60; * Letters: &#x60;a-z&#x60;, &#x60;A-Z&#x60; * Numbers:
+   *     &#x60;0-9&#x60; * Symbols: &#x60;!&#x60;, &#x60;\&quot;&#x60;, &#x60;#&#x60;,
+   *     &#x60;$&#x60;, &#x60;%&#x60;, &#x60;&amp;&#x60;, &#x60;&#39;&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;*&#x60;, &#x60;+&#x60;, &#x60;,&#x60;, &#x60;-&#x60;, &#x60;.&#x60;,
+   *     &#x60;/&#x60;, &#x60;:&#x60;, &#x60;;&#x60;, &#x60;&lt;&#x60;, &#x60;&#x3D;&#x60;,
+   *     &#x60;&gt;&#x60;, &#x60;?&#x60;, &#x60;@&#x60;, &#x60;[&#x60;, &#x60;\\&#x60;,
+   *     &#x60;]&#x60;, &#x60;^&#x60;, &#x60;_&#x60;, &#x60;&#x60; &#x60; &#x60;&#x60;,
+   *     &#x60;{&#x60;, &#x60;|&#x60;, &#x60;}&#x60;, &#x60;~&#x60;, &#x60;｡&#x60;, &#x60;｢&#x60;,
+   *     &#x60;｣&#x60;, &#x60;､&#x60;, &#x60;･&#x60;, &#x60;ｰ&#x60;
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,9 +149,30 @@ public class LocalShopperStatement {
   }
 
   /**
-   * The text of the local shopper statement in the specified character set.
+   * The localized shopper statement in the specified character set. * For &#x60;ja-Hani&#x60; the
+   * allowed characters are: Full-width kanji including letters, numbers, and symbols. * For
+   * &#x60;ja-Kana&#x60; the allowed characters are: * &#x60;Half-width katakana&#x60; * Letters:
+   * &#x60;a-z&#x60;, &#x60;A-Z&#x60; * Numbers: &#x60;0-9&#x60; * Symbols: &#x60;!&#x60;,
+   * &#x60;\&quot;&#x60;, &#x60;#&#x60;, &#x60;$&#x60;, &#x60;%&#x60;, &#x60;&amp;&#x60;,
+   * &#x60;&#39;&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;*&#x60;, &#x60;+&#x60;, &#x60;,&#x60;,
+   * &#x60;-&#x60;, &#x60;.&#x60;, &#x60;/&#x60;, &#x60;:&#x60;, &#x60;;&#x60;, &#x60;&lt;&#x60;,
+   * &#x60;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;?&#x60;, &#x60;@&#x60;, &#x60;[&#x60;,
+   * &#x60;\\&#x60;, &#x60;]&#x60;, &#x60;^&#x60;, &#x60;_&#x60;, &#x60;&#x60; &#x60; &#x60;&#x60;,
+   * &#x60;{&#x60;, &#x60;|&#x60;, &#x60;}&#x60;, &#x60;~&#x60;, &#x60;｡&#x60;, &#x60;｢&#x60;,
+   * &#x60;｣&#x60;, &#x60;､&#x60;, &#x60;･&#x60;, &#x60;ｰ&#x60;
    *
-   * @param value The text of the local shopper statement in the specified character set.
+   * @param value The localized shopper statement in the specified character set. * For
+   *     &#x60;ja-Hani&#x60; the allowed characters are: Full-width kanji including letters,
+   *     numbers, and symbols. * For &#x60;ja-Kana&#x60; the allowed characters are: *
+   *     &#x60;Half-width katakana&#x60; * Letters: &#x60;a-z&#x60;, &#x60;A-Z&#x60; * Numbers:
+   *     &#x60;0-9&#x60; * Symbols: &#x60;!&#x60;, &#x60;\&quot;&#x60;, &#x60;#&#x60;,
+   *     &#x60;$&#x60;, &#x60;%&#x60;, &#x60;&amp;&#x60;, &#x60;&#39;&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;*&#x60;, &#x60;+&#x60;, &#x60;,&#x60;, &#x60;-&#x60;, &#x60;.&#x60;,
+   *     &#x60;/&#x60;, &#x60;:&#x60;, &#x60;;&#x60;, &#x60;&lt;&#x60;, &#x60;&#x3D;&#x60;,
+   *     &#x60;&gt;&#x60;, &#x60;?&#x60;, &#x60;@&#x60;, &#x60;[&#x60;, &#x60;\\&#x60;,
+   *     &#x60;]&#x60;, &#x60;^&#x60;, &#x60;_&#x60;, &#x60;&#x60; &#x60; &#x60;&#x60;,
+   *     &#x60;{&#x60;, &#x60;|&#x60;, &#x60;}&#x60;, &#x60;~&#x60;, &#x60;｡&#x60;, &#x60;｢&#x60;,
+   *     &#x60;｣&#x60;, &#x60;､&#x60;, &#x60;･&#x60;, &#x60;ｰ&#x60;
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
