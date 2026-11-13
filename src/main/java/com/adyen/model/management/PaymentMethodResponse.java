@@ -110,6 +110,8 @@ public class PaymentMethodResponse {
 
     AMEX(String.valueOf("amex")),
 
+    ANCV(String.valueOf("ancv")),
+
     APPLEPAY(String.valueOf("applepay")),
 
     AVANCARD(String.valueOf("avancard")),
@@ -131,6 +133,8 @@ public class PaymentMethodResponse {
     BLIK(String.valueOf("blik")),
 
     BLIK_POS(String.valueOf("blik_pos")),
+
+    BONCARD(String.valueOf("boncard")),
 
     BR_SCHEMES(String.valueOf("br_schemes")),
 
@@ -175,6 +179,8 @@ public class PaymentMethodResponse {
     DISCOVER(String.valueOf("discover")),
 
     EBANKING_FI(String.valueOf("ebanking_FI")),
+
+    EBT(String.valueOf("ebt")),
 
     EFT_DIRECTDEBIT_CA(String.valueOf("eft_directdebit_CA")),
 
@@ -266,6 +272,8 @@ public class PaymentMethodResponse {
 
     PAYBYBANK_PLAID(String.valueOf("paybybank_plaid")),
 
+    PAYBYBANK_PLAID_CA(String.valueOf("paybybank_plaid_ca")),
+
     PAYME(String.valueOf("payme")),
 
     PAYME_POS(String.valueOf("payme_pos")),
@@ -283,6 +291,8 @@ public class PaymentMethodResponse {
     PERSONAL_CARD_CREDIT(String.valueOf("personal_card_credit")),
 
     PERSONAL_CARD_DEBIT(String.valueOf("personal_card_debit")),
+
+    PIX(String.valueOf("pix")),
 
     PULSE(String.valueOf("pulse")),
 
@@ -354,7 +364,9 @@ public class PaymentMethodResponse {
 
     WECHATPAY(String.valueOf("wechatpay")),
 
-    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
+    WECHATPAY_POS(String.valueOf("wechatpay_pos")),
+
+    WERO(String.valueOf("wero"));
 
     private static final Logger LOG = Logger.getLogger(TypesWithErrorsEnum.class.getName());
 

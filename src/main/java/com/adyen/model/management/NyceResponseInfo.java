@@ -25,10 +25,65 @@ import java.util.logging.Logger;
 
 /** NyceResponseInfo */
 @JsonPropertyOrder({
+  NyceResponseInfo.JSON_PROPERTY_NETWORK_PROCESSING_MODE,
   NyceResponseInfo.JSON_PROPERTY_PROCESSING_TYPE,
   NyceResponseInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
 })
 public class NyceResponseInfo {
+  /**
+   * Indicates the processing flow for the payment method. Possible values: - **auth**: If you have
+   * not [configured automatic
+   * capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the transaction,
+   * you must manually capture the funds. - **sale**: You do not need to separately capture the
+   * funds, because capture happens automatically as part of the transaction, together with
+   * authorization.
+   */
+  public enum NetworkProcessingModeEnum {
+    AUTH(String.valueOf("auth")),
+
+    SALE(String.valueOf("sale"));
+
+    private static final Logger LOG = Logger.getLogger(NetworkProcessingModeEnum.class.getName());
+
+    private String value;
+
+    NetworkProcessingModeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static NetworkProcessingModeEnum fromValue(String value) {
+      for (NetworkProcessingModeEnum b : NetworkProcessingModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "NetworkProcessingModeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(NetworkProcessingModeEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_NETWORK_PROCESSING_MODE = "networkProcessingMode";
+  private NetworkProcessingModeEnum networkProcessingMode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkProcessingMode = false;
+
   /**
    * The type of transactions processed over this payment method. Allowed values: - **pos** for
    * in-person payments. - **billpay** for subscription payments, both the initial payment and the
@@ -98,6 +153,71 @@ public class NyceResponseInfo {
   @JsonIgnore private boolean includeNullValues = false;
 
   public NyceResponseInfo() {}
+
+  /**
+   * Indicates the processing flow for the payment method. Possible values: - **auth**: If you have
+   * not [configured automatic
+   * capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the transaction,
+   * you must manually capture the funds. - **sale**: You do not need to separately capture the
+   * funds, because capture happens automatically as part of the transaction, together with
+   * authorization.
+   *
+   * @param networkProcessingMode Indicates the processing flow for the payment method. Possible
+   *     values: - **auth**: If you have not [configured automatic
+   *     capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the
+   *     transaction, you must manually capture the funds. - **sale**: You do not need to separately
+   *     capture the funds, because capture happens automatically as part of the transaction,
+   *     together with authorization.
+   * @return the current {@code NyceResponseInfo} instance, allowing for method chaining
+   */
+  public NyceResponseInfo networkProcessingMode(NetworkProcessingModeEnum networkProcessingMode) {
+    this.networkProcessingMode = networkProcessingMode;
+    isSetNetworkProcessingMode = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Indicates the processing flow for the payment method. Possible values: - **auth**: If you have
+   * not [configured automatic
+   * capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the transaction,
+   * you must manually capture the funds. - **sale**: You do not need to separately capture the
+   * funds, because capture happens automatically as part of the transaction, together with
+   * authorization.
+   *
+   * @return networkProcessingMode Indicates the processing flow for the payment method. Possible
+   *     values: - **auth**: If you have not [configured automatic
+   *     capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the
+   *     transaction, you must manually capture the funds. - **sale**: You do not need to separately
+   *     capture the funds, because capture happens automatically as part of the transaction,
+   *     together with authorization.
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NetworkProcessingModeEnum getNetworkProcessingMode() {
+    return networkProcessingMode;
+  }
+
+  /**
+   * Indicates the processing flow for the payment method. Possible values: - **auth**: If you have
+   * not [configured automatic
+   * capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the transaction,
+   * you must manually capture the funds. - **sale**: You do not need to separately capture the
+   * funds, because capture happens automatically as part of the transaction, together with
+   * authorization.
+   *
+   * @param networkProcessingMode Indicates the processing flow for the payment method. Possible
+   *     values: - **auth**: If you have not [configured automatic
+   *     capture](https://docs.adyen.com/online-payments/capture#types-of-capture) for the
+   *     transaction, you must manually capture the funds. - **sale**: You do not need to separately
+   *     capture the funds, because capture happens automatically as part of the transaction,
+   *     together with authorization.
+   */
+  @JsonProperty(JSON_PROPERTY_NETWORK_PROCESSING_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworkProcessingMode(NetworkProcessingModeEnum networkProcessingMode) {
+    this.networkProcessingMode = networkProcessingMode;
+    isSetNetworkProcessingMode = true; // mark as set
+  }
 
   /**
    * The type of transactions processed over this payment method. Allowed values: - **pos** for
@@ -230,7 +350,10 @@ public class NyceResponseInfo {
       return false;
     }
     NyceResponseInfo nyceResponseInfo = (NyceResponseInfo) o;
-    return Objects.equals(this.processingType, nyceResponseInfo.processingType)
+    return Objects.equals(this.networkProcessingMode, nyceResponseInfo.networkProcessingMode)
+        && Objects.equals(
+            this.isSetNetworkProcessingMode, nyceResponseInfo.isSetNetworkProcessingMode)
+        && Objects.equals(this.processingType, nyceResponseInfo.processingType)
         && Objects.equals(this.isSetProcessingType, nyceResponseInfo.isSetProcessingType)
         && Objects.equals(this.transactionDescription, nyceResponseInfo.transactionDescription)
         && Objects.equals(
@@ -240,13 +363,21 @@ public class NyceResponseInfo {
   @Override
   public int hashCode() {
     return Objects.hash(
-        processingType, isSetProcessingType, transactionDescription, isSetTransactionDescription);
+        networkProcessingMode,
+        isSetNetworkProcessingMode,
+        processingType,
+        isSetProcessingType,
+        transactionDescription,
+        isSetTransactionDescription);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NyceResponseInfo {\n");
+    sb.append("    networkProcessingMode: ")
+        .append(toIndentedString(networkProcessingMode))
+        .append("\n");
     sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
     sb.append("    transactionDescription: ")
         .append(toIndentedString(transactionDescription))
@@ -275,6 +406,9 @@ public class NyceResponseInfo {
 
     Map<String, Object> nulls = new HashMap<>();
 
+    if (isSetNetworkProcessingMode) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_PROCESSING_MODE, this.networkProcessingMode);
+    }
     if (isSetProcessingType) {
       addIfNull(nulls, JSON_PROPERTY_PROCESSING_TYPE, this.processingType);
     }

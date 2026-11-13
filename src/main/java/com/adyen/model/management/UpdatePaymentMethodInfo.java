@@ -26,6 +26,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_ACCEL,
   UpdatePaymentMethodInfo.JSON_PROPERTY_AFFIRM,
   UpdatePaymentMethodInfo.JSON_PROPERTY_BCMC,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_BONCARD,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARNET,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CARTES_BANCAIRES,
   UpdatePaymentMethodInfo.JSON_PROPERTY_CASHAPP,
@@ -35,6 +36,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_DINERS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_DISCOVER,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_EBT,
   UpdatePaymentMethodInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   UpdatePaymentMethodInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   UpdatePaymentMethodInfo.JSON_PROPERTY_ENABLED,
@@ -47,6 +49,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_MC,
   UpdatePaymentMethodInfo.JSON_PROPERTY_NYCE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PAYBYBANK_PLAID,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_PAYBYBANK_PLAID_CA,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PULSE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_SEPADIRECTDEBIT,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STAR,
@@ -72,6 +75,12 @@ public class UpdatePaymentMethodInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBcmc = false;
+
+  public static final String JSON_PROPERTY_BONCARD = "boncard";
+  private BoncardUpdateInfo boncard;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBoncard = false;
 
   public static final String JSON_PROPERTY_CARNET = "carnet";
   private GenericPmWithTdiUpdateInfo carnet;
@@ -126,6 +135,12 @@ public class UpdatePaymentMethodInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiscover = false;
+
+  public static final String JSON_PROPERTY_EBT = "ebt";
+  private EbtUpdateInfo ebt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEbt = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
   private GenericPmWithTdiUpdateInfo eftDirectdebitCA;
@@ -198,6 +213,12 @@ public class UpdatePaymentMethodInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPaybybankPlaid = false;
+
+  public static final String JSON_PROPERTY_PAYBYBANK_PLAID_CA = "paybybank_plaid_ca";
+  private PayByBankPlaidUpdateInfo paybybankPlaidCa;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaybybankPlaidCa = false;
 
   public static final String JSON_PROPERTY_PULSE = "pulse";
   private PulseUpdateInfo pulse;
@@ -347,6 +368,41 @@ public class UpdatePaymentMethodInfo {
   public void setBcmc(BcmcUpdateInfo bcmc) {
     this.bcmc = bcmc;
     isSetBcmc = true; // mark as set
+  }
+
+  /**
+   * boncard
+   *
+   * @param boncard
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo boncard(BoncardUpdateInfo boncard) {
+    this.boncard = boncard;
+    isSetBoncard = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get boncard
+   *
+   * @return boncard
+   */
+  @JsonProperty(JSON_PROPERTY_BONCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BoncardUpdateInfo getBoncard() {
+    return boncard;
+  }
+
+  /**
+   * boncard
+   *
+   * @param boncard
+   */
+  @JsonProperty(JSON_PROPERTY_BONCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBoncard(BoncardUpdateInfo boncard) {
+    this.boncard = boncard;
+    isSetBoncard = true; // mark as set
   }
 
   /**
@@ -698,6 +754,41 @@ public class UpdatePaymentMethodInfo {
   public void setDiscover(GenericPmWithTdiUpdateInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo ebt(EbtUpdateInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ebt
+   *
+   * @return ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EbtUpdateInfo getEbt() {
+    return ebt;
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEbt(EbtUpdateInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
   }
 
   /**
@@ -1124,6 +1215,41 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
+   * paybybankPlaidCa
+   *
+   * @param paybybankPlaidCa
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo paybybankPlaidCa(PayByBankPlaidUpdateInfo paybybankPlaidCa) {
+    this.paybybankPlaidCa = paybybankPlaidCa;
+    isSetPaybybankPlaidCa = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get paybybankPlaidCa
+   *
+   * @return paybybankPlaidCa
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PayByBankPlaidUpdateInfo getPaybybankPlaidCa() {
+    return paybybankPlaidCa;
+  }
+
+  /**
+   * paybybankPlaidCa
+   *
+   * @param paybybankPlaidCa
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaybybankPlaidCa(PayByBankPlaidUpdateInfo paybybankPlaidCa) {
+    this.paybybankPlaidCa = paybybankPlaidCa;
+    isSetPaybybankPlaidCa = true; // mark as set
+  }
+
+  /**
    * pulse
    *
    * @param pulse
@@ -1386,6 +1512,8 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.isSetAffirm, updatePaymentMethodInfo.isSetAffirm)
         && Objects.equals(this.bcmc, updatePaymentMethodInfo.bcmc)
         && Objects.equals(this.isSetBcmc, updatePaymentMethodInfo.isSetBcmc)
+        && Objects.equals(this.boncard, updatePaymentMethodInfo.boncard)
+        && Objects.equals(this.isSetBoncard, updatePaymentMethodInfo.isSetBoncard)
         && Objects.equals(this.carnet, updatePaymentMethodInfo.carnet)
         && Objects.equals(this.isSetCarnet, updatePaymentMethodInfo.isSetCarnet)
         && Objects.equals(this.cartesBancaires, updatePaymentMethodInfo.cartesBancaires)
@@ -1405,6 +1533,8 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.isSetDiners, updatePaymentMethodInfo.isSetDiners)
         && Objects.equals(this.discover, updatePaymentMethodInfo.discover)
         && Objects.equals(this.isSetDiscover, updatePaymentMethodInfo.isSetDiscover)
+        && Objects.equals(this.ebt, updatePaymentMethodInfo.ebt)
+        && Objects.equals(this.isSetEbt, updatePaymentMethodInfo.isSetEbt)
         && Objects.equals(this.eftDirectdebitCA, updatePaymentMethodInfo.eftDirectdebitCA)
         && Objects.equals(this.isSetEftDirectdebitCA, updatePaymentMethodInfo.isSetEftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, updatePaymentMethodInfo.eftposAustralia)
@@ -1429,6 +1559,8 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.isSetNyce, updatePaymentMethodInfo.isSetNyce)
         && Objects.equals(this.paybybankPlaid, updatePaymentMethodInfo.paybybankPlaid)
         && Objects.equals(this.isSetPaybybankPlaid, updatePaymentMethodInfo.isSetPaybybankPlaid)
+        && Objects.equals(this.paybybankPlaidCa, updatePaymentMethodInfo.paybybankPlaidCa)
+        && Objects.equals(this.isSetPaybybankPlaidCa, updatePaymentMethodInfo.isSetPaybybankPlaidCa)
         && Objects.equals(this.pulse, updatePaymentMethodInfo.pulse)
         && Objects.equals(this.isSetPulse, updatePaymentMethodInfo.isSetPulse)
         && Objects.equals(this.sepadirectdebit, updatePaymentMethodInfo.sepadirectdebit)
@@ -1452,6 +1584,8 @@ public class UpdatePaymentMethodInfo {
         isSetAffirm,
         bcmc,
         isSetBcmc,
+        boncard,
+        isSetBoncard,
         carnet,
         isSetCarnet,
         cartesBancaires,
@@ -1470,6 +1604,8 @@ public class UpdatePaymentMethodInfo {
         isSetDiners,
         discover,
         isSetDiscover,
+        ebt,
+        isSetEbt,
         eftDirectdebitCA,
         isSetEftDirectdebitCA,
         eftposAustralia,
@@ -1494,6 +1630,8 @@ public class UpdatePaymentMethodInfo {
         isSetNyce,
         paybybankPlaid,
         isSetPaybybankPlaid,
+        paybybankPlaidCa,
+        isSetPaybybankPlaidCa,
         pulse,
         isSetPulse,
         sepadirectdebit,
@@ -1515,6 +1653,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
     sb.append("    affirm: ").append(toIndentedString(affirm)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
+    sb.append("    boncard: ").append(toIndentedString(boncard)).append("\n");
     sb.append("    carnet: ").append(toIndentedString(carnet)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    cashapp: ").append(toIndentedString(cashapp)).append("\n");
@@ -1524,6 +1663,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    ebt: ").append(toIndentedString(ebt)).append("\n");
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
@@ -1536,6 +1676,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
+    sb.append("    paybybankPlaidCa: ").append(toIndentedString(paybybankPlaidCa)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    sepadirectdebit: ").append(toIndentedString(sepadirectdebit)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
@@ -1575,6 +1716,9 @@ public class UpdatePaymentMethodInfo {
     if (isSetBcmc) {
       addIfNull(nulls, JSON_PROPERTY_BCMC, this.bcmc);
     }
+    if (isSetBoncard) {
+      addIfNull(nulls, JSON_PROPERTY_BONCARD, this.boncard);
+    }
     if (isSetCarnet) {
       addIfNull(nulls, JSON_PROPERTY_CARNET, this.carnet);
     }
@@ -1601,6 +1745,9 @@ public class UpdatePaymentMethodInfo {
     }
     if (isSetDiscover) {
       addIfNull(nulls, JSON_PROPERTY_DISCOVER, this.discover);
+    }
+    if (isSetEbt) {
+      addIfNull(nulls, JSON_PROPERTY_EBT, this.ebt);
     }
     if (isSetEftDirectdebitCA) {
       addIfNull(nulls, JSON_PROPERTY_EFT_DIRECTDEBIT_C_A, this.eftDirectdebitCA);
@@ -1637,6 +1784,9 @@ public class UpdatePaymentMethodInfo {
     }
     if (isSetPaybybankPlaid) {
       addIfNull(nulls, JSON_PROPERTY_PAYBYBANK_PLAID, this.paybybankPlaid);
+    }
+    if (isSetPaybybankPlaidCa) {
+      addIfNull(nulls, JSON_PROPERTY_PAYBYBANK_PLAID_CA, this.paybybankPlaidCa);
     }
     if (isSetPulse) {
       addIfNull(nulls, JSON_PROPERTY_PULSE, this.pulse);

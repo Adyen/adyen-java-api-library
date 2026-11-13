@@ -1,8 +1,8 @@
 {
   "service": "management",
   "project": "java",
-  "generatedAt": "2026-07-21T13:17:05Z",
-  "openapiCommitSha": "c2ff0637d25d1c34aa1b19113e1b4e5eaa289960",
-  "automationCommitSha": "0c108bd8050cf480d2710b78b770afdfbdd89397",
-  "libraryCommitSha": "eebe7978ae86e44506c5a2dc292a119d58212d88"
+  "generatedAt": "2026-11-13T11:22:13Z",
+  "openapiCommitSha": "ee0cdd3511442c12c49394636e75be31e46cd915",
+  "automationCommitSha": "ae7e57613c3a29391a4adb4ff02e9ddda4611b16",
+  "libraryCommitSha": "f63d07cfe4cc8e63143c46e8f6db3d0509daecee"
 }

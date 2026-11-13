@@ -375,13 +375,18 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The phone number of the store, including &#39;+&#39; and country code in the
-   * [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   * convert and validate the phone number against E.164.
+   * The phone number of the store in [E.164](https://en.wikipedia.org/wiki/E.164) format: a plus
+   * sign (&#x60;+&#x60;), the country code, and the phone number. For example, **+13123456789**.
+   * You can include spaces, hyphens, or brackets, such as **+1 (312) 345-6789**. We reject phone
+   * numbers that do not start with &#x60;+&#x60; and the country code, such as **3123456789** or
+   * **0031201234567**. The phone number can be from a different country than the store address.
    *
-   * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the
-   *     [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   *     convert and validate the phone number against E.164.
+   * @param phoneNumber The phone number of the store in
+   *     [E.164](https://en.wikipedia.org/wiki/E.164) format: a plus sign (&#x60;+&#x60;), the
+   *     country code, and the phone number. For example, **+13123456789**. You can include spaces,
+   *     hyphens, or brackets, such as **+1 (312) 345-6789**. We reject phone numbers that do not
+   *     start with &#x60;+&#x60; and the country code, such as **3123456789** or **0031201234567**.
+   *     The phone number can be from a different country than the store address.
    * @return the current {@code StoreCreationWithMerchantCodeRequest} instance, allowing for method
    *     chaining
    */
@@ -392,13 +397,18 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The phone number of the store, including &#39;+&#39; and country code in the
-   * [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   * convert and validate the phone number against E.164.
+   * The phone number of the store in [E.164](https://en.wikipedia.org/wiki/E.164) format: a plus
+   * sign (&#x60;+&#x60;), the country code, and the phone number. For example, **+13123456789**.
+   * You can include spaces, hyphens, or brackets, such as **+1 (312) 345-6789**. We reject phone
+   * numbers that do not start with &#x60;+&#x60; and the country code, such as **3123456789** or
+   * **0031201234567**. The phone number can be from a different country than the store address.
    *
-   * @return phoneNumber The phone number of the store, including &#39;+&#39; and country code in
-   *     the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format,
-   *     we convert and validate the phone number against E.164.
+   * @return phoneNumber The phone number of the store in
+   *     [E.164](https://en.wikipedia.org/wiki/E.164) format: a plus sign (&#x60;+&#x60;), the
+   *     country code, and the phone number. For example, **+13123456789**. You can include spaces,
+   *     hyphens, or brackets, such as **+1 (312) 345-6789**. We reject phone numbers that do not
+   *     start with &#x60;+&#x60; and the country code, such as **3123456789** or **0031201234567**.
+   *     The phone number can be from a different country than the store address.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,13 +417,18 @@ public class StoreCreationWithMerchantCodeRequest {
   }
 
   /**
-   * The phone number of the store, including &#39;+&#39; and country code in the
-   * [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   * convert and validate the phone number against E.164.
+   * The phone number of the store in [E.164](https://en.wikipedia.org/wiki/E.164) format: a plus
+   * sign (&#x60;+&#x60;), the country code, and the phone number. For example, **+13123456789**.
+   * You can include spaces, hyphens, or brackets, such as **+1 (312) 345-6789**. We reject phone
+   * numbers that do not start with &#x60;+&#x60; and the country code, such as **3123456789** or
+   * **0031201234567**. The phone number can be from a different country than the store address.
    *
-   * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the
-   *     [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   *     convert and validate the phone number against E.164.
+   * @param phoneNumber The phone number of the store in
+   *     [E.164](https://en.wikipedia.org/wiki/E.164) format: a plus sign (&#x60;+&#x60;), the
+   *     country code, and the phone number. For example, **+13123456789**. You can include spaces,
+   *     hyphens, or brackets, such as **+1 (312) 345-6789**. We reject phone numbers that do not
+   *     start with &#x60;+&#x60; and the country code, such as **3123456789** or **0031201234567**.
+   *     The phone number can be from a different country than the store address.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
