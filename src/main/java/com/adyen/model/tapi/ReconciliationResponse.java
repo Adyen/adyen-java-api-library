@@ -45,7 +45,7 @@ public class ReconciliationResponse {
   private boolean isSetReconciliationType = false;
 
   public static final String JSON_PROPERTY_PO_I_RECONCILIATION_I_D = "POIReconciliationID";
-  private Integer poIReconciliationID;
+  private String poIReconciliationID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPoIReconciliationID = false;
@@ -142,7 +142,7 @@ public class ReconciliationResponse {
    *     Absent if ReconciliationType is &#x60;AcquirerReconciliation&#x60;.
    * @return the current {@code ReconciliationResponse} instance, allowing for method chaining
    */
-  public ReconciliationResponse poIReconciliationID(Integer poIReconciliationID) {
+  public ReconciliationResponse poIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
     return this;
@@ -157,7 +157,7 @@ public class ReconciliationResponse {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPoIReconciliationID() {
+  public String getPoIReconciliationID() {
     return poIReconciliationID;
   }
 
@@ -170,7 +170,7 @@ public class ReconciliationResponse {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIReconciliationID(Integer poIReconciliationID) {
+  public void setPoIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
   }
