@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.Arrays;
 
 /**
  * Data related to the instrument of payment for the transaction. Sent in the result of the payment
@@ -40,7 +41,7 @@ public class PaymentInstrumentData {
   private boolean isSetPaymentInstrumentType = false;
 
   public static final String JSON_PROPERTY_PROTECTED_CARD_DATA = "ProtectedCardData";
-  private String protectedCardData;
+  private byte[] protectedCardData;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProtectedCardData = false;
@@ -120,7 +121,7 @@ public class PaymentInstrumentData {
    *     SensitiveCardData protected by CMS EnvelopedData.
    * @return the current {@code PaymentInstrumentData} instance, allowing for method chaining
    */
-  public PaymentInstrumentData protectedCardData(String protectedCardData) {
+  public PaymentInstrumentData protectedCardData(byte[] protectedCardData) {
     this.protectedCardData = protectedCardData;
     isSetProtectedCardData = true; // mark as set
     return this;
@@ -135,7 +136,7 @@ public class PaymentInstrumentData {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProtectedCardData() {
+  public byte[] getProtectedCardData() {
     return protectedCardData;
   }
 
@@ -148,7 +149,7 @@ public class PaymentInstrumentData {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProtectedCardData(String protectedCardData) {
+  public void setProtectedCardData(byte[] protectedCardData) {
     this.protectedCardData = protectedCardData;
     isSetProtectedCardData = true; // mark as set
   }
@@ -326,7 +327,7 @@ public class PaymentInstrumentData {
     return Objects.equals(this.paymentInstrumentType, paymentInstrumentData.paymentInstrumentType)
         && Objects.equals(
             this.isSetPaymentInstrumentType, paymentInstrumentData.isSetPaymentInstrumentType)
-        && Objects.equals(this.protectedCardData, paymentInstrumentData.protectedCardData)
+        && Arrays.equals(this.protectedCardData, paymentInstrumentData.protectedCardData)
         && Objects.equals(this.isSetProtectedCardData, paymentInstrumentData.isSetProtectedCardData)
         && Objects.equals(this.cardData, paymentInstrumentData.cardData)
         && Objects.equals(this.isSetCardData, paymentInstrumentData.isSetCardData)
@@ -344,7 +345,7 @@ public class PaymentInstrumentData {
     return Objects.hash(
         paymentInstrumentType,
         isSetPaymentInstrumentType,
-        protectedCardData,
+        Arrays.hashCode(protectedCardData),
         isSetProtectedCardData,
         cardData,
         isSetCardData,
