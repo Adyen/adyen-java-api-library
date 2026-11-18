@@ -22,13 +22,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** LocalizedInformation */
-@JsonPropertyOrder({LocalizedInformation.JSON_PROPERTY_LOCAL_SHOPPER_STATEMENT})
+@JsonPropertyOrder({
+  LocalizedInformation.JSON_PROPERTY_LOCAL_SHOPPER_STATEMENT,
+  LocalizedInformation.JSON_PROPERTY_LOCAL_STORE_NAME,
+  LocalizedInformation.JSON_PROPERTY_LOCALIZED_ADDRESS
+})
 public class LocalizedInformation {
   public static final String JSON_PROPERTY_LOCAL_SHOPPER_STATEMENT = "localShopperStatement";
   private List<LocalShopperStatement> localShopperStatement;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetLocalShopperStatement = false;
+
+  public static final String JSON_PROPERTY_LOCAL_STORE_NAME = "localStoreName";
+  private List<LocalStoreName> localStoreName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalStoreName = false;
+
+  public static final String JSON_PROPERTY_LOCALIZED_ADDRESS = "localizedAddress";
+  private List<LocalizedInformationLocalizedAddressInner> localizedAddress;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalizedAddress = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -93,6 +109,119 @@ public class LocalizedInformation {
   }
 
   /**
+   * An array of localized store names. Used for payment method onboarding in Japan. Possible
+   * scripts: **ja-Hani**, **ja-Kana**.
+   *
+   * @param localStoreName An array of localized store names. Used for payment method onboarding in
+   *     Japan. Possible scripts: **ja-Hani**, **ja-Kana**.
+   * @return the current {@code LocalizedInformation} instance, allowing for method chaining
+   */
+  public LocalizedInformation localStoreName(List<LocalStoreName> localStoreName) {
+    this.localStoreName = localStoreName;
+    isSetLocalStoreName = true; // mark as set
+    return this;
+  }
+
+  public LocalizedInformation addLocalStoreNameItem(LocalStoreName localStoreNameItem) {
+    if (this.localStoreName == null) {
+      this.localStoreName = new ArrayList<>();
+    }
+    this.localStoreName.add(localStoreNameItem);
+    return this;
+  }
+
+  /**
+   * An array of localized store names. Used for payment method onboarding in Japan. Possible
+   * scripts: **ja-Hani**, **ja-Kana**.
+   *
+   * @return localStoreName An array of localized store names. Used for payment method onboarding in
+   *     Japan. Possible scripts: **ja-Hani**, **ja-Kana**.
+   */
+  @JsonProperty(JSON_PROPERTY_LOCAL_STORE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LocalStoreName> getLocalStoreName() {
+    return localStoreName;
+  }
+
+  /**
+   * An array of localized store names. Used for payment method onboarding in Japan. Possible
+   * scripts: **ja-Hani**, **ja-Kana**.
+   *
+   * @param localStoreName An array of localized store names. Used for payment method onboarding in
+   *     Japan. Possible scripts: **ja-Hani**, **ja-Kana**.
+   */
+  @JsonProperty(JSON_PROPERTY_LOCAL_STORE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocalStoreName(List<LocalStoreName> localStoreName) {
+    this.localStoreName = localStoreName;
+    isSetLocalStoreName = true; // mark as set
+  }
+
+  /**
+   * An array of localized addresses. Used for payment method onboarding in Japan. The
+   * &#x60;script&#x60; of each address selects which fields it carries, so each locale sends the
+   * fields its addresses have. For Japanese stores, both **ja-Hani** and **ja-Kana** addresses are
+   * required.
+   *
+   * @param localizedAddress An array of localized addresses. Used for payment method onboarding in
+   *     Japan. The &#x60;script&#x60; of each address selects which fields it carries, so each
+   *     locale sends the fields its addresses have. For Japanese stores, both **ja-Hani** and
+   *     **ja-Kana** addresses are required.
+   * @return the current {@code LocalizedInformation} instance, allowing for method chaining
+   */
+  public LocalizedInformation localizedAddress(
+      List<LocalizedInformationLocalizedAddressInner> localizedAddress) {
+    this.localizedAddress = localizedAddress;
+    isSetLocalizedAddress = true; // mark as set
+    return this;
+  }
+
+  public LocalizedInformation addLocalizedAddressItem(
+      LocalizedInformationLocalizedAddressInner localizedAddressItem) {
+    if (this.localizedAddress == null) {
+      this.localizedAddress = new ArrayList<>();
+    }
+    this.localizedAddress.add(localizedAddressItem);
+    return this;
+  }
+
+  /**
+   * An array of localized addresses. Used for payment method onboarding in Japan. The
+   * &#x60;script&#x60; of each address selects which fields it carries, so each locale sends the
+   * fields its addresses have. For Japanese stores, both **ja-Hani** and **ja-Kana** addresses are
+   * required.
+   *
+   * @return localizedAddress An array of localized addresses. Used for payment method onboarding in
+   *     Japan. The &#x60;script&#x60; of each address selects which fields it carries, so each
+   *     locale sends the fields its addresses have. For Japanese stores, both **ja-Hani** and
+   *     **ja-Kana** addresses are required.
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LocalizedInformationLocalizedAddressInner> getLocalizedAddress() {
+    return localizedAddress;
+  }
+
+  /**
+   * An array of localized addresses. Used for payment method onboarding in Japan. The
+   * &#x60;script&#x60; of each address selects which fields it carries, so each locale sends the
+   * fields its addresses have. For Japanese stores, both **ja-Hani** and **ja-Kana** addresses are
+   * required.
+   *
+   * @param localizedAddress An array of localized addresses. Used for payment method onboarding in
+   *     Japan. The &#x60;script&#x60; of each address selects which fields it carries, so each
+   *     locale sends the fields its addresses have. For Japanese stores, both **ja-Hani** and
+   *     **ja-Kana** addresses are required.
+   */
+  @JsonProperty(JSON_PROPERTY_LOCALIZED_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocalizedAddress(
+      List<LocalizedInformationLocalizedAddressInner> localizedAddress) {
+    this.localizedAddress = localizedAddress;
+    isSetLocalizedAddress = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public LocalizedInformation includeNullValues(boolean includeNullValues) {
@@ -124,12 +253,22 @@ public class LocalizedInformation {
     LocalizedInformation localizedInformation = (LocalizedInformation) o;
     return Objects.equals(this.localShopperStatement, localizedInformation.localShopperStatement)
         && Objects.equals(
-            this.isSetLocalShopperStatement, localizedInformation.isSetLocalShopperStatement);
+            this.isSetLocalShopperStatement, localizedInformation.isSetLocalShopperStatement)
+        && Objects.equals(this.localStoreName, localizedInformation.localStoreName)
+        && Objects.equals(this.isSetLocalStoreName, localizedInformation.isSetLocalStoreName)
+        && Objects.equals(this.localizedAddress, localizedInformation.localizedAddress)
+        && Objects.equals(this.isSetLocalizedAddress, localizedInformation.isSetLocalizedAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localShopperStatement, isSetLocalShopperStatement);
+    return Objects.hash(
+        localShopperStatement,
+        isSetLocalShopperStatement,
+        localStoreName,
+        isSetLocalStoreName,
+        localizedAddress,
+        isSetLocalizedAddress);
   }
 
   @Override
@@ -139,6 +278,8 @@ public class LocalizedInformation {
     sb.append("    localShopperStatement: ")
         .append(toIndentedString(localShopperStatement))
         .append("\n");
+    sb.append("    localStoreName: ").append(toIndentedString(localStoreName)).append("\n");
+    sb.append("    localizedAddress: ").append(toIndentedString(localizedAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -165,6 +306,12 @@ public class LocalizedInformation {
 
     if (isSetLocalShopperStatement) {
       addIfNull(nulls, JSON_PROPERTY_LOCAL_SHOPPER_STATEMENT, this.localShopperStatement);
+    }
+    if (isSetLocalStoreName) {
+      addIfNull(nulls, JSON_PROPERTY_LOCAL_STORE_NAME, this.localStoreName);
+    }
+    if (isSetLocalizedAddress) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZED_ADDRESS, this.localizedAddress);
     }
 
     return nulls;
