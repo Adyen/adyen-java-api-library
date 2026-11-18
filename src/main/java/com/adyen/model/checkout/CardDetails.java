@@ -149,7 +149,9 @@ public class CardDetails {
 
     DEBIT(String.valueOf("debit")),
 
-    PREPAID(String.valueOf("prepaid"));
+    PREPAID(String.valueOf("prepaid")),
+
+    DEFFERED_DEBIT(String.valueOf("DEFFERED_DEBIT"));
 
     private static final Logger LOG = Logger.getLogger(FundingSourceEnum.class.getName());
 
