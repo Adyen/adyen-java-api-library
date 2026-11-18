@@ -19,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -136,7 +135,7 @@ public class CardAcquisitionTransaction {
   private boolean isSetForceCustomerSelectionFlag = false;
 
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "TotalAmount";
-  private BigDecimal totalAmount;
+  private Double totalAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTotalAmount = false;
@@ -427,7 +426,7 @@ public class CardAcquisitionTransaction {
    *     the processing of a contactless card.
    * @return the current {@code CardAcquisitionTransaction} instance, allowing for method chaining
    */
-  public CardAcquisitionTransaction totalAmount(BigDecimal totalAmount) {
+  public CardAcquisitionTransaction totalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     isSetTotalAmount = true; // mark as set
     return this;
@@ -442,7 +441,7 @@ public class CardAcquisitionTransaction {
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getTotalAmount() {
+  public Double getTotalAmount() {
     return totalAmount;
   }
 
@@ -455,7 +454,7 @@ public class CardAcquisitionTransaction {
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalAmount(BigDecimal totalAmount) {
+  public void setTotalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     isSetTotalAmount = true; // mark as set
   }

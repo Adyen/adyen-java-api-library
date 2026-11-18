@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -66,13 +65,13 @@ public class OriginalPOITransaction {
   private boolean isSetApprovalCode = false;
 
   public static final String JSON_PROPERTY_ACQUIRER_I_D = "AcquirerID";
-  private Integer acquirerID;
+  private String acquirerID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAcquirerID = false;
 
   public static final String JSON_PROPERTY_AMOUNT_VALUE = "AmountValue";
-  private BigDecimal amountValue;
+  private Double amountValue;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmountValue = false;
@@ -281,7 +280,7 @@ public class OriginalPOITransaction {
    * @param acquirerID Identification of the Acquirer. Restrict to the Acquirer if present.
    * @return the current {@code OriginalPOITransaction} instance, allowing for method chaining
    */
-  public OriginalPOITransaction acquirerID(Integer acquirerID) {
+  public OriginalPOITransaction acquirerID(String acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
     return this;
@@ -294,7 +293,7 @@ public class OriginalPOITransaction {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getAcquirerID() {
+  public String getAcquirerID() {
     return acquirerID;
   }
 
@@ -305,7 +304,7 @@ public class OriginalPOITransaction {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAcquirerID(Integer acquirerID) {
+  public void setAcquirerID(String acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
   }
@@ -316,7 +315,7 @@ public class OriginalPOITransaction {
    * @param amountValue Value of an amount.
    * @return the current {@code OriginalPOITransaction} instance, allowing for method chaining
    */
-  public OriginalPOITransaction amountValue(BigDecimal amountValue) {
+  public OriginalPOITransaction amountValue(Double amountValue) {
     this.amountValue = amountValue;
     isSetAmountValue = true; // mark as set
     return this;
@@ -329,7 +328,7 @@ public class OriginalPOITransaction {
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getAmountValue() {
+  public Double getAmountValue() {
     return amountValue;
   }
 
@@ -340,7 +339,7 @@ public class OriginalPOITransaction {
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmountValue(BigDecimal amountValue) {
+  public void setAmountValue(Double amountValue) {
     this.amountValue = amountValue;
     isSetAmountValue = true; // mark as set
   }

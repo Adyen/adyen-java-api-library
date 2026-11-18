@@ -38,13 +38,13 @@ public class ReconciliationRequest {
   private boolean isSetReconciliationType = false;
 
   public static final String JSON_PROPERTY_ACQUIRER_I_D = "AcquirerID";
-  private List<Integer> acquirerID;
+  private List<String> acquirerID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAcquirerID = false;
 
   public static final String JSON_PROPERTY_PO_I_RECONCILIATION_I_D = "POIReconciliationID";
-  private Integer poIReconciliationID;
+  private String poIReconciliationID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPoIReconciliationID = false;
@@ -100,13 +100,13 @@ public class ReconciliationRequest {
    *     is AcquirerReconciliation or AcquirerSynchronisation.
    * @return the current {@code ReconciliationRequest} instance, allowing for method chaining
    */
-  public ReconciliationRequest acquirerID(List<Integer> acquirerID) {
+  public ReconciliationRequest acquirerID(List<String> acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
     return this;
   }
 
-  public ReconciliationRequest addAcquirerIDItem(Integer acquirerIDItem) {
+  public ReconciliationRequest addAcquirerIDItem(String acquirerIDItem) {
     if (this.acquirerID == null) {
       this.acquirerID = new ArrayList<>();
     }
@@ -123,7 +123,7 @@ public class ReconciliationRequest {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Integer> getAcquirerID() {
+  public List<String> getAcquirerID() {
     return acquirerID;
   }
 
@@ -136,7 +136,7 @@ public class ReconciliationRequest {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAcquirerID(List<Integer> acquirerID) {
+  public void setAcquirerID(List<String> acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
   }
@@ -149,7 +149,7 @@ public class ReconciliationRequest {
    *     Absent if ReconciliationType is not PreviousReconciliation.
    * @return the current {@code ReconciliationRequest} instance, allowing for method chaining
    */
-  public ReconciliationRequest poIReconciliationID(Integer poIReconciliationID) {
+  public ReconciliationRequest poIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
     return this;
@@ -164,7 +164,7 @@ public class ReconciliationRequest {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPoIReconciliationID() {
+  public String getPoIReconciliationID() {
     return poIReconciliationID;
   }
 
@@ -177,7 +177,7 @@ public class ReconciliationRequest {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIReconciliationID(Integer poIReconciliationID) {
+  public void setPoIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
   }
