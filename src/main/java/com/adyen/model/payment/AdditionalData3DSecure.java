@@ -279,16 +279,23 @@ public class AdditionalData3DSecure {
   /**
    * Indicates if you want to perform 3D Secure authentication on a transaction. &gt; Alternatively,
    * you can use [Dynamic 3D Secure](/risk-management/dynamic-3d-secure) to configure rules for
-   * applying 3D Secure. Possible values: * **true** – Perform 3D Secure authentication. * **false**
-   * – Don&#39;t perform 3D Secure authentication. Note that this setting results in refusals if the
-   * issuer mandates 3D Secure because of the PSD2 directive or other, national regulations.
+   * applying 3D Secure. Possible values: * **true** – Perform 3D Secure authentication. For
+   * browser-based payments, make sure the payment request also contains complete
+   * &#x60;browserInfo&#x60; and, for the Checkout API, &#x60;origin&#x60;. Without them, 3D Secure
+   * 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **false** – Don&#39;t perform 3D Secure authentication. Note that this setting results in
+   * refusals if the issuer mandates 3D Secure because of the PSD2 directive or other, national
+   * regulations.
    *
    * @param executeThreeD Indicates if you want to perform 3D Secure authentication on a
    *     transaction. &gt; Alternatively, you can use [Dynamic 3D
    *     Secure](/risk-management/dynamic-3d-secure) to configure rules for applying 3D Secure.
-   *     Possible values: * **true** – Perform 3D Secure authentication. * **false** – Don&#39;t
-   *     perform 3D Secure authentication. Note that this setting results in refusals if the issuer
-   *     mandates 3D Secure because of the PSD2 directive or other, national regulations.
+   *     Possible values: * **true** – Perform 3D Secure authentication. For browser-based payments,
+   *     make sure the payment request also contains complete &#x60;browserInfo&#x60; and, for the
+   *     Checkout API, &#x60;origin&#x60;. Without them, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. * **false** – Don&#39;t perform 3D
+   *     Secure authentication. Note that this setting results in refusals if the issuer mandates 3D
+   *     Secure because of the PSD2 directive or other, national regulations.
    * @return the current {@code AdditionalData3DSecure} instance, allowing for method chaining
    */
   public AdditionalData3DSecure executeThreeD(String executeThreeD) {
@@ -300,16 +307,23 @@ public class AdditionalData3DSecure {
   /**
    * Indicates if you want to perform 3D Secure authentication on a transaction. &gt; Alternatively,
    * you can use [Dynamic 3D Secure](/risk-management/dynamic-3d-secure) to configure rules for
-   * applying 3D Secure. Possible values: * **true** – Perform 3D Secure authentication. * **false**
-   * – Don&#39;t perform 3D Secure authentication. Note that this setting results in refusals if the
-   * issuer mandates 3D Secure because of the PSD2 directive or other, national regulations.
+   * applying 3D Secure. Possible values: * **true** – Perform 3D Secure authentication. For
+   * browser-based payments, make sure the payment request also contains complete
+   * &#x60;browserInfo&#x60; and, for the Checkout API, &#x60;origin&#x60;. Without them, 3D Secure
+   * 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **false** – Don&#39;t perform 3D Secure authentication. Note that this setting results in
+   * refusals if the issuer mandates 3D Secure because of the PSD2 directive or other, national
+   * regulations.
    *
    * @return executeThreeD Indicates if you want to perform 3D Secure authentication on a
    *     transaction. &gt; Alternatively, you can use [Dynamic 3D
    *     Secure](/risk-management/dynamic-3d-secure) to configure rules for applying 3D Secure.
-   *     Possible values: * **true** – Perform 3D Secure authentication. * **false** – Don&#39;t
-   *     perform 3D Secure authentication. Note that this setting results in refusals if the issuer
-   *     mandates 3D Secure because of the PSD2 directive or other, national regulations.
+   *     Possible values: * **true** – Perform 3D Secure authentication. For browser-based payments,
+   *     make sure the payment request also contains complete &#x60;browserInfo&#x60; and, for the
+   *     Checkout API, &#x60;origin&#x60;. Without them, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. * **false** – Don&#39;t perform 3D
+   *     Secure authentication. Note that this setting results in refusals if the issuer mandates 3D
+   *     Secure because of the PSD2 directive or other, national regulations.
    */
   @JsonProperty(JSON_PROPERTY_EXECUTE_THREE_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,16 +334,23 @@ public class AdditionalData3DSecure {
   /**
    * Indicates if you want to perform 3D Secure authentication on a transaction. &gt; Alternatively,
    * you can use [Dynamic 3D Secure](/risk-management/dynamic-3d-secure) to configure rules for
-   * applying 3D Secure. Possible values: * **true** – Perform 3D Secure authentication. * **false**
-   * – Don&#39;t perform 3D Secure authentication. Note that this setting results in refusals if the
-   * issuer mandates 3D Secure because of the PSD2 directive or other, national regulations.
+   * applying 3D Secure. Possible values: * **true** – Perform 3D Secure authentication. For
+   * browser-based payments, make sure the payment request also contains complete
+   * &#x60;browserInfo&#x60; and, for the Checkout API, &#x60;origin&#x60;. Without them, 3D Secure
+   * 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **false** – Don&#39;t perform 3D Secure authentication. Note that this setting results in
+   * refusals if the issuer mandates 3D Secure because of the PSD2 directive or other, national
+   * regulations.
    *
    * @param executeThreeD Indicates if you want to perform 3D Secure authentication on a
    *     transaction. &gt; Alternatively, you can use [Dynamic 3D
    *     Secure](/risk-management/dynamic-3d-secure) to configure rules for applying 3D Secure.
-   *     Possible values: * **true** – Perform 3D Secure authentication. * **false** – Don&#39;t
-   *     perform 3D Secure authentication. Note that this setting results in refusals if the issuer
-   *     mandates 3D Secure because of the PSD2 directive or other, national regulations.
+   *     Possible values: * **true** – Perform 3D Secure authentication. For browser-based payments,
+   *     make sure the payment request also contains complete &#x60;browserInfo&#x60; and, for the
+   *     Checkout API, &#x60;origin&#x60;. Without them, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. * **false** – Don&#39;t perform 3D
+   *     Secure authentication. Note that this setting results in refusals if the issuer mandates 3D
+   *     Secure because of the PSD2 directive or other, national regulations.
    */
   @JsonProperty(JSON_PROPERTY_EXECUTE_THREE_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
