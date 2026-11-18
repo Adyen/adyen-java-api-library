@@ -53,9 +53,10 @@ public class VerifiedShopperTaxIdentification {
   public VerifiedShopperTaxIdentification() {}
 
   /**
-   * The masked name of the tax identification holder.
+   * The masked name of the tax identification holder. The full name is not returned.
    *
-   * @param maskedName The masked name of the tax identification holder.
+   * @param maskedName The masked name of the tax identification holder. The full name is not
+   *     returned.
    * @return the current {@code VerifiedShopperTaxIdentification} instance, allowing for method
    *     chaining
    */
@@ -66,9 +67,10 @@ public class VerifiedShopperTaxIdentification {
   }
 
   /**
-   * The masked name of the tax identification holder.
+   * The masked name of the tax identification holder. The full name is not returned.
    *
-   * @return maskedName The masked name of the tax identification holder.
+   * @return maskedName The masked name of the tax identification holder. The full name is not
+   *     returned.
    */
   @JsonProperty(JSON_PROPERTY_MASKED_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,9 +79,10 @@ public class VerifiedShopperTaxIdentification {
   }
 
   /**
-   * The masked name of the tax identification holder.
+   * The masked name of the tax identification holder. The full name is not returned.
    *
-   * @param maskedName The masked name of the tax identification holder.
+   * @param maskedName The masked name of the tax identification holder. The full name is not
+   *     returned.
    */
   @JsonProperty(JSON_PROPERTY_MASKED_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,9 +92,12 @@ public class VerifiedShopperTaxIdentification {
   }
 
   /**
-   * The country governing the shopper&#39;s tax processing.
+   * The two-letter country code governing the shopper&#39;s tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @param taxCountryCode The country governing the shopper&#39;s tax processing.
+   * @param taxCountryCode The two-letter country code governing the shopper&#39;s tax processing,
+   *     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported
+   *     value: **IN**.
    * @return the current {@code VerifiedShopperTaxIdentification} instance, allowing for method
    *     chaining
    */
@@ -102,9 +108,12 @@ public class VerifiedShopperTaxIdentification {
   }
 
   /**
-   * The country governing the shopper&#39;s tax processing.
+   * The two-letter country code governing the shopper&#39;s tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @return taxCountryCode The country governing the shopper&#39;s tax processing.
+   * @return taxCountryCode The two-letter country code governing the shopper&#39;s tax processing,
+   *     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported
+   *     value: **IN**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,9 +122,12 @@ public class VerifiedShopperTaxIdentification {
   }
 
   /**
-   * The country governing the shopper&#39;s tax processing.
+   * The two-letter country code governing the shopper&#39;s tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @param taxCountryCode The country governing the shopper&#39;s tax processing.
+   * @param taxCountryCode The two-letter country code governing the shopper&#39;s tax processing,
+   *     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported
+   *     value: **IN**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

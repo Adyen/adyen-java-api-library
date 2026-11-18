@@ -30,6 +30,7 @@ import java.util.logging.Logger;
   ExternalTokenDetails.JSON_PROPERTY_EXPIRY_YEAR,
   ExternalTokenDetails.JSON_PROPERTY_HOLDER_NAME,
   ExternalTokenDetails.JSON_PROPERTY_NUMBER,
+  ExternalTokenDetails.JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE,
   ExternalTokenDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   ExternalTokenDetails.JSON_PROPERTY_SUBTYPE,
   ExternalTokenDetails.JSON_PROPERTY_TYPE
@@ -64,6 +65,12 @@ public class ExternalTokenDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetNumber = false;
+
+  public static final String JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE = "storeClickToPayProfile";
+  private Boolean storeClickToPayProfile;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreClickToPayProfile = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -366,6 +373,56 @@ public class ExternalTokenDetails {
   }
 
   /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @param storeClickToPayProfile When enrolling a new user, this field determines whether to store
+   *     the shopper&#39;s card in their Click to Pay profile. When this is set to **True**, the
+   *     request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   * @return the current {@code ExternalTokenDetails} instance, allowing for method chaining
+   */
+  public ExternalTokenDetails storeClickToPayProfile(Boolean storeClickToPayProfile) {
+    this.storeClickToPayProfile = storeClickToPayProfile;
+    isSetStoreClickToPayProfile = true; // mark as set
+    return this;
+  }
+
+  /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @return storeClickToPayProfile When enrolling a new user, this field determines whether to
+   *     store the shopper&#39;s card in their Click to Pay profile. When this is set to **True**,
+   *     the request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getStoreClickToPayProfile() {
+    return storeClickToPayProfile;
+  }
+
+  /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @param storeClickToPayProfile When enrolling a new user, this field determines whether to store
+   *     the shopper&#39;s card in their Click to Pay profile. When this is set to **True**, the
+   *     request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreClickToPayProfile(Boolean storeClickToPayProfile) {
+    this.storeClickToPayProfile = storeClickToPayProfile;
+    isSetStoreClickToPayProfile = true; // mark as set
+  }
+
+  /**
    * Identifier used to fetch the token from the external service
    *
    * @param storedPaymentMethodId Identifier used to fetch the token from the external service
@@ -516,6 +573,9 @@ public class ExternalTokenDetails {
         && Objects.equals(this.isSetHolderName, externalTokenDetails.isSetHolderName)
         && Objects.equals(this.number, externalTokenDetails.number)
         && Objects.equals(this.isSetNumber, externalTokenDetails.isSetNumber)
+        && Objects.equals(this.storeClickToPayProfile, externalTokenDetails.storeClickToPayProfile)
+        && Objects.equals(
+            this.isSetStoreClickToPayProfile, externalTokenDetails.isSetStoreClickToPayProfile)
         && Objects.equals(this.storedPaymentMethodId, externalTokenDetails.storedPaymentMethodId)
         && Objects.equals(
             this.isSetStoredPaymentMethodId, externalTokenDetails.isSetStoredPaymentMethodId)
@@ -538,6 +598,8 @@ public class ExternalTokenDetails {
         isSetHolderName,
         number,
         isSetNumber,
+        storeClickToPayProfile,
+        isSetStoreClickToPayProfile,
         storedPaymentMethodId,
         isSetStoredPaymentMethodId,
         subtype,
@@ -555,6 +617,9 @@ public class ExternalTokenDetails {
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    storeClickToPayProfile: ")
+        .append(toIndentedString(storeClickToPayProfile))
+        .append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");
@@ -598,6 +663,9 @@ public class ExternalTokenDetails {
     }
     if (isSetNumber) {
       addIfNull(nulls, JSON_PROPERTY_NUMBER, this.number);
+    }
+    if (isSetStoreClickToPayProfile) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE, this.storeClickToPayProfile);
     }
     if (isSetStoredPaymentMethodId) {
       addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);

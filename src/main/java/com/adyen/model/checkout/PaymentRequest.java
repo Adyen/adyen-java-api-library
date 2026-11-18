@@ -93,6 +93,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_SHOPPER_NAME,
   PaymentRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
   PaymentRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_TAX_IDENTIFICATION,
   PaymentRequest.JSON_PROPERTY_SHOPPER_TAX_INFO,
   PaymentRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
   PaymentRequest.JSON_PROPERTY_SPLITS,
@@ -100,6 +101,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
   PaymentRequest.JSON_PROPERTY_SUB_MERCHANTS,
   PaymentRequest.JSON_PROPERTY_SURCHARGE,
+  PaymentRequest.JSON_PROPERTY_TAX_CALCULATION,
   PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   PaymentRequest.JSON_PROPERTY_THIRD_PARTY_TOKEN_REDUNDANCY_INFO,
   PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
@@ -733,6 +735,12 @@ public class PaymentRequest {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetShopperStatement = false;
 
+  public static final String JSON_PROPERTY_SHOPPER_TAX_IDENTIFICATION = "shopperTaxIdentification";
+  private TokenizedShopperTaxIdentification shopperTaxIdentification;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperTaxIdentification = false;
+
   public static final String JSON_PROPERTY_SHOPPER_TAX_INFO = "shopperTaxInfo";
   private ShopperTaxInfo shopperTaxInfo;
 
@@ -774,6 +782,12 @@ public class PaymentRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSurcharge = false;
+
+  public static final String JSON_PROPERTY_TAX_CALCULATION = "taxCalculation";
+  private TokenizedTaxCalculation taxCalculation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxCalculation = false;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
@@ -2617,13 +2631,21 @@ public class PaymentRequest {
   }
 
   /**
-   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
-   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
-   * subdirectories and a trailing slash.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions. Set
+   * this to the origin URL of the page where you are rendering the Drop-in/Component. Do not
+   * include subdirectories and a trailing slash. &gt; If &#x60;origin&#x60; is missing or
+   * incorrect, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   * liability shift. Set this value on your server. If you receive it from the client, validate it
+   * first. For more information, see [3D Secure 2
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/).
    *
    * @param origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
-   *     transactions.Set this to the origin URL of the page where you are rendering the
-   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
+   *     transactions. Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash. &gt; If
+   *     &#x60;origin&#x60; is missing or incorrect, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. Set this value on your server. If
+   *     you receive it from the client, validate it first. For more information, see [3D Secure 2
+   *     authentication](https://docs.adyen.com/online-payments/3d-secure/).
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest origin(String origin) {
@@ -2633,13 +2655,21 @@ public class PaymentRequest {
   }
 
   /**
-   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
-   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
-   * subdirectories and a trailing slash.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions. Set
+   * this to the origin URL of the page where you are rendering the Drop-in/Component. Do not
+   * include subdirectories and a trailing slash. &gt; If &#x60;origin&#x60; is missing or
+   * incorrect, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   * liability shift. Set this value on your server. If you receive it from the client, validate it
+   * first. For more information, see [3D Secure 2
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/).
    *
    * @return origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
-   *     transactions.Set this to the origin URL of the page where you are rendering the
-   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
+   *     transactions. Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash. &gt; If
+   *     &#x60;origin&#x60; is missing or incorrect, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. Set this value on your server. If
+   *     you receive it from the client, validate it first. For more information, see [3D Secure 2
+   *     authentication](https://docs.adyen.com/online-payments/3d-secure/).
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2648,13 +2678,21 @@ public class PaymentRequest {
   }
 
   /**
-   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
-   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
-   * subdirectories and a trailing slash.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions. Set
+   * this to the origin URL of the page where you are rendering the Drop-in/Component. Do not
+   * include subdirectories and a trailing slash. &gt; If &#x60;origin&#x60; is missing or
+   * incorrect, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   * liability shift. Set this value on your server. If you receive it from the client, validate it
+   * first. For more information, see [3D Secure 2
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/).
    *
    * @param origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
-   *     transactions.Set this to the origin URL of the page where you are rendering the
-   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
+   *     transactions. Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash. &gt; If
+   *     &#x60;origin&#x60; is missing or incorrect, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. Set this value on your server. If
+   *     you receive it from the client, validate it first. For more information, see [3D Secure 2
+   *     authentication](https://docs.adyen.com/online-payments/3d-secure/).
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3719,6 +3757,43 @@ public class PaymentRequest {
   }
 
   /**
+   * shopperTaxIdentification
+   *
+   * @param shopperTaxIdentification
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest shopperTaxIdentification(
+      TokenizedShopperTaxIdentification shopperTaxIdentification) {
+    this.shopperTaxIdentification = shopperTaxIdentification;
+    isSetShopperTaxIdentification = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get shopperTaxIdentification
+   *
+   * @return shopperTaxIdentification
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_TAX_IDENTIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TokenizedShopperTaxIdentification getShopperTaxIdentification() {
+    return shopperTaxIdentification;
+  }
+
+  /**
+   * shopperTaxIdentification
+   *
+   * @param shopperTaxIdentification
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_TAX_IDENTIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperTaxIdentification(
+      TokenizedShopperTaxIdentification shopperTaxIdentification) {
+    this.shopperTaxIdentification = shopperTaxIdentification;
+    isSetShopperTaxIdentification = true; // mark as set
+  }
+
+  /**
    * shopperTaxInfo
    *
    * @param shopperTaxInfo
@@ -4061,6 +4136,41 @@ public class PaymentRequest {
   }
 
   /**
+   * taxCalculation
+   *
+   * @param taxCalculation
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest taxCalculation(TokenizedTaxCalculation taxCalculation) {
+    this.taxCalculation = taxCalculation;
+    isSetTaxCalculation = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get taxCalculation
+   *
+   * @return taxCalculation
+   */
+  @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TokenizedTaxCalculation getTaxCalculation() {
+    return taxCalculation;
+  }
+
+  /**
+   * taxCalculation
+   *
+   * @param taxCalculation
+   */
+  @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTaxCalculation(TokenizedTaxCalculation taxCalculation) {
+    this.taxCalculation = taxCalculation;
+    isSetTaxCalculation = true; // mark as set
+  }
+
+  /**
    * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
    * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
    * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
@@ -4195,12 +4305,12 @@ public class PaymentRequest {
    * Required to trigger the [authentication-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   * payment authorisation.Default: **false**.
+   * payment authorization. Default: **false**.
    *
    * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
    *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   *     payment authorisation.Default: **false**.
+   *     payment authorization. Default: **false**.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v69 Use `authenticationData.authenticationOnly` instead.
    */
@@ -4215,12 +4325,12 @@ public class PaymentRequest {
    * Required to trigger the [authentication-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   * payment authorisation.Default: **false**.
+   * payment authorization. Default: **false**.
    *
    * @return threeDSAuthenticationOnly Required to trigger the [authentication-only
    *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   *     payment authorisation.Default: **false**.
+   *     payment authorization. Default: **false**.
    * @deprecated since Adyen Checkout API v69 Use `authenticationData.authenticationOnly` instead.
    */
   @Deprecated
@@ -4234,12 +4344,12 @@ public class PaymentRequest {
    * Required to trigger the [authentication-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   * payment authorisation.Default: **false**.
+   * payment authorization. Default: **false**.
    *
    * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
    *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   *     payment authorisation.Default: **false**.
+   *     payment authorization. Default: **false**.
    * @deprecated since Adyen Checkout API v69 Use `authenticationData.authenticationOnly` instead.
    */
   @Deprecated
@@ -4448,6 +4558,9 @@ public class PaymentRequest {
         && Objects.equals(this.isSetShopperReference, paymentRequest.isSetShopperReference)
         && Objects.equals(this.shopperStatement, paymentRequest.shopperStatement)
         && Objects.equals(this.isSetShopperStatement, paymentRequest.isSetShopperStatement)
+        && Objects.equals(this.shopperTaxIdentification, paymentRequest.shopperTaxIdentification)
+        && Objects.equals(
+            this.isSetShopperTaxIdentification, paymentRequest.isSetShopperTaxIdentification)
         && Objects.equals(this.shopperTaxInfo, paymentRequest.shopperTaxInfo)
         && Objects.equals(this.isSetShopperTaxInfo, paymentRequest.isSetShopperTaxInfo)
         && Objects.equals(this.socialSecurityNumber, paymentRequest.socialSecurityNumber)
@@ -4462,6 +4575,8 @@ public class PaymentRequest {
         && Objects.equals(this.isSetSubMerchants, paymentRequest.isSetSubMerchants)
         && Objects.equals(this.surcharge, paymentRequest.surcharge)
         && Objects.equals(this.isSetSurcharge, paymentRequest.isSetSurcharge)
+        && Objects.equals(this.taxCalculation, paymentRequest.taxCalculation)
+        && Objects.equals(this.isSetTaxCalculation, paymentRequest.isSetTaxCalculation)
         && Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber)
         && Objects.equals(this.isSetTelephoneNumber, paymentRequest.isSetTelephoneNumber)
         && Objects.equals(
@@ -4607,6 +4722,8 @@ public class PaymentRequest {
         isSetShopperReference,
         shopperStatement,
         isSetShopperStatement,
+        shopperTaxIdentification,
+        isSetShopperTaxIdentification,
         shopperTaxInfo,
         isSetShopperTaxInfo,
         socialSecurityNumber,
@@ -4621,6 +4738,8 @@ public class PaymentRequest {
         isSetSubMerchants,
         surcharge,
         isSetSurcharge,
+        taxCalculation,
+        isSetTaxCalculation,
         telephoneNumber,
         isSetTelephoneNumber,
         thirdPartyTokenRedundancyInfo,
@@ -4716,6 +4835,9 @@ public class PaymentRequest {
     sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
+    sb.append("    shopperTaxIdentification: ")
+        .append(toIndentedString(shopperTaxIdentification))
+        .append("\n");
     sb.append("    shopperTaxInfo: ").append(toIndentedString(shopperTaxInfo)).append("\n");
     sb.append("    socialSecurityNumber: ")
         .append(toIndentedString(socialSecurityNumber))
@@ -4725,6 +4847,7 @@ public class PaymentRequest {
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
     sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
     sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
+    sb.append("    taxCalculation: ").append(toIndentedString(taxCalculation)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    thirdPartyTokenRedundancyInfo: ")
         .append(toIndentedString(thirdPartyTokenRedundancyInfo))
@@ -4949,6 +5072,9 @@ public class PaymentRequest {
     if (isSetShopperStatement) {
       addIfNull(nulls, JSON_PROPERTY_SHOPPER_STATEMENT, this.shopperStatement);
     }
+    if (isSetShopperTaxIdentification) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_TAX_IDENTIFICATION, this.shopperTaxIdentification);
+    }
     if (isSetShopperTaxInfo) {
       addIfNull(nulls, JSON_PROPERTY_SHOPPER_TAX_INFO, this.shopperTaxInfo);
     }
@@ -4969,6 +5095,9 @@ public class PaymentRequest {
     }
     if (isSetSurcharge) {
       addIfNull(nulls, JSON_PROPERTY_SURCHARGE, this.surcharge);
+    }
+    if (isSetTaxCalculation) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_CALCULATION, this.taxCalculation);
     }
     if (isSetTelephoneNumber) {
       addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);

@@ -44,10 +44,12 @@ public class TaxAmount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    * @return the current {@code TaxAmount} instance, allowing for method chaining
    */
   public TaxAmount currency(String currency) {
@@ -58,10 +60,12 @@ public class TaxAmount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @return currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,10 +75,12 @@ public class TaxAmount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,10 +90,11 @@ public class TaxAmount {
   }
 
   /**
-   * The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The numeric value of the amount, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @param value The numeric value of the amount, in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return the current {@code TaxAmount} instance, allowing for method chaining
    */
   public TaxAmount value(Long value) {
@@ -97,11 +104,12 @@ public class TaxAmount {
   }
 
   /**
-   * The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * minimum: 0
+   * The numeric value of the amount, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes#minor-units). minimum: 0
+   * maximum: 10000000000
    *
-   * @return value The amount in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @return value The numeric value of the amount, in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,10 +118,11 @@ public class TaxAmount {
   }
 
   /**
-   * The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The numeric value of the amount, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount in [minor
-   *     units](https://docs.adyen.com/development-resources/currency-codes).
+   * @param value The numeric value of the amount, in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
