@@ -26,7 +26,7 @@ import java.util.*;
 })
 public class HostStatus {
   public static final String JSON_PROPERTY_ACQUIRER_I_D = "AcquirerID";
-  private Integer acquirerID;
+  private String acquirerID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAcquirerID = false;
@@ -51,7 +51,7 @@ public class HostStatus {
    * @param acquirerID Identification of the Acquirer.
    * @return the current {@code HostStatus} instance, allowing for method chaining
    */
-  public HostStatus acquirerID(Integer acquirerID) {
+  public HostStatus acquirerID(String acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
     return this;
@@ -64,7 +64,7 @@ public class HostStatus {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getAcquirerID() {
+  public String getAcquirerID() {
     return acquirerID;
   }
 
@@ -75,7 +75,7 @@ public class HostStatus {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAcquirerID(Integer acquirerID) {
+  public void setAcquirerID(String acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
   }

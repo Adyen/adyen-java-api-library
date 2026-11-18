@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +52,7 @@ public class ReversalResponse {
   private boolean isSetOriginalPOITransaction = false;
 
   public static final String JSON_PROPERTY_REVERSED_AMOUNT = "ReversedAmount";
-  private BigDecimal reversedAmount;
+  private Double reversedAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetReversedAmount = false;
@@ -183,7 +182,7 @@ public class ReversalResponse {
    * @param reversedAmount Amount of the payment or loyalty to reverse. Copy.
    * @return the current {@code ReversalResponse} instance, allowing for method chaining
    */
-  public ReversalResponse reversedAmount(BigDecimal reversedAmount) {
+  public ReversalResponse reversedAmount(Double reversedAmount) {
     this.reversedAmount = reversedAmount;
     isSetReversedAmount = true; // mark as set
     return this;
@@ -196,7 +195,7 @@ public class ReversalResponse {
    */
   @JsonProperty(JSON_PROPERTY_REVERSED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getReversedAmount() {
+  public Double getReversedAmount() {
     return reversedAmount;
   }
 
@@ -207,7 +206,7 @@ public class ReversalResponse {
    */
   @JsonProperty(JSON_PROPERTY_REVERSED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReversedAmount(BigDecimal reversedAmount) {
+  public void setReversedAmount(Double reversedAmount) {
     this.reversedAmount = reversedAmount;
     isSetReversedAmount = true; // mark as set
   }

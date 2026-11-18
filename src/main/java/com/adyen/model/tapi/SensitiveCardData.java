@@ -37,19 +37,19 @@ import java.util.List;
 })
 public class SensitiveCardData {
   public static final String JSON_PROPERTY_P_A_N = "PAN";
-  private Integer PAN;
+  private String PAN;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPAN = false;
 
   public static final String JSON_PROPERTY_CARD_SEQ_NUMB = "CardSeqNumb";
-  private Integer cardSeqNumb;
+  private String cardSeqNumb;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardSeqNumb = false;
 
   public static final String JSON_PROPERTY_EXPIRY_DATE = "ExpiryDate";
-  private Integer expiryDate;
+  private String expiryDate;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExpiryDate = false;
@@ -74,20 +74,20 @@ public class SensitiveCardData {
    * @param PAN Primary Account Number.
    * @return the current {@code SensitiveCardData} instance, allowing for method chaining
    */
-  public SensitiveCardData PAN(Integer PAN) {
+  public SensitiveCardData PAN(String PAN) {
     this.PAN = PAN;
     isSetPAN = true; // mark as set
     return this;
   }
 
   /**
-   * Primary Account Number. minimum: 8 maximum: 28
+   * Primary Account Number.
    *
    * @return PAN Primary Account Number.
    */
   @JsonProperty(JSON_PROPERTY_P_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPAN() {
+  public String getPAN() {
     return PAN;
   }
 
@@ -98,7 +98,7 @@ public class SensitiveCardData {
    */
   @JsonProperty(JSON_PROPERTY_P_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPAN(Integer PAN) {
+  public void setPAN(String PAN) {
     this.PAN = PAN;
     isSetPAN = true; // mark as set
   }
@@ -109,20 +109,20 @@ public class SensitiveCardData {
    * @param cardSeqNumb Card Sequence Number. If EntryMode is File, Keyed, or Manual.
    * @return the current {@code SensitiveCardData} instance, allowing for method chaining
    */
-  public SensitiveCardData cardSeqNumb(Integer cardSeqNumb) {
+  public SensitiveCardData cardSeqNumb(String cardSeqNumb) {
     this.cardSeqNumb = cardSeqNumb;
     isSetCardSeqNumb = true; // mark as set
     return this;
   }
 
   /**
-   * Card Sequence Number. If EntryMode is File, Keyed, or Manual. minimum: 2 maximum: 3
+   * Card Sequence Number. If EntryMode is File, Keyed, or Manual.
    *
    * @return cardSeqNumb Card Sequence Number. If EntryMode is File, Keyed, or Manual.
    */
   @JsonProperty(JSON_PROPERTY_CARD_SEQ_NUMB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCardSeqNumb() {
+  public String getCardSeqNumb() {
     return cardSeqNumb;
   }
 
@@ -133,7 +133,7 @@ public class SensitiveCardData {
    */
   @JsonProperty(JSON_PROPERTY_CARD_SEQ_NUMB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardSeqNumb(Integer cardSeqNumb) {
+  public void setCardSeqNumb(String cardSeqNumb) {
     this.cardSeqNumb = cardSeqNumb;
     isSetCardSeqNumb = true; // mark as set
   }
@@ -144,20 +144,20 @@ public class SensitiveCardData {
    * @param expiryDate Date after which the card cannot be used. If EntryMode is File.
    * @return the current {@code SensitiveCardData} instance, allowing for method chaining
    */
-  public SensitiveCardData expiryDate(Integer expiryDate) {
+  public SensitiveCardData expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     isSetExpiryDate = true; // mark as set
     return this;
   }
 
   /**
-   * Date after which the card cannot be used. If EntryMode is File. minimum: 4 maximum: 4
+   * Date after which the card cannot be used. If EntryMode is File.
    *
    * @return expiryDate Date after which the card cannot be used. If EntryMode is File.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getExpiryDate() {
+  public String getExpiryDate() {
     return expiryDate;
   }
 
@@ -168,7 +168,7 @@ public class SensitiveCardData {
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiryDate(Integer expiryDate) {
+  public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     isSetExpiryDate = true; // mark as set
   }

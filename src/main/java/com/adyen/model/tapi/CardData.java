@@ -125,13 +125,13 @@ public class CardData {
   private boolean isSetEntryMode = false;
 
   public static final String JSON_PROPERTY_CARD_COUNTRY_CODE = "CardCountryCode";
-  private Integer cardCountryCode;
+  private String cardCountryCode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCardCountryCode = false;
 
   public static final String JSON_PROPERTY_PROTECTED_CARD_DATA = "ProtectedCardData";
-  private String protectedCardData;
+  private byte[] protectedCardData;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProtectedCardData = false;
@@ -371,21 +371,21 @@ public class CardData {
    *     card.
    * @return the current {@code CardData} instance, allowing for method chaining
    */
-  public CardData cardCountryCode(Integer cardCountryCode) {
+  public CardData cardCountryCode(String cardCountryCode) {
     this.cardCountryCode = cardCountryCode;
     isSetCardCountryCode = true; // mark as set
     return this;
   }
 
   /**
-   * Country Code attached to the card (3 numerics). If available in the card. minimum: 3 maximum: 3
+   * Country Code attached to the card (3 numerics). If available in the card.
    *
    * @return cardCountryCode Country Code attached to the card (3 numerics). If available in the
    *     card.
    */
   @JsonProperty(JSON_PROPERTY_CARD_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCardCountryCode() {
+  public String getCardCountryCode() {
     return cardCountryCode;
   }
 
@@ -397,7 +397,7 @@ public class CardData {
    */
   @JsonProperty(JSON_PROPERTY_CARD_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardCountryCode(Integer cardCountryCode) {
+  public void setCardCountryCode(String cardCountryCode) {
     this.cardCountryCode = cardCountryCode;
     isSetCardCountryCode = true; // mark as set
   }
@@ -410,7 +410,7 @@ public class CardData {
    *     SensitiveCardData protected by CMS EnvelopedData.
    * @return the current {@code CardData} instance, allowing for method chaining
    */
-  public CardData protectedCardData(String protectedCardData) {
+  public CardData protectedCardData(byte[] protectedCardData) {
     this.protectedCardData = protectedCardData;
     isSetProtectedCardData = true; // mark as set
     return this;
@@ -425,7 +425,7 @@ public class CardData {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProtectedCardData() {
+  public byte[] getProtectedCardData() {
     return protectedCardData;
   }
 
@@ -438,7 +438,7 @@ public class CardData {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProtectedCardData(String protectedCardData) {
+  public void setProtectedCardData(byte[] protectedCardData) {
     this.protectedCardData = protectedCardData;
     isSetProtectedCardData = true; // mark as set
   }
@@ -553,7 +553,7 @@ public class CardData {
         && Objects.equals(this.isSetEntryMode, cardData.isSetEntryMode)
         && Objects.equals(this.cardCountryCode, cardData.cardCountryCode)
         && Objects.equals(this.isSetCardCountryCode, cardData.isSetCardCountryCode)
-        && Objects.equals(this.protectedCardData, cardData.protectedCardData)
+        && Arrays.equals(this.protectedCardData, cardData.protectedCardData)
         && Objects.equals(this.isSetProtectedCardData, cardData.isSetProtectedCardData)
         && Objects.equals(this.sensitiveCardData, cardData.sensitiveCardData)
         && Objects.equals(this.isSetSensitiveCardData, cardData.isSetSensitiveCardData)
@@ -574,7 +574,7 @@ public class CardData {
         isSetEntryMode,
         cardCountryCode,
         isSetCardCountryCode,
-        protectedCardData,
+        Arrays.hashCode(protectedCardData),
         isSetProtectedCardData,
         sensitiveCardData,
         isSetSensitiveCardData,
