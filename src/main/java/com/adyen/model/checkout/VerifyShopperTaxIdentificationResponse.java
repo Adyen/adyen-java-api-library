@@ -76,9 +76,9 @@ public class VerifyShopperTaxIdentificationResponse {
   public VerifyShopperTaxIdentificationResponse() {}
 
   /**
-   * The human-readable reason for the unsuccessful result.
+   * The human-readable reason for an **INVALID** or **UNKNOWN** verification result.
    *
-   * @param reason The human-readable reason for the unsuccessful result.
+   * @param reason The human-readable reason for an **INVALID** or **UNKNOWN** verification result.
    * @return the current {@code VerifyShopperTaxIdentificationResponse} instance, allowing for
    *     method chaining
    */
@@ -89,9 +89,9 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The human-readable reason for the unsuccessful result.
+   * The human-readable reason for an **INVALID** or **UNKNOWN** verification result.
    *
-   * @return reason The human-readable reason for the unsuccessful result.
+   * @return reason The human-readable reason for an **INVALID** or **UNKNOWN** verification result.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,9 +100,9 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The human-readable reason for the unsuccessful result.
+   * The human-readable reason for an **INVALID** or **UNKNOWN** verification result.
    *
-   * @param reason The human-readable reason for the unsuccessful result.
+   * @param reason The human-readable reason for an **INVALID** or **UNKNOWN** verification result.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,9 +112,9 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The reason code for the unsuccessful result, when available.
+   * The code for an unsuccessful verification, if available.
    *
-   * @param reasonCode The reason code for the unsuccessful result, when available.
+   * @param reasonCode The code for an unsuccessful verification, if available.
    * @return the current {@code VerifyShopperTaxIdentificationResponse} instance, allowing for
    *     method chaining
    */
@@ -125,9 +125,9 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The reason code for the unsuccessful result, when available.
+   * The code for an unsuccessful verification, if available.
    *
-   * @return reasonCode The reason code for the unsuccessful result, when available.
+   * @return reasonCode The code for an unsuccessful verification, if available.
    */
   @JsonProperty(JSON_PROPERTY_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,9 +136,9 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The reason code for the unsuccessful result, when available.
+   * The code for an unsuccessful verification, if available.
    *
-   * @param reasonCode The reason code for the unsuccessful result, when available.
+   * @param reasonCode The code for an unsuccessful verification, if available.
    */
   @JsonProperty(JSON_PROPERTY_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,9 +184,10 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The unique reference for the verification attempt.
+   * The unique reference for the verification. Returned only when &#x60;result&#x60; is **VALID**.
    *
-   * @param taxVerificationReference The unique reference for the verification attempt.
+   * @param taxVerificationReference The unique reference for the verification. Returned only when
+   *     &#x60;result&#x60; is **VALID**.
    * @return the current {@code VerifyShopperTaxIdentificationResponse} instance, allowing for
    *     method chaining
    */
@@ -198,9 +199,10 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The unique reference for the verification attempt.
+   * The unique reference for the verification. Returned only when &#x60;result&#x60; is **VALID**.
    *
-   * @return taxVerificationReference The unique reference for the verification attempt.
+   * @return taxVerificationReference The unique reference for the verification. Returned only when
+   *     &#x60;result&#x60; is **VALID**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_VERIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,9 +211,10 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The unique reference for the verification attempt.
+   * The unique reference for the verification. Returned only when &#x60;result&#x60; is **VALID**.
    *
-   * @param taxVerificationReference The unique reference for the verification attempt.
+   * @param taxVerificationReference The unique reference for the verification. Returned only when
+   *     &#x60;result&#x60; is **VALID**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_VERIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,11 +262,15 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The opaque, encrypted, and signed token representing the successful verification. Required in
-   * /payments.
+   * The encrypted and signed token representing a successful verification. Returned only when
+   * &#x60;result&#x60; is **VALID**. Submit this value as
+   * &#x60;shopperTaxIdentification.verifiedShopperTaxIdentificationToken&#x60; in
+   * &#x60;/payments&#x60; with the same &#x60;shopperReference&#x60; used for verification.
    *
-   * @param verifiedShopperTaxIdentificationToken The opaque, encrypted, and signed token
-   *     representing the successful verification. Required in /payments.
+   * @param verifiedShopperTaxIdentificationToken The encrypted and signed token representing a
+   *     successful verification. Returned only when &#x60;result&#x60; is **VALID**. Submit this
+   *     value as &#x60;shopperTaxIdentification.verifiedShopperTaxIdentificationToken&#x60; in
+   *     &#x60;/payments&#x60; with the same &#x60;shopperReference&#x60; used for verification.
    * @return the current {@code VerifyShopperTaxIdentificationResponse} instance, allowing for
    *     method chaining
    */
@@ -275,11 +282,15 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The opaque, encrypted, and signed token representing the successful verification. Required in
-   * /payments.
+   * The encrypted and signed token representing a successful verification. Returned only when
+   * &#x60;result&#x60; is **VALID**. Submit this value as
+   * &#x60;shopperTaxIdentification.verifiedShopperTaxIdentificationToken&#x60; in
+   * &#x60;/payments&#x60; with the same &#x60;shopperReference&#x60; used for verification.
    *
-   * @return verifiedShopperTaxIdentificationToken The opaque, encrypted, and signed token
-   *     representing the successful verification. Required in /payments.
+   * @return verifiedShopperTaxIdentificationToken The encrypted and signed token representing a
+   *     successful verification. Returned only when &#x60;result&#x60; is **VALID**. Submit this
+   *     value as &#x60;shopperTaxIdentification.verifiedShopperTaxIdentificationToken&#x60; in
+   *     &#x60;/payments&#x60; with the same &#x60;shopperReference&#x60; used for verification.
    */
   @JsonProperty(JSON_PROPERTY_VERIFIED_SHOPPER_TAX_IDENTIFICATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,11 +299,15 @@ public class VerifyShopperTaxIdentificationResponse {
   }
 
   /**
-   * The opaque, encrypted, and signed token representing the successful verification. Required in
-   * /payments.
+   * The encrypted and signed token representing a successful verification. Returned only when
+   * &#x60;result&#x60; is **VALID**. Submit this value as
+   * &#x60;shopperTaxIdentification.verifiedShopperTaxIdentificationToken&#x60; in
+   * &#x60;/payments&#x60; with the same &#x60;shopperReference&#x60; used for verification.
    *
-   * @param verifiedShopperTaxIdentificationToken The opaque, encrypted, and signed token
-   *     representing the successful verification. Required in /payments.
+   * @param verifiedShopperTaxIdentificationToken The encrypted and signed token representing a
+   *     successful verification. Returned only when &#x60;result&#x60; is **VALID**. Submit this
+   *     value as &#x60;shopperTaxIdentification.verifiedShopperTaxIdentificationToken&#x60; in
+   *     &#x60;/payments&#x60; with the same &#x60;shopperReference&#x60; used for verification.
    */
   @JsonProperty(JSON_PROPERTY_VERIFIED_SHOPPER_TAX_IDENTIFICATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

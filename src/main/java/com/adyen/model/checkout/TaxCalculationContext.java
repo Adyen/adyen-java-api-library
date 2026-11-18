@@ -123,9 +123,11 @@ public class TaxCalculationContext {
   }
 
   /**
-   * The country governing tax processing. Initially only IN is supported.
+   * The two-letter country code governing tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @param taxCountryCode The country governing tax processing. Initially only IN is supported.
+   * @param taxCountryCode The two-letter country code governing tax processing, in [ISO 3166-1
+   *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    * @return the current {@code TaxCalculationContext} instance, allowing for method chaining
    */
   public TaxCalculationContext taxCountryCode(String taxCountryCode) {
@@ -135,9 +137,11 @@ public class TaxCalculationContext {
   }
 
   /**
-   * The country governing tax processing. Initially only IN is supported.
+   * The two-letter country code governing tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @return taxCountryCode The country governing tax processing. Initially only IN is supported.
+   * @return taxCountryCode The two-letter country code governing tax processing, in [ISO 3166-1
+   *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,9 +150,11 @@ public class TaxCalculationContext {
   }
 
   /**
-   * The country governing tax processing. Initially only IN is supported.
+   * The two-letter country code governing tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @param taxCountryCode The country governing tax processing. Initially only IN is supported.
+   * @param taxCountryCode The two-letter country code governing tax processing, in [ISO 3166-1
+   *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

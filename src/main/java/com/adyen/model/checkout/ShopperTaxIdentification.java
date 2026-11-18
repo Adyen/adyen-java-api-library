@@ -53,10 +53,12 @@ public class ShopperTaxIdentification {
   public ShopperTaxIdentification() {}
 
   /**
-   * The country governing the shopper&#39;s tax processing. Initially only IN is supported.
+   * The two-letter country code governing the shopper&#39;s tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @param taxCountryCode The country governing the shopper&#39;s tax processing. Initially only IN
-   *     is supported.
+   * @param taxCountryCode The two-letter country code governing the shopper&#39;s tax processing,
+   *     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported
+   *     value: **IN**.
    * @return the current {@code ShopperTaxIdentification} instance, allowing for method chaining
    */
   public ShopperTaxIdentification taxCountryCode(String taxCountryCode) {
@@ -66,10 +68,12 @@ public class ShopperTaxIdentification {
   }
 
   /**
-   * The country governing the shopper&#39;s tax processing. Initially only IN is supported.
+   * The two-letter country code governing the shopper&#39;s tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @return taxCountryCode The country governing the shopper&#39;s tax processing. Initially only
-   *     IN is supported.
+   * @return taxCountryCode The two-letter country code governing the shopper&#39;s tax processing,
+   *     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported
+   *     value: **IN**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,10 +82,12 @@ public class ShopperTaxIdentification {
   }
 
   /**
-   * The country governing the shopper&#39;s tax processing. Initially only IN is supported.
+   * The two-letter country code governing the shopper&#39;s tax processing, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported value: **IN**.
    *
-   * @param taxCountryCode The country governing the shopper&#39;s tax processing. Initially only IN
-   *     is supported.
+   * @param taxCountryCode The two-letter country code governing the shopper&#39;s tax processing,
+   *     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. Supported
+   *     value: **IN**.
    */
   @JsonProperty(JSON_PROPERTY_TAX_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

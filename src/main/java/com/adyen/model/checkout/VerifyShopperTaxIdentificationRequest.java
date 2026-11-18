@@ -53,9 +53,10 @@ public class VerifyShopperTaxIdentificationRequest {
   public VerifyShopperTaxIdentificationRequest() {}
 
   /**
-   * The merchant account identifier requesting the tax verification.
+   * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount The merchant account identifier requesting the tax verification.
+   * @param merchantAccount The merchant account identifier, with which you want to process the
+   *     transaction.
    * @return the current {@code VerifyShopperTaxIdentificationRequest} instance, allowing for method
    *     chaining
    */
@@ -66,9 +67,10 @@ public class VerifyShopperTaxIdentificationRequest {
   }
 
   /**
-   * The merchant account identifier requesting the tax verification.
+   * The merchant account identifier, with which you want to process the transaction.
    *
-   * @return merchantAccount The merchant account identifier requesting the tax verification.
+   * @return merchantAccount The merchant account identifier, with which you want to process the
+   *     transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,9 +79,10 @@ public class VerifyShopperTaxIdentificationRequest {
   }
 
   /**
-   * The merchant account identifier requesting the tax verification.
+   * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount The merchant account identifier requesting the tax verification.
+   * @param merchantAccount The merchant account identifier, with which you want to process the
+   *     transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,14 +92,15 @@ public class VerifyShopperTaxIdentificationRequest {
   }
 
   /**
-   * Your reference to uniquely identify this shopper, for example user ID or account ID. Used to
-   * bind the verification to the shopper context. &gt; Your reference must not include personally
-   * identifiable information (PII), for example name or email address.
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
+   * is case-sensitive and must be at least three characters. Use the same
+   * &#x60;shopperReference&#x60; in &#x60;/payments&#x60;. &gt; Your reference must not include
+   * personally identifiable information (PII), for example name or email address.
    *
    * @param shopperReference Your reference to uniquely identify this shopper, for example user ID
-   *     or account ID. Used to bind the verification to the shopper context. &gt; Your reference
-   *     must not include personally identifiable information (PII), for example name or email
-   *     address.
+   *     or account ID. The value is case-sensitive and must be at least three characters. Use the
+   *     same &#x60;shopperReference&#x60; in &#x60;/payments&#x60;. &gt; Your reference must not
+   *     include personally identifiable information (PII), for example name or email address.
    * @return the current {@code VerifyShopperTaxIdentificationRequest} instance, allowing for method
    *     chaining
    */
@@ -107,14 +111,15 @@ public class VerifyShopperTaxIdentificationRequest {
   }
 
   /**
-   * Your reference to uniquely identify this shopper, for example user ID or account ID. Used to
-   * bind the verification to the shopper context. &gt; Your reference must not include personally
-   * identifiable information (PII), for example name or email address.
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
+   * is case-sensitive and must be at least three characters. Use the same
+   * &#x60;shopperReference&#x60; in &#x60;/payments&#x60;. &gt; Your reference must not include
+   * personally identifiable information (PII), for example name or email address.
    *
    * @return shopperReference Your reference to uniquely identify this shopper, for example user ID
-   *     or account ID. Used to bind the verification to the shopper context. &gt; Your reference
-   *     must not include personally identifiable information (PII), for example name or email
-   *     address.
+   *     or account ID. The value is case-sensitive and must be at least three characters. Use the
+   *     same &#x60;shopperReference&#x60; in &#x60;/payments&#x60;. &gt; Your reference must not
+   *     include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,14 +128,15 @@ public class VerifyShopperTaxIdentificationRequest {
   }
 
   /**
-   * Your reference to uniquely identify this shopper, for example user ID or account ID. Used to
-   * bind the verification to the shopper context. &gt; Your reference must not include personally
-   * identifiable information (PII), for example name or email address.
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
+   * is case-sensitive and must be at least three characters. Use the same
+   * &#x60;shopperReference&#x60; in &#x60;/payments&#x60;. &gt; Your reference must not include
+   * personally identifiable information (PII), for example name or email address.
    *
    * @param shopperReference Your reference to uniquely identify this shopper, for example user ID
-   *     or account ID. Used to bind the verification to the shopper context. &gt; Your reference
-   *     must not include personally identifiable information (PII), for example name or email
-   *     address.
+   *     or account ID. The value is case-sensitive and must be at least three characters. Use the
+   *     same &#x60;shopperReference&#x60; in &#x60;/payments&#x60;. &gt; Your reference must not
+   *     include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

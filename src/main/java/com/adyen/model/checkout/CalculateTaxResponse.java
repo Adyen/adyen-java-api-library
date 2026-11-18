@@ -88,9 +88,9 @@ public class CalculateTaxResponse {
   }
 
   /**
-   * The unique reference for this calculation attempt.
+   * The unique reference for the tax calculation.
    *
-   * @param taxCalculationReference The unique reference for this calculation attempt.
+   * @param taxCalculationReference The unique reference for the tax calculation.
    * @return the current {@code CalculateTaxResponse} instance, allowing for method chaining
    */
   public CalculateTaxResponse taxCalculationReference(String taxCalculationReference) {
@@ -100,9 +100,9 @@ public class CalculateTaxResponse {
   }
 
   /**
-   * The unique reference for this calculation attempt.
+   * The unique reference for the tax calculation.
    *
-   * @return taxCalculationReference The unique reference for this calculation attempt.
+   * @return taxCalculationReference The unique reference for the tax calculation.
    */
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,9 +111,9 @@ public class CalculateTaxResponse {
   }
 
   /**
-   * The unique reference for this calculation attempt.
+   * The unique reference for the tax calculation.
    *
-   * @param taxCalculationReference The unique reference for this calculation attempt.
+   * @param taxCalculationReference The unique reference for the tax calculation.
    */
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,11 +123,12 @@ public class CalculateTaxResponse {
   }
 
   /**
-   * The opaque, encrypted, and signed token that represents the complete canonical calculation.
-   * Required in /payments.
+   * The encrypted and signed token representing the tax calculation. Submit this value as
+   * &#x60;taxCalculation.taxCalculationToken&#x60; in &#x60;/payments&#x60;.
    *
-   * @param taxCalculationToken The opaque, encrypted, and signed token that represents the complete
-   *     canonical calculation. Required in /payments.
+   * @param taxCalculationToken The encrypted and signed token representing the tax calculation.
+   *     Submit this value as &#x60;taxCalculation.taxCalculationToken&#x60; in
+   *     &#x60;/payments&#x60;.
    * @return the current {@code CalculateTaxResponse} instance, allowing for method chaining
    */
   public CalculateTaxResponse taxCalculationToken(String taxCalculationToken) {
@@ -137,11 +138,12 @@ public class CalculateTaxResponse {
   }
 
   /**
-   * The opaque, encrypted, and signed token that represents the complete canonical calculation.
-   * Required in /payments.
+   * The encrypted and signed token representing the tax calculation. Submit this value as
+   * &#x60;taxCalculation.taxCalculationToken&#x60; in &#x60;/payments&#x60;.
    *
-   * @return taxCalculationToken The opaque, encrypted, and signed token that represents the
-   *     complete canonical calculation. Required in /payments.
+   * @return taxCalculationToken The encrypted and signed token representing the tax calculation.
+   *     Submit this value as &#x60;taxCalculation.taxCalculationToken&#x60; in
+   *     &#x60;/payments&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,11 +152,12 @@ public class CalculateTaxResponse {
   }
 
   /**
-   * The opaque, encrypted, and signed token that represents the complete canonical calculation.
-   * Required in /payments.
+   * The encrypted and signed token representing the tax calculation. Submit this value as
+   * &#x60;taxCalculation.taxCalculationToken&#x60; in &#x60;/payments&#x60;.
    *
-   * @param taxCalculationToken The opaque, encrypted, and signed token that represents the complete
-   *     canonical calculation. Required in /payments.
+   * @param taxCalculationToken The encrypted and signed token representing the tax calculation.
+   *     Submit this value as &#x60;taxCalculation.taxCalculationToken&#x60; in
+   *     &#x60;/payments&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
