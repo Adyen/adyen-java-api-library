@@ -631,11 +631,15 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         NetworkReason.NamespaceEnum.USACHCORRECTIONREASONCODE,
         NetworkReason.NamespaceEnum.fromValue("usAchCorrectionReasonCode"));
     assertEquals(
+        TransferData.CategoryEnum.INTEREST, TransferData.CategoryEnum.fromValue("interest"));
+    assertEquals(
         TransferData.StatusEnum.REVERSALRECEIVED,
         TransferData.StatusEnum.fromValue("reversalReceived"));
     assertEquals(
         TransferData.TypeEnum.BALANCEMIGRATION,
         TransferData.TypeEnum.fromValue("balanceMigration"));
+    assertEquals(
+        TransferData.TypeEnum.INTERESTPAYOUT, TransferData.TypeEnum.fromValue("interestPayout"));
     assertEquals(TransferData.TypeEnum.FXSELL, TransferData.TypeEnum.fromValue("fxSell"));
     assertEquals(TransferData.TypeEnum.FXBUY, TransferData.TypeEnum.fromValue("fxBuy"));
     assertEquals(

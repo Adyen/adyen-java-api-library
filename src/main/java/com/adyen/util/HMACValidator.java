@@ -73,7 +73,8 @@ public class HMACValidator {
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("Missing data or key: " + e.getMessage());
     } catch (DecoderException e) {
-      throw new IllegalArgumentException("Invalid Hex HMAC key: " + key);
+      throw new IllegalArgumentException(
+          "Invalid Hex HMAC key: it must be a hexadecimal string with an even number of characters");
     } catch (Exception e) {
       throw new SignatureException("Failed to generate HMAC: " + e.getMessage());
     }
