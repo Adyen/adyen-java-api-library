@@ -12,13 +12,14 @@ public class Client implements Closeable {
   private volatile ClientInterface httpClient;
   private Config config;
   public static final String LIB_NAME = "adyen-java-api-library";
-  public static final String LIB_VERSION = "43.1.0";
+  public static final String LIB_VERSION = "43.3.0";
   public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_US = "https://terminal-api-live-us.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_AU = "https://terminal-api-live-au.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_APSE =
       "https://terminal-api-live-apse.adyen.com";
+  public static final String TERMINAL_API_ENDPOINT_NEA = "https://terminal-api-live-nea.adyen.com";
 
   /** Create Client instance (empty config) */
   public Client() {

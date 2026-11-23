@@ -210,6 +210,36 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
+  public void testReversalTrue() throws Exception {
+    NotificationRequest notificationRequest =
+        readNotificationRequestFromFile("mocks/notification/reversal-true.json");
+
+    assertEquals(1, notificationRequest.getNotificationItems().size());
+
+    NotificationRequestItem notificationRequestItem =
+        notificationRequest.getNotificationItems().get(0);
+    assertEquals(
+        NotificationRequestItem.EVENT_CODE_REVERSAL, notificationRequestItem.getEventCode());
+    assertTrue(notificationRequestItem.isSuccess());
+    assertEquals("PSP_REFERENCE", notificationRequestItem.getPspReference());
+    assertEquals("ORIGINAL_PSP", notificationRequestItem.getOriginalReference());
+    assertNotNull(notificationRequestItem.getAmount());
+    assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
+    assertEquals(Long.valueOf(1500), notificationRequestItem.getAmount().getValue());
+    assertNotNull(notificationRequestItem.getAdditionalData());
+    assertEquals("refund", notificationRequestItem.getAdditionalData().get("modification.action"));
+    assertEquals(
+        "authorised", notificationRequestItem.getAdditionalData().get("modification.status"));
+    assertEquals(
+        "2024-05-21T14:32:00Z",
+        notificationRequestItem.getAdditionalData().get("cancellableUntil"));
+    assertEquals(
+        "REFUND_PSP_REFERENCE",
+        notificationRequestItem.getAdditionalData().get("refundPspReference"));
+    assertNotNull(notificationRequestItem.getEventDate());
+  }
+
+  @Test
   public void testOfferClosed() throws Exception {
     NotificationRequest notificationRequest =
         readNotificationRequestFromFile("mocks/notification/offer-closed.json");

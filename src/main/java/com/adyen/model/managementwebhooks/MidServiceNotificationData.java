@@ -52,7 +52,8 @@ public class MidServiceNotificationData {
   /**
    * The status of the request to add a payment method. Possible values: * **success**: the payment
    * method was added. * **failure**: the request failed. * **capabilityPending**: the
-   * **receivePayments** capability is not allowed.
+   * **receivePayments** capability is not allowed. A webhook with &#x60;status&#x60; **success** is
+   * the last webhook for that payment method.
    */
   public enum StatusEnum {
     SUCCESS(String.valueOf("success")),
@@ -111,6 +112,7 @@ public class MidServiceNotificationData {
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
+   * Only returned in webhooks that include the screening results for your merchant account.
    */
   public enum VerificationStatusEnum {
     VALID(String.valueOf("valid")),
@@ -163,10 +165,12 @@ public class MidServiceNotificationData {
 
   /**
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after
-   * screening your merchant account.
+   * screening your merchant account. Only returned in webhooks that include the screening results
+   * for your merchant account.
    *
    * @param allowed Indicates whether receiving payments is allowed. This value is set to **true**
-   *     by Adyen after screening your merchant account.
+   *     by Adyen after screening your merchant account. Only returned in webhooks that include the
+   *     screening results for your merchant account.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData allowed(Boolean allowed) {
@@ -176,10 +180,12 @@ public class MidServiceNotificationData {
 
   /**
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after
-   * screening your merchant account.
+   * screening your merchant account. Only returned in webhooks that include the screening results
+   * for your merchant account.
    *
    * @return allowed Indicates whether receiving payments is allowed. This value is set to **true**
-   *     by Adyen after screening your merchant account.
+   *     by Adyen after screening your merchant account. Only returned in webhooks that include the
+   *     screening results for your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,10 +195,12 @@ public class MidServiceNotificationData {
 
   /**
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after
-   * screening your merchant account.
+   * screening your merchant account. Only returned in webhooks that include the screening results
+   * for your merchant account.
    *
    * @param allowed Indicates whether receiving payments is allowed. This value is set to **true**
-   *     by Adyen after screening your merchant account.
+   *     by Adyen after screening your merchant account. Only returned in webhooks that include the
+   *     screening results for your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,10 +209,12 @@ public class MidServiceNotificationData {
   }
 
   /**
-   * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+   * Indicates whether the payment method is enabled (**true**) or disabled (**false**). Only
+   * reliable in webhooks that include the screening results for your merchant account.
    *
    * @param enabled Indicates whether the payment method is enabled (**true**) or disabled
-   *     (**false**).
+   *     (**false**). Only reliable in webhooks that include the screening results for your merchant
+   *     account.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData enabled(Boolean enabled) {
@@ -213,10 +223,12 @@ public class MidServiceNotificationData {
   }
 
   /**
-   * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+   * Indicates whether the payment method is enabled (**true**) or disabled (**false**). Only
+   * reliable in webhooks that include the screening results for your merchant account.
    *
    * @return enabled Indicates whether the payment method is enabled (**true**) or disabled
-   *     (**false**).
+   *     (**false**). Only reliable in webhooks that include the screening results for your merchant
+   *     account.
    */
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,10 +237,12 @@ public class MidServiceNotificationData {
   }
 
   /**
-   * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+   * Indicates whether the payment method is enabled (**true**) or disabled (**false**). Only
+   * reliable in webhooks that include the screening results for your merchant account.
    *
    * @param enabled Indicates whether the payment method is enabled (**true**) or disabled
-   *     (**false**).
+   *     (**false**). Only reliable in webhooks that include the screening results for your merchant
+   *     account.
    */
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,11 +352,13 @@ public class MidServiceNotificationData {
   /**
    * The status of the request to add a payment method. Possible values: * **success**: the payment
    * method was added. * **failure**: the request failed. * **capabilityPending**: the
-   * **receivePayments** capability is not allowed.
+   * **receivePayments** capability is not allowed. A webhook with &#x60;status&#x60; **success** is
+   * the last webhook for that payment method.
    *
    * @param status The status of the request to add a payment method. Possible values: *
    *     **success**: the payment method was added. * **failure**: the request failed. *
-   *     **capabilityPending**: the **receivePayments** capability is not allowed.
+   *     **capabilityPending**: the **receivePayments** capability is not allowed. A webhook with
+   *     &#x60;status&#x60; **success** is the last webhook for that payment method.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData status(StatusEnum status) {
@@ -353,11 +369,13 @@ public class MidServiceNotificationData {
   /**
    * The status of the request to add a payment method. Possible values: * **success**: the payment
    * method was added. * **failure**: the request failed. * **capabilityPending**: the
-   * **receivePayments** capability is not allowed.
+   * **receivePayments** capability is not allowed. A webhook with &#x60;status&#x60; **success** is
+   * the last webhook for that payment method.
    *
    * @return status The status of the request to add a payment method. Possible values: *
    *     **success**: the payment method was added. * **failure**: the request failed. *
-   *     **capabilityPending**: the **receivePayments** capability is not allowed.
+   *     **capabilityPending**: the **receivePayments** capability is not allowed. A webhook with
+   *     &#x60;status&#x60; **success** is the last webhook for that payment method.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,11 +386,13 @@ public class MidServiceNotificationData {
   /**
    * The status of the request to add a payment method. Possible values: * **success**: the payment
    * method was added. * **failure**: the request failed. * **capabilityPending**: the
-   * **receivePayments** capability is not allowed.
+   * **receivePayments** capability is not allowed. A webhook with &#x60;status&#x60; **success** is
+   * the last webhook for that payment method.
    *
    * @param status The status of the request to add a payment method. Possible values: *
    *     **success**: the payment method was added. * **failure**: the request failed. *
-   *     **capabilityPending**: the **receivePayments** capability is not allowed.
+   *     **capabilityPending**: the **receivePayments** capability is not allowed. A webhook with
+   *     &#x60;status&#x60; **success** is the last webhook for that payment method.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -484,9 +504,11 @@ public class MidServiceNotificationData {
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
+   * Only returned in webhooks that include the screening results for your merchant account.
    *
    * @param verificationStatus Payment method status. Possible values: * **valid** * **pending** *
-   *     **invalid** * **rejected**
+   *     **invalid** * **rejected** Only returned in webhooks that include the screening results for
+   *     your merchant account.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData verificationStatus(VerificationStatusEnum verificationStatus) {
@@ -496,9 +518,11 @@ public class MidServiceNotificationData {
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
+   * Only returned in webhooks that include the screening results for your merchant account.
    *
    * @return verificationStatus Payment method status. Possible values: * **valid** * **pending** *
-   *     **invalid** * **rejected**
+   *     **invalid** * **rejected** Only returned in webhooks that include the screening results for
+   *     your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,9 +532,11 @@ public class MidServiceNotificationData {
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
+   * Only returned in webhooks that include the screening results for your merchant account.
    *
    * @param verificationStatus Payment method status. Possible values: * **valid** * **pending** *
-   *     **invalid** * **rejected**
+   *     **invalid** * **rejected** Only returned in webhooks that include the screening results for
+   *     your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
