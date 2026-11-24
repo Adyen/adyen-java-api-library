@@ -1,11 +1,13 @@
 package com.adyen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mockConstruction;
 
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.AdyenHttpClient;
+import com.adyen.httpclient.ClientInterface;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -31,23 +33,24 @@ public class ClientConcurrencyTest {
     ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
 
     try {
-      List<Future<?>> results = new ArrayList<>();
+      List<Future<ClientInterface>> results = new ArrayList<>();
       for (int i = 0; i < numberOfThreads; i++) {
         results.add(
             executor.submit(
                 () -> {
-                  try (MockedConstruction<AdyenHttpClient> ignored = mockConstruction(
-                      AdyenHttpClient.class,
-                      (mock, context) -> {
-                        creationCount.incrementAndGet();
-                        constructionStarted.countDown();
-                        try {
-                          assertTrue(allowConstruction.await(5, TimeUnit.SECONDS));
-                        } catch (InterruptedException e) {
-                          Thread.currentThread().interrupt();
-                          throw new AssertionError(e);
-                        }
-                      })) {
+                  try (MockedConstruction<AdyenHttpClient> ignored =
+                      mockConstruction(
+                          AdyenHttpClient.class,
+                          (mock, context) -> {
+                            creationCount.incrementAndGet();
+                            constructionStarted.countDown();
+                            try {
+                              assertTrue(allowConstruction.await(5, TimeUnit.SECONDS));
+                            } catch (InterruptedException e) {
+                              Thread.currentThread().interrupt();
+                              throw new AssertionError(e);
+                            }
+                          })) {
                     ready.countDown();
                     try {
                       assertTrue(start.await(5, TimeUnit.SECONDS));
@@ -55,7 +58,7 @@ public class ClientConcurrencyTest {
                       Thread.currentThread().interrupt();
                       throw new AssertionError(e);
                     }
-                    client.getHttpClient();
+                    return client.getHttpClient();
                   }
                 }));
       }
@@ -65,8 +68,9 @@ public class ClientConcurrencyTest {
       constructionStarted.await(1, TimeUnit.SECONDS);
       allowConstruction.countDown();
 
-      for (Future<?> result : results) {
-        result.get(5, TimeUnit.SECONDS);
+      ClientInterface expectedHttpClient = results.get(0).get(5, TimeUnit.SECONDS);
+      for (int i = 1; i < results.size(); i++) {
+        assertSame(expectedHttpClient, results.get(i).get(5, TimeUnit.SECONDS));
       }
 
       assertEquals(1, creationCount.get());
