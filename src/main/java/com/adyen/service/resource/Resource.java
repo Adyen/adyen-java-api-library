@@ -34,10 +34,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import org.apache.hc.core5.net.PercentCodec;
 
 public class Resource {
-  private static final char[] HEX = "0123456789ABCDEF".toCharArray();
-
   protected String endpoint;
   protected List<String> requiredFields;
   private final Service service;
@@ -213,37 +212,15 @@ public class Resource {
       }
 
       String varName = endpoint.substring(beginVar + 1, endVar);
-      path.append(encodePathSegment(params.get(varName)));
+      String value = params.get(varName);
+      if (".".equals(value) || "..".equals(value)) {
+        throw new IllegalArgumentException("Invalid value for path parameter: " + varName);
+      }
+      path.append(PercentCodec.encode(value, StandardCharsets.UTF_8));
       i = endVar + 1;
 
     } while (i < endpoint.length());
 
     return path.toString();
-  }
-
-  private static String encodePathSegment(String value) {
-    if (value == null) {
-      return null;
-    }
-
-    byte[] bytes = value.getBytes(StandardCharsets.UTF_8);
-    StringBuilder encoded = new StringBuilder(bytes.length * 3);
-
-    for (byte currentByte : bytes) {
-      int unsignedByte = currentByte & 0xFF;
-      if ((unsignedByte >= 'a' && unsignedByte <= 'z')
-          || (unsignedByte >= 'A' && unsignedByte <= 'Z')
-          || (unsignedByte >= '0' && unsignedByte <= '9')
-          || unsignedByte == '-'
-          || unsignedByte == '_'
-          || unsignedByte == '~') {
-        encoded.append((char) unsignedByte);
-      } else {
-        encoded.append('%');
-        encoded.append(HEX[unsignedByte >>> 4]);
-        encoded.append(HEX[unsignedByte & 0x0F]);
-      }
-    }
-    return encoded.toString();
   }
 }

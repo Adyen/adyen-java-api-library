@@ -103,7 +103,7 @@ public class ResourceTest extends BaseTest {
   static Stream<Arguments> pathParameterValues() {
     return Stream.of(
         Arguments.of("user-123", "user-123"),
-        Arguments.of("../apiCredentials/credential-2", "%2E%2E%2FapiCredentials%2Fcredential-2"),
+        Arguments.of("../apiCredentials/credential-2", "..%2FapiCredentials%2Fcredential-2"),
         Arguments.of("/leading/slash", "%2Fleading%2Fslash"),
         Arguments.of("user?admin=true", "user%3Fadmin%3Dtrue"),
         Arguments.of("user#fragment", "user%23fragment"),
@@ -112,8 +112,6 @@ public class ResourceTest extends BaseTest {
         Arguments.of("user+name", "user%2Bname"),
         Arguments.of("user@domain", "user%40domain"),
         Arguments.of("user:admin", "user%3Aadmin"),
-        Arguments.of(".", "%2E"),
-        Arguments.of("..", "%2E%2E"),
         Arguments.of("café", "caf%C3%A9"));
   }
 
@@ -139,17 +137,32 @@ public class ResourceTest extends BaseTest {
             null);
   }
 
+  static Stream<String> invalidPathParameterValues() {
+    return Stream.of(".", "..");
+  }
+
+  @ParameterizedTest
+  @MethodSource("invalidPathParameterValues")
+  public void testRequestRejectsDotPathParameter(String userId) {
+    Map<String, String> pathParams = new HashMap<>();
+    pathParams.put("companyId", "adyen");
+    pathParams.put("userId", userId);
+    Resource resource = new Resource(serviceMock, "/companies/{companyId}/users/{userId}", null);
+
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, null));
+  }
+
   @Test
   public void testEncodedSlashDoesNotChangeThePathRoute() {
-    URI rawPath =
-        URI.create("/companies/adyen/users/../apiCredentials/credential-2").normalize();
+    URI rawPath = URI.create("/companies/adyen/users/../apiCredentials/credential-2").normalize();
     URI encodedPath =
-        URI.create("/companies/adyen/users/%2E%2E%2FapiCredentials%2Fcredential-2").normalize();
+        URI.create("/companies/adyen/users/..%2FapiCredentials%2Fcredential-2").normalize();
 
     assertEquals("/companies/adyen/apiCredentials/credential-2", rawPath.getRawPath());
     assertEquals(
-        "/companies/adyen/users/%2E%2E%2FapiCredentials%2Fcredential-2",
-        encodedPath.getRawPath());
+        "/companies/adyen/users/..%2FapiCredentials%2Fcredential-2", encodedPath.getRawPath());
   }
 
   @Test
