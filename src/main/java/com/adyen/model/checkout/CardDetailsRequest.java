@@ -27,6 +27,8 @@ import java.util.List;
   CardDetailsRequest.JSON_PROPERTY_COUNTRY_CODE,
   CardDetailsRequest.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
   CardDetailsRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  CardDetailsRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
+  CardDetailsRequest.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   CardDetailsRequest.JSON_PROPERTY_SUPPORTED_BRANDS
 })
 public class CardDetailsRequest {
@@ -53,6 +55,18 @@ public class CardDetailsRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMerchantAccount = false;
+
+  public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
+  private String shopperReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperReference = false;
+
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
+  private String storedPaymentMethodId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoredPaymentMethodId = false;
 
   public static final String JSON_PROPERTY_SUPPORTED_BRANDS = "supportedBrands";
   private List<String> supportedBrands;
@@ -239,6 +253,112 @@ public class CardDetailsRequest {
   }
 
   /**
+   * Your reference to uniquely identify the shopper that owns the
+   * &#x60;storedPaymentMethodId&#x60;. Required when &#x60;storedPaymentMethodId&#x60; is provided.
+   *
+   * @param shopperReference Your reference to uniquely identify the shopper that owns the
+   *     &#x60;storedPaymentMethodId&#x60;. Required when &#x60;storedPaymentMethodId&#x60; is
+   *     provided.
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
+  public CardDetailsRequest shopperReference(String shopperReference) {
+    this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Your reference to uniquely identify the shopper that owns the
+   * &#x60;storedPaymentMethodId&#x60;. Required when &#x60;storedPaymentMethodId&#x60; is provided.
+   *
+   * @return shopperReference Your reference to uniquely identify the shopper that owns the
+   *     &#x60;storedPaymentMethodId&#x60;. Required when &#x60;storedPaymentMethodId&#x60; is
+   *     provided.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShopperReference() {
+    return shopperReference;
+  }
+
+  /**
+   * Your reference to uniquely identify the shopper that owns the
+   * &#x60;storedPaymentMethodId&#x60;. Required when &#x60;storedPaymentMethodId&#x60; is provided.
+   *
+   * @param shopperReference Your reference to uniquely identify the shopper that owns the
+   *     &#x60;storedPaymentMethodId&#x60;. Required when &#x60;storedPaymentMethodId&#x60; is
+   *     provided.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperReference(String shopperReference) {
+    this.shopperReference = shopperReference;
+    isSetShopperReference = true; // mark as set
+  }
+
+  /**
+   * The unique identifier of the stored payment method to look up, as returned by
+   * [&#x60;/storedPaymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/get/storedPaymentMethods).
+   * Use this to get the details of a stored card that is not present at charge time. When provided,
+   * &#x60;shopperReference&#x60; is required and you must not include &#x60;cardNumber&#x60; or
+   * &#x60;encryptedCardNumber&#x60;.
+   *
+   * @param storedPaymentMethodId The unique identifier of the stored payment method to look up, as
+   *     returned by
+   *     [&#x60;/storedPaymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/get/storedPaymentMethods).
+   *     Use this to get the details of a stored card that is not present at charge time. When
+   *     provided, &#x60;shopperReference&#x60; is required and you must not include
+   *     &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60;.
+   * @return the current {@code CardDetailsRequest} instance, allowing for method chaining
+   */
+  public CardDetailsRequest storedPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The unique identifier of the stored payment method to look up, as returned by
+   * [&#x60;/storedPaymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/get/storedPaymentMethods).
+   * Use this to get the details of a stored card that is not present at charge time. When provided,
+   * &#x60;shopperReference&#x60; is required and you must not include &#x60;cardNumber&#x60; or
+   * &#x60;encryptedCardNumber&#x60;.
+   *
+   * @return storedPaymentMethodId The unique identifier of the stored payment method to look up, as
+   *     returned by
+   *     [&#x60;/storedPaymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/get/storedPaymentMethods).
+   *     Use this to get the details of a stored card that is not present at charge time. When
+   *     provided, &#x60;shopperReference&#x60; is required and you must not include
+   *     &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStoredPaymentMethodId() {
+    return storedPaymentMethodId;
+  }
+
+  /**
+   * The unique identifier of the stored payment method to look up, as returned by
+   * [&#x60;/storedPaymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/get/storedPaymentMethods).
+   * Use this to get the details of a stored card that is not present at charge time. When provided,
+   * &#x60;shopperReference&#x60; is required and you must not include &#x60;cardNumber&#x60; or
+   * &#x60;encryptedCardNumber&#x60;.
+   *
+   * @param storedPaymentMethodId The unique identifier of the stored payment method to look up, as
+   *     returned by
+   *     [&#x60;/storedPaymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/get/storedPaymentMethods).
+   *     Use this to get the details of a stored card that is not present at charge time. When
+   *     provided, &#x60;shopperReference&#x60; is required and you must not include
+   *     &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    isSetStoredPaymentMethodId = true; // mark as set
+  }
+
+  /**
    * The card brands you support. This is the
    * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
@@ -350,6 +470,11 @@ public class CardDetailsRequest {
             this.isSetEncryptedCardNumber, cardDetailsRequest.isSetEncryptedCardNumber)
         && Objects.equals(this.merchantAccount, cardDetailsRequest.merchantAccount)
         && Objects.equals(this.isSetMerchantAccount, cardDetailsRequest.isSetMerchantAccount)
+        && Objects.equals(this.shopperReference, cardDetailsRequest.shopperReference)
+        && Objects.equals(this.isSetShopperReference, cardDetailsRequest.isSetShopperReference)
+        && Objects.equals(this.storedPaymentMethodId, cardDetailsRequest.storedPaymentMethodId)
+        && Objects.equals(
+            this.isSetStoredPaymentMethodId, cardDetailsRequest.isSetStoredPaymentMethodId)
         && Objects.equals(this.supportedBrands, cardDetailsRequest.supportedBrands)
         && Objects.equals(this.isSetSupportedBrands, cardDetailsRequest.isSetSupportedBrands);
   }
@@ -365,6 +490,10 @@ public class CardDetailsRequest {
         isSetEncryptedCardNumber,
         merchantAccount,
         isSetMerchantAccount,
+        shopperReference,
+        isSetShopperReference,
+        storedPaymentMethodId,
+        isSetStoredPaymentMethodId,
         supportedBrands,
         isSetSupportedBrands);
   }
@@ -379,6 +508,10 @@ public class CardDetailsRequest {
         .append(toIndentedString(encryptedCardNumber))
         .append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+    sb.append("    storedPaymentMethodId: ")
+        .append(toIndentedString(storedPaymentMethodId))
+        .append("\n");
     sb.append("    supportedBrands: ").append(toIndentedString(supportedBrands)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -415,6 +548,12 @@ public class CardDetailsRequest {
     }
     if (isSetMerchantAccount) {
       addIfNull(nulls, JSON_PROPERTY_MERCHANT_ACCOUNT, this.merchantAccount);
+    }
+    if (isSetShopperReference) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_REFERENCE, this.shopperReference);
+    }
+    if (isSetStoredPaymentMethodId) {
+      addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);
     }
     if (isSetSupportedBrands) {
       addIfNull(nulls, JSON_PROPERTY_SUPPORTED_BRANDS, this.supportedBrands);

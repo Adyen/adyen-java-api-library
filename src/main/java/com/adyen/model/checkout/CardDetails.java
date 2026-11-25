@@ -50,6 +50,7 @@ import java.util.logging.Logger;
   CardDetails.JSON_PROPERTY_SRC_DIGITAL_CARD_ID,
   CardDetails.JSON_PROPERTY_SRC_SCHEME,
   CardDetails.JSON_PROPERTY_SRC_TOKEN_REFERENCE,
+  CardDetails.JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE,
   CardDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   CardDetails.JSON_PROPERTY_THREE_D_S2_SDK_VERSION,
   CardDetails.JSON_PROPERTY_TYPE
@@ -253,6 +254,12 @@ public class CardDetails {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetSrcTokenReference = false;
+
+  public static final String JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE = "storeClickToPayProfile";
+  private Boolean storeClickToPayProfile;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreClickToPayProfile = false;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -1302,6 +1309,56 @@ public class CardDetails {
   }
 
   /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @param storeClickToPayProfile When enrolling a new user, this field determines whether to store
+   *     the shopper&#39;s card in their Click to Pay profile. When this is set to **True**, the
+   *     request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   * @return the current {@code CardDetails} instance, allowing for method chaining
+   */
+  public CardDetails storeClickToPayProfile(Boolean storeClickToPayProfile) {
+    this.storeClickToPayProfile = storeClickToPayProfile;
+    isSetStoreClickToPayProfile = true; // mark as set
+    return this;
+  }
+
+  /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @return storeClickToPayProfile When enrolling a new user, this field determines whether to
+   *     store the shopper&#39;s card in their Click to Pay profile. When this is set to **True**,
+   *     the request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getStoreClickToPayProfile() {
+    return storeClickToPayProfile;
+  }
+
+  /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @param storeClickToPayProfile When enrolling a new user, this field determines whether to store
+   *     the shopper&#39;s card in their Click to Pay profile. When this is set to **True**, the
+   *     request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreClickToPayProfile(Boolean storeClickToPayProfile) {
+    this.storeClickToPayProfile = storeClickToPayProfile;
+    isSetStoreClickToPayProfile = true; // mark as set
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -1505,6 +1562,8 @@ public class CardDetails {
         && Objects.equals(this.isSetSrcScheme, cardDetails.isSetSrcScheme)
         && Objects.equals(this.srcTokenReference, cardDetails.srcTokenReference)
         && Objects.equals(this.isSetSrcTokenReference, cardDetails.isSetSrcTokenReference)
+        && Objects.equals(this.storeClickToPayProfile, cardDetails.storeClickToPayProfile)
+        && Objects.equals(this.isSetStoreClickToPayProfile, cardDetails.isSetStoreClickToPayProfile)
         && Objects.equals(this.storedPaymentMethodId, cardDetails.storedPaymentMethodId)
         && Objects.equals(this.isSetStoredPaymentMethodId, cardDetails.isSetStoredPaymentMethodId)
         && Objects.equals(this.threeDS2SdkVersion, cardDetails.threeDS2SdkVersion)
@@ -1566,6 +1625,8 @@ public class CardDetails {
         isSetSrcScheme,
         srcTokenReference,
         isSetSrcTokenReference,
+        storeClickToPayProfile,
+        isSetStoreClickToPayProfile,
         storedPaymentMethodId,
         isSetStoredPaymentMethodId,
         threeDS2SdkVersion,
@@ -1621,6 +1682,9 @@ public class CardDetails {
     sb.append("    srcDigitalCardId: ").append(toIndentedString(srcDigitalCardId)).append("\n");
     sb.append("    srcScheme: ").append(toIndentedString(srcScheme)).append("\n");
     sb.append("    srcTokenReference: ").append(toIndentedString(srcTokenReference)).append("\n");
+    sb.append("    storeClickToPayProfile: ")
+        .append(toIndentedString(storeClickToPayProfile))
+        .append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");
@@ -1725,6 +1789,9 @@ public class CardDetails {
     }
     if (isSetSrcTokenReference) {
       addIfNull(nulls, JSON_PROPERTY_SRC_TOKEN_REFERENCE, this.srcTokenReference);
+    }
+    if (isSetStoreClickToPayProfile) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE, this.storeClickToPayProfile);
     }
     if (isSetStoredPaymentMethodId) {
       addIfNull(nulls, JSON_PROPERTY_STORED_PAYMENT_METHOD_ID, this.storedPaymentMethodId);

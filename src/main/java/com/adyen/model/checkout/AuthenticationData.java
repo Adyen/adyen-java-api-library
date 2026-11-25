@@ -34,9 +34,11 @@ public class AuthenticationData {
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules,
    * including [Dynamic 3D Secure
    * settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   * authentication. If PSD2 SCA or other national regulations require authentication, the
-   * transaction gets declined.
+   * **always**: Perform 3D Secure authentication. For browser-based payments, make sure the payment
+   * request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;. Without them, 3D
+   * Secure 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national
+   * regulations require authentication, the transaction gets declined.
    */
   public enum AttemptAuthenticationEnum {
     ALWAYS(String.valueOf("always")),
@@ -108,16 +110,20 @@ public class AuthenticationData {
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules,
    * including [Dynamic 3D Secure
    * settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   * authentication. If PSD2 SCA or other national regulations require authentication, the
-   * transaction gets declined.
+   * **always**: Perform 3D Secure authentication. For browser-based payments, make sure the payment
+   * request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;. Without them, 3D
+   * Secure 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national
+   * regulations require authentication, the transaction gets declined.
    *
    * @param attemptAuthentication Indicates when 3D Secure authentication should be attempted. This
    *     overrides all other rules, including [Dynamic 3D Secure
    *     settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   *     **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   *     authentication. If PSD2 SCA or other national regulations require authentication, the
-   *     transaction gets declined.
+   *     **always**: Perform 3D Secure authentication. For browser-based payments, make sure the
+   *     payment request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;.
+   *     Without them, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   *     liability shift. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or
+   *     other national regulations require authentication, the transaction gets declined.
    * @return the current {@code AuthenticationData} instance, allowing for method chaining
    */
   public AuthenticationData attemptAuthentication(AttemptAuthenticationEnum attemptAuthentication) {
@@ -130,16 +136,20 @@ public class AuthenticationData {
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules,
    * including [Dynamic 3D Secure
    * settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   * authentication. If PSD2 SCA or other national regulations require authentication, the
-   * transaction gets declined.
+   * **always**: Perform 3D Secure authentication. For browser-based payments, make sure the payment
+   * request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;. Without them, 3D
+   * Secure 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national
+   * regulations require authentication, the transaction gets declined.
    *
    * @return attemptAuthentication Indicates when 3D Secure authentication should be attempted. This
    *     overrides all other rules, including [Dynamic 3D Secure
    *     settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   *     **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   *     authentication. If PSD2 SCA or other national regulations require authentication, the
-   *     transaction gets declined.
+   *     **always**: Perform 3D Secure authentication. For browser-based payments, make sure the
+   *     payment request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;.
+   *     Without them, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   *     liability shift. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or
+   *     other national regulations require authentication, the transaction gets declined.
    */
   @JsonProperty(JSON_PROPERTY_ATTEMPT_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,16 +161,20 @@ public class AuthenticationData {
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules,
    * including [Dynamic 3D Secure
    * settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   * authentication. If PSD2 SCA or other national regulations require authentication, the
-   * transaction gets declined.
+   * **always**: Perform 3D Secure authentication. For browser-based payments, make sure the payment
+   * request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;. Without them, 3D
+   * Secure 2 cannot be initiated and the transaction can be authorized without liability shift. *
+   * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national
+   * regulations require authentication, the transaction gets declined.
    *
    * @param attemptAuthentication Indicates when 3D Secure authentication should be attempted. This
    *     overrides all other rules, including [Dynamic 3D Secure
    *     settings](https://docs.adyen.com/risk-management/dynamic-3d-secure). Possible values: *
-   *     **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure
-   *     authentication. If PSD2 SCA or other national regulations require authentication, the
-   *     transaction gets declined.
+   *     **always**: Perform 3D Secure authentication. For browser-based payments, make sure the
+   *     payment request also contains complete &#x60;browserInfo&#x60; and &#x60;origin&#x60;.
+   *     Without them, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   *     liability shift. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or
+   *     other national regulations require authentication, the transaction gets declined.
    */
   @JsonProperty(JSON_PROPERTY_ATTEMPT_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

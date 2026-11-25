@@ -53,9 +53,10 @@ public class CalculateTaxRequest {
   public CalculateTaxRequest() {}
 
   /**
-   * The merchant account identifier requesting the tax calculation.
+   * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount The merchant account identifier requesting the tax calculation.
+   * @param merchantAccount The merchant account identifier, with which you want to process the
+   *     transaction.
    * @return the current {@code CalculateTaxRequest} instance, allowing for method chaining
    */
   public CalculateTaxRequest merchantAccount(String merchantAccount) {
@@ -65,9 +66,10 @@ public class CalculateTaxRequest {
   }
 
   /**
-   * The merchant account identifier requesting the tax calculation.
+   * The merchant account identifier, with which you want to process the transaction.
    *
-   * @return merchantAccount The merchant account identifier requesting the tax calculation.
+   * @return merchantAccount The merchant account identifier, with which you want to process the
+   *     transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,9 +78,10 @@ public class CalculateTaxRequest {
   }
 
   /**
-   * The merchant account identifier requesting the tax calculation.
+   * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount The merchant account identifier requesting the tax calculation.
+   * @param merchantAccount The merchant account identifier, with which you want to process the
+   *     transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
