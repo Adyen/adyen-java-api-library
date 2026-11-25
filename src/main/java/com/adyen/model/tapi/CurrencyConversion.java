@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -47,19 +46,19 @@ public class CurrencyConversion {
   private boolean isSetConvertedAmount = false;
 
   public static final String JSON_PROPERTY_RATE = "Rate";
-  private BigDecimal rate;
+  private Double rate;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRate = false;
 
   public static final String JSON_PROPERTY_MARKUP = "Markup";
-  private BigDecimal markup;
+  private Double markup;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMarkup = false;
 
   public static final String JSON_PROPERTY_COMMISSION = "Commission";
-  private BigDecimal commission;
+  private Double commission;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCommission = false;
@@ -160,7 +159,7 @@ public class CurrencyConversion {
    * @param rate Rate of currency conversion.
    * @return the current {@code CurrencyConversion} instance, allowing for method chaining
    */
-  public CurrencyConversion rate(BigDecimal rate) {
+  public CurrencyConversion rate(Double rate) {
     this.rate = rate;
     isSetRate = true; // mark as set
     return this;
@@ -173,7 +172,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getRate() {
+  public Double getRate() {
     return rate;
   }
 
@@ -184,7 +183,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRate(BigDecimal rate) {
+  public void setRate(Double rate) {
     this.rate = rate;
     isSetRate = true; // mark as set
   }
@@ -195,7 +194,7 @@ public class CurrencyConversion {
    * @param markup Markup of a currency conversion amount as a percentage.
    * @return the current {@code CurrencyConversion} instance, allowing for method chaining
    */
-  public CurrencyConversion markup(BigDecimal markup) {
+  public CurrencyConversion markup(Double markup) {
     this.markup = markup;
     isSetMarkup = true; // mark as set
     return this;
@@ -208,7 +207,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getMarkup() {
+  public Double getMarkup() {
     return markup;
   }
 
@@ -219,7 +218,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarkup(BigDecimal markup) {
+  public void setMarkup(Double markup) {
     this.markup = markup;
     isSetMarkup = true; // mark as set
   }
@@ -230,7 +229,7 @@ public class CurrencyConversion {
    * @param commission Commission for a currency conversion.
    * @return the current {@code CurrencyConversion} instance, allowing for method chaining
    */
-  public CurrencyConversion commission(BigDecimal commission) {
+  public CurrencyConversion commission(Double commission) {
     this.commission = commission;
     isSetCommission = true; // mark as set
     return this;
@@ -243,7 +242,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getCommission() {
+  public Double getCommission() {
     return commission;
   }
 
@@ -254,7 +253,7 @@ public class CurrencyConversion {
    */
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCommission(BigDecimal commission) {
+  public void setCommission(Double commission) {
     this.commission = commission;
     isSetCommission = true; // mark as set
   }

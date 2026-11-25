@@ -45,7 +45,7 @@ public class TransactionConditions {
   private boolean isSetAllowedPaymentBrand = false;
 
   public static final String JSON_PROPERTY_ACQUIRER_I_D = "AcquirerID";
-  private List<Integer> acquirerID;
+  private List<String> acquirerID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAcquirerID = false;
@@ -214,13 +214,13 @@ public class TransactionConditions {
    * @param acquirerID Identification of the Acquirer. Restrict to these Acquirer if present.
    * @return the current {@code TransactionConditions} instance, allowing for method chaining
    */
-  public TransactionConditions acquirerID(List<Integer> acquirerID) {
+  public TransactionConditions acquirerID(List<String> acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
     return this;
   }
 
-  public TransactionConditions addAcquirerIDItem(Integer acquirerIDItem) {
+  public TransactionConditions addAcquirerIDItem(String acquirerIDItem) {
     if (this.acquirerID == null) {
       this.acquirerID = new ArrayList<>();
     }
@@ -235,7 +235,7 @@ public class TransactionConditions {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Integer> getAcquirerID() {
+  public List<String> getAcquirerID() {
     return acquirerID;
   }
 
@@ -246,7 +246,7 @@ public class TransactionConditions {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAcquirerID(List<Integer> acquirerID) {
+  public void setAcquirerID(List<String> acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
   }

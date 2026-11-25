@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /** Various amounts related to the payment request from the Sale System. */
@@ -39,43 +38,43 @@ public class AmountsReq {
   private boolean isSetCurrency = false;
 
   public static final String JSON_PROPERTY_REQUESTED_AMOUNT = "RequestedAmount";
-  private BigDecimal requestedAmount;
+  private Double requestedAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetRequestedAmount = false;
 
   public static final String JSON_PROPERTY_CASH_BACK_AMOUNT = "CashBackAmount";
-  private BigDecimal cashBackAmount;
+  private Double cashBackAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCashBackAmount = false;
 
   public static final String JSON_PROPERTY_TIP_AMOUNT = "TipAmount";
-  private BigDecimal tipAmount;
+  private Double tipAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTipAmount = false;
 
   public static final String JSON_PROPERTY_PAID_AMOUNT = "PaidAmount";
-  private BigDecimal paidAmount;
+  private Double paidAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPaidAmount = false;
 
   public static final String JSON_PROPERTY_MINIMUM_AMOUNT_TO_DELIVER = "MinimumAmountToDeliver";
-  private BigDecimal minimumAmountToDeliver;
+  private Double minimumAmountToDeliver;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMinimumAmountToDeliver = false;
 
   public static final String JSON_PROPERTY_MAXIMUM_CASH_BACK_AMOUNT = "MaximumCashBackAmount";
-  private BigDecimal maximumCashBackAmount;
+  private Double maximumCashBackAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMaximumCashBackAmount = false;
 
   public static final String JSON_PROPERTY_MINIMUM_SPLIT_AMOUNT = "MinimumSplitAmount";
-  private BigDecimal minimumSplitAmount;
+  private Double minimumSplitAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMinimumSplitAmount = false;
@@ -129,7 +128,7 @@ public class AmountsReq {
    * @param requestedAmount Amount requested by the Sale for the payment.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq requestedAmount(BigDecimal requestedAmount) {
+  public AmountsReq requestedAmount(Double requestedAmount) {
     this.requestedAmount = requestedAmount;
     isSetRequestedAmount = true; // mark as set
     return this;
@@ -142,7 +141,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getRequestedAmount() {
+  public Double getRequestedAmount() {
     return requestedAmount;
   }
 
@@ -153,7 +152,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequestedAmount(BigDecimal requestedAmount) {
+  public void setRequestedAmount(Double requestedAmount) {
     this.requestedAmount = requestedAmount;
     isSetRequestedAmount = true; // mark as set
   }
@@ -164,7 +163,7 @@ public class AmountsReq {
    * @param cashBackAmount The cash-back part of the amount requested by the Sale for the payment.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq cashBackAmount(BigDecimal cashBackAmount) {
+  public AmountsReq cashBackAmount(Double cashBackAmount) {
     this.cashBackAmount = cashBackAmount;
     isSetCashBackAmount = true; // mark as set
     return this;
@@ -178,7 +177,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_CASH_BACK_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getCashBackAmount() {
+  public Double getCashBackAmount() {
     return cashBackAmount;
   }
 
@@ -189,7 +188,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_CASH_BACK_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCashBackAmount(BigDecimal cashBackAmount) {
+  public void setCashBackAmount(Double cashBackAmount) {
     this.cashBackAmount = cashBackAmount;
     isSetCashBackAmount = true; // mark as set
   }
@@ -202,7 +201,7 @@ public class AmountsReq {
    *     qualify the tip part of the amount.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq tipAmount(BigDecimal tipAmount) {
+  public AmountsReq tipAmount(Double tipAmount) {
     this.tipAmount = tipAmount;
     isSetTipAmount = true; // mark as set
     return this;
@@ -217,7 +216,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_TIP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getTipAmount() {
+  public Double getTipAmount() {
     return tipAmount;
   }
 
@@ -230,7 +229,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_TIP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTipAmount(BigDecimal tipAmount) {
+  public void setTipAmount(Double tipAmount) {
     this.tipAmount = tipAmount;
     isSetTipAmount = true; // mark as set
   }
@@ -248,7 +247,7 @@ public class AmountsReq {
    *     the POI.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq paidAmount(BigDecimal paidAmount) {
+  public AmountsReq paidAmount(Double paidAmount) {
     this.paidAmount = paidAmount;
     isSetPaidAmount = true; // mark as set
     return this;
@@ -269,7 +268,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_PAID_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getPaidAmount() {
+  public Double getPaidAmount() {
     return paidAmount;
   }
 
@@ -287,7 +286,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_PAID_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaidAmount(BigDecimal paidAmount) {
+  public void setPaidAmount(Double paidAmount) {
     this.paidAmount = paidAmount;
     isSetPaidAmount = true; // mark as set
   }
@@ -302,7 +301,7 @@ public class AmountsReq {
    *     indicates the minimum amount it allows.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq minimumAmountToDeliver(BigDecimal minimumAmountToDeliver) {
+  public AmountsReq minimumAmountToDeliver(Double minimumAmountToDeliver) {
     this.minimumAmountToDeliver = minimumAmountToDeliver;
     isSetMinimumAmountToDeliver = true; // mark as set
     return this;
@@ -319,7 +318,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_MINIMUM_AMOUNT_TO_DELIVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getMinimumAmountToDeliver() {
+  public Double getMinimumAmountToDeliver() {
     return minimumAmountToDeliver;
   }
 
@@ -334,7 +333,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_MINIMUM_AMOUNT_TO_DELIVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMinimumAmountToDeliver(BigDecimal minimumAmountToDeliver) {
+  public void setMinimumAmountToDeliver(Double minimumAmountToDeliver) {
     this.minimumAmountToDeliver = minimumAmountToDeliver;
     isSetMinimumAmountToDeliver = true; // mark as set
   }
@@ -348,7 +347,7 @@ public class AmountsReq {
    *     Customer.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq maximumCashBackAmount(BigDecimal maximumCashBackAmount) {
+  public AmountsReq maximumCashBackAmount(Double maximumCashBackAmount) {
     this.maximumCashBackAmount = maximumCashBackAmount;
     isSetMaximumCashBackAmount = true; // mark as set
     return this;
@@ -365,7 +364,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_MAXIMUM_CASH_BACK_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getMaximumCashBackAmount() {
+  public Double getMaximumCashBackAmount() {
     return maximumCashBackAmount;
   }
 
@@ -379,7 +378,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_MAXIMUM_CASH_BACK_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaximumCashBackAmount(BigDecimal maximumCashBackAmount) {
+  public void setMaximumCashBackAmount(Double maximumCashBackAmount) {
     this.maximumCashBackAmount = maximumCashBackAmount;
     isSetMaximumCashBackAmount = true; // mark as set
   }
@@ -392,7 +391,7 @@ public class AmountsReq {
    *     Customer.Allows the Merchant to limit the number of split requested by the Customer.
    * @return the current {@code AmountsReq} instance, allowing for method chaining
    */
-  public AmountsReq minimumSplitAmount(BigDecimal minimumSplitAmount) {
+  public AmountsReq minimumSplitAmount(Double minimumSplitAmount) {
     this.minimumSplitAmount = minimumSplitAmount;
     isSetMinimumSplitAmount = true; // mark as set
     return this;
@@ -407,7 +406,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_MINIMUM_SPLIT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getMinimumSplitAmount() {
+  public Double getMinimumSplitAmount() {
     return minimumSplitAmount;
   }
 
@@ -420,7 +419,7 @@ public class AmountsReq {
    */
   @JsonProperty(JSON_PROPERTY_MINIMUM_SPLIT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMinimumSplitAmount(BigDecimal minimumSplitAmount) {
+  public void setMinimumSplitAmount(Double minimumSplitAmount) {
     this.minimumSplitAmount = minimumSplitAmount;
     isSetMinimumSplitAmount = true; // mark as set
   }

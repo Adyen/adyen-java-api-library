@@ -38,7 +38,7 @@ public class GetTotalsResponse {
   private boolean isSetResponse = false;
 
   public static final String JSON_PROPERTY_PO_I_RECONCILIATION_I_D = "POIReconciliationID";
-  private Integer poIReconciliationID;
+  private String poIReconciliationID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPoIReconciliationID = false;
@@ -98,7 +98,7 @@ public class GetTotalsResponse {
    * @param poIReconciliationID Identification of the reconciliation period between Sale and POI.
    * @return the current {@code GetTotalsResponse} instance, allowing for method chaining
    */
-  public GetTotalsResponse poIReconciliationID(Integer poIReconciliationID) {
+  public GetTotalsResponse poIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
     return this;
@@ -111,7 +111,7 @@ public class GetTotalsResponse {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPoIReconciliationID() {
+  public String getPoIReconciliationID() {
     return poIReconciliationID;
   }
 
@@ -122,7 +122,7 @@ public class GetTotalsResponse {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIReconciliationID(Integer poIReconciliationID) {
+  public void setPoIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
   }

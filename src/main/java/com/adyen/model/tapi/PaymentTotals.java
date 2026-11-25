@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /** Totals of the payment transaction during the reconciliation period. */
@@ -40,7 +39,7 @@ public class PaymentTotals {
   private boolean isSetTransactionCount = false;
 
   public static final String JSON_PROPERTY_TRANSACTION_AMOUNT = "TransactionAmount";
-  private BigDecimal transactionAmount;
+  private Double transactionAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTransactionAmount = false;
@@ -129,7 +128,7 @@ public class PaymentTotals {
    * @param transactionAmount Sum of amount of processed transaction during the period.
    * @return the current {@code PaymentTotals} instance, allowing for method chaining
    */
-  public PaymentTotals transactionAmount(BigDecimal transactionAmount) {
+  public PaymentTotals transactionAmount(Double transactionAmount) {
     this.transactionAmount = transactionAmount;
     isSetTransactionAmount = true; // mark as set
     return this;
@@ -142,7 +141,7 @@ public class PaymentTotals {
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getTransactionAmount() {
+  public Double getTransactionAmount() {
     return transactionAmount;
   }
 
@@ -153,7 +152,7 @@ public class PaymentTotals {
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransactionAmount(BigDecimal transactionAmount) {
+  public void setTransactionAmount(Double transactionAmount) {
     this.transactionAmount = transactionAmount;
     isSetTransactionAmount = true; // mark as set
   }
