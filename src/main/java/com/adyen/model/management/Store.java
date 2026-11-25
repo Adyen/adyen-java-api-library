@@ -513,12 +513,10 @@ public class Store {
 
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the
-   * [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   * convert and validate the phone number against E.164.
+   * [E.164](https://en.wikipedia.org/wiki/E.164) format.
    *
    * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the
-   *     [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   *     convert and validate the phone number against E.164.
+   *     [E.164](https://en.wikipedia.org/wiki/E.164) format.
    * @return the current {@code Store} instance, allowing for method chaining
    */
   public Store phoneNumber(String phoneNumber) {
@@ -529,12 +527,10 @@ public class Store {
 
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the
-   * [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   * convert and validate the phone number against E.164.
+   * [E.164](https://en.wikipedia.org/wiki/E.164) format.
    *
    * @return phoneNumber The phone number of the store, including &#39;+&#39; and country code in
-   *     the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format,
-   *     we convert and validate the phone number against E.164.
+   *     the [E.164](https://en.wikipedia.org/wiki/E.164) format.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -544,12 +540,10 @@ public class Store {
 
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the
-   * [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   * convert and validate the phone number against E.164.
+   * [E.164](https://en.wikipedia.org/wiki/E.164) format.
    *
    * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the
-   *     [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we
-   *     convert and validate the phone number against E.164.
+   *     [E.164](https://en.wikipedia.org/wiki/E.164) format.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

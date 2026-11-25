@@ -32,8 +32,10 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_AFTERPAY_TOUCH,
   PaymentMethodSetupInfo.JSON_PROPERTY_ALIPAY_PLUS,
   PaymentMethodSetupInfo.JSON_PROPERTY_AMEX,
+  PaymentMethodSetupInfo.JSON_PROPERTY_ANCV,
   PaymentMethodSetupInfo.JSON_PROPERTY_APPLE_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_BCMC,
+  PaymentMethodSetupInfo.JSON_PROPERTY_BONCARD,
   PaymentMethodSetupInfo.JSON_PROPERTY_BUSINESS_LINE_ID,
   PaymentMethodSetupInfo.JSON_PROPERTY_CARNET,
   PaymentMethodSetupInfo.JSON_PROPERTY_CARTES_BANCAIRES,
@@ -44,6 +46,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   PaymentMethodSetupInfo.JSON_PROPERTY_DINERS,
   PaymentMethodSetupInfo.JSON_PROPERTY_DISCOVER,
+  PaymentMethodSetupInfo.JSON_PROPERTY_EBT,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethodSetupInfo.JSON_PROPERTY_GIROCARD,
@@ -59,9 +62,11 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_MEAL_VOUCHER_F_R,
   PaymentMethodSetupInfo.JSON_PROPERTY_NYCE,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYBYBANK_PLAID,
+  PaymentMethodSetupInfo.JSON_PROPERTY_PAYBYBANK_PLAID_CA,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYME,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYPAL,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYTO,
+  PaymentMethodSetupInfo.JSON_PROPERTY_PIX,
   PaymentMethodSetupInfo.JSON_PROPERTY_PULSE,
   PaymentMethodSetupInfo.JSON_PROPERTY_REFERENCE,
   PaymentMethodSetupInfo.JSON_PROPERTY_SEPADIRECTDEBIT,
@@ -112,6 +117,12 @@ public class PaymentMethodSetupInfo {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmex = false;
 
+  public static final String JSON_PROPERTY_ANCV = "ancv";
+  private AncvInfo ancv;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAncv = false;
+
   public static final String JSON_PROPERTY_APPLE_PAY = "applePay";
   private ApplePayInfo applePay;
 
@@ -123,6 +134,12 @@ public class PaymentMethodSetupInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetBcmc = false;
+
+  public static final String JSON_PROPERTY_BONCARD = "boncard";
+  private BoncardInfo boncard;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBoncard = false;
 
   public static final String JSON_PROPERTY_BUSINESS_LINE_ID = "businessLineId";
   private String businessLineId;
@@ -183,6 +200,12 @@ public class PaymentMethodSetupInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDiscover = false;
+
+  public static final String JSON_PROPERTY_EBT = "ebt";
+  private EbtInfo ebt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEbt = false;
 
   public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
   private GenericPmWithTdiInfo eftDirectdebitCA;
@@ -274,6 +297,12 @@ public class PaymentMethodSetupInfo {
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPaybybankPlaid = false;
 
+  public static final String JSON_PROPERTY_PAYBYBANK_PLAID_CA = "paybybank_plaid_ca";
+  private PayByBankPlaidInfo paybybankPlaidCa;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaybybankPlaidCa = false;
+
   public static final String JSON_PROPERTY_PAYME = "payme";
   private PayMeInfo payme;
 
@@ -291,6 +320,12 @@ public class PaymentMethodSetupInfo {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPayto = false;
+
+  public static final String JSON_PROPERTY_PIX = "pix";
+  private PixInfo pix;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPix = false;
 
   public static final String JSON_PROPERTY_PULSE = "pulse";
   private PulseInfo pulse;
@@ -417,6 +452,9 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    */
   public enum TypeEnum {
     ABRAPETITE(String.valueOf("abrapetite")),
@@ -469,6 +507,8 @@ public class PaymentMethodSetupInfo {
 
     AMEX(String.valueOf("amex")),
 
+    ANCV(String.valueOf("ancv")),
+
     APPLEPAY(String.valueOf("applepay")),
 
     AVANCARD(String.valueOf("avancard")),
@@ -490,6 +530,8 @@ public class PaymentMethodSetupInfo {
     BLIK(String.valueOf("blik")),
 
     BLIK_POS(String.valueOf("blik_pos")),
+
+    BONCARD(String.valueOf("boncard")),
 
     BR_SCHEMES(String.valueOf("br_schemes")),
 
@@ -534,6 +576,8 @@ public class PaymentMethodSetupInfo {
     DISCOVER(String.valueOf("discover")),
 
     EBANKING_FI(String.valueOf("ebanking_FI")),
+
+    EBT(String.valueOf("ebt")),
 
     EFT_DIRECTDEBIT_CA(String.valueOf("eft_directdebit_CA")),
 
@@ -625,6 +669,8 @@ public class PaymentMethodSetupInfo {
 
     PAYBYBANK_PLAID(String.valueOf("paybybank_plaid")),
 
+    PAYBYBANK_PLAID_CA(String.valueOf("paybybank_plaid_ca")),
+
     PAYME(String.valueOf("payme")),
 
     PAYME_POS(String.valueOf("payme_pos")),
@@ -642,6 +688,8 @@ public class PaymentMethodSetupInfo {
     PERSONAL_CARD_CREDIT(String.valueOf("personal_card_credit")),
 
     PERSONAL_CARD_DEBIT(String.valueOf("personal_card_debit")),
+
+    PIX(String.valueOf("pix")),
 
     PULSE(String.valueOf("pulse")),
 
@@ -713,7 +761,9 @@ public class PaymentMethodSetupInfo {
 
     WECHATPAY(String.valueOf("wechatpay")),
 
-    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
+    WECHATPAY_POS(String.valueOf("wechatpay_pos")),
+
+    WERO(String.valueOf("wero"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -970,6 +1020,41 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
+   * ancv
+   *
+   * @param ancv
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo ancv(AncvInfo ancv) {
+    this.ancv = ancv;
+    isSetAncv = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ancv
+   *
+   * @return ancv
+   */
+  @JsonProperty(JSON_PROPERTY_ANCV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AncvInfo getAncv() {
+    return ancv;
+  }
+
+  /**
+   * ancv
+   *
+   * @param ancv
+   */
+  @JsonProperty(JSON_PROPERTY_ANCV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAncv(AncvInfo ancv) {
+    this.ancv = ancv;
+    isSetAncv = true; // mark as set
+  }
+
+  /**
    * applePay
    *
    * @param applePay
@@ -1037,6 +1122,41 @@ public class PaymentMethodSetupInfo {
   public void setBcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
     isSetBcmc = true; // mark as set
+  }
+
+  /**
+   * boncard
+   *
+   * @param boncard
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo boncard(BoncardInfo boncard) {
+    this.boncard = boncard;
+    isSetBoncard = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get boncard
+   *
+   * @return boncard
+   */
+  @JsonProperty(JSON_PROPERTY_BONCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BoncardInfo getBoncard() {
+    return boncard;
+  }
+
+  /**
+   * boncard
+   *
+   * @param boncard
+   */
+  @JsonProperty(JSON_PROPERTY_BONCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBoncard(BoncardInfo boncard) {
+    this.boncard = boncard;
+    isSetBoncard = true; // mark as set
   }
 
   /**
@@ -1432,6 +1552,41 @@ public class PaymentMethodSetupInfo {
   public void setDiscover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
     isSetDiscover = true; // mark as set
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo ebt(EbtInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get ebt
+   *
+   * @return ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EbtInfo getEbt() {
+    return ebt;
+  }
+
+  /**
+   * ebt
+   *
+   * @param ebt
+   */
+  @JsonProperty(JSON_PROPERTY_EBT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEbt(EbtInfo ebt) {
+    this.ebt = ebt;
+    isSetEbt = true; // mark as set
   }
 
   /**
@@ -1960,6 +2115,41 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
+   * paybybankPlaidCa
+   *
+   * @param paybybankPlaidCa
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo paybybankPlaidCa(PayByBankPlaidInfo paybybankPlaidCa) {
+    this.paybybankPlaidCa = paybybankPlaidCa;
+    isSetPaybybankPlaidCa = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get paybybankPlaidCa
+   *
+   * @return paybybankPlaidCa
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PayByBankPlaidInfo getPaybybankPlaidCa() {
+    return paybybankPlaidCa;
+  }
+
+  /**
+   * paybybankPlaidCa
+   *
+   * @param paybybankPlaidCa
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaybybankPlaidCa(PayByBankPlaidInfo paybybankPlaidCa) {
+    this.paybybankPlaidCa = paybybankPlaidCa;
+    isSetPaybybankPlaidCa = true; // mark as set
+  }
+
+  /**
    * payme
    *
    * @param payme
@@ -2062,6 +2252,41 @@ public class PaymentMethodSetupInfo {
   public void setPayto(PayToInfo payto) {
     this.payto = payto;
     isSetPayto = true; // mark as set
+  }
+
+  /**
+   * pix
+   *
+   * @param pix
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo pix(PixInfo pix) {
+    this.pix = pix;
+    isSetPix = true; // mark as set
+    return this;
+  }
+
+  /**
+   * Get pix
+   *
+   * @return pix
+   */
+  @JsonProperty(JSON_PROPERTY_PIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PixInfo getPix() {
+    return pix;
+  }
+
+  /**
+   * pix
+   *
+   * @param pix
+   */
+  @JsonProperty(JSON_PROPERTY_PIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPix(PixInfo pix) {
+    this.pix = pix;
+    isSetPix = true; // mark as set
   }
 
   /**
@@ -2516,9 +2741,15 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
    */
   public PaymentMethodSetupInfo type(TypeEnum type) {
@@ -2530,9 +2761,15 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @return type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2543,9 +2780,15 @@ public class PaymentMethodSetupInfo {
   /**
    * Payment method
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   * For payment method variant **cartebancaire**, method-specific details are returned in the
+   * [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   * object of the response.
    *
    * @param type Payment method
    *     [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   *     For payment method variant **cartebancaire**, method-specific details are returned in the
+   *     [&#x60;cartesBancaires&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires)
+   *     object of the response.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2769,10 +3012,14 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.isSetAlipayPlus, paymentMethodSetupInfo.isSetAlipayPlus)
         && Objects.equals(this.amex, paymentMethodSetupInfo.amex)
         && Objects.equals(this.isSetAmex, paymentMethodSetupInfo.isSetAmex)
+        && Objects.equals(this.ancv, paymentMethodSetupInfo.ancv)
+        && Objects.equals(this.isSetAncv, paymentMethodSetupInfo.isSetAncv)
         && Objects.equals(this.applePay, paymentMethodSetupInfo.applePay)
         && Objects.equals(this.isSetApplePay, paymentMethodSetupInfo.isSetApplePay)
         && Objects.equals(this.bcmc, paymentMethodSetupInfo.bcmc)
         && Objects.equals(this.isSetBcmc, paymentMethodSetupInfo.isSetBcmc)
+        && Objects.equals(this.boncard, paymentMethodSetupInfo.boncard)
+        && Objects.equals(this.isSetBoncard, paymentMethodSetupInfo.isSetBoncard)
         && Objects.equals(this.businessLineId, paymentMethodSetupInfo.businessLineId)
         && Objects.equals(this.isSetBusinessLineId, paymentMethodSetupInfo.isSetBusinessLineId)
         && Objects.equals(this.carnet, paymentMethodSetupInfo.carnet)
@@ -2794,6 +3041,8 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.isSetDiners, paymentMethodSetupInfo.isSetDiners)
         && Objects.equals(this.discover, paymentMethodSetupInfo.discover)
         && Objects.equals(this.isSetDiscover, paymentMethodSetupInfo.isSetDiscover)
+        && Objects.equals(this.ebt, paymentMethodSetupInfo.ebt)
+        && Objects.equals(this.isSetEbt, paymentMethodSetupInfo.isSetEbt)
         && Objects.equals(this.eftDirectdebitCA, paymentMethodSetupInfo.eftDirectdebitCA)
         && Objects.equals(this.isSetEftDirectdebitCA, paymentMethodSetupInfo.isSetEftDirectdebitCA)
         && Objects.equals(this.eftposAustralia, paymentMethodSetupInfo.eftposAustralia)
@@ -2824,12 +3073,16 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.isSetNyce, paymentMethodSetupInfo.isSetNyce)
         && Objects.equals(this.paybybankPlaid, paymentMethodSetupInfo.paybybankPlaid)
         && Objects.equals(this.isSetPaybybankPlaid, paymentMethodSetupInfo.isSetPaybybankPlaid)
+        && Objects.equals(this.paybybankPlaidCa, paymentMethodSetupInfo.paybybankPlaidCa)
+        && Objects.equals(this.isSetPaybybankPlaidCa, paymentMethodSetupInfo.isSetPaybybankPlaidCa)
         && Objects.equals(this.payme, paymentMethodSetupInfo.payme)
         && Objects.equals(this.isSetPayme, paymentMethodSetupInfo.isSetPayme)
         && Objects.equals(this.paypal, paymentMethodSetupInfo.paypal)
         && Objects.equals(this.isSetPaypal, paymentMethodSetupInfo.isSetPaypal)
         && Objects.equals(this.payto, paymentMethodSetupInfo.payto)
         && Objects.equals(this.isSetPayto, paymentMethodSetupInfo.isSetPayto)
+        && Objects.equals(this.pix, paymentMethodSetupInfo.pix)
+        && Objects.equals(this.isSetPix, paymentMethodSetupInfo.isSetPix)
         && Objects.equals(this.pulse, paymentMethodSetupInfo.pulse)
         && Objects.equals(this.isSetPulse, paymentMethodSetupInfo.isSetPulse)
         && Objects.equals(this.reference, paymentMethodSetupInfo.reference)
@@ -2882,10 +3135,14 @@ public class PaymentMethodSetupInfo {
         isSetAlipayPlus,
         amex,
         isSetAmex,
+        ancv,
+        isSetAncv,
         applePay,
         isSetApplePay,
         bcmc,
         isSetBcmc,
+        boncard,
+        isSetBoncard,
         businessLineId,
         isSetBusinessLineId,
         carnet,
@@ -2906,6 +3163,8 @@ public class PaymentMethodSetupInfo {
         isSetDiners,
         discover,
         isSetDiscover,
+        ebt,
+        isSetEbt,
         eftDirectdebitCA,
         isSetEftDirectdebitCA,
         eftposAustralia,
@@ -2936,12 +3195,16 @@ public class PaymentMethodSetupInfo {
         isSetNyce,
         paybybankPlaid,
         isSetPaybybankPlaid,
+        paybybankPlaidCa,
+        isSetPaybybankPlaidCa,
         payme,
         isSetPayme,
         paypal,
         isSetPaypal,
         payto,
         isSetPayto,
+        pix,
+        isSetPix,
         pulse,
         isSetPulse,
         reference,
@@ -2989,8 +3252,10 @@ public class PaymentMethodSetupInfo {
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
     sb.append("    alipayPlus: ").append(toIndentedString(alipayPlus)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
+    sb.append("    ancv: ").append(toIndentedString(ancv)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
+    sb.append("    boncard: ").append(toIndentedString(boncard)).append("\n");
     sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");
     sb.append("    carnet: ").append(toIndentedString(carnet)).append("\n");
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
@@ -3001,6 +3266,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    ebt: ").append(toIndentedString(ebt)).append("\n");
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
@@ -3016,9 +3282,11 @@ public class PaymentMethodSetupInfo {
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
+    sb.append("    paybybankPlaidCa: ").append(toIndentedString(paybybankPlaidCa)).append("\n");
     sb.append("    payme: ").append(toIndentedString(payme)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
     sb.append("    payto: ").append(toIndentedString(payto)).append("\n");
+    sb.append("    pix: ").append(toIndentedString(pix)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    sepadirectdebit: ").append(toIndentedString(sepadirectdebit)).append("\n");
@@ -3076,11 +3344,17 @@ public class PaymentMethodSetupInfo {
     if (isSetAmex) {
       addIfNull(nulls, JSON_PROPERTY_AMEX, this.amex);
     }
+    if (isSetAncv) {
+      addIfNull(nulls, JSON_PROPERTY_ANCV, this.ancv);
+    }
     if (isSetApplePay) {
       addIfNull(nulls, JSON_PROPERTY_APPLE_PAY, this.applePay);
     }
     if (isSetBcmc) {
       addIfNull(nulls, JSON_PROPERTY_BCMC, this.bcmc);
+    }
+    if (isSetBoncard) {
+      addIfNull(nulls, JSON_PROPERTY_BONCARD, this.boncard);
     }
     if (isSetBusinessLineId) {
       addIfNull(nulls, JSON_PROPERTY_BUSINESS_LINE_ID, this.businessLineId);
@@ -3111,6 +3385,9 @@ public class PaymentMethodSetupInfo {
     }
     if (isSetDiscover) {
       addIfNull(nulls, JSON_PROPERTY_DISCOVER, this.discover);
+    }
+    if (isSetEbt) {
+      addIfNull(nulls, JSON_PROPERTY_EBT, this.ebt);
     }
     if (isSetEftDirectdebitCA) {
       addIfNull(nulls, JSON_PROPERTY_EFT_DIRECTDEBIT_C_A, this.eftDirectdebitCA);
@@ -3157,6 +3434,9 @@ public class PaymentMethodSetupInfo {
     if (isSetPaybybankPlaid) {
       addIfNull(nulls, JSON_PROPERTY_PAYBYBANK_PLAID, this.paybybankPlaid);
     }
+    if (isSetPaybybankPlaidCa) {
+      addIfNull(nulls, JSON_PROPERTY_PAYBYBANK_PLAID_CA, this.paybybankPlaidCa);
+    }
     if (isSetPayme) {
       addIfNull(nulls, JSON_PROPERTY_PAYME, this.payme);
     }
@@ -3165,6 +3445,9 @@ public class PaymentMethodSetupInfo {
     }
     if (isSetPayto) {
       addIfNull(nulls, JSON_PROPERTY_PAYTO, this.payto);
+    }
+    if (isSetPix) {
+      addIfNull(nulls, JSON_PROPERTY_PIX, this.pix);
     }
     if (isSetPulse) {
       addIfNull(nulls, JSON_PROPERTY_PULSE, this.pulse);

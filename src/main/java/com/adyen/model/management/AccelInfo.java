@@ -30,12 +30,13 @@ import java.util.logging.Logger;
 })
 public class AccelInfo {
   /**
-   * The type of transactions processed over this payment method. Allowed values: - **pos** for
-   * in-person payments. - **billpay** for subscription payments, both the initial payment and the
-   * later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60;
-   * **Subscription**. - **ecom** for all other card not present transactions. This includes
-   * non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60;
-   * **CardOnFile** or **UnscheduledCardOnFile**.
+   * The type of transactions processed over this payment method. The recommended usage is to not
+   * specify a processing type. We then set up the payment method to process all transaction types.
+   * Allowed values: - **pos** for in-person payments. - **billpay** for subscription payments, both
+   * the initial payment and the later recurring payments. These transactions have
+   * &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
+   * present transactions. This includes non-recurring transactions and transactions with
+   * &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
    */
   public enum ProcessingTypeEnum {
     BILLPAY(String.valueOf("billpay")),
@@ -100,19 +101,22 @@ public class AccelInfo {
   public AccelInfo() {}
 
   /**
-   * The type of transactions processed over this payment method. Allowed values: - **pos** for
-   * in-person payments. - **billpay** for subscription payments, both the initial payment and the
-   * later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60;
-   * **Subscription**. - **ecom** for all other card not present transactions. This includes
-   * non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60;
-   * **CardOnFile** or **UnscheduledCardOnFile**.
+   * The type of transactions processed over this payment method. The recommended usage is to not
+   * specify a processing type. We then set up the payment method to process all transaction types.
+   * Allowed values: - **pos** for in-person payments. - **billpay** for subscription payments, both
+   * the initial payment and the later recurring payments. These transactions have
+   * &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
+   * present transactions. This includes non-recurring transactions and transactions with
+   * &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
    *
-   * @param processingType The type of transactions processed over this payment method. Allowed
-   *     values: - **pos** for in-person payments. - **billpay** for subscription payments, both the
-   *     initial payment and the later recurring payments. These transactions have
-   *     &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
-   *     present transactions. This includes non-recurring transactions and transactions with
-   *     &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
+   * @param processingType The type of transactions processed over this payment method. The
+   *     recommended usage is to not specify a processing type. We then set up the payment method to
+   *     process all transaction types. Allowed values: - **pos** for in-person payments. -
+   *     **billpay** for subscription payments, both the initial payment and the later recurring
+   *     payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**. -
+   *     **ecom** for all other card not present transactions. This includes non-recurring
+   *     transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or
+   *     **UnscheduledCardOnFile**.
    * @return the current {@code AccelInfo} instance, allowing for method chaining
    */
   public AccelInfo processingType(ProcessingTypeEnum processingType) {
@@ -122,19 +126,22 @@ public class AccelInfo {
   }
 
   /**
-   * The type of transactions processed over this payment method. Allowed values: - **pos** for
-   * in-person payments. - **billpay** for subscription payments, both the initial payment and the
-   * later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60;
-   * **Subscription**. - **ecom** for all other card not present transactions. This includes
-   * non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60;
-   * **CardOnFile** or **UnscheduledCardOnFile**.
+   * The type of transactions processed over this payment method. The recommended usage is to not
+   * specify a processing type. We then set up the payment method to process all transaction types.
+   * Allowed values: - **pos** for in-person payments. - **billpay** for subscription payments, both
+   * the initial payment and the later recurring payments. These transactions have
+   * &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
+   * present transactions. This includes non-recurring transactions and transactions with
+   * &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
    *
-   * @return processingType The type of transactions processed over this payment method. Allowed
-   *     values: - **pos** for in-person payments. - **billpay** for subscription payments, both the
-   *     initial payment and the later recurring payments. These transactions have
-   *     &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
-   *     present transactions. This includes non-recurring transactions and transactions with
-   *     &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
+   * @return processingType The type of transactions processed over this payment method. The
+   *     recommended usage is to not specify a processing type. We then set up the payment method to
+   *     process all transaction types. Allowed values: - **pos** for in-person payments. -
+   *     **billpay** for subscription payments, both the initial payment and the later recurring
+   *     payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**. -
+   *     **ecom** for all other card not present transactions. This includes non-recurring
+   *     transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or
+   *     **UnscheduledCardOnFile**.
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,19 +150,22 @@ public class AccelInfo {
   }
 
   /**
-   * The type of transactions processed over this payment method. Allowed values: - **pos** for
-   * in-person payments. - **billpay** for subscription payments, both the initial payment and the
-   * later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60;
-   * **Subscription**. - **ecom** for all other card not present transactions. This includes
-   * non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60;
-   * **CardOnFile** or **UnscheduledCardOnFile**.
+   * The type of transactions processed over this payment method. The recommended usage is to not
+   * specify a processing type. We then set up the payment method to process all transaction types.
+   * Allowed values: - **pos** for in-person payments. - **billpay** for subscription payments, both
+   * the initial payment and the later recurring payments. These transactions have
+   * &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
+   * present transactions. This includes non-recurring transactions and transactions with
+   * &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
    *
-   * @param processingType The type of transactions processed over this payment method. Allowed
-   *     values: - **pos** for in-person payments. - **billpay** for subscription payments, both the
-   *     initial payment and the later recurring payments. These transactions have
-   *     &#x60;recurringProcessingModel&#x60; **Subscription**. - **ecom** for all other card not
-   *     present transactions. This includes non-recurring transactions and transactions with
-   *     &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**.
+   * @param processingType The type of transactions processed over this payment method. The
+   *     recommended usage is to not specify a processing type. We then set up the payment method to
+   *     process all transaction types. Allowed values: - **pos** for in-person payments. -
+   *     **billpay** for subscription payments, both the initial payment and the later recurring
+   *     payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**. -
+   *     **ecom** for all other card not present transactions. This includes non-recurring
+   *     transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or
+   *     **UnscheduledCardOnFile**.
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
