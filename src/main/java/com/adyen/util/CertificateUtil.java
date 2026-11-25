@@ -47,7 +47,13 @@ public final class CertificateUtil {
    */
   public static Certificate loadCertificate(String filePath)
       throws FileNotFoundException, CertificateException {
-    return loadCertificate(new FileInputStream(filePath));
+    try (InputStream inputStream = new FileInputStream(filePath)) {
+      return loadCertificate(inputStream);
+    } catch (FileNotFoundException | CertificateException e) {
+      throw e;
+    } catch (IOException e) {
+      throw new CertificateException("Failed to close certificate file " + filePath, e);
+    }
   }
 
   /**
