@@ -347,13 +347,16 @@ public class CheckoutForwardRequest {
 
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
-   * is case-sensitive and must be at least three characters. &gt; Your reference must not include
-   * personally identifiable information (PII) such as name or email address.
+   * is case-sensitive and must be at least three characters. This parameter is required unless the
+   * request is for PAN forwarding and &#x60;options.tokenize&#x60; is false (the default). &gt;
+   * Your reference must not include personally identifiable information (PII) such as name or email
+   * address.
    *
    * @param shopperReference Your reference to uniquely identify this shopper, for example user ID
-   *     or account ID. The value is case-sensitive and must be at least three characters. &gt; Your
-   *     reference must not include personally identifiable information (PII) such as name or email
-   *     address.
+   *     or account ID. The value is case-sensitive and must be at least three characters. This
+   *     parameter is required unless the request is for PAN forwarding and
+   *     &#x60;options.tokenize&#x60; is false (the default). &gt; Your reference must not include
+   *     personally identifiable information (PII) such as name or email address.
    * @return the current {@code CheckoutForwardRequest} instance, allowing for method chaining
    */
   public CheckoutForwardRequest shopperReference(String shopperReference) {
@@ -364,13 +367,16 @@ public class CheckoutForwardRequest {
 
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
-   * is case-sensitive and must be at least three characters. &gt; Your reference must not include
-   * personally identifiable information (PII) such as name or email address.
+   * is case-sensitive and must be at least three characters. This parameter is required unless the
+   * request is for PAN forwarding and &#x60;options.tokenize&#x60; is false (the default). &gt;
+   * Your reference must not include personally identifiable information (PII) such as name or email
+   * address.
    *
    * @return shopperReference Your reference to uniquely identify this shopper, for example user ID
-   *     or account ID. The value is case-sensitive and must be at least three characters. &gt; Your
-   *     reference must not include personally identifiable information (PII) such as name or email
-   *     address.
+   *     or account ID. The value is case-sensitive and must be at least three characters. This
+   *     parameter is required unless the request is for PAN forwarding and
+   *     &#x60;options.tokenize&#x60; is false (the default). &gt; Your reference must not include
+   *     personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,13 +386,16 @@ public class CheckoutForwardRequest {
 
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
-   * is case-sensitive and must be at least three characters. &gt; Your reference must not include
-   * personally identifiable information (PII) such as name or email address.
+   * is case-sensitive and must be at least three characters. This parameter is required unless the
+   * request is for PAN forwarding and &#x60;options.tokenize&#x60; is false (the default). &gt;
+   * Your reference must not include personally identifiable information (PII) such as name or email
+   * address.
    *
    * @param shopperReference Your reference to uniquely identify this shopper, for example user ID
-   *     or account ID. The value is case-sensitive and must be at least three characters. &gt; Your
-   *     reference must not include personally identifiable information (PII) such as name or email
-   *     address.
+   *     or account ID. The value is case-sensitive and must be at least three characters. This
+   *     parameter is required unless the request is for PAN forwarding and
+   *     &#x60;options.tokenize&#x60; is false (the default). &gt; Your reference must not include
+   *     personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

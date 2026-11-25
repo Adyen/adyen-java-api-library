@@ -18,13 +18,13 @@ import java.util.logging.Logger;
 
 /** Gets or Sets RemittancePurpose */
 public enum RemittancePurpose {
-  TOUR_PROGRAMME("TOUR_PROGRAMME"),
+  TOURPROGRAMME("tourProgramme"),
 
-  TRAVEL_NON_TOUR("TRAVEL_NON_TOUR"),
+  TRAVELNONTOUR("travelNonTour"),
 
-  EDUCATION("EDUCATION"),
+  EDUCATION("education"),
 
-  DIGITAL("DIGITAL");
+  DIGITAL("digital");
 
   private static final Logger LOG = Logger.getLogger(RemittancePurpose.class.getName());
 

@@ -18,9 +18,9 @@ import java.util.logging.Logger;
 
 /** Gets or Sets SublimitStatus */
 public enum SublimitStatus {
-  EXCEEDED("EXCEEDED"),
+  EXCEEDED("exceeded"),
 
-  NOT_EXCEEDED("NOT_EXCEEDED");
+  NOTEXCEEDED("notExceeded");
 
   private static final Logger LOG = Logger.getLogger(SublimitStatus.class.getName());
 

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /** Gets or Sets CalculationType */
 public enum CalculationType {
-  LRS_TCS("LRS_TCS");
+  LRSTCS("lrsTcs");
 
   private static final Logger LOG = Logger.getLogger(CalculationType.class.getName());
 

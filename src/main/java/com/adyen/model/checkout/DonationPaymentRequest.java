@@ -1312,13 +1312,21 @@ public class DonationPaymentRequest {
   }
 
   /**
-   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
-   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
-   * subdirectories and a trailing slash.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions. Set
+   * this to the origin URL of the page where you are rendering the Drop-in/Component. Do not
+   * include subdirectories and a trailing slash. &gt; If &#x60;origin&#x60; is missing or
+   * incorrect, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   * liability shift. Set this value on your server. If you receive it from the client, validate it
+   * first. For more information, see [3D Secure 2
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/).
    *
    * @param origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
-   *     transactions.Set this to the origin URL of the page where you are rendering the
-   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
+   *     transactions. Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash. &gt; If
+   *     &#x60;origin&#x60; is missing or incorrect, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. Set this value on your server. If
+   *     you receive it from the client, validate it first. For more information, see [3D Secure 2
+   *     authentication](https://docs.adyen.com/online-payments/3d-secure/).
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest origin(String origin) {
@@ -1328,13 +1336,21 @@ public class DonationPaymentRequest {
   }
 
   /**
-   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
-   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
-   * subdirectories and a trailing slash.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions. Set
+   * this to the origin URL of the page where you are rendering the Drop-in/Component. Do not
+   * include subdirectories and a trailing slash. &gt; If &#x60;origin&#x60; is missing or
+   * incorrect, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   * liability shift. Set this value on your server. If you receive it from the client, validate it
+   * first. For more information, see [3D Secure 2
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/).
    *
    * @return origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
-   *     transactions.Set this to the origin URL of the page where you are rendering the
-   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
+   *     transactions. Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash. &gt; If
+   *     &#x60;origin&#x60; is missing or incorrect, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. Set this value on your server. If
+   *     you receive it from the client, validate it first. For more information, see [3D Secure 2
+   *     authentication](https://docs.adyen.com/online-payments/3d-secure/).
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1343,13 +1359,21 @@ public class DonationPaymentRequest {
   }
 
   /**
-   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
-   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
-   * subdirectories and a trailing slash.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions. Set
+   * this to the origin URL of the page where you are rendering the Drop-in/Component. Do not
+   * include subdirectories and a trailing slash. &gt; If &#x60;origin&#x60; is missing or
+   * incorrect, 3D Secure 2 cannot be initiated and the transaction can be authorized without
+   * liability shift. Set this value on your server. If you receive it from the client, validate it
+   * first. For more information, see [3D Secure 2
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/).
    *
    * @param origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
-   *     transactions.Set this to the origin URL of the page where you are rendering the
-   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
+   *     transactions. Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash. &gt; If
+   *     &#x60;origin&#x60; is missing or incorrect, 3D Secure 2 cannot be initiated and the
+   *     transaction can be authorized without liability shift. Set this value on your server. If
+   *     you receive it from the client, validate it first. For more information, see [3D Secure 2
+   *     authentication](https://docs.adyen.com/online-payments/3d-secure/).
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
