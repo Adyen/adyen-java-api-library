@@ -20,6 +20,7 @@
  */
 package com.adyen.util;
 
+import static org.mockito.AdditionalAnswers.delegatesTo;
 import static org.mockito.Mockito.mockConstruction;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.withSettings;
@@ -29,12 +30,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -45,9 +45,7 @@ import java.security.cert.CertificateFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.Answers;
 import org.mockito.MockedConstruction;
-import org.mockito.stubbing.Answer;
 
 public class CertificateUtilTest {
 
@@ -67,7 +65,7 @@ public class CertificateUtilTest {
         mockConstruction(
             FileInputStream.class,
             withSettings()
-                .defaultAnswer(delegatingTo(new ByteArrayInputStream(certificateBytes))))) {
+                .defaultAnswer(delegatesTo(new ByteArrayInputStream(certificateBytes))))) {
       Certificate certificate = CertificateUtil.loadCertificate("certificate.pem");
 
       Assertions.assertNotNull(certificate);
@@ -84,7 +82,7 @@ public class CertificateUtilTest {
         mockConstruction(
             FileInputStream.class,
             withSettings()
-                .defaultAnswer(delegatingTo(new ByteArrayInputStream(invalidCertificate))))) {
+                .defaultAnswer(delegatesTo(new ByteArrayInputStream(invalidCertificate))))) {
       Assertions.assertThrows(
           CertificateException.class, () -> CertificateUtil.loadCertificate("invalid.pem"));
 
@@ -93,26 +91,8 @@ public class CertificateUtilTest {
     }
   }
 
-  private java.nio.file.Path resourcePath(String name) throws URISyntaxException {
+  private Path resourcePath(String name) throws URISyntaxException {
     return Paths.get(getClass().getClassLoader().getResource(name).toURI());
-  }
-
-  /** Forwards every {@link InputStream} method of the mocked file stream to {@code target}. */
-  private static Answer<Object> delegatingTo(InputStream target) {
-    return invocation -> {
-      Method method = invocation.getMethod();
-      Method targetMethod;
-      try {
-        targetMethod = InputStream.class.getMethod(method.getName(), method.getParameterTypes());
-      } catch (NoSuchMethodException e) {
-        return Answers.RETURNS_DEFAULTS.answer(invocation);
-      }
-      try {
-        return targetMethod.invoke(target, invocation.getArguments());
-      } catch (InvocationTargetException e) {
-        throw e.getCause();
-      }
-    };
   }
 
   @Test
