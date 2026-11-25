@@ -71,6 +71,10 @@ public class DisputeEventNotification {
 
     DUPLICATE(String.valueOf("duplicate")),
 
+    NOTASDESCRIBED(String.valueOf("notAsDescribed")),
+
+    CANCELLED(String.valueOf("cancelled")),
+
     OTHER(String.valueOf("other"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());

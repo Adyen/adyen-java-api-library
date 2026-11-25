@@ -101,14 +101,19 @@ public class ChallengeInfo {
   /**
    * The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time password
    * (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email *
-   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via
+   * SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    */
   public enum FlowEnum {
     PWD_OTP_PHONE_FL(String.valueOf("PWD_OTP_PHONE_FL")),
 
     PWD_OTP_EMAIL_FL(String.valueOf("PWD_OTP_EMAIL_FL")),
 
-    OOB_TRIGGER_FL(String.valueOf("OOB_TRIGGER_FL"));
+    OOB_TRIGGER_FL(String.valueOf("OOB_TRIGGER_FL")),
+
+    OTP_PHONE_FL(String.valueOf("OTP_PHONE_FL")),
+
+    PASSKEY_TRIGGER_FL(String.valueOf("PASSKEY_TRIGGER_FL"));
 
     private static final Logger LOG = Logger.getLogger(FlowEnum.class.getName());
 
@@ -234,11 +239,13 @@ public class ChallengeInfo {
   /**
    * The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time password
    * (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email *
-   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via
+   * SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    *
    * @param flow The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time
    *     password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email
-   *     * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   *     * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP)
+   *     flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo flow(FlowEnum flow) {
@@ -249,11 +256,13 @@ public class ChallengeInfo {
   /**
    * The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time password
    * (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email *
-   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via
+   * SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    *
    * @return flow The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time
    *     password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email
-   *     * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   *     * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP)
+   *     flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    */
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,11 +273,13 @@ public class ChallengeInfo {
   /**
    * The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time password
    * (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email *
-   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via
+   * SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    *
    * @param flow The flow used in the challenge. Possible values: * **PWD_OTP_PHONE_FL**: one-time
    *     password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email
-   *     * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+   *     * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP)
+   *     flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
    */
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

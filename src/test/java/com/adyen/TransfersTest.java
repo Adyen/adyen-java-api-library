@@ -135,6 +135,28 @@ public class TransfersTest extends BaseTest {
   }
 
   @Test
+  public void transferInterestPayoutJsonRoundTripTest() throws Exception {
+    String json = "{\"category\":\"interest\",\"type\":\"interestPayout\"}";
+
+    Transfer transfer = Transfer.fromJson(json);
+
+    assertEquals(Transfer.CategoryEnum.INTEREST, transfer.getCategory());
+    assertEquals(Transfer.TypeEnum.INTERESTPAYOUT, transfer.getType());
+    assertEquals(JSON.getMapper().readTree(json), JSON.getMapper().readTree(transfer.toJson()));
+  }
+
+  @Test
+  public void transferDataInterestPayoutJsonRoundTripTest() throws Exception {
+    String json = "{\"category\":\"interest\",\"type\":\"interestPayout\"}";
+
+    TransferData transferData = TransferData.fromJson(json);
+
+    assertEquals(TransferData.CategoryEnum.INTEREST, transferData.getCategory());
+    assertEquals(TransferData.TypeEnum.INTERESTPAYOUT, transferData.getType());
+    assertEquals(JSON.getMapper().readTree(json), JSON.getMapper().readTree(transferData.toJson()));
+  }
+
+  @Test
   public void initiateCashoutTest() throws Exception {
     Client client = createMockClientFromFile("mocks/transfers/post-cashouts-200.json");
     CashOutApi cashOut = new CashOutApi(client);

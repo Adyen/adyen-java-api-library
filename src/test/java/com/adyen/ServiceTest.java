@@ -102,6 +102,58 @@ public class ServiceTest extends BaseTest {
     assertEquals("please provide a live url prefix in the client", e.getMessage());
   }
 
+  static Stream<String> unsafeLiveEndpointUrlPrefixes() {
+    return Stream.of(
+        "0123456789abcdef-Company_Name",
+        "-0123456789abcdef-Company",
+        "---",
+        "0123456789abcdef-Company--Name",
+        "0123456789abcdef--Company",
+        "0123456789abcdef-Company-",
+        "evil.example/?x=#",
+        "evil.example?redirect=true",
+        "evil.example#fragment",
+        "evil.example/path",
+        "evil@example.com",
+        "evil.example:443",
+        "evil%2Fexample",
+        "prefix with space",
+        "prefix\nnext-line");
+  }
+
+  @ParameterizedTest
+  @MethodSource("unsafeLiveEndpointUrlPrefixes")
+  public void rejectsUnsafeLiveEndpointUrlPrefixes(String prefix) {
+    config.setLiveEndpointUrlPrefix(prefix);
+
+    assertAll(
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> service.createBaseURL("https://checkout-test.adyen.com/v68/payments")),
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
+                () -> service.createBaseURL("https://checkout-test.adyen.com/possdk/v68/sessions")),
+        () ->
+            assertThrows(
+                IllegalArgumentException.class,
+                () ->
+                    service.createBaseURL("https://pal-test.adyen.com/pal/servlet/v68/initiate")));
+  }
+
+  @Test
+  public void testLiveCheckoutUrlWithEmptyPrefix() {
+    config.setLiveEndpointUrlPrefix("");
+
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> service.createBaseURL("https://checkout-test.adyen.com/v68/payments"));
+
+    assertEquals("please provide a live url prefix in the client", exception.getMessage());
+  }
+
   @Test
   public void testLiveCheckoutPosSdkUrlWithPrefix() {
     config.setLiveEndpointUrlPrefix("123456789-company");
@@ -158,7 +210,8 @@ public class ServiceTest extends BaseTest {
         Arguments.of(Region.EU, "https://device-api-live.adyen.com/device/v1"),
         Arguments.of(Region.AU, "https://device-api-live-au.adyen.com/device/v1"),
         Arguments.of(Region.US, "https://device-api-live-us.adyen.com/device/v1"),
-        Arguments.of(Region.APSE, "https://device-api-live-apse.adyen.com/device/v1"));
+        Arguments.of(Region.APSE, "https://device-api-live-apse.adyen.com/device/v1"),
+        Arguments.of(Region.NEA, "https://device-api-live-nea.adyen.com/device/v1"));
   }
 
   @ParameterizedTest
@@ -166,6 +219,74 @@ public class ServiceTest extends BaseTest {
   public void testDeviceApiLiveUrlPerRegion(Region region, String expectedUrl) {
     config.setTerminalApiRegion(region);
     String testUrl = "https://device-api-test.adyen.com/device/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @ParameterizedTest
+  @MethodSource("deviceApiRegionToLiveUrl")
+  public void testDeviceApiTestUrlPerRegion(Region region, String ignoredLiveUrl) {
+    config.setEnvironment(Environment.TEST);
+    config.setTerminalApiRegion(region);
+    String testUrl = "https://device-api-test.adyen.com/device/v1";
+
+    assertEquals(testUrl, service.createBaseURL(testUrl));
+  }
+
+  @Test
+  public void testNonRegionalApiIgnoresRegion() {
+    config.setTerminalApiRegion(Region.US);
+
+    assertEquals(
+        "https://balanceplatform-api-live.adyen.com/bcl/v2",
+        service.createBaseURL("https://balanceplatform-api-test.adyen.com/bcl/v2"));
+  }
+
+  static Stream<Arguments> softPosConfigurationRegionToLiveUrl() {
+    return Stream.of(
+        Arguments.of(null, "https://softposconfig-live.adyen.com/softposconfig/v3"),
+        Arguments.of(Region.EU, "https://softposconfig-live.adyen.com/softposconfig/v3"),
+        Arguments.of(Region.AU, "https://softposconfig-live-au.adyen.com/softposconfig/v3"),
+        Arguments.of(Region.US, "https://softposconfig-live-us.adyen.com/softposconfig/v3"),
+        Arguments.of(Region.APSE, "https://softposconfig-live-apse.adyen.com/softposconfig/v3"),
+        Arguments.of(Region.NEA, "https://softposconfig-live-nea.adyen.com/softposconfig/v3"));
+  }
+
+  @ParameterizedTest
+  @MethodSource("softPosConfigurationRegionToLiveUrl")
+  public void testSoftPosConfigurationLiveUrlPerRegion(Region region, String expectedUrl) {
+    config.setTerminalApiRegion(region);
+    String testUrl = "https://softposconfig-test.adyen.com/softposconfig/v3";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
+
+  @ParameterizedTest
+  @MethodSource("softPosConfigurationRegionToLiveUrl")
+  public void testSoftPosConfigurationTestUrlPerRegion(Region region, String ignoredLiveUrl) {
+    config.setEnvironment(Environment.TEST);
+    config.setTerminalApiRegion(region);
+    String testUrl = "https://softposconfig-test.adyen.com/softposconfig/v3";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(testUrl, actualUrl);
+  }
+
+  @Test
+  public void testRegionalLiveUrlWithoutPath() {
+    config.setTerminalApiRegion(Region.AU);
+
+    String actualUrl = service.createBaseURL("https://softposconfig-test.adyen.com");
+    assertEquals("https://softposconfig-live-au.adyen.com", actualUrl);
+  }
+
+  @Test
+  public void testRegionalLiveUrlKeepsTestInPath() {
+    config.setTerminalApiRegion(Region.US);
+    String testUrl = "https://device-api-test.adyen.com/v1/merchants/My-test-account";
+    String expectedUrl = "https://device-api-live-us.adyen.com/v1/merchants/My-test-account";
 
     String actualUrl = service.createBaseURL(testUrl);
     assertEquals(expectedUrl, actualUrl);

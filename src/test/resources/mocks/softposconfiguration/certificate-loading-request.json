@@ -1,0 +1,19 @@
+{
+  "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+  "setupToken": "test-setup-token",
+  "store": "YOUR_STORE",
+  "subMerchantData": {
+    "city": "Test City",
+    "country": "NL",
+    "displayName": "Test Shop",
+    "email": "shop@example.com",
+    "id": "test-sub-merchant-id",
+    "mcc": "5411",
+    "name": "Test Merchant",
+    "phoneNumber": "+31000000000",
+    "postalCode": "1000AA",
+    "state": "Test State",
+    "street": "Test Street 1",
+    "taxId": "test-tax-id"
+  }
+}

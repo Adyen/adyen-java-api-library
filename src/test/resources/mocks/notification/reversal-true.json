@@ -1,0 +1,28 @@
+{
+  "live": "false",
+  "notificationItems": [
+    {
+      "NotificationRequestItem": {
+        "additionalData": {
+          "modification.action": "refund",
+          "modification.status": "authorised",
+          "cancellableUntil": "2024-05-21T14:32:00Z",
+          "refundPspReference": "REFUND_PSP_REFERENCE"
+        },
+        "amount": {
+          "currency": "EUR",
+          "value": 1500
+        },
+        "eventCode": "REVERSAL",
+        "eventDate": "2024-05-21T13:32:00+01:00",
+        "merchantAccountCode": "MagentoMerchantTest2",
+        "merchantReference": "payment-2024-05-21-reversal",
+        "originalReference": "ORIGINAL_PSP",
+        "paymentMethod": "visa",
+        "pspReference": "PSP_REFERENCE",
+        "reason": "",
+        "success": "true"
+      }
+    }
+  ]
+}

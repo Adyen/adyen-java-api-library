@@ -22,12 +22,20 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
+import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * A generic service that provides shared functionality for all API services. It handles client and
  * configuration management.
  */
 public class Service {
+  private static final Pattern LIVE_ENDPOINT_URL_PREFIX_PATTERN =
+      Pattern.compile("[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*");
+
+  private static final List<String> REGIONAL_API_HOST_NAMES =
+      List.of("device-api", "softposconfig");
+
   private boolean isApiKeyRequired = false;
   private Client client;
 
@@ -82,7 +90,7 @@ public class Service {
    *
    * @param url The base URL template.
    * @return The fully constructed base URL for the target environment.
-   * @throws IllegalArgumentException if the live URL prefix is required but not configured.
+   * @throws IllegalArgumentException if the live URL prefix is required but not valid.
    */
   protected String createBaseURL(String url) {
     Config config = this.getClient().getConfig();
@@ -95,53 +103,52 @@ public class Service {
     }
 
     if (url.contains("pal-")) {
-      if (config.getLiveEndpointUrlPrefix() == null) {
-        throw new IllegalArgumentException("please provide a live url prefix in the client");
-      }
+      String liveEndpointUrlPrefix = getValidatedLiveEndpointUrlPrefix(config);
       url =
           url.replace(
               "https://pal-test.adyen.com/pal/servlet/",
-              "https://"
-                  + config.getLiveEndpointUrlPrefix()
-                  + "-pal-live.adyenpayments.com/pal/servlet/");
+              "https://" + liveEndpointUrlPrefix + "-pal-live.adyenpayments.com/pal/servlet/");
     }
 
     if (url.contains("checkout-")) {
-      if (config.getLiveEndpointUrlPrefix() == null) {
-        throw new IllegalArgumentException("please provide a live url prefix in the client");
-      }
+      String liveEndpointUrlPrefix = getValidatedLiveEndpointUrlPrefix(config);
       if (url.contains("/possdk/")) {
         // Custom handling of POS Mobile API url
         url =
             url.replace(
                 "https://checkout-test.adyen.com/",
-                "https://"
-                    + config.getLiveEndpointUrlPrefix()
-                    + "-checkout-live.adyenpayments.com/");
+                "https://" + liveEndpointUrlPrefix + "-checkout-live.adyenpayments.com/");
       } else {
         url =
             url.replace(
                 "https://checkout-test.adyen.com/",
-                "https://"
-                    + config.getLiveEndpointUrlPrefix()
-                    + "-checkout-live.adyenpayments.com/checkout/");
+                "https://" + liveEndpointUrlPrefix + "-checkout-live.adyenpayments.com/checkout/");
       }
     }
 
-    if (url.contains("device-api-")) {
-      if (config.getTerminalApiRegion() == null
-          || config.getTerminalApiRegion().equals(Region.EU)) {
-        url = url.replace("https://device-api-test.adyen.com", "https://device-api-live.adyen.com");
-      } else {
-        url =
-            url.replace(
-                "https://device-api-test.adyen.com",
-                String.format(
-                    "https://device-api-live-%s.adyen.com",
-                    config.getTerminalApiRegion().name().toLowerCase()));
+    return getRegionalLiveUrl(url, config.getTerminalApiRegion());
+  }
+
+  private static String getRegionalLiveUrl(String url, Region region) {
+    for (String apiHostName : REGIONAL_API_HOST_NAMES) {
+      String testHostUrl = "https://" + apiHostName + "-test.adyen.com";
+      if (url.contains(testHostUrl)) {
+        String regionalLiveHost = Region.regionalLiveUrl(apiHostName, region);
+        return url.replace(testHostUrl, regionalLiveHost);
       }
     }
-
     return url.replaceFirst("-test", "-live");
+  }
+
+  private String getValidatedLiveEndpointUrlPrefix(Config config) {
+    String liveEndpointUrlPrefix = config.getLiveEndpointUrlPrefix();
+    if (liveEndpointUrlPrefix == null || liveEndpointUrlPrefix.isEmpty()) {
+      throw new IllegalArgumentException("please provide a live url prefix in the client");
+    }
+    if (!LIVE_ENDPOINT_URL_PREFIX_PATTERN.matcher(liveEndpointUrlPrefix).matches()) {
+      throw new IllegalArgumentException(
+          "live url prefix must contain only letters, digits, and hyphens");
+    }
+    return liveEndpointUrlPrefix;
   }
 }
