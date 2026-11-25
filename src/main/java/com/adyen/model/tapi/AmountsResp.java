@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /** AmountsResp */
@@ -37,31 +36,31 @@ public class AmountsResp {
   private boolean isSetCurrency = false;
 
   public static final String JSON_PROPERTY_AUTHORIZED_AMOUNT = "AuthorizedAmount";
-  private BigDecimal authorizedAmount;
+  private Double authorizedAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAuthorizedAmount = false;
 
   public static final String JSON_PROPERTY_TOTAL_REBATES_AMOUNT = "TotalRebatesAmount";
-  private BigDecimal totalRebatesAmount;
+  private Double totalRebatesAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTotalRebatesAmount = false;
 
   public static final String JSON_PROPERTY_TOTAL_FEES_AMOUNT = "TotalFeesAmount";
-  private BigDecimal totalFeesAmount;
+  private Double totalFeesAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTotalFeesAmount = false;
 
   public static final String JSON_PROPERTY_CASH_BACK_AMOUNT = "CashBackAmount";
-  private BigDecimal cashBackAmount;
+  private Double cashBackAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetCashBackAmount = false;
 
   public static final String JSON_PROPERTY_TIP_AMOUNT = "TipAmount";
-  private BigDecimal tipAmount;
+  private Double tipAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetTipAmount = false;
@@ -115,7 +114,7 @@ public class AmountsResp {
    * @param authorizedAmount Amount requested by the Sale for the payment.
    * @return the current {@code AmountsResp} instance, allowing for method chaining
    */
-  public AmountsResp authorizedAmount(BigDecimal authorizedAmount) {
+  public AmountsResp authorizedAmount(Double authorizedAmount) {
     this.authorizedAmount = authorizedAmount;
     isSetAuthorizedAmount = true; // mark as set
     return this;
@@ -128,7 +127,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getAuthorizedAmount() {
+  public Double getAuthorizedAmount() {
     return authorizedAmount;
   }
 
@@ -139,7 +138,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAuthorizedAmount(BigDecimal authorizedAmount) {
+  public void setAuthorizedAmount(Double authorizedAmount) {
     this.authorizedAmount = authorizedAmount;
     isSetAuthorizedAmount = true; // mark as set
   }
@@ -151,7 +150,7 @@ public class AmountsResp {
    *     the loyalty programs.
    * @return the current {@code AmountsResp} instance, allowing for method chaining
    */
-  public AmountsResp totalRebatesAmount(BigDecimal totalRebatesAmount) {
+  public AmountsResp totalRebatesAmount(Double totalRebatesAmount) {
     this.totalRebatesAmount = totalRebatesAmount;
     isSetTotalRebatesAmount = true; // mark as set
     return this;
@@ -166,7 +165,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_REBATES_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getTotalRebatesAmount() {
+  public Double getTotalRebatesAmount() {
     return totalRebatesAmount;
   }
 
@@ -178,7 +177,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_REBATES_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalRebatesAmount(BigDecimal totalRebatesAmount) {
+  public void setTotalRebatesAmount(Double totalRebatesAmount) {
     this.totalRebatesAmount = totalRebatesAmount;
     isSetTotalRebatesAmount = true; // mark as set
   }
@@ -189,7 +188,7 @@ public class AmountsResp {
    * @param totalFeesAmount Total amount of financial fees.
    * @return the current {@code AmountsResp} instance, allowing for method chaining
    */
-  public AmountsResp totalFeesAmount(BigDecimal totalFeesAmount) {
+  public AmountsResp totalFeesAmount(Double totalFeesAmount) {
     this.totalFeesAmount = totalFeesAmount;
     isSetTotalFeesAmount = true; // mark as set
     return this;
@@ -202,7 +201,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_FEES_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getTotalFeesAmount() {
+  public Double getTotalFeesAmount() {
     return totalFeesAmount;
   }
 
@@ -213,7 +212,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_FEES_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalFeesAmount(BigDecimal totalFeesAmount) {
+  public void setTotalFeesAmount(Double totalFeesAmount) {
     this.totalFeesAmount = totalFeesAmount;
     isSetTotalFeesAmount = true; // mark as set
   }
@@ -224,7 +223,7 @@ public class AmountsResp {
    * @param cashBackAmount The cash-back part of the amount requested by the Sale for the payment.
    * @return the current {@code AmountsResp} instance, allowing for method chaining
    */
-  public AmountsResp cashBackAmount(BigDecimal cashBackAmount) {
+  public AmountsResp cashBackAmount(Double cashBackAmount) {
     this.cashBackAmount = cashBackAmount;
     isSetCashBackAmount = true; // mark as set
     return this;
@@ -238,7 +237,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_CASH_BACK_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getCashBackAmount() {
+  public Double getCashBackAmount() {
     return cashBackAmount;
   }
 
@@ -249,7 +248,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_CASH_BACK_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCashBackAmount(BigDecimal cashBackAmount) {
+  public void setCashBackAmount(Double cashBackAmount) {
     this.cashBackAmount = cashBackAmount;
     isSetCashBackAmount = true; // mark as set
   }
@@ -262,7 +261,7 @@ public class AmountsResp {
    *     qualify the tip part of the amount.
    * @return the current {@code AmountsResp} instance, allowing for method chaining
    */
-  public AmountsResp tipAmount(BigDecimal tipAmount) {
+  public AmountsResp tipAmount(Double tipAmount) {
     this.tipAmount = tipAmount;
     isSetTipAmount = true; // mark as set
     return this;
@@ -277,7 +276,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_TIP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getTipAmount() {
+  public Double getTipAmount() {
     return tipAmount;
   }
 
@@ -290,7 +289,7 @@ public class AmountsResp {
    */
   @JsonProperty(JSON_PROPERTY_TIP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTipAmount(BigDecimal tipAmount) {
+  public void setTipAmount(Double tipAmount) {
     this.tipAmount = tipAmount;
     isSetTipAmount = true; // mark as set
   }

@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -42,19 +41,19 @@ public class StoredValueResult {
   private boolean isSetStoredValueTransactionType = false;
 
   public static final String JSON_PROPERTY_PRODUCT_CODE = "ProductCode";
-  private Integer productCode;
+  private String productCode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProductCode = false;
 
   public static final String JSON_PROPERTY_EAN_UPC = "EanUpc";
-  private Integer eanUpc;
+  private String eanUpc;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEanUpc = false;
 
   public static final String JSON_PROPERTY_ITEM_AMOUNT = "ItemAmount";
-  private BigDecimal itemAmount;
+  private Double itemAmount;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetItemAmount = false;
@@ -127,20 +126,20 @@ public class StoredValueResult {
    * @param productCode Product code of item purchased with the transaction. Copy.
    * @return the current {@code StoredValueResult} instance, allowing for method chaining
    */
-  public StoredValueResult productCode(Integer productCode) {
+  public StoredValueResult productCode(String productCode) {
     this.productCode = productCode;
     isSetProductCode = true; // mark as set
     return this;
   }
 
   /**
-   * Product code of item purchased with the transaction. Copy. minimum: 1 maximum: 20
+   * Product code of item purchased with the transaction. Copy.
    *
    * @return productCode Product code of item purchased with the transaction. Copy.
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getProductCode() {
+  public String getProductCode() {
     return productCode;
   }
 
@@ -151,7 +150,7 @@ public class StoredValueResult {
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProductCode(Integer productCode) {
+  public void setProductCode(String productCode) {
     this.productCode = productCode;
     isSetProductCode = true; // mark as set
   }
@@ -162,7 +161,7 @@ public class StoredValueResult {
    * @param eanUpc Standard product code of item purchased with the transaction. Copy.
    * @return the current {@code StoredValueResult} instance, allowing for method chaining
    */
-  public StoredValueResult eanUpc(Integer eanUpc) {
+  public StoredValueResult eanUpc(String eanUpc) {
     this.eanUpc = eanUpc;
     isSetEanUpc = true; // mark as set
     return this;
@@ -175,7 +174,7 @@ public class StoredValueResult {
    */
   @JsonProperty(JSON_PROPERTY_EAN_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getEanUpc() {
+  public String getEanUpc() {
     return eanUpc;
   }
 
@@ -186,7 +185,7 @@ public class StoredValueResult {
    */
   @JsonProperty(JSON_PROPERTY_EAN_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEanUpc(Integer eanUpc) {
+  public void setEanUpc(String eanUpc) {
     this.eanUpc = eanUpc;
     isSetEanUpc = true; // mark as set
   }
@@ -197,7 +196,7 @@ public class StoredValueResult {
    * @param itemAmount Total amount of the item line.
    * @return the current {@code StoredValueResult} instance, allowing for method chaining
    */
-  public StoredValueResult itemAmount(BigDecimal itemAmount) {
+  public StoredValueResult itemAmount(Double itemAmount) {
     this.itemAmount = itemAmount;
     isSetItemAmount = true; // mark as set
     return this;
@@ -210,7 +209,7 @@ public class StoredValueResult {
    */
   @JsonProperty(JSON_PROPERTY_ITEM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getItemAmount() {
+  public Double getItemAmount() {
     return itemAmount;
   }
 
@@ -221,7 +220,7 @@ public class StoredValueResult {
    */
   @JsonProperty(JSON_PROPERTY_ITEM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setItemAmount(BigDecimal itemAmount) {
+  public void setItemAmount(Double itemAmount) {
     this.itemAmount = itemAmount;
     isSetItemAmount = true; // mark as set
   }

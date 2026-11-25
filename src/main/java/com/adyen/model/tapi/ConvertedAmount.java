@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.math.BigDecimal;
 import java.util.*;
 
 /** ConvertedAmount */
@@ -27,7 +26,7 @@ import java.util.*;
 })
 public class ConvertedAmount {
   public static final String JSON_PROPERTY_AMOUNT_VALUE = "AmountValue";
-  private BigDecimal amountValue;
+  private Double amountValue;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAmountValue = false;
@@ -52,7 +51,7 @@ public class ConvertedAmount {
    * @param amountValue Value of an amount.
    * @return the current {@code ConvertedAmount} instance, allowing for method chaining
    */
-  public ConvertedAmount amountValue(BigDecimal amountValue) {
+  public ConvertedAmount amountValue(Double amountValue) {
     this.amountValue = amountValue;
     isSetAmountValue = true; // mark as set
     return this;
@@ -65,7 +64,7 @@ public class ConvertedAmount {
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BigDecimal getAmountValue() {
+  public Double getAmountValue() {
     return amountValue;
   }
 
@@ -76,7 +75,7 @@ public class ConvertedAmount {
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmountValue(BigDecimal amountValue) {
+  public void setAmountValue(Double amountValue) {
     this.amountValue = amountValue;
     isSetAmountValue = true; // mark as set
   }

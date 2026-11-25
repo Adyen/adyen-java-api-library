@@ -58,7 +58,7 @@ public class StoredValueAccountID {
   private boolean isSetOwnerName = false;
 
   public static final String JSON_PROPERTY_EXPIRY_DATE = "ExpiryDate";
-  private Integer expiryDate;
+  private String expiryDate;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetExpiryDate = false;
@@ -277,7 +277,7 @@ public class StoredValueAccountID {
    *     overrides Track2 information. Format is MMYY.
    * @return the current {@code StoredValueAccountID} instance, allowing for method chaining
    */
-  public StoredValueAccountID expiryDate(Integer expiryDate) {
+  public StoredValueAccountID expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     isSetExpiryDate = true; // mark as set
     return this;
@@ -285,14 +285,14 @@ public class StoredValueAccountID {
 
   /**
    * Date after which the card cannot be used. If EMV expiry date is present, it overrides Track2
-   * information. Format is MMYY. minimum: 4 maximum: 4
+   * information. Format is MMYY.
    *
    * @return expiryDate Date after which the card cannot be used. If EMV expiry date is present, it
    *     overrides Track2 information. Format is MMYY.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getExpiryDate() {
+  public String getExpiryDate() {
     return expiryDate;
   }
 
@@ -305,7 +305,7 @@ public class StoredValueAccountID {
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiryDate(Integer expiryDate) {
+  public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     isSetExpiryDate = true; // mark as set
   }

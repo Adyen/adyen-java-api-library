@@ -34,7 +34,7 @@ public class POIData {
   private boolean isSetPoITransactionID = false;
 
   public static final String JSON_PROPERTY_PO_I_RECONCILIATION_I_D = "POIReconciliationID";
-  private Integer poIReconciliationID;
+  private String poIReconciliationID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPoIReconciliationID = false;
@@ -89,7 +89,7 @@ public class POIData {
    *     Result is Success.
    * @return the current {@code POIData} instance, allowing for method chaining
    */
-  public POIData poIReconciliationID(Integer poIReconciliationID) {
+  public POIData poIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
     return this;
@@ -103,7 +103,7 @@ public class POIData {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPoIReconciliationID() {
+  public String getPoIReconciliationID() {
     return poIReconciliationID;
   }
 
@@ -115,7 +115,7 @@ public class POIData {
    */
   @JsonProperty(JSON_PROPERTY_PO_I_RECONCILIATION_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPoIReconciliationID(Integer poIReconciliationID) {
+  public void setPoIReconciliationID(String poIReconciliationID) {
     this.poIReconciliationID = poIReconciliationID;
     isSetPoIReconciliationID = true; // mark as set
   }

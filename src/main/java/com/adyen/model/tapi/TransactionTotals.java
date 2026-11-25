@@ -47,7 +47,7 @@ public class TransactionTotals {
   private boolean isSetPaymentInstrumentType = false;
 
   public static final String JSON_PROPERTY_ACQUIRER_I_D = "AcquirerID";
-  private Integer acquirerID;
+  private String acquirerID;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetAcquirerID = false;
@@ -155,7 +155,7 @@ public class TransactionTotals {
    * @param acquirerID Identification of the Acquirer.
    * @return the current {@code TransactionTotals} instance, allowing for method chaining
    */
-  public TransactionTotals acquirerID(Integer acquirerID) {
+  public TransactionTotals acquirerID(String acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
     return this;
@@ -168,7 +168,7 @@ public class TransactionTotals {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getAcquirerID() {
+  public String getAcquirerID() {
     return acquirerID;
   }
 
@@ -179,7 +179,7 @@ public class TransactionTotals {
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAcquirerID(Integer acquirerID) {
+  public void setAcquirerID(String acquirerID) {
     this.acquirerID = acquirerID;
     isSetAcquirerID = true; // mark as set
   }

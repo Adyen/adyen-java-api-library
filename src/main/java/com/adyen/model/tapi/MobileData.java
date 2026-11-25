@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.Arrays;
 
 /**
  * Mobile phone is used as a payment instrument for the transaction. Information related to the
@@ -33,19 +34,19 @@ import java.util.*;
 })
 public class MobileData {
   public static final String JSON_PROPERTY_MOBILE_COUNTRY_CODE = "MobileCountryCode";
-  private Integer mobileCountryCode;
+  private String mobileCountryCode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMobileCountryCode = false;
 
   public static final String JSON_PROPERTY_MOBILE_NETWORK_CODE = "MobileNetworkCode";
-  private Integer mobileNetworkCode;
+  private String mobileNetworkCode;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMobileNetworkCode = false;
 
   public static final String JSON_PROPERTY_MASKED_M_S_I_S_D_N = "MaskedMSISDN";
-  private Integer maskedMSISDN;
+  private String maskedMSISDN;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetMaskedMSISDN = false;
@@ -57,7 +58,7 @@ public class MobileData {
   private boolean isSetGeolocation = false;
 
   public static final String JSON_PROPERTY_PROTECTED_MOBILE_DATA = "ProtectedMobileData";
-  private String protectedMobileData;
+  private byte[] protectedMobileData;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetProtectedMobileData = false;
@@ -82,20 +83,20 @@ public class MobileData {
    * @param mobileCountryCode Identifies the country of a mobile phone operator. If data available.
    * @return the current {@code MobileData} instance, allowing for method chaining
    */
-  public MobileData mobileCountryCode(Integer mobileCountryCode) {
+  public MobileData mobileCountryCode(String mobileCountryCode) {
     this.mobileCountryCode = mobileCountryCode;
     isSetMobileCountryCode = true; // mark as set
     return this;
   }
 
   /**
-   * Identifies the country of a mobile phone operator. If data available. minimum: 3 maximum: 3
+   * Identifies the country of a mobile phone operator. If data available.
    *
    * @return mobileCountryCode Identifies the country of a mobile phone operator. If data available.
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getMobileCountryCode() {
+  public String getMobileCountryCode() {
     return mobileCountryCode;
   }
 
@@ -106,7 +107,7 @@ public class MobileData {
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMobileCountryCode(Integer mobileCountryCode) {
+  public void setMobileCountryCode(String mobileCountryCode) {
     this.mobileCountryCode = mobileCountryCode;
     isSetMobileCountryCode = true; // mark as set
   }
@@ -118,21 +119,21 @@ public class MobileData {
    *     available.
    * @return the current {@code MobileData} instance, allowing for method chaining
    */
-  public MobileData mobileNetworkCode(Integer mobileNetworkCode) {
+  public MobileData mobileNetworkCode(String mobileNetworkCode) {
     this.mobileNetworkCode = mobileNetworkCode;
     isSetMobileNetworkCode = true; // mark as set
     return this;
   }
 
   /**
-   * Identifies the mobile phone operator inside a country. If data available. minimum: 2 maximum: 3
+   * Identifies the mobile phone operator inside a country. If data available.
    *
    * @return mobileNetworkCode Identifies the mobile phone operator inside a country. If data
    *     available.
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_NETWORK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getMobileNetworkCode() {
+  public String getMobileNetworkCode() {
     return mobileNetworkCode;
   }
 
@@ -144,7 +145,7 @@ public class MobileData {
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_NETWORK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMobileNetworkCode(Integer mobileNetworkCode) {
+  public void setMobileNetworkCode(String mobileNetworkCode) {
     this.mobileNetworkCode = mobileNetworkCode;
     isSetMobileNetworkCode = true; // mark as set
   }
@@ -156,7 +157,7 @@ public class MobileData {
    *     available.
    * @return the current {@code MobileData} instance, allowing for method chaining
    */
-  public MobileData maskedMSISDN(Integer maskedMSISDN) {
+  public MobileData maskedMSISDN(String maskedMSISDN) {
     this.maskedMSISDN = maskedMSISDN;
     isSetMaskedMSISDN = true; // mark as set
     return this;
@@ -170,7 +171,7 @@ public class MobileData {
    */
   @JsonProperty(JSON_PROPERTY_MASKED_M_S_I_S_D_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getMaskedMSISDN() {
+  public String getMaskedMSISDN() {
     return maskedMSISDN;
   }
 
@@ -182,7 +183,7 @@ public class MobileData {
    */
   @JsonProperty(JSON_PROPERTY_MASKED_M_S_I_S_D_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaskedMSISDN(Integer maskedMSISDN) {
+  public void setMaskedMSISDN(String maskedMSISDN) {
     this.maskedMSISDN = maskedMSISDN;
     isSetMaskedMSISDN = true; // mark as set
   }
@@ -229,7 +230,7 @@ public class MobileData {
    *     SensitiveMobileData.
    * @return the current {@code MobileData} instance, allowing for method chaining
    */
-  public MobileData protectedMobileData(String protectedMobileData) {
+  public MobileData protectedMobileData(byte[] protectedMobileData) {
     this.protectedMobileData = protectedMobileData;
     isSetProtectedMobileData = true; // mark as set
     return this;
@@ -243,7 +244,7 @@ public class MobileData {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_MOBILE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProtectedMobileData() {
+  public byte[] getProtectedMobileData() {
     return protectedMobileData;
   }
 
@@ -255,7 +256,7 @@ public class MobileData {
    */
   @JsonProperty(JSON_PROPERTY_PROTECTED_MOBILE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProtectedMobileData(String protectedMobileData) {
+  public void setProtectedMobileData(byte[] protectedMobileData) {
     this.protectedMobileData = protectedMobileData;
     isSetProtectedMobileData = true; // mark as set
   }
@@ -333,7 +334,7 @@ public class MobileData {
         && Objects.equals(this.isSetMaskedMSISDN, mobileData.isSetMaskedMSISDN)
         && Objects.equals(this.geolocation, mobileData.geolocation)
         && Objects.equals(this.isSetGeolocation, mobileData.isSetGeolocation)
-        && Objects.equals(this.protectedMobileData, mobileData.protectedMobileData)
+        && Arrays.equals(this.protectedMobileData, mobileData.protectedMobileData)
         && Objects.equals(this.isSetProtectedMobileData, mobileData.isSetProtectedMobileData)
         && Objects.equals(this.sensitiveMobileData, mobileData.sensitiveMobileData)
         && Objects.equals(this.isSetSensitiveMobileData, mobileData.isSetSensitiveMobileData);
@@ -350,7 +351,7 @@ public class MobileData {
         isSetMaskedMSISDN,
         geolocation,
         isSetGeolocation,
-        protectedMobileData,
+        Arrays.hashCode(protectedMobileData),
         isSetProtectedMobileData,
         sensitiveMobileData,
         isSetSensitiveMobileData);

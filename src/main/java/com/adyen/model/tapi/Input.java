@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /** Input */
@@ -45,7 +46,7 @@ public class Input {
   private boolean isSetConfirmedFlag = false;
 
   public static final String JSON_PROPERTY_FUNCTION_KEY = "FunctionKey";
-  private Integer functionKey;
+  private String functionKey;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetFunctionKey = false;
@@ -57,13 +58,13 @@ public class Input {
   private boolean isSetTextInput = false;
 
   public static final String JSON_PROPERTY_DIGIT_INPUT = "DigitInput";
-  private Integer digitInput;
+  private String digitInput;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetDigitInput = false;
 
   public static final String JSON_PROPERTY_PASSWORD = "Password";
-  private String password;
+  private byte[] password;
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetPassword = false;
@@ -163,7 +164,7 @@ public class Input {
    *     the Cashier on the Sale Terminal.
    * @return the current {@code Input} instance, allowing for method chaining
    */
-  public Input functionKey(Integer functionKey) {
+  public Input functionKey(String functionKey) {
     this.functionKey = functionKey;
     isSetFunctionKey = true; // mark as set
     return this;
@@ -178,7 +179,7 @@ public class Input {
    */
   @JsonProperty(JSON_PROPERTY_FUNCTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getFunctionKey() {
+  public String getFunctionKey() {
     return functionKey;
   }
 
@@ -191,7 +192,7 @@ public class Input {
    */
   @JsonProperty(JSON_PROPERTY_FUNCTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFunctionKey(Integer functionKey) {
+  public void setFunctionKey(String functionKey) {
     this.functionKey = functionKey;
     isSetFunctionKey = true; // mark as set
   }
@@ -241,7 +242,7 @@ public class Input {
    *     Terminal.
    * @return the current {@code Input} instance, allowing for method chaining
    */
-  public Input digitInput(Integer digitInput) {
+  public Input digitInput(String digitInput) {
     this.digitInput = digitInput;
     isSetDigitInput = true; // mark as set
     return this;
@@ -255,7 +256,7 @@ public class Input {
    */
   @JsonProperty(JSON_PROPERTY_DIGIT_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getDigitInput() {
+  public String getDigitInput() {
     return digitInput;
   }
 
@@ -267,7 +268,7 @@ public class Input {
    */
   @JsonProperty(JSON_PROPERTY_DIGIT_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDigitInput(Integer digitInput) {
+  public void setDigitInput(String digitInput) {
     this.digitInput = digitInput;
     isSetDigitInput = true; // mark as set
   }
@@ -279,7 +280,7 @@ public class Input {
    *     Sale Terminal.
    * @return the current {@code Input} instance, allowing for method chaining
    */
-  public Input password(String password) {
+  public Input password(byte[] password) {
     this.password = password;
     isSetPassword = true; // mark as set
     return this;
@@ -293,7 +294,7 @@ public class Input {
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPassword() {
+  public byte[] getPassword() {
     return password;
   }
 
@@ -305,7 +306,7 @@ public class Input {
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPassword(String password) {
+  public void setPassword(byte[] password) {
     this.password = password;
     isSetPassword = true; // mark as set
   }
@@ -405,7 +406,7 @@ public class Input {
         && Objects.equals(this.isSetTextInput, input.isSetTextInput)
         && Objects.equals(this.digitInput, input.digitInput)
         && Objects.equals(this.isSetDigitInput, input.isSetDigitInput)
-        && Objects.equals(this.password, input.password)
+        && Arrays.equals(this.password, input.password)
         && Objects.equals(this.isSetPassword, input.isSetPassword)
         && Objects.equals(this.menuEntryNumber, input.menuEntryNumber)
         && Objects.equals(this.isSetMenuEntryNumber, input.isSetMenuEntryNumber);
@@ -424,7 +425,7 @@ public class Input {
         isSetTextInput,
         digitInput,
         isSetDigitInput,
-        password,
+        Arrays.hashCode(password),
         isSetPassword,
         menuEntryNumber,
         isSetMenuEntryNumber);
