@@ -23,7 +23,8 @@ import java.util.*;
 @JsonPropertyOrder({
   Standalone.JSON_PROPERTY_CURRENCY_CODE,
   Standalone.JSON_PROPERTY_ENABLE_GRATUITIES,
-  Standalone.JSON_PROPERTY_ENABLE_STANDALONE
+  Standalone.JSON_PROPERTY_ENABLE_STANDALONE,
+  Standalone.JSON_PROPERTY_MERCHANT_REFERENCE
 })
 public class Standalone {
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
@@ -43,6 +44,12 @@ public class Standalone {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetEnableStandalone = false;
+
+  public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  private String merchantReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
 
   /**
    * Sets whether attributes with null values should be explicitly included in the JSON payload.
@@ -170,6 +177,71 @@ public class Standalone {
   }
 
   /**
+   * The merchant reference to be sent with every transaction when the terminal is in standalone
+   * mode. Used for reconciliation. This property also accepts one or more variables as input,
+   * together with plain text. When this property reaches the terminal, the terminal replaces the
+   * variables with the values that apply to it. For the list of allowed variables, see [Configure
+   * the merchant
+   * reference](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#configure-merchant-reference).
+   *
+   * @param merchantReference The merchant reference to be sent with every transaction when the
+   *     terminal is in standalone mode. Used for reconciliation. This property also accepts one or
+   *     more variables as input, together with plain text. When this property reaches the terminal,
+   *     the terminal replaces the variables with the values that apply to it. For the list of
+   *     allowed variables, see [Configure the merchant
+   *     reference](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#configure-merchant-reference).
+   * @return the current {@code Standalone} instance, allowing for method chaining
+   */
+  public Standalone merchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The merchant reference to be sent with every transaction when the terminal is in standalone
+   * mode. Used for reconciliation. This property also accepts one or more variables as input,
+   * together with plain text. When this property reaches the terminal, the terminal replaces the
+   * variables with the values that apply to it. For the list of allowed variables, see [Configure
+   * the merchant
+   * reference](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#configure-merchant-reference).
+   *
+   * @return merchantReference The merchant reference to be sent with every transaction when the
+   *     terminal is in standalone mode. Used for reconciliation. This property also accepts one or
+   *     more variables as input, together with plain text. When this property reaches the terminal,
+   *     the terminal replaces the variables with the values that apply to it. For the list of
+   *     allowed variables, see [Configure the merchant
+   *     reference](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#configure-merchant-reference).
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMerchantReference() {
+    return merchantReference;
+  }
+
+  /**
+   * The merchant reference to be sent with every transaction when the terminal is in standalone
+   * mode. Used for reconciliation. This property also accepts one or more variables as input,
+   * together with plain text. When this property reaches the terminal, the terminal replaces the
+   * variables with the values that apply to it. For the list of allowed variables, see [Configure
+   * the merchant
+   * reference](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#configure-merchant-reference).
+   *
+   * @param merchantReference The merchant reference to be sent with every transaction when the
+   *     terminal is in standalone mode. Used for reconciliation. This property also accepts one or
+   *     more variables as input, together with plain text. When this property reaches the terminal,
+   *     the terminal replaces the variables with the values that apply to it. For the list of
+   *     allowed variables, see [Configure the merchant
+   *     reference](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#configure-merchant-reference).
+   */
+  @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
+  }
+
+  /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
   public Standalone includeNullValues(boolean includeNullValues) {
@@ -204,7 +276,9 @@ public class Standalone {
         && Objects.equals(this.enableGratuities, standalone.enableGratuities)
         && Objects.equals(this.isSetEnableGratuities, standalone.isSetEnableGratuities)
         && Objects.equals(this.enableStandalone, standalone.enableStandalone)
-        && Objects.equals(this.isSetEnableStandalone, standalone.isSetEnableStandalone);
+        && Objects.equals(this.isSetEnableStandalone, standalone.isSetEnableStandalone)
+        && Objects.equals(this.merchantReference, standalone.merchantReference)
+        && Objects.equals(this.isSetMerchantReference, standalone.isSetMerchantReference);
   }
 
   @Override
@@ -215,7 +289,9 @@ public class Standalone {
         enableGratuities,
         isSetEnableGratuities,
         enableStandalone,
-        isSetEnableStandalone);
+        isSetEnableStandalone,
+        merchantReference,
+        isSetMerchantReference);
   }
 
   @Override
@@ -225,6 +301,7 @@ public class Standalone {
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    enableGratuities: ").append(toIndentedString(enableGratuities)).append("\n");
     sb.append("    enableStandalone: ").append(toIndentedString(enableStandalone)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -257,6 +334,9 @@ public class Standalone {
     }
     if (isSetEnableStandalone) {
       addIfNull(nulls, JSON_PROPERTY_ENABLE_STANDALONE, this.enableStandalone);
+    }
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
     }
 
     return nulls;
