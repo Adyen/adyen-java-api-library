@@ -80,6 +80,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
   PaymentRequest.JSON_PROPERTY_SPLITS,
   PaymentRequest.JSON_PROPERTY_STORE,
+  PaymentRequest.JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE,
   PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
@@ -581,6 +582,12 @@ public class PaymentRequest {
 
   /** Mark when the attribute has been explicitly set. */
   private boolean isSetStore = false;
+
+  public static final String JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE = "storeClickToPayProfile";
+  private Boolean storeClickToPayProfile;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreClickToPayProfile = false;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
@@ -2875,6 +2882,56 @@ public class PaymentRequest {
   }
 
   /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @param storeClickToPayProfile When enrolling a new user, this field determines whether to store
+   *     the shopper&#39;s card in their Click to Pay profile. When this is set to **True**, the
+   *     request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest storeClickToPayProfile(Boolean storeClickToPayProfile) {
+    this.storeClickToPayProfile = storeClickToPayProfile;
+    isSetStoreClickToPayProfile = true; // mark as set
+    return this;
+  }
+
+  /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @return storeClickToPayProfile When enrolling a new user, this field determines whether to
+   *     store the shopper&#39;s card in their Click to Pay profile. When this is set to **True**,
+   *     the request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getStoreClickToPayProfile() {
+    return storeClickToPayProfile;
+  }
+
+  /**
+   * When enrolling a new user, this field determines whether to store the shopper&#39;s card in
+   * their Click to Pay profile. When this is set to **True**, the request must include
+   * &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and &#x60;telephoneNumber&#x60;.
+   *
+   * @param storeClickToPayProfile When enrolling a new user, this field determines whether to store
+   *     the shopper&#39;s card in their Click to Pay profile. When this is set to **True**, the
+   *     request must include &#x60;shopperEmail&#x60;, &#x60;shopperName&#x60;, and
+   *     &#x60;telephoneNumber&#x60;.
+   */
+  @JsonProperty(JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreClickToPayProfile(Boolean storeClickToPayProfile) {
+    this.storeClickToPayProfile = storeClickToPayProfile;
+    isSetStoreClickToPayProfile = true; // mark as set
+  }
+
+  /**
    * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
    * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
    * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
@@ -2972,12 +3029,12 @@ public class PaymentRequest {
    * Required to trigger the [authentication-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   * payment authorization.Default: **false**.
+   * payment authorization. Default: **false**.
    *
    * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
    *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   *     payment authorization.Default: **false**.
+   *     payment authorization. Default: **false**.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
@@ -2990,12 +3047,12 @@ public class PaymentRequest {
    * Required to trigger the [authentication-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   * payment authorization.Default: **false**.
+   * payment authorization. Default: **false**.
    *
    * @return threeDSAuthenticationOnly Required to trigger the [authentication-only
    *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   *     payment authorization.Default: **false**.
+   *     payment authorization. Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3007,12 +3064,12 @@ public class PaymentRequest {
    * Required to trigger the [authentication-only
    * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   * payment authorization.Default: **false**.
+   * payment authorization. Default: **false**.
    *
    * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
    *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
    *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
-   *     payment authorization.Default: **false**.
+   *     payment authorization. Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3236,6 +3293,9 @@ public class PaymentRequest {
         && Objects.equals(this.isSetSplits, paymentRequest.isSetSplits)
         && Objects.equals(this.store, paymentRequest.store)
         && Objects.equals(this.isSetStore, paymentRequest.isSetStore)
+        && Objects.equals(this.storeClickToPayProfile, paymentRequest.storeClickToPayProfile)
+        && Objects.equals(
+            this.isSetStoreClickToPayProfile, paymentRequest.isSetStoreClickToPayProfile)
         && Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber)
         && Objects.equals(this.isSetTelephoneNumber, paymentRequest.isSetTelephoneNumber)
         && Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData)
@@ -3350,6 +3410,8 @@ public class PaymentRequest {
         isSetSplits,
         store,
         isSetStore,
+        storeClickToPayProfile,
+        isSetStoreClickToPayProfile,
         telephoneNumber,
         isSetTelephoneNumber,
         threeDS2RequestData,
@@ -3431,6 +3493,9 @@ public class PaymentRequest {
         .append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
+    sb.append("    storeClickToPayProfile: ")
+        .append(toIndentedString(storeClickToPayProfile))
+        .append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    threeDS2RequestData: ")
         .append(toIndentedString(threeDS2RequestData))
@@ -3616,6 +3681,9 @@ public class PaymentRequest {
     }
     if (isSetStore) {
       addIfNull(nulls, JSON_PROPERTY_STORE, this.store);
+    }
+    if (isSetStoreClickToPayProfile) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_CLICK_TO_PAY_PROFILE, this.storeClickToPayProfile);
     }
     if (isSetTelephoneNumber) {
       addIfNull(nulls, JSON_PROPERTY_TELEPHONE_NUMBER, this.telephoneNumber);
