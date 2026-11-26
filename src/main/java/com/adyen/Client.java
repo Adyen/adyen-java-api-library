@@ -10,6 +10,7 @@ import javax.net.ssl.SSLContext;
 
 public class Client implements Closeable {
   private volatile ClientInterface httpClient;
+  private final Object httpClientLock = new Object();
   private Config config;
   public static final String LIB_NAME = "adyen-java-api-library";
   public static final String LIB_VERSION = "43.3.0";
@@ -162,7 +163,7 @@ public class Client implements Closeable {
   public ClientInterface getHttpClient() {
     ClientInterface result = this.httpClient;
     if (result == null) {
-      synchronized (this) {
+      synchronized (httpClientLock) {
         result = this.httpClient;
         if (result == null) {
           result = new AdyenHttpClient();
@@ -173,14 +174,18 @@ public class Client implements Closeable {
     return result;
   }
 
-  public synchronized void setHttpClient(ClientInterface httpClient) {
-    this.httpClient = httpClient;
+  public void setHttpClient(ClientInterface httpClient) {
+    synchronized (httpClientLock) {
+      this.httpClient = httpClient;
+    }
   }
 
   @Override
-  public synchronized void close() throws IOException {
-    if (this.httpClient != null) {
-      this.httpClient.close();
+  public void close() throws IOException {
+    synchronized (httpClientLock) {
+      if (this.httpClient != null) {
+        this.httpClient.close();
+      }
     }
   }
 
